@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
         typeof(AssessmentTypeConstant),
         typeof(CategoriesConstant),
         typeof(ImplementationEffortConstant),
-        typeof(SettingNameConstant),
         typeof(SeverityConstant),
         typeof(TacticsConstant),
         typeof(TechniquesConstant),

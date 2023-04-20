@@ -23,8 +23,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(AlertNotificationsConstant),
         typeof(AlertsToAdminsConstant),
-        typeof(InformationProtectionPolicyNameConstant),
-        typeof(SettingNameConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

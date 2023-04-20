@@ -18,7 +18,6 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(ConnectionTypeConstant),
         typeof(ProvisioningStateConstant),
         typeof(SecurityFamilyConstant),
     };

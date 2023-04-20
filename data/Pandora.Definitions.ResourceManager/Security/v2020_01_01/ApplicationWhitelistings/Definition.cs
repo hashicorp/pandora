@@ -22,7 +22,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(ActionConstant),
         typeof(ConfigurationStatusConstant),
-        typeof(ConnectionTypeConstant),
         typeof(EnforcementModeConstant),
         typeof(EnforcementSupportConstant),
         typeof(ExeConstant),

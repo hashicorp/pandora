@@ -24,7 +24,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(AssessmentTypeConstant),
         typeof(CategoriesConstant),
-        typeof(ConnectionTypeConstant),
         typeof(ImplementationEffortConstant),
         typeof(SeverityConstant),
         typeof(ThreatsConstant),

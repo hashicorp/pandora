@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
         typeof(CategoriesConstant),
         typeof(ExpandEnumConstant),
         typeof(ImplementationEffortConstant),
-        typeof(SettingNameConstant),
         typeof(SeverityConstant),
         typeof(SourceConstant),
         typeof(ThreatsConstant),

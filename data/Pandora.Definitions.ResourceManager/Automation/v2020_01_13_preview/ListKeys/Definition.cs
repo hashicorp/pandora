@@ -19,7 +19,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(AutomationKeyNameConstant),
         typeof(AutomationKeyPermissionsConstant),
-        typeof(CountTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

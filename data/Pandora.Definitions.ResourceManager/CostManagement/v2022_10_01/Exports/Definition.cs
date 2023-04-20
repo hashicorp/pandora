@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
         typeof(ExecutionStatusConstant),
         typeof(ExecutionTypeConstant),
         typeof(ExportTypeConstant),
-        typeof(ExternalCloudProviderTypeConstant),
         typeof(FormatTypeConstant),
         typeof(GranularityTypeConstant),
         typeof(RecurrenceTypeConstant),

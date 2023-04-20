@@ -21,7 +21,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(InformationProtectionPolicyNameConstant),
         typeof(RankConstant),
-        typeof(SettingNameConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

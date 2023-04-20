@@ -24,7 +24,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(ClusterEntityStatusConstant),
         typeof(ClusterSkuNameEnumConstant),
-        typeof(DataSourceTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

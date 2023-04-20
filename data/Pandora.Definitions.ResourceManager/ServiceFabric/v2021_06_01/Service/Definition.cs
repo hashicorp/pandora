@@ -22,7 +22,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(ArmServicePackageActivationModeConstant),
-        typeof(ClusterVersionsEnvironmentConstant),
         typeof(MoveCostConstant),
         typeof(PartitionSchemeConstant),
         typeof(ServiceCorrelationSchemeConstant),

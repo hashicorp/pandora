@@ -30,7 +30,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(CheckNameAvailabilityReasonConstant),
         typeof(DaysOfWeekConstant),
-        typeof(ExternalCloudProviderTypeConstant),
         typeof(FileFormatConstant),
         typeof(ScheduleFrequencyConstant),
         typeof(ScheduledActionKindConstant),

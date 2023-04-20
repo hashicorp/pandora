@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
         typeof(AddOnFeaturesConstant),
         typeof(ClusterStateConstant),
         typeof(ClusterUpgradeCadenceConstant),
-        typeof(ClusterVersionsEnvironmentConstant),
         typeof(DurabilityLevelConstant),
         typeof(EnvironmentConstant),
         typeof(NotificationCategoryConstant),
