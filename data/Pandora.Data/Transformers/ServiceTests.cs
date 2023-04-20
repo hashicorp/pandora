@@ -232,6 +232,12 @@ public static class ServiceTests
     {
         public string Name => "example";
         public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
+        public IEnumerable<Type> Constants => new List<Type>();
+
+        public IEnumerable<Type> Models => new List<Type>
+        {
+            typeof(FakeObject),
+        };
     }
 
     private class FakeApiOperation : GetOperation

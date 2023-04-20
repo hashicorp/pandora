@@ -65,39 +65,23 @@ public static class VersionTests
     private class SomeResourceDefinition : Definitions.Interfaces.ResourceDefinition
     {
         public string Name => "example";
-        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new v2020_01_01.Example.FakeApiOperation() };
+        public IEnumerable<ApiOperation> Operations => new List<ApiOperation> { new FakeApiOperation() };
+        public IEnumerable<Type> Constants => new List<Type> { };
+        public IEnumerable<Type> Models => new List<Type>
+        {
+            typeof(SomeObject),
+        };
     }
 
-    private class v2020_01_01
+    private class SomeObject
     {
-        internal class Example
+    }
+
+    internal class FakeApiOperation : GetOperation
+    {
+        public override Type? ResponseObject()
         {
-            internal class FakeApiOperation : GetOperation
-            {
-                public override Type? ResponseObject()
-                {
-                    return typeof(SomeObject);
-                }
-
-                private class SomeObject
-                {
-                }
-            }
-
-            internal class FakeResourceId : Definitions.Interfaces.ResourceID
-            {
-                public string? CommonAlias => null;
-
-                public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}";
-
-                public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
-                {
-                    ResourceIDSegment.Static("subscriptions", "subscriptions"),
-                    ResourceIDSegment.SubscriptionId("subscriptionId"),
-                    ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-                    ResourceIDSegment.ResourceGroup("resourceGroup"),
-                };
-            }
+            return typeof(SomeObject);
         }
     }
 }
