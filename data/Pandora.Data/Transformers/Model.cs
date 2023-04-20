@@ -58,7 +58,7 @@ public static class Model
                 }
                 model.TypeHintIn = propsWithTypeHints.First().Name;
             }
-            
+
             // this is an Implementation of a Discriminator - so we should pull out the parent type & discriminator value
             var attr = input.GetCustomAttribute<ValueForTypeAttribute>();
             if (attr != null)
@@ -87,7 +87,7 @@ public static class Model
             throw new Exception($"Mapping Model {input.FullName}", ex);
         }
     }
-    
+
     private static List<PropertyInfo> PropertiesContainingTypeHints(Type input)
     {
         return input.GetProperties().Where(p => p.HasAttribute<ProvidesTypeHintAttribute>()).ToList();
