@@ -18,7 +18,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(BenefitKindConstant),
-        typeof(ExternalCloudProviderTypeConstant),
         typeof(GrainConstant),
         typeof(LookBackPeriodConstant),
         typeof(ScopeConstant),

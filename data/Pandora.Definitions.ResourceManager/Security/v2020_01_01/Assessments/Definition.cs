@@ -23,7 +23,6 @@ internal class Definition : ResourceDefinition
         typeof(AssessmentStatusCodeConstant),
         typeof(AssessmentTypeConstant),
         typeof(CategoriesConstant),
-        typeof(ConnectionTypeConstant),
         typeof(ExpandEnumConstant),
         typeof(ImplementationEffortConstant),
         typeof(SeverityConstant),

@@ -28,20 +28,16 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(AccessIdNameConstant),
         typeof(AccessTypeConstant),
         typeof(CertificateSourceConstant),
         typeof(CertificateStatusConstant),
         typeof(HostnameTypeConstant),
-        typeof(IdentityProviderTypeConstant),
         typeof(NameAvailabilityReasonConstant),
-        typeof(NotificationNameConstant),
         typeof(PlatformVersionConstant),
         typeof(PrivateEndpointServiceConnectionStatusConstant),
         typeof(PublicNetworkAccessConstant),
         typeof(SkuTypeConstant),
         typeof(StoreNameConstant),
-        typeof(TemplateNameConstant),
         typeof(VirtualNetworkTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>

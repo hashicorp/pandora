@@ -26,7 +26,6 @@ internal class Definition : ResourceDefinition
         typeof(AllowedEndpointRecordTypeConstant),
         typeof(EndpointMonitorStatusConstant),
         typeof(EndpointStatusConstant),
-        typeof(EndpointTypeConstant),
         typeof(MonitorProtocolConstant),
         typeof(ProfileMonitorStatusConstant),
         typeof(ProfileStatusConstant),

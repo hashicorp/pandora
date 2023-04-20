@@ -24,7 +24,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(AadAuthFailureModeConstant),
-        typeof(AdminKeyKindConstant),
         typeof(HostingModeConstant),
         typeof(PrivateLinkServiceConnectionProvisioningStateConstant),
         typeof(PrivateLinkServiceConnectionStatusConstant),

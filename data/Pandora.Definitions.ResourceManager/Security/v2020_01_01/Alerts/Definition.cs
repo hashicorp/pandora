@@ -30,7 +30,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(AlertSeverityConstant),
         typeof(AlertStatusConstant),
-        typeof(ConnectionTypeConstant),
         typeof(IntentConstant),
         typeof(ResourceIdentifierTypeConstant),
     };

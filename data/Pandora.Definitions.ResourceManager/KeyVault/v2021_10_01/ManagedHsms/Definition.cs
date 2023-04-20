@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(AccessPolicyUpdateKindConstant),
         typeof(ActionsRequiredConstant),
         typeof(CreateModeConstant),
         typeof(ManagedHsmSkuFamilyConstant),

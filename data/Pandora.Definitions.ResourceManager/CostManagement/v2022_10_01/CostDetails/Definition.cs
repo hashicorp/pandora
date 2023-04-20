@@ -20,7 +20,6 @@ internal class Definition : ResourceDefinition
         typeof(CostDetailsDataFormatConstant),
         typeof(CostDetailsMetricTypeConstant),
         typeof(CostDetailsStatusTypeConstant),
-        typeof(ExternalCloudProviderTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

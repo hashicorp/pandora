@@ -20,14 +20,10 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(AccessIdNameConstant),
         typeof(ApiTypeConstant),
         typeof(BearerTokenSendingMethodsConstant),
-        typeof(IdentityProviderTypeConstant),
-        typeof(NotificationNameConstant),
         typeof(ProtocolConstant),
         typeof(ProvisioningStateConstant),
-        typeof(TemplateNameConstant),
         typeof(VersioningSchemeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>

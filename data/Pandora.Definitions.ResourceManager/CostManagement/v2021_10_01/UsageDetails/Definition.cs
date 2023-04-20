@@ -17,7 +17,6 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(ExternalCloudProviderTypeConstant),
         typeof(GenerateDetailedCostReportMetricTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>

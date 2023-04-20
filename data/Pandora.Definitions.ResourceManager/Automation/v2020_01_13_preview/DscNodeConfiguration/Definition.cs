@@ -21,7 +21,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(ContentSourceTypeConstant),
-        typeof(CountTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

@@ -34,7 +34,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(DataIngestionStatusConstant),
-        typeof(DataSourceTypeConstant),
         typeof(PublicNetworkAccessTypeConstant),
         typeof(PurgeStateConstant),
         typeof(SearchSortEnumConstant),

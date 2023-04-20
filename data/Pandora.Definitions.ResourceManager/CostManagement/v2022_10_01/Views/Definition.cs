@@ -26,7 +26,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(AccumulatedTypeConstant),
         typeof(ChartTypeConstant),
-        typeof(ExternalCloudProviderTypeConstant),
         typeof(FunctionTypeConstant),
         typeof(KpiTypeTypeConstant),
         typeof(MetricTypeConstant),

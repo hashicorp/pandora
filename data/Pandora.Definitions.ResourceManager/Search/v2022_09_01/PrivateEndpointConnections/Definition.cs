@@ -20,7 +20,6 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(AdminKeyKindConstant),
         typeof(PrivateLinkServiceConnectionProvisioningStateConstant),
         typeof(PrivateLinkServiceConnectionStatusConstant),
     };

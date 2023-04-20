@@ -24,11 +24,9 @@ internal class Definition : ResourceDefinition
     {
         typeof(DataSourceConstant),
         typeof(ExportDataConstant),
-        typeof(InformationProtectionPolicyNameConstant),
         typeof(RecommendationConfigStatusConstant),
         typeof(RecommendationTypeConstant),
         typeof(SecuritySolutionStatusConstant),
-        typeof(SettingNameConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
