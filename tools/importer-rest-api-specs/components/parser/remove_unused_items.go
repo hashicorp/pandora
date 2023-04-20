@@ -39,7 +39,7 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 		unusedModels = findUnusedModels(operations, result)
 	}
 
-	unusedConstants := findUnusedConstants(operations, resourceIds, result)
+	unusedConstants := findUnusedConstants(operations, resourceIdsForThisResource, result)
 	for len(unusedConstants) > 0 {
 		// remove those constants
 		for _, constantName := range unusedConstants {
@@ -47,7 +47,7 @@ func removeUnusedItems(operations map[string]models.OperationDetails, resourceId
 		}
 
 		// then go around again
-		unusedConstants = findUnusedConstants(operations, resourceIds, result)
+		unusedConstants = findUnusedConstants(operations, resourceIdsForThisResource, result)
 	}
 
 	return result, resourceIdsForThisResource
