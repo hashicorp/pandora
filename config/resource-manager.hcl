@@ -348,7 +348,7 @@ service "operationsmanagement" {
 }
 service "orbital" {
   name      = "Orbital"
-  available = ["2022-03-01", "2022-11-01"]
+  available = ["2022-11-01"]
 }
 service "policyinsights" {
   name      = "PolicyInsights"
