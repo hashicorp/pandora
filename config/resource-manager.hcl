@@ -40,7 +40,7 @@ service "attestation" {
 }
 service "authorization" {
   name      = "Authorization"
-  available = ["2020-10-01"]
+  available = ["2020-07-01-preview", "2020-10-01", "2021-06-01"]
   ignore    = ["2022-04-01"]
 }
 service "automation" {
@@ -217,6 +217,10 @@ service "fluidrelay" {
 service "frontdoor" {
   name      = "FrontDoor"
   available = ["2020-04-01", "2020-05-01", "2022-05-01"]
+}
+service "guestconfiguration" {
+  name      = "GuestConfiguration"
+  available = ["2020-06-25"]
 }
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
@@ -414,7 +418,7 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01-preview", "2022-06-01", "2022-09-01", "2022-12-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2022-06-01", "2022-09-01", "2022-12-01"]
 }
 service "search" {
   name      = "Search"
