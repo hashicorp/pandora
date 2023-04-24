@@ -50,11 +50,6 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	// then switch out any custom types (e.g. Identity)
 	result = switchOutCustomTypesAsNeeded(result)
 
-	nestedResult, err = d.replaceDiscriminatedTypesWithParents(*nestedResult)
-	if err != nil {
-		return nil, fmt.Errorf("replacing discriminated types with parent types: %+v", err)
-	}
-
 	// finally remove any models and constants which aren't referenced / have been replaced
 	constantsAndModels, resourceIdNamesToUris := removeUnusedItems(*operations, resourceIds.NamesToResourceIDs, result)
 
@@ -131,75 +126,6 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 	}
 
 	return &output, nil
-}
-
-func (d *SwaggerDefinition) replaceDiscriminatedTypesWithParents(inputResult internal.ParseResult) (*internal.ParseResult, error) {
-	// some Swaggers define both top-level request/response objects as implementations of discriminators, rather than the parent object
-	// in our case since we generate the unmarshal funcs etc based on the presence of the parent/interface, we switch these out
-	// should these be discriminators in the Swagger? likely no, but alas, DRY Swaggers.
-
-	nestedResult := internal.ParseResult{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
-	}
-	// models will be manually mapped below
-	nestedResult.AppendConstants(inputResult.Constants)
-
-	// TODO: we should consider doing the same for Top Level Requests/Responses in the future too
-
-	for name, model := range inputResult.Models {
-		fields := make(map[string]models.FieldDetails)
-		for key, value := range model.Fields {
-			if value.ObjectDefinition != nil {
-				obj, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(value.ObjectDefinition, inputResult)
-				if err != nil {
-					return nil, fmt.Errorf("replacing object definition for model %q / field %q: %+v", name, key, err)
-				}
-				value.ObjectDefinition = obj
-			}
-
-			fields[key] = value
-		}
-		model.Fields = fields
-		nestedResult.Models[name] = model
-	}
-
-	return &nestedResult, nil
-}
-
-func (d *SwaggerDefinition) replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input *models.ObjectDefinition, known internal.ParseResult) (*models.ObjectDefinition, error) {
-	if input.NestedItem != nil {
-		item, err := d.replaceDiscriminatedTypeWithinObjectDefinitionWithParent(input.NestedItem, known)
-		if err != nil {
-			return nil, fmt.Errorf("replacing nested item: %+v", err)
-		}
-		input.NestedItem = item
-		return input, nil
-	}
-
-	if input.Type == models.ObjectDefinitionReference {
-		// find the parent name and use that
-		if input.ReferenceName == nil {
-			return nil, fmt.Errorf("internal-error: reference was missing a reference name")
-		}
-		model, modelOk := known.Models[*input.ReferenceName]
-		_, constantOk := known.Constants[*input.ReferenceName]
-		if !constantOk && !modelOk {
-			return nil, fmt.Errorf("a constant or model called %q was not found", *input.ReferenceName)
-		}
-		if modelOk && model.ParentTypeName != nil {
-			parent, ok := known.Models[*model.ParentTypeName]
-			if !ok {
-				return nil, fmt.Errorf("parent model %q was not found", *model.ParentTypeName)
-			}
-			if parent.ParentTypeName != nil {
-				return nil, fmt.Errorf("unexpected discriminator within discriminator for parent %q", *parent.ParentTypeName)
-			}
-			input.ReferenceName = model.ParentTypeName
-		}
-	}
-
-	return input, nil
 }
 
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {

@@ -516,10 +516,10 @@ func TestParseDiscriminatedChildTypeThatShouldntBe(t *testing.T) {
 	}
 }
 
-func TestParseDiscriminatedChildTypeWhereParentShouldBeUsed(t *testing.T) {
+func TestParseDiscriminatedChildTypeWhereParentShouldNotBeUsed(t *testing.T) {
 	// Some Swagger files contain Models with a reference to a Discriminated Type (e.g. an implementation
-	// where a Parent should be used instead) - this asserts that we switch these out so that the Field
-	// references the Parent rather than the Implementation.
+	// where a Parent should be used instead) - this asserts that we shouldn't switch these out to
+	// referencing the Parent, instead should just use the Implementation itself.
 	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_child_used_as_parent.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -570,9 +570,9 @@ func TestParseDiscriminatedChildTypeWhereParentShouldBeUsed(t *testing.T) {
 	if nested.ObjectDefinition.ReferenceName == nil {
 		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference but it was nil")
 	}
-	// NOTE: this is the primary assertion here, since the Swagger defined "Dog" should be swapped out for "Animal"
-	if *nested.ObjectDefinition.ReferenceName != "Animal" {
-		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference to `Animal` but got %q", *nested.ObjectDefinition.ReferenceName)
+	// NOTE: this is the primary assertion here, since the Swagger defined "Dog" should be just "Dog", instead of swapped out to be "Animal"
+	if *nested.ObjectDefinition.ReferenceName != "Dog" {
+		t.Fatalf("expected the Field `Nested` within the Model `ExampleWrapper` to be a Reference to `Dog` but got %q", *nested.ObjectDefinition.ReferenceName)
 	}
 
 	animal, ok := resource.Models["Animal"]

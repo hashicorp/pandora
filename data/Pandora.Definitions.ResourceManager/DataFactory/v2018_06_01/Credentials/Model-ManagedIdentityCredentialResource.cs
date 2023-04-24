@@ -26,7 +26,7 @@ internal class ManagedIdentityCredentialResourceModel
 
     [JsonPropertyName("properties")]
     [Required]
-    public CredentialModel Properties { get; set; }
+    public ManagedIdentityCredentialModel Properties { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

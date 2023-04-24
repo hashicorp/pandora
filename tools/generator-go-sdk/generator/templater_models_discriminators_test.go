@@ -239,6 +239,98 @@ func (s Train) MarshalJSON() ([]byte, error) {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestTemplaterModelsFieldImplementation(t *testing.T) {
+	actual, err := modelsTemplater{
+		name: "TrainFactory",
+		model: resourcemanager.ModelDetails{
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Train": {
+					Required: true,
+					JsonName: "train",
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ReferenceName: stringPointer("Train"),
+					},
+				},
+			},
+		},
+	}.template(ServiceGeneratorData{
+		packageName: "somepackage",
+		models: map[string]resourcemanager.ModelDetails{
+			"ModeOfTransit": {
+				TypeHintIn: stringPointer("Type"),
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Type": {
+						IsTypeHint: true,
+						JsonName:   "type",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+					},
+				},
+			},
+			"Train": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Number": {
+						Required: true,
+						JsonName: "number",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+					"Operator": {
+						Required: true,
+						JsonName: "operator",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+					},
+				},
+				ParentTypeName: stringPointer("ModeOfTransit"),
+				TypeHintIn:     stringPointer("Type"),
+				TypeHintValue:  stringPointer("train"),
+			},
+			"TrainFactory": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Train": {
+						Required: true,
+						JsonName: "train",
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+							ReferenceName: stringPointer("Train"),
+						},
+					},
+				},
+			},
+		},
+		source: AccTestLicenceType,
+	})
+	if err != nil {
+		t.Fatal(err.Error())
+	}
+	expected := strings.ReplaceAll(`package somepackage
+
+import (
+	"encoding/json"
+	"fmt"
+	"strings"
+	"time"
+	"github.com/hashicorp/go-azure-helpers/lang/dates"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/edgezones"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/identity"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/systemdata"
+	"github.com/hashicorp/go-azure-helpers/resourcemanager/zones"
+)
+
+// acctests licence placeholder
+type TrainFactory struct {
+	Train Train ''json:"train"''
+}
+`, "''", "`")
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestTemplaterModelsImplementationInheritedFromParentType(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "FirstImplementation",
