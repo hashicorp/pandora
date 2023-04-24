@@ -10,17 +10,14 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_02_01.PrivateEndpointConnection;
+namespace Pandora.Definitions.ResourceManager.StorageCache.v2023_05_01.AmlFilesystems;
 
 
-internal class PrivateLinkServiceConnectionStateModel
+internal class AmlFilesystemArchiveModel
 {
-    [JsonPropertyName("actionsRequired")]
-    public string? ActionsRequired { get; set; }
-
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
+    [JsonPropertyName("filesystemPath")]
+    public string? FilesystemPath { get; set; }
 
     [JsonPropertyName("status")]
-    public PrivateEndpointConnectionStatusConstant? Status { get; set; }
+    public AmlFilesystemArchiveStatusModel? Status { get; set; }
 }
