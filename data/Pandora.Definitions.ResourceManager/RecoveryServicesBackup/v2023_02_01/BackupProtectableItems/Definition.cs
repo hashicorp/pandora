@@ -30,7 +30,7 @@ internal class Definition : ResourceDefinition
         typeof(AzureVMWorkloadSAPAseSystemProtectableItemModel),
         typeof(AzureVMWorkloadSAPHanaDBInstanceModel),
         typeof(AzureVMWorkloadSAPHanaDatabaseProtectableItemModel),
-        typeof(AzureVMWorkloadSAPHanaHSRModel),
+        typeof(AzureVMWorkloadSAPHanaHSRProtectableItemModel),
         typeof(AzureVMWorkloadSAPHanaSystemProtectableItemModel),
         typeof(AzureVMWorkloadSQLAvailabilityGroupProtectableItemModel),
         typeof(AzureVMWorkloadSQLDatabaseProtectableItemModel),

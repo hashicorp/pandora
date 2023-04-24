@@ -21,6 +21,7 @@ internal class Definition : ResourceDefinition
     {
         typeof(PrivateEndpointConnectionStatusConstant),
         typeof(ProvisioningStateConstant),
+        typeof(VaultSubResourceTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

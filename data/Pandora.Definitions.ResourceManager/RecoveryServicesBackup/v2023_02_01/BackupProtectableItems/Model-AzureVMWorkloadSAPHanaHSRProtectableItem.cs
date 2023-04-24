@@ -12,8 +12,8 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_02_01.BackupProtectableItems;
 
-[ValueForType("SAPHanaHSR")]
-internal class AzureVMWorkloadSAPHanaHSRModel : WorkloadProtectableItemModel
+[ValueForType("HanaHSRContainer")]
+internal class AzureVMWorkloadSAPHanaHSRProtectableItemModel : WorkloadProtectableItemModel
 {
     [JsonPropertyName("isAutoProtectable")]
     public bool? IsAutoProtectable { get; set; }

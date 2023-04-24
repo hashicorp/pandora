@@ -15,6 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_02_01
 
 internal class PrivateEndpointConnectionModel
 {
+    [JsonPropertyName("groupIds")]
+    public List<VaultSubResourceTypeConstant>? GroupIds { get; set; }
+
     [JsonPropertyName("privateEndpoint")]
     public PrivateEndpointModel? PrivateEndpoint { get; set; }
 
