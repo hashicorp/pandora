@@ -172,6 +172,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"triggeredwebjobs":                        "triggeredWebJobs",
 		"vaultstorageconfig":                      "vaultStorageConfig",
 		"virtualnetworks":                         "virtualNetworks",
+		"virtualmachine":                          "virtualMachine", // exists in MarketplaceOrdering
 		"virtualmachines":                         "virtualMachines",
 		"vmname":                                  "virtualMachineName",         // inconsistency in Compute
 		"vmscalesetname":                          "virtualMachineScaleSetName", // inconsistency in Compute (#1204)
