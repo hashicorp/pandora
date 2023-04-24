@@ -294,6 +294,10 @@ service "mariadb" {
   name      = "MariaDB"
   available = ["2018-06-01", "2018-06-01-preview", "2020-01-01"]
 }
+service "marketplaceordering" {
+  name = "MarketplaceOrdering"
+  available = ["2015-06-01", "2021-01-01"]
+}
 service "mediaservices" {
   name      = "Media"
   available = ["2021-11-01", "2022-07-01", "2022-08-01"]
