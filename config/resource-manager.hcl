@@ -295,7 +295,7 @@ service "mariadb" {
   available = ["2018-06-01", "2018-06-01-preview", "2020-01-01"]
 }
 service "marketplaceordering" {
-  name = "MarketplaceOrdering"
+  name      = "MarketplaceOrdering"
   available = ["2015-06-01", "2021-01-01"]
 }
 service "mediaservices" {
