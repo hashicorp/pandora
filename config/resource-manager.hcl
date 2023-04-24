@@ -221,7 +221,7 @@ service "frontdoor" {
 }
 service "guestconfiguration" {
   name      = "GuestConfiguration"
-  available = ["2020-06-25"]
+  available = ["2020-06-25", "2022-01-25"]
 }
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
