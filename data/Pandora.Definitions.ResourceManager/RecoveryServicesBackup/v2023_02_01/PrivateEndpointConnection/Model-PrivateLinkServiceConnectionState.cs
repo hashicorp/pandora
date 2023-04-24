@@ -15,8 +15,8 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_02_01
 
 internal class PrivateLinkServiceConnectionStateModel
 {
-    [JsonPropertyName("actionRequired")]
-    public string? ActionRequired { get; set; }
+    [JsonPropertyName("actionsRequired")]
+    public string? ActionsRequired { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
