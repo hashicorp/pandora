@@ -241,7 +241,7 @@ service "healthcareapis" {
 }
 service "hybridcompute" {
   name      = "HybridCompute"
-  available = ["2022-03-10", "2022-11-10"]
+  available = ["2022-03-10", "2022-11-10", "2022-12-27"]
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
