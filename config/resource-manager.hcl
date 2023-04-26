@@ -336,8 +336,8 @@ service "netapp" {
   available = ["2021-10-01", "2022-01-01", "2022-05-01", "2022-09-01"]
 }
 service "network" {
-  name = "Network"
-  available = ["2022-09-01"]
+  name      = "Network"
+  available = ["2022-09-01", "2022-11-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
