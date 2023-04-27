@@ -126,7 +126,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iothubkeys":                              "iotHubKeys",
 		"iothubs":                                 "iotHubs",
 		"iotsecuritysolutions":                    "iotSecuritySolutions",
-		"ipconfigurations": "ipConfigurations",
+		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
 		"logprofiles":                             "logProfiles",
