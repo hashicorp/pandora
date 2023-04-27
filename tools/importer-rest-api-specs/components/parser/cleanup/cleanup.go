@@ -126,7 +126,6 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iothubkeys":                              "iotHubKeys",
 		"iothubs":                                 "iotHubs",
 		"iotsecuritysolutions":                    "iotSecuritySolutions",
-		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
 		"logprofiles":                             "logProfiles",
@@ -149,7 +148,6 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"portalconfigs":                           "portalConfigs",
 		"premieraddons":                           "premierAddons",
 		"principalassignments":                    "principalAssignments",
-		"publicipaddresses":                       "publicIpAddresses",
 		"reservationorders":                       "reservationOrders",
 		"resourcegroups":                          "resourceGroups",
 		"resourcetyperegistrations":               "resourceTypeRegistrations",
@@ -576,9 +574,19 @@ func NormalizeCanonicalisation(input string) string {
 		output = "PublicIPAddresses"
 	}
 
+	if strings.EqualFold(output, "PublicIPAddresses") {
+		// This is an explicit force for broken data in `Network`
+		output = "PublicIPAddresses"
+	}
+
 	if strings.EqualFold(output, "IPconfiguration") {
 		// This is an explicit force for broken data in `Network`
 		output = "IPConfiguration"
+	}
+
+	if strings.EqualFold(output, "ipconfigurations") {
+		// This is an explicit force for broken data in `Network`
+		output = "IPConfigurations"
 	}
 
 	if strings.EqualFold(output, "NetworkInterfaceIPConfiguration") {
