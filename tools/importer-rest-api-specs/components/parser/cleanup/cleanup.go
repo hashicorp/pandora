@@ -51,9 +51,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 func NormalizeName(input string) string {
 	output := input
 	output = wordifyFirstCharacter(output)
+	output = NormalizeSegment(output, false)
 	output = NormalizeCanonicalisation(output)
 	output = RemoveInvalidCharacters(output, true)
-	output = NormalizeSegment(output, false)
 	output = strings.Title(output)
 	return output
 }
@@ -126,6 +126,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iothubkeys":                              "iotHubKeys",
 		"iothubs":                                 "iotHubs",
 		"iotsecuritysolutions":                    "iotSecuritySolutions",
+		"ipconfigurations": "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
 		"logprofiles":                             "logProfiles",
