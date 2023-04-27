@@ -81,7 +81,7 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 		}
 		fieldTypeName = *fieldTypeVal
 
-		structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails)
+		structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
 		if err != nil {
 			return nil, err
 		}
@@ -132,7 +132,7 @@ func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) 
 				}
 				fieldTypeName = *fieldTypeVal
 
-				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails)
+				structLine, err := c.structLineForField(fieldName, fieldTypeName, fieldDetails, data)
 				if err != nil {
 					return nil, err
 				}
@@ -184,10 +184,27 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
+func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails, data ServiceGeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
+	isOptional := false
 	if fieldDetails.Optional {
+		isOptional = true
+
+		// TODO: this'll want rolling out by Service Package (likely using the new base layer toggle, for now)
+		// but I'm disabling this entirely for the moment to workaround the issue.
+		if !featureflags.OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty {
+			// however if the immediate (not top-level) object definition is a Reference to a Parent it's Optional
+			// by default since Parent types are output as an interface (which is implied nullable)
+			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+				model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
+				if ok && model.TypeHintIn != nil && model.ParentTypeName == nil {
+					isOptional = false
+				}
+			}
+		}
+	}
+	if isOptional {
 		fieldType = fmt.Sprintf("*%s", fieldType)
 		jsonDetails += ",omitempty"
 	}
@@ -645,7 +662,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 		if err != nil {
 			return fmt.Errorf("unmarshaling field '%[1]s' for '%[3]s': %%+v", err)
 		}
-		s.%[1]s = &impl
+		s.%[1]s = impl
 	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, fieldDetails.JsonName))
 			}
 		}
