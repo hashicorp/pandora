@@ -5,7 +5,6 @@ import (
 	"io"
 	"os"
 	"path"
-	"regexp"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -42,34 +41,7 @@ func fileExistsAtPath(filePath string) (*bool, error) {
 	return &result, nil
 }
 
-func recreateDirectoryExcludingFiles(directory string, logger hclog.Logger) error {
-	logger.Trace(fmt.Sprintf("(Re)creating directory at path %q..", directory))
-
-	// if the directory is an api version delete the entire directory and recreate it along with the parent service for regeneration
-	if match, err := regexp.MatchString(`/v20\d\d_\d\d_\d\d(_preview)?`, directory); match && err == nil {
-		if err := os.RemoveAll(directory); err != nil {
-			return fmt.Errorf("removing directory %q: %+v", directory, err)
-		}
-		if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
-			return fmt.Errorf("creating directory %q: %+v", directory, err)
-		}
-	}
-
-	dirs, err := findEmptyApiVersionDirectories(directory)
-	if err != nil {
-		return fmt.Errorf("finding empty directories in directory %q: %+v", directory, err)
-	}
-
-	logger.Trace(fmt.Sprintf("Removing %d existing directories within %q..", len(*dirs), directory))
-	for _, name := range *dirs {
-		logger.Trace(fmt.Sprintf("Removing directory %q..", name))
-		os.RemoveAll(name)
-	}
-
-	return nil
-}
-
-func recreateDirectory(directory string, logger hclog.Logger) error {
+func RecreateDirectory(directory string, logger hclog.Logger) error {
 	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
 	if err := os.RemoveAll(directory); err != nil {
 		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
@@ -101,7 +73,7 @@ func findEmptyApiVersionDirectories(directory string) (*[]string, error) {
 	for i := range f {
 		file := f[i]
 		if file.IsDir() {
-			path := fmt.Sprintf("%s/%s", directory,file.Name())
+			path := fmt.Sprintf("%s/%s", directory, file.Name())
 			if empty, err := isDirEmpty(path); empty && err == nil {
 				files = append(files, path)
 				break

@@ -5,6 +5,7 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -36,6 +37,11 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
+		serviceDirectory := fmt.Sprintf("%s%s/%s", input.OutputDirectory, discovery.RootNamespace, serviceName)
+		logger.Debug("recreating directory %q for Service %q", serviceDirectory, serviceName)
+		if err := dataapigenerator.RecreateDirectory(serviceDirectory, logger); err != nil {
+			fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
+		}
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}

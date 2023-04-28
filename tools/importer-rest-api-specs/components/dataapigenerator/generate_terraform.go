@@ -20,7 +20,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 		return nil
 	}
 
-	if err := recreateDirectory(s.workingDirectoryForTerraform, s.logger); err != nil {
+	if err := RecreateDirectory(s.workingDirectoryForTerraform, s.logger); err != nil {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
 	}
 
