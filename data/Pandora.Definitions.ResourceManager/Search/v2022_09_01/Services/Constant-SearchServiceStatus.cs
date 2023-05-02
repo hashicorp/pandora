@@ -23,7 +23,4 @@ internal enum SearchServiceStatusConstant
 
     [Description("running")]
     Running,
-
-    [Description("stopped")]
-    Stopped,
 }
