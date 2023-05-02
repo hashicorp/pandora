@@ -338,6 +338,7 @@ service "netapp" {
 service "network" {
   name = "Network"
   available = ["2022-09-01"]
+  ignore = ["2022-11-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
