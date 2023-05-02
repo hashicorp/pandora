@@ -106,7 +106,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15"]
+  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15", "2023-04-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -336,9 +336,9 @@ service "netapp" {
   available = ["2021-10-01", "2022-01-01", "2022-05-01", "2022-09-01"]
 }
 service "network" {
-  name = "Network"
+  name      = "Network"
   available = ["2022-09-01"]
-  ignore = ["2022-11-01"]
+  ignore    = ["2022-11-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
