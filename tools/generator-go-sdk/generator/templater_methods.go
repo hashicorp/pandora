@@ -132,11 +132,11 @@ func (c methodsPandoraTemplater) immediateOperationTemplate(data ServiceGenerato
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for immediate operation: %+v", err)
 	}
-	requestOptions, err := c.requestOptions(data)
+	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
-	marshalerCode, err := c.marshalerTemplate(data)
+	marshalerCode, err := c.marshalerTemplate()
 	if err != nil {
 		return nil, fmt.Errorf("building marshaler template: %+v", err)
 	}
@@ -192,11 +192,11 @@ func (c methodsPandoraTemplater) longRunningOperationTemplate(data ServiceGenera
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for long running template: %+v", err)
 	}
-	requestOptions, err := c.requestOptions(data)
+	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
-	marshalerCode, err := c.marshalerTemplate(data)
+	marshalerCode, err := c.marshalerTemplate()
 	if err != nil {
 		return nil, fmt.Errorf("building marshaler template: %+v", err)
 	}
@@ -271,7 +271,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for list operation: %+v", err)
 	}
-	requestOptions, err := c.requestOptions(data)
+	requestOptions, err := c.requestOptions()
 	if err != nil {
 		return nil, fmt.Errorf("building request config: %+v", err)
 	}
@@ -470,7 +470,7 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 	return &out, nil
 }
 
-func (c methodsPandoraTemplater) requestOptions(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	method := capitalizeFirstLetter(c.operation.Method)
 	expectedStatusCodes := make([]string, 0)
 	for _, statusCodeInt := range c.operation.ExpectedStatusCodes {
@@ -510,7 +510,7 @@ func (c methodsPandoraTemplater) requestOptions(data ServiceGeneratorData) (*str
 	return &out, nil
 }
 
-func (c methodsPandoraTemplater) marshalerTemplate(data ServiceGeneratorData) (*string, error) {
+func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 	var output string
 
 	if c.operation.RequestObject != nil {
@@ -532,6 +532,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
 		typeName := *golangTypeName
+
 		if c.operation.FieldContainingPaginationDetails != nil {
 			output = fmt.Sprintf(`
 	var values struct {
@@ -543,6 +544,30 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 
 	result.Model = values.Values
 `, typeName, "`json:\"value\"`")
+			return &output, nil
+		}
+
+		discriminatedTypeParentName := ""
+		if model, ok := data.models[typeName]; ok {
+			if model.ParentTypeName != nil {
+				discriminatedTypeParentName = *model.ParentTypeName
+			}
+		}
+
+		// when this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
+		// for the relevant Parent
+		if discriminatedTypeParentName != "" {
+			output = fmt.Sprintf(`
+	var respObj json.RawMessage
+	if err = resp.Unmarshal(&respObj); err != nil {
+		return
+	}
+	model, err := unmarshal%sImplementation(respObj)
+	if err != nil {
+		return
+	}
+	result.Model = &model
+`, discriminatedTypeParentName)
 		} else {
 			output = fmt.Sprintf(`
 	if err = resp.Unmarshal(&result.Model); err != nil {

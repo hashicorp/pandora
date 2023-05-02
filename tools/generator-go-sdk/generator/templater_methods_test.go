@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"net/http"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -365,4 +366,106 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 
 	assertTemplatedCodeMatches(t, expected, *actual)
 
+}
+
+func TestTemplateMethodsTopLevelDiscriminator(t *testing.T) {
+	input := ServiceGeneratorData{
+		packageName:       "chubbypandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		models: map[string]resourcemanager.ModelDetails{
+			"PandaPop": {
+				ParentTypeName: stringPointer("FizzyDrink"),
+				TypeHintValue:  stringPointer("Cola"),
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Cola": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+					},
+				},
+			},
+		},
+		useNewBaseLayer: true,
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: resourcemanager.ApiOperation{
+			ExpectedStatusCodes: []int{
+				http.StatusOK,
+			},
+			Method: "GET",
+			ResponseObject: &resourcemanager.ApiObjectDefinition{
+				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ReferenceName: stringPointer("PandaPop"),
+			},
+			UriSuffix: stringPointer("/thing"),
+		},
+		operationName: "Get",
+	}.template(input)
+
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+package chubbypandas
+import (
+"context"
+"fmt"
+"net/http"
+"net/url"
+"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+"github.com/hashicorp/go-azure-sdk/sdk/client"
+"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
+"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+"github.com/hashicorp/go-azure-sdk/sdk/odata"
+)
+// acctests licence placeholder
+type GetOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+	Model *PandaPop
+}
+
+// Get ...
+func (c pandaClient) Get(ctx context.Context ) (result GetOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		Path: "/thing",
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
+		return
+	}
+
+	var respObj json.RawMessage
+	if err = resp.Unmarshal(&respObj); err != nil {
+		return
+	}
+	model, err := unmarshalFizzyDrinkImplementation(respObj)
+	if err != nil {
+		return
+	}
+	result.Model = &model
+	return
+}`
+
+	assertTemplatedCodeMatches(t, expected, *actual)
 }
