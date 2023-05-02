@@ -75,7 +75,6 @@ func main() {
 		"HybridKubernetes",
 		"Insights",
 		"IoTCentral",
-		"KeyVault",
 		"KubernetesConfiguration",
 		"Kusto",
 		"LabServices",
