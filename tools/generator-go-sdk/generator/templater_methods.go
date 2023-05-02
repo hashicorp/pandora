@@ -549,6 +549,11 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 
 		discriminatedTypeParentName := ""
 		if model, ok := data.models[typeName]; ok {
+			// it's either a parent model
+			if model.TypeHintIn != nil {
+				discriminatedTypeParentName = typeName
+			}
+			// or an implementation referencing a parent
 			if model.ParentTypeName != nil {
 				discriminatedTypeParentName = *model.ParentTypeName
 			}
