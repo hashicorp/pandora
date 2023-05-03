@@ -2,6 +2,7 @@ package dataapigenerator
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"strings"
 
@@ -11,12 +12,9 @@ import (
 func (s Generator) generateVersionDefinition(apiVersion models.AzureApiDefinition) error {
 	s.logger.Debug("Checking for an existing Generation Settings file..")
 
-	// recreate the directory
-	excludeList := []string{
-		"ApiVersionDefinition-GenerationSetting.cs",
-	}
-	if err := recreateDirectoryExcludingFiles(s.workingDirectoryForApiVersion, excludeList, s.logger); err != nil {
-		return fmt.Errorf("recreating directory %q: %+v", s.workingDirectoryForApiVersion, err)
+	// create the directory
+	if err := os.MkdirAll(s.workingDirectoryForApiVersion, os.FileMode(0755)); err != nil {
+		return fmt.Errorf("creating directory %q: %+v", s.workingDirectoryForApiVersion, err)
 	}
 
 	// then generate the files
