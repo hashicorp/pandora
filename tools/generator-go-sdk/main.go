@@ -40,6 +40,7 @@ func main() {
 		"AlertsManagement",
 		"AnalysisServices",
 		"ApiManagement",
+		"AppPlatform",
 		"Authorization",
 		"AzureStackHCI",
 		"Compute",
