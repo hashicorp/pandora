@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 internal class MicrosoftSecurityIncidentCreationAlertRuleTemplateModel : AlertRuleTemplateModel
 {
     [JsonPropertyName("properties")]
-    public AlertRuleTemplateModel? Properties { get; set; }
+    public MicrosoftSecurityIncidentCreationAlertRuleTemplatePropertiesModel? Properties { get; set; }
 }

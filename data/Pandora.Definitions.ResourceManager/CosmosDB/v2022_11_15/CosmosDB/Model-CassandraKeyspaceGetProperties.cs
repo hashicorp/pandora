@@ -19,5 +19,5 @@ internal class CassandraKeyspaceGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public CassandraKeyspaceGetPropertiesModel? Resource { get; set; }
+    public CassandraKeyspaceGetPropertiesResourceModel? Resource { get; set; }
 }

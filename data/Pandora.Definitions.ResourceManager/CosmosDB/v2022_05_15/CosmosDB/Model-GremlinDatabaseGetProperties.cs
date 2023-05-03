@@ -19,5 +19,5 @@ internal class GremlinDatabaseGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public GremlinDatabaseGetPropertiesModel? Resource { get; set; }
+    public GremlinDatabaseGetPropertiesResourceModel? Resource { get; set; }
 }

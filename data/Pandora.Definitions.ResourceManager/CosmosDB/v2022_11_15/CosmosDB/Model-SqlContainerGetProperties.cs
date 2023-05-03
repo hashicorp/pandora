@@ -19,5 +19,5 @@ internal class SqlContainerGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public SqlContainerGetPropertiesModel? Resource { get; set; }
+    public SqlContainerGetPropertiesResourceModel? Resource { get; set; }
 }

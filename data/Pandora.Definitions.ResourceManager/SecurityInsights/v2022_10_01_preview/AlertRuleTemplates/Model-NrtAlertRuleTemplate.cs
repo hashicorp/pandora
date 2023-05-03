@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_10_01_previ
 internal class NrtAlertRuleTemplateModel : AlertRuleTemplateModel
 {
     [JsonPropertyName("properties")]
-    public AlertRuleTemplateModel? Properties { get; set; }
+    public NrtAlertRuleTemplatePropertiesModel? Properties { get; set; }
 }

@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2021_10_15.CosmosDB;
 internal class SqlTriggerGetPropertiesModel
 {
     [JsonPropertyName("resource")]
-    public SqlTriggerGetPropertiesModel? Resource { get; set; }
+    public SqlTriggerGetPropertiesResourceModel? Resource { get; set; }
 }
