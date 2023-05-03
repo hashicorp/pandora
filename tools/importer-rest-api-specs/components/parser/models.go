@@ -156,7 +156,8 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		result.Append(*nestedResult)
 	}
 
-	if len(value.Properties) > 0 {
+	// if there are more than 1 allOf, it can not use a simple reference type, but a new definition
+	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
 		nestedFields := make(map[string]models.FieldDetails, 0)
