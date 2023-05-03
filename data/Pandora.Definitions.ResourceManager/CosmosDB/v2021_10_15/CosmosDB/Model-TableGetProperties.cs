@@ -19,5 +19,5 @@ internal class TableGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public TableGetPropertiesModel? Resource { get; set; }
+    public TableGetPropertiesResourceModel? Resource { get; set; }
 }

@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2023_04_15.CosmosDB;
 internal class ThroughputSettingsGetPropertiesModel
 {
     [JsonPropertyName("resource")]
-    public ThroughputSettingsGetPropertiesModel? Resource { get; set; }
+    public ThroughputSettingsGetPropertiesResourceModel? Resource { get; set; }
 }

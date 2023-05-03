@@ -47,6 +47,7 @@ internal class Definition : ResourceDefinition
         typeof(MicrosoftSecurityIncidentCreationAlertRuleTemplateModel),
         typeof(MicrosoftSecurityIncidentCreationAlertRuleTemplatePropertiesModel),
         typeof(NrtAlertRuleTemplateModel),
+        typeof(NrtAlertRuleTemplatePropertiesModel),
         typeof(ScheduledAlertRuleTemplateModel),
         typeof(ScheduledAlertRuleTemplatePropertiesModel),
         typeof(SentinelEntityMappingModel),
