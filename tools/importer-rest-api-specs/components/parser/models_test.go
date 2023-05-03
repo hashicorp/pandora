@@ -151,6 +151,37 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 }
 
+func TestParseModelSingleTopLevelWithRawFile(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_rawfile.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	operation, ok := resource.Operations["Test"]
+	if !ok {
+		t.Fatalf("the Operation 'Test' was not found")
+	}
+
+	if operation.RequestObject.Type != models.ObjectDefinitionRawFile {
+		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
+	}
+
+	if operation.ResponseObject.Type != models.ObjectDefinitionRawFile {
+		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
+	}
+}
+
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_single_with_inlined_model.json")
 	if err != nil {
