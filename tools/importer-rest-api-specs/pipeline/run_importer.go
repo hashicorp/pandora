@@ -37,7 +37,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
-		serviceDirectory := fmt.Sprintf("%s%s/%s", input.OutputDirectory, discovery.RootNamespace, serviceName)
+		serviceDirectory := fmt.Sprintf("%s%s/%s", input.OutputDirectory, "Pandora.Definitions.ResourceManager", serviceName)
 		logger.Debug("recreating directory %q for Service %q", serviceDirectory, serviceName)
 		if err := dataapigenerator.RecreateDirectory(serviceDirectory, logger); err != nil {
 			fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
