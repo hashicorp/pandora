@@ -25,6 +25,7 @@ internal class Definition : ResourceDefinition
         typeof(ProtectionIntentItemTypeConstant),
         typeof(ProtectionStatusConstant),
         typeof(ValidationStatusConstant),
+        typeof(WorkloadItemTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
@@ -32,6 +33,7 @@ internal class Definition : ResourceDefinition
         typeof(AzureResourceProtectionIntentModel),
         typeof(AzureWorkloadAutoProtectionIntentModel),
         typeof(AzureWorkloadContainerAutoProtectionIntentModel),
+        typeof(AzureWorkloadSQLAutoProtectionIntentModel),
         typeof(PreValidateEnableBackupRequestModel),
         typeof(PreValidateEnableBackupResponseModel),
         typeof(ProtectionIntentModel),
