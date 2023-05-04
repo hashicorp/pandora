@@ -109,7 +109,6 @@ func main() {
 		"Relay",
 		"ResourceConnector",
 		"Resources",
-		"Search",
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
