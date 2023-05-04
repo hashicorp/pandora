@@ -12,8 +12,8 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uri2ResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
-	return generateNamesForResourceIds(input, p.logger, uri2ResourceId)
+func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+	return generateNamesForResourceIds(input, p.logger, uriToResourceId)
 }
 
 func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
