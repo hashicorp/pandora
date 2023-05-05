@@ -15,4 +15,19 @@ HERE
       }
     }
   }
+
+  api "2023-03-02-preview" {
+    package "TrustedAccess" {
+      definition "kubernetes_cluster_trusted_access_role_binding" {
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}"
+        display_name = "Kubernetes Cluster Trusted Access Role Binding"
+        website_subcategory = "Container"
+        description = <<HERE
+Manages a Kubernetes Cluster Trusted Access Role Binding
+
+~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
+HERE
+      }
+    }
+  }
 }
