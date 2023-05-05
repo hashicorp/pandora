@@ -411,7 +411,7 @@ service "redhatopenshift" {
 }
 service "redis" {
   name      = "Redis"
-  available = ["2022-06-01"]
+  available = ["2022-06-01", "2023-04-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
