@@ -102,7 +102,6 @@ func main() {
 		"RedisEnterprise",
 		"Relay",
 		"ResourceConnector",
-		"Resources",
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
