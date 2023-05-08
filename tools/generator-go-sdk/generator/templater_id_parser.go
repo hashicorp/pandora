@@ -278,7 +278,7 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 
 	if v, ok := parsed.Parsed[%[1]q]; true {
 		if !ok {
-			return nil, fmt.Errorf("the segment '%[1]s' was not found in the resource id %%q", input)
+			return nil, resourceids.NewSegmentNotSpecifiedError(id, %[1]q, *parsed)
 		}
 
 		%[1]s, err := parse%[3]s(v)
@@ -295,7 +295,7 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 			{
 				lines = append(lines, fmt.Sprintf(`
 	if id.%[2]s, ok = parsed.Parsed[%[1]q]; !ok {
-		return nil, fmt.Errorf("the segment '%[1]s' was not found in the resource id %%q", input)
+		return nil, resourceids.NewSegmentNotSpecifiedError(id, %[1]q, *parsed)
 	}
 `, segment.Name, strings.Title(segment.Name)))
 
