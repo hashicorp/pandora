@@ -22,7 +22,7 @@ func codeForClientsRegistration(input models.ServicesInput) string {
 		serviceImportLine := fmt.Sprintf(`%[2]s "github.com/hashicorp/terraform-provider-%[1]s/internal/services/%[2]s/client"`, input.ProviderPrefix, service.ServicePackageName)
 		importLines = append(importLines, serviceImportLine)
 
-		structField := fmt.Sprintf(`%[1]s   *%[2]s_%[3]s.Client`, serviceName, sdkPackageName, sdkApiVersion)
+		structField := fmt.Sprintf(`%[1]s   *%[2]s.AutoClient`, serviceName, sdkPackageName, sdkApiVersion)
 		structFields = append(structFields, structField)
 
 		assignmentLine := fmt.Sprintf(`
