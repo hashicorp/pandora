@@ -654,12 +654,13 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping res
 		return nil, fmt.Errorf("expected a schema reference name, but it was nil")
 	}
 
-	line := fmt.Sprintf(`tmp%[1]s := &%[3]s{}
-	if err := r.map%[2]sTo%[3]s(input, tmp%[1]s); err != nil {
-		return err
-	} else {
-		output.%[1]s = make([]%[3]s, 0)
-		output.%[1]s = append(output.%[1]s, *tmp%[1]s)
+	line := fmt.Sprintf(`if input.%[1]s != nil {
+		tmp%[1]s := &%[3]s{}
+		if err := r.map%[2]sTo%[3]s(input, tmp%[1]s); err != nil {
+			return err
+		} else {
+			output.%[1]s = append(output.%[1]s, *tmp%[1]s)
+		}
 	}`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SdkModelName, *schemaField.ObjectDefinition.ReferenceName)
 	return &line, nil
 }
