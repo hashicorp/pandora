@@ -52,11 +52,12 @@ func Resource(input models.ResourceInput) error {
 	return nil
 }
 
+// skip generate file if NOT CONTAINS 'manual changes will be overwritten' in file content
 func shouldSkipGenFile(file string) bool {
 	if f, err := os.Open(file); err == nil {
 		var buf = make([]byte, 512)
 		if _, err := f.Read(buf); err == nil {
-			return bytes.Contains(buf, []byte("manual changes will be overwritten"))
+			return !bytes.Contains(buf, []byte("manual changes will be overwritten"))
 		}
 	}
 	return false

@@ -162,7 +162,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, input.readModelName, fieldName))
 	}
 	if input.updatePayload != nil && fieldExists(*input.updatePayload, fieldName) {
-		if input.updatePayload != nil && input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
+		if input.createModelName != *input.updateModelName && input.readModelName != *input.updateModelName {
 			mappings.Fields = append(mappings.Fields, modelToModelMappingBetween(schemaModelName, *input.updateModelName, fieldName))
 		}
 	}

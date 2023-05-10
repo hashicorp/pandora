@@ -57,6 +57,27 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		input.SchemaModelName: parsedTopLevelModel.model,
 	}
 
+	// map sdk model type to
+	type parentField struct {
+		modelName string
+		fieldPath string
+	}
+	sdkTypeToParentField := map[string]parentField{}
+	for modelName, modelDetails := range parsedTopLevelModel.nestedModels {
+		for fieldPath, f := range modelDetails.Fields {
+			if refName := f.ObjectDefinition.ReferenceName; refName != nil {
+				if existing, ok := sdkTypeToParentField[*refName]; ok {
+					logger.Info("existing sdk path [%s] to model [%s.%s]", *refName, existing.modelName, existing.fieldPath)
+					continue
+				}
+				sdkTypeToParentField[*refName] = parentField{
+					modelName: modelName,
+					fieldPath: fieldPath,
+				}
+			}
+		}
+	}
+
 	for modelName, modelDetails := range parsedTopLevelModel.nestedModels {
 		// we've already parsed this above
 		if modelName == input.SchemaModelName {
@@ -74,7 +95,20 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			logger.Trace(fmt.Sprintf("nested model %q was filtered out", modelName))
 			return nil, nil, nil
 		}
-
+		if parent, ok := sdkTypeToParentField[modelName]; ok {
+			// append only when not in fields
+			var existing bool
+			for _, f := range updatedMappings.Fields {
+				if f.ModelToModel != nil && f.ModelToModel.SchemaModelName == prefixedModelName {
+					existing = true
+					break
+				}
+			}
+			if !existing {
+				updatedMappings.Fields = append(updatedMappings.Fields, modelToModelMappingBetween(prefixedModelName, parent.modelName, parent.fieldPath))
+			}
+			delete(sdkTypeToParentField, modelName) // only process one time
+		}
 		schemaModels[prefixedModelName] = *nestedModelDetails
 		mappings = *updatedMappings
 	}
