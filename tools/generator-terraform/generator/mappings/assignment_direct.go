@@ -59,7 +59,7 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 			return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 		} else {
 			// patch for legacy identity blocks
-			if code, ok := patchIdentityTransform(sdkType, true, mapping, sdkField.JsonName); ok {
+			if code, done := patchIdentityTransformExpand(sdkType, mapping, sdkField.JsonName); done {
 				return &code, nil
 			}
 		}
@@ -108,8 +108,7 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 			return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 		} else {
 			// patch for legacy identity blocks
-			code, ok := patchIdentityTransform(sdkType, false, mapping, sdkField.JsonName)
-			if ok {
+			if code, done := patchIdentityTransformFlatten(sdkType, mapping, sdkField.JsonName); done {
 				return &code, nil
 			}
 		}

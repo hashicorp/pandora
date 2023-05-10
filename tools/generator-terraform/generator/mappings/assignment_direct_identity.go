@@ -28,24 +28,41 @@ var identityTransformers = map[sdkFieldType]transformer{
 
 // we can get schema type from mapping, so only the sdk type is needed
 // isExpand: true for expandFromModel, false for flattenToModel
-func patchIdentityTransform(sdkType sdkFieldType, isExpand bool, mapping resourcemanager.FieldMappingDefinition, sdkFieldName string) (code string, ok bool) {
+func patchIdentityTransformFlatten(sdkType sdkFieldType, mapping resourcemanager.FieldMappingDefinition, sdkFieldName string) (code string, done bool) {
 	transform, exists := identityTransformers[sdkType]
 	if !exists {
 		return "", false
 	}
-	// default as flatten: input sdk => output schema
+
+	fn := transform.flattenFn
+	hint := "flattening"
 	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
 	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
 	outputVariable := sdkFieldName
 
-	fn := transform.flattenFn
-	hint := "flattening"
-	if isExpand {
-		fn = transform.expandFn
-		hint = "expanding"
-		inputAssignment = fmt.Sprintf("input.%s", mapping.DirectAssignment.SchemaFieldPath)
-		outputAssignment = fmt.Sprintf("output.%s", mapping.DirectAssignment.SdkFieldPath)
+	code = fmt.Sprintf(`
+	%[1]s, err := %[6]s.%[4]s(%[2]s)
+	if err != nil {
+		return fmt.Errorf("%[5]s call %[4]s: %%+v", err)
 	}
+	%[3]s = %[1]s
+`, outputVariable, inputAssignment, outputAssignment, fn, hint, transform.packageName)
+
+	return code, true
+}
+
+func patchIdentityTransformExpand(sdkType sdkFieldType, mapping resourcemanager.FieldMappingDefinition, sdkFieldName string) (code string, done bool) {
+	transform, exists := identityTransformers[sdkType]
+	if !exists {
+		return "", false
+	}
+
+	fn := transform.expandFn
+	hint := "expanding"
+	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SchemaFieldPath)
+	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SdkFieldPath)
+	outputVariable := sdkFieldName
+
 	code = fmt.Sprintf(`
 	%[1]s, err := %[6]s.%[4]s(%[2]s)
 	if err != nil {
