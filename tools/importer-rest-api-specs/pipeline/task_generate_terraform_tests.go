@@ -179,9 +179,7 @@ locals {
   random_integer   = %%[1]d
   primary_location = %%[2]q
 }
-
 %s
-`, strings.Join(components, "\n\n"))
-	output = strings.Replace(output, "\"", "'", -1)
+`, strings.Join(components, "\n"))
 	return &output
 }

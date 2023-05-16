@@ -6,6 +6,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -19,7 +20,10 @@ func (t pipelineTask) generateTerraformExampleUsage(data *models.AzureApiDefinit
 
 			tfResources := make(map[string]resourcemanager.TerraformResourceDetails)
 			for resourceKey, resourceValue := range v.Terraform.Resources {
-				example := convertBasicTestToUsableExample(resourceValue.Tests)
+				example, err := convertBasicTestToUsableExample(resourceValue.Tests)
+				if err != nil {
+					return nil, err
+				}
 				resourceValue.Documentation.ExampleUsageHcl = example
 				tfResources[resourceKey] = resourceValue
 			}
@@ -31,33 +35,52 @@ func (t pipelineTask) generateTerraformExampleUsage(data *models.AzureApiDefinit
 	return data, nil
 }
 
-func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTestsDefinition) string {
+func convertBasicTestToUsableExample(tests resourcemanager.TerraformResourceTestsDefinition) (string, error) {
 	example := tests.BasicConfiguration
-
+	if tests.TemplateConfiguration != nil {
+		example = *tests.TemplateConfiguration + example
+	}
 	example = switchOutTestSpecificValues(example)
-	example = switchOutLocalsUsage(example)
+	var err error
+	example, err = switchOutLocalsUsage(example)
+	if err != nil {
+		return "", err
+	}
 
 	example = strings.TrimSpace(string(hclwrite.Format([]byte(example))))
-	return example
+	return example, nil
 }
 
-func switchOutLocalsUsage(input string) string {
+func switchOutLocalsUsage(input string) (string, error) {
 	output := input
 	re := regexp.MustCompile("[-][$][{](.*)[}]")
 	output = re.ReplaceAllLiteralString(output, "")
 
+	// Replacing any interpolation placeholder (from HCL tempalte locals) to be able to parse the HCL
+	re = regexp.MustCompile(`%(\[\d\])?[dq]`)
+	output = re.ReplaceAllLiteralString(output, `""`)
+
 	testVariables := map[string]string{
 		// TODO: add more
 		"random_integer":   "21",
-		"primary_location": "West Europe",
+		"primary_location": `"West Europe"`,
 	}
 	for variable, replacement := range testVariables {
 		output = strings.ReplaceAll(output, fmt.Sprintf("${local.%s}", variable), replacement)
 		output = strings.ReplaceAll(output, fmt.Sprintf("local.%s", variable), replacement)
 	}
 
+	f, diags := hclwrite.ParseConfig([]byte(output), "", hcl.InitialPos)
+	if diags.HasErrors() {
+		return "", fmt.Errorf(diags.Error())
+	}
+	if blk := f.Body().FirstMatchingBlock("locals", nil); blk != nil {
+		f.Body().RemoveBlock(blk)
+	}
+	output = string(f.Bytes())
+
 	output = strings.TrimSpace(string(hclwrite.Format([]byte(output))))
-	return output
+	return output, nil
 }
 
 func switchOutTestSpecificValues(input string) string {
