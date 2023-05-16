@@ -14,7 +14,17 @@ public class KubernetesFleetManagerResource : TerraformResourceDefinition
 
 ~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
 ";
-    public string ResourceExampleUsage => @"resource 'azurerm_kubernetes_fleet_manager' 'example' {
+    public string ResourceExampleUsage => @"provider 'azurerm' {
+  features {}
+}
+
+
+resource 'azurerm_resource_group' 'example' {
+  name     = 'examplerg'
+  location = 'West Europe'
+}
+
+resource 'azurerm_kubernetes_fleet_manager' 'example' {
 
   hub_profile {
     dns_prefix = 'example'

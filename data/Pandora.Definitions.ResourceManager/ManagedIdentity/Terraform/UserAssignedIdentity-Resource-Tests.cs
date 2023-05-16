@@ -43,7 +43,6 @@ locals {
   primary_location = %[2]q
 }
 
-
 resource 'azurerm_resource_group' 'test' {
   name     = 'acctestrg-${local.random_integer}'
   location = local.primary_location
