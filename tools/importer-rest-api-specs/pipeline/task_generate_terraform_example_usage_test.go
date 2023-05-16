@@ -76,7 +76,10 @@ resource "azurerm_load_test" "example" {
 		input := resourcemanager.TerraformResourceTestsDefinition{
 			BasicConfiguration: v.input,
 		}
-		actual := convertBasicTestToUsableExample(input)
+		actual, err := convertBasicTestToUsableExample(input)
+		if err != nil {
+			t.Fatal(err)
+		}
 		testhelpers.AssertTemplatedCodeMatches(t, v.expected, actual)
 	}
 }

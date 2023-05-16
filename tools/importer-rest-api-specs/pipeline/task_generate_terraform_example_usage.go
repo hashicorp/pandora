@@ -60,14 +60,23 @@ func switchOutLocalsUsage(input string) (string, error) {
 	re = regexp.MustCompile(`%(\[\d\])?[dq]`)
 	output = re.ReplaceAllLiteralString(output, `""`)
 
-	testVariables := map[string]string{
-		// TODO: add more
-		"random_integer":   "21",
-		"primary_location": `"West Europe"`,
+	type replacement struct {
+		value string
+		isStr bool
 	}
-	for variable, replacement := range testVariables {
-		output = strings.ReplaceAll(output, fmt.Sprintf("${local.%s}", variable), replacement)
-		output = strings.ReplaceAll(output, fmt.Sprintf("local.%s", variable), replacement)
+	testVariables := map[string]replacement{
+		// TODO: add more
+		"random_integer":   {value: "21"},
+		"primary_location": {value: "West Europe", isStr: true},
+	}
+	for variable, repl := range testVariables {
+		output = strings.ReplaceAll(output, fmt.Sprintf("${local.%s}", variable), repl.value)
+
+		replVal := repl.value
+		if repl.isStr {
+			replVal = fmt.Sprintf("%q", repl.value)
+		}
+		output = strings.ReplaceAll(output, fmt.Sprintf("local.%s", variable), replVal)
 	}
 
 	f, diags := hclwrite.ParseConfig([]byte(output), "", hcl.InitialPos)
@@ -77,9 +86,7 @@ func switchOutLocalsUsage(input string) (string, error) {
 	if blk := f.Body().FirstMatchingBlock("locals", nil); blk != nil {
 		f.Body().RemoveBlock(blk)
 	}
-	output = string(f.Bytes())
-
-	output = strings.TrimSpace(string(hclwrite.Format([]byte(output))))
+	output = strings.TrimSpace(string(hclwrite.Format(f.Bytes())))
 	return output, nil
 }
 
