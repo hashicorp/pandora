@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -17,10 +18,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, pr
 		if t := resource.Terraform; t != nil {
 			for resourceLabel, resourceDetails := range t.Resources {
 				logger.Trace(fmt.Sprintf("Generating Tests for %q", resourceLabel))
-				h := testattributes.TestAttributesHelpers{
-					SchemaModels: resourceDetails.SchemaModels,
-					Dependencies: &testattributes.TestDependencyHelper{},
-				}
+				h := testattributes.NewTestAttributesHelpers(resourceDetails.SchemaModels)
 
 				basicTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, true, h)
 				if err != nil {
@@ -38,17 +36,18 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, pr
 					resourceDetails.Tests.RequiresImportConfiguration = *importTest
 				}
 
+				// todo figure out ids that could be resources and have those added to the template
+				//resourceDetails.Tests.TemplateConfiguration = generateTestTemplate(*h.Dependencies)
+				resourceDetails.Tests.TemplateConfiguration = pointer.To(h.AllDeps.GenTemplateConfig())
+
 				// todo check that there not attributes are required before calling this
 				completeTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, false, h)
 				if err != nil {
 					return nil, err
 				}
 				if completeTest != nil {
-					resourceDetails.Tests.CompleteConfiguration = completeTest
+					resourceDetails.Tests.CompleteConfiguration = pointer.To(fmt.Sprintf("%s\n%s", h.AllDeps.GenConfig(), *completeTest))
 				}
-
-				// todo figure out ids that could be resources and have those added to the template
-				resourceDetails.Tests.TemplateConfiguration = generateTestTemplate(*h.Dependencies)
 
 				if t.Resources == nil {
 					t.Resources = map[string]resourcemanager.TerraformResourceDetails{resourceLabel: resourceDetails}

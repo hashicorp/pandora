@@ -15,6 +15,15 @@ import (
 type TestAttributesHelpers struct {
 	SchemaModels map[string]resourcemanager.TerraformSchemaModelDefinition
 	Dependencies *TestDependencyHelper
+	AllDeps      *AllDeps
+}
+
+func NewTestAttributesHelpers(schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) TestAttributesHelpers {
+	return TestAttributesHelpers{
+		SchemaModels: schemaModels,
+		Dependencies: &TestDependencyHelper{},
+		AllDeps:      &AllDeps{},
+	}
 }
 
 type TestDependencyHelper struct {
@@ -93,6 +102,10 @@ func topLevelObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDe
 func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input resourcemanager.TerraformSchemaFieldDefinition, requiredOnly bool, hclBody *hclwrite.Body) error {
 	if input.Validation != nil && input.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && input.Validation.PossibleValues != nil {
 		return h.codeForTestAttributeWithPossibleValues(input, hclBody)
+	}
+
+	if done := h.workaround(resourceLabel, input, requiredOnly, hclBody); done {
+		return nil
 	}
 
 	switch input.ObjectDefinition.Type {
@@ -296,6 +309,7 @@ func (h TestAttributesHelpers) codeForTestAttribute(resourceLabel string, input 
 					Name: "azurerm_resource_group.test.name",
 				},
 			})
+			h.AllDeps.Add(resourceGroupDep)
 			if h.Dependencies != nil {
 				h.Dependencies.Variables.HasRandomInt = true
 				h.Dependencies.Resource.HasResourceGroup = true
