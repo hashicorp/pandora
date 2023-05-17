@@ -343,6 +343,10 @@ service "networkfunction" {
   name      = "NetworkFunction"
   available = ["2022-08-01", "2022-11-01"]
 }
+service "newrelic" {
+  name      = "NewRelic"
+  available = ["2022-07-01"]
+}
 service "nginx" {
   name      = "Nginx"
   available = ["2022-08-01"]
