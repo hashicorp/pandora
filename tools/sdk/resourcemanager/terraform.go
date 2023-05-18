@@ -257,6 +257,28 @@ type MappingDefinition struct {
 	ResourceId []ResourceIdMappingDefinition `json:"resourceId"`
 }
 
+// RemoveField we need to remove some field when one nested property is flattened
+func (m *MappingDefinition) RemoveField(schemaModel, schemaPath string) {
+	var resultField []FieldMappingDefinition
+	for _, field := range m.Fields {
+		if fd := field.DirectAssignment; fd != nil {
+			if fd.SchemaModelName == schemaModel &&
+				fd.SchemaFieldPath == schemaPath {
+				// remove
+				continue
+			}
+		} else if fd := field.ModelToModel; fd != nil {
+			if fd.SchemaModelName == schemaModel &&
+				"" == schemaPath {
+				// remove
+				continue
+			}
+		}
+		resultField = append(resultField, field)
+	}
+	m.Fields = resultField
+}
+
 type TerraformResourceDetails struct {
 	// ApiVersion specifies the version of the Api which should be used for
 	// this resource.

@@ -193,7 +193,7 @@ func (r %[1]sTestResource) requiresImport(data acceptance.TestData) string {
 func (r %[1]sTestResource) template(data acceptance.TestData) string {
 	return fmt.Sprintf('
 %[5]s
-', data.RandomInteger, data.Locations.Primary)
+', data.RandomInteger, data.Locations.Primary, data.RandomString)
 }
 `, input.ResourceTypeName, basicConfig, importConfig, strings.Join(functions, "\n"), template)
 	output = strings.ReplaceAll(output, "'", "`")

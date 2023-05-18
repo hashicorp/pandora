@@ -66,6 +66,7 @@ provider "azurerm" {
 locals {
   random_integer   = %[1]d
   primary_location = %[2]q
+  random_str       = %[3]q
 }
 
 `)
@@ -121,6 +122,16 @@ type DepResource struct {
 	label   string
 	Content string
 	deps    []TestDep // this resource dependent on others
+}
+
+func (d DepResource) WithDeps(deps ...TestDep) DepResource {
+	d.deps = deps
+	return d
+}
+
+func (d DepResource) WithLabel(label string) DepResource {
+	d.label = label
+	return d
 }
 
 func NewDepResource(name, content string, deps ...TestDep) DepResource {
@@ -186,9 +197,8 @@ var (
 		resourceGroupDep,
 	)
 
-	clientConfigDep = DepResource{
-		name:  "azurerm_client_config",
-		label: "current",
+	clientConfigDep = DepDataSource{
+		NewDepResource("azurerm_client_config", "").WithLabel("current"),
 	}
 
 	resourceGroupDep = NewDepResource(

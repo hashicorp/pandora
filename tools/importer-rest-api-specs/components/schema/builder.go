@@ -57,7 +57,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		input.SchemaModelName: parsedTopLevelModel.model,
 	}
 
-	// map sdk model type to
+	// to remember which field the nested model is referenced, used to add the missing mapping field
 	type parentField struct {
 		modelName string
 		fieldPath string
@@ -71,7 +71,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 					continue
 				}
 				sdkTypeToParentField[*refName] = parentField{
-					modelName: modelName,
+					modelName: modelName, // todo modelName may not the same as SDKModel name.
 					fieldPath: fieldPath,
 				}
 			}
@@ -96,7 +96,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			return nil, nil, nil
 		}
 		if parent, ok := sdkTypeToParentField[modelName]; ok {
-			// append only when not in fields
+			// append a field to mappings if not exists. it's fine if not used (will be cleaned later), but we need to ensure it's there
 			var existing bool
 			for _, f := range updatedMappings.Fields {
 				if f.ModelToModel != nil && f.ModelToModel.SchemaModelName == prefixedModelName {
@@ -107,7 +107,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 			if !existing {
 				updatedMappings.Fields = append(updatedMappings.Fields, modelToModelMappingBetween(prefixedModelName, parent.modelName, parent.fieldPath))
 			}
-			delete(sdkTypeToParentField, modelName) // only process one time
+			delete(sdkTypeToParentField, modelName)
 		}
 		schemaModels[prefixedModelName] = *nestedModelDetails
 		mappings = *updatedMappings

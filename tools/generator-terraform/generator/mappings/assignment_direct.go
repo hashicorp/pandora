@@ -341,7 +341,7 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping res
 		if err := r.map%[2]sTo%[3]s(input.%[1]s[0], output); err != nil {
 			return err
 		}
-	}`, mapping.DirectAssignment.SdkFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName)
+	}`, mapping.DirectAssignment.SchemaFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName)
 	return &line, nil
 }
 
@@ -659,9 +659,9 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping res
 		if err := r.map%[2]sTo%[3]s(input, tmp%[1]s); err != nil {
 			return err
 		} else {
-			output.%[1]s = append(output.%[1]s, *tmp%[1]s)
+			output.%[4]s = append(output.%[4]s, *tmp%[1]s)
 		}
-	}`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SdkModelName, *schemaField.ObjectDefinition.ReferenceName)
+	}`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SdkModelName, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SchemaFieldPath)
 	return &line, nil
 }
 

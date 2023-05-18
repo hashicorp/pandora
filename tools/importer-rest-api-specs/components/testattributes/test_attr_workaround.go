@@ -16,15 +16,10 @@ func (h TestAttributesHelpers) workaround(resourceLabel string, input resourcema
 		switch refName {
 		case "LoadTestResourceEncryptionPropertiesIdentity":
 			hclBody.AppendNewline()
-			identityBody := *hclBody.AppendNewBlock(input.HclName, nil).Body()
+			identityBody := hclBody.AppendNewBlock(input.HclName, nil).Body()
 			identityBody.SetAttributeValue("type", cty.StringVal("UserAssigned"))
 
-			identityBody.SetAttributeRaw("resource_id", hclwrite.TokensForTuple([]hclwrite.Tokens{
-				hclwrite.TokensForTraversal(hcl.Traversal{
-					hcl.TraverseRoot{
-						Name: userAssignedIdentity.RefValue(), // "azurerm_user_assigned_identity.test.id",
-					},
-				})}))
+			setHclWithRef(identityBody, "resource_id", userAssignedIdentity.RefValue())
 			h.AllDeps.Add(userAssignedIdentity)
 			return true
 		}
@@ -82,8 +77,7 @@ func (h TestAttributesHelpers) workaround(resourceLabel string, input resourcema
     environment = "Production"
   }
 `)
-			h.AllDeps.Add(kvDep)
-			h.AllDeps.Add(keyVaultKeyDep)
+			h.AllDeps.Add(keyVaultKeyDep.WithDeps(kvDep))
 			setHclWithRef(hclBody, input.HclName, keyVaultKeyDep.RefValue())
 			return true
 		}
