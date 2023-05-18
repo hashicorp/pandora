@@ -110,7 +110,7 @@ service "cosmos-db" {
 }
 service "cost-management" {
   name      = "CostManagement"
-  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01"]
+  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01"]
 }
 service "customproviders" {
   name      = "CustomProviders"
@@ -337,7 +337,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2022-09-01","2022-11-01"]
+  available = ["2022-09-01", "2022-11-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
