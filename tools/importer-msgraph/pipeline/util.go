@@ -6,12 +6,12 @@ import (
 	"strings"
 )
 
-func indent(in string, indent string) string {
+func indentSpace(in string, indent int) string {
 	inSlice := strings.Split(in, "\n")
 	out := make([]string, len(inSlice))
 	for i, line := range inSlice {
 		if len(line) > 0 {
-			line = fmt.Sprintf("%s%s", indent, line)
+			line = fmt.Sprintf("%s%s", strings.Repeat(" ", indent), line)
 		}
 		out[i] = line
 	}

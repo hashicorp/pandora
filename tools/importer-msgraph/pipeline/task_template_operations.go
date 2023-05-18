@@ -14,22 +14,22 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 	// First build all the methods
 	for _, resource := range resources {
 		// Skip functions and casts for now
-		if lastSegment := resource.Id.segments[len(resource.Id.segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
-			logger.Debug("Skipping suspected function/cast resource", "resource", resource.Id.ID())
+		if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+			logger.Debug("Skipping suspected function/cast resource", "resource", resource.ID.ID())
 			continue
 		}
 
 		for _, operation := range resource.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {
-				logger.Debug("Skipping unknown operation", "resource", resource.Id.ID(), "method", operation.Method)
+				logger.Debug("Skipping unknown operation", "resource", resource.ID.ID(), "method", operation.Method)
 				continue
 			}
 
 			// Build string arguments from user-specified URI segments
 			args := make([]string, 0)
 			argNames := make([]string, 0)
-			for _, segment := range resource.Id.segments {
+			for _, segment := range resource.ID.Segments {
 				if segment.Type == SegmentUserValue {
 					argName := cleanNameCamel(segment.Value)
 					argNames = append(argNames, argName)
@@ -37,11 +37,11 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 				}
 			}
 
-			operationType := operation.Type.Name(resource.Id)
+			operationType := operation.Type.Name(resource.ID)
 
 			// Name the operationFile according to the final URI segment, or deriving it from the tag
 			var clientMethodNameTarget string
-			if lastLabel := resource.Id.LastLabel(); lastLabel != nil {
+			if lastLabel := resource.ID.LastLabel(); lastLabel != nil {
 				if operation.Type == OperationTypeList {
 					clientMethodNameTarget = pluralize(cleanName(lastLabel.Value))
 				} else {
@@ -51,11 +51,11 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 
 			if clientMethodNameTarget == "" {
 				if len(operation.Tags) > 1 {
-					return fmt.Errorf("found %d tags for operation %s/%s: %s", len(operation.Tags), resource.Id.ID(), operationType, operation.Tags)
+					return fmt.Errorf("found %d tags for operation %s/%s: %s", len(operation.Tags), resource.ID.ID(), operationType, operation.Tags)
 				} else if len(operation.Tags) == 1 {
 					t := strings.Split(operation.Tags[0], ".")
 					if len(t) != 2 {
-						return fmt.Errorf("invalid tag for operation %s/%s: %s", resource.Id.ID(), operationType, operation.Tags[0])
+						return fmt.Errorf("invalid tag for operation %s/%s: %s", resource.ID.ID(), operationType, operation.Tags[0])
 					}
 					clientMethodNameTarget = cleanName(t[1])
 				}
@@ -63,7 +63,7 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 
 			// TODO: this shouldn't happen, but probably log/handle this
 			if clientMethodNameTarget == "" {
-				logger.Debug("Skipping operation with empty method name", "resource", resource.Id.ID(), "method", operation.Method)
+				logger.Debug("Skipping operation with empty method name", "resource", resource.ID.ID(), "method", operation.Method)
 				continue
 			}
 
@@ -79,7 +79,7 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 					requestModelVar = cleanNameCamel(*operation.RequestModel)
 					requestModel = *operation.RequestModel
 					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, *operation.RequestModel))
-				} else if lastSegment := resource.Id.segments[len(resource.Id.segments)-1]; lastSegment.Value == "$ref" {
+				} else if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Value == "$ref" {
 					requestModel = "DirectoryObject"
 					requestModelVar = "directoryObject"
 					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, requestModel))
@@ -91,7 +91,7 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 			if operation.Type != OperationTypeDelete {
 				responseModel = findModel(operation.Responses)
 				if responseModel == "" {
-					if lastSegment := resource.Id.segments[len(resource.Id.segments)-1]; lastSegment.Value == "$ref" {
+					if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Value == "$ref" {
 						responseModel = "DirectoryObject"
 					}
 				}
@@ -109,19 +109,19 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 			switch operation.Type {
 			case OperationTypeList:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", resource.Id.ID(), "method", operation.Method)
+					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateListMethod(resource, &operation, operationType, responseModel, args)
 			case OperationTypeRead:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", resource.Id.ID(), "method", operation.Method)
+					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateReadMethod(resource, &operation, operationType, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
 				if requestModelVar == "" {
-					logger.Debug("Skipping operation with empty request model var", "resource", resource.Id.ID(), "method", operation.Method)
+					logger.Debug("Skipping operation with empty request model var", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateCreateUpdateMethod(resource, &operation, operationType, requestModel, responseModel, statuses)
@@ -168,7 +168,7 @@ internal class %[4]sOperation : Operations.%[4]sOperation
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, responseModel, resource.Id.ID()) // TODO: resource ID to be calculated
+`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, responseModel, resource.ID.ID()) // TODO: resource ID to be calculated
 
 }
 
@@ -178,7 +178,7 @@ func templateReadMethod(resource *Resource, operation *Operation, operationType,
 		code, _ := strconv.Atoi(status)
 		statusEnums[i] = csHttpStatusCode(code)
 	}
-	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
@@ -214,7 +214,7 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, operat
 		code, _ := strconv.Atoi(status)
 		statusEnums[i] = csHttpStatusCode(code)
 	}
-	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
 	//var path string
@@ -259,7 +259,7 @@ func templateDeleteMethod(resource *Resource, operation *Operation, operationTyp
 		code, _ := strconv.Atoi(status)
 		statusEnums[i] = csHttpStatusCode(code)
 	}
-	expectedStatusesCode := indent(strings.Join(statusEnums, ",\n"), "                ")
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdName := fmt.Sprintf("%sId", resource.Name)
 
 	//var path string

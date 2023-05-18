@@ -34,7 +34,7 @@ internal enum %[1]sConstant
 {
 %[2]s
 }
-`, field.Title, indent(strings.Join(valuesCode, "\n\n"), "    "))
+`, field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 
 				filename := fmt.Sprintf("Models/Constant-%s.cs", field.Title)
 

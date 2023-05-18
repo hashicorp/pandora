@@ -3,6 +3,7 @@ package pipeline
 import (
 	"fmt"
 	"path/filepath"
+	"sort"
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
@@ -35,7 +36,14 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 		return err
 	}
 
-	for tag, subTags := range tags {
+	tagNames := make([]string, 0, len(tags))
+	for tagName := range tags {
+		tagNames = append(tagNames, tagName)
+	}
+	sort.Strings(tagNames)
+
+	for _, tag := range tagNames {
+		subTags := tags[tag]
 		if len(input.Tags) > 0 {
 			skip := true
 			for _, t := range input.Tags {
@@ -65,10 +73,16 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 
 func runImportForTag(input RunInput, files *Tree, tag string, subTags []string, spec *openapi3.T, swaggerGitSha string) error {
 	logger := input.Logger
-	task := pipelineTask{}
+	task := pipelineTask{
+		spec:          spec,
+		swaggerGitSha: swaggerGitSha,
+	}
+
+	logger.Info(fmt.Sprintf("Parsing resource IDs for: %s", tag))
+	task.resourceIds = task.parseResourceIDsForTag(tag, subTags, spec.Paths)
 
 	logger.Info(fmt.Sprintf("Parsing resources for: %s", tag))
-	resources := task.parseResourcesForTag(tag, subTags, spec.Paths)
+	resources := task.parseResourcesForTag(tag, task.resourceIds)
 
 	//logger.Info(fmt.Sprintf("Templating client for: %s", tag))
 	//if err := task.templateClient(files, tag); err != nil {

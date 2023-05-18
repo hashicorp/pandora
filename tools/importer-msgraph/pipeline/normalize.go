@@ -17,36 +17,27 @@ func singularize(model string) string {
 	return model
 }
 
-func pluralize(model string) string {
-	ret := fmt.Sprintf("%ss", model)
-	if strings.EqualFold(model, "me") {
-		return model
+func pluralize(name string) string {
+	ret := fmt.Sprintf("%ss", name)
+	if strings.EqualFold(name, "me") {
+		return name
 	}
-	if len(model) < 1 {
+	if len(name) == 0 {
 		return ret
 	}
-	if strings.EqualFold(model[len(model)-1:], "y") {
-		return fmt.Sprintf("%sies", model[:len(model)-1])
+	if strings.EqualFold(name[len(name)-1:], "y") {
+		return fmt.Sprintf("%sies", name[:len(name)-1])
 	}
-	if strings.EqualFold(model[len(model)-1:], "s") {
-		return model
+	if strings.EqualFold(name[len(name)-1:], "s") {
+		return name
 	}
-	if len(model) < 2 {
+	if len(name) < 2 {
 		return ret
 	}
-	if strings.EqualFold(model[len(model)-2:], "Of") {
-		return model
+	if strings.EqualFold(name[len(name)-2:], "Of") {
+		return name
 	}
 	return ret
-}
-
-func normalizeFieldName(segment string) (field string) {
-	if segment[0] == '{' {
-		field = segment[1 : len(segment)-1]
-		field = strings.Title(field)
-		field = regexp.MustCompile("([^A-Za-z0-9])").ReplaceAllString(field, "")
-	}
-	return
 }
 
 func cleanName(name string) string {

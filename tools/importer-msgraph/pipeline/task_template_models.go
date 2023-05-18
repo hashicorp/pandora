@@ -40,7 +40,7 @@ internal class %[1]sModel
 {
 %[2]s
 }
-`, name, indent(strings.Join(fieldsCode, "\n\n"), "    "))
+`, name, indentSpace(strings.Join(fieldsCode, "\n\n"), 4))
 
 		filename := fmt.Sprintf("Models/Model-%s.cs", name)
 
