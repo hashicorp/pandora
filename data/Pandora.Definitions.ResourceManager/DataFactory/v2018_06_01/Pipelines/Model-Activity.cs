@@ -25,6 +25,12 @@ internal class ActivityModel
     [Required]
     public string Name { get; set; }
 
+    [JsonPropertyName("onInactiveMarkAs")]
+    public ActivityOnInactiveMarkAsConstant? OnInactiveMarkAs { get; set; }
+
+    [JsonPropertyName("state")]
+    public ActivityStateConstant? State { get; set; }
+
     [JsonPropertyName("type")]
     [Required]
     public string Type { get; set; }

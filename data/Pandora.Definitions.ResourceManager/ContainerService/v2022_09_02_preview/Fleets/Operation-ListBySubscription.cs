@@ -12,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_preview.Fleets;
 
-internal class ListOperation : Pandora.Definitions.Operations.ListOperation
+internal class ListBySubscriptionOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 

@@ -12,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_preview.FleetMembers;
 
-internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
+internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override bool LongRunning() => true;
 
@@ -22,9 +22,9 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? ResponseObject() => typeof(FleetMemberModel);
 
-    public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
+    public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
-    internal class CreateOrUpdateOptions
+    internal class CreateOptions
     {
         [HeaderName("If-Match")]
         [Optional]

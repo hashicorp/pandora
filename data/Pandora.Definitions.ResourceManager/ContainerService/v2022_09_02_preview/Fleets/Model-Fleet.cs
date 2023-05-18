@@ -15,8 +15,8 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 
 internal class FleetModel
 {
-    [JsonPropertyName("etag")]
-    public string? Etag { get; set; }
+    [JsonPropertyName("eTag")]
+    public string? ETag { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
