@@ -126,7 +126,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01"]
+  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01", "2023-05-01"]
 }
 service "datadog" {
   name      = "DataDog"
@@ -257,7 +257,7 @@ service "keyvault" {
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
-  available = ["2022-03-01", "2022-11-01"]
+  available = ["2022-03-01", "2022-11-01", "2023-05-01"]
 }
 service "labservices" {
   name      = "LabServices"
