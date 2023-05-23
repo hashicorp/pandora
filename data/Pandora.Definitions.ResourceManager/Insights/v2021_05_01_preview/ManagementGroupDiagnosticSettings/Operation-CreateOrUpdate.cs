@@ -21,7 +21,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ManagementGroupDiagnosticSettingsResourceModel);
 
-    public override ResourceID? ResourceId() => new DiagnosticSettingId();
+    public override ResourceID? ResourceId() => new Providers2DiagnosticSettingId();
 
     public override Type? ResponseObject() => typeof(ManagementGroupDiagnosticSettingsResourceModel);
 

@@ -24,7 +24,7 @@ internal class MongoDBResourcesRetrieveContinuousBackupInformationOperation : Pa
 
     public override Type? RequestObject() => typeof(ContinuousBackupRestoreLocationModel);
 
-    public override ResourceID? ResourceId() => new CollectionId();
+    public override ResourceID? ResourceId() => new MongodbDatabaseCollectionId();
 
     public override Type? ResponseObject() => typeof(BackupInformationModel);
 

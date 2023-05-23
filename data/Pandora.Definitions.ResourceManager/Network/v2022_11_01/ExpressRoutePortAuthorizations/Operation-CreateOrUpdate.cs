@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ExpressRoutePortAuthorizationModel);
 
-    public override ResourceID? ResourceId() => new AuthorizationId();
+    public override ResourceID? ResourceId() => new ExpressRoutePortAuthorizationId();
 
     public override Type? ResponseObject() => typeof(ExpressRoutePortAuthorizationModel);
 

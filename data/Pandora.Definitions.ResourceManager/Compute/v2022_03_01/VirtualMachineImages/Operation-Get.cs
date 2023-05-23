@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachine
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VersionId();
+    public override ResourceID? ResourceId() => new SkuVersionId();
 
     public override Type? ResponseObject() => typeof(VirtualMachineImageModel);
 

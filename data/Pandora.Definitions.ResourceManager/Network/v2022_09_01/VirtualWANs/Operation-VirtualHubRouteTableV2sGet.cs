@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_09_01.VirtualWANs;
 
 internal class VirtualHubRouteTableV2sGetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RouteTableId();
+    public override ResourceID? ResourceId() => new VirtualHubRouteTableId();
 
     public override Type? ResponseObject() => typeof(VirtualHubRouteTableV2Model);
 

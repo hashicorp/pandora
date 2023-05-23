@@ -16,7 +16,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(RelationModel);
 
-    public override ResourceID? ResourceId() => new RelationId();
+    public override ResourceID? ResourceId() => new BookmarkRelationId();
 
     public override Type? ResponseObject() => typeof(RelationModel);
 

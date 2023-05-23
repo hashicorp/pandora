@@ -20,7 +20,7 @@ internal class TagDetachFromApiOperation : Pandora.Definitions.Operations.Delete
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TagId();
+    public override ResourceID? ResourceId() => new ApiTagId();
 
 
 }

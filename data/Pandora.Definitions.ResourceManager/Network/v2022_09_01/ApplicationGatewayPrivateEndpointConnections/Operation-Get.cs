@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_09_01.ApplicationGat
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new ApplicationGatewayPrivateEndpointConnectionId();
 
     public override Type? ResponseObject() => typeof(ApplicationGatewayPrivateEndpointConnectionModel);
 

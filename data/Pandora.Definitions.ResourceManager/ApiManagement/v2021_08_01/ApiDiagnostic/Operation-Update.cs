@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(DiagnosticContractModel);
 
-    public override ResourceID? ResourceId() => new DiagnosticId();
+    public override ResourceID? ResourceId() => new ApiDiagnosticId();
 
     public override Type? ResponseObject() => typeof(DiagnosticContractModel);
 

@@ -16,7 +16,7 @@ internal class ListCloudServiceNetworkInterfacesOperation : Pandora.Definitions.
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new CloudServiceId();
+    public override ResourceID? ResourceId() => new ProviderCloudServiceId();
 
     public override Type NestedItemType() => typeof(NetworkInterfaceModel);
 

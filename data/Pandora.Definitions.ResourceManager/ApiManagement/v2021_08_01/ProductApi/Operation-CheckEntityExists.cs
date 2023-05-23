@@ -19,7 +19,7 @@ internal class CheckEntityExistsOperation : Pandora.Definitions.Operations.HeadO
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new ApiId();
+    public override ResourceID? ResourceId() => new ProductApiId();
 
 
 }

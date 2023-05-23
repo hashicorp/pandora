@@ -16,7 +16,7 @@ internal class TagAssignToProductOperation : Pandora.Definitions.Operations.PutO
 {
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new TagId();
+    public override ResourceID? ResourceId() => new ProductTagId();
 
     public override Type? ResponseObject() => typeof(TagContractModel);
 

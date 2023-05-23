@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_09_01.NetworkInterfa
 
 internal class GetCloudServiceNetworkInterfaceOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NetworkInterfaceId();
+    public override ResourceID? ResourceId() => new RoleInstanceNetworkInterfaceId();
 
     public override Type? ResponseObject() => typeof(NetworkInterfaceModel);
 

@@ -19,7 +19,7 @@ internal class GetEntityTagOperation : Pandora.Definitions.Operations.HeadOperat
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ApiId();
+    public override ResourceID? ResourceId() => new GatewayApiId();
 
 
 }

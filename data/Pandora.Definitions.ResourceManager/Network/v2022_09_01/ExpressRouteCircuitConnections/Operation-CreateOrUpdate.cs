@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ExpressRouteCircuitConnectionModel);
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+    public override ResourceID? ResourceId() => new PeeringConnectionId();
 
     public override Type? ResponseObject() => typeof(ExpressRouteCircuitConnectionModel);
 

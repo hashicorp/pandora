@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2022_03_01.VirtualMachine
 
 internal class GetInstanceViewOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
     public override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMInstanceViewModel);
 

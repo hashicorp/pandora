@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2022_07_01_previ
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new RelationId();
+    public override ResourceID? ResourceId() => new BookmarkRelationId();
 
     public override Type? ResponseObject() => typeof(RelationModel);
 

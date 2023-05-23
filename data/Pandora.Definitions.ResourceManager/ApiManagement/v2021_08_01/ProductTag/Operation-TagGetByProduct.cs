@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ProductT
 
 internal class TagGetByProductOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TagId();
+    public override ResourceID? ResourceId() => new ProductTagId();
 
     public override Type? ResponseObject() => typeof(TagContractModel);
 
