@@ -41,6 +41,8 @@ func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*strin
 			components := make([]string, 0)
 			components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
 
+			// TODO: when it's a List/Set, we should output `A list of XXX` or `One or more of XXX` (or something)
+
 			// identify block
 			if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
 				fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)

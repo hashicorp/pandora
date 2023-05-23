@@ -61,6 +61,8 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 			components = append(components, "(Optional)")
 		}
 
+		// TODO: when it's a List/Set, we should output `A list of XXX` or `One or more of XXX` (or something)
+
 		// identify block
 		if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
 			fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
