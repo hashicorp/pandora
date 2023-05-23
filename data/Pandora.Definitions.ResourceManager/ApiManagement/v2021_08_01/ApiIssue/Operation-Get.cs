@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiIssue
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new IssueId();
+    public override ResourceID? ResourceId() => new ApiIssueId();
 
     public override Type? ResponseObject() => typeof(IssueContractModel);
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_09_01.ExpressRoutePo
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AuthorizationId();
+    public override ResourceID? ResourceId() => new ExpressRoutePortAuthorizationId();
 
     public override Type? ResponseObject() => typeof(ExpressRoutePortAuthorizationModel);
 

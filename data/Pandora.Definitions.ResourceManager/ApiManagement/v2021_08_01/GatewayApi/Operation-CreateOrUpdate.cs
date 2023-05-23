@@ -16,7 +16,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(AssociationContractModel);
 
-    public override ResourceID? ResourceId() => new ApiId();
+    public override ResourceID? ResourceId() => new GatewayApiId();
 
     public override Type? ResponseObject() => typeof(ApiContractModel);
 

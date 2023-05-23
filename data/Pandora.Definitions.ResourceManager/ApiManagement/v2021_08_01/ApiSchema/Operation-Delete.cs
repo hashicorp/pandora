@@ -20,7 +20,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SchemaId();
+    public override ResourceID? ResourceId() => new ApiSchemaId();
 
     public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 

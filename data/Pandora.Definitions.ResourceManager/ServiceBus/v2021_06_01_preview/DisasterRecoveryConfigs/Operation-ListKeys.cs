@@ -21,7 +21,7 @@ internal class ListKeysOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new AuthorizationRuleId();
+    public override ResourceID? ResourceId() => new DisasterRecoveryConfigAuthorizationRuleId();
 
     public override Type? ResponseObject() => typeof(AccessKeysModel);
 

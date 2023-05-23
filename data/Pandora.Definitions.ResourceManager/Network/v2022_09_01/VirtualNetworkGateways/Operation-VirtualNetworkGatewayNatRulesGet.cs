@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_09_01.VirtualNetwork
 
 internal class VirtualNetworkGatewayNatRulesGetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new NatRuleId();
+    public override ResourceID? ResourceId() => new VirtualNetworkGatewayNatRuleId();
 
     public override Type? ResponseObject() => typeof(VirtualNetworkGatewayNatRuleModel);
 

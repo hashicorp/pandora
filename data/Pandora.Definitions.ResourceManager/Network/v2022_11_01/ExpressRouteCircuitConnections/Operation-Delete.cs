@@ -23,7 +23,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ConnectionId();
+    public override ResourceID? ResourceId() => new PeeringConnectionId();
 
 
 }

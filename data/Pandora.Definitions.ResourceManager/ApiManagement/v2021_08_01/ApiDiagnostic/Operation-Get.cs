@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.ApiDiagn
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DiagnosticId();
+    public override ResourceID? ResourceId() => new ApiDiagnosticId();
 
     public override Type? ResponseObject() => typeof(DiagnosticContractModel);
 

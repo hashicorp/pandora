@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Network.v2022_11_01.ExpressRouteCi
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ConnectionId();
+    public override ResourceID? ResourceId() => new PeeringConnectionId();
 
     public override Type? ResponseObject() => typeof(ExpressRouteCircuitConnectionModel);
 

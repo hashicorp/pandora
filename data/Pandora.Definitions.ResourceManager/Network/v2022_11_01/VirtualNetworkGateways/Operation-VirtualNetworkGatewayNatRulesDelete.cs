@@ -23,7 +23,7 @@ internal class VirtualNetworkGatewayNatRulesDeleteOperation : Pandora.Definition
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new NatRuleId();
+    public override ResourceID? ResourceId() => new VirtualNetworkGatewayNatRuleId();
 
 
 }

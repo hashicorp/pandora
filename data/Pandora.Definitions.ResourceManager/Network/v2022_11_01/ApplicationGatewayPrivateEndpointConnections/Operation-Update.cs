@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override Type? RequestObject() => typeof(ApplicationGatewayPrivateEndpointConnectionModel);
 
-    public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
+    public override ResourceID? ResourceId() => new ApplicationGatewayPrivateEndpointConnectionId();
 
     public override Type? ResponseObject() => typeof(ApplicationGatewayPrivateEndpointConnectionModel);
 

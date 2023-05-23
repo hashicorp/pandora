@@ -24,7 +24,7 @@ internal class ReimageAllOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
     public override string? UriSuffix() => "/reimageall";
 

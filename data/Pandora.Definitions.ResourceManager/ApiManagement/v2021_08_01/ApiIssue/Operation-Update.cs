@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(IssueUpdateContractModel);
 
-    public override ResourceID? ResourceId() => new IssueId();
+    public override ResourceID? ResourceId() => new ApiIssueId();
 
     public override Type? ResponseObject() => typeof(IssueContractModel);
 

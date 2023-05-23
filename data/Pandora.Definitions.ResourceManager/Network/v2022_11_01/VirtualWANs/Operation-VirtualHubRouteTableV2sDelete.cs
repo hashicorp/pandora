@@ -23,7 +23,7 @@ internal class VirtualHubRouteTableV2sDeleteOperation : Pandora.Definitions.Oper
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new RouteTableId();
+    public override ResourceID? ResourceId() => new VirtualHubRouteTableId();
 
 
 }

@@ -16,7 +16,7 @@ internal class ListByServiceOperation : Pandora.Definitions.Operations.ListOpera
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new IssueId();
+    public override ResourceID? ResourceId() => new ApiIssueId();
 
     public override Type NestedItemType() => typeof(IssueAttachmentContractModel);
 

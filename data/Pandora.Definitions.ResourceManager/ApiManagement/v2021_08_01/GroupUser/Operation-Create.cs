@@ -16,7 +16,7 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new UserId();
+    public override ResourceID? ResourceId() => new GroupUserId();
 
     public override Type? ResponseObject() => typeof(UserContractModel);
 

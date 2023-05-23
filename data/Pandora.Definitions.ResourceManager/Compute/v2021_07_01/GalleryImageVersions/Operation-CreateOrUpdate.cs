@@ -25,7 +25,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(GalleryImageVersionModel);
 
-    public override ResourceID? ResourceId() => new VersionId();
+    public override ResourceID? ResourceId() => new ImageVersionId();
 
     public override Type? ResponseObject() => typeof(GalleryImageVersionModel);
 

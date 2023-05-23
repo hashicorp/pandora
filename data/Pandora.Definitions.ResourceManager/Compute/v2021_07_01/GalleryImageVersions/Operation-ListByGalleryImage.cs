@@ -16,7 +16,7 @@ internal class ListByGalleryImageOperation : Pandora.Definitions.Operations.List
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ImageId();
+    public override ResourceID? ResourceId() => new GalleryImageId();
 
     public override Type NestedItemType() => typeof(GalleryImageVersionModel);
 
