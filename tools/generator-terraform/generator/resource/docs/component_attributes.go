@@ -42,7 +42,7 @@ func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*strin
 			components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
 
 			// identify block
-			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
 				fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
 				if err != nil {
 					return nil, err
