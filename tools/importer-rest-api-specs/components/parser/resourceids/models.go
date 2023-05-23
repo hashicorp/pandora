@@ -91,7 +91,8 @@ func (r *ParseResult) Append(other ParseResult, logger hclog.Logger) error {
 			}
 		}
 
-		namesToResourceIds, err := generateNamesForResourceIds(combinedResourceIds, logger)
+		// this may cause rename for name conflict, so have to modify the name in OriginalUrisToResourceIDs too
+		namesToResourceIds, err := generateNamesForResourceIds(combinedResourceIds, logger, r.OriginalUrisToResourceIDs)
 		if err != nil {
 			return fmt.Errorf("regenerating Names : Resource IDs for combined list: %+v", err)
 		}

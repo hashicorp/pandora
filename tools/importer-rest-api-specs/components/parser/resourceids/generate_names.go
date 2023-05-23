@@ -12,11 +12,11 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId) (*map[string]models.ParsedResourceId, error) {
-	return generateNamesForResourceIds(input, p.logger)
+func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+	return generateNamesForResourceIds(input, p.logger, uriToResourceId)
 }
 
-func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger) (*map[string]models.ParsedResourceId, error) {
+func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both
@@ -95,6 +95,8 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	}
 
 	// now we need to fix the conflicts
+	// we also have to update the ResourceIdName in OriginalUrisToResourceIDs
+	conflictUniqueNames := map[string]struct{}{}
 	for _, conflictingUris := range conflictingNamesToUris {
 		uniqueNames, err := determineUniqueNamesFor(conflictingUris, candidateNamesToUris)
 		if err != nil {
@@ -107,6 +109,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 		}
 
 		for k, v := range *uniqueNames {
+			conflictUniqueNames[k] = struct{}{}
 			candidateNamesToUris[k] = v
 		}
 	}
@@ -116,6 +119,15 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	for k, v := range candidateNamesToUris {
 		key := fmt.Sprintf("%sId", cleanup.NormalizeName(k))
 		outputNamesToUris[key] = v
+
+		if _, ok := conflictUniqueNames[k]; ok {
+			for idx, v2 := range uriToResourceId {
+				if v2.ResourceId != nil && v2.ResourceId.Matches(v) && (v2.ResourceIdName != nil && *v2.ResourceIdName != key) {
+					v2.ResourceIdName = &key
+					uriToResourceId[idx] = v2
+				}
+			}
+		}
 	}
 
 	return &outputNamesToUris, nil
