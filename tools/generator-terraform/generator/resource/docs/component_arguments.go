@@ -8,6 +8,16 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var objectDefinitionsWhichShouldBeSurfacedAsBlocks = map[resourcemanager.TerraformSchemaFieldType]struct{}{
+	resourcemanager.TerraformSchemaFieldTypeReference: {},
+
+	// The Identity types should be output as blocks, since these are blocks within commonschema
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
+}
+
 func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
 
 	topLevelArgs, err := getArguments(input.SchemaModels[input.SchemaModelName], input.Details.DisplayName)
@@ -52,7 +62,7 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 		}
 
 		// identify block
-		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
 			fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
 			if err != nil {
 				return nil, err
