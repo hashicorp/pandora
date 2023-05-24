@@ -8,13 +8,13 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateOperations(files *Tree, packageName string, resources []*Resource, logger hclog.Logger) error {
+func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources []*Resource, logger hclog.Logger) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
 	for _, resource := range resources {
 		// Skip functions and casts for now
-		if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+		if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataFunction {
 			logger.Debug("Skipping suspected function/cast resource", "resource", resource.ID.ID())
 			continue
 		}
@@ -35,41 +35,6 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 					argNames = append(argNames, argName)
 					args = append(args, fmt.Sprintf("%s string", argName))
 				}
-			}
-
-			operationType := operation.Type.Name(resource.ID)
-
-			// Name the operationFile according to the final URI segment, or deriving it from the tag
-			var clientMethodNameTarget string
-			if lastLabel := resource.ID.LastLabel(); lastLabel != nil {
-				if operation.Type == OperationTypeList {
-					clientMethodNameTarget = pluralize(cleanName(lastLabel.Value))
-				} else {
-					clientMethodNameTarget = singularize(cleanName(lastLabel.Value))
-				}
-			}
-
-			if clientMethodNameTarget == "" {
-				if len(operation.Tags) > 1 {
-					return fmt.Errorf("found %d tags for operation %s/%s: %s", len(operation.Tags), resource.ID.ID(), operationType, operation.Tags)
-				} else if len(operation.Tags) == 1 {
-					t := strings.Split(operation.Tags[0], ".")
-					if len(t) != 2 {
-						return fmt.Errorf("invalid tag for operation %s/%s: %s", resource.ID.ID(), operationType, operation.Tags[0])
-					}
-					clientMethodNameTarget = cleanName(t[1])
-				}
-			}
-
-			// TODO: this shouldn't happen, but probably log/handle this
-			if clientMethodNameTarget == "" {
-				logger.Debug("Skipping operation with empty method name", "resource", resource.ID.ID(), "method", operation.Method)
-				continue
-			}
-
-			// Pluralize for list operations
-			if operation.Type == OperationTypeList {
-				clientMethodNameTarget = pluralize(clientMethodNameTarget)
 			}
 
 			// Determine request model
@@ -112,25 +77,25 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
-				methodCode = templateListMethod(resource, &operation, operationType, responseModel, args)
+				methodCode = templateListMethod(resource, &operation, responseModel, args)
 			case OperationTypeRead:
 				if responseModel == "" {
 					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
-				methodCode = templateReadMethod(resource, &operation, operationType, responseModel, statuses)
+				methodCode = templateReadMethod(resource, &operation, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
 				if requestModelVar == "" {
 					logger.Debug("Skipping operation with empty request model var", "resource", resource.ID.ID(), "method", operation.Method)
 					continue
 				}
-				methodCode = templateCreateUpdateMethod(resource, &operation, operationType, requestModel, responseModel, statuses)
+				methodCode = templateCreateUpdateMethod(resource, &operation, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
-				methodCode = templateDeleteMethod(resource, &operation, operationType, statuses)
+				methodCode = templateDeleteMethod(resource, &operation, statuses)
 			}
 
 			// Build it
-			clientMethodFile := fmt.Sprintf("%s/%s/%s/Operation-%s.cs", resource.Service, cleanVersion(resource.Version), resource.Name, operationType)
+			clientMethodFile := fmt.Sprintf("%s/%s/%s/Operation-%s.cs", resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name)
 			operations[clientMethodFile] = methodCode
 		}
 	}
@@ -146,7 +111,7 @@ func (pipelineTask) templateOperations(files *Tree, packageName string, resource
 	return nil
 }
 
-func templateListMethod(resource *Resource, operation *Operation, operationType, responseModel string, args []string) string {
+func templateListMethod(resource *Resource, operation *Operation, responseModel string, args []string) string {
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.MicrosoftGraph.Models;
 using System;
@@ -156,23 +121,23 @@ using System;
 
 namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
 
-internal class %[4]sOperation : Operations.%[4]sOperation
+internal class %[4]sOperation : Operations.%[5]sOperation
 {
-    public override string? FieldContainingPaginationDetails() => "nextLink";
+   public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => null;
+   public override ResourceID? ResourceId() => null;
 
-    public override Type NestedItemType() => typeof(%[5]sModel);
+   public override Type NestedItemType() => typeof(%[6]sModel);
 
-    public override string? UriSuffix() => "%[6]s";
+   public override string? UriSuffix() => "%[7]s";
 
-
-}
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, responseModel, resource.ID.ID()) // TODO: resource ID to be calculated
 
 }
+`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), responseModel, resource.ID.ID()) // TODO: resource ID to be calculated
 
-func templateReadMethod(resource *Resource, operation *Operation, operationType, responseModel string, statuses []string) string {
+}
+
+func templateReadMethod(resource *Resource, operation *Operation, responseModel string, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -205,10 +170,10 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName, responseModel)
 }
 
-func templateCreateUpdateMethod(resource *Resource, operation *Operation, operationType, requestModel, responseModel string, statuses []string) string {
+func templateCreateUpdateMethod(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -250,10 +215,10 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestModel, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestModel, resourceIdName, responseModel)
 }
 
-func templateDeleteMethod(resource *Resource, operation *Operation, operationType string, statuses []string) string {
+func templateDeleteMethod(resource *Resource, operation *Operation, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -289,5 +254,5 @@ internal class %[4]sOperation : Operations.%[5]sOperation
 
 
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, operationType, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName)
+`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName)
 }

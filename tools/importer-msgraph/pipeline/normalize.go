@@ -7,17 +7,20 @@ import (
 	"strings"
 )
 
-func singularize(model string) string {
-	if len(model) >= 3 && model[len(model)-3:] == "ies" {
-		return fmt.Sprintf("%sy", model[:len(model)-3])
+func singularize(name string) string {
+	if len(name) >= 3 && name[len(name)-3:] == "ies" {
+		return fmt.Sprintf("%sy", name[:len(name)-3])
 	}
-	if len(model) >= 1 && model[len(model)-1:] == "s" {
-		return model[:len(model)-1]
+	if len(name) >= 1 && name[len(name)-1:] == "s" {
+		return name[:len(name)-1]
 	}
-	return model
+	return name
 }
 
 func pluralize(name string) string {
+	if name == "" {
+		return ""
+	}
 	ret := fmt.Sprintf("%ss", name)
 	if strings.EqualFold(name, "me") {
 		return name

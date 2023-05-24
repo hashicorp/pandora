@@ -31,23 +31,23 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 		return err
 	}
 
-	tags, err := parseTags(spec)
+	services, err := parseTags(spec)
 	if err != nil {
 		return err
 	}
 
-	tagNames := make([]string, 0, len(tags))
-	for tagName := range tags {
-		tagNames = append(tagNames, tagName)
+	serviceNames := make([]string, 0, len(services))
+	for name := range services {
+		serviceNames = append(serviceNames, name)
 	}
-	sort.Strings(tagNames)
+	sort.Strings(serviceNames)
 
-	for _, tag := range tagNames {
-		subTags := tags[tag]
+	for _, service := range serviceNames {
+		serviceTags := services[service]
 		if len(input.Tags) > 0 {
 			skip := true
 			for _, t := range input.Tags {
-				if strings.EqualFold(tag, t) {
+				if strings.EqualFold(service, t) {
 					skip = false
 					break
 				}
@@ -57,7 +57,7 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 			}
 		}
 
-		if err = runImportForTag(input, files, tag, subTags, spec, swaggerGitSha); err != nil {
+		if err = runImportForService(input, files, service, serviceTags, spec, swaggerGitSha); err != nil {
 			return err
 		}
 	}
@@ -71,28 +71,25 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 	return nil
 }
 
-func runImportForTag(input RunInput, files *Tree, tag string, subTags []string, spec *openapi3.T, swaggerGitSha string) error {
+func runImportForService(input RunInput, files *Tree, service string, serviceTags []string, spec *openapi3.T, swaggerGitSha string) error {
 	logger := input.Logger
 	task := pipelineTask{
 		spec:          spec,
 		swaggerGitSha: swaggerGitSha,
 	}
 
-	logger.Info(fmt.Sprintf("Parsing resource IDs for: %s", tag))
-	task.resourceIds = task.parseResourceIDsForTag(tag, subTags, spec.Paths)
+	logger.Info(fmt.Sprintf("Parsing resources for: %s", service))
+	resources := task.parseResourcesForService(service, serviceTags, spec.Paths)
 
-	logger.Info(fmt.Sprintf("Parsing resources for: %s", tag))
-	resources := task.parseResourcesForTag(tag, task.resourceIds)
-
-	//logger.Info(fmt.Sprintf("Templating client for: %s", tag))
-	//if err := task.templateClient(files, tag); err != nil {
-	//	return err
-	//}
-
-	logger.Info(fmt.Sprintf("Templating methods for: %s", tag))
-	if err := task.templateOperations(files, tag, resources, logger); err != nil {
+	logger.Info(fmt.Sprintf("Templating methods for: %s", service))
+	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {
 		return err
 	}
+
+	//logger.Info(fmt.Sprintf("Templating resource IDs for: %s", tag))
+	//if err := task.templateResourceIds(files, tag, resources, logger); err != nil {
+	//	return err
+	//}
 
 	return nil
 }

@@ -6,10 +6,10 @@ import (
 )
 
 type ResourceId struct {
-	Name     string
+	//Name     string
 	Segments []ResourceIdSegment
-	Tag      string
-	SubTags  []string
+	//Tag      string
+	//SubTags  []string
 }
 
 func (r ResourceId) ID() string {
@@ -33,7 +33,21 @@ func (r ResourceId) IDf() string {
 }
 
 func (r ResourceId) LastLabel() *ResourceIdSegment {
-	for i := len(r.Segments) - 1; i > 0; i-- {
+	//for i := len(r.Segments) - 1; i > 0; i-- {
+	//	if segment := r.Segments[i]; segment.Type == SegmentLabel && regexp.MustCompile("^[a-zA-Z]+$").MatchString(segment.Value) {
+	//		return &segment
+	//	}
+	//}
+	//return nil
+	return r.LastLabelBeforeSegment(-1)
+}
+
+func (r ResourceId) LastLabelBeforeSegment(i int) *ResourceIdSegment {
+	if segmentsLen := len(r.Segments); i < 0 || i > segmentsLen {
+		i = segmentsLen
+	}
+	for i > 0 {
+		i--
 		if segment := r.Segments[i]; segment.Type == SegmentLabel && regexp.MustCompile("^[a-zA-Z]+$").MatchString(segment.Value) {
 			return &segment
 		}

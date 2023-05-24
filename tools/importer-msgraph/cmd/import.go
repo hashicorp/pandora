@@ -34,7 +34,7 @@ type ImportCommand struct {
 }
 
 func (ImportCommand) Synopsis() string {
-	return "Imports Microsoft Graph API metadata and outputs a Go SDK"
+	return "Imports Microsoft Graph API metadata and outputs HCL data definitions"
 }
 
 func (ImportCommand) Help() string {
