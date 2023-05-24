@@ -10,12 +10,57 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// TODO: enable documentation for the CommonSchema blocks
+type commonSchemaDocsBuilderFunc = func(resourceName string) []string
 
-//var documentationForCommonSchemaBlocksAttributes = map[resourcemanager.TerraformSchemaFieldType]string{
-//}
-//
-//var documentationForCommonSchemaBlocksArguments = map[resourcemanager.TerraformSchemaFieldType]string{}
+var documentationForCommonSchemaBlocksAttributes = map[resourcemanager.TerraformSchemaFieldType]commonSchemaDocsBuilderFunc{
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `type` - (Required) Specifies the type of Managed Identity that should be assigned to this %s. The only possible value is `SystemAssigned`.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `type` - (Required) Specifies the type of Managed Identity that should be assigned to this %s. Possible values are `SystemAssigned`, `SystemAssigned, UserAssigned` and `UserAssigned`.", resourceName),
+			fmt.Sprintf("* `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this %s.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `type` - (Required) Specifies the type of Managed Identity that should be assigned to this %s. Possible values are `SystemAssigned` and `UserAssigned`.", resourceName),
+			fmt.Sprintf("* `identity_ids` - (Optional) A list of the User Assigned Identity IDs that should be assigned to this %s.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `identity_ids` - (Required) A list of the User Assigned Identity IDs that should be assigned to this %s.", resourceName),
+			fmt.Sprintf("* `type` - (Required) Specifies the type of Managed Identity that should be assigned to this %s. The only possible value is `UserAssigned`.", resourceName),
+		}
+	},
+}
+
+var documentationForCommonSchemaBlocksArguments = map[resourcemanager.TerraformSchemaFieldType]commonSchemaDocsBuilderFunc{
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+			fmt.Sprintf("* `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+			fmt.Sprintf("* `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(resourceName string) []string {
+		return []string{
+			fmt.Sprintf("* `principal_id` - The Principal ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+			fmt.Sprintf("* `tenant_id` - The Tenant ID for the System-Assigned Managed Identity assigned to this %s.", resourceName),
+		}
+	},
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(resourceName string) []string {
+		return []string{}
+	},
+}
 
 type blockDefinition struct {
 	// isList specifies whether this blockDefinition is a List (for example, so we can output "Each XXX block supports"
@@ -68,7 +113,7 @@ func codeForBlocksReference(input models.ResourceInput) (*string, error) {
 	if len(documentation) > 0 {
 		output = fmt.Sprintf(`## Blocks Reference
 
-%s`, strings.Join(documentation, "\n---\n"))
+%s`, strings.Join(documentation, "\n\n"))
 	}
 
 	return &output, nil
@@ -183,7 +228,7 @@ func buildDocumentationForBlock(blockName string, definitions []blockDefinition,
 		linesForBlocks = append(linesForBlocks, *docsForBlock)
 	}
 
-	output := strings.Join(linesForBlocks, "---\n\n")
+	output := strings.Join(linesForBlocks, "\n\n")
 	return &output, nil
 }
 
@@ -201,7 +246,7 @@ func documentationForBlock(blockName string, objectDefinition blockDefinition, s
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for block %s: %+v", blockName, err)
 	}
-	attributesForBlock, err := getAttributesForBlock(objectDefinition.objectDefinition, objectDefinition.nestedWithin, schemaModels)
+	attributesForBlock, err := getAttributesForBlock(objectDefinition.objectDefinition, objectDefinition.nestedWithin, schemaModels, resourceName)
 	if err != nil {
 		return nil, fmt.Errorf("building attributes for block %s: %+v", blockName, err)
 	}
@@ -227,6 +272,13 @@ func documentationForBlock(blockName string, objectDefinition blockDefinition, s
 }
 
 func getArgumentsForBlock(objectDefinition resourcemanager.TerraformSchemaFieldObjectDefinition, nestedWithin string, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, resourceName string) (*[]string, error) {
+	// if it's a commonschema item, the documentation is hand-defined since it's a reference, so we should pull this out
+	commonSchemaArgsFunc, isCommonSchemaField := documentationForCommonSchemaBlocksAttributes[objectDefinition.Type]
+	if isCommonSchemaField {
+		out := commonSchemaArgsFunc(resourceName)
+		return &out, nil
+	}
+
 	if objectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference {
 		return nil, fmt.Errorf("expected a reference but got %q", string(objectDefinition.Type))
 	}
@@ -268,7 +320,15 @@ func getArgumentsForBlock(objectDefinition resourcemanager.TerraformSchemaFieldO
 
 	return &lines, nil
 }
-func getAttributesForBlock(objectDefinition resourcemanager.TerraformSchemaFieldObjectDefinition, nestedWithin string, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) (*[]string, error) {
+
+func getAttributesForBlock(objectDefinition resourcemanager.TerraformSchemaFieldObjectDefinition, nestedWithin string, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, resourceName string) (*[]string, error) {
+	// if it's a commonschema item, the documentation is hand-defined since it's a reference, so we should pull this out
+	commonSchemaAttrsFunc, isCommonSchemaField := documentationForCommonSchemaBlocksArguments[objectDefinition.Type]
+	if isCommonSchemaField {
+		out := commonSchemaAttrsFunc(resourceName)
+		return &out, nil
+	}
+
 	if objectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference {
 		return nil, fmt.Errorf("expected a reference but got %q", string(objectDefinition.Type))
 	}

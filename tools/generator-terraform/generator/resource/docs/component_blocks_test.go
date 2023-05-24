@@ -15,6 +15,9 @@ import (
 
 func TestComponentBlocks_ModelsSingle(t *testing.T) {
 	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -115,6 +118,9 @@ The 'required_nested_item' block exports the following attributes:
 
 func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -379,8 +385,6 @@ The 'another_nested_item' block supports the following arguments:
 
 * 'optional_item' - (Optional) Description for optional_item. Possible values are 'string1', 'string2' and 'string3'.
 
----
-
 ### 'optional_nested_item' Block
 
 The 'optional_nested_item' block supports the following arguments:
@@ -394,8 +398,6 @@ The 'optional_nested_item' block supports the following arguments:
 The 'optional_nested_item' block exports the following attributes:
 
 * 'computed_item' - Description for computed_string.
-
----
 
 ### 'required_nested_item' Block
 
@@ -411,8 +413,6 @@ The 'required_nested_item' block exports the following attributes:
 
 * 'computed_item' - Description for computed_item.
 
----
-
 ### 'z_another_nested_item_2' Block
 
 The 'z_another_nested_item_2' block supports the following arguments:
@@ -426,6 +426,9 @@ The 'z_another_nested_item_2' block supports the following arguments:
 
 func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *testing.T) {
 	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -528,15 +531,11 @@ The 'example' block exports the following attributes:
 
 * 'computed_field' - Description for computed_field.
 
----
-
 ### 'first' Block
 
 The 'first' block supports the following arguments:
 
 * 'example' - (Required) An 'example' block as defined below. Description for example.
-
----
 
 ### 'second' Block
 
@@ -551,6 +550,9 @@ The 'second' block supports the following arguments:
 
 func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShouldBeOutputUniquely(t *testing.T) {
 	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
@@ -677,8 +679,6 @@ The 'example' block within the 'first' block exports the following attributes:
 
 * 'computed_field' - Description for computed_field.
 
----
-
 ### 'example' Block (within the 'second' block)
 
 The 'example' block within the 'second' block supports the following arguments:
@@ -689,21 +689,386 @@ The 'example' block within the 'second' block exports the following attributes:
 
 * 'computed_field' - Description for computed_field.
 
----
-
 ### 'first' Block
 
 The 'first' block supports the following arguments:
 
 * 'example' - (Required) An 'example' block as defined below. Description for example.
 
----
-
 ### 'second' Block
 
 The 'second' block supports the following arguments:
 
 * 'example' - (Required) An 'example' block as defined below. Description for example.
+
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"First": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("First"),
+						},
+						Required: true,
+						HclName:  "first",
+					},
+					"SystemAssignedIdentity": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						},
+						Required: true,
+						HclName:  "system_assigned_identity",
+					},
+					"Second": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("Second"),
+						},
+						Required: true,
+						HclName:  "second",
+					},
+					"Third": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("Third"),
+						},
+						Required: true,
+						HclName:  "third",
+					},
+				},
+			},
+			"First": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						HclName:  "some_field",
+						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+							Markdown: "Description for `some_field`.",
+						},
+					},
+				},
+			},
+			"Second": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						HclName:  "some_field",
+						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+							Markdown: "Description for `some_field`.",
+						},
+					},
+				},
+			},
+			"Third": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						HclName:  "some_field",
+						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+							Markdown: "Description for `some_field`.",
+						},
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'first' block
+
+The 'first' block supports the following arguments:
+
+* 'some_field' - (Required) Description for 'some_field'.
+
+### 'second' block
+
+The 'second' block supports the following arguments:
+
+* 'some_field' - (Required) Description for 'some_field'.
+
+### 'system_assigned_identity' Block
+
+The 'system_assigned_identity' block supports the following arguments:
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. The only possible value is 'SystemAssigned'.
+
+The 'system_assigned_identity' block exports the following attributes:
+
+* 'principal_id' - The Principal ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+* 'tenant_id' - The Tenant ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+### 'third' block
+
+The 'third' block supports the following arguments:
+
+* 'some_field' - (Required) Description for 'some_field'.
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_NestedIdentityBlockGetsPulledOut(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("First"),
+						},
+						Required: true,
+						HclName:  "first",
+					},
+				},
+			},
+			"First": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"SomeIdentityField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						},
+						Required: true,
+						HclName:  "some_identity_field",
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'first' block
+
+The 'first' block supports the following arguments:
+
+* 'some_identity_field' - (Required) A 'some_identity_field' block as defined below.
+
+### 'some_identity_field' Block
+
+The 'some_identity_field' block supports the following arguments:
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. The only possible value is 'SystemAssigned'.
+
+The 'some_identity_field' block exports the following attributes:
+
+* 'principal_id' - The Principal ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+* 'tenant_id' - The Tenant ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_IdentitySystemAssigned(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelResourceSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelResourceSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						},
+						Required: true,
+						HclName:  "required_nested_item",
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. The only possible value is 'SystemAssigned'.
+
+The 'required_nested_item' block exports the following attributes:
+
+* 'principal_id' - The Principal ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+* 'tenant_id' - The Tenant ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_IdentitySystemAndUserAssigned(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelResourceSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelResourceSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+						},
+						Required: true,
+						HclName:  "required_nested_item",
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. Possible values are 'SystemAssigned', 'SystemAssigned, UserAssigned' and 'UserAssigned'.
+
+* 'identity_ids' - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Blobby Instance.
+
+The 'required_nested_item' block exports the following attributes:
+
+* 'principal_id' - The Principal ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+* 'tenant_id' - The Tenant ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_IdentitySystemOrUserAssigned(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelResourceSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelResourceSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+						},
+						Required: true,
+						HclName:  "required_nested_item",
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. Possible values are 'SystemAssigned' and 'UserAssigned'.
+
+* 'identity_ids' - (Optional) A list of the User Assigned Identity IDs that should be assigned to this Blobby Instance.
+
+The 'required_nested_item' block exports the following attributes:
+
+* 'principal_id' - The Principal ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+* 'tenant_id' - The Tenant ID for the System-Assigned Managed Identity assigned to this Blobby Instance.
+
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_IdentityUserAssigned(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelResourceSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelResourceSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+						},
+						Required: true,
+						HclName:  "required_nested_item",
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'identity_ids' - (Required) A list of the User Assigned Identity IDs that should be assigned to this Blobby Instance.
+
+* 'type' - (Required) Specifies the type of Managed Identity that should be assigned to this Blobby Instance. The only possible value is 'UserAssigned'.
 
 `, "'", "`")
 
