@@ -19,7 +19,7 @@ internal class ServerModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
+    public UserAssignedIdentityModel? Identity { get; set; }
 
     [JsonPropertyName("location")]
     [Required]
