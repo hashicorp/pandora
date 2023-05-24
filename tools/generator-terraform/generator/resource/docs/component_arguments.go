@@ -38,12 +38,13 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 	for _, fieldName := range sortedFieldNames {
 		field := model.Fields[fieldName]
 
-		// we only want Required attributes
+		// we only want Required Arguments
 		if !field.Required || field.Optional || field.Computed {
 			continue
 		}
 
-		docs, err := documentationLineForArgument(field, "")
+		nestedWithin := "" // top-level so not nested
+		docs, err := documentationLineForArgument(field, nestedWithin, resourceName)
 		if err != nil {
 			return nil, fmt.Errorf("building documentation line for required argument/field %q: %+v", fieldName, err)
 		}
@@ -54,12 +55,13 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 	for _, fieldName := range sortedFieldNames {
 		field := model.Fields[fieldName]
 
-		// we only want Optional fields (which includes Optional + Computed fields)
+		// we only want Optional Arguments (which includes Optional + Computed fields)
 		if !field.Optional || field.Required {
 			continue
 		}
 
-		docs, err := documentationLineForArgument(field, resourceName)
+		nestedWithin := "" // top-level so not nested
+		docs, err := documentationLineForArgument(field, nestedWithin, resourceName)
 		if err != nil {
 			return nil, fmt.Errorf("building documentation line for optional argument/field %q: %+v", fieldName, err)
 		}
@@ -70,7 +72,8 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 	return &out, nil
 }
 
-func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefinition, resourceName string) (*string, error) {
+// TODO: perhaps we should have specific tests covering each line (to validate things like above/below/validation etc?)
+func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin, resourceName string) (*string, error) {
 	components := make([]string, 0)
 	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
 

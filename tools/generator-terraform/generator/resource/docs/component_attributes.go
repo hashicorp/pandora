@@ -36,7 +36,7 @@ func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*strin
 	for _, fieldName := range sortedFieldNames {
 		field := model.Fields[fieldName]
 		if field.Computed && !field.Optional && !field.Required {
-			line, err := documentationLineForAttribute(field)
+			line, err := documentationLineForAttribute(field, "")
 			if err != nil {
 				return nil, fmt.Errorf("building documentation line for attribute field %q: %+v", fieldName, err)
 			}
@@ -47,7 +47,8 @@ func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*strin
 	return &out, nil
 }
 
-func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
+// TODO: perhaps we should have specific tests covering each line (to validate things like above/below/validation etc?)
+func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin string) (*string, error) {
 	components := make([]string, 0)
 	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
 
@@ -64,6 +65,7 @@ func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDef
 		} else {
 			components = append(components, "A")
 		}
+
 		components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
 	}
 	components = append(components, field.Documentation.Markdown)

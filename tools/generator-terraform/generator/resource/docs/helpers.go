@@ -9,6 +9,24 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+var objectDefinitionsWhichShouldBeSurfacedAsBlocks = map[resourcemanager.TerraformSchemaFieldType]struct{}{
+	resourcemanager.TerraformSchemaFieldTypeReference: {},
+
+	// The Identity types should be output as blocks, since these are blocks within commonschema
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
+}
+
+func topLevelObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+	if input.NestedObject != nil {
+		return topLevelObjectDefinition(*input.NestedObject)
+	}
+
+	return input
+}
+
 // wordifySegmentName takes an input PascalCased string and converts it to a more human-friendly variant
 // e.g. `applicationGroupName` -> `Application Group`
 func wordifySegmentName(input string) string {
@@ -60,7 +78,6 @@ func wordifyTimeout(inMinutes int) string {
 }
 
 func beginsWithVowel(word string) (bool, error) {
-
 	if len(word) == 0 {
 		return false, fmt.Errorf("cannot check if an empty string begins with a vowel")
 	}
@@ -108,4 +125,39 @@ func wordifyPossibleValues[T any](in []T) string {
 func removeExtraSpaces(line string) string {
 	re := regexp.MustCompile(`\s+`)
 	return re.ReplaceAllString(line, " ")
+}
+
+func objectDefinitionsMatch(first resourcemanager.TerraformSchemaFieldObjectDefinition, second resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
+	if first.Type != second.Type {
+		return false
+	}
+	if first.NestedObject != nil {
+		if second.NestedObject != nil {
+			if nestedMatches := objectDefinitionsMatch(*first.NestedObject, *second.NestedObject); !nestedMatches {
+				return false
+			}
+		}
+
+		if second.NestedObject == nil {
+			return false
+		}
+	}
+	if second.NestedObject != nil && first.NestedObject == nil {
+		return false
+	}
+
+	if first.ReferenceName != nil {
+		if *first.ReferenceName != *second.ReferenceName {
+			return false
+		}
+
+		if second.ReferenceName == nil {
+			return false
+		}
+	}
+	if second.ReferenceName != nil && first.ReferenceName == nil {
+		return false
+	}
+
+	return true
 }
