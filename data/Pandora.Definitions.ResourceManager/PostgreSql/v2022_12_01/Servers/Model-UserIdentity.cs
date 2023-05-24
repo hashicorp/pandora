@@ -13,17 +13,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.PostgreSql.v2022_12_01.Servers;
 
 
-internal class ServerForUpdateModel
+internal class UserIdentityModel
 {
-    [JsonPropertyName("identity")]
-    public UserAssignedIdentityModel? Identity { get; set; }
+    [JsonPropertyName("clientId")]
+    public string? ClientId { get; set; }
 
-    [JsonPropertyName("properties")]
-    public ServerPropertiesForUpdateModel? Properties { get; set; }
-
-    [JsonPropertyName("sku")]
-    public SkuModel? Sku { get; set; }
-
-    [JsonPropertyName("tags")]
-    public CustomTypes.Tags? Tags { get; set; }
+    [JsonPropertyName("principalId")]
+    public string? PrincipalId { get; set; }
 }
