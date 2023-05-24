@@ -30,38 +30,44 @@ func codeForAttributesReference(input models.ResourceInput) (*string, error) {
 }
 
 func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
-
 	lines := make([]string, 0)
 	sortedFieldNames := sortFieldNamesAlphabetically(model)
 
 	for _, fieldName := range sortedFieldNames {
 		field := model.Fields[fieldName]
 		if field.Computed && !field.Optional && !field.Required {
-
-			components := make([]string, 0)
-			components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
-
-			// TODO: when it's a List/Set, we should output `A list of XXX` or `One or more of XXX` (or something)
-
-			// identify block
-			if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
-				fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
-				if err != nil {
-					return nil, err
-				}
-				if fieldBeginsWithVowel {
-					components = append(components, "An")
-				} else {
-					components = append(components, "A")
-				}
-				components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
+			line, err := documentationLineForAttribute(field)
+			if err != nil {
+				return nil, fmt.Errorf("building documentation line for attribute field %q: %+v", fieldName, err)
 			}
-			components = append(components, field.Documentation.Markdown)
-
-			line := removeExtraSpaces(strings.Join(components, " "))
-			lines = append(lines, line)
+			lines = append(lines, *line)
 		}
 	}
 	out := strings.Join(append(lines), "\n\n")
 	return &out, nil
+}
+
+func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
+	components := make([]string, 0)
+	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
+
+	// TODO: when it's a List/Set, we should output `A list of XXX` or `One or more of XXX` (or something)
+
+	// identify block
+	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
+		fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+		if err != nil {
+			return nil, err
+		}
+		if fieldBeginsWithVowel {
+			components = append(components, "An")
+		} else {
+			components = append(components, "A")
+		}
+		components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
+	}
+	components = append(components, field.Documentation.Markdown)
+
+	line := removeExtraSpaces(strings.Join(components, " "))
+	return &line, nil
 }
