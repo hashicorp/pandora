@@ -242,11 +242,11 @@ func documentationForBlock(blockName string, objectDefinition blockDefinition, s
 		descriptionPrefix = fmt.Sprintf("%s within the `%s` block", descriptionPrefix, objectDefinition.nestedWithin)
 	}
 
-	argumentsForBlock, err := getArgumentsForBlock(objectDefinition.objectDefinition, objectDefinition.nestedWithin, schemaModels, resourceName)
+	argumentsForBlock, err := getArgumentsForBlock(objectDefinition.objectDefinition, blockName, schemaModels, resourceName)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for block %s: %+v", blockName, err)
 	}
-	attributesForBlock, err := getAttributesForBlock(objectDefinition.objectDefinition, objectDefinition.nestedWithin, schemaModels, resourceName)
+	attributesForBlock, err := getAttributesForBlock(objectDefinition.objectDefinition, blockName, schemaModels, resourceName)
 	if err != nil {
 		return nil, fmt.Errorf("building attributes for block %s: %+v", blockName, err)
 	}

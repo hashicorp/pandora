@@ -10,8 +10,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
-// TODO: above/below
-
 func TestComponentBlocks_ModelsSingle(t *testing.T) {
 	input := models.ResourceInput{
 		Details: resourcemanager.TerraformResourceDetails{
@@ -388,7 +386,7 @@ The 'another_nested_item' block supports the following arguments:
 
 The 'optional_nested_item' block supports the following arguments:
 
-* 'another_nested_item' - (Optional) An 'another_nested_item' block as defined below. 
+* 'another_nested_item' - (Optional) An 'another_nested_item' block as defined above. 
 
 * 'nested_item' - (Optional) Description for nested_item. Possible values are 'string1', 'string2' and 'string3'.
 
@@ -534,13 +532,13 @@ The 'example' block exports the following attributes:
 
 The 'first' block supports the following arguments:
 
-* 'example' - (Required) An 'example' block as defined below. Description for example.
+* 'example' - (Required) An 'example' block as defined above. Description for example.
 
 ### 'second' Block
 
 The 'second' block supports the following arguments:
 
-* 'example' - (Required) An 'example' block as defined below. Description for example.
+* 'example' - (Required) An 'example' block as defined above. Description for example.
 
 `, "'", "`")
 
@@ -692,13 +690,13 @@ The 'example' block within the 'second' block exports the following attributes:
 
 The 'first' block supports the following arguments:
 
-* 'example' - (Required) An 'example' block as defined below. Description for example.
+* 'example' - (Required) An 'example' block as defined above. Description for example.
 
 ### 'second' Block
 
 The 'second' block supports the following arguments:
 
-* 'example' - (Required) An 'example' block as defined below. Description for example.
+* 'example' - (Required) An 'example' block as defined above. Description for example.
 
 `, "'", "`")
 
@@ -773,7 +771,7 @@ The 'required_item' block supports the following arguments:
 
 The 'required_nested_item' block supports the following arguments:
 
-* 'required_item' - (Required) A list of 'required_item' blocks as defined below.
+* 'required_item' - (Required) A list of 'required_item' blocks as defined above.
 
 `, "'", "`")
 
@@ -839,6 +837,14 @@ func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testi
 			},
 			"Second": {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"First": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("First"),
+						},
+						Optional: true,
+						HclName:  "first",
+					},
 					"SomeField": {
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeString,
@@ -885,6 +891,8 @@ The 'first' block supports the following arguments:
 The 'second' block supports the following arguments:
 
 * 'some_field' - (Required) Description for 'some_field'.
+
+* 'first' - (Optional) A 'first' block as defined above.
 
 ### 'system_assigned_identity' Block
 
