@@ -72,7 +72,6 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 	return &out, nil
 }
 
-// TODO: perhaps we should have specific tests covering each line (to validate things like above/below/validation etc?)
 func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin, resourceName string) (*string, error) {
 	components := make([]string, 0)
 	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
@@ -83,20 +82,27 @@ func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefi
 		components = append(components, "(Optional)")
 	}
 
-	// TODO: when it's a List/Set, we should output `A list of XXX` or `One or more of XXX` (or something)
+	isList := false
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+		isList = true
+	}
+	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
 
 	// identify block
-	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[field.ObjectDefinition.Type]; ok {
+	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[objectDefinition.Type]; ok {
 		fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
 		if err != nil {
 			return nil, err
 		}
-		if fieldBeginsWithVowel {
-			components = append(components, "An")
+		if isList {
+			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined below.", field.HclName))
 		} else {
-			components = append(components, "A")
+			if fieldBeginsWithVowel {
+				components = append(components, fmt.Sprintf("An `%s` block as defined below.", field.HclName))
+			} else {
+				components = append(components, fmt.Sprintf("A `%s` block as defined below.", field.HclName))
+			}
 		}
-		components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
 	}
 
 	components = append(components, field.Documentation.Markdown)
