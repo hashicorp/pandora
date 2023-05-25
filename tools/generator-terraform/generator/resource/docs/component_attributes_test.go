@@ -1047,3 +1047,70 @@ In addition to the Arguments listed above - the following Attributes are exporte
 
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestDocumentationLineForAttribute_ReferencingAModel(t *testing.T) {
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			ReferenceName: pointer.To("Other"),
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+		},
+		Computed: false,
+		ForceNew: false,
+		HclName:  "some_item",
+		Optional: true,
+		Required: false,
+	}
+	actual, err := documentationLineForAttribute(input, "")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `some_item` - A `some_item` block as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForAttribute_ReferencingAList(t *testing.T) {
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeList,
+			NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+				ReferenceName: pointer.To("Other"),
+				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			},
+		},
+		Computed: false,
+		ForceNew: false,
+		HclName:  "some_item",
+		Optional: true,
+		Required: false,
+	}
+	actual, err := documentationLineForAttribute(input, "")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `some_item` - A list of `some_item` blocks as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForAttribute_ReferencingASet(t *testing.T) {
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeSet,
+			NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+				ReferenceName: pointer.To("Other"),
+				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			},
+		},
+		Computed: false,
+		ForceNew: false,
+		HclName:  "some_item",
+		Optional: true,
+		Required: false,
+	}
+	actual, err := documentationLineForAttribute(input, "")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	// Sets are technically different internally, but still exposed to users in the same fashion, so we reuse `List` here
+	expected := "* `some_item` - A list of `some_item` blocks as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
