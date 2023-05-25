@@ -2,60 +2,67 @@ package pipeline
 
 import (
 	"fmt"
+	"strings"
+
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateResourceIds(files *Tree, packageName string, resources []*Resource, logger hclog.Logger) error {
+func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resources map[string]*Resource, logger hclog.Logger) error {
 	resourceIds := make(map[string]string)
 
 	for _, resource := range resources {
-		clientMethodFile := fmt.Sprintf("%s/%s/%s/ResourceId-%s.cs", resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), "BLAH")
-		resourceIds[clientMethodFile] = templateResourceId(resource)
+		for _, operation := range resource.Operations {
+			if operation.ID == nil || !operation.ID.HasUserValue() { //segmentsLastIndex := len(resource.ID.Segments) - 1; resource.ID.Segments[segmentsLastIndex].Type == SegmentUserValue {
+				continue
+			}
+			if lastSegment := operation.ID.Segments[len(operation.ID.Segments)-1]; lastSegment.Value == "$ref" {
+				continue
+			}
+			clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resource.Service, cleanVersion(resource.Version), fmt.Sprintf("%sId", resource.Name))
+			resourceIds[clientMethodFile] = templateResourceId(resource, operation.ID)
+		}
+	}
+
+	resourceIdFiles := sortedKeys(resourceIds)
+	for _, resourceIdFile := range resourceIdFiles {
+		if err := files.addFile(resourceIdFile, resourceIds[resourceIdFile]); err != nil {
+			return err
+		}
 	}
 
 	return nil
 }
 
-func templateResourceId(resource *Resource) string {
+func templateResourceId(resource *Resource, resourceId *ResourceId) string {
+	segments := make([]string, 0)
+	for _, seg := range resourceId.Segments {
+		switch seg.Type {
+		case SegmentUserValue:
+			segments = append(segments, fmt.Sprintf(`ResourceIDSegment.UserSpecified("%s")`, cleanNameCamel(seg.Value)))
+		default:
+			segments = append(segments, fmt.Sprintf(`ResourceIDSegment.Static("static%s", "%s")`, cleanName(seg.Value), seg.Value))
+		}
+	}
+	segmentsCode := indentSpace(strings.Join(segments, ",\n"), 8)
+
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
+namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class B2CDirectoryId : ResourceID
+internal class %[3]sId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{directoryName}";
+    public string ID => "%[4]s";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("subscriptions", "subscriptions"),
-        ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
-        ResourceIDSegment.ResourceGroup("resourceGroup"),
-        ResourceIDSegment.Static("providers", "providers"),
-        ResourceIDSegment.ResourceProvider("microsoftAzureActiveDirectory", "Microsoft.AzureActiveDirectory"),
-        ResourceIDSegment.Static("b2cDirectories", "b2cDirectories"),
-        ResourceIDSegment.UserSpecified("directoryName"),
+%[5]s
     };
 }
-
-internal class %[4]sOperation : Operations.%[5]sOperation
-{
-    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
-        {
-%[6]s,
-        };
-
-    public override ResourceID? ResourceId() => new %[7]s();
-
-    public override Type? ResponseObject() => typeof(%[8]sModel);
-
-
-}
-`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name))
+`, resource.Service, cleanVersion(resource.Version), resource.Name, resourceId.ID(), segmentsCode)
 }

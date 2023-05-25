@@ -78,18 +78,21 @@ func runImportForService(input RunInput, files *Tree, service string, serviceTag
 		swaggerGitSha: swaggerGitSha,
 	}
 
+	logger.Info(fmt.Sprintf("Parsing resource IDs for: %s", service))
+	resourceIds := task.parseResourceIDsForService(service, serviceTags, spec.Paths)
+
 	logger.Info(fmt.Sprintf("Parsing resources for: %s", service))
-	resources := task.parseResourcesForService(service, serviceTags, spec.Paths)
+	resources := task.parseResourcesForService(service, serviceTags, spec.Paths, resourceIds)
 
 	logger.Info(fmt.Sprintf("Templating methods for: %s", service))
 	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {
 		return err
 	}
 
-	//logger.Info(fmt.Sprintf("Templating resource IDs for: %s", tag))
-	//if err := task.templateResourceIds(files, tag, resources, logger); err != nil {
-	//	return err
-	//}
+	logger.Info(fmt.Sprintf("Templating resource IDs for: %s", service))
+	if err := task.templateResourceIdsForService(files, service, resources, logger); err != nil {
+		return err
+	}
 
 	return nil
 }

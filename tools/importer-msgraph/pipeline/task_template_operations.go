@@ -8,46 +8,33 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources []*Resource, logger hclog.Logger) error {
+func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources map[string]*Resource, logger hclog.Logger) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
 	for _, resource := range resources {
-		// Skip functions and casts for now
-		if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataFunction {
-			logger.Debug("Skipping suspected function/cast resource", "resource", resource.ID.ID())
-			continue
-		}
-
 		for _, operation := range resource.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {
-				logger.Debug("Skipping unknown operation", "resource", resource.ID.ID(), "method", operation.Method)
+				logger.Debug("Skipping unknown operation", "resource", operation.ID.ID(), "method", operation.Method)
 				continue
 			}
 
-			// Build string arguments from user-specified URI segments
-			args := make([]string, 0)
-			argNames := make([]string, 0)
-			for _, segment := range resource.ID.Segments {
-				if segment.Type == SegmentUserValue {
-					argName := cleanNameCamel(segment.Value)
-					argNames = append(argNames, argName)
-					args = append(args, fmt.Sprintf("%s string", argName))
+			// Skip functions and casts for now
+			if operation.ID != nil && len(operation.ID.Segments) > 0 {
+				if lastSegment := operation.ID.Segments[len(operation.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
+					logger.Debug("Skipping suspected cast/function/reference resource", "resource", operation.ID.ID())
+					continue
 				}
 			}
 
 			// Determine request model
-			var requestModel, requestModelVar string
+			var requestModel string
 			if operation.Type == OperationTypeCreate || operation.Type == OperationTypeUpdate || operation.Type == OperationTypeCreateUpdate {
 				if operation.RequestModel != nil {
-					requestModelVar = cleanNameCamel(*operation.RequestModel)
 					requestModel = *operation.RequestModel
-					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, *operation.RequestModel))
-				} else if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Value == "$ref" {
+				} else if operation.ID != nil && len(operation.ID.Segments) > 0 && operation.ID.Segments[len(operation.ID.Segments)-1].Value == "$ref" {
 					requestModel = "DirectoryObject"
-					requestModelVar = "directoryObject"
-					args = append(args, fmt.Sprintf("%s models.%s", requestModelVar, requestModel))
 				}
 			}
 
@@ -56,7 +43,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			if operation.Type != OperationTypeDelete {
 				responseModel = findModel(operation.Responses)
 				if responseModel == "" {
-					if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Value == "$ref" {
+					if operation.ID != nil && len(operation.ID.Segments) > 0 && operation.ID.Segments[len(operation.ID.Segments)-1].Value == "$ref" {
 						responseModel = "DirectoryObject"
 					}
 				}
@@ -74,28 +61,28 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			switch operation.Type {
 			case OperationTypeList:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
+					logger.Debug("Skipping operation with empty response model", "resource", operation.ID.ID(), "method", operation.Method)
 					continue
 				}
-				methodCode = templateListMethod(resource, &operation, responseModel, args)
+				methodCode = templateListMethod(resource, &operation, responseModel)
 			case OperationTypeRead:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", resource.ID.ID(), "method", operation.Method)
+					logger.Debug("Skipping operation with empty response model", "resource", operation.ID.ID(), "method", operation.Method)
 					continue
 				}
 				methodCode = templateReadMethod(resource, &operation, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
-				if requestModelVar == "" {
-					logger.Debug("Skipping operation with empty request model var", "resource", resource.ID.ID(), "method", operation.Method)
-					continue
-				}
+				//if requestModel == "" {
+				//	logger.Debug("Skipping operation with empty request model var", "resource", operation.ID.ID(), "method", operation.Method)
+				//	continue
+				//}
 				methodCode = templateCreateUpdateMethod(resource, &operation, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
 				methodCode = templateDeleteMethod(resource, &operation, statuses)
 			}
 
 			// Build it
-			clientMethodFile := fmt.Sprintf("%s/%s/%s/Operation-%s.cs", resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name)
+			clientMethodFile := fmt.Sprintf("%s/%s/Operation-%s.cs", resource.Service, cleanVersion(resource.Version), operation.Name)
 			operations[clientMethodFile] = methodCode
 		}
 	}
@@ -111,7 +98,17 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 	return nil
 }
 
-func templateListMethod(resource *Resource, operation *Operation, responseModel string, args []string) string {
+func templateListMethod(resource *Resource, operation *Operation, responseModel string) string {
+	resourceIdCode := "null"
+	if operation.ID != nil {
+		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+	}
+	uriSuffixCode := "null"
+	if operation.UriSuffix != nil {
+		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
+
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.MicrosoftGraph.Models;
 using System;
@@ -119,21 +116,16 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
+namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[3]sOperation : Operations.ListOperation
 {
    public override string? FieldContainingPaginationDetails() => "nextLink";
-
-   public override ResourceID? ResourceId() => null;
-
-   public override Type NestedItemType() => typeof(%[6]sModel);
-
-   public override string? UriSuffix() => "%[7]s";
-
-
+   public override ResourceID? ResourceId() => %[4]s;
+   public override Type NestedItemType() => typeof(%[5]sModel);
+   public override string? UriSuffix() => %[6]s;
 }
-`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), responseModel, resource.ID.ID()) // TODO: resource ID to be calculated
+`, resource.Service, cleanVersion(resource.Version), operation.Name, resourceIdCode, responseModel, uriSuffixCode)
 
 }
 
@@ -144,7 +136,15 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
-	resourceIdName := fmt.Sprintf("%sId", resource.Name)
+	resourceIdCode := "null"
+	if operation.ID != nil {
+		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+	}
+	uriSuffixCode := "null"
+	if operation.UriSuffix != nil {
+		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.MicrosoftGraph.Models;
@@ -155,22 +155,19 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
+namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[3]sOperation : Operations.%[4]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[5]s,
         };
-
-    public override ResourceID? ResourceId() => new %[7]s();
-
-    public override Type? ResponseObject() => typeof(%[8]sModel);
-
-
+    public override ResourceID? ResourceId() => %[6]s;
+    public override Type? ResponseObject() => typeof(%[7]sModel);
+    public override string? UriSuffix() => %[8]s;
 }
-`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
 }
 
 func templateCreateUpdateMethod(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
@@ -180,14 +177,23 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
-	resourceIdName := fmt.Sprintf("%sId", resource.Name)
-
-	//var path string
-	//if len(args) > 0 {
-	//	path = fmt.Sprintf(`fmt.Sprintf("%s", %s)`, endpoint.Id.IDf(), strings.Join(args, ", "))
-	//} else {
-	//	path = fmt.Sprintf("%q", endpoint.Id.ID())
-	//}
+	resourceIdCode := "null"
+	if operation.ID != nil {
+		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+	}
+	uriSuffixCode := "null"
+	if operation.UriSuffix != nil {
+		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
+	requestObjectCode := "null"
+	if requestModel != "" {
+		requestObjectCode = fmt.Sprintf("typeof(%sModel)", requestModel)
+	}
+	responseObjectCode := "null"
+	if responseModel != "" {
+		responseObjectCode = fmt.Sprintf("typeof(%sModel)", responseModel)
+	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.MicrosoftGraph.Models;
@@ -198,24 +204,20 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
+namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[3]sOperation : Operations.%[4]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[5]s,
         };
-
-    public override Type? RequestObject() => typeof(%[7]sModel);
-
-    public override ResourceID? ResourceId() => new %[8]s();
-
-    public override Type? ResponseObject() => typeof(%[9]sModel);
-
-
+    public override Type? RequestObject() => %[6]s;
+    public override ResourceID? ResourceId() => %[7]s;
+    public override Type? ResponseObject() => %[8]s;
+    public override string? UriSuffix() => %[9]s;
 }
-`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestModel, resourceIdName, responseModel)
+`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
 }
 
 func templateDeleteMethod(resource *Resource, operation *Operation, statuses []string) string {
@@ -225,14 +227,15 @@ func templateDeleteMethod(resource *Resource, operation *Operation, statuses []s
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
-	resourceIdName := fmt.Sprintf("%sId", resource.Name)
-
-	//var path string
-	//if len(args) > 0 {
-	//	path = fmt.Sprintf(`fmt.Sprintf("%s", %s)`, endpoint.Id.IDf(), strings.Join(args, ", "))
-	//} else {
-	//	path = fmt.Sprintf("%q", endpoint.Id.ID())
-	//}
+	resourceIdCode := "null"
+	if operation.ID != nil {
+		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+	}
+	uriSuffixCode := "null"
+	if operation.UriSuffix != nil {
+		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 using System.Collections.Generic;
@@ -241,18 +244,16 @@ using System.Net;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s.%[3]s;
+namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[3]sOperation : Operations.%[4]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[5]s,
         };
-
-    public override ResourceID? ResourceId() => new %[7]s();
-
-
+    public override ResourceID? ResourceId() => %[6]s;
+    public override string? UriSuffix() => %[7]s;
 }
-`, resource.Service, cleanVersion(resource.Version), pluralize(resource.Name), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdName)
+`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
 }

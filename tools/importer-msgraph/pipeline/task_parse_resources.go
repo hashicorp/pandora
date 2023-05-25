@@ -14,7 +14,6 @@ type Resource struct {
 	Version string
 	Service string
 
-	ID         ResourceId
 	Operations []Operation
 }
 
@@ -22,6 +21,8 @@ type Operation struct {
 	Name         string
 	Type         OperationType
 	Method       string
+	ID           *ResourceId
+	UriSuffix    *string
 	RequestModel *string
 	Responses    []Response
 	Tags         []string
@@ -62,16 +63,17 @@ func NewOperationType(method string) OperationType {
 	return OperationTypeUnknown
 }
 
-func (pipelineTask) parseResourcesForService(service string, serviceTags []string, paths openapi3.Paths) (ret []*Resource) {
-	ret = make([]*Resource, 0)
+func (pipelineTask) parseResourcesForService(service string, serviceTags []string, paths openapi3.Paths, resourceIds map[string]*ResourceId) (resources map[string]*Resource) {
+	resources = make(map[string]*Resource)
 	for path, item := range paths {
-		id := NewResourceId(path, make([]string, 0))
 		operations := item.Operations()
+		operationTags := make([]string, 0)
 
 		// Check tags and skip
 		skip := true
 		for _, operation := range operations {
 			if tagMatches(service, serviceTags, operation.Tags) {
+				operationTags = append(operationTags, operation.Tags...)
 				skip = false
 			}
 		}
@@ -79,35 +81,48 @@ func (pipelineTask) parseResourcesForService(service string, serviceTags []strin
 			continue
 		}
 
-		resource := Resource{
-			ID:         id,
-			Version:    "v1.0",
-			Service:    pluralize(cleanName(service)),
-			Operations: make([]Operation, 0, len(operations)),
+		id := NewResourceId(path, operationTags)
+		segmentsLastIndex := len(id.Segments) - 1
+		if lastSegment := id.Segments[segmentsLastIndex]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+			continue
+		}
+		suffixId := id
+
+		resourceName := ""
+		if r := id.FindResource(); r != nil {
+			resourceName = singularize(cleanName(r.Value))
 		}
 
-		// Name the resource by reverse walking the URI segments
-		resourceName := ""
-		operationSuffix := ""
-		segmentsLastIndex := len(id.Segments) - 1
-
-		for i := segmentsLastIndex; i >= 0; i-- {
-			segment := id.Segments[i]
-			if segment.Type == SegmentCast || segment.Type == SegmentFunction { // TODO: skip these for now
-				break
-			} else if i < segmentsLastIndex && segment.Type == SegmentUserValue {
-				break
-			} else if previousLabel := id.LastLabelBeforeSegment(i - 1); i > 1 && id.Segments[i-1].Type == SegmentUserValue && previousLabel != nil {
-				resourceName = singularize(cleanName(previousLabel.Value))
-				operationSuffix = singularize(cleanName(segment.Value))
-			} else if segment.Type == SegmentLabel || segment.Type == SegmentODataFunction {
-				resourceName = fmt.Sprintf("%s%s", singularize(cleanName(segment.Value)), resourceName)
+		var uriSuffix *string
+		resourceId, ok := resourceIds[resourceName]
+		if ok {
+			suffixId, ok = resourceId.Match(id)
+			if !ok {
+				resourceId = nil
 			}
+			if len(suffixId.Segments) > 0 {
+				uriSuffix = pointerTo(suffixId.ID())
+			}
+		}
+
+		operationSuffix := resourceName
+		if lastActionOrLabel := suffixId.LastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentAction, SegmentLabel}, -1); lastActionOrLabel != nil {
+			operationSuffix = cleanName(lastActionOrLabel.Value)
 		}
 
 		// TODO: skip unknown resources for now
 		if resourceName == "" {
 			continue
+		}
+
+		// Create a new resource if not already encountered
+		if _, ok := resources[resourceName]; !ok {
+			resources[resourceName] = &Resource{
+				Name:       resourceName,
+				Version:    "v1.0",
+				Service:    pluralize(cleanName(service)),
+				Operations: make([]Operation, 0, len(operations)),
+			}
 		}
 
 		for method, operation := range operations {
@@ -121,7 +136,7 @@ func (pipelineTask) parseResourcesForService(service string, serviceTags []strin
 					var status int
 					var contentType, responseModel *string
 					var collection bool
-					// TODO: expand this
+					// TODO: expand status codes so we handle more than 200, 300 etc
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
 					}
@@ -158,57 +173,34 @@ func (pipelineTask) parseResourcesForService(service string, serviceTags []strin
 				operationType = OperationTypeList
 			}
 
-			// We aren't interested in GET /.../$ref
-			if operationType == OperationTypeList || operationType == OperationTypeRead {
-				if lastSegment := resource.ID.Segments[len(resource.ID.Segments)-1]; lastSegment.Value == "$ref" {
-					continue
-				}
-			}
-
 			operationName := ""
 			lastSegment := id.Segments[len(id.Segments)-1]
 
 			switch operationType {
 			case OperationTypeList:
+				if len(operationSuffix) >= 3 && strings.HasPrefix(strings.ToLower(operationSuffix), "get") {
+					operationSuffix = operationSuffix[3:]
+				}
 				operationName = fmt.Sprintf("List%s", pluralize(operationSuffix))
 			case OperationTypeRead:
-				operationName = "Get"
+				operationName = fmt.Sprintf("Get%s", operationSuffix)
 			case OperationTypeCreate:
-				if lastSegment.Value == "$ref" {
-					operationName = "Add"
+				if verbs.match(operationSuffix) {
+					operationName = operationSuffix
+				} else if lastSegment.Type == SegmentODataReference {
+					operationName = fmt.Sprintf("Add%s", singularize(operationSuffix))
 				} else {
-					operationName = fmt.Sprintf("Create%s", operationSuffix)
+					operationName = fmt.Sprintf("Create%s", singularize(operationSuffix))
 				}
 			case OperationTypeCreateUpdate:
-				operationName = fmt.Sprintf("CreateUpdate%s", operationSuffix)
+				operationName = fmt.Sprintf("CreateUpdate%s", singularize(operationSuffix))
 			case OperationTypeUpdate:
-				operationName = fmt.Sprintf("Update%s", operationSuffix)
+				operationName = fmt.Sprintf("Update%s", singularize(operationSuffix))
 			case OperationTypeDelete:
-				if lastSegment.Value == "$ref" {
+				if lastSegment.Type == SegmentODataReference {
 					operationName = fmt.Sprintf("Remove%s", operationSuffix)
 				} else {
 					operationName = fmt.Sprintf("Delete%s", operationSuffix)
-				}
-			}
-
-			//if lastLabel := id.LastLabel(); lastLabel != nil {
-			//	if operationType == OperationTypeList {
-			//		resourceName = pluralize(cleanName(lastLabel.Value))
-			//	} else {
-			//		resourceName = singularize(cleanName(lastLabel.Value))
-			//	}
-			//}
-
-			// If no resource name computed, derive it from tags
-			if resourceName == "" {
-				if len(operation.Tags) > 1 {
-					panic(fmt.Sprintf("found %d tags for operation %s/%s: %s", len(operation.Tags), id.ID(), operationType, operation.Tags)) // TODO handle
-				} else if len(operation.Tags) == 1 {
-					t := strings.Split(operation.Tags[0], ".")
-					if len(t) != 2 {
-						panic(fmt.Sprintf("invalid tag for operation %s/%s: %s", id.ID(), operationType, operation.Tags[0])) // TODO handle
-					}
-					resourceName = cleanName(t[1])
 				}
 			}
 
@@ -226,20 +218,18 @@ func (pipelineTask) parseResourcesForService(service string, serviceTags []strin
 				}
 			}
 
-			resource.Name = resourceName
-			resource.Operations = append(resource.Operations, Operation{
+			resources[resourceName].Operations = append(resources[resourceName].Operations, Operation{
 				Name:         operationName,
 				Type:         operationType,
 				Method:       method,
+				ID:           resourceId,
+				UriSuffix:    uriSuffix,
 				RequestModel: requestModel,
 				Responses:    responses,
 				Tags:         operation.Tags,
 			})
 		}
-		if len(resource.Operations) > 0 {
-			//if len(resource.Operations)==1 && resource.Operations[0].Type==OperationTypeCreate
-			ret = append(ret, &resource)
-		}
 	}
+
 	return
 }

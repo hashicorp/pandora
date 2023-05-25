@@ -28,6 +28,9 @@ func pluralize(name string) string {
 	if len(name) == 0 {
 		return ret
 	}
+	if strings.EqualFold(name[len(name)-2:], "ey") {
+		return fmt.Sprintf("%ss", name)
+	}
 	if strings.EqualFold(name[len(name)-1:], "y") {
 		return fmt.Sprintf("%sies", name[:len(name)-1])
 	}
@@ -64,3 +67,19 @@ func cleanVersion(version string) string {
 func csHttpStatusCode(code int) string {
 	return fmt.Sprintf("HttpStatusCode.%s", strings.ReplaceAll(http.StatusText(code), " ", ""))
 }
+
+type operationVerbs []string
+
+func (ov operationVerbs) match(operation string) bool {
+	for _, v := range ov {
+		if regexp.MustCompile(fmt.Sprintf("^%s$", v)).MatchString(operation) {
+			return true
+		}
+		if regexp.MustCompile(fmt.Sprintf("^%s[A-Z]", v)).MatchString(operation) {
+			return true
+		}
+	}
+	return false
+}
+
+var verbs = operationVerbs{"Add", "Remove", "Set", "Unset", "Check", "Get", "Restore", "Validate"}
