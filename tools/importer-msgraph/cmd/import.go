@@ -15,11 +15,11 @@ import (
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(metadataDirectory, openApiFile, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
+func NewImportCommand(metadataDirectory, openApiFilePattern, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
 			metadataDirectory:        metadataDirectory,
-			openApiFile:              openApiFile,
+			openApiFilePattern:       openApiFilePattern,
 			outputDirectory:          outputDirectory,
 			terraformDefinitionsPath: terraformDefinitionsPath,
 		}, nil
@@ -28,7 +28,7 @@ func NewImportCommand(metadataDirectory, openApiFile, terraformDefinitionsPath, 
 
 type ImportCommand struct {
 	metadataDirectory        string
-	openApiFile              string
+	openApiFilePattern       string
 	outputDirectory          string
 	terraformDefinitionsPath string
 }
@@ -41,17 +41,26 @@ func (ImportCommand) Help() string {
 	return fmt.Sprintf(`Imports and parses Microsoft Graph API metadata
 Arguments:
 
--tags=applications,servicePrincipals'
+-tags=applications,servicePrincipals
         Specifies a comma-separated list of services to import, rather than the entire API.
+
+-versions=v1.0,beta
+        Specified the API versions to import. Defaults to 'v1.0,beta'
 `)
 }
 
 func (c ImportCommand) Run(args []string) int {
-	var tagsRaw string
+	var apiVersionsRaw, tagsRaw string
 
 	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
 	f.StringVar(&tagsRaw, "tags", "", "A list of comma separated tags to import")
+	f.StringVar(&apiVersionsRaw, "versions", "", "A list of comma separated API versions to import")
 	f.Parse(args)
+
+	apiVersions := []string{"v1.0", "beta"}
+	if apiVersionsRaw != "" {
+		apiVersions = strings.Split(apiVersionsRaw, ",")
+	}
 
 	var tags []string
 	if tagsRaw != "" {
@@ -71,8 +80,9 @@ func (c ImportCommand) Run(args []string) int {
 	input := pipeline.RunInput{
 		Logger: logger,
 
+		ApiVersions:              apiVersions,
 		MetadataDirectory:        c.metadataDirectory,
-		OpenApiFile:              c.openApiFile,
+		OpenApiFilePattern:       c.openApiFilePattern,
 		OutputDirectory:          c.outputDirectory,
 		ProviderPrefix:           "azuread",
 		Tags:                     tags,

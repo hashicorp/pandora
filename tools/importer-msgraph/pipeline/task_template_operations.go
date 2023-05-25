@@ -114,7 +114,7 @@ func templateListMethod(resource *Resource, operation *Operation, responseModel 
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models;
+using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
 using System;
 
 // Copyright (c) HashiCorp, Inc.
@@ -151,7 +151,7 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models;
+using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
 using System.Collections.Generic;
 using System.Net;
 using System;
@@ -200,7 +200,7 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models;
+using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
 using System.Collections.Generic;
 using System.Net;
 using System;

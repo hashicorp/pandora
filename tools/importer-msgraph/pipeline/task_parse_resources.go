@@ -63,7 +63,7 @@ func NewOperationType(method string) OperationType {
 	return OperationTypeUnknown
 }
 
-func (pipelineTask) parseResourcesForService(service string, serviceTags []string, paths openapi3.Paths, resourceIds map[string]*ResourceId) (resources map[string]*Resource) {
+func (pipelineTask) parseResourcesForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds map[string]*ResourceId) (resources map[string]*Resource) {
 	resources = make(map[string]*Resource)
 	for path, item := range paths {
 		operations := item.Operations()
@@ -119,7 +119,7 @@ func (pipelineTask) parseResourcesForService(service string, serviceTags []strin
 		if _, ok := resources[resourceName]; !ok {
 			resources[resourceName] = &Resource{
 				Name:       resourceName,
-				Version:    "v1.0",
+				Version:    apiVersion,
 				Service:    pluralize(cleanName(service)),
 				Operations: make([]Operation, 0, len(operations)),
 			}

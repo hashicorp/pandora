@@ -12,8 +12,9 @@ const namespace = "Pandora.Definitions.MicrosoftGraph"
 type RunInput struct {
 	Logger hclog.Logger
 
+	ApiVersions              []string
 	MetadataDirectory        string
-	OpenApiFile              string
+	OpenApiFilePattern       string
 	OutputDirectory          string
 	ProviderPrefix           string
 	Tags                     []string
@@ -23,14 +24,14 @@ type RunInput struct {
 func Run(input RunInput) error {
 	logger := input.Logger
 
-	resources, err := definitions.LoadFromDirectory(input.TerraformDefinitionsPath)
-	if err != nil {
-		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
-	}
-
 	metadataGitSha, err := determineGitSha(input.MetadataDirectory, logger)
 	if err != nil {
 		return fmt.Errorf("determining Git SHA at %q: %+v", input.MetadataDirectory, err)
+	}
+
+	resources, err := definitions.LoadFromDirectory(input.TerraformDefinitionsPath)
+	if err != nil {
+		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
 	}
 
 	input.OutputDirectory = filepath.Join(input.OutputDirectory, namespace)

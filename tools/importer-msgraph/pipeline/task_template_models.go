@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func templateModels(files *Tree, models Models) error {
+func templateModels(apiVersion string, files *Tree, models Models) error {
 	for name, model := range models {
 		fieldNames := make([]string, 0, len(model.Fields))
 		for fieldName := range model.Fields {
@@ -34,15 +34,15 @@ using Pandora.Definitions.CustomTypes;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.Models;
+namespace Pandora.Definitions.MicrosoftGraph.Models.%[1]s;
 
-internal class %[1]sModel
+internal class %[2]sModel
 {
-%[2]s
+%[3]s
 }
-`, name, indentSpace(strings.Join(fieldsCode, "\n\n"), 4))
+`, cleanVersion(apiVersion), name, indentSpace(strings.Join(fieldsCode, "\n\n"), 4))
 
-		filename := fmt.Sprintf("Models/Model-%s.cs", name)
+		filename := fmt.Sprintf("Models/%s/Model-%s.cs", cleanVersion(apiVersion), name)
 
 		if err := files.addFile(filename, code); err != nil {
 			return err

@@ -5,7 +5,7 @@ import (
 	"strings"
 )
 
-func templateConstants(files *Tree, models Models) error {
+func templateConstants(apiVersion string, files *Tree, models Models) error {
 	seenEnums := make(map[string]uint8, 0)
 	for _, model := range models {
 		for _, field := range model.Fields {
@@ -27,16 +27,16 @@ using System.ComponentModel;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.Models;
+namespace Pandora.Definitions.MicrosoftGraph.Models.%[1]s;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum %[1]sConstant
+internal enum %[2]sConstant
 {
-%[2]s
+%[3]s
 }
-`, field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
+`, cleanVersion(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 
-				filename := fmt.Sprintf("Models/Constant-%s.cs", field.Title)
+				filename := fmt.Sprintf("Models/%s/Constant-%s.cs", cleanVersion(apiVersion), field.Title)
 
 				if err := files.addFile(filename, code); err != nil {
 					return err
