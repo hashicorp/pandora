@@ -469,7 +469,7 @@ service "solutions" {
   available = ["2019-07-01", "2021-07-01"]
 }
 service "sql" {
-  name      = "MsSql"
+  name      = "Sql"
   available = ["2022-11-01-preview"]
 }
 service "sqlvirtualmachine" {
