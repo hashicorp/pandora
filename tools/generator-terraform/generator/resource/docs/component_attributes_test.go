@@ -1,13 +1,13 @@
 package docs
 
 import (
-	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 	"strings"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentAttributes_TopLevelOnly(t *testing.T) {
