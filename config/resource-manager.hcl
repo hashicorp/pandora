@@ -507,7 +507,7 @@ service "timeseriesinsights" {
 }
 service "trafficmanager" {
   name      = "TrafficManager"
-  available = ["2018-08-01"]
+  available = ["2018-08-01", "2022-04-01"]
 }
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
