@@ -82,4 +82,4 @@ func (ov operationVerbs) match(operation string) bool {
 	return false
 }
 
-var verbs = operationVerbs{"Add", "Remove", "Set", "Unset", "Check", "Get", "Restore", "Validate"}
+var verbs = operationVerbs{"Add", "Remove", "Set", "Unset", "Check", "Get", "Acquire", "Discover", "Parse", "Pause", "Provision", "Restart", "Restore", "Start", "Stop", "Validate"}

@@ -16,14 +16,14 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 		for _, operation := range resource.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {
-				logger.Debug("Skipping unknown operation", "resource", operation.ID.ID(), "method", operation.Method)
+				logger.Debug("Skipping unknown operation", "resource", operation.ResourceId.ID(), "method", operation.Method)
 				continue
 			}
 
 			// Skip functions and casts for now
-			if operation.ID != nil && len(operation.ID.Segments) > 0 {
-				if lastSegment := operation.ID.Segments[len(operation.ID.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
-					logger.Debug("Skipping suspected cast/function/reference resource", "resource", operation.ID.ID())
+			if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
+				if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
+					logger.Debug("Skipping suspected cast/function/reference resource", "resource", operation.ResourceId.ID())
 					continue
 				}
 			}
@@ -33,7 +33,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			if operation.Type == OperationTypeCreate || operation.Type == OperationTypeUpdate || operation.Type == OperationTypeCreateUpdate {
 				if operation.RequestModel != nil {
 					requestModel = *operation.RequestModel
-				} else if operation.ID != nil && len(operation.ID.Segments) > 0 && operation.ID.Segments[len(operation.ID.Segments)-1].Value == "$ref" {
+				} else if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 					requestModel = "DirectoryObject"
 				}
 			}
@@ -43,7 +43,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			if operation.Type != OperationTypeDelete {
 				responseModel = findModel(operation.Responses)
 				if responseModel == "" {
-					if operation.ID != nil && len(operation.ID.Segments) > 0 && operation.ID.Segments[len(operation.ID.Segments)-1].Value == "$ref" {
+					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 						responseModel = "DirectoryObject"
 					}
 				}
@@ -62,8 +62,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			case OperationTypeList:
 				if responseModel == "" {
 					id := "{unknown-id}"
-					if operation.ID != nil {
-						id = operation.ID.ID()
+					if operation.ResourceId != nil {
+						id = operation.ResourceId.ID()
 					}
 					logger.Debug("Skipping operation with empty response model", "resource", id, "method", operation.Method)
 					continue
@@ -72,8 +72,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			case OperationTypeRead:
 				if responseModel == "" {
 					id := "{unknown-id}"
-					if operation.ID != nil {
-						id = operation.ID.ID()
+					if operation.ResourceId != nil {
+						id = operation.ResourceId.ID()
 					}
 					logger.Debug("Skipping operation with empty response model", "resource", id, "method", operation.Method)
 					continue
@@ -104,8 +104,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 
 func templateListMethod(resource *Resource, operation *Operation, responseModel string) string {
 	resourceIdCode := "null"
-	if operation.ID != nil {
-		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+	if operation.ResourceId != nil {
+		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
 		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
 	}
 	uriSuffixCode := "null"
@@ -141,8 +141,8 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if operation.ID != nil {
-		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+	if operation.ResourceId != nil {
+		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
 		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
 	}
 	uriSuffixCode := "null"
@@ -182,8 +182,8 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if operation.ID != nil {
-		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+	if operation.ResourceId != nil {
+		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
 		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
 	}
 	uriSuffixCode := "null"
@@ -232,8 +232,8 @@ func templateDeleteMethod(resource *Resource, operation *Operation, statuses []s
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if operation.ID != nil {
-		resourceIdName := fmt.Sprintf("%sId", resource.Name)
+	if operation.ResourceId != nil {
+		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
 		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
 	}
 	uriSuffixCode := "null"

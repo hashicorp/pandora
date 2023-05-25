@@ -2,8 +2,8 @@ package pipeline
 
 import "github.com/getkin/kin-openapi/openapi3"
 
-func (pipelineTask) parseResourceIDsForService(service string, serviceTags []string, paths openapi3.Paths) (resources map[string]*ResourceId) {
-	resources = make(map[string]*ResourceId)
+func (pipelineTask) parseResourceIDsForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths) (resources ResourceIds) {
+	resources = make(ResourceIds, 0)
 	for path, item := range paths {
 		operations := item.Operations()
 		operationTags := make([]string, 0)
@@ -22,14 +22,16 @@ func (pipelineTask) parseResourceIDsForService(service string, serviceTags []str
 
 		id := NewResourceId(path, operationTags)
 
-		resourceName := ""
-		if r := id.FindResource(); r != nil {
-			resourceName = singularize(cleanName(r.Value))
-		}
-
 		segmentsLastIndex := len(id.Segments) - 1
 		if lastSegment := id.Segments[segmentsLastIndex]; lastSegment.Type == SegmentUserValue {
-			resources[resourceName] = &id
+			resourceName := ""
+			if r := id.FindResourceName(); r != nil {
+				resourceName = singularize(cleanName(*r))
+			}
+			id.Name = resourceName
+			id.Service = cleanName(service)
+			id.Version = apiVersion
+			resources = append(resources, &id)
 		}
 	}
 

@@ -7,25 +7,17 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resources map[string]*Resource, logger hclog.Logger) error {
-	resourceIds := make(map[string]string)
+func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resourceIds ResourceIds, logger hclog.Logger) error {
+	ids := make(map[string]string)
 
-	for _, resource := range resources {
-		for _, operation := range resource.Operations {
-			if operation.ID == nil || !operation.ID.HasUserValue() { //segmentsLastIndex := len(resource.ID.Segments) - 1; resource.ID.Segments[segmentsLastIndex].Type == SegmentUserValue {
-				continue
-			}
-			if lastSegment := operation.ID.Segments[len(operation.ID.Segments)-1]; lastSegment.Value == "$ref" {
-				continue
-			}
-			clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resource.Service, cleanVersion(resource.Version), fmt.Sprintf("%sId", resource.Name))
-			resourceIds[clientMethodFile] = templateResourceId(resource, operation.ID)
-		}
+	for _, resourceId := range resourceIds {
+		clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resourceId.Service, cleanVersion(resourceId.Version), fmt.Sprintf("%sId", resourceId.Name))
+		ids[clientMethodFile] = templateResourceId(resourceId)
 	}
 
-	resourceIdFiles := sortedKeys(resourceIds)
+	resourceIdFiles := sortedKeys(ids)
 	for _, resourceIdFile := range resourceIdFiles {
-		if err := files.addFile(resourceIdFile, resourceIds[resourceIdFile]); err != nil {
+		if err := files.addFile(resourceIdFile, ids[resourceIdFile]); err != nil {
 			return err
 		}
 	}
@@ -33,7 +25,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	return nil
 }
 
-func templateResourceId(resource *Resource, resourceId *ResourceId) string {
+func templateResourceId(resourceId *ResourceId) string {
 	segments := make([]string, 0)
 	for _, seg := range resourceId.Segments {
 		switch seg.Type {
@@ -64,5 +56,5 @@ internal class %[3]sId : ResourceID
 %[5]s
     };
 }
-`, resource.Service, cleanVersion(resource.Version), resource.Name, resourceId.ID(), segmentsCode)
+`, resourceId.Service, cleanVersion(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
 }

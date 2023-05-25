@@ -3,10 +3,14 @@ package pipeline
 import (
 	"fmt"
 	"regexp"
+	"sort"
 	"strings"
 )
 
 type ResourceId struct {
+	Name     string
+	Service  string
+	Version  string
 	Segments []ResourceIdSegment
 }
 
@@ -36,13 +40,56 @@ func (r ResourceId) Match(r2 ResourceId) (ResourceId, bool) {
 	}
 }
 
-func (r ResourceId) FindResource() *ResourceIdSegment {
-	for i := len(r.Segments) - 1; i > 0; i-- {
-		if segment := r.Segments[i]; segment.Type == SegmentUserValue {
-			return r.LastLabelBeforeSegment(i)
+func (r ResourceId) FindResourceName() *string {
+	slugs := make([]ResourceIdSegment, 0)
+	idx := len(r.Segments) - 1
+	for i := idx; i >= 0; i-- {
+		if idSegment := r.Segments[i]; idSegment.Type == SegmentAction || idSegment.Type == SegmentLabel {
+			idx = i
+			break
 		}
 	}
-	return r.LastLabel()
+	for j := idx; j >= 0; j-- {
+		segment := r.Segments[j]
+		if segment.Type == SegmentAction || segment.Type == SegmentLabel {
+			slugs = append(slugs, segment)
+
+			// Hop over a SegmentUserValue if we only have an action, to prevent unqualified resource names like "Stop"
+			if segment.Type == SegmentAction && j > 0 {
+				if preceedingSegment := r.Segments[j-1]; preceedingSegment.Type == SegmentUserValue {
+					j--
+				}
+			}
+
+			// Hop over a SegmentUserValue if we only have an unqualified label describing a relationship (determined by a succeeding SegmentODataReference)
+			if segment.Type == SegmentLabel && j > 0 && j+1 < len(r.Segments) {
+				if preceedingSegment := r.Segments[j-1]; preceedingSegment.Type == SegmentUserValue {
+					if succeedingSegment := r.Segments[j+1]; succeedingSegment.Type == SegmentODataReference {
+						j--
+					} else if j+2 < len(r.Segments) && succeedingSegment.Type == SegmentUserValue {
+						if nextSucceedingSegment := r.Segments[j+2]; nextSucceedingSegment.Type == SegmentODataReference {
+							j--
+						}
+					}
+				}
+			}
+			continue
+		}
+		break
+	}
+	if len(slugs) > 0 {
+		name := ""
+		for _, slug := range slugs {
+			newName := cleanName(slug.Value)
+			if slug.Type == SegmentLabel {
+				newName = singularize(newName)
+			}
+			name = newName + name
+		}
+		return &name
+	}
+
+	return nil
 }
 
 func (r ResourceId) HasUserValue() bool {
@@ -137,4 +184,30 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 		id.Segments = append(id.Segments, segment)
 	}
 	return
+}
+
+type ResourceIds []*ResourceId
+
+type ResourceIdMatch struct {
+	Id        *ResourceId
+	Remainder *ResourceId
+}
+
+func (ri ResourceIds) MatchIdOrParent(r2 ResourceId) (*ResourceIdMatch, bool) {
+	matches := make([]ResourceIdMatch, 0)
+	for _, r1 := range ri {
+		if r1 == nil {
+			continue
+		}
+		if remainder, ok := r1.Match(r2); ok {
+			matches = append(matches, ResourceIdMatch{r1, &remainder})
+		}
+	}
+	if len(matches) > 0 {
+		sort.SliceStable(matches, func(i int, j int) bool {
+			return len(matches[i].Id.Segments) > len(matches[j].Id.Segments)
+		})
+		return &matches[0], true
+	}
+	return nil, false
 }
