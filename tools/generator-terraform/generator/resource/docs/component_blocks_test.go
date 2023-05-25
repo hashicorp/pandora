@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
-// TODO: Lists
 // TODO: above/below
 
 func TestComponentBlocks_ModelsSingle(t *testing.T) {
@@ -700,6 +699,81 @@ The 'first' block supports the following arguments:
 The 'second' block supports the following arguments:
 
 * 'example' - (Required) An 'example' block as defined below. Description for example.
+
+`, "'", "`")
+
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentBlocks_ModelsReferencingAListOfModels(t *testing.T) {
+	input := models.ResourceInput{
+		Details: resourcemanager.TerraformResourceDetails{
+			DisplayName: "Blobby Instance",
+		},
+		ResourceTypeName: "Example",
+		SchemaModelName:  "TopLevelModelResourceSchema",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModelResourceSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredNestedItem": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+							ReferenceName: pointer.To("RequiredNestedSchema"),
+						},
+						Required: true,
+						HclName:  "required_nested_item",
+					},
+				},
+			},
+			"RequiredNestedSchema": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"RequiredItem": {
+						HclName: "required_item",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeList,
+							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: pointer.To("NestedModel"),
+							},
+						},
+						Required: true,
+					},
+				},
+			},
+			"NestedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						HclName:  "name",
+						Required: true,
+						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+							Markdown: "The name of the thing.",
+						},
+					},
+				},
+			},
+		},
+	}
+	actual, err := codeForBlocksReference(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	expected := strings.ReplaceAll(`## Blocks Reference
+
+### 'required_item' Block
+
+The 'required_item' block supports the following arguments:
+
+* 'name' - (Required) The name of the thing.
+
+### 'required_nested_item' Block
+
+The 'required_nested_item' block supports the following arguments:
+
+* 'required_item' - (Required) A list of 'required_item' blocks as defined below.
 
 `, "'", "`")
 
