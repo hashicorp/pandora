@@ -63,13 +63,19 @@ func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDef
 		if err != nil {
 			return nil, err
 		}
+
+		fieldLocation := "below"
+		if nestedWithin != "" && field.HclName <= nestedWithin {
+			fieldLocation = "above"
+		}
+
 		if isList {
-			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined below.", field.HclName))
+			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HclName, fieldLocation))
 		} else {
 			if fieldBeginsWithVowel {
-				components = append(components, fmt.Sprintf("An `%s` block as defined below.", field.HclName))
+				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HclName, fieldLocation))
 			} else {
-				components = append(components, fmt.Sprintf("A `%s` block as defined below.", field.HclName))
+				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HclName, fieldLocation))
 			}
 		}
 	}

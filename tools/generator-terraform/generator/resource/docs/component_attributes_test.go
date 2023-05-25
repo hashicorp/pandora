@@ -1114,3 +1114,56 @@ func TestDocumentationLineForAttribute_ReferencingASet(t *testing.T) {
 	expected := "* `some_item` - A list of `some_item` blocks as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestDocumentationLineForAttribute_LocationAbove(t *testing.T) {
+	// The block `person` contains a field `animal`
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("Animal"),
+		},
+		HclName:  "animal",
+		Optional: true,
+	}
+	actual, err := documentationLineForAttribute(input, "person")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `animal` - An `animal` block as defined above."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForAttribute_LocationBelow(t *testing.T) {
+	// The block `cat` contains a field `napping_place`
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("NappingPlace"),
+		},
+		HclName:  "napping_place",
+		Optional: true,
+	}
+	actual, err := documentationLineForAttribute(input, "cat")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `napping_place` - A `napping_place` block as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForAttribute_LocationForTopLevelItemShouldAlwaysSayBelow(t *testing.T) {
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("Animal"),
+		},
+		HclName:  "animal",
+		Optional: true,
+	}
+	actual, err := documentationLineForAttribute(input, "")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `animal` - An `animal` block as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}

@@ -861,3 +861,56 @@ func TestDocumentationLineForArgument_ReferencingASet(t *testing.T) {
 	expected := "* `some_item` - (Optional) A list of `some_item` blocks as defined below."
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestDocumentationLineForArgument_LocationAbove(t *testing.T) {
+	// The block `person` contains a field `animal`
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("Animal"),
+		},
+		HclName:  "animal",
+		Optional: true,
+	}
+	actual, err := documentationLineForArgument(input, "person", "Some Resource")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `animal` - (Optional) An `animal` block as defined above."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForArgument_LocationBelow(t *testing.T) {
+	// The block `cat` contains a field `napping_place`
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("NappingPlace"),
+		},
+		HclName:  "napping_place",
+		Optional: true,
+	}
+	actual, err := documentationLineForArgument(input, "cat", "Some Resource")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `napping_place` - (Optional) A `napping_place` block as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestDocumentationLineForArgument_LocationForTopLevelItemShouldAlwaysSayBelow(t *testing.T) {
+	input := resourcemanager.TerraformSchemaFieldDefinition{
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			ReferenceName: pointer.To("Animal"),
+		},
+		HclName:  "animal",
+		Optional: true,
+	}
+	actual, err := documentationLineForArgument(input, "", "Some Resource")
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := "* `animal` - (Optional) An `animal` block as defined below."
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
