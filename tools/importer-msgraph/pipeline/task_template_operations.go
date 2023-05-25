@@ -61,21 +61,25 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			switch operation.Type {
 			case OperationTypeList:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", operation.ID.ID(), "method", operation.Method)
+					id := "{unknown-id}"
+					if operation.ID != nil {
+						id = operation.ID.ID()
+					}
+					logger.Debug("Skipping operation with empty response model", "resource", id, "method", operation.Method)
 					continue
 				}
 				methodCode = templateListMethod(resource, &operation, responseModel)
 			case OperationTypeRead:
 				if responseModel == "" {
-					logger.Debug("Skipping operation with empty response model", "resource", operation.ID.ID(), "method", operation.Method)
+					id := "{unknown-id}"
+					if operation.ID != nil {
+						id = operation.ID.ID()
+					}
+					logger.Debug("Skipping operation with empty response model", "resource", id, "method", operation.Method)
 					continue
 				}
 				methodCode = templateReadMethod(resource, &operation, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
-				//if requestModel == "" {
-				//	logger.Debug("Skipping operation with empty request model var", "resource", operation.ID.ID(), "method", operation.Method)
-				//	continue
-				//}
 				methodCode = templateCreateUpdateMethod(resource, &operation, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
 				methodCode = templateDeleteMethod(resource, &operation, statuses)
