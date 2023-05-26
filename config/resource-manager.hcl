@@ -470,7 +470,7 @@ service "solutions" {
 }
 service "sql" {
   name      = "Sql"
-  available = ["2014-04-01", "2015-05-01-preview", "2017-03-01-preview", "2018-06-01-preview", "2020-11-01-preview", "2021-02-01-preview"]
+  available = ["2017-03-01-preview", "2018-06-01-preview", "2021-02-01-preview"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
