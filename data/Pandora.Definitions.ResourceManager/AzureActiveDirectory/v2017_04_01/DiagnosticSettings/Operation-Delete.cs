@@ -10,18 +10,17 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.ManagedDatabaseSensitivityLabels;
+namespace Pandora.Definitions.ResourceManager.AzureActiveDirectory.v2017_04_01.DiagnosticSettings;
 
 internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
+                HttpStatusCode.NoContent,
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TableColumnId();
-
-    public override string? UriSuffix() => "/sensitivityLabels/current";
+    public override ResourceID? ResourceId() => new DiagnosticSettingId();
 
 
 }
