@@ -6,6 +6,8 @@ using Pandora.Data.Repositories;
 using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.HandDefined;
 using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Beta;
+using Pandora.Definitions.MicrosoftGraph.Stable;
 using Pandora.Definitions.ResourceManager;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 
@@ -23,6 +25,18 @@ public class ServiceDefinitionsTests
     public void ValidateHandDefinedServiceDefinitions()
     {
         ValidateAssemblyContainingServiceDefinitions(new HandDefinedServices());
+    }
+
+    [TestCase]
+    public void ValidateMicrosoftGraphBetaServiceDefinitions()
+    {
+        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphBetaServices());
+    }
+
+    [TestCase]
+    public void ValidateMicrosoftGraphStableV1ServiceDefinitions()
+    {
+        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphStableV1Services());
     }
 
     [TestCase]
