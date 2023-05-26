@@ -1,4 +1,8 @@
 
+service "azureactivedirectory" {
+  name      = "AzureActiveDirectory"
+  available = ["2017-04-01"]
+}
 service "advisor" {
   name      = "Advisor"
   available = ["2020-01-01", "2022-10-01", "2023-01-01"]
