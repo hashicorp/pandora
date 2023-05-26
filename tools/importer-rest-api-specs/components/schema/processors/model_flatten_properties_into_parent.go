@@ -35,6 +35,12 @@ func (modelFlattenPropertiesIntoParent) ProcessModel(modelName string, model res
 
 		nestedPropsModel := models[*fieldValue.ObjectDefinition.ReferenceName]
 		for nestedFieldName, nestedFieldValue := range nestedPropsModel.Fields {
+			if _, hasExisting := fields[nestedFieldName]; hasExisting {
+				// if the top level model contains a field with the same name then we shouldn't be flattening
+				// the nested model into it, otherwise we'll have naming conflicts
+				return &models, &mappings, nil
+			}
+
 			fields[nestedFieldName] = nestedFieldValue
 		}
 		delete(fields, fieldName)

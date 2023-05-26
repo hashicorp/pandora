@@ -151,6 +151,37 @@ func TestParseModelSingleTopLevel(t *testing.T) {
 	}
 }
 
+func TestParseModelSingleTopLevelWithRawFile(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_single_with_rawfile.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	operation, ok := resource.Operations["Test"]
+	if !ok {
+		t.Fatalf("the Operation 'Test' was not found")
+	}
+
+	if operation.RequestObject.Type != models.ObjectDefinitionRawFile {
+		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
+	}
+
+	if operation.ResponseObject.Type != models.ObjectDefinitionRawFile {
+		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
+	}
+}
+
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_single_with_inlined_model.json")
 	if err != nil {
@@ -1259,6 +1290,53 @@ func TestParseModelSingleContainingAllOfWithinProperties(t *testing.T) {
 	}
 
 	props, ok := hello.Models["ExampleProperties"]
+	if !ok {
+		t.Fatalf("expected there to be a model named ExampleProperties")
+	}
+	if len(props.Fields) != 3 {
+		t.Fatalf("expected the model ExampleProperties to have 3 fields but got %d", len(props.Fields))
+	}
+}
+
+func TestParseModelSingleContainingMultipleAllOfWithinProperties(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Hello"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Hello")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 3 {
+		t.Fatalf("expected 2 Model but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 0 {
+		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
+	}
+
+	example, ok := hello.Models["Example"]
+	if !ok {
+		t.Fatalf("expected there to be a model named Example")
+	}
+	if len(example.Fields) != 2 {
+		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
+	}
+
+	props, ok := hello.Models["ExampleResource"]
 	if !ok {
 		t.Fatalf("expected there to be a model named ExampleProperties")
 	}

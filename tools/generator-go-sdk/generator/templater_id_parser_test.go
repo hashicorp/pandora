@@ -74,7 +74,7 @@ var _ resourceids.ResourceId = BasicTestId{}
         var ok bool
         id := BasicTestId{}
         if id.SubscriptionId, ok = parsed.Parsed["subscriptionId"]; !ok {
-			return nil, fmt.Errorf("the segment 'subscriptionId' was not found in the resource id %q", input)
+			return nil, resourceids.NewSegmentNotSpecifiedError(id, "subscriptionId", *parsed)
         }
 
         return &id, nil
@@ -92,7 +92,7 @@ var _ resourceids.ResourceId = BasicTestId{}
         var ok bool
         id := BasicTestId{}
         if id.SubscriptionId, ok = parsed.Parsed["subscriptionId"]; !ok {
-	        return nil, fmt.Errorf("the segment 'subscriptionId' was not found in the resource id %q", input)
+            return nil, resourceids.NewSegmentNotSpecifiedError(id, "subscriptionId", *parsed)
         }
 
         return &id, nil
@@ -222,7 +222,7 @@ func ParseConstantOnlyID(input string) (*ConstantOnlyId, error) {
 
 	if v, ok := parsed.Parsed["thingId"]; true {
 		if !ok {
-			return nil, fmt.Errorf("the segment 'thingId' was not found in the resource id %q", input)
+			return nil, resourceids.NewSegmentNotSpecifiedError(id, "thingId", *parsed)
 		}
 
 		thingId, err := parseThing(v)
@@ -248,7 +248,7 @@ func ParseConstantOnlyIDInsensitively(input string) (*ConstantOnlyId, error) {
 
 	if v, ok := parsed.Parsed["thingId"]; true {
 		if !ok {
-			return nil, fmt.Errorf("the segment 'thingId' was not found in the resource id %q", input)
+			return nil, resourceids.NewSegmentNotSpecifiedError(id, "thingId", *parsed)
 		}
 
 		thingId, err := parseThing(v)

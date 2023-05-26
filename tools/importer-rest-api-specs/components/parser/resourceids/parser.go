@@ -23,7 +23,7 @@ func (p *Parser) Parse() (*ParseResult, error) {
 	resourceIds := switchOutCommonResourceIDsAsNeeded(uniqueResourceIds)
 
 	p.logger.Trace("Generating Names for Resource IDs..")
-	namesToResourceIds, err := p.generateNamesForResourceIds(resourceIds)
+	namesToResourceIds, err := p.generateNamesForResourceIds(resourceIds, nil)
 	if err != nil {
 		return nil, fmt.Errorf("generating Names for Resource IDs: %+v", err)
 	}

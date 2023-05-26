@@ -471,7 +471,7 @@ func (s *FirstImplementation) UnmarshalJSON(bytes []byte) error {
 		if err != nil {
 			return fmt.Errorf("unmarshaling field 'Serialization' for 'FirstImplementation': %+v", err)
 		}
-		s.Serialization = &impl
+		s.Serialization = impl
 	}
 
 	return nil

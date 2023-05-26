@@ -268,10 +268,135 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 				// TODO: add me
 			},
 		},
+		{
+			// in this example the same field exists at both the top level and in the nested model
+			// as such whilst the nested model is _technically_ eligible to be flattened, it's
+			// intentionally _not_ due to the naming conflicts.
+
+			modelNameInput: "PandaProperties",
+			modelsInput: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Panda": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Name": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+						"Properties": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: stringPointer("PandaProperties"),
+							},
+						},
+					},
+				},
+				"PandaProperties": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Age": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"Weight": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"CutenessProperties": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: stringPointer("CutenessProperties"),
+							},
+						},
+					},
+				},
+				"CutenessProperties": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Age": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"Cuddliness": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+						"AwwwFactor": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+					},
+				},
+			},
+			mappingsInput: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
+			expectedModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+				"Panda": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Name": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+						"Properties": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: stringPointer("PandaProperties"),
+							},
+						},
+					},
+				},
+				"PandaProperties": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Age": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"Weight": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"CutenessProperties": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: stringPointer("CutenessProperties"),
+							},
+						},
+					},
+				},
+				"CutenessProperties": {
+					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+						"Age": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+							},
+						},
+						"Cuddliness": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+						"AwwwFactor": {
+							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							},
+						},
+					},
+				},
+			},
+			expectedMappings: resourcemanager.MappingDefinition{
+				// TODO: add me
+			},
+		},
 	}
 
-	for _, v := range testData {
-		t.Logf("[DEBUG] Testing %s", v.modelNameInput)
+	for i, v := range testData {
+		t.Logf("[DEBUG] Iteration %d - testing %s", i, v.modelNameInput)
 
 		actualModels, actualMappings, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
 		if err != nil {

@@ -156,7 +156,8 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		result.Append(*nestedResult)
 	}
 
-	if len(value.Properties) > 0 {
+	// if there are more than 1 allOf, it can not use a simple reference type, but a new definition
+	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
 		nestedFields := make(map[string]models.FieldDetails, 0)
@@ -396,50 +397,14 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 	if v, ok := input.Extensions.GetString("x-ms-discriminator-value"); ok {
 		details.TypeHintValue = &v
 
-		// so we need to find the parent details
-		for _, parentRaw := range input.AllOf {
-			parentFragmentName := fragmentNameFromReference(parentRaw.Ref)
-			if parentFragmentName == nil {
-				continue
-			}
-
-			var parent *spec.Schema
-			var err error
-			parent, err = d.findTopLevelObject(*parentFragmentName)
-			if err != nil {
-				return nil, fmt.Errorf("finding top level object %q: %+v", *parentFragmentName, err)
-			}
-
-			if parent.Discriminator != "" {
-				details.ParentTypeName = parentFragmentName
-				details.TypeHintIn = &parent.Discriminator
-				break
-			}
-
-			// does the parent itself inherit from something?
-			if len(parent.AllOf) == 0 {
-				continue
-			}
-
-			// NOTE: we're intentionally not scoping further than grandparent since we haven't seen it, if we do this can be refactored
-			for _, grandParentRaw := range parent.AllOf {
-				grandParentFragmentName := fragmentNameFromReference(grandParentRaw.Ref)
-				if grandParentFragmentName == nil {
-					continue
-				}
-
-				grandParent, err := d.findTopLevelObject(*grandParentFragmentName)
-				if err != nil {
-					return nil, fmt.Errorf("finding grandparent %q for top level object %q: %+v", *grandParentFragmentName, *parentFragmentName, err)
-				}
-
-				if grandParent.Discriminator != "" {
-					details.ParentTypeName = grandParentFragmentName
-					details.TypeHintIn = &grandParent.Discriminator
-					break
-				}
-			}
-
+		// so we need to find the ancestor details
+		parentTypeName, discriminator, err := d.findAncestorType(input)
+		if err != nil {
+			return nil, fmt.Errorf("finding ancestor type for %q: %+v", modelName, err)
+		}
+		if parentTypeName != nil && discriminator != nil {
+			details.ParentTypeName = parentTypeName
+			details.TypeHintIn = discriminator
 		}
 
 		// however if there's a Discriminator value defined but no parent type - this is bad data - so we should ignore it
@@ -449,6 +414,38 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 	}
 
 	return &details, nil
+}
+
+func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *string, error) {
+	for _, parentRaw := range input.AllOf {
+		parentFragmentName := fragmentNameFromReference(parentRaw.Ref)
+		if parentFragmentName == nil {
+			continue
+		}
+
+		parent, err := d.findTopLevelObject(*parentFragmentName)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding top level object %q: %+v", *parentFragmentName, err)
+		}
+
+		if parent.Discriminator != "" {
+			return parentFragmentName, &parent.Discriminator, nil
+		}
+
+		// does the parent itself inherit from something?
+		if len(parent.AllOf) == 0 {
+			continue
+		}
+
+		parentTypeName, discriminator, err := d.findAncestorType(*parent)
+		if err != nil {
+			return nil, nil, fmt.Errorf("finding ancestor type for %q: %+v", *parentFragmentName, err)
+		}
+		if parentTypeName != nil && discriminator != nil {
+			return parentTypeName, discriminator, nil
+		}
+	}
+	return nil, nil, nil
 }
 
 func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string, input *spec.Schema, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
@@ -656,10 +653,12 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 		}
 	}
 
-	// TODO: Objects with Format of File are actually RawFiles..
-	// "type": "object",
-	// "format": "file"
 	if input.Type.Contains("object") {
+		if strings.EqualFold(input.Format, "file") {
+			return &models.ObjectDefinition{
+				Type: models.ObjectDefinitionRawFile,
+			}
+		}
 		return &models.ObjectDefinition{
 			Type: models.ObjectDefinitionRawObject,
 		}

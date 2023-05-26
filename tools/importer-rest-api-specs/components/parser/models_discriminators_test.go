@@ -742,3 +742,155 @@ func TestParseDiscriminatorsInheritingFromOtherDiscriminators(t *testing.T) {
 		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
 	}
 }
+
+func TestParseDiscriminatorsDeepInheritance(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "model_discriminators_deep_inheritance.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	resource, ok := result.Resources["Discriminator"]
+	if !ok {
+		t.Fatal("the Resource 'Discriminator' was not found")
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 6 {
+		t.Fatalf("expected 7 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 1 {
+		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 1 {
+		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	wrapper, ok := resource.Models["ExampleWrapper"]
+	if !ok {
+		t.Fatalf("the Model `ExampleWrapper` was not found")
+	}
+	if wrapper.ParentTypeName != nil {
+		t.Fatalf("wrapper.ParentTypeName should be nil but was %q", *wrapper.ParentTypeName)
+	}
+	if wrapper.TypeHintIn != nil {
+		t.Fatalf("wrapper.TypeHintIn should be nil but was %q", *wrapper.TypeHintIn)
+	}
+	if wrapper.TypeHintValue != nil {
+		t.Fatalf("wrapper.TypeHintValue should be nil but was %q", *wrapper.TypeHintValue)
+	}
+
+	biologicalEntity, ok := resource.Models["BiologicalEntity"]
+	if !ok {
+		t.Fatalf("the Model `BiologicalEntity` was not found")
+	}
+	if biologicalEntity.ParentTypeName != nil {
+		t.Fatalf("biologicalEntity.ParentTypeName should be nil but was %q", *biologicalEntity.ParentTypeName)
+	}
+	if biologicalEntity.TypeHintIn == nil {
+		t.Fatal("biologicalEntity.TypeHintIn should have a value but it doesn't")
+	}
+	if biologicalEntity.TypeHintValue != nil {
+		t.Fatalf("biologicalEntity.TypeHintValue should be nil but was %q", *biologicalEntity.TypeHintValue)
+	}
+
+	animal, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatalf("the Model `Animal` was not found")
+	}
+	if animal.ParentTypeName == nil {
+		t.Fatalf("animal.ParentTypeName should have a value but it doesn't")
+	}
+	if *animal.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("animal.ParentTypeName should be `BiologicalEntity` but it was %q", *animal.ParentTypeName)
+	}
+	if animal.TypeHintIn == nil {
+		t.Fatal("animal.TypeHintIn should have a value but it doesn't")
+	}
+	if *animal.TypeHintIn != "TypeName" {
+		t.Fatalf("animal.TypeHintIn should be `TypeName` but it was %q", *animal.TypeHintIn)
+	}
+	if animal.TypeHintValue == nil {
+		t.Fatalf("animal.TypeHintValue should have a value but it doesn't")
+	}
+	if *animal.TypeHintValue != "animal" {
+		t.Fatalf("animal.TypeHintValue should be `animal` but it was %q", *animal.TypeHintValue)
+	}
+
+	carnivore, ok := resource.Models["Carnivore"]
+	if !ok {
+		t.Fatalf("the Model `Carnivore` was not found")
+	}
+	if carnivore.ParentTypeName == nil {
+		t.Fatalf("carnivore.ParentTypeName should have a value but it doesn't")
+	}
+	if *carnivore.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("carnivore.ParentTypeName should be `BiologicalEntity` but it was %q", *carnivore.ParentTypeName)
+	}
+	if carnivore.TypeHintIn == nil {
+		t.Fatal("carnivore.TypeHintIn should have a value but it doesn't")
+	}
+	if *carnivore.TypeHintIn != "TypeName" {
+		t.Fatalf("carnivore.TypeHintIn should be `TypeName` but it was %q", *carnivore.TypeHintIn)
+	}
+	if carnivore.TypeHintValue == nil {
+		t.Fatalf("carnivore.TypeHintValue should have a value but it doesn't")
+	}
+	if *carnivore.TypeHintValue != "carnivore" {
+		t.Fatalf("carnivore.TypeHintValue should be `carnivore` but it was %q", *carnivore.TypeHintValue)
+	}
+
+	cat, ok := resource.Models["Cat"]
+	if !ok {
+		t.Fatalf("the Model `Cat` was not found")
+	}
+	if cat.ParentTypeName == nil {
+		t.Fatalf("cat.ParentTypeName should have a value but it doesn't")
+	}
+	if *cat.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("cat.ParentTypeName should be `BiologicalEntity` but it was %q", *cat.ParentTypeName)
+	}
+	if cat.TypeHintIn == nil {
+		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
+	}
+	if *cat.TypeHintIn != "TypeName" {
+		t.Fatalf("cat.TypeHintIn should be `TypeName` but it was %q", *cat.TypeHintIn)
+	}
+	if cat.TypeHintValue == nil {
+		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
+	}
+	if *cat.TypeHintValue != "cat" {
+		t.Fatalf("cat.TypeHintValue should be `cat` but it was %q", *cat.TypeHintValue)
+	}
+
+	persianCat, ok := resource.Models["PersianCat"]
+	if !ok {
+		t.Fatalf("the Model `PersianCat` was not found")
+	}
+	if persianCat.ParentTypeName == nil {
+		t.Fatalf("persianCat.ParentTypeName should have a value but it doesn't")
+	}
+	if *persianCat.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("persianCat.ParentTypeName should be `BiologicalEntity` but it was %q", *persianCat.ParentTypeName)
+	}
+	if persianCat.TypeHintIn == nil {
+		t.Fatal("persianCat.TypeHintIn should have a value but it doesn't")
+	}
+	if *persianCat.TypeHintIn != "TypeName" {
+		t.Fatalf("persianCat.TypeHintIn should be `TypeName` but it was %q", *persianCat.TypeHintIn)
+	}
+	if persianCat.TypeHintValue == nil {
+		t.Fatalf("persianCat.TypeHintValue should have a value but it doesn't")
+	}
+	if *persianCat.TypeHintValue != "persian-cat" {
+		t.Fatalf("persianCat.TypeHintValue should be `persian-cat` but it was %q", *persianCat.TypeHintValue)
+	}
+}

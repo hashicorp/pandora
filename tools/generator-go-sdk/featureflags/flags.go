@@ -5,6 +5,11 @@ import (
 	"strings"
 )
 
+// OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty specifies whether a field which contains
+// a Discriminated Type that's Optional should be output as Optional without `omitempty` in the
+// JSON Tags - this means that we'll send a `null` value rather than omitting it.
+const OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty = false
+
 // GenerateCaseInsensitiveFunctions specifies whether case-insensitive Resource ID parsing
 // functions should be generated.
 const GenerateCaseInsensitiveFunctions = true

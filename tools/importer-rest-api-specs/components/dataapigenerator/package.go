@@ -10,7 +10,7 @@ import (
 func (s Generator) generateResources(resourceName, namespace string, resource models.AzureApiResource, workingDirectory string) error {
 	s.logger.Debug(fmt.Sprintf("Generating %q (Resource %q)..", namespace, resourceName))
 
-	if err := recreateDirectory(workingDirectory, s.logger); err != nil {
+	if err := RecreateDirectory(workingDirectory, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 

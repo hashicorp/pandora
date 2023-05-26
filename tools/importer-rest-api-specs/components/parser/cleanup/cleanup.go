@@ -72,6 +72,11 @@ func NormalizeSegmentName(input string) string {
 
 // NormalizeSegment normalizes the segments in the URI, since this data isn't normalized at review time :shrug:
 func NormalizeSegment(input string, camelCase bool) string {
+	// property names in Models that are normalized in NormalizeCanonicalisation to begin with IP need to be excluded here
+	if strings.HasPrefix(input, "IP") {
+		return input
+	}
+
 	fixed := map[string]string{
 		// these are intentionally lower-case keys -> camelCased segments
 		"accounts":           "accounts",
@@ -102,6 +107,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"consumergroups":                    "consumerGroups",
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
+		"customipprefixes":                  "customIPPrefixes",
 		"databases":                         "databases", // handles Databases
 		"dataconnections":                   "dataConnections",
 		"datastores":                        "dataStores",
@@ -126,6 +132,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"iothubkeys":                              "iotHubKeys",
 		"iothubs":                                 "iotHubs",
 		"iotsecuritysolutions":                    "iotSecuritySolutions",
+		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
 		"logprofiles":                             "logProfiles",
@@ -142,11 +149,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"notificationchannels":                    "notificationChannels",
 		"openshiftclusters":                       "openShiftClusters",
 		"operationresults":                        "operationResults",
+		"p2svpnGateways":                          "p2sVpnGateways",
 		"pipelineruns":                            "pipelineRuns",
 		"policysets":                              "policySets",
 		"portalconfigs":                           "portalConfigs",
 		"premieraddons":                           "premierAddons",
 		"principalassignments":                    "principalAssignments",
+		"publicipaddresses":                       "publicIPAddresses",
 		"reservationorders":                       "reservationOrders",
 		"resourcegroups":                          "resourceGroups",
 		"resourcetyperegistrations":               "resourceTypeRegistrations",
@@ -172,6 +181,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"triggeredwebjobs":                        "triggeredWebJobs",
 		"vaultstorageconfig":                      "vaultStorageConfig",
 		"virtualnetworks":                         "virtualNetworks",
+		"virtualmachine":                          "virtualMachine", // exists in MarketplaceOrdering
 		"virtualmachines":                         "virtualMachines",
 		"vmname":                                  "virtualMachineName",         // inconsistency in Compute
 		"vmscalesetname":                          "virtualMachineScaleSetName", // inconsistency in Compute (#1204)

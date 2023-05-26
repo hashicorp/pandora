@@ -69,7 +69,7 @@ service "chaos" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2021-04-30", "2022-10-01", "2022-12-01"]
+  available = ["2021-04-30", "2022-10-01", "2022-12-01", "2023-05-01"]
 }
 service "communication" {
   name      = "Communication"
@@ -77,7 +77,7 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-07-01", "2021-11-01", "2022-03-01", "2022-03-02"]
+  available = ["2021-07-01", "2021-11-01", "2022-03-01", "2022-03-02", "2022-03-03"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
@@ -102,15 +102,15 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview"]
+  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15"]
+  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15", "2023-04-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
-  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01"]
+  available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01"]
 }
 service "customproviders" {
   name      = "CustomProviders"
@@ -126,7 +126,7 @@ service "databoxedge" {
 }
 service "databricks" {
   name      = "Databricks"
-  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01"]
+  available = ["2022-04-01-preview", "2022-10-01-preview", "2023-02-01", "2023-05-01"]
 }
 service "datadog" {
   name      = "DataDog"
@@ -151,7 +151,8 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01", "2023-05-01"]
+  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01"]
+  ignore    = ["2023-05-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -218,6 +219,10 @@ service "frontdoor" {
   name      = "FrontDoor"
   available = ["2020-04-01", "2020-05-01", "2022-05-01"]
 }
+service "guestconfiguration" {
+  name      = "GuestConfiguration"
+  available = ["2020-06-25", "2022-01-25"]
+}
 service "hardwaresecuritymodules" {
   name      = "HardwareSecurityModules"
   available = ["2021-11-30"]
@@ -236,7 +241,7 @@ service "healthcareapis" {
 }
 service "hybridcompute" {
   name      = "HybridCompute"
-  available = ["2022-03-10", "2022-11-10"]
+  available = ["2022-03-10", "2022-11-10", "2022-12-27"]
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
@@ -252,7 +257,7 @@ service "keyvault" {
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
-  available = ["2022-03-01", "2022-11-01"]
+  available = ["2022-03-01", "2022-11-01", "2023-05-01"]
 }
 service "labservices" {
   name      = "LabServices"
@@ -294,6 +299,10 @@ service "mariadb" {
   name      = "MariaDB"
   available = ["2018-06-01", "2018-06-01-preview", "2020-01-01"]
 }
+service "marketplaceordering" {
+  name      = "MarketplaceOrdering"
+  available = ["2015-06-01", "2021-01-01"]
+}
 service "mediaservices" {
   name      = "Media"
   available = ["2021-11-01", "2022-07-01", "2022-08-01"]
@@ -320,15 +329,23 @@ service "msi" {
 }
 service "mysql" {
   name      = "MySql"
-  available = ["2021-05-01", "2021-12-01-preview"]
+  available = ["2021-05-01", "2021-12-01-preview", "2022-01-01"]
 }
 service "netapp" {
   name      = "NetApp"
   available = ["2021-10-01", "2022-01-01", "2022-05-01", "2022-09-01"]
 }
+service "network" {
+  name      = "Network"
+  available = ["2022-09-01", "2022-11-01"]
+}
 service "networkfunction" {
   name      = "NetworkFunction"
   available = ["2022-08-01", "2022-11-01"]
+}
+service "newrelic" {
+  name      = "NewRelic"
+  available = ["2022-07-01"]
 }
 service "nginx" {
   name      = "Nginx"
@@ -385,8 +402,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2021-12-01", "2022-03-01", "2022-04-01", "2022-10-01", "2023-02-01"]
-  ignore    = ["2023-01-01"]
+  available = ["2023-02-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -398,7 +414,7 @@ service "redhatopenshift" {
 }
 service "redis" {
   name      = "Redis"
-  available = ["2022-06-01"]
+  available = ["2022-06-01", "2023-04-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
@@ -414,11 +430,11 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2022-06-01", "2022-09-01", "2022-12-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01"]
 }
 service "search" {
   name      = "Search"
-  available = ["2020-03-13", "2020-08-01", "2022-09-01"]
+  available = ["2022-09-01"]
 }
 service "security" {
   name      = "Security"
@@ -452,6 +468,10 @@ service "solutions" {
   name      = "ManagedApplications"
   available = ["2019-07-01", "2021-07-01"]
 }
+service "sql" {
+  name      = "Sql"
+  available = ["2022-11-01-preview"]
+}
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
   available = ["2022-02-01"]
@@ -462,7 +482,7 @@ service "storage" {
 }
 service "storagecache" {
   name      = "StorageCache"
-  available = ["2023-01-01"]
+  available = ["2023-01-01", "2023-05-01"]
 }
 service "storagemover" {
   name      = "StorageMover"
@@ -491,7 +511,7 @@ service "timeseriesinsights" {
 }
 service "trafficmanager" {
   name      = "TrafficManager"
-  available = ["2018-08-01"]
+  available = ["2018-08-01", "2022-04-01"]
 }
 service "videoanalyzer" {
   name      = "VideoAnalyzer"
