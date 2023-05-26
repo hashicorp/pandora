@@ -23,7 +23,7 @@ public class ServicesController : ControllerBase
     {
         return new JsonResult(new ServicesResponse
         {
-            Services = GetServices(true),
+            Services = _repo.GetAll(ServiceDefinitionType.ResourceManager).ToDictionary(a => a.Name, ToServiceReference),
         });
     }
 
@@ -49,11 +49,5 @@ public class ServicesController : ControllerBase
             Generate = input.Generate,
             Uri = $"/v1/resource-manager/services/{input.Name}"
         };
-    }
-
-    private Dictionary<string, ServiceReference> GetServices(bool resourceManager)
-    {
-        return _repo.GetAll(resourceManager)
-            .ToDictionary(a => a.Name, ToServiceReference);
     }
 }

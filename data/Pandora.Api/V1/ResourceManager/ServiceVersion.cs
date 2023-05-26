@@ -27,7 +27,7 @@ public class ServiceVersionController : ControllerBase
 
     private IActionResult ForService(string serviceName, string apiVersion)
     {
-        var service = _repo.GetByName(serviceName, true);
+        var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
         if (service == null)
         {
             return BadRequest("service not found");

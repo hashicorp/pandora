@@ -22,12 +22,12 @@ public class ApiSchemaController : ControllerBase
     [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/schema")]
     public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
     {
-        return ForService(serviceName, apiVersion, resourceName, true);
+        return ForService(serviceName, apiVersion, resourceName);
     }
 
-    private IActionResult ForService(string serviceName, string apiVersion, string resourceName, bool resourceManager)
+    private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
     {
-        var service = _repo.GetByName(serviceName, resourceManager);
+        var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
         if (service == null)
         {
             return BadRequest("service not found");
@@ -45,10 +45,10 @@ public class ApiSchemaController : ControllerBase
             return BadRequest($"resource {resourceName} was not found");
         }
 
-        return new JsonResult(MapResponse(api, version, service, resourceManager));
+        return new JsonResult(MapResponse(api));
     }
 
-    private static ApiSchemaResponse MapResponse(ResourceDefinition resource, VersionDefinition version, ServiceDefinition service, bool resourceManager)
+    private static ApiSchemaResponse MapResponse(ResourceDefinition resource)
     {
         return new ApiSchemaResponse
         {

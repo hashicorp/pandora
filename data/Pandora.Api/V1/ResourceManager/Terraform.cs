@@ -20,7 +20,7 @@ public partial class TerraformController : ControllerBase
     [Route("/v1/resource-manager/services/{serviceName}/terraform")]
     public IActionResult Terraform(string serviceName)
     {
-        var service = _repo.GetByName(serviceName, true);
+        var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
         if (service == null)
         {
             return BadRequest("service not found");

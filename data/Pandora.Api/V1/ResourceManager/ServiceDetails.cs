@@ -24,7 +24,7 @@ public class ServiceDetailsController : ControllerBase
 
     private IActionResult ForService(string serviceName)
     {
-        var service = _repo.GetByName(serviceName, true);
+        var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
         if (service == null)
         {
             return BadRequest("service not found");
@@ -37,7 +37,7 @@ public class ServiceDetailsController : ControllerBase
     {
         return new ServiceDetailsResponse
         {
-            ResourceProvider = version.ResourceManager ? version.ResourceProvider! : null,
+            ResourceProvider = version.ResourceProvider!,
             TerraformPackageName = version.TerraformPackageName,
             TerraformUri = $"/v1/resource-manager/services/{serviceName}/terraform",
             Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName))
