@@ -10,15 +10,13 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.ManagedDatabaseSensitivityLabels;
+namespace Pandora.Definitions.ResourceManager.AzureActiveDirectory.v2017_04_01.DiagnosticSettings;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TableColumnId();
+    public override ResourceID? ResourceId() => new DiagnosticSettingId();
 
-    public override Type? ResponseObject() => typeof(SensitivityLabelModel);
-
-    public override string? UriSuffix() => "/sensitivityLabels/current";
+    public override Type? ResponseObject() => typeof(DiagnosticSettingsResourceModel);
 
 
 }
