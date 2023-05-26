@@ -472,10 +472,6 @@ service "solutions" {
   name      = "ManagedApplications"
   available = ["2019-07-01", "2021-07-01"]
 }
-service "sql" {
-  name      = "Sql"
-  available = ["2022-11-01-preview"]
-}
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
   available = ["2022-02-01"]
