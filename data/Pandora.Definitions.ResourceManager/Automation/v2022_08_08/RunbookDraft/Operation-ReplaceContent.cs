@@ -24,7 +24,7 @@ internal class ReplaceContentOperation : Pandora.Definitions.Operations.PutOpera
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(object);
+    public override Type? RequestObject() => typeof(CustomTypes.RawFile);
 
     public override ResourceID? ResourceId() => new RunbookId();
 

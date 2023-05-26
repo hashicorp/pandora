@@ -17,5 +17,5 @@ internal class SasDatastoreCredentialsModel : DatastoreCredentialsModel
 {
     [JsonPropertyName("secrets")]
     [Required]
-    public SasDatastoreSecretsModel Secrets { get; set; }
+    public DatastoreSecretsModel Secrets { get; set; }
 }

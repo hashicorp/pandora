@@ -19,5 +19,5 @@ internal class MongoDBCollectionGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public MongoDBCollectionGetPropertiesModel? Resource { get; set; }
+    public MongoDBCollectionGetPropertiesResourceModel? Resource { get; set; }
 }

@@ -22,7 +22,7 @@ internal class SweepJobModel : JobBaseModel
     public Dictionary<string, JobInputModel>? Inputs { get; set; }
 
     [JsonPropertyName("limits")]
-    public SweepJobLimitsModel? Limits { get; set; }
+    public JobLimitsModel? Limits { get; set; }
 
     [JsonPropertyName("objective")]
     [Required]

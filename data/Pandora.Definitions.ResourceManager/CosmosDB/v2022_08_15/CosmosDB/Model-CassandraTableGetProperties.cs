@@ -19,5 +19,5 @@ internal class CassandraTableGetPropertiesModel
     public OptionsResourceModel? Options { get; set; }
 
     [JsonPropertyName("resource")]
-    public CassandraTableGetPropertiesModel? Resource { get; set; }
+    public CassandraTableGetPropertiesResourceModel? Resource { get; set; }
 }

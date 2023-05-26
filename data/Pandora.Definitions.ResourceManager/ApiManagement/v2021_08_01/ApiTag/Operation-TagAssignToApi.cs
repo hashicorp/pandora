@@ -16,7 +16,7 @@ internal class TagAssignToApiOperation : Pandora.Definitions.Operations.PutOpera
 {
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new TagId();
+    public override ResourceID? ResourceId() => new ApiTagId();
 
     public override Type? ResponseObject() => typeof(TagContractModel);
 

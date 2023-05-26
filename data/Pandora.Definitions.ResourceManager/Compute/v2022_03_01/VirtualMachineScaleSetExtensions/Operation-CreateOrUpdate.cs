@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(VirtualMachineScaleSetExtensionModel);
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+    public override ResourceID? ResourceId() => new VirtualMachineScaleSetExtensionId();
 
     public override Type? ResponseObject() => typeof(VirtualMachineScaleSetExtensionModel);
 

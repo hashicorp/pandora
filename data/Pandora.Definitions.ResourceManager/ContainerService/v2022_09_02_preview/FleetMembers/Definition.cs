@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "FleetMembers";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateOrUpdateOperation(),
+        new CreateOperation(),
         new DeleteOperation(),
         new GetOperation(),
         new ListByFleetOperation(),

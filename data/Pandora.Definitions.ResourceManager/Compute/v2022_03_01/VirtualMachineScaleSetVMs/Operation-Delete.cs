@@ -23,7 +23,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new VirtualMachineId();
+    public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
     public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 

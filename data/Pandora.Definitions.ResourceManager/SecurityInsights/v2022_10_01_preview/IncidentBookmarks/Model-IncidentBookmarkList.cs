@@ -17,5 +17,5 @@ internal class IncidentBookmarkListModel
 {
     [JsonPropertyName("value")]
     [Required]
-    public List<HuntingBookmarkModel> Value { get; set; }
+    public List<EntityModel> Value { get; set; }
 }

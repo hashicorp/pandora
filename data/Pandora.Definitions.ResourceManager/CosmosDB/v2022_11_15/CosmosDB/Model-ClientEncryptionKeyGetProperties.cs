@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_11_15.CosmosDB;
 internal class ClientEncryptionKeyGetPropertiesModel
 {
     [JsonPropertyName("resource")]
-    public ClientEncryptionKeyGetPropertiesModel? Resource { get; set; }
+    public ClientEncryptionKeyGetPropertiesResourceModel? Resource { get; set; }
 }

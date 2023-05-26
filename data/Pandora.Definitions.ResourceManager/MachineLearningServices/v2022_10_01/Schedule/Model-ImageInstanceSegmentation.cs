@@ -31,7 +31,7 @@ internal class ImageInstanceSegmentationModel : AutoMLVerticalModel
     public ImageSweepSettingsModel? SweepSettings { get; set; }
 
     [JsonPropertyName("validationData")]
-    public MLTableJobInputModel? ValidationData { get; set; }
+    public JobInputModel? ValidationData { get; set; }
 
     [JsonPropertyName("validationDataSize")]
     public float? ValidationDataSize { get; set; }

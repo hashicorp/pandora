@@ -23,6 +23,7 @@ internal class Definition : ResourceDefinition
         typeof(AttackTacticConstant),
         typeof(EntityMappingTypeConstant),
         typeof(EventGroupingAggregationKindConstant),
+        typeof(MicrosoftSecurityProductNameConstant),
         typeof(TemplateStatusConstant),
         typeof(TriggerOperatorConstant),
     };
@@ -39,7 +40,9 @@ internal class Definition : ResourceDefinition
         typeof(MLBehaviorAnalyticsAlertRuleTemplateModel),
         typeof(MLBehaviorAnalyticsAlertRuleTemplatePropertiesModel),
         typeof(MicrosoftSecurityIncidentCreationAlertRuleTemplateModel),
+        typeof(MicrosoftSecurityIncidentCreationAlertRuleTemplatePropertiesModel),
         typeof(NrtAlertRuleTemplateModel),
+        typeof(NrtAlertRuleTemplatePropertiesModel),
         typeof(ScheduledAlertRuleTemplateModel),
         typeof(ScheduledAlertRuleTemplatePropertiesModel),
         typeof(ThreatIntelligenceAlertRuleTemplateModel),

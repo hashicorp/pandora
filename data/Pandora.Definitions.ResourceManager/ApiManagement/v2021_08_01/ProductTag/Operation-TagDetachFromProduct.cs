@@ -20,7 +20,7 @@ internal class TagDetachFromProductOperation : Pandora.Definitions.Operations.De
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TagId();
+    public override ResourceID? ResourceId() => new ProductTagId();
 
 
 }

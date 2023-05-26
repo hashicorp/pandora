@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ApiManagement.v2021_08_01.Subscrip
 
 internal class UserSubscriptionGetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Subscriptions2Id();
+    public override ResourceID? ResourceId() => new UserSubscriptions2Id();
 
     public override Type? ResponseObject() => typeof(SubscriptionContractModel);
 

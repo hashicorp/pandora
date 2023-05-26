@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Media.v2022_07_01.Encodings;
 internal class JobInputSequenceModel : JobInputModel
 {
     [JsonPropertyName("inputs")]
-    public List<JobInputClipModel>? Inputs { get; set; }
+    public List<JobInputModel>? Inputs { get; set; }
 }

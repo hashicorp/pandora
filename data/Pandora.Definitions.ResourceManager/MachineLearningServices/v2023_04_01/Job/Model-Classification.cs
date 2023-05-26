@@ -34,7 +34,7 @@ internal class ClassificationModel : AutoMLVerticalModel
     public ClassificationPrimaryMetricsConstant? PrimaryMetric { get; set; }
 
     [JsonPropertyName("testData")]
-    public MLTableJobInputModel? TestData { get; set; }
+    public JobInputModel? TestData { get; set; }
 
     [JsonPropertyName("testDataSize")]
     public float? TestDataSize { get; set; }
@@ -43,7 +43,7 @@ internal class ClassificationModel : AutoMLVerticalModel
     public ClassificationTrainingSettingsModel? TrainingSettings { get; set; }
 
     [JsonPropertyName("validationData")]
-    public MLTableJobInputModel? ValidationData { get; set; }
+    public JobInputModel? ValidationData { get; set; }
 
     [JsonPropertyName("validationDataSize")]
     public float? ValidationDataSize { get; set; }

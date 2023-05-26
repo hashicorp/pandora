@@ -16,7 +16,8 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_previ
 internal class FleetMemberPropertiesModel
 {
     [JsonPropertyName("clusterResourceId")]
-    public string? ClusterResourceId { get; set; }
+    [Required]
+    public string ClusterResourceId { get; set; }
 
     [JsonPropertyName("provisioningState")]
     public FleetMemberProvisioningStateConstant? ProvisioningState { get; set; }

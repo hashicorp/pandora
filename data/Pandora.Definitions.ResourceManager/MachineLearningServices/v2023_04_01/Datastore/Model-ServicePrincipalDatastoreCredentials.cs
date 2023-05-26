@@ -27,7 +27,7 @@ internal class ServicePrincipalDatastoreCredentialsModel : DatastoreCredentialsM
 
     [JsonPropertyName("secrets")]
     [Required]
-    public ServicePrincipalDatastoreSecretsModel Secrets { get; set; }
+    public DatastoreSecretsModel Secrets { get; set; }
 
     [JsonPropertyName("tenantId")]
     [Required]

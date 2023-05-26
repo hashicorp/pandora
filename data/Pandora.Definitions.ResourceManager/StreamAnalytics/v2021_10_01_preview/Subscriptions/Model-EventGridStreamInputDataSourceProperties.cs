@@ -25,5 +25,5 @@ internal class EventGridStreamInputDataSourcePropertiesModel
     public List<StorageAccountModel>? StorageAccounts { get; set; }
 
     [JsonPropertyName("subscriber")]
-    public EventHubV2StreamInputDataSourceModel? Subscriber { get; set; }
+    public StreamInputDataSourceModel? Subscriber { get; set; }
 }

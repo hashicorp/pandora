@@ -36,6 +36,9 @@ internal class ServerPropertiesForUpdateModel
     [JsonPropertyName("maintenanceWindow")]
     public MaintenanceWindowModel? MaintenanceWindow { get; set; }
 
+    [JsonPropertyName("network")]
+    public NetworkModel? Network { get; set; }
+
     [JsonPropertyName("replicationRole")]
     public ReplicationRoleConstant? ReplicationRole { get; set; }
 

@@ -16,8 +16,8 @@ internal class Definition : ResourceDefinition
         new CreateOrUpdateOperation(),
         new DeleteOperation(),
         new GetOperation(),
-        new ListOperation(),
         new ListByResourceGroupOperation(),
+        new ListBySubscriptionOperation(),
         new ListCredentialsOperation(),
         new UpdateOperation(),
     };

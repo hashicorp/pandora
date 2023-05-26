@@ -40,7 +40,7 @@ internal class ImageModelSettingsObjectDetectionModel
     public int? CheckpointFrequency { get; set; }
 
     [JsonPropertyName("checkpointModel")]
-    public MLFlowModelJobInputModel? CheckpointModel { get; set; }
+    public JobInputModel? CheckpointModel { get; set; }
 
     [JsonPropertyName("checkpointRunId")]
     public string? CheckpointRunId { get; set; }

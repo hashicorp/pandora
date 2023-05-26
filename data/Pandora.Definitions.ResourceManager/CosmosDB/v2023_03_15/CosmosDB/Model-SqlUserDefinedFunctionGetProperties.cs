@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.CosmosDB.v2023_03_15.CosmosDB;
 internal class SqlUserDefinedFunctionGetPropertiesModel
 {
     [JsonPropertyName("resource")]
-    public SqlUserDefinedFunctionGetPropertiesModel? Resource { get; set; }
+    public SqlUserDefinedFunctionGetPropertiesResourceModel? Resource { get; set; }
 }

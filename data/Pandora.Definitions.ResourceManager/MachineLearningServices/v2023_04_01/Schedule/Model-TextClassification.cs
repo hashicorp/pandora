@@ -25,5 +25,5 @@ internal class TextClassificationModel : AutoMLVerticalModel
     public ClassificationPrimaryMetricsConstant? PrimaryMetric { get; set; }
 
     [JsonPropertyName("validationData")]
-    public MLTableJobInputModel? ValidationData { get; set; }
+    public JobInputModel? ValidationData { get; set; }
 }
