@@ -395,19 +395,23 @@ func TestProcessModel_FlattenPropertiesIntoParent_Invalid(t *testing.T) {
 		},
 	}
 
-	for i, v := range testData {
-		t.Logf("[DEBUG] Iteration %d - testing %s", i, v.modelNameInput)
+	for i := range testData {
+		// @tombuildsstuff; this test is eventually consistent, so let's run it a few times to be sure
+		for n := 0; n < 10; n++ {
+			v := testData[i]
+			t.Logf("[DEBUG] Iteration %d re-iteration %d - testing %s", i, n, v.modelNameInput)
 
-		actualModels, actualMappings, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
-		if err != nil {
-			if v.expectedModels == nil {
-				continue
+			actualModels, actualMappings, err := modelFlattenPropertiesIntoParent{}.ProcessModel(v.modelNameInput, v.modelsInput[v.modelNameInput], v.modelsInput, v.mappingsInput)
+			if err != nil {
+				if v.expectedModels == nil {
+					continue
+				}
+
+				t.Fatalf("error: %+v", err)
 			}
 
-			t.Fatalf("error: %+v", err)
+			modelDefinitionsMatch(t, actualModels, v.expectedModels)
+			mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 		}
-
-		modelDefinitionsMatch(t, actualModels, v.expectedModels)
-		mappingDefinitionsMatch(t, actualMappings, v.expectedMappings)
 	}
 }
