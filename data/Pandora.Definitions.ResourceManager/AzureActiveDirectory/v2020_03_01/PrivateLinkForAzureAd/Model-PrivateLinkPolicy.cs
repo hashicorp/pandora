@@ -1,0 +1,47 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.AzureActiveDirectory.v2020_03_01.PrivateLinkForAzureAd;
+
+
+internal class PrivateLinkPolicyModel
+{
+    [JsonPropertyName("allTenants")]
+    public bool? AllTenants { get; set; }
+
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
+
+    [JsonPropertyName("ownerTenantId")]
+    public string? OwnerTenantId { get; set; }
+
+    [JsonPropertyName("resourceGroup")]
+    public string? ResourceGroup { get; set; }
+
+    [JsonPropertyName("resourceName")]
+    public string? ResourceName { get; set; }
+
+    [JsonPropertyName("subscriptionId")]
+    public string? SubscriptionId { get; set; }
+
+    [JsonPropertyName("tags")]
+    public CustomTypes.Tags? Tags { get; set; }
+
+    [JsonPropertyName("tenants")]
+    public List<string>? Tenants { get; set; }
+
+    [JsonPropertyName("type")]
+    public string? Type { get; set; }
+}
