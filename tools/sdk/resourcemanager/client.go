@@ -1,15 +1,32 @@
 package resourcemanager
 
-import "net/http"
+import (
+	"fmt"
+	"net/http"
+)
 
 type Client struct {
 	endpoint string
 	client   *http.Client
 }
 
-func NewClient(endpoint string) Client {
+func NewMicrosoftGraphBetaClient(endpoint string) Client {
 	return Client{
-		endpoint: endpoint,
+		endpoint: fmt.Sprintf("%s/v1/microsoft-graph/beta", endpoint),
+		client:   http.DefaultClient,
+	}
+}
+
+func NewMicrosoftGraphStableV1Client(endpoint string) Client {
+	return Client{
+		endpoint: fmt.Sprintf("%s/v1/microsoft-graph/stable-v1", endpoint),
+		client:   http.DefaultClient,
+	}
+}
+
+func NewResourceManagerClient(endpoint string) Client {
+	return Client{
+		endpoint: fmt.Sprintf("%s/v1/resource-manager", endpoint),
 		client:   http.DefaultClient,
 	}
 }
