@@ -48,7 +48,7 @@ func (m MappingsCommand) Synopsis() string {
 }
 
 func (m MappingsCommand) run() error {
-	client := resourcemanager.NewClient("http://localhost:5000")
+	client := resourcemanager.NewResourceManagerClient("http://localhost:5000")
 	result, err := services.GetResourceManagerServicesByName(client, []string{"ChaosStudio"})
 	if err != nil {
 		return fmt.Errorf("retrieving Resource Manager Services: %+v", err)

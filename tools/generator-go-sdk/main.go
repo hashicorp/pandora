@@ -147,7 +147,7 @@ func main() {
 }
 
 func run(input GeneratorInput) error {
-	client := resourcemanager.NewClient(input.apiServerEndpoint)
+	client := resourcemanager.NewResourceManagerClient(input.apiServerEndpoint)
 
 	// resource manager items should be output into the folder ./resource-manager
 	input.outputDirectory = path.Join(input.outputDirectory, "resource-manager")
