@@ -15,7 +15,7 @@ type workaroundBatch21291 struct {
 
 func (workaroundBatch21291) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "Batch"
-	apiVersionMatches := apiDefinition.ApiVersion == "2022-01-01"
+	apiVersionMatches := apiDefinition.ApiVersion == "2022-01-01" || apiDefinition.ApiVersion == "2022-10-01"
 	return serviceMatches && apiVersionMatches
 }
 
