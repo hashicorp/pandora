@@ -19,24 +19,36 @@ public class ApiSchemaController : ControllerBase
         _repo = repo;
     }
 
-    [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/schema")]
-    public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
+    [Route("/v1/microsoft-graph/{apiVersion}/services/{serviceName}/{serviceApiVersion}/{resourceName}/schema")]
+    public IActionResult MicrosoftGraph(string apiVersion, string serviceName, string serviceApiVersion, string resourceName)
     {
-        return ForService(serviceName, apiVersion, resourceName);
+        var definitionType = apiVersion.ParseServiceDefinitionTypeFromApiVersion();
+        if (definitionType == null)
+        {
+            return BadRequest($"the API Version {apiVersion} is not supported");
+        }
+
+        return ForService(serviceName, serviceApiVersion, resourceName, definitionType.Value);
     }
 
-    private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
+    [Route("/v1/resource-manager/services/{serviceName}/{serviceApiVersion}/{resourceName}/schema")]
+    public IActionResult ResourceManager(string serviceName, string serviceApiVersion, string resourceName)
     {
-        var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
+        return ForService(serviceName, serviceApiVersion, resourceName, ServiceDefinitionType.ResourceManager);
+    }
+
+    private IActionResult ForService(string serviceName, string serviceApiVersion, string resourceName, ServiceDefinitionType definitionType)
+    {
+        var service = _repo.GetByName(serviceName, definitionType);
         if (service == null)
         {
             return BadRequest("service not found");
         }
 
-        var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
+        var version = service.Versions.FirstOrDefault(v => v.Version == serviceApiVersion);
         if (version == null)
         {
-            return BadRequest($"version {apiVersion} was not found");
+            return BadRequest($"version {serviceApiVersion} was not found");
         }
 
         var api = version.Resources.FirstOrDefault(a => a.Name == resourceName);

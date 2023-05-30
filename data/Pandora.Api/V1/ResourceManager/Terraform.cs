@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Microsoft.AspNetCore.Mvc;
+using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -17,8 +18,26 @@ public partial class TerraformController : ControllerBase
         _repo = repo;
     }
 
+    [Route("/v1/microsoft-graph/{apiVersion}/services/{serviceName}/terraform")]
+    public IActionResult MicrosoftGraph(string apiVersion, string serviceName)
+    {
+        var definitionType = apiVersion.ParseServiceDefinitionTypeFromApiVersion();
+        if (definitionType == null)
+        {
+            return BadRequest($"the API Version {apiVersion} is not supported");
+        }
+        
+        var service = _repo.GetByName(serviceName, definitionType.Value);
+        if (service == null)
+        {
+            return BadRequest("service not found");
+        }
+
+        return new JsonResult(MapResponse(service));
+    }
+
     [Route("/v1/resource-manager/services/{serviceName}/terraform")]
-    public IActionResult Terraform(string serviceName)
+    public IActionResult ResourceManager(string serviceName)
     {
         var service = _repo.GetByName(serviceName, ServiceDefinitionType.ResourceManager);
         if (service == null)

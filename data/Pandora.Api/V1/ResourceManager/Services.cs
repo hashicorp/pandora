@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using Microsoft.AspNetCore.Mvc;
+using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
@@ -18,12 +19,31 @@ public class ServicesController : ControllerBase
     }
 
     [HttpGet]
+    [Route("/v1/microsoft-graph/{apiVersion}/services")]
+    public IActionResult MicrosoftGraph(string apiVersion)
+    {
+        var definitionType = apiVersion.ParseServiceDefinitionTypeFromApiVersion();
+        if (definitionType == null)
+        {
+            return BadRequest($"the API Version {apiVersion} is not supported");
+        }
+        
+        return ForServiceDefinitionType(definitionType.Value, $"/v1/microsoft-graph/{apiVersion}");
+    }
+
+    [HttpGet]
     [Route("/v1/resource-manager/services")]
     public IActionResult ResourceManager()
     {
+        return ForServiceDefinitionType(ServiceDefinitionType.ResourceManager, "/v1/resource-manager");
+    }
+
+    private IActionResult ForServiceDefinitionType(ServiceDefinitionType definitionType, string routePrefix)
+    {
+        var services = _repo.GetAll(definitionType).ToDictionary(a => a.Name, a => ToServiceReference(a, routePrefix));
         return new JsonResult(new ServicesResponse
         {
-            Services = _repo.GetAll(ServiceDefinitionType.ResourceManager).ToDictionary(a => a.Name, ToServiceReference),
+            Services = services,
         });
     }
 
@@ -42,12 +62,12 @@ public class ServicesController : ControllerBase
         public string Uri { get; set; }
     }
 
-    private static ServiceReference ToServiceReference(ServiceDefinition input)
+    private static ServiceReference ToServiceReference(ServiceDefinition input, string routePrefix)
     {
         return new ServiceReference
         {
             Generate = input.Generate,
-            Uri = $"/v1/resource-manager/services/{input.Name}"
+            Uri = $"{routePrefix}/services/{input.Name}"
         };
     }
 }
