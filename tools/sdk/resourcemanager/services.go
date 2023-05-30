@@ -18,7 +18,7 @@ type ServiceSummary struct {
 }
 
 func (c ServicesClient) Get() (*map[string]ServiceSummary, error) {
-	endpoint := fmt.Sprintf("%s/services", c.endpoint)
+	endpoint := fmt.Sprintf("%s%s/services", c.endpoint, c.apiEndpoint)
 	resp, err := c.client.Get(endpoint)
 	if err != nil {
 		return nil, err

@@ -6,28 +6,37 @@ import (
 )
 
 type Client struct {
+	// endpoint is the domain where the Data API is running (e.g. `http://localhost:5000`)
 	endpoint string
-	client   *http.Client
+
+	// apiEndpoint defines the root api endpoint for this client (e.g. `/v1/resource-manager`)
+	apiEndpoint string
+
+	// client is the HTTP Client used for HTTP requests
+	client *http.Client
 }
 
 func NewMicrosoftGraphBetaClient(endpoint string) Client {
 	return Client{
-		endpoint: fmt.Sprintf("%s/v1/microsoft-graph/beta", endpoint),
-		client:   http.DefaultClient,
+		endpoint:    fmt.Sprintf("%s", endpoint),
+		apiEndpoint: "/v1/microsoft-graph/beta",
+		client:      http.DefaultClient,
 	}
 }
 
 func NewMicrosoftGraphStableV1Client(endpoint string) Client {
 	return Client{
-		endpoint: fmt.Sprintf("%s/v1/microsoft-graph/stable-v1", endpoint),
-		client:   http.DefaultClient,
+		endpoint:    fmt.Sprintf("%s", endpoint),
+		apiEndpoint: "/v1/microsoft-graph/stable-v1",
+		client:      http.DefaultClient,
 	}
 }
 
 func NewResourceManagerClient(endpoint string) Client {
 	return Client{
-		endpoint: fmt.Sprintf("%s/v1/resource-manager", endpoint),
-		client:   http.DefaultClient,
+		endpoint:    fmt.Sprintf("%s", endpoint),
+		apiEndpoint: "/v1/resource-manager",
+		client:      http.DefaultClient,
 	}
 }
 
