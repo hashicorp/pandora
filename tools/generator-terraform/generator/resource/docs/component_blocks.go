@@ -233,15 +233,6 @@ func buildDocumentationForBlock(blockName string, definitions []blockDefinition,
 }
 
 func documentationForBlock(blockName string, objectDefinition blockDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, resourceName string) (*string, error) {
-	// if all usages aren't the same, and this is a top-level block, call out that this is a top-level block explictly
-	// e.g. "'example' block (top-level)"
-	title := fmt.Sprintf("`%s` Block", blockName)
-	descriptionPrefix := fmt.Sprintf("The `%s` block", blockName)
-	if objectDefinition.nestedWithin != "" {
-		title = fmt.Sprintf("%s (within the `%s` block)", title, objectDefinition.nestedWithin)
-		descriptionPrefix = fmt.Sprintf("%s within the `%s` block", descriptionPrefix, objectDefinition.nestedWithin)
-	}
-
 	argumentsForBlock, err := getArgumentsForBlock(objectDefinition.objectDefinition, blockName, schemaModels, resourceName)
 	if err != nil {
 		return nil, fmt.Errorf("building arguments for block %s: %+v", blockName, err)
@@ -249,6 +240,15 @@ func documentationForBlock(blockName string, objectDefinition blockDefinition, s
 	attributesForBlock, err := getAttributesForBlock(objectDefinition.objectDefinition, blockName, schemaModels, resourceName)
 	if err != nil {
 		return nil, fmt.Errorf("building attributes for block %s: %+v", blockName, err)
+	}
+
+	// if all usages aren't the same, and this is a top-level block, call out that this is a top-level block explictly
+	// e.g. "'example' block (top-level)"
+	title := fmt.Sprintf("`%s` Block", blockName)
+	descriptionPrefix := fmt.Sprintf("The `%s` block", blockName)
+	if objectDefinition.nestedWithin != "" {
+		title = fmt.Sprintf("%s (within the `%s` block)", title, objectDefinition.nestedWithin)
+		descriptionPrefix = fmt.Sprintf("%s within the `%s` block", descriptionPrefix, objectDefinition.nestedWithin)
 	}
 
 	out := fmt.Sprintf("### %[1]s\n", title)
@@ -261,12 +261,20 @@ func documentationForBlock(blockName string, objectDefinition blockDefinition, s
 `, out, descriptionPrefix, strings.Join(*argumentsForBlock, "\n"))
 	}
 	if len(*attributesForBlock) > 0 {
+		line := fmt.Sprintf("%s exports the following attributes:", descriptionPrefix)
+		if len(*argumentsForBlock) > 0 {
+			line = fmt.Sprintf("In addition to the arguments defined above, the `%s` block exports the following attributes:", blockName)
+			if objectDefinition.nestedWithin != "" {
+				line = fmt.Sprintf("In addition to the arguments defined above, the `%s` block within the `%s` block exports the following attributes:", blockName, objectDefinition.nestedWithin)
+			}
+		}
+
 		out = fmt.Sprintf(`%[1]s
 
-%[2]s exports the following attributes:
+%[2]s
 
 %[3]s
-`, out, descriptionPrefix, strings.Join(*attributesForBlock, "\n"))
+`, out, line, strings.Join(*attributesForBlock, "\n"))
 	}
 	return &out, nil
 }
