@@ -6,7 +6,7 @@ using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
-namespace Pandora.Api.V1.ResourceManager;
+namespace Pandora.Api.V1.Controllers;
 
 [ApiController]
 public class ApiOperationsController : ControllerBase
