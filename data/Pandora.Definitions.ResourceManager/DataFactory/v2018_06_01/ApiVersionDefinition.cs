@@ -12,6 +12,7 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new Activityruns.Definition(),
+        new ChangeDataCapture.Definition(),
         new Credentials.Definition(),
         new DataFlowDebugSession.Definition(),
         new DataFlows.Definition(),
