@@ -1,8 +1,4 @@
 
-service "azureactivedirectory" {
-  name      = "AzureActiveDirectory"
-  available = ["2017-04-01"]
-}
 service "advisor" {
   name      = "Advisor"
   available = ["2020-01-01", "2022-10-01", "2023-01-01"]
@@ -54,6 +50,10 @@ service "automation" {
 service "azure-kusto" {
   name      = "Kusto"
   available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29"]
+}
+service "azureactivedirectory" {
+  name      = "AzureActiveDirectory"
+  available = ["2017-04-01", "2020-03-01"]
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
@@ -401,7 +401,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01"]
   ignore    = ["2023-01-01"]
 }
 service "recoveryservicesbackup" {
@@ -523,7 +523,7 @@ service "vmware" {
 }
 service "voiceservices" {
   name      = "VoiceServices"
-  available = ["2023-01-31"]
+  available = ["2023-01-31", "2023-04-03"]
 }
 service "web" {
   name      = "Web"
