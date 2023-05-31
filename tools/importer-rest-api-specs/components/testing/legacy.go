@@ -1,79 +1,16 @@
-package pipeline
+package testing
 
 import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testattributes"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/testing"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, providerPrefix string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
-	for _, resource := range data.Resources {
-		if resource.Terraform == nil {
-			continue
-		}
-
-		tf := resource.Terraform
-
-		for resourceLabel, resourceDetails := range tf.Resources {
-			if !resourceDetails.Tests.Generate {
-				logger.Trace(fmt.Sprintf("Skipping generation of tests for %q since generation is disabled"))
-				continue
-			}
-
-			logger.Trace(fmt.Sprintf("Generating Tests for %q", resourceLabel))
-			testBuilder := testing.NewTestBuilder(providerPrefix, resourceLabel, resourceDetails)
-			tests, err := testBuilder.GenerateForResource()
-			if err != nil {
-				return nil, fmt.Errorf("generating tests for %q: %+v", resourceLabel, err)
-			}
-			resourceDetails.Tests = *tests
-
-			//h := testattributes.TestAttributesHelpers{
-			//	SchemaModels: resourceDetails.SchemaModels,
-			//	Dependencies: &testattributes.TestDependencyHelper{},
-			//}
-			//
-			//basicTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, true, h)
-			//if err != nil {
-			//	return nil, err
-			//}
-			//if basicTest != nil {
-			//	resourceDetails.Tests.BasicConfiguration = *basicTest
-			//}
-			//
-			//importTest, err := generateImportTestConfig(providerPrefix, resourceLabel, resourceDetails, h)
-			//if err != nil {
-			//	return nil, err
-			//}
-			//if importTest != nil {
-			//	resourceDetails.Tests.RequiresImportConfiguration = *importTest
-			//}
-			//
-			//// todo check that there not attributes are required before calling this
-			//completeTest, err := generateTestConfig(providerPrefix, resourceLabel, resourceDetails, false, h)
-			//if err != nil {
-			//	return nil, err
-			//}
-			//if completeTest != nil {
-			//	resourceDetails.Tests.CompleteConfiguration = completeTest
-			//}
-			//
-			//// todo figure out ids that could be resources and have those added to the template
-			//resourceDetails.Tests.TemplateConfiguration = generateTestTemplate(*h.Dependencies)
-
-			resource.Terraform.Resources[resourceLabel] = resourceDetails
-		}
-	}
-
-	return data, nil
-}
+// TODO: this file needs refactoring
 
 func generateTestConfig(providerPrefix, resourceLabel string, input resourcemanager.TerraformResourceDetails, requiredOnly bool, helper testattributes.TestAttributesHelpers) (*string, error) {
 	f := hclwrite.NewEmptyFile()
@@ -85,14 +22,6 @@ func generateTestConfig(providerPrefix, resourceLabel string, input resourcemana
 
 	output := string(hclwrite.Format(f.Bytes()))
 	return &output, nil
-}
-
-func blockForResource(f *hclwrite.File, providerPrefix string, resourceLabel, resourceLabelType string) *hclwrite.Body {
-	resourceName := fmt.Sprintf("%s_%s", providerPrefix, resourceLabel)
-	return f.Body().AppendNewBlock("resource", []string{
-		resourceName,
-		resourceLabelType,
-	}).Body()
 }
 
 func generateImportTestConfig(providerPrefix, resourceLabel string, input resourcemanager.TerraformResourceDetails, helper testattributes.TestAttributesHelpers) (*string, error) {
