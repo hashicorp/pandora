@@ -9,6 +9,9 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
+// TODO: split these tests out
+// TODO: ensure that Lists, References and Sets work
+
 func TestGenerateRequiresImport(t *testing.T) {
 	// all of these expect the resource `example_resource` with the model name `TopLevel`
 	testData := []struct {

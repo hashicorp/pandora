@@ -1,10 +1,11 @@
 package testing
 
 import (
+	"testing"
+
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
-	"testing"
 )
 
 // TODO: this is currently only a single acctest since we believe the features block may want to change in the future

@@ -1,8 +1,9 @@
 package testing
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"testing"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"

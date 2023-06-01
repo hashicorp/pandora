@@ -2,9 +2,10 @@ package testing
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"sort"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
 )

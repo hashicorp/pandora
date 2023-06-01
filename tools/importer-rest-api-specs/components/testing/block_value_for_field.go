@@ -26,7 +26,7 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 		nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
 		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
 		if !ok {
-			return nil, fmt.Errorf("TODO")
+			return nil, fmt.Errorf("the schema model %q referenced by nested List/Set %q was not found", nestedModelName, field.HclName)
 		}
 
 		// first go pull out the nested item

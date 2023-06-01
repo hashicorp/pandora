@@ -8,8 +8,6 @@ import (
 )
 
 func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanager.TerraformSchemaModelDefinition, dependencies *testDependencies, onlyRequiredFields bool) (*hclwrite.Block, error) {
-	// TODO: specific tests for this
-
 	block := hclwrite.NewBlock(hclName, []string{})
 	fields := getRequiredFieldsForSchemaModel(model)
 	if !onlyRequiredFields {

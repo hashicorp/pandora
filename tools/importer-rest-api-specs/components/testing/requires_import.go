@@ -2,10 +2,10 @@ package testing
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (tb TestBuilder) generateRequiresImportTest() (*string, error) {
