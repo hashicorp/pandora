@@ -12,6 +12,8 @@ import (
 )
 
 func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies) (*hclwrite.Tokens, error) {
+	// TODO: Default Values where applicable, once threaded through (https://github.com/hashicorp/pandora/issues/810)
+
 	if field.Validation != nil && field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues {
 		return tb.getAttributeValueForPossibleValuesField(field)
 	}
@@ -21,7 +23,12 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 		return &val, nil
 	}
 
-	return nil, fmt.Errorf("not implemented")
+	if function, isBasicType := attributeValuesForBasicTypes[field.ObjectDefinition.Type]; isBasicType {
+		out := function(field, dependencies, tb.resourceLabel, tb.providerPrefix)
+		return &out, nil
+	}
+
+	return nil, fmt.Errorf("internal-error: support for ObjectDefinition Type %q as an Attribute is not implemented", field.ObjectDefinition)
 }
 
 func (tb TestBuilder) getAttributeValueForPossibleValuesField(field resourcemanager.TerraformSchemaFieldDefinition) (*hclwrite.Tokens, error) {
@@ -68,9 +75,24 @@ func (tb TestBuilder) getAttributeValueForPossibleValuesField(field resourcemana
 	return nil, fmt.Errorf("internal-error: missing support for the PossibleValues type %q", string(field.Validation.PossibleValues.Type))
 }
 
-type commonSchemaAttributeValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens
+type attributeValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens
 
-var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFieldType]commonSchemaAttributeValueFunction{
+var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
+	resourcemanager.TerraformSchemaFieldTypeBoolean: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens {
+		return hclwrite.TokensForValue(cty.BoolVal(false))
+	},
+	resourcemanager.TerraformSchemaFieldTypeFloat: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens {
+		return hclwrite.TokensForValue(cty.NumberFloatVal(21.42))
+	},
+	resourcemanager.TerraformSchemaFieldTypeInteger: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens {
+		return hclwrite.TokensForValue(cty.NumberIntVal(int64(21)))
+	},
+	resourcemanager.TerraformSchemaFieldTypeString: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens {
+		return hclwrite.TokensForValue(cty.StringVal("example"))
+	},
+}
+
+var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
 	// NOTE: there's a handful of top-level resources which have specific overrides (e.g. the Resource Group Name etc)
 	resourcemanager.TerraformSchemaFieldTypeEdgeZone: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens {
 		dependencies.setNeedsEdgeZones()
