@@ -12,8 +12,9 @@ import (
 )
 
 func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies) (*hclwrite.Tokens, error) {
-	// TODO: PossibleValues
-	// if field.Validation != nil && field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues && field.Validation.PossibleValues != nil
+	if field.Validation != nil && field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues {
+		return tb.getAttributeValueForPossibleValuesField(field)
+	}
 
 	if function, isCommonSchema := commonSchemaAttributeValueFunctions[field.ObjectDefinition.Type]; isCommonSchema {
 		val := function(field, dependencies, tb.resourceLabel, tb.providerPrefix)
@@ -21,6 +22,50 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 	}
 
 	return nil, fmt.Errorf("not implemented")
+}
+
+func (tb TestBuilder) getAttributeValueForPossibleValuesField(field resourcemanager.TerraformSchemaFieldDefinition) (*hclwrite.Tokens, error) {
+	if field.Validation.PossibleValues == nil || len(field.Validation.PossibleValues.Values) == 0 {
+		return nil, fmt.Errorf("internal-error: at this time only PossibleValues is supported as a Validation type for building up the field")
+	}
+
+	switch field.Validation.PossibleValues.Type {
+	case resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:
+		{
+			intValRaw := field.Validation.PossibleValues.Values[0]
+			intVal, ok := intValRaw.(int64)
+			if !ok {
+				return nil, fmt.Errorf("schema field defines an integer but the PossibleValues type didn't match - got %q", string(field.Validation.PossibleValues.Type))
+			}
+			out := hclwrite.TokensForValue(cty.NumberIntVal(intVal))
+			return &out, nil
+		}
+
+	case resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:
+		{
+			floatValRaw := field.Validation.PossibleValues.Values[0]
+			floatVal, ok := floatValRaw.(float64)
+			if !ok {
+				return nil, fmt.Errorf("schema field defines a float but the PossibleValues type didn't match - got %q", string(field.Validation.PossibleValues.Type))
+			}
+			out := hclwrite.TokensForValue(cty.NumberFloatVal(floatVal))
+			return &out, nil
+		}
+
+	case resourcemanager.TerraformSchemaValidationPossibleValueTypeString:
+		{
+			stringValRaw := field.Validation.PossibleValues.Values[0]
+			stringVal, ok := stringValRaw.(string)
+			if !ok {
+				return nil, fmt.Errorf("schema field defines a string but the PossibleValues type didn't match - got %q", string(field.Validation.PossibleValues.Type))
+			}
+			out := hclwrite.TokensForValue(cty.StringVal(stringVal))
+			return &out, nil
+		}
+
+	}
+
+	return nil, fmt.Errorf("internal-error: missing support for the PossibleValues type %q", string(field.Validation.PossibleValues.Type))
 }
 
 type commonSchemaAttributeValueFunction func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix string) hclwrite.Tokens
