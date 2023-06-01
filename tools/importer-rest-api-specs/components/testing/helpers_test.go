@@ -2,6 +2,7 @@ package testing
 
 import (
 	"reflect"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/hcl/v2"
@@ -41,13 +42,13 @@ func assertTerraformConfigurationsAreSemanticallyTheSame(t *testing.T, expected,
 		t.Fatalf(diags.Error())
 	}
 	if diags := gohcl.DecodeBody(expectedFile.Body, ctx, &expectedParsed); diags != nil {
-		t.Fatalf("decoding `expected`: %+v", diags.Error())
+		t.Fatalf("decoding content for `expected`: %+v\n\nContent:\n\n%s", diags.Error(), actual)
 	}
 
 	var actualParsed testConfiguration
 	actualFile, diags := parser.ParseHCL([]byte(actual), "actual.hcl")
 	if diags.HasErrors() {
-		t.Fatalf(diags.Error())
+		t.Fatalf("decoding content for `actual`: %+v\n\nContent:\n\n%s", diags.Error(), actual)
 	}
 	if diags := gohcl.DecodeBody(actualFile.Body, ctx, &actualParsed); diags != nil {
 		t.Fatalf("decoding `actual`: %+v", diags.Error())
@@ -83,7 +84,9 @@ func validateParsedConfigsMatch(t *testing.T, expected testConfiguration, actual
 		if match := validateAttributesMatch(t, expectedBody.Attributes, actualBody.Attributes, ctx); !match {
 			return false
 		}
-		// TODO: validating blocks
+		if match := validateBlocksMatch(t, expectedBody.Blocks, actualBody.Blocks, ctx); !match {
+			return false
+		}
 	}
 
 	// Validate the Resources
@@ -111,7 +114,37 @@ func validateParsedConfigsMatch(t *testing.T, expected testConfiguration, actual
 		if match := validateAttributesMatch(t, expectedBody.Attributes, actualBody.Attributes, ctx); !match {
 			return false
 		}
-		// TODO: validating blocks
+		if match := validateBlocksMatch(t, expectedBody.Blocks, actualBody.Blocks, ctx); !match {
+			return false
+		}
+	}
+
+	return true
+}
+
+func validateBlocksMatch(t *testing.T, expected hclsyntax.Blocks, actual hclsyntax.Blocks, ctx *hcl.EvalContext) bool {
+	if len(expected) != len(actual) {
+		t.Logf("expected %d blocks but got %d blocks", len(expected), len(actual))
+		return false
+	}
+
+	for _, expectedBlock := range expected {
+		var actualBlock *hclsyntax.Block
+		for _, v := range actual {
+			if expectedBlock.Type == v.Type && labelsMatch(expectedBlock.Labels, v.Labels) {
+				actualBlock = v
+				break
+			}
+		}
+		if actualBlock == nil {
+			t.Fatalf("expected to find the block %q with labels %q in actual but didn't", expectedBlock.Type, strings.Join(expectedBlock.Labels, ", "))
+		}
+
+		t.Logf("validating the nested attributes match for the block %q with labels %q", expectedBlock.Type, strings.Join(expectedBlock.Labels, ", "))
+		validateAttributesMatch(t, expectedBlock.Body.Attributes, actualBlock.Body.Attributes, ctx)
+
+		t.Logf("validating the nested blocks match for the block %q with labels %q", expectedBlock.Type, strings.Join(expectedBlock.Labels, ", "))
+		validateBlocksMatch(t, expectedBlock.Body.Blocks, actualBlock.Body.Blocks, ctx)
 	}
 
 	return true
@@ -153,4 +186,19 @@ func assertDependenciesMatch(t *testing.T, expected testDependencies, actual tes
 	if !reflect.DeepEqual(expected, actual) {
 		t.Fatalf("expected and actual dependencies differ - expected:\n\n%+v\n\ngot:\n\n%+v", expected, actual)
 	}
+}
+
+func labelsMatch(expected []string, actual []string) bool {
+	if len(expected) != len(actual) {
+		return false
+	}
+
+	for i, expectedVal := range expected {
+		actualVal := actual[i]
+		if expectedVal != actualVal {
+			return false
+		}
+	}
+
+	return true
 }
