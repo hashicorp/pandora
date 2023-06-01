@@ -38,9 +38,15 @@ func (tb TestBuilder) GenerateForResource() (*resourcemanager.TerraformResourceT
 		return nil, fmt.Errorf("generating requires import test: %+v", err)
 	}
 
+	complete, err := tb.generateCompleteTest(&dependencies)
+	if err != nil {
+		return nil, fmt.Errorf("generating complete test: %+v", err)
+	}
+
 	templateConfig := tb.generateTemplateConfigForDependencies(dependencies)
 	variablesConfig := generateTemplateForLocalVariables(dependencies.variables)
 	templateConfig = fmt.Sprintf("%s\n%s", variablesConfig, templateConfig)
+
 	out := resourcemanager.TerraformResourceTestsDefinition{
 		BasicConfiguration:          *basicConfig,
 		RequiresImportConfiguration: *requiresImportConfig,
@@ -50,10 +56,6 @@ func (tb TestBuilder) GenerateForResource() (*resourcemanager.TerraformResourceT
 		// TODO: we should split variables config out into it's own property too
 	}
 
-	complete, err := tb.generateCompleteTest()
-	if err != nil {
-		return nil, fmt.Errorf("generating complete test: %+v", err)
-	}
 	// Complete is an Optional test, therefore only output it if it's needed
 	if complete != nil {
 		out.CompleteConfiguration = complete
