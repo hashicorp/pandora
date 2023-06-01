@@ -9,6 +9,7 @@ import (
 	"github.com/hashicorp/hcl/v2/gohcl"
 	"github.com/hashicorp/hcl/v2/hclparse"
 	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/zclconf/go-cty/cty"
 )
 
@@ -201,4 +202,15 @@ func labelsMatch(expected []string, actual []string) bool {
 	}
 
 	return true
+}
+
+func renderBlocksToHcl(input []*hclwrite.Block) string {
+	// why can't we reuse validateBlocksMatch? `hclsyntax` and `hclwrite` contain entirely separate implementations
+	// in this case we can render the output and compare that
+	f := hclwrite.NewEmptyFile()
+	for _, block := range input {
+		f.Body().AppendBlock(block)
+	}
+	body := hclwrite.Format(f.Bytes())
+	return string(body)
 }
