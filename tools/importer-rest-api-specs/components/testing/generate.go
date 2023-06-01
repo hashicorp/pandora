@@ -26,7 +26,9 @@ func NewTestBuilder(providerPrefix, resourceLabel string, details resourcemanage
 
 // GenerateForResource builds a TerraformResourceTestsDefinition for the specified Terraform Resource
 func (tb TestBuilder) GenerateForResource() (*resourcemanager.TerraformResourceTestsDefinition, error) {
-	dependencies := testDependencies{}
+	dependencies := testDependencies{
+		variables: testVariables{},
+	}
 	basicConfig, err := tb.generateBasicTest(&dependencies)
 	if err != nil {
 		return nil, fmt.Errorf("generating basic test: %+v", err)
@@ -35,17 +37,17 @@ func (tb TestBuilder) GenerateForResource() (*resourcemanager.TerraformResourceT
 	if err != nil {
 		return nil, fmt.Errorf("generating requires import test: %+v", err)
 	}
-	templateConfig, err := tb.generateTemplateConfigForDependencies(&dependencies)
-	if err != nil {
-		return nil, fmt.Errorf("generating dependencies for test: %+v", err)
-	}
 
+	templateConfig := tb.generateTemplateConfigForDependencies(dependencies)
+	variablesConfig := generateTemplateForLocalVariables(dependencies.variables)
+	templateConfig = fmt.Sprintf("%s\n%s", variablesConfig, templateConfig)
 	out := resourcemanager.TerraformResourceTestsDefinition{
 		BasicConfiguration:          *basicConfig,
 		RequiresImportConfiguration: *requiresImportConfig,
 		Generate:                    true,
 		OtherTests:                  map[string][]string{},
-		TemplateConfiguration:       templateConfig,
+		TemplateConfiguration:       &templateConfig,
+		// TODO: we should split variables config out into it's own property too
 	}
 
 	complete, err := tb.generateCompleteTest()
