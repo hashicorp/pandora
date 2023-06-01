@@ -1,6 +1,7 @@
 package testing
 
 import (
+	"reflect"
 	"testing"
 
 	"github.com/hashicorp/hcl/v2"
@@ -10,13 +11,21 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
+type providerBlock struct {
+	Name string `hcl:"name,label"`
+
+	Fields hcl.Body `hcl:",remain"`
+}
+
 type resourceBlock struct {
 	ResourceLabel string `hcl:"label,label"`
 	Name          string `hcl:"name,label"`
 
 	Fields hcl.Body `hcl:",remain"`
 }
+
 type testConfiguration struct {
+	Provider []providerBlock `hcl:"provider,block"`
 	Resource []resourceBlock `hcl:"resource,block"`
 }
 
@@ -50,6 +59,34 @@ func assertTerraformConfigurationsAreSemanticallyTheSame(t *testing.T, expected,
 }
 
 func validateParsedConfigsMatch(t *testing.T, expected testConfiguration, actual testConfiguration, ctx *hcl.EvalContext) bool {
+	// Validate the Provider blocks
+	if len(expected.Provider) != len(actual.Provider) {
+		t.Logf("expected and actual have different provider counts - expected %d but got %d", len(expected.Resource), len(actual.Resource))
+		return false
+	}
+	for _, expectedProvider := range expected.Provider {
+		var actualResource *providerBlock
+		for _, v := range actual.Provider {
+			if expectedProvider.Name == v.Name {
+				actualResource = &v
+				break
+			}
+		}
+		if actualResource == nil {
+			t.Logf("expected provider `%s` was not found in actual", expectedProvider.Name)
+			return false
+		}
+
+		// validate the fields match
+		expectedBody := expectedProvider.Fields.(*hclsyntax.Body)
+		actualBody := actualResource.Fields.(*hclsyntax.Body)
+		if match := validateAttributesMatch(t, expectedBody.Attributes, actualBody.Attributes, ctx); !match {
+			return false
+		}
+		// TODO: validating blocks
+	}
+
+	// Validate the Resources
 	if len(expected.Resource) != len(actual.Resource) {
 		t.Logf("expected and actual have different resource counts - expected %d but got %d", len(expected.Resource), len(actual.Resource))
 		return false
@@ -110,4 +147,10 @@ func validateAttributesMatch(t *testing.T, expected hclsyntax.Attributes, actual
 	}
 
 	return true
+}
+
+func assertDependenciesMatch(t *testing.T, expected testDependencies, actual testDependencies) {
+	if !reflect.DeepEqual(expected, actual) {
+		t.Fatalf("expected and actual dependencies differ - expected:\n\n%+v\n\ngot:\n\n%+v", expected, actual)
+	}
 }
