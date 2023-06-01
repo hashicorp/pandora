@@ -12,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_03_01.BenefitUtilizationSummariesAsync;
 
-internal class SavingsPlanScopeGenerateBenefitUtilizationSummariesReportAsyncOperation : Pandora.Definitions.Operations.PostOperation
+internal class GenerateBenefitUtilizationSummariesReportGenerateByBillingProfileOperation : Pandora.Definitions.Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
@@ -24,7 +24,7 @@ internal class SavingsPlanScopeGenerateBenefitUtilizationSummariesReportAsyncOpe
 
     public override Type? RequestObject() => typeof(BenefitUtilizationSummariesRequestModel);
 
-    public override ResourceID? ResourceId() => new SavingsPlanId();
+    public override ResourceID? ResourceId() => new BillingProfileId();
 
     public override Type? ResponseObject() => typeof(BenefitUtilizationSummariesOperationStatusModel);
 
