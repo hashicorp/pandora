@@ -19,19 +19,28 @@ func blockForResource(f *hclwrite.File, providerPrefix, resourceLabel, resourceL
 
 func getRequiredFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelDefinition) []resourcemanager.TerraformSchemaFieldDefinition {
 	// TODO: should we force `name`, `location` and `resource_group_name` at the top?
-
-	fieldNames := make([]string, 0)
+	requiredAttributeNames := make([]string, 0)
+	requiredBlockNames := make([]string, 0)
 	for fieldName, field := range input.Fields {
 		if !field.Required {
 			continue
 		}
 
-		fieldNames = append(fieldNames, fieldName)
+		if needsBlock(field.ObjectDefinition.Type) {
+			requiredBlockNames = append(requiredBlockNames, fieldName)
+		} else {
+			requiredAttributeNames = append(requiredAttributeNames, fieldName)
+		}
 	}
-	sort.Strings(fieldNames)
+	sort.Strings(requiredAttributeNames)
+	sort.Strings(requiredBlockNames)
 
 	out := make([]resourcemanager.TerraformSchemaFieldDefinition, 0)
-	for _, fieldName := range fieldNames {
+	for _, fieldName := range requiredAttributeNames {
+		field := input.Fields[fieldName]
+		out = append(out, field)
+	}
+	for _, fieldName := range requiredBlockNames {
 		field := input.Fields[fieldName]
 		out = append(out, field)
 	}
@@ -39,7 +48,39 @@ func getRequiredFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelD
 	return out
 }
 
-func needsBlock(input resourcemanager.TerraformSchemaFieldDefinition) bool {
+func getOptionalFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelDefinition) []resourcemanager.TerraformSchemaFieldDefinition {
+	// TODO: should we force `name`, `location` and `resource_group_name` at the top?
+
+	attributeFieldNames := make([]string, 0)
+	blockFieldNames := make([]string, 0)
+	for fieldName, field := range input.Fields {
+		if !field.Optional {
+			continue
+		}
+
+		if needsBlock(field.ObjectDefinition.Type) {
+			blockFieldNames = append(blockFieldNames, fieldName)
+		} else {
+			attributeFieldNames = append(attributeFieldNames, fieldName)
+		}
+	}
+	sort.Strings(attributeFieldNames)
+	sort.Strings(blockFieldNames)
+
+	out := make([]resourcemanager.TerraformSchemaFieldDefinition, 0)
+	for _, fieldName := range attributeFieldNames {
+		field := input.Fields[fieldName]
+		out = append(out, field)
+	}
+	for _, fieldName := range blockFieldNames {
+		field := input.Fields[fieldName]
+		out = append(out, field)
+	}
+
+	return out
+}
+
+func needsBlock(input resourcemanager.TerraformSchemaFieldType) bool {
 	typesNeedingBlocks := map[resourcemanager.TerraformSchemaFieldType]struct{}{
 		resourcemanager.TerraformSchemaFieldTypeList:      {},
 		resourcemanager.TerraformSchemaFieldTypeReference: {},
@@ -52,7 +93,7 @@ func needsBlock(input resourcemanager.TerraformSchemaFieldDefinition) bool {
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
 		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
 	}
-	_, ok := typesNeedingBlocks[input.ObjectDefinition.Type]
+	_, ok := typesNeedingBlocks[input]
 	return ok
 }
 

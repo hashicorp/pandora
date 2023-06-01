@@ -31,7 +31,7 @@ identity {
   type = "SystemAssigned"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -76,7 +76,7 @@ identity {
   identity_ids = [example_user_assigned_identity.test.id]
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -126,7 +126,7 @@ identity {
   identity_ids = []
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -171,7 +171,7 @@ identity {
   identity_ids = [example_user_assigned_identity.test.id]
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

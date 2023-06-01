@@ -2,13 +2,14 @@ package testing
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
 
-func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies) (*[]*hclwrite.Block, error) {
+func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, onlyRequiredFields bool) (*[]*hclwrite.Block, error) {
 	if function, isCommonSchema := blocksToCommonSchemaFunctions[field.ObjectDefinition.Type]; isCommonSchema {
 		val := function(field, dependencies, tb.resourceLabel, tb.providerPrefix)
 		return &[]*hclwrite.Block{
@@ -16,7 +17,51 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 		}, nil
 	}
 
-	// TODO: handle a Block being a List and a Set (e.g. call this function, get the block and nest it
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+		// TODO: support for Lists of Basic Types
+		if field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeReference {
+			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference - but got %q", string(field.ObjectDefinition.NestedObject.Type))
+		}
+
+		nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
+		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
+		if !ok {
+			return nil, fmt.Errorf("TODO")
+		}
+
+		// first go pull out the nested item
+		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
+		}
+
+		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
+			return &[]*hclwrite.Block{
+				nestedBlock,
+			}, nil
+		}
+
+		return &[]*hclwrite.Block{
+			nestedBlock,
+		}, nil
+	}
+
+	// if it's a Reference it's exposed as a List with `MaxItems: 1`
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+		nestedModelName := *field.ObjectDefinition.ReferenceName
+		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
+		if !ok {
+			return nil, fmt.Errorf("the referenced SchemaModel %q was not found", nestedModelName)
+		}
+
+		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving block value for field %q's nested model %q: %+v", field.HclName, nestedModelName, err)
+		}
+		return &[]*hclwrite.Block{
+			nestedBlock,
+		}, nil
+	}
 
 	return nil, fmt.Errorf("not implemented")
 }
