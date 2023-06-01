@@ -9,7 +9,10 @@ import (
 )
 
 func (tb TestBuilder) generateRequiresImportTest() (*string, error) {
-	// the RequiresImport test should call the basic test, thus each field we can map directly from the value for the basic test
+	// The RequiresImport test should call the basic test, thus each field we can map directly from the value for the basic test
+
+	// NOTE: The RequiresImport test _should not_ include the features
+	//       block, since it has a dependency on the Basic test.
 
 	f := hclwrite.NewEmptyFile()
 
