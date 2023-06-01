@@ -22,8 +22,9 @@ type testDependencies struct {
 }
 
 func (d *testDependencies) setNeedsEdgeZones() {
-	d.setNeedsResourceGroup()
 	d.needsEdgeZone = true
+
+	d.variables.needsPrimaryLocation = true
 }
 
 func (d *testDependencies) setNeedsPublicIP() {

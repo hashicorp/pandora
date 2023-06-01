@@ -11,7 +11,7 @@ func (tb TestBuilder) generateTemplateConfigForDependencies(dependencies testDep
 	if dependencies.needsEdgeZone {
 		components = append(components, fmt.Sprintf(`
 data "%[1]s_extended_locations" "test" {
-  location = %[1]s_resource_group.test.location
+  location = var.primary_location
 }
 `, tb.providerPrefix))
 	}

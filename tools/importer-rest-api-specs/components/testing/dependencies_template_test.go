@@ -31,7 +31,7 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 	}
 	expected := `
 data "example_extended_locations" "test" {
-  location = example_resource_group.test.location
+  location = var.primary_location
 }
 
 resource "example_public_ip" "test" {
@@ -73,13 +73,15 @@ resource "example_virtual_network" "test" {
 func TestDependenciesTemplate_NeedsEdgeZone(t *testing.T) {
 	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
 	dependencies := testDependencies{
-		variables: testVariables{},
+		variables: testVariables{
+			needsPrimaryLocation: true,
+		},
 
 		needsEdgeZone: true,
 	}
 	expected := `
 data "example_extended_locations" "test" {
-  location = example_resource_group.test.location
+  location = var.primary_location
 }
 `
 	actual := builder.generateTemplateConfigForDependencies(dependencies)
