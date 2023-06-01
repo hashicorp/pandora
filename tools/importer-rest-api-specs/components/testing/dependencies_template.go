@@ -8,10 +8,32 @@ import (
 func (tb TestBuilder) generateTemplateConfigForDependencies(dependencies testDependencies) string {
 	components := make([]string, 0)
 
+	if dependencies.needsClientConfig {
+		components = append(components, fmt.Sprintf(`
+data "%[1]s_client_config" "test" {}
+`, tb.providerPrefix))
+	}
+
 	if dependencies.needsEdgeZone {
 		components = append(components, fmt.Sprintf(`
 data "%[1]s_extended_locations" "test" {
   location = var.primary_location
+}
+`, tb.providerPrefix))
+	}
+
+	if dependencies.needsNetworkInterface {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_network_interface" "test" {
+  name                = "acctestnic-${var.random_integer}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = %[1]s_subnet.test.id
+    private_ip_address_allocation = "Static"
+  }
 }
 `, tb.providerPrefix))
 	}

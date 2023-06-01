@@ -22,7 +22,9 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 	dependencies := testDependencies{
 		variables: testVariables{},
 
+		needsClientConfig:         true,
 		needsEdgeZone:             true,
+		needsNetworkInterface:     true,
 		needsPublicIP:             true,
 		needsResourceGroup:        true,
 		needsSubnet:               true,
@@ -30,8 +32,22 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 		needsVirtualNetwork:       true,
 	}
 	expected := `
+data "example_client_config" "test" {}
+
 data "example_extended_locations" "test" {
   location = var.primary_location
+}
+
+resource "example_network_interface" "test" {
+  name                = "acctestnic-${var.random_integer}"
+  location            = example_resource_group.test.location
+  resource_group_name = example_resource_group.test.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = example_subnet.test.id
+    private_ip_address_allocation = "Static"
+  }
 }
 
 resource "example_public_ip" "test" {
@@ -70,6 +86,18 @@ resource "example_virtual_network" "test" {
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }
 
+func TestDependenciesTemplate_NeedsClientConfig(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+		needsClientConfig: true,
+	}
+	expected := `
+data "example_client_config" "test" {}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
 func TestDependenciesTemplate_NeedsEdgeZone(t *testing.T) {
 	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
 	dependencies := testDependencies{
@@ -82,6 +110,32 @@ func TestDependenciesTemplate_NeedsEdgeZone(t *testing.T) {
 	expected := `
 data "example_extended_locations" "test" {
   location = var.primary_location
+}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestDependenciesTemplate_NeedsNetworkInterface(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+		},
+
+		needsNetworkInterface: true,
+	}
+	expected := `
+resource "example_network_interface" "test" {
+  name                = "acctestnic-${var.random_integer}"
+  location            = example_resource_group.test.location
+  resource_group_name = example_resource_group.test.name
+
+  ip_configuration {
+    name                          = "internal"
+    subnet_id                     = example_subnet.test.id
+    private_ip_address_allocation = "Static"
+  }
 }
 `
 	actual := builder.generateTemplateConfigForDependencies(dependencies)

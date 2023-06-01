@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"sort"
+	"strings"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
 )
@@ -53,4 +54,14 @@ func needsBlock(input resourcemanager.TerraformSchemaFieldDefinition) bool {
 	}
 	_, ok := typesNeedingBlocks[input.ObjectDefinition.Type]
 	return ok
+}
+
+func suffixFromResourceLabel(input string) string {
+	vals := make([]string, 0)
+
+	for _, val := range strings.Split(input, "_") {
+		vals = append(vals, string(val[0]))
+	}
+
+	return strings.Join(vals, "")
 }

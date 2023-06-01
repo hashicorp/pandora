@@ -4,7 +4,9 @@ type testDependencies struct {
 	variables testVariables
 
 	// NOTE: use the Set methods
+	needsClientConfig         bool
 	needsEdgeZone             bool
+	needsNetworkInterface     bool
 	needsPublicIP             bool
 	needsResourceGroup        bool
 	needsSubnet               bool
@@ -21,10 +23,20 @@ type testDependencies struct {
 	//      and find the matching `basic` test and reference that?
 }
 
+func (d *testDependencies) setNeedsClientConfig() {
+	d.needsClientConfig = true
+}
+
 func (d *testDependencies) setNeedsEdgeZones() {
 	d.needsEdgeZone = true
 
 	d.variables.needsPrimaryLocation = true
+}
+
+func (d *testDependencies) setNeedsNetworkInterface() {
+	d.setNeedsSubnet()
+
+	d.needsNetworkInterface = true
 }
 
 func (d *testDependencies) setNeedsPublicIP() {
