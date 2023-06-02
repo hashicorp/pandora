@@ -95,8 +95,6 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 			continue
 		}
 
-		// other fields
-		return false
 	}
 
 	return hasUserAssignedIdentities && hasTypeMatch
