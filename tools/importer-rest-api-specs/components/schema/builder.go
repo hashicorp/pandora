@@ -454,7 +454,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details)
+		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.constants)
 		if err != nil {
 			return nil, nil, err
 		}
