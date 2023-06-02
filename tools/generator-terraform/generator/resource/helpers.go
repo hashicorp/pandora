@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -39,4 +40,47 @@ func methodNameToCallForOperation(operation resourcemanager.ApiOperation, method
 	}
 
 	return methodName
+}
+
+func updateTemplateWithVariableNames(input string) (template *string, variableNames *string, err error) {
+	variables := make([]string, 0)
+
+	// NOTE: we could parse the hcl config directly at this point, and an earlier version of this did just that
+	// however it's far simpler to string replace these in retrospect
+	lines := make([]string, 0)
+	for _, line := range strings.Split(input, "\n") {
+		if strings.HasPrefix(line, `variable "primary_location"`) {
+			lines = append(lines, `
+variable "primary_location" {
+  value = %q
+}
+`)
+			variables = append(variables, "data.Locations.Primary")
+			continue
+		}
+		if strings.HasPrefix(line, `variable "random_integer"`) {
+			lines = append(lines, `
+variable "random_integer" {
+  value = %d
+}
+`)
+			variables = append(variables, "data.RandomInteger")
+			continue
+		}
+		if strings.HasPrefix(line, `variable "random_string"`) {
+			lines = append(lines, `
+variable "random_string" {
+  value = %q
+}
+`)
+			variables = append(variables, "data.RandomString")
+			continue
+		}
+
+		lines = append(lines, line)
+	}
+
+	template = pointer.To(strings.Join(lines, "\n"))
+	variableNames = pointer.To(strings.Join(variables, ", "))
+	return
 }
