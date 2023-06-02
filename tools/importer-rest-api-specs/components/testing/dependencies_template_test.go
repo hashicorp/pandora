@@ -116,6 +116,78 @@ data "example_extended_locations" "test" {
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
 }
 
+func TestDependenciesTemplate_NeedsKeyVault(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+		variables: testVariables{},
+
+		needsKeyVault: true,
+	}
+	expected := `
+resource "example_key_vault" "test" {
+  name                       = "acctest-${var.random_integer}"
+  location                   = example_resource_group.test.location
+  resource_group_name        = example_resource_group.test.name
+  tenant_id                  = data.example_client_config.test.tenant_id
+  sku_name                   = "standard"
+  soft_delete_retention_days = 7
+
+  access_policy {
+	tenant_id = data.example_client_config.current.tenant_id
+	object_id = data.example_client_config.current.object_id
+
+	certificate_permissions = [
+	  "ManageContacts",
+	]
+
+	key_permissions = [
+	  "Create",
+	  "Delete",
+	  "Get",
+	  "Purge",
+	  "Recover",
+	  "Update",
+	  "SetRotationPolicy",
+	  "GetRotationPolicy",
+	  "Rotate",
+	]
+
+	secret_permissions = [
+	  "Delete",
+	  "Get",
+	  "Set",
+	]
+  }
+}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestDependenciesTemplate_NeedsKeyVaultKey(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+		variables: testVariables{},
+
+		needsKeyVaultKey: true,
+	}
+	expected := `
+resource "example_key_vault_key" "test" {
+  name         = "key-${var.random_string}"
+  key_vault_id = example_key_vault.test.id
+  key_type     = "EC"
+  key_size     = 2048
+
+  key_opts = [
+    "sign",
+    "verify",
+  ]
+}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
 func TestDependenciesTemplate_NeedsNetworkInterface(t *testing.T) {
 	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
 	dependencies := testDependencies{

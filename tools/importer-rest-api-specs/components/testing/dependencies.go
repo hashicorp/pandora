@@ -6,6 +6,8 @@ type testDependencies struct {
 	// NOTE: use the Set methods
 	needsClientConfig         bool
 	needsEdgeZone             bool
+	needsKeyVault             bool
+	needsKeyVaultKey          bool
 	needsNetworkInterface     bool
 	needsPublicIP             bool
 	needsResourceGroup        bool
@@ -31,6 +33,21 @@ func (d *testDependencies) setNeedsEdgeZones() {
 	d.needsEdgeZone = true
 
 	d.variables.needsPrimaryLocation = true
+}
+
+func (d *testDependencies) setNeedsKeyVault() {
+	d.setNeedsResourceGroup()
+	d.setNeedsClientConfig()
+	d.needsKeyVault = true
+
+	d.variables.needsRandomInteger = true
+}
+
+func (d *testDependencies) setNeedsKeyVaultKey() {
+	d.setNeedsKeyVault()
+	d.needsKeyVaultKey = true
+
+	d.variables.needsRandomString = true
 }
 
 func (d *testDependencies) setNeedsNetworkInterface() {
