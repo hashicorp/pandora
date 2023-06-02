@@ -161,6 +161,39 @@ func TestAttributeValueForField_BasicTypeString(t *testing.T) {
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
+func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "description",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Description": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+		DisplayName:     "Example Thing",
+	}
+	actualDependencies := testDependencies{}
+	builder := NewTestBuilder("example", "resource", details)
+	expected := `"Description for the Example Thing"`
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
 func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 	resourceLabelsToExpected := map[string]string{
 		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_integer}"`,
