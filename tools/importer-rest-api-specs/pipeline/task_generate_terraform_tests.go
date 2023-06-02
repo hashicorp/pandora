@@ -18,7 +18,7 @@ func (t pipelineTask) generateTerraformTests(data *models.AzureApiDefinition, pr
 
 		for resourceLabel, resourceDetails := range tf.Resources {
 			if !resourceDetails.Tests.Generate {
-				logger.Trace(fmt.Sprintf("Skipping generation of tests for %q since generation is disabled"))
+				logger.Trace(fmt.Sprintf("Skipping generation of tests for %q since generation is disabled", resourceLabel))
 				continue
 			}
 
