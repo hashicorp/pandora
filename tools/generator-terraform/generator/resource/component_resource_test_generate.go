@@ -125,10 +125,6 @@ func codeForResourceTestConfigurationFunctions(input models.ResourceInput) (*str
 
 	tests := input.Details.Tests
 
-	completeConfig := strings.TrimRightFunc(*tests.CompleteConfiguration, func(r rune) bool {
-		return unicode.IsSpace(r)
-	})
-
 	template := ""
 	templateVariables := ""
 	if tests.TemplateConfiguration != nil {
@@ -142,8 +138,10 @@ func codeForResourceTestConfigurationFunctions(input models.ResourceInput) (*str
 		template = *updatedTemplate
 		templateVariables = *templatedVariables
 	}
+
 	functions := make([]string, 0)
 	if tests.CompleteConfiguration != nil {
+		completeConfig := strings.TrimSpace(*tests.CompleteConfiguration)
 		functions = append(functions, fmt.Sprintf(`
 func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 	return fmt.Sprintf('
