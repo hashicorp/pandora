@@ -2,7 +2,6 @@ package transformer
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -14,7 +13,7 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 		return nil, fmt.Errorf("converting Model Operation Details into Data API Operation Details: %+v", err)
 	}
 
-	models, err := apiModelsFromModelModels(schema.Models)
+	models, err := apiModelsFromModelModels(schema.Models, schema.Constants)
 	if err != nil {
 		return nil, fmt.Errorf("converting Model Constant Details into Data API Constant Details: %+v", err)
 	}
@@ -36,11 +35,11 @@ func ApiResourceFromModelResource(schema models.AzureApiResource) (*services.Res
 	}, nil
 }
 
-func apiModelsFromModelModels(input map[string]models.ModelDetails) (*map[string]resourcemanager.ModelDetails, error) {
+func apiModelsFromModelModels(inputModels map[string]models.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.ModelDetails, error) {
 	out := make(map[string]resourcemanager.ModelDetails)
 
-	for k, v := range input {
-		fields, err := apiFieldsFromModelFields(v.Fields, v)
+	for k, v := range inputModels {
+		fields, err := apiFieldsFromModelFields(v.Fields, v, inputConstants)
 		if err != nil {
 			return nil, fmt.Errorf("mapping fields for model %q: %+v", k, err)
 		}
@@ -56,7 +55,7 @@ func apiModelsFromModelModels(input map[string]models.ModelDetails) (*map[string
 	return &out, nil
 }
 
-func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models.ModelDetails) (*map[string]resourcemanager.FieldDetails, error) {
+func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models.ModelDetails, inputConstants map[string]resourcemanager.ConstantDetails) (*map[string]resourcemanager.FieldDetails, error) {
 	out := make(map[string]resourcemanager.FieldDetails)
 
 	for k, v := range input {
@@ -88,10 +87,30 @@ func apiFieldsFromModelFields(input map[string]models.FieldDetails, model models
 			details.DateFormat = &dateFormat
 		}
 
+		if details.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			constantName := *details.ObjectDefinition.ReferenceName
+			constant, isConstant := inputConstants[constantName]
+			if isConstant {
+				details.Validation = validationForConstant(constant)
+			}
+		}
+
 		out[k] = details
 	}
 
 	return &out, nil
+}
+
+func validationForConstant(input resourcemanager.ConstantDetails) *resourcemanager.FieldValidationDetails {
+	vals := make([]interface{}, 0)
+	for _, v := range input.Values {
+		vals = append(vals, v)
+	}
+
+	return &resourcemanager.FieldValidationDetails{
+		Type:   resourcemanager.RangeValidation,
+		Values: &vals,
+	}
 }
 
 func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition, fieldType *models.CustomFieldType) (*resourcemanager.ApiObjectDefinition, error) {
