@@ -11,8 +11,6 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
-// TODO: support for Key Vaults and Key Vault Key IDs
-
 func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies) (*hclwrite.Tokens, error) {
 	// TODO: Default Values where applicable, once threaded through (https://github.com/hashicorp/pandora/issues/810)
 
@@ -115,6 +113,14 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 		if strings.HasSuffix(field.HclName, "_id") {
 			reference := ""
 
+			if strings.EqualFold(field.HclName, "key_vault_id") {
+				dependencies.setNeedsKeyVault()
+				reference = fmt.Sprintf("%s_key_vault.test.id", providerPrefix)
+			}
+			if strings.EqualFold(field.HclName, "key_vault_key_id") {
+				dependencies.setNeedsKeyVaultKey()
+				reference = fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)
+			}
 			if strings.EqualFold(field.HclName, "network_interface_id") {
 				dependencies.setNeedsNetworkInterface()
 				reference = fmt.Sprintf("%s_network_interface.test.id", providerPrefix)

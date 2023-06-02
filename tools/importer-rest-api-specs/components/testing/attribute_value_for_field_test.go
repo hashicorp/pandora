@@ -213,6 +213,88 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 	}
 }
 
+func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "key_vault_id",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"KeyVaultId": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+	}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `example_key_vault.test.id`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+			needsRandomInteger:   true,
+		},
+		needsClientConfig:  true,
+		needsResourceGroup: true,
+		needsKeyVault:      true,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
+func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "key_vault_key_id",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"KeyVaultKeyId": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+	}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `example_key_vault_key.test.id`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+			needsRandomInteger:   true,
+			needsRandomString:    true,
+		},
+		needsClientConfig:  true,
+		needsResourceGroup: true,
+		needsKeyVault:      true,
+		needsKeyVaultKey:   true,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
 func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "network_interface_id",
