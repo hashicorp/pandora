@@ -5,9 +5,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/go-hclog"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
