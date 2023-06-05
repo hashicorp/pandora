@@ -24,13 +24,13 @@ resource "example_test" "test" {
 	}
 	expectedConfig := `
 variable "primary_location" {
-  value = %q
+  default = %q
 }
 variable "random_integer" {
-  value = %d
+  default = %d
 }
 variable "random_string" {
-  value = %q
+  default = %q
 }
 
 resource "example_test" "test" {
@@ -62,13 +62,13 @@ resource "example_test" "test" {
 	}
 	expectedConfig := `
 variable "random_string" {
-  value = %q
+  default = %q
 }
 variable "primary_location" {
-  value = %q
+  default = %q
 }
 variable "random_integer" {
-  value = %d
+  default = %d
 }
 
 resource "example_test" "test" {
@@ -97,7 +97,7 @@ resource "example_test" "test" {
 	}
 	expectedConfig := `
 variable "primary_location" {
-  value = %q
+  default = %q
 }
 
 resource "example_test" "test" {
@@ -126,7 +126,7 @@ resource "example_test" "test" {
 	}
 	expectedConfig := `
 variable "random_integer" {
-  value = %d
+  default = %d
 }
 
 resource "example_test" "test" {
@@ -156,7 +156,7 @@ resource "example_test" "test" {
 	}
 	expectedConfig := `
 variable "random_string" {
-  value = %q
+  default = %q
 }
 
 resource "example_test" "test" {

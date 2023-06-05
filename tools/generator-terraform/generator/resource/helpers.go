@@ -51,21 +51,21 @@ func updateTemplateWithVariableNames(input string) (template *string, variableNa
 	for _, line := range strings.Split(input, "\n") {
 		if strings.HasPrefix(line, `variable "primary_location"`) {
 			lines = append(lines, `variable "primary_location" {
-  value = %q
+  default = %q
 }`)
 			variables = append(variables, "data.Locations.Primary")
 			continue
 		}
 		if strings.HasPrefix(line, `variable "random_integer"`) {
 			lines = append(lines, `variable "random_integer" {
-  value = %d
+  default = %d
 }`)
 			variables = append(variables, "data.RandomInteger")
 			continue
 		}
 		if strings.HasPrefix(line, `variable "random_string"`) {
 			lines = append(lines, `variable "random_string" {
-  value = %q
+  default = %q
 }`)
 			variables = append(variables, "data.RandomString")
 			continue
