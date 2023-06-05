@@ -95,6 +95,14 @@ func (userAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, definition 
 			continue
 		}
 
+		// some services expose tenant ID in the definition for a user assigned identity - we should recognise it as a user assigned identity but ignore the field
+		// https://github.com/Azure/azure-rest-api-specs/blob/5a9afce8360020c46b38841e04179447a28118b2/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2022-12-01/FlexibleServers.json#L812-L834
+		if strings.EqualFold(fieldName, "TenantId") {
+			continue
+		}
+
+		// other fields
+		return false
 	}
 
 	return hasUserAssignedIdentities && hasTypeMatch
