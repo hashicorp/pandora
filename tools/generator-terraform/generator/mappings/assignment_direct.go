@@ -2,9 +2,8 @@ package mappings
 
 import (
 	"fmt"
-
+	
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -54,8 +53,8 @@ func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcem
 	}
 
 	// check if it requires a custom transform
-	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
-		return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	if transform := findDirectAssignmentTransform(schemaField.ObjectDefinition.Type, sdkField.ObjectDefinition.Type); transform != nil {
+		return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
 	}
 
 	// check the assignment type - if it's a List these are special-cased
@@ -96,8 +95,8 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 	}
 
 	// check if it requires a custom transform
-	if v, ok := transformTypes[schemaField.ObjectDefinition.Type]; ok && v == sdkField.ObjectDefinition.Type {
-		return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+	if transform := findDirectAssignmentTransform(schemaField.ObjectDefinition.Type, sdkField.ObjectDefinition.Type); transform != nil {
+		return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
 	}
 
 	// check the assignment type - if it's a List these are special-cased
@@ -118,199 +117,7 @@ func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.F
 	return d.sdkToSchemaMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
 }
 
-var transformTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanager.ApiObjectDefinitionType{
-	resourcemanager.TerraformSchemaFieldTypeLocation:                      resourcemanager.LocationApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType, // TODO add support for List Api Object
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,  // TODO add support for List Api Object
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          resourcemanager.UserAssignedIdentityListApiObjectDefinitionType,         // TODO add support for Map Api Object
-	resourcemanager.TerraformSchemaFieldTypeTags:                          resourcemanager.TagsApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeZones:                         resourcemanager.ZonesApiObjectDefinitionType,
-}
-var transformRequiredExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
-	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = location.Normalize(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemAndUserAssignedMapFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemOrUserAssignedMapFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandUserAssignedListFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding UserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf("%s = zones.Expand(%s)", outputAssignment, inputAssignment)
-	},
-}
-var transformOptionalExpandFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
-	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = pointer.To(location.Normalize(%s))", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		// TODO: tests for Identity & add support for Zones
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemAssignedFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemAndUserAssignedMapFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemAndUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandSystemOrUserAssignedMapFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding SystemOrUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.ExpandUserAssignedListFromModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("expanding UserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = tags.Expand(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = pointer.To(zones.Expand(%s))", outputAssignment, inputAssignment)
-	},
-}
-var transformRequiredFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
-	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = location.Normalize(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)
-`, outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemAndUserAssignedMapToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemOrUserAssignedMapToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemOrUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenUserAssignedListToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening UserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf("%s = zones.Flatten(%s)", outputAssignment, inputAssignment)
-	},
-}
-var transformOptionalFlattenFunctions = map[resourcemanager.TerraformSchemaFieldType]func(outputAssignment, outputVariableName, inputAssignment string) string{
-	resourcemanager.TerraformSchemaFieldTypeLocation: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = location.NormalizeNilable(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: func(outputAssignment, _, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s = identity.FlattenSystemAssignedToModel(%[2]s)
-`, outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemAndUserAssignedMapToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenSystemOrUserAssignedMapToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening SystemOrUserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf(`
-	%[1]s, err := identity.FlattenUserAssignedListToModel(%[2]s)
-	if err != nil {
-		return fmt.Errorf("flattening UserAssigned Identity: %%+v", err)
-	}
-	%[3]s = %[1]s
-`, outputVariableName, inputAssignment, outputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeTags: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = tags.Flatten(%s)", outputAssignment, inputAssignment)
-	},
-	resourcemanager.TerraformSchemaFieldTypeZones: func(outputAssignment, outputVariableName, inputAssignment string) string {
-		return fmt.Sprintf("%s = zones.Flatten(%s)", outputAssignment, inputAssignment)
-	},
-}
-
 func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails) (*string, error) {
-
 	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
 	if !ok {
 		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
@@ -592,23 +399,17 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenTags(mapping resourcemana
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
 	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
 	outputVariable := sdkField.JsonName
 	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
 
 	if schemaField.Required {
-		transform, ok := transformRequiredExpandFunctions[schemaField.ObjectDefinition.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing required expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-		}
+		transformLineFunc := transform.requiredExpandFuncBody()
 		if sdkField.Optional {
-			transform, ok = transformOptionalExpandFunctions[schemaField.ObjectDefinition.Type]
-			if !ok {
-				return nil, fmt.Errorf("internal-error: missing optional expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-			}
+			transformLineFunc = transform.optionalExpandFuncBody()
 		}
-		transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+		transformLine := transformLineFunc(outputAssignment, outputVariable, inputAssignment)
 		return &transformLine, nil
 	}
 
@@ -619,11 +420,8 @@ func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resou
 	}
 
 	// optional -> optional
-	transform, ok := transformOptionalExpandFunctions[schemaField.ObjectDefinition.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing optional expand transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-	}
-	transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+	transformLineFunc := transform.optionalExpandFuncBody()
+	transformLine := transformLineFunc(outputAssignment, outputVariable, inputAssignment)
 	return &transformLine, nil
 }
 
@@ -878,23 +676,17 @@ output.%[2]s = &%[3]s
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
 	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
 	outputVariable := sdkField.JsonName
 	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
 
 	if schemaField.Required {
-		transform, ok := transformRequiredFlattenFunctions[schemaField.ObjectDefinition.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing required flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-		}
+		transformFunc := transform.requiredFlattenFuncBody()
 		if sdkField.Optional {
-			transform, ok = transformOptionalFlattenFunctions[schemaField.ObjectDefinition.Type]
-			if !ok {
-				return nil, fmt.Errorf("internal-error: missing optional flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-			}
+			transformFunc = transform.optionalFlattenFuncBody()
 		}
-		transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+		transformLine := transformFunc(outputAssignment, outputVariable, inputAssignment)
 		return &transformLine, nil
 	}
 
@@ -905,10 +697,7 @@ func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resou
 	}
 
 	// optional -> optional
-	transform, ok := transformOptionalFlattenFunctions[schemaField.ObjectDefinition.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing optional flatten transform function for Schema Field Object Definition Type %q", string(schemaField.ObjectDefinition.Type))
-	}
-	transformLine := transform(outputAssignment, outputVariable, inputAssignment)
+	transformLineFunc := transform.optionalFlattenFuncBody()
+	transformLine := transformLineFunc(outputAssignment, outputVariable, inputAssignment)
 	return &transformLine, nil
 }
