@@ -284,7 +284,7 @@ func (r ExampleResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: 20 * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.ExampleService.SdkResource
+			client := metadata.Client.ExampleService.V20200101.SdkResource
 			var config ExampleResource
 			if err := metadata.Decode(&config); err != nil {
 				return fmt.Errorf("decoding: %+v", err)
