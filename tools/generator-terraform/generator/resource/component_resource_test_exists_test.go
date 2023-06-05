@@ -80,6 +80,7 @@ func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:   true,
@@ -110,7 +111,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 		return nil, err
 	}
 
-	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
+	resp, err := clients.Resources.V20210101.SdkResource.Get(ctx, *id)
 	if err != nil {
 		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}
@@ -126,6 +127,7 @@ func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         true,
@@ -157,7 +159,7 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 		return nil, err
 	}
 
-	resp, err := clients.Resources.SdkResource.Get(ctx, *id)
+	resp, err := clients.Resources.V20210101.SdkResource.Get(ctx, *id)
 	if err != nil {
 		return nil, fmt.Errorf("reading %s: %+v", *id, err)
 	}
