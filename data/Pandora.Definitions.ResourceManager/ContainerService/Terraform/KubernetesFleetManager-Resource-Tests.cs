@@ -7,61 +7,51 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.Terraform;
 public class KubernetesFleetManagerResourceTests : TerraformResourceTestDefinition
 {
     public string BasicTestConfig => @"
+provider 'azurerm' {
+  features {}
+}
+
 resource 'azurerm_kubernetes_fleet_manager' 'test' {
-
-  hub_profile {
-    dns_prefix = 'acctest'
-  }
-
   location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
+  name                = 'acctestkfm-${var.random_integer}'
   resource_group_name = azurerm_resource_group.test.name
 }
     ".AsTerraformTestConfig();
 
     public string RequiresImportConfig => @"
 resource 'azurerm_kubernetes_fleet_manager' 'import' {
-
-  hub_profile {
-    dns_prefix = 'acctest'
-  }
-
-  location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
-  resource_group_name = azurerm_resource_group.test.name
+  resource_group_name = azurerm_kubernetes_fleet_manager.test.resource_group_name
+  name                = azurerm_kubernetes_fleet_manager.test.name
+  location            = azurerm_kubernetes_fleet_manager.test.location
 }
     ".AsTerraformTestConfig();
 
     public string? CompleteConfig => @"
-resource 'azurerm_kubernetes_fleet_manager' 'test' {
-  location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
-  resource_group_name = azurerm_resource_group.test.name
-
-  hub_profile {
-    dns_prefix = 'acctest'
-  }
-
-  tags = {
-    env  = 'Production'
-    test = 'Acceptance'
-  }
-}
-".AsTerraformTestConfig();
-    public string? TemplateConfig => @"
 provider 'azurerm' {
   features {}
 }
 
-locals {
-  random_integer   = %[1]d
-  primary_location = %[2]q
+resource 'azurerm_kubernetes_fleet_manager' 'test' {
+  location            = azurerm_resource_group.test.location
+  name                = 'acctestkfm-${var.random_integer}'
+  resource_group_name = azurerm_resource_group.test.name
+  tags = {
+    environment = 'terraform-acctests'
+    some_key    = 'some-value'
+  }
+  hub_profile {
+    dns_prefix = 'val-${var.random_string}'
+  }
 }
-
+".AsTerraformTestConfig();
+    public string? TemplateConfig => @"
+variable 'primary_location' {}
+variable 'random_integer' {}
+variable 'random_string' {}
 
 resource 'azurerm_resource_group' 'test' {
-  name     = 'acctestrg-${local.random_integer}'
-  location = local.primary_location
+  name     = 'acctestrg-${var.random_integer}'
+  location = var.primary_location
 }
 ".AsTerraformTestConfig();
 
