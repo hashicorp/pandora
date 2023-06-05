@@ -30,36 +30,57 @@ func codeForAttributesReference(input models.ResourceInput) (*string, error) {
 }
 
 func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
-
 	lines := make([]string, 0)
 	sortedFieldNames := sortFieldNamesAlphabetically(model)
 
 	for _, fieldName := range sortedFieldNames {
 		field := model.Fields[fieldName]
 		if field.Computed && !field.Optional && !field.Required {
-
-			components := make([]string, 0)
-			components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
-
-			// identify block
-			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
-				fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
-				if err != nil {
-					return nil, err
-				}
-				if fieldBeginsWithVowel {
-					components = append(components, "An")
-				} else {
-					components = append(components, "A")
-				}
-				components = append(components, fmt.Sprintf("`%s` block as defined below.", field.HclName))
+			line, err := documentationLineForAttribute(field, "")
+			if err != nil {
+				return nil, fmt.Errorf("building documentation line for attribute field %q: %+v", fieldName, err)
 			}
-			components = append(components, field.Documentation.Markdown)
-
-			line := removeExtraSpaces(strings.Join(components, " "))
-			lines = append(lines, line)
+			lines = append(lines, *line)
 		}
 	}
 	out := strings.Join(append(lines), "\n\n")
 	return &out, nil
+}
+
+func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin string) (*string, error) {
+	components := make([]string, 0)
+	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
+
+	isList := false
+	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+		isList = true
+	}
+	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
+
+	// identify block
+	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[objectDefinition.Type]; ok {
+		fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+		if err != nil {
+			return nil, err
+		}
+
+		fieldLocation := "below"
+		if nestedWithin != "" && field.HclName <= nestedWithin {
+			fieldLocation = "above"
+		}
+
+		if isList {
+			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HclName, fieldLocation))
+		} else {
+			if fieldBeginsWithVowel {
+				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HclName, fieldLocation))
+			} else {
+				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HclName, fieldLocation))
+			}
+		}
+	}
+	components = append(components, field.Documentation.Markdown)
+
+	line := removeExtraSpaces(strings.Join(components, " "))
+	return &line, nil
 }
