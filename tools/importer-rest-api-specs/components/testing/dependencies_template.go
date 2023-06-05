@@ -3,6 +3,10 @@ package testing
 import (
 	"fmt"
 	"strings"
+	
+	"github.com/hashicorp/hcl/v2"
+	"github.com/hashicorp/hcl/v2/hclsyntax"
+	"github.com/hashicorp/hcl/v2/hclwrite"
 )
 
 func (tb TestBuilder) generateTemplateConfigForDependencies(dependencies testDependencies) string {
@@ -150,5 +154,9 @@ resource "%[1]s_virtual_network" "test" {
 `, tb.providerPrefix))
 	}
 
-	return strings.Join(components, "\n\n")
+	out := strings.Join(components, "\n")
+	bytes := []byte(out)
+	hclsyntax.ParseConfig(bytes, "temp-for-format.hcl", hcl.Pos{Line: 1, Column: 1})
+	out = string(hclwrite.Format(bytes))
+	return out
 }
