@@ -6,6 +6,7 @@ var directAssignmentTransforms = []directAssignmentTransform{
 	directAssignmentTransformLocation{},
 	directAssignmentTransformIdentitySystemAssigned{},
 	directAssignmentTransformIdentitySystemAndUserAssignedMap{},
+	directAssignmentTransformIdentitySystemAndUserAssignedMapLegacy{},
 	directAssignmentTransformIdentitySystemOrUserAssignedMap{},
 	directAssignmentTransformIdentityUserAssignedList{},
 	directAssignmentTransformTags{},
