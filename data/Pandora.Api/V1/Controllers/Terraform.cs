@@ -26,7 +26,7 @@ public partial class TerraformController : ControllerBase
         {
             return BadRequest($"the API Version {apiVersion} is not supported");
         }
-        
+
         var service = _repo.GetByName(serviceName, definitionType.Value);
         if (service == null)
         {
