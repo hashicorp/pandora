@@ -87,7 +87,7 @@ func (r %[1]sResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[4]s
+			client := metadata.Client.%[3]s.%[7]s.%[4]s
 			schema := %[5]s{}
 
 			%[6]s
@@ -96,7 +96,7 @@ func (r %[1]sResource) Read() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, input.SchemaModelName, strings.Join(lines, "\n\n"))
+`, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, input.SchemaModelName, strings.Join(lines, "\n\n"), strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }
 

@@ -98,6 +98,7 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         true,
@@ -203,7 +204,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.SdkResource
+			client := metadata.Client.Resources.V20210101.SdkResource
 			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
@@ -235,6 +236,7 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
+		SdkApiVersion:      "2021-01-01",
 		ServicePackageName: "sdkservicepackage",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
@@ -350,7 +352,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.SdkResource
+			client := metadata.Client.Resources.V20210101.SdkResource
 			schema := ExampleModel{}
 			id, err := commonids.ParseSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
@@ -383,6 +385,7 @@ func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         true,
@@ -487,7 +490,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.SdkResource
+			client := metadata.Client.Resources.V20210101.SdkResource
 			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
@@ -519,6 +522,7 @@ func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
 		Constants: map[string]resourcemanager.ConstantDetails{
 			"AnimalType": {
 				Type: resourcemanager.StringConstant,
@@ -633,7 +637,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.SdkResource
+			client := metadata.Client.Resources.V20210101.SdkResource
 			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {
@@ -666,6 +670,7 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
+		SdkApiVersion:      "2021-01-01",
 		Details: resourcemanager.TerraformResourceDetails{
 			ReadMethod: resourcemanager.MethodDefinition{
 				Generate:         true,
@@ -779,7 +784,7 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
         Timeout: 10 * time.Minute,
         Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.Resources.SdkResource
+			client := metadata.Client.Resources.V20210101.SdkResource
 			schema := ExampleModel{}
 			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
 			if err != nil {

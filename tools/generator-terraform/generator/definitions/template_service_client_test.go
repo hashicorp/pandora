@@ -20,18 +20,24 @@ func TestTemplateForServiceClient(t *testing.T) {
 package client
 
 import (
-	resources_v2015_11_01_preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
+	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
-func NewClient(o *common.ClientOptions) (*resources_v2015_11_01_preview.Client, error) {
-	client, err := resources_v2015_11_01_preview.NewClientWithBaseURI(o.Environment.ResourceManager, func(c *resourcemanager.Client) {
+type AutoClient struct {
+	V20151101Preview resourcesV20151101Preview.Client
+}
+
+func NewClient(o *common.ClientOptions) (*AutoClient, error) {
+	v20151101PreviewClient, err := resourcesV20151101Preview.NewClientWithBaseURI(o.Environment.ResourceManager, func(c *resourcemanager.Client) {
 		o.Configure(c, o.Authorizers.ResourceManager)
 	})
 	if err != nil {
-		return nil, fmt.Errorf("building client for resources v2015_11_01_preview: %+v", err)
+		return nil, fmt.Errorf("building client for resources v20151101Preview: %+v", err)
 	}
-	return &client, nil
+	return &AutoClient{
+		V20151101Preview: v20151101PreviewClient,
+	}, nil
 }
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
@@ -50,15 +56,21 @@ package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
-	loadtestservice_v2015_11_01_preview "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2015-11-01-preview"
+	loadtestserviceV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2015-11-01-preview"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
-func NewClient(o *common.ClientOptions) (*loadtestservice_v2015_11_01_preview.Client, error) {
-	client := loadtestservice_v2015_11_01_preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+type AutoClient struct {
+	V20151101Preview loadtestserviceV20151101Preview.Client
+	}
+
+func NewClient(o *common.ClientOptions) (*AutoClient, error) {
+	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
 		c.Authorizer = o.ResourceManagerAuthorizer
 	})
-	return &client, nil
+	return &AutoClient{
+		V20151101Preview: v20151101PreviewClient,
+	}, nil
 }
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)

@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -45,7 +46,7 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("internal-error: top level model named %q was not found", *updateOperation.RequestObject.ReferenceName)
 	}
 
-	helpers := updateFuncHelpers{
+	updateHelpers := updateFuncHelpers{
 		schemaModelName:         input.SchemaModelName,
 		sdkResourceNameLowered:  strings.ToLower(input.SdkResourceName),
 		createMethod:            createOperation,
@@ -61,10 +62,10 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 		terraformModel:          terraformModel,
 	}
 	components := []func() (*string, error){
-		helpers.resourceIdParser,
-		helpers.modelDecode,
-		helpers.payloadDefinition,
-		helpers.update,
+		updateHelpers.resourceIdParser,
+		updateHelpers.modelDecode,
+		updateHelpers.payloadDefinition,
+		updateHelpers.update,
 	}
 
 	lines := make([]string, 0)
@@ -81,7 +82,7 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[4]s
+			client := metadata.Client.%[3]s.%[6]s.%[4]s
 
 			%[5]s
 
@@ -89,7 +90,7 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"))
+`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"), strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }
 
