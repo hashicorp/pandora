@@ -12,7 +12,7 @@ type Differ struct {
 
 func NewDiffer(dataApiEndpoint string, logger hclog.Logger) Differ {
 	return Differ{
-		client: resourcemanager.NewClient(dataApiEndpoint),
+		client: resourcemanager.NewResourceManagerClient(dataApiEndpoint),
 		logger: logger,
 	}
 }

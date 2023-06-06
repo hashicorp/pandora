@@ -5,7 +5,7 @@ namespace Pandora.Data.Repositories;
 
 public interface IServiceReferencesRepository
 {
-    ServiceDefinition GetByName(string name, bool resourceManager);
+    ServiceDefinition GetByName(string name, ServiceDefinitionType definitionType);
 
-    IEnumerable<ServiceDefinition> GetAll(bool resourceManager);
+    IEnumerable<ServiceDefinition> GetAll(ServiceDefinitionType definitionType);
 }

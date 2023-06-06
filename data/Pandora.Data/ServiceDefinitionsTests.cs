@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.HandDefined;
@@ -18,49 +19,56 @@ public class ServiceDefinitionsTests
     [TestCase]
     public void ValidateDataPlaneServiceDefinitions()
     {
-        ValidateAssemblyContainingServiceDefinitions(new DataPlaneServices());
+        ValidateAssemblyContainingServiceDefinitions(new DataPlaneServices(), ServiceDefinitionType.DataPlane);
     }
 
     [TestCase]
     public void ValidateHandDefinedServiceDefinitions()
     {
-        ValidateAssemblyContainingServiceDefinitions(new HandDefinedServices());
+        ValidateAssemblyContainingServiceDefinitions(new HandDefinedServices(), ServiceDefinitionType.ResourceManager);
     }
 
     [TestCase]
     public void ValidateMicrosoftGraphBetaServiceDefinitions()
     {
-        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphBetaServices());
+        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphBetaServices(), ServiceDefinitionType.MicrosoftGraphBeta);
     }
 
     [TestCase]
     public void ValidateMicrosoftGraphStableV1ServiceDefinitions()
     {
-        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphStableV1Services());
+        ValidateAssemblyContainingServiceDefinitions(new MicrosoftGraphStableV1Services(), ServiceDefinitionType.MicrosoftGraphStableV1);
     }
 
     [TestCase]
     public void ValidateResourceManagerServiceDefinitions()
     {
-        ValidateAssemblyContainingServiceDefinitions(new ResourceManagerServices());
+        ValidateAssemblyContainingServiceDefinitions(new ResourceManagerServices(), ServiceDefinitionType.ResourceManager);
     }
 
-    private static void ValidateAssemblyContainingServiceDefinitions(ServicesDefinition assemblyServiceDefinition)
+    private static void ValidateAssemblyContainingServiceDefinitions(ServicesDefinition assemblyServiceDefinition, ServiceDefinitionType definitionType)
     {
         var serviceDefinitions = Definitions.Discovery.Services.WithinServicesDefinition(assemblyServiceDefinition).ToList();
         foreach (var serviceDefinition in serviceDefinitions)
         {
-            var wrapper = new List<Definitions.Interfaces.ServiceDefinition>
+            var wrapper = new Dictionary<ServiceDefinitionType, IEnumerable<Definitions.Interfaces.ServiceDefinition>>
             {
-                serviceDefinition,
+                {
+                    definitionType, new List<Definitions.Interfaces.ServiceDefinition>
+                    {
+                        serviceDefinition,
+                    }
+                }
             };
             try
             {
                 var repo = new ServiceReferencesRepository(wrapper);
-                // first try mapping all of the resource manager calls
-                TryMapping(repo.GetAll(true));
-                // then try mapping all of the non-resource manager calls
-                TryMapping(repo.GetAll(false));
+                
+                // try parsing out each type
+                TryMapping(repo.GetAll(ServiceDefinitionType.DataPlane));
+                TryMapping(repo.GetAll(ServiceDefinitionType.MicrosoftGraphBeta));
+                TryMapping(repo.GetAll(ServiceDefinitionType.MicrosoftGraphStableV1));
+                TryMapping(repo.GetAll(ServiceDefinitionType.ResourceManager));
             }
             catch (Exception ex)
             {

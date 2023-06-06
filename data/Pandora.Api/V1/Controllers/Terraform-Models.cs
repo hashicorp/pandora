@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using System.Text.Json.Serialization;
 
-namespace Pandora.Api.V1.ResourceManager;
+namespace Pandora.Api.V1.Controllers;
 
 public partial class TerraformController
 {

@@ -6,7 +6,7 @@ using Pandora.Api.V1.Helpers;
 using Pandora.Data.Models;
 using Pandora.Data.Repositories;
 
-namespace Pandora.Api.V1.ResourceManager;
+namespace Pandora.Api.V1.Controllers;
 
 [ApiController]
 public class ApiOperationsController : ControllerBase
@@ -18,24 +18,36 @@ public class ApiOperationsController : ControllerBase
         _repo = repo;
     }
 
-    [Route("/v1/resource-manager/services/{serviceName}/{apiVersion}/{resourceName}/operations")]
-    public IActionResult ResourceManager(string serviceName, string apiVersion, string resourceName)
+    [Route("/v1/microsoft-graph/{apiVersion}/services/{serviceName}/{serviceApiVersion}/{resourceName}/operations")]
+    public IActionResult MicrosoftGraph(string apiVersion, string serviceName, string serviceApiVersion, string resourceName)
     {
-        return ForService(serviceName, apiVersion, resourceName);
+        var definitionType = apiVersion.ParseServiceDefinitionTypeFromApiVersion();
+        if (definitionType == null)
+        {
+            return BadRequest($"the API Version {apiVersion} is not supported");
+        }
+
+        return ForService(serviceName, serviceApiVersion, resourceName, definitionType.Value);
     }
 
-    private IActionResult ForService(string serviceName, string apiVersion, string resourceName)
+    [Route("/v1/resource-manager/services/{serviceName}/{serviceApiVersion}/{resourceName}/operations")]
+    public IActionResult ResourceManager(string serviceName, string serviceApiVersion, string resourceName)
     {
-        var service = _repo.GetByName(serviceName, true);
+        return ForService(serviceName, serviceApiVersion, resourceName, ServiceDefinitionType.ResourceManager);
+    }
+
+    private IActionResult ForService(string serviceName, string serviceApiVersion, string resourceName, ServiceDefinitionType definitionType)
+    {
+        var service = _repo.GetByName(serviceName, definitionType);
         if (service == null)
         {
             return BadRequest("service not found");
         }
 
-        var version = service.Versions.FirstOrDefault(v => v.Version == apiVersion);
+        var version = service.Versions.FirstOrDefault(v => v.Version == serviceApiVersion);
         if (version == null)
         {
-            return BadRequest($"version {apiVersion} was not found");
+            return BadRequest($"version {serviceApiVersion} was not found");
         }
 
         var api = version.Resources.FirstOrDefault(a => a.Name == resourceName);
@@ -44,10 +56,10 @@ public class ApiOperationsController : ControllerBase
             return BadRequest($"resource {resourceName} was not found");
         }
 
-        return new JsonResult(MapResponse(api, version, service));
+        return new JsonResult(MapResponse(api, service));
     }
 
-    private static ApiOperationsResponse MapResponse(ResourceDefinition resource, VersionDefinition version, ServiceDefinition service)
+    private static ApiOperationsResponse MapResponse(ResourceDefinition resource, ServiceDefinition service)
     {
         var metaData = new OperationMetaData
         {
@@ -57,11 +69,11 @@ public class ApiOperationsController : ControllerBase
         return new ApiOperationsResponse
         {
             MetaData = metaData,
-            Operations = resource.Operations.ToDictionary(o => o.Name, o => MapOperation(o, version.Version))
+            Operations = resource.Operations.ToDictionary(o => o.Name, MapOperation)
         };
     }
 
-    private static ApiOperationDefinition MapOperation(OperationDefinition definition, string apiVersion)
+    private static ApiOperationDefinition MapOperation(OperationDefinition definition)
     {
         return new ApiOperationDefinition
         {

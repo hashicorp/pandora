@@ -77,7 +77,7 @@ func (i *GenerateCommand) run() error {
 	os.MkdirAll(i.outputDirectory, 0755)
 
 	log.Printf("[DEBUG] Retrieving Services from Data API..")
-	client := resourcemanager.NewClient(i.apiServerEndpoint)
+	client := resourcemanager.NewResourceManagerClient(i.apiServerEndpoint)
 	var loadedServices services.ResourceManagerServices
 	servicesToLoad := strings.Split(i.serviceNamesRaw, ",")
 	if i.serviceNamesRaw != "" && len(servicesToLoad) > 0 {
