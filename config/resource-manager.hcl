@@ -36,7 +36,7 @@ service "appplatform" {
 }
 service "attestation" {
   name      = "Attestation"
-  available = ["2020-10-01"]
+  available = ["2020-10-01", "2021-06-01"]
 }
 service "authorization" {
   name      = "Authorization"
@@ -410,7 +410,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
