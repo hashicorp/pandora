@@ -25,7 +25,7 @@ func (pipelineTask) parseResourceIDsForService(apiVersion, service string, servi
 		segmentsLastIndex := len(id.Segments) - 1
 		if lastSegment := id.Segments[segmentsLastIndex]; lastSegment.Type == SegmentUserValue {
 			resourceName := ""
-			if r := id.FindResourceName(); r != nil {
+			if r, ok := id.FindResourceIdName(); ok {
 				resourceName = singularize(cleanName(*r))
 			}
 			id.Name = resourceName

@@ -105,8 +105,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 func templateListMethod(resource *Resource, operation *Operation, responseModel string) string {
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
-		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -142,8 +141,7 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
-		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -183,8 +181,7 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
-		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -233,8 +230,7 @@ func templateDeleteMethod(resource *Resource, operation *Operation, statuses []s
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdName := fmt.Sprintf("%sId", operation.ResourceId.Name)
-		resourceIdCode = fmt.Sprintf(`new %s()`, resourceIdName)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {

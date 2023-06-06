@@ -40,7 +40,7 @@ func (r ResourceId) Match(r2 ResourceId) (ResourceId, bool) {
 	}
 }
 
-func (r ResourceId) FindResourceName() *string {
+func (r ResourceId) FindResourceName() (*string, bool) {
 	slugs := make([]ResourceIdSegment, 0)
 	idx := len(r.Segments) - 1
 	for i := idx; i >= 0; i-- {
@@ -86,10 +86,31 @@ func (r ResourceId) FindResourceName() *string {
 			}
 			name = newName + name
 		}
-		return &name
+		return &name, true
 	}
 
-	return nil
+	return nil, false
+}
+
+func (r ResourceId) FindResourceIdName() (*string, bool) {
+	idName := ""
+	if resourceName, ok := r.FindResourceName(); ok {
+		idName = *resourceName
+	}
+	//segmentsLastIndex := len(r.Segments) - 1
+	//if lastSegment := r.Segments[segmentsLastIndex]; lastSegment.Type == SegmentUserValue {
+	//	name := r.Segments[segmentsLastIndex].Value
+	//	if name == "" {
+	//		return nil, false
+	//	}
+	//	idName = idName + cleanName(name)
+	//}
+	if idName != "" {
+		idName = idName + "Id"
+		//idName = deDuplicate(idName)
+		return &idName, true
+	}
+	return nil, false
 }
 
 func (r ResourceId) HasUserValue() bool {

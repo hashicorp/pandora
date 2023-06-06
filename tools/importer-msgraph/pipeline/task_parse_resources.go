@@ -87,7 +87,7 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 		}
 
 		resourceName := ""
-		if r := id.FindResourceName(); r != nil {
+		if r, ok := id.FindResourceName(); ok {
 			resourceName = singularize(cleanName(*r))
 		}
 
@@ -139,7 +139,7 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 							if s := parseSchemaRef(m.Schema); s != nil {
 								f, _ := flattenSchema(s, nil)
 								if f.Title != "" {
-									if strings.HasPrefix(f.Title, "Collection of ") {
+									if strings.HasPrefix(strings.ToLower(f.Title), "collection of ") {
 										f.Title = f.Title[14:]
 										collection = true
 										listOperation = true

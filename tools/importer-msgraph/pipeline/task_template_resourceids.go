@@ -11,7 +11,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	ids := make(map[string]string)
 
 	for _, resourceId := range resourceIds {
-		clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resourceId.Service, cleanVersion(resourceId.Version), fmt.Sprintf("%sId", resourceId.Name))
+		clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resourceId.Service, cleanVersion(resourceId.Version), resourceId.Name)
 		ids[clientMethodFile] = templateResourceId(resourceId)
 	}
 
@@ -45,7 +45,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
 
-internal class %[3]sId : ResourceID
+internal class %[3]s : ResourceID
 {
     public string? CommonAlias => null;
 
