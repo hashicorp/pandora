@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(CleanupOptionsConstant),
-        typeof(ManagedServiceIdentityTypeConstant),
         typeof(ScriptProvisioningStateConstant),
         typeof(ScriptTypeConstant),
     };
@@ -42,11 +41,9 @@ internal class Definition : ResourceDefinition
         typeof(ErrorAdditionalInfoModel),
         typeof(ErrorResponseModel),
         typeof(LogPropertiesModel),
-        typeof(ManagedServiceIdentityModel),
         typeof(ScriptLogModel),
         typeof(ScriptLogsListModel),
         typeof(ScriptStatusModel),
         typeof(StorageAccountConfigurationModel),
-        typeof(UserAssignedIdentityModel),
     };
 }
