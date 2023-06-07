@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"os"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -11,8 +12,8 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	ids := make(map[string]string)
 
 	for _, resourceId := range resourceIds {
-		clientMethodFile := fmt.Sprintf("%s/%s/ResourceId-%s.cs", resourceId.Service, cleanVersion(resourceId.Version), resourceId.Name)
-		ids[clientMethodFile] = templateResourceId(resourceId)
+		filename := fmt.Sprintf("%[2]s%[1]s%[3]s%[1]sResourceId-%[4]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, resourceId.Name)
+		ids[filename] = templateResourceId(resourceId)
 	}
 
 	resourceIdFiles := sortedKeys(ids)
@@ -56,5 +57,5 @@ internal class %[3]s : ResourceID
 %[5]s
     };
 }
-`, resourceId.Service, cleanVersion(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
+`, resourceId.Service, versionDirectory(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
 }

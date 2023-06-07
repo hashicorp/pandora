@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"os"
 	"strings"
 )
 
@@ -34,9 +35,9 @@ internal enum %[2]sConstant
 {
 %[3]s
 }
-`, cleanVersion(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
+`, versionDirectory(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 
-				filename := fmt.Sprintf("Models/%s/Constant-%s.cs", cleanVersion(apiVersion), field.Title)
+				filename := fmt.Sprintf("%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), field.Title)
 
 				if err := files.addFile(filename, code); err != nil {
 					return err

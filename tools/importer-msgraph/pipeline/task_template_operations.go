@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"os"
 	"strconv"
 	"strings"
 
@@ -86,8 +87,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			}
 
 			// Build it
-			clientMethodFile := fmt.Sprintf("%s/%s/Operation-%s.cs", resource.Service, cleanVersion(resource.Version), operation.Name)
-			operations[clientMethodFile] = methodCode
+			filename := fmt.Sprintf("%[2]s%[1]s%[3]s%[1]sOperation-%[4]s.cs", string(os.PathSeparator), versionDirectory(resource.Version), resource.Service, operation.Name)
+			operations[filename] = methodCode
 		}
 	}
 
@@ -128,7 +129,7 @@ internal class %[3]sOperation : Operations.ListOperation
    public override Type NestedItemType() => typeof(%[5]sModel);
    public override string? UriSuffix() => %[6]s;
 }
-`, resource.Service, cleanVersion(resource.Version), operation.Name, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), operation.Name, resourceIdCode, responseModel, uriSuffixCode)
 
 }
 
@@ -169,7 +170,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
     public override Type? ResponseObject() => typeof(%[7]sModel);
     public override string? UriSuffix() => %[8]s;
 }
-`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
 }
 
 func templateCreateUpdateMethod(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
@@ -218,7 +219,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
     public override Type? ResponseObject() => %[8]s;
     public override string? UriSuffix() => %[9]s;
 }
-`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
 }
 
 func templateDeleteMethod(resource *Resource, operation *Operation, statuses []string) string {
@@ -255,5 +256,5 @@ internal class %[3]sOperation : Operations.%[4]sOperation
     public override ResourceID? ResourceId() => %[6]s;
     public override string? UriSuffix() => %[7]s;
 }
-`, resource.Service, cleanVersion(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
 }

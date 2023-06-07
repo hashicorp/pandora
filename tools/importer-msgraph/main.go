@@ -11,8 +11,8 @@ import (
 const (
 	metadataDirectory        = "../../msgraph-metadata"
 	openApiFilePattern       = "transformed_%s_metadata.xml.yaml"
-	outputDirectory          = "../../data/"
-	terraformDefinitionsPath = "../../config/resources/"
+	outputDirectory          = "../../data"
+	terraformDefinitionsPath = "../../config/resources"
 )
 
 func main() {

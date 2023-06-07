@@ -2,12 +2,10 @@ package pipeline
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
-	"path/filepath"
 )
-
-const namespace = "Pandora.Definitions.MicrosoftGraph"
 
 type RunInput struct {
 	Logger hclog.Logger
@@ -33,8 +31,6 @@ func Run(input RunInput) error {
 	if err != nil {
 		return fmt.Errorf("loading terraform definitions from %q: %+v", input.TerraformDefinitionsPath, err)
 	}
-
-	input.OutputDirectory = filepath.Join(input.OutputDirectory, namespace)
 
 	return runImporter(input, resources, *metadataGitSha)
 }

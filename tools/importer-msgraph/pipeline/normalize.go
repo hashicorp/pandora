@@ -81,8 +81,14 @@ func cleanNameCamel(name string) string {
 	return strings.ToLower(name[0:1]) + name[1:]
 }
 
-func cleanVersion(version string) string {
-	return regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(version, "_")
+func versionDirectory(version string) string {
+	switch version {
+	case "v1.0":
+		return "Pandora.Definitions.MicrosoftGraph.StableV1"
+	case "beta":
+		return "Pandora.Definitions.MicrosoftGraph.Beta"
+	}
+	return "UnknownApiVersion"
 }
 
 func csHttpStatusCode(code int) string {
