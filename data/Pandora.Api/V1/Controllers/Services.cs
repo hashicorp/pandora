@@ -27,7 +27,7 @@ public class ServicesController : ControllerBase
         {
             return BadRequest($"the API Version {apiVersion} is not supported");
         }
-        
+
         return ForServiceDefinitionType(definitionType.Value, $"/v1/microsoft-graph/{apiVersion}");
     }
 

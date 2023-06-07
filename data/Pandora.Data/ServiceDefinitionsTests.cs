@@ -63,7 +63,7 @@ public class ServiceDefinitionsTests
             try
             {
                 var repo = new ServiceReferencesRepository(wrapper);
-                
+
                 // try parsing out each type
                 TryMapping(repo.GetAll(ServiceDefinitionType.DataPlane));
                 TryMapping(repo.GetAll(ServiceDefinitionType.MicrosoftGraphBeta));

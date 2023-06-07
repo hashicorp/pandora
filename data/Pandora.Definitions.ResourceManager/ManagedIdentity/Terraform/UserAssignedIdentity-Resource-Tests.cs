@@ -20,9 +20,9 @@ resource 'azurerm_user_assigned_identity' 'test' {
 
     public string RequiresImportConfig => @"
 resource 'azurerm_user_assigned_identity' 'import' {
-  name                = azurerm_user_assigned_identity.test.name
   location            = azurerm_user_assigned_identity.test.location
   resource_group_name = azurerm_user_assigned_identity.test.resource_group_name
+  name                = azurerm_user_assigned_identity.test.name
 }
     ".AsTerraformTestConfig();
 

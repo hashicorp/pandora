@@ -50,7 +50,7 @@ public static class SupportedServices
         var output = new Dictionary<ServiceDefinitionType, IEnumerable<ServiceDefinition>>();
         foreach (var item in data)
         {
-            var definitions =item.Value.SelectMany(Definitions.Discovery.Services.WithinServicesDefinition).ToList();
+            var definitions = item.Value.SelectMany(Definitions.Discovery.Services.WithinServicesDefinition).ToList();
             output.Add(item.Key, definitions);
         }
 

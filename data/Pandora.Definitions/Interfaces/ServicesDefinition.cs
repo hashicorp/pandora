@@ -7,5 +7,5 @@ namespace Pandora.Definitions.Interfaces;
 /// </summary>
 public interface ServicesDefinition
 {
-    
+
 }

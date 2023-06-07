@@ -28,7 +28,7 @@ public class ServiceVersionController : ControllerBase
         {
             return BadRequest($"the API Version {apiVersion} is not supported");
         }
-        
+
         return ForService(serviceName, serviceApiVersion, definitionType.Value, "/v1/microsoft-graph/{apiVersion}");
     }
 
@@ -87,8 +87,8 @@ public class ServiceVersionController : ControllerBase
             SchemaUri = $"{routePrefix}/services/{serviceName}/{serviceApiVersion}/{definition.Name}/schema",
         };
     }
-    
-    
+
+
     public class ApiVersionResponse
     {
         [JsonPropertyName("resources")]
@@ -116,7 +116,7 @@ public class ServiceVersionController : ControllerBase
 
         [Description("HandWritten")]
         HandWritten
-    
+
         // TODO: support for Graph
     }
 }
