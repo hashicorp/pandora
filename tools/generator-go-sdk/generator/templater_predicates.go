@@ -102,7 +102,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 
 			if fieldVal.Optional {
 				matchLines = append(matchLines, fmt.Sprintf(`
-	if p.%[1]s != nil && (input.%[1]s == nil && *p.%[1]s != *input.%[1]s) {
+	if p.%[1]s != nil && (input.%[1]s == nil || *p.%[1]s != *input.%[1]s) {
 	 	return false
 	}
 `, fieldName))
