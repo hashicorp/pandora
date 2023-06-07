@@ -20,9 +20,9 @@ resource 'azurerm_load_test' 'test' {
 
     public string RequiresImportConfig => @"
 resource 'azurerm_load_test' 'import' {
+  location            = azurerm_load_test.test.location
   resource_group_name = azurerm_load_test.test.resource_group_name
   name                = azurerm_load_test.test.name
-  location            = azurerm_load_test.test.location
 }
     ".AsTerraformTestConfig();
 
