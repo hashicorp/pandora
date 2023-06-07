@@ -10,7 +10,7 @@ public static class ServiceDefinitionTypeHelpers
         {
             return ServiceDefinitionType.MicrosoftGraphBeta;
         }
-        
+
         if (apiVersion == "stable-v1")
         {
             return ServiceDefinitionType.MicrosoftGraphStableV1;
