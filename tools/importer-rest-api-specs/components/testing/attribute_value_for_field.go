@@ -137,6 +137,10 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 				dependencies.setNeedsClientConfig()
 				reference = fmt.Sprintf("data.%s_client_config.test.tenant_id", providerPrefix)
 			}
+			if strings.EqualFold(field.HclName, "user_assigned_identity_id") {
+				dependencies.setNeedsUserAssignedIdentity()
+				reference = fmt.Sprintf("%s_user_assigned_identity.test.id", providerPrefix)
+			}
 			if strings.EqualFold(field.HclName, "virtual_network_id") {
 				dependencies.setNeedsVirtualNetwork()
 				reference = fmt.Sprintf("%s_virtual_network.test.id", providerPrefix)

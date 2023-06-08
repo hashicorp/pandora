@@ -477,6 +477,45 @@ func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
+func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "user_assigned_identity_id",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"UserAssignedIdentityId": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+	}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `example_user_assigned_identity.test.id`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+			needsRandomInteger:   true,
+		},
+		needsResourceGroup:        true,
+		needsUserAssignedIdentity: true,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
 func TestAttributeValueForField_BasicTypeStringVirtualNetworkID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "virtual_network_id",

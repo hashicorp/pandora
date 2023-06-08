@@ -52,10 +52,11 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails) (string, error) {
+func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
+		Constants:        constants,
 	}
 	for _, matcher := range processors.NamingRules {
 		updatedFieldName, err := matcher.ProcessField(fieldName, metadata)

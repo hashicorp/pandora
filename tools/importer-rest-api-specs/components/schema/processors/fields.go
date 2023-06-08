@@ -11,6 +11,7 @@ type FieldNameProcessor interface {
 type FieldMetadata struct {
 	TerraformDetails resourcemanager.TerraformResourceDetails
 	Model            resourcemanager.ModelDetails
+	Constants        map[string]resourcemanager.ConstantDetails
 }
 
 var NamingRules = []FieldNameProcessor{
@@ -20,6 +21,7 @@ var NamingRules = []FieldNameProcessor{
 	fieldNamePluralToSingular{},
 	fieldNameRemoveResourcePrefix{},
 	fieldNameRenameBoolean{},
+	fieldNameRenameMislabelledResourceID{},
 }
 
 //TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
