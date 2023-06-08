@@ -18,12 +18,6 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 	}
 
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
-		// TODO: support for Lists of Basic Types
-		// TODO: move check and error to bottom
-		if field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeString && field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeReference {
-			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
-		}
-
 		var nestedBlock *hclwrite.Block
 
 		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
@@ -46,8 +40,13 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			}
 		}
 
+		// TODO support for lists of other basic types
 		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
 			nestedBlock = hclwrite.NewBlock(field.HclName, []string{})
+		}
+
+		if nestedBlock == nil {
+			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
 		}
 
 		return &[]*hclwrite.Block{
