@@ -51,7 +51,7 @@ resource "example_network_interface" "test" {
 }
 
 resource "example_public_ip" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   location            = example_resource_group.test.location
   resource_group_name = example_resource_group.test.name
   allocation_method   = "Static"
@@ -70,13 +70,13 @@ resource "example_subnet" "test" {
 }
 
 resource "example_user_assigned_identity" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
 }
 
 resource "example_virtual_network" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
   address_space       = ["10.0.0.0/16"]
@@ -223,7 +223,7 @@ func TestDependenciesTemplate_NeedsPublicIP(t *testing.T) {
 	}
 	expected := `
 resource "example_public_ip" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   location            = example_resource_group.test.location
   resource_group_name = example_resource_group.test.name
   allocation_method   = "Static"
@@ -278,7 +278,7 @@ func TestDependenciesTemplate_NeedsUserAssignedIdentity(t *testing.T) {
 	}
 	expected := `
 resource "example_user_assigned_identity" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
 }
@@ -296,7 +296,7 @@ func TestDependenciesTemplate_NeedsVirtualNetwork(t *testing.T) {
 	}
 	expected := `
 resource "example_virtual_network" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
   address_space       = ["10.0.0.0/16"]
