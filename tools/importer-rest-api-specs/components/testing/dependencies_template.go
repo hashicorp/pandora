@@ -105,7 +105,7 @@ resource "%[1]s_network_interface" "test" {
 	if dependencies.needsPublicIP {
 		components = append(components, fmt.Sprintf(`
 resource "%[1]s_public_ip" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   location            = %[1]s_resource_group.test.location
   resource_group_name = %[1]s_resource_group.test.name
   allocation_method   = "Static"
@@ -136,7 +136,7 @@ resource "%[1]s_subnet" "test" {
 	if dependencies.needsUserAssignedIdentity {
 		components = append(components, fmt.Sprintf(`
 resource "%[1]s_user_assigned_identity" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = %[1]s_resource_group.test.name
   location            = %[1]s_resource_group.test.location
 }
@@ -146,7 +146,7 @@ resource "%[1]s_user_assigned_identity" "test" {
 	if dependencies.needsVirtualNetwork {
 		components = append(components, fmt.Sprintf(`
 resource "%[1]s_virtual_network" "test" {
-  name                = "acctest-${local.random_integer}"
+  name                = "acctest-${var.random_integer}"
   resource_group_name = %[1]s_resource_group.test.name
   location            = %[1]s_resource_group.test.location
   address_space       = ["10.0.0.0/16"]
