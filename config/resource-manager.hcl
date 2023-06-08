@@ -464,6 +464,10 @@ service "servicelinker" {
   name      = "ServiceLinker"
   available = ["2022-05-01"]
 }
+service "servicenetworking" {
+  name = "ServiceNetworking"
+  available = ["2023-05-01-preview"]
+}
 service "signalr" {
   name      = "SignalR"
   available = ["2023-02-01"]
