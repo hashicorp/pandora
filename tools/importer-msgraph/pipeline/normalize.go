@@ -84,9 +84,9 @@ func cleanNameCamel(name string) string {
 func versionDirectory(version string) string {
 	switch version {
 	case "v1.0":
-		return "Pandora.Definitions.MicrosoftGraph.StableV1"
+		return "MicrosoftGraph.StableV1"
 	case "beta":
-		return "Pandora.Definitions.MicrosoftGraph.Beta"
+		return "MicrosoftGraph.Beta"
 	}
 	return "UnknownApiVersion"
 }

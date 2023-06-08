@@ -29,12 +29,10 @@ func parseTags(spec *openapi3.T) (Services, error) {
 	return services, nil
 }
 
-func tagMatches(tagName string, subtags []string, tags []string) bool {
+func tagMatches(tagName string, tags []string) bool {
 	for _, tag := range tags {
-		for _, subtag := range subtags {
-			if strings.EqualFold(tag, fmt.Sprintf("%s.%s", tagName, subtag)) {
-				return true
-			}
+		if t := strings.Split(tag, "."); len(t) > 0 && t[0] == tagName {
+			return true
 		}
 	}
 	return false

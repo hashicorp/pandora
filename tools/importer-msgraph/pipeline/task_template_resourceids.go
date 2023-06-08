@@ -12,7 +12,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	ids := make(map[string]string)
 
 	for _, resourceId := range resourceIds {
-		filename := fmt.Sprintf("%[2]s%[1]s%[3]s%[1]sResourceId-%[4]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, resourceId.Name)
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sResourceId-%[4]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, resourceId.Name)
 		ids[filename] = templateResourceId(resourceId)
 	}
 
@@ -44,7 +44,7 @@ using Pandora.Definitions.Interfaces;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
+namespace Pandora.Definitions.%[2]s.%[1]s;
 
 internal class %[3]s : ResourceID
 {

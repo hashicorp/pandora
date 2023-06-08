@@ -70,7 +70,7 @@ func runImportForVersion(input RunInput, resources *definitions.Config, apiVersi
 			}
 		}
 
-		if err = runImportForService(input, files, apiVersion, service, serviceTags, spec, swaggerGitSha); err != nil {
+		if err = runImportForService(input, files, apiVersion, service, serviceTags, models, spec, swaggerGitSha); err != nil {
 			return err
 		}
 	}
@@ -82,7 +82,7 @@ func runImportForVersion(input RunInput, resources *definitions.Config, apiVersi
 	return nil
 }
 
-func runImportForService(input RunInput, files *Tree, apiVersion, service string, serviceTags []string, spec *openapi3.T, swaggerGitSha string) error {
+func runImportForService(input RunInput, files *Tree, apiVersion, service string, serviceTags []string, models Models, spec *openapi3.T, swaggerGitSha string) error {
 	logger := input.Logger
 
 	task := pipelineTask{
@@ -99,7 +99,7 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 	}
 
 	logger.Info(fmt.Sprintf("Parsing resources for: %s", service))
-	resources := task.parseResourcesForService(apiVersion, service, serviceTags, spec.Paths, resourceIds)
+	resources := task.parseResourcesForService(apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
 
 	logger.Info(fmt.Sprintf("Templating methods for: %s", service))
 	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {

@@ -11,7 +11,7 @@ func (pipelineTask) parseResourceIDsForService(apiVersion, service string, servi
 		// Check tags and skip
 		skip := true
 		for _, operation := range operations {
-			if tagMatches(service, serviceTags, operation.Tags) {
+			if tagMatches(service, operation.Tags) {
 				operationTags = append(operationTags, operation.Tags...)
 				skip = false
 			}

@@ -35,7 +35,7 @@ using Pandora.Definitions.CustomTypes;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.Models.%[1]s;
+namespace Pandora.Definitions.%[1]s.Models;
 
 internal class %[2]sModel
 {
@@ -43,7 +43,7 @@ internal class %[2]sModel
 }
 `, versionDirectory(apiVersion), name, indentSpace(strings.Join(fieldsCode, "\n\n"), 4))
 
-		filename := fmt.Sprintf("%[2]s%[1]sModels%[1]sModel-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), name)
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sModel-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), name)
 
 		if err := files.addFile(filename, code); err != nil {
 			return err

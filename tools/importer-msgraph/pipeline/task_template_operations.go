@@ -87,7 +87,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			}
 
 			// Build it
-			filename := fmt.Sprintf("%[2]s%[1]s%[3]s%[1]sOperation-%[4]s.cs", string(os.PathSeparator), versionDirectory(resource.Version), resource.Service, operation.Name)
+			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sOperation-%[4]s.cs", string(os.PathSeparator), versionDirectory(resource.Version), resource.Service, operation.Name)
 			operations[filename] = methodCode
 		}
 	}
@@ -114,13 +114,13 @@ func templateListMethod(resource *Resource, operation *Operation, responseModel 
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
+using Pandora.Definitions.%[2]s.Models;
 using System;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
+namespace Pandora.Definitions.%[2]s.%[1]s;
 
 internal class %[3]sOperation : Operations.ListOperation
 {
@@ -150,7 +150,7 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
+using Pandora.Definitions.%[2]s.Models;
 using System.Collections.Generic;
 using System.Net;
 using System;
@@ -158,7 +158,7 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
+namespace Pandora.Definitions.%[2]s.%[1]s;
 
 internal class %[3]sOperation : Operations.%[4]sOperation
 {
@@ -198,7 +198,7 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.MicrosoftGraph.Models.%[2]s;
+using Pandora.Definitions.%[2]s.Models;
 using System.Collections.Generic;
 using System.Net;
 using System;
@@ -206,7 +206,7 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
+namespace Pandora.Definitions.%[2]s.%[1]s;
 
 internal class %[3]sOperation : Operations.%[4]sOperation
 {
@@ -245,7 +245,7 @@ using System.Net;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.%[1]s.%[2]s;
+namespace Pandora.Definitions.%[2]s.%[1]s;
 
 internal class %[3]sOperation : Operations.%[4]sOperation
 {

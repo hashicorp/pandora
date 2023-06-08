@@ -28,7 +28,7 @@ using System.ComponentModel;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.MicrosoftGraph.Models.%[1]s;
+namespace Pandora.Definitions.%[1]s.Models;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum %[2]sConstant
@@ -37,7 +37,7 @@ internal enum %[2]sConstant
 }
 `, versionDirectory(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 
-				filename := fmt.Sprintf("%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), field.Title)
+				filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), field.Title)
 
 				if err := files.addFile(filename, code); err != nil {
 					return err

@@ -62,7 +62,7 @@ func NewOperationType(method string) OperationType {
 	return OperationTypeUnknown
 }
 
-func (pipelineTask) parseResourcesForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds) (resources map[string]*Resource) {
+func (pipelineTask) parseResourcesForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources map[string]*Resource) {
 	resources = make(map[string]*Resource)
 	for path, item := range paths {
 		operations := item.Operations()
@@ -71,7 +71,7 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 		// Check tags and skip
 		skip := true
 		for _, operation := range operations {
-			if tagMatches(service, serviceTags, operation.Tags) {
+			if tagMatches(service, operation.Tags) {
 				operationTags = append(operationTags, operation.Tags...)
 				skip = false
 			}
@@ -119,7 +119,7 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 		}
 
 		for method, operation := range operations {
-			if !tagMatches(service, serviceTags, operation.Tags) {
+			if !tagMatches(service, operation.Tags) {
 				continue
 			}
 			listOperation := false
@@ -145,7 +145,9 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 										listOperation = true
 									}
 									if f.Title != "string" {
-										responseModel = pointerTo(cleanName(f.Title))
+										if modelName := cleanName(f.Title); models.Found(modelName) {
+											responseModel = &modelName
+										}
 									}
 								}
 							}
@@ -178,7 +180,7 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 			case OperationTypeRead:
 				operationName = fmt.Sprintf("Get%s", resourceName)
 			case OperationTypeCreate:
-				if verbs.match(resourceName) {
+				if r := strings.TrimPrefix(resourceName, singularize(cleanName(service))); verbs.match(r) {
 					operationName = resourceName
 				} else if lastSegment.Type == SegmentODataReference {
 					operationName = fmt.Sprintf("Add%s", singularize(resourceName))
@@ -204,7 +206,9 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 						if content.Schema != nil {
 							schema, _ := flattenSchema(content.Schema.Value, nil)
 							if schema.Title != "" {
-								requestModel = pointerTo(cleanName(schema.Title))
+								if modelName := cleanName(schema.Title); models.Found(modelName) {
+									requestModel = &modelName
+								}
 							}
 						}
 					}
