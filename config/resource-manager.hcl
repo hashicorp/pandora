@@ -269,7 +269,7 @@ service "labservices" {
 }
 service "loadtestservice" {
   name      = "LoadTestService"
-  available = ["2021-12-01-preview", "2022-04-15-preview", "2022-12-01"]
+  available = ["2022-12-01"]
 }
 service "logic" {
   name      = "Logic"
@@ -329,7 +329,7 @@ service "monitor" {
 }
 service "msi" {
   name      = "ManagedIdentity"
-  available = ["2022-01-31-preview", "2023-01-31"]
+  available = ["2023-01-31"]
 }
 service "mysql" {
   name      = "MySql"
