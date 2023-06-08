@@ -294,7 +294,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	}
 
 	// @tombuildsstuff: this is a temporary workaround to strip out the `encryption` block for the Load Test Service
-	// TODO: issue XXX to fix
+	// the fix is tracked in https://github.com/hashicorp/pandora/issues/2608
 	// NOTE: other resources shouldn't use this approach and should instead fix the issue blocking generation - this
 	// is temporary to unblock this migration, since this has already shipped.
 	if input.SchemaModelName == "LoadTestResource" {
