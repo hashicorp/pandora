@@ -18,6 +18,9 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, lo
 			continue
 		}
 
+		if key == "TrustedAccess" {
+			log.Print("here")
+		}
 		// This is the data API name of the resource i.e. VirtualMachines
 		r, err := transformer.ApiResourceFromModelResource(resource)
 		if err != nil {

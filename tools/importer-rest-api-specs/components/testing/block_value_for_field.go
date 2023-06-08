@@ -19,26 +19,35 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
 		// TODO: support for Lists of Basic Types
-		if field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeReference {
-			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference - but got %q", string(field.ObjectDefinition.NestedObject.Type))
+		// TODO: move check and error to bottom
+		if field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeString && field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeReference {
+			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
 		}
 
-		nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
-		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
-		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced by nested List/Set %q was not found", nestedModelName, field.HclName)
+		var nestedBlock *hclwrite.Block
+
+		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
+			nestedModel, ok := tb.details.SchemaModels[nestedModelName]
+			if !ok {
+				return nil, fmt.Errorf("the schema model %q referenced by nested List/Set %q was not found", nestedModelName, field.HclName)
+			}
+
+			// first go pull out the nested item
+			nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
+			}
+
+			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
+				return &[]*hclwrite.Block{
+					nestedBlock,
+				}, nil
+			}
 		}
 
-		// first go pull out the nested item
-		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
-		if err != nil {
-			return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
-		}
-
-		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
-			return &[]*hclwrite.Block{
-				nestedBlock,
-			}, nil
+		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
+			nestedBlock = hclwrite.NewBlock(field.HclName, []string{})
 		}
 
 		return &[]*hclwrite.Block{

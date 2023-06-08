@@ -50,6 +50,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 			// output the Schema for this Terraform Resource
 			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
+
 			resourceSchema, ok := details.SchemaModels[details.SchemaModelName]
 			if !ok {
 				return fmt.Errorf("the Schema Model %q was not found", details.SchemaModelName)
