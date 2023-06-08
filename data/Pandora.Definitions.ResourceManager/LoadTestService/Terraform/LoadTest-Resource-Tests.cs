@@ -41,7 +41,8 @@ resource 'azurerm_load_test' 'test' {
     some_key    = 'some-value'
   }
   identity {
-    type = 'SystemAssigned'
+    type         = 'SystemAssigned, UserAssigned'
+    identity_ids = [azurerm_user_assigned_identity.test.id]
   }
 }
 ".AsTerraformTestConfig();
@@ -52,6 +53,13 @@ variable 'random_integer' {}
 resource 'azurerm_resource_group' 'test' {
   name     = 'acctestrg-${var.random_integer}'
   location = var.primary_location
+}
+
+
+resource 'azurerm_user_assigned_identity' 'test' {
+  name                = 'acctest-${local.random_integer}'
+  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_resource_group.test.location
 }
 ".AsTerraformTestConfig();
 
