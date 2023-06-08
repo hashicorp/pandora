@@ -22,7 +22,7 @@ func (tb TestBuilder) generateRequiresImportTest() (*string, error) {
 	}
 	resource := blockForResource(f, tb.providerPrefix, tb.resourceLabel, "import")
 	currentResourceLabel := fmt.Sprintf("%s_%s.test", tb.providerPrefix, tb.resourceLabel)
-	if err := tb.populateFieldsForResourceImport(resource, model.Fields, currentResourceLabel); err != nil {
+	if err := tb.populateFieldsForResourceImport(resource, model, currentResourceLabel); err != nil {
 		return nil, fmt.Errorf("populating test fields for model %q: %+v", tb.details.SchemaModelName, err)
 	}
 
@@ -30,12 +30,10 @@ func (tb TestBuilder) generateRequiresImportTest() (*string, error) {
 	return &output, nil
 }
 
-func (tb TestBuilder) populateFieldsForResourceImport(block *hclwrite.Body, fields map[string]resourcemanager.TerraformSchemaFieldDefinition, currentResourceLabel string) error {
-	for _, field := range fields {
-		if !field.Required {
-			continue
-		}
+func (tb TestBuilder) populateFieldsForResourceImport(block *hclwrite.Body, model resourcemanager.TerraformSchemaModelDefinition, currentResourceLabel string) error {
+	requiredFields := getRequiredFieldsForSchemaModel(model)
 
+	for _, field := range requiredFields {
 		// TODO: if it's a List or Set
 
 		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference {
@@ -45,7 +43,7 @@ func (tb TestBuilder) populateFieldsForResourceImport(block *hclwrite.Body, fiel
 			}
 
 			nested := block.AppendNewBlock(field.HclName, []string{}).Body()
-			if err := tb.populateFieldsForResourceImport(nested, nestedModel.Fields, fmt.Sprintf("%s.%s.0", currentResourceLabel, field.HclName)); err != nil {
+			if err := tb.populateFieldsForResourceImport(nested, nestedModel, fmt.Sprintf("%s.%s.0", currentResourceLabel, field.HclName)); err != nil {
 				return fmt.Errorf("populating nested model for %q: %+v", field.HclName, err)
 			}
 
