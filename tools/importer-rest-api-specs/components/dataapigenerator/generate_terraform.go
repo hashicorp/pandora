@@ -2,6 +2,7 @@ package dataapigenerator
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"strings"
 
@@ -20,7 +21,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 		return nil
 	}
 
-	if err := RecreateDirectory(s.workingDirectoryForTerraform, s.logger); err != nil {
+	if err := os.MkdirAll(s.workingDirectoryForTerraform, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
 	}
 
