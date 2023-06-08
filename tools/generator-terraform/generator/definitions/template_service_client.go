@@ -16,54 +16,85 @@ var servicesUsingOldBaseLayer = map[string]struct{}{
 }
 
 func templateForServiceClient(input models.ServiceInput) string {
+	importLines := make([]string, 0)
+	autoClientLines := make([]string, 0)
+	assignmentLines := make([]string, 0)
+	assignmentOldBaseLayerLines := make([]string, 0)
+	returnLines := make([]string, 0)
+
+	for _, version := range input.ResourceToApiVersion {
+		apiVersionFormatted := strings.Title(helpers.NamespaceForApiVersion(version))
+
+		importLine := fmt.Sprintf(`%[1]s%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"`, strings.ToLower(input.SdkServiceName), apiVersionFormatted, version)
+		importLines = append(importLines, importLine)
+
+		autoClientLine := fmt.Sprintf(`%[1]s %[2]s%[1]s.Client`, apiVersionFormatted, strings.ToLower(input.SdkServiceName))
+		autoClientLines = append(autoClientLines, autoClientLine)
+
+		assignmentLine := fmt.Sprintf(`
+		%[1]sClient, err := %[2]s%[3]s.NewClientWithBaseURI(o.Environment.ResourceManager, func(c *resourcemanager.Client) {
+			o.Configure(c, o.Authorizers.ResourceManager)
+		})
+		if err != nil {
+			return nil, fmt.Errorf("building client for %[2]s %[3]s: %%+v", err)
+		}
+`, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
+		assignmentLines = append(assignmentLines, assignmentLine)
+
+		assignmentOldBaseLayerLine := fmt.Sprintf(`
+		%[1]sClient := %[2]s%[3]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+			c.Authorizer = o.ResourceManagerAuthorizer
+		})
+`, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
+		assignmentOldBaseLayerLines = append(assignmentOldBaseLayerLines, assignmentOldBaseLayerLine)
+
+		returnLine := fmt.Sprintf(`%[1]s: %[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
+		returnLines = append(returnLines, returnLine)
+	}
+
 	output := fmt.Sprintf(`
 package client
 
 import (
-	%[1]s%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"
-	"github.com/hashicorp/terraform-provider-%[4]s/internal/common"
+	%[1]s
+	"github.com/hashicorp/terraform-provider-%[5]s/internal/common"
 )
 
 type AutoClient struct {
-	%[2]s %[1]s%[2]s.Client
+	%[2]s
 }
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	%[5]sClient, err := %[1]s%[2]s.NewClientWithBaseURI(o.Environment.ResourceManager, func(c *resourcemanager.Client) {
-		o.Configure(c, o.Authorizers.ResourceManager)
-	})
-	if err != nil {
-		return nil, fmt.Errorf("building client for %[1]s %[2]s: %%+v", err)
-	}
+	%[3]s
 
 	return &AutoClient{
-		%[2]s: %[5]sClient,
+		%[4]s
 	}, nil
 }
-`, strings.ToLower(input.SdkServiceName), strings.Title(helpers.NamespaceForApiVersion(input.ApiVersion)), input.ApiVersion, input.ProviderPrefix, helpers.NamespaceForApiVersion(input.ApiVersion))
+`, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentLines, "\n"), strings.Join(returnLines, "\n"), input.ProviderPrefix)
 
 	if _, ok := servicesUsingOldBaseLayer[strings.ToLower(input.SdkServiceName)]; ok {
 		output = fmt.Sprintf(`
 package client
+
 import (
 	"github.com/Azure/go-autorest/autorest"
-	%[1]s%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"
-	"github.com/hashicorp/terraform-provider-%[4]s/internal/common"
+	%[1]s
+	"github.com/hashicorp/terraform-provider-%[5]s/internal/common"
 )
 
 type AutoClient struct {
-	%[2]s %[1]s%[2]s.Client
+	%[2]s
 }
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	%[5]sClient := %[1]s%[2]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
-	})
+	%[3]s
+
 	return &AutoClient{
-		%[2]s: %[5]sClient,
+		%[4]s
 	}, nil
 }
-`, strings.ToLower(input.SdkServiceName), strings.Title(helpers.NamespaceForApiVersion(input.ApiVersion)), input.ApiVersion, input.ProviderPrefix, helpers.NamespaceForApiVersion(input.ApiVersion))
+`, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentOldBaseLayerLines, "\n"), strings.Join(returnLines, "\n"), input.ProviderPrefix)
 	}
 
 	return strings.TrimSpace(output)

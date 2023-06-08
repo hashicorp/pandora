@@ -5,7 +5,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
@@ -15,12 +14,10 @@ func codeForClientsRegistration(input models.ServicesInput) string {
 	assignmentLines := make([]string, 0)
 
 	for serviceName, service := range input.Services {
-		sdkApiVersion := helpers.NamespaceForApiVersion(service.ApiVersion)
-
 		serviceImportLine := fmt.Sprintf(`%[2]s "github.com/hashicorp/terraform-provider-%[1]s/internal/services/%[2]s/client"`, input.ProviderPrefix, service.ServicePackageName)
 		importLines = append(importLines, serviceImportLine)
 
-		structField := fmt.Sprintf(`%[1]s   *%[2]s.AutoClient`, serviceName, service.ServicePackageName, sdkApiVersion)
+		structField := fmt.Sprintf(`%[1]s   *%[2]s.AutoClient`, serviceName, service.ServicePackageName)
 		structFields = append(structFields, structField)
 
 		assignmentLine := fmt.Sprintf(`

@@ -2,7 +2,7 @@ package models
 
 type ServiceInput struct {
 	// ApiVersion is the API Version used for this Service
-	ApiVersion string
+	//ApiVersion string
 
 	// CategoryNames is a slice of Category Names the Data Sources and Resources contain.
 	CategoryNames []string
@@ -17,7 +17,10 @@ type ServiceInput struct {
 	RootDirectory string
 
 	// ResourceNames is a slice of the names of the Resources which should be output.
-	ResourceNames []string
+	//ResourceNames []string
+
+	// ResourceToApiVersion maps the resource name to the API Version
+	ResourceToApiVersion map[string]string
 
 	// SdkServiceName is the name of this Service within the Go-SDK.
 	SdkServiceName string
