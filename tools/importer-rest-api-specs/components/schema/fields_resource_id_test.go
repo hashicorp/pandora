@@ -17,7 +17,7 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", hclog.New(hclog.DefaultOptions))
 	if err == nil {
 		t.Fatalf("expected an error but didn't get one")
 	}
@@ -56,7 +56,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -144,7 +144,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -259,7 +259,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{}.identityTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
