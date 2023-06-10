@@ -8,12 +8,15 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resourceIds ResourceIds, logger hclog.Logger) error {
+func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resources Resources, logger hclog.Logger) error {
 	ids := make(map[string]string)
 
-	for _, resourceId := range resourceIds {
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sResourceId-%[5]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, cleanName(resourceId.Version), resourceId.Name)
-		ids[filename] = templateResourceId(resourceId)
+	for _, resource := range resources {
+		if resource.Id == nil {
+			continue
+		}
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), versionDirectory(resource.Id.Version), resource.Id.Service, cleanName(resource.Id.Version), resource.Category, resource.Id.Name)
+		ids[filename] = templateResourceId(resource.Id, resource.Category)
 	}
 
 	resourceIdFiles := sortedKeys(ids)
@@ -26,7 +29,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	return nil
 }
 
-func templateResourceId(resourceId *ResourceId) string {
+func templateResourceId(resourceId *ResourceId, category string) string {
 	segments := make([]string, 0)
 	for _, seg := range resourceId.Segments {
 		switch seg.Type {
@@ -44,17 +47,17 @@ using Pandora.Definitions.Interfaces;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[4]s : ResourceID
+internal class %[5]sId : ResourceID
 {
     public string? CommonAlias => null;
-    public string ID => "%[5]s";
+    public string ID => "%[6]s";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-%[6]s
+%[7]s
     };
 }
-`, resourceId.Service, versionDirectory(resourceId.Version), cleanName(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
+`, resourceId.Service, versionDirectory(resourceId.Version), cleanName(resourceId.Version), category, resourceId.Name, resourceId.ID(), segmentsCode)
 }

@@ -92,24 +92,24 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 		swaggerGitSha: swaggerGitSha,
 	}
 
-	logger.Info(fmt.Sprintf("Templating API version definition for %q", service))
-	if err := task.templateApiVersionDefinitionForService(files, service, apiVersion, logger); err != nil {
-		return err
-	}
-
 	logger.Info(fmt.Sprintf("Parsing resource IDs for %q", service))
 	resourceIds := task.parseResourceIDsForService(logger, apiVersion, service, serviceTags, spec.Paths)
-
-	logger.Info(fmt.Sprintf("Templating resource IDs for %q", service))
-	if err := task.templateResourceIdsForService(files, service, resourceIds, logger); err != nil {
-		return err
-	}
 
 	logger.Info(fmt.Sprintf("Parsing resources for %q", service))
 	resources := task.parseResourcesForService(logger, apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
 
+	logger.Info(fmt.Sprintf("Templating resource IDs for %q", service))
+	if err := task.templateResourceIdsForService(files, service, resources, logger); err != nil {
+		return err
+	}
+
 	logger.Info(fmt.Sprintf("Templating methods for %q", service))
 	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {
+		return err
+	}
+
+	logger.Info(fmt.Sprintf("Templating API version definition for %q", service))
+	if err := task.templateApiVersionDefinitionForService(files, service, apiVersion, logger); err != nil {
 		return err
 	}
 

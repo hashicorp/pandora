@@ -2,71 +2,15 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
-	"net/http"
 	"strconv"
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-hclog"
 )
 
-type Resource struct {
-	Name       string
-	Category   string
-	Version    string
-	Service    string
-	Id         *ResourceId
-	Paths      []ResourceId
-	Operations []Operation
-}
-
-type Operation struct {
-	Name         string
-	Type         OperationType
-	Method       string
-	UriSuffix    *string
-	RequestModel *string
-	Responses    []Response
-	Tags         []string
-}
-
-type Response struct {
-	Status      int
-	ContentType *string
-	Collection  bool
-	ModelName   *string
-}
-
-type OperationType uint8
-
-const (
-	OperationTypeUnknown OperationType = iota
-	OperationTypeList
-	OperationTypeRead
-	OperationTypeCreate
-	OperationTypeCreateUpdate
-	OperationTypeUpdate
-	OperationTypeDelete
-)
-
-func NewOperationType(method string) OperationType {
-	switch method {
-	case http.MethodGet:
-		return OperationTypeRead
-	case http.MethodPost:
-		return OperationTypeCreate
-	case http.MethodPatch:
-		return OperationTypeUpdate
-	case http.MethodPut:
-		return OperationTypeCreateUpdate
-	case http.MethodDelete:
-		return OperationTypeDelete
-	}
-	return OperationTypeUnknown
-}
-
-func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources map[string]*Resource) {
-	resources = make(map[string]*Resource)
+func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources Resources) {
+	resources = make(Resources)
 	for p, item := range paths {
 		path := strings.Clone(p)
 		operations := item.Operations()

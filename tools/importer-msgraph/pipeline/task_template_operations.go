@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources map[string]*Resource, logger hclog.Logger) error {
+func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources Resources, logger hclog.Logger) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
@@ -120,16 +120,16 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[4]sOperation : Operations.ListOperation
+internal class %[5]sOperation : Operations.ListOperation
 {
    public override string? FieldContainingPaginationDetails() => "nextLink";
-   public override ResourceID? ResourceId() => %[5]s;
-   public override Type NestedItemType() => typeof(%[6]sModel);
-   public override string? UriSuffix() => %[7]s;
+   public override ResourceID? ResourceId() => %[6]s;
+   public override Type NestedItemType() => typeof(%[7]sModel);
+   public override string? UriSuffix() => %[8]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), operation.Name, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, resourceIdCode, responseModel, uriSuffixCode)
 
 }
 
@@ -158,19 +158,19 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[5]sOperation : Operations.%[6]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[7]s,
         };
-    public override ResourceID? ResourceId() => %[7]s;
-    public override Type? ResponseObject() => typeof(%[8]sModel);
-    public override string? UriSuffix() => %[9]s;
+    public override ResourceID? ResourceId() => %[8]s;
+    public override Type? ResponseObject() => typeof(%[9]sModel);
+    public override string? UriSuffix() => %[10]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
 }
 
 func templateCreateUpdateMethod(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
@@ -206,20 +206,20 @@ using System;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[5]sOperation : Operations.%[6]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[7]s,
         };
-    public override Type? RequestObject() => %[7]s;
-    public override ResourceID? ResourceId() => %[8]s;
-    public override Type? ResponseObject() => %[9]s;
-    public override string? UriSuffix() => %[10]s;
+    public override Type? RequestObject() => %[8]s;
+    public override ResourceID? ResourceId() => %[9]s;
+    public override Type? ResponseObject() => %[10]s;
+    public override string? UriSuffix() => %[11]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
 }
 
 func templateDeleteMethod(resource *Resource, operation *Operation, statuses []string) string {
@@ -245,16 +245,16 @@ using System.Net;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[4]sOperation : Operations.%[5]sOperation
+internal class %[5]sOperation : Operations.%[6]sOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-%[6]s,
+%[7]s,
         };
-    public override ResourceID? ResourceId() => %[7]s;
-    public override string? UriSuffix() => %[8]s;
+    public override ResourceID? ResourceId() => %[8]s;
+    public override string? UriSuffix() => %[9]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
+`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
 }
