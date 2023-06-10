@@ -43,27 +43,29 @@ func (r ResourceId) Match(r2 ResourceId) (ResourceId, bool) {
 func (r ResourceId) FindResourceName() (*string, bool) {
 	slugs := make([]ResourceIdSegment, 0)
 	idx := len(r.Segments) - 1
+
 	for i := idx; i >= 0; i-- {
-		if idSegment := r.Segments[i]; idSegment.Type == SegmentAction || idSegment.Type == SegmentLabel {
+		if idSegment := r.Segments[i]; idSegment.Type == SegmentAction || idSegment.Type == SegmentLabel || idSegment.Type == SegmentODataReference {
 			idx = i
 			break
 		}
 	}
+
 	for j := idx; j >= 0; j-- {
 		segment := r.Segments[j]
-		if segment.Type == SegmentAction || segment.Type == SegmentLabel {
+		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
 			slugs = append(slugs, segment)
 
-			// Hop over a SegmentUserValue if we only have an action, to prevent unqualified resource names like "Stop"
-			if segment.Type == SegmentAction && j > 0 {
-				if preceedingSegment := r.Segments[j-1]; preceedingSegment.Type == SegmentUserValue {
+			// Hop over a SegmentUserValue if we only have an action or ref, to prevent unqualified resource names like "Stop" or "Ref"
+			if (segment.Type == SegmentAction || segment.Type == SegmentODataReference) && j > 0 {
+				if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
 					j--
 				}
 			}
 
 			// Hop over a SegmentUserValue if we only have an unqualified label describing a relationship (determined by a succeeding SegmentODataReference)
 			if segment.Type == SegmentLabel && j > 0 && j+1 < len(r.Segments) {
-				if preceedingSegment := r.Segments[j-1]; preceedingSegment.Type == SegmentUserValue {
+				if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
 					if succeedingSegment := r.Segments[j+1]; succeedingSegment.Type == SegmentODataReference {
 						j--
 					} else if j+2 < len(r.Segments) && succeedingSegment.Type == SegmentUserValue {
@@ -73,19 +75,40 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 					}
 				}
 			}
+
 			continue
 		}
 		break
 	}
+
 	if len(slugs) > 0 {
 		name := ""
+		verb := ""
 		for _, slug := range slugs {
 			newName := cleanName(slug.Value)
+			shouldSingularize := false
+
 			if slug.Type == SegmentLabel {
+				shouldSingularize = true
+			}
+
+			if v, ok := verbs.match(newName); ok && verb == "" {
+				verb = *v
+				newName = newName[len(verb):]
+				shouldSingularize = false
+			}
+
+			if shouldSingularize {
 				newName = singularize(newName)
 			}
+
 			name = newName + name
 		}
+
+		if verb != "" {
+			name = verb + name
+		}
+
 		return &name, true
 	}
 
@@ -97,16 +120,8 @@ func (r ResourceId) FindResourceIdName() (*string, bool) {
 	if resourceName, ok := r.FindResourceName(); ok {
 		idName = *resourceName
 	}
-	//segmentsLastIndex := len(r.Segments) - 1
-	//if lastSegment := r.Segments[segmentsLastIndex]; lastSegment.Type == SegmentUserValue {
-	//	name := r.Segments[segmentsLastIndex].Value
-	//	if name == "" {
-	//		return nil, false
-	//	}
-	//	idName = idName + cleanName(name)
-	//}
 	if idName != "" {
-		idName = idName + "Id"
+		//idName = idName + "Id"
 		//idName = deDuplicate(idName)
 		return &idName, true
 	}
@@ -146,6 +161,24 @@ func (r ResourceId) LastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType
 	return nil
 }
 
+func (r ResourceId) TruncateToLastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType, i int) *ResourceId {
+	ret := r
+	if segmentsLen := len(r.Segments); i < 0 || i > segmentsLen {
+		i = segmentsLen
+	}
+	for i > 0 {
+		i--
+		segment := r.Segments[i]
+		for _, segmentType := range types {
+			if segment.Type == segmentType {
+				ret.Segments = r.Segments[:i+1]
+				return &ret
+			}
+		}
+	}
+	return nil
+}
+
 type ResourceIdSegment struct {
 	Type  ResourceIdSegmentType
 	Value string
@@ -156,11 +189,11 @@ type ResourceIdSegmentType uint
 
 const (
 	SegmentLabel ResourceIdSegmentType = iota
-	SegmentAction
 	SegmentUserValue
+	SegmentODataReference
+	SegmentAction
 	SegmentCast
 	SegmentFunction
-	SegmentODataReference
 )
 
 func NewResourceId(path string, tags []string) (id ResourceId) {
@@ -216,6 +249,7 @@ type ResourceIdMatch struct {
 
 func (ri ResourceIds) MatchIdOrParent(r2 ResourceId) (*ResourceIdMatch, bool) {
 	matches := make([]ResourceIdMatch, 0)
+
 	for _, r1 := range ri {
 		if r1 == nil {
 			continue
@@ -224,11 +258,14 @@ func (ri ResourceIds) MatchIdOrParent(r2 ResourceId) (*ResourceIdMatch, bool) {
 			matches = append(matches, ResourceIdMatch{r1, &remainder})
 		}
 	}
+
+	// Select the matching ID with most segments, assume this is the most granular match
 	if len(matches) > 0 {
 		sort.SliceStable(matches, func(i int, j int) bool {
 			return len(matches[i].Id.Segments) > len(matches[j].Id.Segments)
 		})
 		return &matches[0], true
 	}
+
 	return nil, false
 }

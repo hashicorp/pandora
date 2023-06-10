@@ -12,7 +12,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	ids := make(map[string]string)
 
 	for _, resourceId := range resourceIds {
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sResourceId-%[4]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, resourceId.Name)
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sResourceId-%[5]s.cs", string(os.PathSeparator), versionDirectory(resourceId.Version), resourceId.Service, cleanName(resourceId.Version), resourceId.Name)
 		ids[filename] = templateResourceId(resourceId)
 	}
 
@@ -44,18 +44,17 @@ using Pandora.Definitions.Interfaces;
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s;
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
 
-internal class %[3]s : ResourceID
+internal class %[4]s : ResourceID
 {
     public string? CommonAlias => null;
-
-    public string ID => "%[4]s";
+    public string ID => "%[5]s";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-%[5]s
+%[6]s
     };
 }
-`, resourceId.Service, versionDirectory(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
+`, resourceId.Service, versionDirectory(resourceId.Version), cleanName(resourceId.Version), resourceId.Name, resourceId.ID(), segmentsCode)
 }

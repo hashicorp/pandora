@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"net/http"
 	"strconv"
 	"strings"
@@ -11,8 +12,11 @@ import (
 
 type Resource struct {
 	Name       string
+	Category   string
 	Version    string
 	Service    string
+	Id         *ResourceId
+	Paths      []ResourceId
 	Operations []Operation
 }
 
@@ -20,7 +24,6 @@ type Operation struct {
 	Name         string
 	Type         OperationType
 	Method       string
-	ResourceId   *ResourceId
 	UriSuffix    *string
 	RequestModel *string
 	Responses    []Response
@@ -62,9 +65,10 @@ func NewOperationType(method string) OperationType {
 	return OperationTypeUnknown
 }
 
-func (pipelineTask) parseResourcesForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources map[string]*Resource) {
+func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources map[string]*Resource) {
 	resources = make(map[string]*Resource)
-	for path, item := range paths {
+	for p, item := range paths {
+		path := strings.Clone(p)
 		operations := item.Operations()
 		operationTags := make([]string, 0)
 
@@ -80,27 +84,15 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 			continue
 		}
 
-		id := NewResourceId(path, operationTags)
-		segmentsLastIndex := len(id.Segments) - 1
-		if lastSegment := id.Segments[segmentsLastIndex]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+		parsedPath := NewResourceId(path, operationTags)
+		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
+		if lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
 			continue
 		}
 
 		resourceName := ""
-		if r, ok := id.FindResourceName(); ok {
-			resourceName = singularize(cleanName(*r))
-		}
-
-		var resourceId *ResourceId
-		var uriSuffix *string
-		match, ok := resourceIds.MatchIdOrParent(id)
-		if ok {
-			if match.Id != nil {
-				resourceId = match.Id
-			}
-			if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
-				uriSuffix = pointerTo(match.Remainder.ID())
-			}
+		if r, ok := parsedPath.FindResourceName(); ok {
+			resourceName = *r
 		}
 
 		// TODO: skip unknown operations for now
@@ -108,14 +100,49 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 			continue
 		}
 
+		// Resources by default go into their own category when their final URI segment is a label
+		resourceCategory := ""
+		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
+			resourceCategory = strings.Clone(resourceName)
+		}
+
+		// Determine resource ID and/or URI suffix
+		var resourceId *ResourceId
+		var uriSuffix *string
+		match, ok := resourceIds.MatchIdOrParent(parsedPath)
+		if ok {
+			if match.Id != nil {
+				resourceId = match.Id
+			}
+			if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
+				uriSuffix = pointerTo(match.Remainder.ID())
+
+				// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
+				// but only if the suffix has one segment, else this could indicate a different parent, in which case
+				// we'll attempt a match after parsing all resources.
+				if resourceCategory == "" && strings.Count(*uriSuffix, "/") == 1 {
+					resourceCategory = resourceId.Name
+				}
+			}
+		} else {
+			uriSuffix = &path
+		}
+
 		// Create a new resource if not already encountered
 		if _, ok := resources[resourceName]; !ok {
+			logger.Info(fmt.Sprintf("found new resource %q for service %q in API version %q", resourceName, service, apiVersion))
+
 			resources[resourceName] = &Resource{
 				Name:       resourceName,
+				Category:   resourceCategory,
 				Version:    apiVersion,
 				Service:    cleanName(service),
+				Id:         resourceId,
+				Paths:      []ResourceId{parsedPath},
 				Operations: make([]Operation, 0, len(operations)),
 			}
+		} else {
+			resources[resourceName].Paths = append(resources[resourceName].Paths, parsedPath)
 		}
 
 		for method, operation := range operations {
@@ -169,18 +196,20 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 			}
 
 			operationName := ""
-			lastSegment := id.Segments[len(id.Segments)-1]
+			lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
+			shortResourceName := strings.TrimPrefix(resourceName, singularize(cleanName(service)))
 
 			switch operationType {
 			case OperationTypeList:
-				//if len(operationSuffix) >= 3 && strings.HasPrefix(strings.ToLower(operationSuffix), "get") {
-				//	operationSuffix = operationSuffix[3:]
-				//}
-				operationName = fmt.Sprintf("List%s", pluralize(resourceName))
+				if _, ok = verbs.match(shortResourceName); ok {
+					operationName = resourceName
+				} else {
+					operationName = fmt.Sprintf("List%s", pluralize(resourceName))
+				}
 			case OperationTypeRead:
 				operationName = fmt.Sprintf("Get%s", resourceName)
 			case OperationTypeCreate:
-				if r := strings.TrimPrefix(resourceName, singularize(cleanName(service))); verbs.match(r) {
+				if _, ok = verbs.match(shortResourceName); ok {
 					operationName = resourceName
 				} else if lastSegment.Type == SegmentODataReference {
 					operationName = fmt.Sprintf("Add%s", singularize(resourceName))
@@ -198,6 +227,9 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 					operationName = fmt.Sprintf("Delete%s", resourceName)
 				}
 			}
+
+			// Trim the "Ref" suffix from operation names
+			operationName = strings.TrimSuffix(operationName, "Ref")
 
 			var requestModel *string
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
@@ -219,12 +251,30 @@ func (pipelineTask) parseResourcesForService(apiVersion, service string, service
 				Name:         operationName,
 				Type:         operationType,
 				Method:       method,
-				ResourceId:   resourceId,
 				UriSuffix:    uriSuffix,
 				RequestModel: requestModel,
 				Responses:    responses,
 				Tags:         operation.Tags,
 			})
+		}
+	}
+
+	// Look for resources without a category, then iterate the known paths of it and all potential parent resources
+	// to find a match by trimming the path to the preceding label segment, then adopt the parent resource category to ensure they are grouped together
+	for _, resource := range resources {
+		if pathsLen := len(resource.Paths); resource.Category == "" && pathsLen > 0 {
+			for _, path := range resource.Paths {
+				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentLabel}, -1); trimmedPath != nil {
+					for _, parentResource := range resources {
+						for _, parentPath := range parentResource.Paths {
+							if parentPath.ID() == trimmedPath.ID() {
+								resource.Category = parentResource.Category
+								break
+							}
+						}
+					}
+				}
+			}
 		}
 	}
 

@@ -1,8 +1,12 @@
 package pipeline
 
-import "github.com/getkin/kin-openapi/openapi3"
+import (
+	"fmt"
+	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-hclog"
+)
 
-func (pipelineTask) parseResourceIDsForService(apiVersion, service string, serviceTags []string, paths openapi3.Paths) (resources ResourceIds) {
+func (pipelineTask) parseResourceIDsForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths) (resources ResourceIds) {
 	resources = make(ResourceIds, 0)
 	for path, item := range paths {
 		operations := item.Operations()
@@ -24,14 +28,19 @@ func (pipelineTask) parseResourceIDsForService(apiVersion, service string, servi
 
 		segmentsLastIndex := len(id.Segments) - 1
 		if lastSegment := id.Segments[segmentsLastIndex]; lastSegment.Type == SegmentUserValue {
-			resourceName := ""
+			resourceIdName := ""
 			if r, ok := id.FindResourceIdName(); ok {
-				resourceName = singularize(cleanName(*r))
+				resourceIdName = singularize(cleanName(*r))
 			}
-			id.Name = resourceName
-			id.Service = cleanName(service)
-			id.Version = apiVersion
-			resources = append(resources, &id)
+
+			if resourceIdName != "" {
+				logger.Info(fmt.Sprintf("found resource ID %q for service %q in API version %q", resourceIdName, service, apiVersion))
+
+				id.Name = resourceIdName
+				id.Service = cleanName(service)
+				id.Version = apiVersion
+				resources = append(resources, &id)
+			}
 		}
 	}
 

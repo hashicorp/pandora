@@ -25,6 +25,8 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 
 func runImportForVersion(input RunInput, resources *definitions.Config, apiVersion, openApiFile, swaggerGitSha string) error {
 	logger := input.Logger
+
+	logger.Info(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
 	spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
 		return err
@@ -34,12 +36,12 @@ func runImportForVersion(input RunInput, resources *definitions.Config, apiVersi
 
 	models := parseModels(spec.Components.Schemas)
 
-	logger.Info("Templating models for API version: %s", apiVersion)
+	logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
 	if err = templateModels(apiVersion, files, models); err != nil {
 		return err
 	}
 
-	logger.Info("Templating constants for API version: %s", apiVersion)
+	logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
 	if err = templateConstants(apiVersion, files, models); err != nil {
 		return err
 	}
@@ -90,18 +92,23 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 		swaggerGitSha: swaggerGitSha,
 	}
 
-	logger.Info(fmt.Sprintf("Parsing resource IDs for: %s", service))
-	resourceIds := task.parseResourceIDsForService(apiVersion, service, serviceTags, spec.Paths)
+	logger.Info(fmt.Sprintf("Templating API version definition for %q", service))
+	if err := task.templateApiVersionDefinitionForService(files, service, apiVersion, logger); err != nil {
+		return err
+	}
 
-	logger.Info(fmt.Sprintf("Templating resource IDs for: %s", service))
+	logger.Info(fmt.Sprintf("Parsing resource IDs for %q", service))
+	resourceIds := task.parseResourceIDsForService(logger, apiVersion, service, serviceTags, spec.Paths)
+
+	logger.Info(fmt.Sprintf("Templating resource IDs for %q", service))
 	if err := task.templateResourceIdsForService(files, service, resourceIds, logger); err != nil {
 		return err
 	}
 
-	logger.Info(fmt.Sprintf("Parsing resources for: %s", service))
-	resources := task.parseResourcesForService(apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
+	logger.Info(fmt.Sprintf("Parsing resources for %q", service))
+	resources := task.parseResourcesForService(logger, apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
 
-	logger.Info(fmt.Sprintf("Templating methods for: %s", service))
+	logger.Info(fmt.Sprintf("Templating methods for %q", service))
 	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {
 		return err
 	}

@@ -91,22 +91,46 @@ func versionDirectory(version string) string {
 	return "UnknownApiVersion"
 }
 
+func versionIsPreview(version string) bool {
+	if version == "v1.0" {
+		return false
+	}
+	return true
+}
+
 func csHttpStatusCode(code int) string {
 	return fmt.Sprintf("HttpStatusCode.%s", strings.ReplaceAll(http.StatusText(code), " ", ""))
 }
 
 type operationVerbs []string
 
-func (ov operationVerbs) match(operation string) bool {
+func (ov operationVerbs) match(operation string) (*string, bool) {
 	for _, v := range ov {
 		if regexp.MustCompile(fmt.Sprintf("^%s$", v)).MatchString(operation) {
-			return true
+			return &v, true
 		}
 		if regexp.MustCompile(fmt.Sprintf("^%s[A-Z]", v)).MatchString(operation) {
-			return true
+			return &v, true
 		}
 	}
-	return false
+	return nil, false
 }
 
-var verbs = operationVerbs{"Add", "Remove", "Set", "Unset", "Check", "Get", "Acquire", "Discover", "Parse", "Pause", "Provision", "Restart", "Restore", "Start", "Stop", "Validate"}
+var verbs = operationVerbs{
+	"Acquire",
+	"Add",
+	"Check",
+	"Discover",
+	"Get",
+	"Parse",
+	"Pause",
+	"Provision",
+	"Remove",
+	"Restart",
+	"Restore",
+	"Set",
+	"Start",
+	"Stop",
+	"Unset",
+	"Validate",
+}
