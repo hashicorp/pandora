@@ -12,11 +12,13 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 	ids := make(map[string]string)
 
 	for _, resource := range resources {
-		if resource.Id == nil {
-			continue
+		for _, operation := range resource.Operations {
+			if operation.ResourceId == nil {
+				continue
+			}
+			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), versionDirectory(operation.ResourceId.Version), operation.ResourceId.Service, cleanName(operation.ResourceId.Version), resource.Category, operation.ResourceId.Name)
+			ids[filename] = templateResourceId(operation.ResourceId, resource.Category)
 		}
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), versionDirectory(resource.Id.Version), resource.Id.Service, cleanName(resource.Id.Version), resource.Category, resource.Id.Name)
-		ids[filename] = templateResourceId(resource.Id, resource.Category)
 	}
 
 	resourceIdFiles := sortedKeys(ids)

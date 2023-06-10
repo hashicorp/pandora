@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources Resources) {
+func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources Resources, err error) {
 	resources = make(Resources)
 	for p, item := range paths {
 		path := strings.Clone(p)
@@ -50,38 +50,15 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			resourceCategory = strings.Clone(resourceName)
 		}
 
-		// Determine resource ID and/or URI suffix
-		var resourceId *ResourceId
-		var uriSuffix *string
-		match, ok := resourceIds.MatchIdOrParent(parsedPath)
-		if ok {
-			if match.Id != nil {
-				resourceId = match.Id
-			}
-			if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
-				uriSuffix = pointerTo(match.Remainder.ID())
-
-				// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
-				// but only if the suffix has one segment, else this could indicate a different parent, in which case
-				// we'll attempt a match after parsing all resources.
-				if resourceCategory == "" && strings.Count(*uriSuffix, "/") == 1 {
-					resourceCategory = resourceId.Name
-				}
-			}
-		} else {
-			uriSuffix = &path
-		}
-
 		// Create a new resource if not already encountered
 		if _, ok := resources[resourceName]; !ok {
-			logger.Info(fmt.Sprintf("found new resource %q for service %q in API version %q", resourceName, service, apiVersion))
+			logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, service, apiVersion))
 
 			resources[resourceName] = &Resource{
 				Name:       resourceName,
 				Category:   resourceCategory,
 				Version:    apiVersion,
 				Service:    cleanName(service),
-				Id:         resourceId,
 				Paths:      []ResourceId{parsedPath},
 				Operations: make([]Operation, 0, len(operations)),
 			}
@@ -93,6 +70,36 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			if !tagMatches(service, operation.Tags) {
 				continue
 			}
+
+			// Determine resource ID and/or URI suffix
+			var resourceId *ResourceId
+			var uriSuffix *string
+			match, ok := resourceIds.MatchIdOrParent(parsedPath)
+			if ok {
+				if match.Id != nil {
+					resourceId = match.Id
+				}
+				if match.Remainder != nil && len(match.Remainder.Segments) > 0 {
+					uriSuffix = pointerTo(match.Remainder.ID())
+
+					// When last segment is not a label (e.g. an action, function or cast), adopt the parent resource category,
+					// but only if the suffix has one segment, else this could indicate a different parent, in which case
+					// we'll attempt a match after parsing all resources.
+					if resourceCategory == "" && strings.Count(*uriSuffix, "/") == 1 {
+						resourceCategory = resourceId.Name
+					}
+				}
+			} else {
+				uriSuffix = &path
+			}
+
+			if uriSuffix != nil {
+				if uriSuffixParsed := NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
+					err = fmt.Errorf("encountered URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, service, apiVersion, *uriSuffix)
+					return
+				}
+			}
+
 			listOperation := false
 			responses := make([]Response, 0)
 			if operation.Responses != nil {
@@ -140,7 +147,6 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			}
 
 			operationName := ""
-			lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
 			shortResourceName := strings.TrimPrefix(resourceName, singularize(cleanName(service)))
 
 			switch operationType {
@@ -195,6 +201,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 				Name:         operationName,
 				Type:         operationType,
 				Method:       method,
+				ResourceId:   resourceId,
 				UriSuffix:    uriSuffix,
 				RequestModel: requestModel,
 				Responses:    responses,

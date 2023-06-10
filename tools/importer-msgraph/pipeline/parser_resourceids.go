@@ -169,6 +169,10 @@ func (r ResourceId) TruncateToLastSegmentOfTypeBeforeSegment(types []ResourceIdS
 	for i > 0 {
 		i--
 		segment := r.Segments[i]
+		if len(types) == 0 {
+			ret.Segments = r.Segments[:i+1]
+			return &ret
+		}
 		for _, segmentType := range types {
 			if segment.Type == segmentType {
 				ret.Segments = r.Segments[:i+1]

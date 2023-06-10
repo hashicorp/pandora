@@ -17,14 +17,15 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 		for _, operation := range resource.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {
-				logger.Debug("Skipping unknown operation", "resource", resource.Id.ID(), "method", operation.Method)
+				logger.Debug("Skipping unknown operation", "resource", operation.ResourceId.ID(), "method", operation.Method)
+				logger.Debug(fmt.Sprintf("Skipping unknown operation for ID %q (category %q, service %q, version %q)", operation.ResourceId.ID(), resource.Category, resource.Service, resource.Version))
 				continue
 			}
 
 			// Skip functions and casts for now
-			if resource.Id != nil && len(resource.Id.Segments) > 0 {
-				if lastSegment := resource.Id.Segments[len(resource.Id.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
-					logger.Debug(fmt.Sprintf("Skipping suspected cast/function/reference resource for ID %q", resource.Id.ID()))
+			if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
+				if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
+					logger.Debug(fmt.Sprintf("Skipping suspected cast/function/reference resource for ID %q (category %q, service %q, version %q)", operation.ResourceId.ID(), resource.Category, resource.Service, resource.Version))
 					continue
 				}
 			}
@@ -34,7 +35,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			if operation.Type == OperationTypeCreate || operation.Type == OperationTypeUpdate || operation.Type == OperationTypeCreateUpdate {
 				if operation.RequestModel != nil {
 					requestModel = *operation.RequestModel
-				} else if resource.Id != nil && len(resource.Id.Segments) > 0 && resource.Id.Segments[len(resource.Id.Segments)-1].Value == "$ref" {
+				} else if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 					requestModel = "DirectoryObject"
 				}
 			}
@@ -44,7 +45,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			if operation.Type != OperationTypeDelete {
 				responseModel = findModel(operation.Responses)
 				if responseModel == "" {
-					if resource.Id != nil && len(resource.Id.Segments) > 0 && resource.Id.Segments[len(resource.Id.Segments)-1].Value == "$ref" {
+					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 						responseModel = "DirectoryObject"
 					}
 				}
@@ -63,20 +64,20 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 			case OperationTypeList:
 				if responseModel == "" {
 					id := "{unknown-id}"
-					if resource.Id != nil {
-						id = resource.Id.ID()
+					if operation.ResourceId != nil {
+						id = operation.ResourceId.ID()
 					}
-					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for ID %q, Method %q", id, operation.Method))
+					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateListMethod(resource, &operation, responseModel)
 			case OperationTypeRead:
 				if responseModel == "" {
 					id := "{unknown-id}"
-					if resource.Id != nil {
-						id = resource.Id.ID()
+					if operation.ResourceId != nil {
+						id = operation.ResourceId.ID()
 					}
-					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for ID %q, Method %q", id, operation.Method))
+					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateReadMethod(resource, &operation, responseModel, statuses)
@@ -105,8 +106,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 
 func templateListMethod(resource *Resource, operation *Operation, responseModel string) string {
 	resourceIdCode := "null"
-	if resource.Id != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, resource.Id.Name)
+	if operation.ResourceId != nil {
+		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -141,8 +142,8 @@ func templateReadMethod(resource *Resource, operation *Operation, responseModel 
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if resource.Id != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, resource.Id.Name)
+	if operation.ResourceId != nil {
+		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -181,8 +182,8 @@ func templateCreateUpdateMethod(resource *Resource, operation *Operation, reques
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if resource.Id != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, resource.Id.Name)
+	if operation.ResourceId != nil {
+		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
@@ -230,8 +231,8 @@ func templateDeleteMethod(resource *Resource, operation *Operation, statuses []s
 	}
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 	resourceIdCode := "null"
-	if resource.Id != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, resource.Id.Name)
+	if operation.ResourceId != nil {
+		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
 	}
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {

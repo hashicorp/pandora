@@ -93,10 +93,16 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 	}
 
 	logger.Info(fmt.Sprintf("Parsing resource IDs for %q", service))
-	resourceIds := task.parseResourceIDsForService(logger, apiVersion, service, serviceTags, spec.Paths)
+	resourceIds, err := task.parseResourceIDsForService(logger, apiVersion, service, serviceTags, spec.Paths)
+	if err != nil {
+		return err
+	}
 
 	logger.Info(fmt.Sprintf("Parsing resources for %q", service))
-	resources := task.parseResourcesForService(logger, apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
+	resources, err := task.parseResourcesForService(logger, apiVersion, service, serviceTags, spec.Paths, resourceIds, models)
+	if err != nil {
+		return err
+	}
 
 	logger.Info(fmt.Sprintf("Templating resource IDs for %q", service))
 	if err := task.templateResourceIdsForService(files, service, resources, logger); err != nil {

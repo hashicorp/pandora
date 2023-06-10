@@ -7,7 +7,6 @@ type Resource struct {
 	Category   string
 	Version    string
 	Service    string
-	Id         *ResourceId
 	Paths      []ResourceId
 	Operations []Operation
 }
@@ -16,6 +15,7 @@ type Operation struct {
 	Name         string
 	Type         OperationType
 	Method       string
+	ResourceId   *ResourceId
 	UriSuffix    *string
 	RequestModel *string
 	Responses    []Response
