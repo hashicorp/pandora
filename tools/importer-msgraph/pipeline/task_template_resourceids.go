@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName string, resources Resources, logger hclog.Logger) error {
+func (pipelineTask) templateResourceIdsForService(files *Tree, resources Resources, logger hclog.Logger) error {
 	ids := make(map[string]string)
 
 	for _, resource := range resources {
@@ -16,7 +16,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, serviceName strin
 			if operation.ResourceId == nil {
 				continue
 			}
-			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), versionDirectory(operation.ResourceId.Version), operation.ResourceId.Service, cleanName(operation.ResourceId.Version), resource.Category, operation.ResourceId.Name)
+			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(operation.ResourceId.Version), operation.ResourceId.Service, cleanVersion(operation.ResourceId.Version), resource.Category, operation.ResourceId.Name)
 			ids[filename] = templateResourceId(operation.ResourceId, resource.Category)
 		}
 	}
@@ -61,5 +61,5 @@ internal class %[5]sId : ResourceID
 %[7]s
     };
 }
-`, resourceId.Service, versionDirectory(resourceId.Version), cleanName(resourceId.Version), category, resourceId.Name, resourceId.ID(), segmentsCode)
+`, resourceId.Service, definitionsDirectory(resourceId.Version), cleanVersion(resourceId.Version), category, resourceId.Name, resourceId.ID(), segmentsCode)
 }

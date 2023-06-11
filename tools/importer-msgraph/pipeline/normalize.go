@@ -69,6 +69,7 @@ func deDuplicate(name string) string {
 
 func cleanName(name string) string {
 	name = strings.Title(strings.TrimPrefix(name, "microsoft.graph."))
+	name = regexp.MustCompile("[.]").ReplaceAllString(name, "_")
 	name = regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(name, "")
 	name = regexp.MustCompile("^Is([A-Z])").ReplaceAllString(name, "$1")
 	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
@@ -81,14 +82,18 @@ func cleanNameCamel(name string) string {
 	return strings.ToLower(name[0:1]) + name[1:]
 }
 
-func versionDirectory(version string) string {
+func cleanVersion(version string) string {
 	switch version {
 	case "v1.0":
-		return "MicrosoftGraph.StableV1"
+		return "StableV1"
 	case "beta":
-		return "MicrosoftGraph.Beta"
+		return "Beta"
 	}
 	return "UnknownApiVersion"
+}
+
+func definitionsDirectory(version string) string {
+	return fmt.Sprintf("MicrosoftGraph.%s", cleanVersion(version))
 }
 
 func versionIsPreview(version string) bool {

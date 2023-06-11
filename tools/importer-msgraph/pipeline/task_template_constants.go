@@ -35,9 +35,9 @@ internal enum %[2]sConstant
 {
 %[3]s
 }
-`, versionDirectory(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
+`, definitionsDirectory(apiVersion), field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 
-				filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), versionDirectory(apiVersion), field.Title)
+				filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), field.Title)
 
 				if err := files.addFile(filename, code); err != nil {
 					return err

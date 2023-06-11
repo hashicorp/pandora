@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateOperationsForService(files *Tree, serviceName string, resources Resources, logger hclog.Logger) error {
+func (pipelineTask) templateOperationsForService(files *Tree, resources Resources, logger hclog.Logger) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
@@ -70,7 +70,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
-				methodCode = templateListMethod(resource, &operation, responseModel)
+				methodCode = templateListOperation(resource, &operation, responseModel)
 			case OperationTypeRead:
 				if responseModel == "" {
 					id := "{unknown-id}"
@@ -80,15 +80,15 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
-				methodCode = templateReadMethod(resource, &operation, responseModel, statuses)
+				methodCode = templateReadOperation(resource, &operation, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
-				methodCode = templateCreateUpdateMethod(resource, &operation, requestModel, responseModel, statuses)
+				methodCode = templateCreateUpdateOperation(resource, &operation, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
-				methodCode = templateDeleteMethod(resource, &operation, statuses)
+				methodCode = templateDeleteOperation(resource, &operation, statuses)
 			}
 
 			// Build it
-			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sOperation-%[6]s.cs", string(os.PathSeparator), versionDirectory(resource.Version), resource.Service, cleanName(resource.Version), resource.Category, operation.Name)
+			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sOperation-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(resource.Version), resource.Service, cleanVersion(resource.Version), resource.Category, operation.Name)
 			operations[filename] = methodCode
 		}
 	}
@@ -104,7 +104,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, serviceName string
 	return nil
 }
 
-func templateListMethod(resource *Resource, operation *Operation, responseModel string) string {
+func templateListOperation(resource *Resource, operation *Operation, responseModel string) string {
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
 		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
@@ -130,11 +130,11 @@ internal class %[5]sOperation : Operations.ListOperation
    public override Type NestedItemType() => typeof(%[7]sModel);
    public override string? UriSuffix() => %[8]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, definitionsDirectory(resource.Version), cleanVersion(resource.Version), resource.Category, operation.Name, resourceIdCode, responseModel, uriSuffixCode)
 
 }
 
-func templateReadMethod(resource *Resource, operation *Operation, responseModel string, statuses []string) string {
+func templateReadOperation(resource *Resource, operation *Operation, responseModel string, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -171,10 +171,10 @@ internal class %[5]sOperation : Operations.%[6]sOperation
     public override Type? ResponseObject() => typeof(%[9]sModel);
     public override string? UriSuffix() => %[10]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
+`, resource.Service, definitionsDirectory(resource.Version), cleanVersion(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
 }
 
-func templateCreateUpdateMethod(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
+func templateCreateUpdateOperation(resource *Resource, operation *Operation, requestModel, responseModel string, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -220,10 +220,10 @@ internal class %[5]sOperation : Operations.%[6]sOperation
     public override Type? ResponseObject() => %[10]s;
     public override string? UriSuffix() => %[11]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
+`, resource.Service, definitionsDirectory(resource.Version), cleanVersion(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
 }
 
-func templateDeleteMethod(resource *Resource, operation *Operation, statuses []string) string {
+func templateDeleteOperation(resource *Resource, operation *Operation, statuses []string) string {
 	statusEnums := make([]string, len(statuses))
 	for i, status := range statuses {
 		code, _ := strconv.Atoi(status)
@@ -257,5 +257,5 @@ internal class %[5]sOperation : Operations.%[6]sOperation
     public override ResourceID? ResourceId() => %[8]s;
     public override string? UriSuffix() => %[9]s;
 }
-`, resource.Service, versionDirectory(resource.Version), cleanName(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
+`, resource.Service, definitionsDirectory(resource.Version), cleanVersion(resource.Version), resource.Category, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, uriSuffixCode)
 }

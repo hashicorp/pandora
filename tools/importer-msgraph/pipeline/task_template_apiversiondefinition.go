@@ -2,22 +2,43 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"os"
+	"strings"
+
+	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateApiVersionDefinitionForService(files *Tree, serviceName, apiVersion string, logger hclog.Logger) error {
-	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition.cs", string(os.PathSeparator), versionDirectory(apiVersion), serviceName, cleanName(apiVersion))
-	tpl := templateApiVersionDefinition(serviceName, apiVersion)
+func (pipelineTask) templateApiVersionDefinitionForService(files *Tree, serviceName, apiVersion string, resources Resources, logger hclog.Logger) error {
+	categoriesMap := make(map[string]bool)
+	for _, resource := range resources {
+		categoriesMap[resource.Category] = true
+	}
 
-	if err := files.addFile(filename, tpl); err != nil {
+	categories := make([]string, 0, len(categoriesMap))
+	for c, _ := range categoriesMap {
+		categories = append(categories, c)
+	}
+
+	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), serviceName, cleanVersion(apiVersion))
+	if err := files.addFile(filename, templateApiVersionDefinition(serviceName, apiVersion, categories)); err != nil {
+		return err
+	}
+
+	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), serviceName, cleanVersion(apiVersion))
+	if err := files.addFile(filename, templateApiVersionDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
 		return err
 	}
 
 	return nil
 }
 
-func templateApiVersionDefinition(serviceName, apiVersion string) string {
+func templateApiVersionDefinition(serviceName, apiVersion string, categories []string) string {
+	categoriesSlice := make([]string, 0, len(categories))
+	for _, c := range categories {
+		categoriesSlice = append(categoriesSlice, fmt.Sprintf("new %s.Definition()", c))
+	}
+	categoriesCode := indentSpace(strings.Join(categoriesSlice, ",\n"), 8)
+
 	return fmt.Sprintf(`using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 
@@ -34,8 +55,21 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new Definition(),
+%[5]s
     };
 }
-`, serviceName, versionDirectory(apiVersion), cleanName(apiVersion), versionIsPreview(apiVersion))
+`, cleanName(serviceName), definitionsDirectory(apiVersion), cleanVersion(apiVersion), versionIsPreview(apiVersion), categoriesCode)
+}
+
+func templateApiVersionDefinitionGenerationSettings(serviceName, apiVersion string) string {
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
+
+public partial class Definition
+{
+    public bool Generate => true;
+}
+`, cleanName(serviceName), definitionsDirectory(apiVersion), cleanVersion(apiVersion))
 }

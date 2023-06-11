@@ -105,17 +105,27 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 	}
 
 	logger.Info(fmt.Sprintf("Templating resource IDs for %q", service))
-	if err := task.templateResourceIdsForService(files, service, resources, logger); err != nil {
+	if err := task.templateResourceIdsForService(files, resources, logger); err != nil {
 		return err
 	}
 
-	logger.Info(fmt.Sprintf("Templating methods for %q", service))
-	if err := task.templateOperationsForService(files, service, resources, logger); err != nil {
+	logger.Info(fmt.Sprintf("Templating operations for %q", service))
+	if err := task.templateOperationsForService(files, resources, logger); err != nil {
+		return err
+	}
+
+	logger.Info(fmt.Sprintf("Templating definitions for %q", service))
+	if err := task.templateDefinitionsForService(files, service, apiVersion, resources, models, logger); err != nil {
+		return err
+	}
+
+	logger.Info(fmt.Sprintf("Templating service definition for %q", service))
+	if err := task.templateServiceDefinitionForService(files, service, apiVersion, logger); err != nil {
 		return err
 	}
 
 	logger.Info(fmt.Sprintf("Templating API version definition for %q", service))
-	if err := task.templateApiVersionDefinitionForService(files, service, apiVersion, logger); err != nil {
+	if err := task.templateApiVersionDefinitionForService(files, service, apiVersion, resources, logger); err != nil {
 		return err
 	}
 
