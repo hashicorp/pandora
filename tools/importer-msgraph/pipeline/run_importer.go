@@ -120,7 +120,7 @@ func runImportForService(input RunInput, files *Tree, apiVersion, service string
 	}
 
 	logger.Info(fmt.Sprintf("Templating service definition for %q", service))
-	if err := task.templateServiceDefinitionForService(files, service, apiVersion, logger); err != nil {
+	if err := task.templateServiceDefinitionForService(files, service, apiVersion, resources, logger); err != nil {
 		return err
 	}
 

@@ -143,7 +143,7 @@ namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
 internal class Definition : ResourceDefinition
 {
-    public string Name => "%[1]s";
+    public string Name => "%[4]s";
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
