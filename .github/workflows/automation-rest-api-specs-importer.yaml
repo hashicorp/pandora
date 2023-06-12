@@ -1,4 +1,4 @@
-name: Regenerate API Data with New Changes after PR Merge
+name: Regenerate API Data with New Resource Manager Changes after PR Merge
 on:
   push:
     branches:
@@ -11,7 +11,7 @@ on:
 
 
 concurrency:
-  group: 'regendataapi-${{ github.head_ref }}'
+  group: 'regendataapi-resourcemanager-${{ github.head_ref }}'
   cancel-in-progress: true
 
 
