@@ -1,6 +1,8 @@
 package pipeline
 
-import "net/http"
+import (
+	"net/http"
+)
 
 type Resource struct {
 	Name       string
@@ -58,3 +60,40 @@ func NewOperationType(method string) OperationType {
 }
 
 type Resources map[string]*Resource
+
+func (r Resources) ServiceHasValidResources(serviceName string) bool {
+	for _, resource := range r {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
+		}
+
+		for _, operation := range resource.Operations {
+			// Skip unknown operations
+			if operation.Type == OperationTypeUnknown {
+				continue
+			}
+
+			// Skip functions and casts for now
+			if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
+				if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
+					continue
+				}
+			}
+
+			if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
+				// Determine whether to skip operation with missing response model
+				if operation.Type != OperationTypeDelete {
+					if responseModel := findModel(operation.Responses); responseModel == "" {
+						if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
+							continue
+						}
+					}
+				}
+			}
+
+			return true
+		}
+	}
+
+	return false
+}
