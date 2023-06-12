@@ -22,14 +22,37 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 	}
 
 	for category, _ := range categories {
-		operationNames := make([]string, 0)
-		modelNamesMap := make(map[string]bool, 0)
+		operationNamesMap := make(map[string]bool)
+		modelNamesMap := make(map[string]bool)
 		constantNamesMap := make(map[string]bool)
 
 		for _, resource := range resources {
 			if strings.EqualFold(resource.Category, category) {
 				for _, operation := range resource.Operations {
-					operationNames = append(operationNames, operation.Name)
+					// Skip unknown operations
+					if operation.Type == OperationTypeUnknown {
+						continue
+					}
+
+					// Skip functions and casts for now
+					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
+						if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
+							continue
+						}
+					}
+
+					if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
+						// Determine whether to skip operation with missing response model
+						if operation.Type != OperationTypeDelete {
+							if responseModel := findModel(operation.Responses); responseModel == "" {
+								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
+									continue
+								}
+							}
+						}
+					}
+
+					operationNamesMap[operation.Name] = true
 					if m := operation.RequestModel; m != nil {
 						modelNamesMap[*m] = true
 
@@ -56,6 +79,11 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 					}
 				}
 			}
+		}
+
+		operationNames := make([]string, 0, len(operationNamesMap))
+		for m, _ := range operationNamesMap {
+			operationNames = append(operationNames, m)
 		}
 
 		constantNames := make([]string, 0, len(constantNamesMap))

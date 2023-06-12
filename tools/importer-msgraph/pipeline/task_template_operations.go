@@ -36,12 +36,8 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 
 			// Determine request model
 			var requestModel string
-			if operation.Type == OperationTypeCreate || operation.Type == OperationTypeUpdate || operation.Type == OperationTypeCreateUpdate {
-				if operation.RequestModel != nil {
-					requestModel = *operation.RequestModel
-				} else if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
-					requestModel = "DirectoryObject"
-				}
+			if operation.RequestModel != nil {
+				requestModel = *operation.RequestModel
 			}
 
 			// Determine response model and return values

@@ -183,6 +183,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			// Trim the "Ref" suffix from operation names
 			operationName = strings.TrimSuffix(operationName, "Ref")
 
+			// Determine request model
 			var requestModel *string
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
 				for contentType, content := range operation.RequestBody.Value.Content {
@@ -192,10 +193,17 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 							if schema.Title != "" {
 								if modelName := cleanName(schema.Title); models.Found(modelName) {
 									requestModel = &modelName
+									break
 								}
 							}
 						}
 					}
+				}
+			}
+
+			if operationType == OperationTypeCreate || operationType == OperationTypeUpdate || operationType == OperationTypeCreateUpdate {
+				if resourceId != nil && len(resourceId.Segments) > 0 && resourceId.Segments[len(resourceId.Segments)-1].Value == "$ref" {
+					requestModel = pointerTo("DirectoryObject")
 				}
 			}
 
