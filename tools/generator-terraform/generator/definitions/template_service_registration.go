@@ -16,7 +16,7 @@ func templateForServiceRegistration(input models.ServiceInput) string {
 	sort.Strings(codeForDataSources)
 
 	codeForResources := make([]string, 0)
-	for resource, _ := range input.ResourceToApiVersion {
+	for resource := range input.ResourceToApiVersion {
 		codeForResources = append(codeForResources, fmt.Sprintf("%sResource{},", resource))
 	}
 	sort.Strings(codeForResources)

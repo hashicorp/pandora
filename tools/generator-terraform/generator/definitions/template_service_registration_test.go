@@ -9,10 +9,10 @@ import (
 
 func TestTemplateForServiceRegistrationEmpty(t *testing.T) {
 	input := models.ServiceInput{
-		CategoryNames:      []string{},
-		DataSourceNames:    []string{},
-		ProviderPrefix:     "myprovider",
-		ResourceNames:      []string{},
+		CategoryNames:   []string{},
+		DataSourceNames: []string{},
+		ProviderPrefix:  "myprovider",
+		//ResourceNames:      []string{},
 		ServiceDisplayName: "Awesome Service",
 		ServicePackageName: "mypackage",
 	}
@@ -64,12 +64,18 @@ func TestTemplateForServiceRegistration(t *testing.T) {
 			"Example1",
 		},
 		ProviderPrefix: "myprovider",
-		ResourceNames: []string{
+		ResourceToApiVersion: map[string]string{
 			// intentional to check ordering
-			"Third",
-			"Second",
-			"First",
+			"Third":  "",
+			"Second": "",
+			"First":  "",
 		},
+		//ResourceNames: []string{
+		//	// intentional to check ordering
+		//	"Third",
+		//	"Second",
+		//	"First",
+		//},
 		ServiceDisplayName: "Awesome Service",
 		ServicePackageName: "mypackage",
 	}

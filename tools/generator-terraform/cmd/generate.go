@@ -216,8 +216,8 @@ func (i *GenerateCommand) run() error {
 			CategoryNames:        categoryNames,
 			DataSourceNames:      dataSourceNames,
 			ProviderPrefix:       i.providerPrefix,
-			RootDirectory:        i.outputDirectory,
 			ResourceToApiVersion: resourceToApiVersion,
+			RootDirectory:        i.outputDirectory,
 			SdkServiceName:       serviceName,
 			ServiceDisplayName:   serviceName, // TODO: add to API?
 			ServicePackageName:   *service.TerraformPackageName,

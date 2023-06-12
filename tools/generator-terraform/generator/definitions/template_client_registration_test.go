@@ -39,12 +39,16 @@ func TestCodeForClientRegistrations(t *testing.T) {
 		ProviderPrefix: "myprovider",
 		Services: map[string]models.ServiceInput{
 			"Compute": {
-				ApiVersion:         "2020-01-01",
+				ResourceToApiVersion: map[string]string{
+					"compute_resource": "2020-01-01",
+				},
 				SdkServiceName:     "Compute",
 				ServicePackageName: "compute",
 			},
 			"Resource": {
-				ApiVersion:         "2015-11-01-preview",
+				ResourceToApiVersion: map[string]string{
+					"resources_resource": "2015-11-01-preview",
+				},
 				SdkServiceName:     "Resources",
 				ServicePackageName: "resources",
 			},
