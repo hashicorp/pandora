@@ -9,7 +9,7 @@ import (
 	"time"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-msgraph/pipeline"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/pipeline"
 	"github.com/mitchellh/cli"
 )
 

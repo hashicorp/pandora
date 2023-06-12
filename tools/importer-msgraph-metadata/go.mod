@@ -1,4 +1,4 @@
-module github.com/hashicorp/pandora/tools/importer-msgraph
+module github.com/hashicorp/pandora/tools/importer-msgraph-metadata
 
 go 1.19
 

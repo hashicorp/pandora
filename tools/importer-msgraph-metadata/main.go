@@ -4,7 +4,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/hashicorp/pandora/tools/importer-msgraph/cmd"
+	"github.com/hashicorp/pandora/tools/importer-msgraph-metadata/cmd"
 	"github.com/mitchellh/cli"
 )
 
