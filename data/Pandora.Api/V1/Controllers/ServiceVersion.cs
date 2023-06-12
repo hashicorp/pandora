@@ -69,11 +69,12 @@ public class ServiceVersionController : ControllerBase
     {
         switch (input)
         {
-            // TODO: support a Graph source
             case Data.Models.ApiDefinitionsSource.HandWritten:
                 return ApiDefinitionsSource.HandWritten.ToString();
             case Data.Models.ApiDefinitionsSource.ResourceManagerRestApiSpecs:
                 return ApiDefinitionsSource.ResourceManagerRestApiSpecs.ToString();
+            case Data.Models.ApiDefinitionsSource.MicrosoftGraphMetadata:
+                return ApiDefinitionsSource.MicrosoftGraphMetadata.ToString();
         }
 
         throw new NotSupportedException($"unsupported/unmapped Source {input.ToString()}");
@@ -115,8 +116,9 @@ public class ServiceVersionController : ControllerBase
         ResourceManagerRestApiSpecs,
 
         [Description("HandWritten")]
-        HandWritten
+        HandWritten,
 
-        // TODO: support for Graph
+        [Description("MicrosoftGraphMetadata")]
+        MicrosoftGraphMetadata,
     }
 }
