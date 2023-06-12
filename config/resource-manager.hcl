@@ -61,7 +61,7 @@ service "azurestackhci" {
 }
 service "batch" {
   name      = "Batch"
-  available = ["2022-01-01", "2022-10-01"]
+  available = ["2022-01-01", "2022-10-01", "2023-05-01"]
 }
 service "blueprint" {
   name      = "Blueprints"
@@ -237,7 +237,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2020-12-08", "2022-08-08"]
+  available = ["2020-12-08", "2022-08-08", "2023-05-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -442,7 +442,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01"]
+  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01", "2023-05-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
