@@ -19,6 +19,7 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
 		var nestedBlock *hclwrite.Block
+		var err error
 
 		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 			nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
@@ -28,15 +29,9 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			}
 
 			// first go pull out the nested item
-			nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+			nestedBlock, err = tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
 			if err != nil {
 				return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
-			}
-
-			if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
-				return &[]*hclwrite.Block{
-					nestedBlock,
-				}, nil
 			}
 		}
 
