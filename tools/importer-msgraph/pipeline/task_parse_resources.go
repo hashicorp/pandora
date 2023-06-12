@@ -47,7 +47,9 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 		// Resources by default go into their own category when their final URI segment is a label
 		resourceCategory := ""
 		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
-			resourceCategory = strings.Clone(resourceName)
+			if r, ok := parsedPath.FullyQualifiedResourceName(); ok {
+				resourceCategory = *r
+			}
 		}
 
 		// Create a new resource if not already encountered

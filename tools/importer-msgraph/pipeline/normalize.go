@@ -11,6 +11,9 @@ func singularize(name string) string {
 	if len(name) >= 3 && name[len(name)-3:] == "ies" {
 		return fmt.Sprintf("%sy", name[:len(name)-3])
 	}
+	if len(name) >= 3 && name[len(name)-3:] == "ses" {
+		return name[:len(name)-2]
+	}
 	if len(name) >= 1 && name[len(name)-1:] == "s" {
 		return name[:len(name)-1]
 	}

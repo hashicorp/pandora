@@ -14,6 +14,10 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 
 	categories := make(map[string]bool)
 	for _, resource := range resources {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
+		}
+
 		categories[resource.Category] = true
 	}
 
@@ -64,7 +68,7 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 			modelNames = append(modelNames, m)
 		}
 
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), serviceName, cleanVersion(apiVersion), category)
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion), category)
 		definitions[filename] = templateDefinition(serviceName, apiVersion, category, operationNames, constantNames, modelNames)
 	}
 

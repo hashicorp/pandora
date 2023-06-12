@@ -40,8 +40,47 @@ func (r ResourceId) Match(r2 ResourceId) (ResourceId, bool) {
 	}
 }
 
+func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
+	name := ""
+	verb := ""
+	for _, segment := range r.Segments {
+		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
+			newName := cleanName(segment.Value)
+			shouldSingularize := false
+
+			if segment.Type == SegmentLabel {
+				shouldSingularize = true
+			}
+
+			if v, ok := verbs.match(newName); ok && verb == "" {
+				verb = *v
+				newName = newName[len(verb):]
+				shouldSingularize = false
+			}
+
+			if shouldSingularize {
+				newName = singularize(newName)
+			}
+
+			name = name + newName
+
+		}
+	}
+
+	if verb != "" {
+		name = verb + name
+	}
+
+	if name == "" {
+		return nil, false
+	}
+	return &name, true
+}
+
 func (r ResourceId) FindResourceName() (*string, bool) {
-	slugs := make([]ResourceIdSegment, 0)
+	r2 := ResourceId{
+		Segments: make([]ResourceIdSegment, 0),
+	}
 	idx := len(r.Segments) - 1
 
 	for i := idx; i >= 0; i-- {
@@ -54,7 +93,7 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 	for j := idx; j >= 0; j-- {
 		segment := r.Segments[j]
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
-			slugs = append(slugs, segment)
+			r2.Segments = append([]ResourceIdSegment{segment}, r2.Segments...)
 
 			// Hop over a SegmentUserValue if we only have an action or ref, to prevent unqualified resource names like "Stop" or "Ref"
 			if (segment.Type == SegmentAction || segment.Type == SegmentODataReference) && j > 0 {
@@ -81,38 +120,7 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	if len(slugs) > 0 {
-		name := ""
-		verb := ""
-		for _, slug := range slugs {
-			newName := cleanName(slug.Value)
-			shouldSingularize := false
-
-			if slug.Type == SegmentLabel {
-				shouldSingularize = true
-			}
-
-			if v, ok := verbs.match(newName); ok && verb == "" {
-				verb = *v
-				newName = newName[len(verb):]
-				shouldSingularize = false
-			}
-
-			if shouldSingularize {
-				newName = singularize(newName)
-			}
-
-			name = newName + name
-		}
-
-		if verb != "" {
-			name = verb + name
-		}
-
-		return &name, true
-	}
-
-	return nil, false
+	return r2.FullyQualifiedResourceName()
 }
 
 func (r ResourceId) FindResourceIdName() (*string, bool) {

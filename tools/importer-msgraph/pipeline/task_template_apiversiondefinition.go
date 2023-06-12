@@ -3,6 +3,7 @@ package pipeline
 import (
 	"fmt"
 	"os"
+	"sort"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -11,6 +12,10 @@ import (
 func (pipelineTask) templateApiVersionDefinitionForService(files *Tree, serviceName, apiVersion string, resources Resources, logger hclog.Logger) error {
 	categoriesMap := make(map[string]bool)
 	for _, resource := range resources {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
+		}
+
 		categoriesMap[resource.Category] = true
 	}
 
@@ -37,6 +42,7 @@ func templateApiVersionDefinition(serviceName, apiVersion string, categories []s
 	for _, c := range categories {
 		categoriesSlice = append(categoriesSlice, fmt.Sprintf("new %s.Definition()", c))
 	}
+	sort.Strings(categoriesSlice)
 	categoriesCode := indentSpace(strings.Join(categoriesSlice, ",\n"), 8)
 
 	return fmt.Sprintf(`using System.Collections.Generic;

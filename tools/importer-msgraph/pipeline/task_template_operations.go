@@ -14,6 +14,10 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 
 	// First build all the methods
 	for _, resource := range resources {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
+		}
+
 		for _, operation := range resource.Operations {
 			// Skip unknown operations
 			if operation.Type == OperationTypeUnknown {

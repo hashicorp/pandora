@@ -12,6 +12,10 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, resources Resourc
 	ids := make(map[string]string)
 
 	for _, resource := range resources {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
+		}
+
 		for _, operation := range resource.Operations {
 			if operation.ResourceId == nil {
 				continue
