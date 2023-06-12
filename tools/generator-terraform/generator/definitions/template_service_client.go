@@ -2,6 +2,7 @@ package definitions
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
@@ -22,12 +23,18 @@ func templateForServiceClient(input models.ServiceInput) string {
 	assignmentOldBaseLayerLines := make([]string, 0)
 	returnLines := make([]string, 0)
 
+	versions := make([]string, 0)
 	versionsToResources := make(map[string][]string, 0)
 	for resource, version := range input.ResourceToApiVersion {
+		if _, ok := versionsToResources[version]; !ok {
+			versions = append(versions, version)
+		}
 		versionsToResources[version] = append(versionsToResources[version], resource)
 	}
 
-	for version, _ := range versionsToResources {
+	sort.Strings(versions)
+
+	for _, version := range versions {
 		apiVersionFormatted := strings.Title(helpers.NamespaceForApiVersion(version))
 
 		importLine := fmt.Sprintf(`%[1]s%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"`, strings.ToLower(input.SdkServiceName), apiVersionFormatted, version)
