@@ -70,12 +70,6 @@ func TestTemplateForServiceRegistration(t *testing.T) {
 			"Second": "",
 			"First":  "",
 		},
-		//ResourceNames: []string{
-		//	// intentional to check ordering
-		//	"Third",
-		//	"Second",
-		//	"First",
-		//},
 		ServiceDisplayName: "Awesome Service",
 		ServicePackageName: "mypackage",
 	}
