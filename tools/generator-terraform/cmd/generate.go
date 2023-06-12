@@ -180,7 +180,6 @@ func (i *GenerateCommand) run() error {
 			}
 		}
 
-		// NOTE: intentional limitation, at this time we only support 1 API Version per Service
 		apiVersion := ""
 		resourceToApiVersion := make(map[string]string)
 		categories := make(map[string]struct{})
@@ -203,15 +202,6 @@ func (i *GenerateCommand) run() error {
 			categories[resource.Documentation.Category] = struct{}{}
 			resourceNames = append(resourceNames, resource.ResourceName)
 			resourceToApiVersion[resource.ResourceName] = resource.ApiVersion
-
-			//if apiVersion == "" {
-			//	apiVersion = resource.ApiVersion
-			//	continue
-			//}
-			//
-			//if apiVersion != resource.ApiVersion {
-			//	return fmt.Errorf("internal-error: multiple API versions detected for Service %q and %q", resource.ApiVersion, apiVersion)
-			//}
 		}
 
 		categoryNames := make([]string, 0)
@@ -223,12 +213,10 @@ func (i *GenerateCommand) run() error {
 		sort.Strings(resourceNames)
 
 		serviceInput := models.ServiceInput{
-			//ApiVersion:           apiVersion,
-			CategoryNames:   categoryNames,
-			DataSourceNames: dataSourceNames,
-			ProviderPrefix:  i.providerPrefix,
-			RootDirectory:   i.outputDirectory,
-			//ResourceNames:        resourceNames,
+			CategoryNames:        categoryNames,
+			DataSourceNames:      dataSourceNames,
+			ProviderPrefix:       i.providerPrefix,
+			RootDirectory:        i.outputDirectory,
 			ResourceToApiVersion: resourceToApiVersion,
 			SdkServiceName:       serviceName,
 			ServiceDisplayName:   serviceName, // TODO: add to API?

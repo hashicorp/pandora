@@ -24,9 +24,6 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		}
 	}
 
-	if schemaModelName == "Roles" {
-		log.Print("here")
-	}
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	for k := range allFields {
 		// TODO: pull the right resourcemanager.ModelDetails for naming below
