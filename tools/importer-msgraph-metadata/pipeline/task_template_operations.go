@@ -19,21 +19,6 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 		}
 
 		for _, operation := range resource.Operations {
-			// Skip unknown operations
-			if operation.Type == OperationTypeUnknown {
-				logger.Debug("Skipping unknown operation", "resource", operation.ResourceId.ID(), "method", operation.Method)
-				logger.Debug(fmt.Sprintf("Skipping unknown operation for ID %q (category %q, service %q, version %q)", operation.ResourceId.ID(), resource.Category, resource.Service, resource.Version))
-				continue
-			}
-
-			// Skip functions and casts for now
-			if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
-				if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
-					logger.Debug(fmt.Sprintf("Skipping suspected cast/function/reference resource for ID %q (category %q, service %q, version %q)", operation.ResourceId.ID(), resource.Category, resource.Service, resource.Version))
-					continue
-				}
-			}
-
 			// Determine request model
 			var requestModel string
 			if operation.RequestModel != nil {

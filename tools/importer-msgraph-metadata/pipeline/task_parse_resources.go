@@ -39,7 +39,6 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			resourceName = *r
 		}
 
-		// TODO: skip unknown operations for now
 		if resourceName == "" {
 			continue
 		}
@@ -146,6 +145,11 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			operationType := NewOperationType(method)
 			if listOperation {
 				operationType = OperationTypeList
+			}
+
+			// Skip unknown operations
+			if operationType == OperationTypeUnknown {
+				continue
 			}
 
 			operationName := ""

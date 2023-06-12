@@ -79,18 +79,6 @@ func (r Resources) ServiceHasValidResources(serviceName string) bool {
 		}
 
 		for _, operation := range resource.Operations {
-			// Skip unknown operations
-			if operation.Type == OperationTypeUnknown {
-				continue
-			}
-
-			// Skip functions and casts for now
-			if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 {
-				if lastSegment := operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1]; lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction || lastSegment.Type == SegmentODataReference {
-					continue
-				}
-			}
-
 			if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
 				// Determine whether to skip operation with missing response model
 				if operation.Type != OperationTypeDelete {
