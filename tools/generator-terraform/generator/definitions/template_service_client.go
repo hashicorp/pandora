@@ -22,7 +22,12 @@ func templateForServiceClient(input models.ServiceInput) string {
 	assignmentOldBaseLayerLines := make([]string, 0)
 	returnLines := make([]string, 0)
 
-	for _, version := range input.ResourceToApiVersion {
+	versionsToResources := make(map[string][]string, 0)
+	for resource, version := range input.ResourceToApiVersion {
+		versionsToResources[version] = append(versionsToResources[version], resource)
+	}
+
+	for version, _ := range versionsToResources {
 		apiVersionFormatted := strings.Title(helpers.NamespaceForApiVersion(version))
 
 		importLine := fmt.Sprintf(`%[1]s%[2]s "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[3]s"`, strings.ToLower(input.SdkServiceName), apiVersionFormatted, version)

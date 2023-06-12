@@ -9,10 +9,9 @@ import (
 
 func TestTemplateForServiceRegistrationEmpty(t *testing.T) {
 	input := models.ServiceInput{
-		CategoryNames:   []string{},
-		DataSourceNames: []string{},
-		ProviderPrefix:  "myprovider",
-		//ResourceNames:      []string{},
+		CategoryNames:      []string{},
+		DataSourceNames:    []string{},
+		ProviderPrefix:     "myprovider",
 		ServiceDisplayName: "Awesome Service",
 		ServicePackageName: "mypackage",
 	}

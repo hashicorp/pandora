@@ -212,11 +212,16 @@ func (i *GenerateCommand) run() error {
 		sort.Strings(dataSourceNames)
 		sort.Strings(resourceNames)
 
+		resourceToApiVersionSorted := make(map[string]string, 0)
+		for _, resource := range resourceNames {
+			resourceToApiVersionSorted[resource] = resourceToApiVersion[resource]
+		}
+
 		serviceInput := models.ServiceInput{
 			CategoryNames:        categoryNames,
 			DataSourceNames:      dataSourceNames,
 			ProviderPrefix:       i.providerPrefix,
-			ResourceToApiVersion: resourceToApiVersion,
+			ResourceToApiVersion: resourceToApiVersionSorted,
 			RootDirectory:        i.outputDirectory,
 			SdkServiceName:       serviceName,
 			ServiceDisplayName:   serviceName, // TODO: add to API?

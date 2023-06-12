@@ -141,11 +141,6 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 				dependencies.setNeedsVirtualNetwork()
 				reference = fmt.Sprintf("%s_virtual_network.test.id", providerPrefix)
 			}
-			// TODO temp fix for kubernetes cluster trusted access role binding
-			if strings.EqualFold(field.HclName, "source_resource_id") {
-				//dependencies.setWhat()
-				reference = fmt.Sprintf("%s_machine_learning_workspace.test.id", providerPrefix)
-			}
 
 			if reference == "" {
 				return nil, fmt.Errorf("internal-error: missing dependency mapping for Resource ID Reference %q", field.HclName)
