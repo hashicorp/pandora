@@ -491,12 +491,3 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 	}
 	return models
 }
-
-func findModel(resp []Response) string {
-	for _, r := range resp {
-		if r.ModelName != nil {
-			return *r.ModelName
-		}
-	}
-	return ""
-}

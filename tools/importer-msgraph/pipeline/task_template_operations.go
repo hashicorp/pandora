@@ -43,7 +43,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 			// Determine response model and return values
 			var responseModel string
 			if operation.Type != OperationTypeDelete {
-				responseModel = findModel(operation.Responses)
+				responseModel = operation.Responses.FindModelName()
 				if responseModel == "" {
 					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 						responseModel = "DirectoryObject"

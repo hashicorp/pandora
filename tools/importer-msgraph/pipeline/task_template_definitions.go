@@ -44,7 +44,7 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 					if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
 						// Determine whether to skip operation with missing response model
 						if operation.Type != OperationTypeDelete {
-							if responseModel := findModel(operation.Responses); responseModel == "" {
+							if responseModel := operation.Responses.FindModelName(); responseModel == "" {
 								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
 									continue
 								}

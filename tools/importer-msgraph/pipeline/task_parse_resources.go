@@ -103,7 +103,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			}
 
 			listOperation := false
-			responses := make([]Response, 0)
+			responses := make(Responses, 0)
 			if operation.Responses != nil {
 				for stat, resp := range operation.Responses {
 					var status int
