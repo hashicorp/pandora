@@ -2,7 +2,9 @@ package resource
 
 import (
 	"fmt"
+	"strings"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
@@ -33,7 +35,7 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[4]s
+			client := metadata.Client.%[3]s.%[9]s.%[4]s
 
 			id, err := %[5]s(metadata.ResourceData.Id())
 			if err != nil {
@@ -48,6 +50,6 @@ func (r %[1]sResource) Delete() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, *idParseLine, deleteMethodName, methodArguments, variablesForMethod)
+`, input.ResourceTypeName, input.Details.DeleteMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, *idParseLine, deleteMethodName, methodArguments, variablesForMethod, strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }

@@ -1,13 +1,13 @@
 using System;
 using System.Linq;
-using Pandora.Definitions.Interfaces;
+using Pandora.Data.Models;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 
 namespace Pandora.Data.Transformers;
 
 public static class Service
 {
-    public static ServiceDefinition Map(Definitions.Interfaces.ServiceDefinition input)
+    public static ServiceDefinition Map(Definitions.Interfaces.ServiceDefinition input, ServiceDefinitionType definitionType)
     {
         try
         {
@@ -36,7 +36,7 @@ public static class Service
             {
                 Generate = input.Generate,
                 Name = input.Name,
-                ResourceManager = input.ResourceProvider != null,
+                DefinitionType = definitionType,
                 ResourceProvider = input.ResourceProvider,
                 TerraformPackageName = input.TerraformPackageName,
                 TerraformResources = terraformResources,

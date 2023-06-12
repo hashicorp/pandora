@@ -69,7 +69,7 @@ type Input struct {
 func run(input Input) error {
 	logger := hclog.New(hclog.DefaultOptions)
 
-	client := resourcemanager.NewClient(input.apiServerEndpoint)
+	client := resourcemanager.NewResourceManagerClient(input.apiServerEndpoint)
 
 	logger.Trace("Loading Config..")
 	terraformDefinitions, err := definitions.LoadFromDirectory(input.configDirectory)

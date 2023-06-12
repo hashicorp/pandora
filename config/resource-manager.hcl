@@ -36,7 +36,7 @@ service "appplatform" {
 }
 service "attestation" {
   name      = "Attestation"
-  available = ["2020-10-01"]
+  available = ["2020-10-01", "2021-06-01"]
 }
 service "authorization" {
   name      = "Authorization"
@@ -51,13 +51,17 @@ service "azure-kusto" {
   name      = "Kusto"
   available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29"]
 }
+service "azureactivedirectory" {
+  name      = "AzureActiveDirectory"
+  available = ["2017-04-01", "2020-03-01"]
+}
 service "azurestackhci" {
   name      = "AzureStackHCI"
   available = ["2022-12-01", "2023-02-01", "2023-03-01"]
 }
 service "batch" {
   name      = "Batch"
-  available = ["2022-01-01", "2022-10-01"]
+  available = ["2022-01-01", "2022-10-01", "2023-05-01"]
 }
 service "blueprint" {
   name      = "Blueprints"
@@ -102,7 +106,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview"]
+  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview", "2023-04-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -197,7 +201,7 @@ service "dynatrace" {
 }
 service "elastic" {
   name      = "Elastic"
-  available = ["2020-07-01"]
+  available = ["2020-07-01", "2023-06-01"]
 }
 service "elasticsan" {
   name      = "ElasticSan"
@@ -233,7 +237,7 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2020-12-08", "2022-08-08"]
+  available = ["2020-12-08", "2022-08-08", "2023-05-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
@@ -265,7 +269,7 @@ service "labservices" {
 }
 service "loadtestservice" {
   name      = "LoadTestService"
-  available = ["2021-12-01-preview", "2022-04-15-preview", "2022-12-01"]
+  available = ["2022-12-01"]
 }
 service "logic" {
   name      = "Logic"
@@ -325,7 +329,7 @@ service "monitor" {
 }
 service "msi" {
   name      = "ManagedIdentity"
-  available = ["2022-01-31-preview", "2023-01-31"]
+  available = ["2023-01-31"]
 }
 service "mysql" {
   name      = "MySql"
@@ -397,16 +401,16 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01"]
   ignore    = ["2023-01-01"]
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-02-01"]
+  available = ["2023-01-15", "2023-02-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -438,7 +442,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01"]
+  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2023-01-01", "2023-05-01"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
@@ -523,7 +527,7 @@ service "vmware" {
 }
 service "voiceservices" {
   name      = "VoiceServices"
-  available = ["2023-01-31"]
+  available = ["2023-01-31", "2023-04-03"]
 }
 service "web" {
   name      = "Web"

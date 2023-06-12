@@ -2,6 +2,7 @@ package resource
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
@@ -105,16 +106,16 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 	return sdk.ResourceFunc{
 		Timeout: %[2]d * time.Minute,
 		Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
-			client := metadata.Client.%[3]s.%[4]s
+			client := metadata.Client.%[3]s.%[4]s.%[5]s
 
-			%[5]s
+			%[6]s
 
 			metadata.SetID(id)
 			return nil
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"))
+`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)), input.SdkResourceName, strings.Join(lines, "\n"))
 	return &output, nil
 }
 

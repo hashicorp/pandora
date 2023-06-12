@@ -5,9 +5,7 @@ import (
 	"log"
 
 	"github.com/hashicorp/go-hclog"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -73,11 +71,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 		fieldNameForTypedModel := ""
 		if hasRead {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource, b.constants)
 		} else if hasCreate {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource, b.constants)
 		} else if hasUpdate {
-			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource)
+			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource, b.constants)
 		}
 
 		if err != nil {

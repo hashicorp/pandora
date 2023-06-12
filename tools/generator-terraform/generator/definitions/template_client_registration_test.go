@@ -39,12 +39,16 @@ func TestCodeForClientRegistrations(t *testing.T) {
 		ProviderPrefix: "myprovider",
 		Services: map[string]models.ServiceInput{
 			"Compute": {
-				ApiVersion:         "2020-01-01",
+				ResourceToApiVersion: map[string]string{
+					"compute_resource": "2020-01-01",
+				},
 				SdkServiceName:     "Compute",
 				ServicePackageName: "compute",
 			},
 			"Resource": {
-				ApiVersion:         "2015-11-01-preview",
+				ResourceToApiVersion: map[string]string{
+					"resources_resource": "2015-11-01-preview",
+				},
 				SdkServiceName:     "Resources",
 				ServicePackageName: "resources",
 			},
@@ -61,14 +65,12 @@ import (
 
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 	compute "github.com/hashicorp/terraform-provider-myprovider/internal/services/compute/client"
-	compute_v2020_01_01 "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2020-01-01"
 	resources "github.com/hashicorp/terraform-provider-myprovider/internal/services/resources/client"
-	resources_v2015_11_01_preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
 )
 
 type autoClient struct {
-	Compute   *compute_v2020_01_01.Client
-	Resource   *resources_v2015_11_01_preview.Client
+	Compute   *compute.AutoClient
+	Resource   *resources.AutoClient
 }
 
 func buildAutoClients(client *autoClient, o *common.ClientOptions) (err error) {

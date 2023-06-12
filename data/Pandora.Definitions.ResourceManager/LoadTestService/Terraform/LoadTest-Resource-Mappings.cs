@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;
-using Pandora.Definitions.ResourceManager.LoadTestService.v2021_12_01_preview.LoadTests;
+using Pandora.Definitions.ResourceManager.LoadTestService.v2022_12_01.LoadTests;
 
 namespace Pandora.Definitions.ResourceManager.LoadTestService.Terraform;
 

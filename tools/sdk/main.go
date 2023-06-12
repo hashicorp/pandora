@@ -19,7 +19,7 @@ func main() {
 }
 
 func run(endpoint string) error {
-	client := resourcemanager.NewClient(endpoint)
+	client := resourcemanager.NewResourceManagerClient(endpoint)
 
 	services, err := services.GetResourceManagerServices(client)
 	if err != nil {

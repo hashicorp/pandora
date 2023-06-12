@@ -2,7 +2,6 @@ package schema
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
@@ -269,7 +268,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
-	fieldsWithinResourceId, mappings, err := b.identityTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
+	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}
@@ -284,7 +283,6 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	for k, v := range *fieldsWithinProperties {
 		schemaFields[k] = v
 	}
-	//  field renaming happens here?
 
 	modelsUsedWithinProperties, mappings, err := b.identifyModelsWithinPropertiesBlock(*createReadUpdateMethods, mappings, logger.Named("Models within Property Block"))
 	if err != nil {
@@ -293,6 +291,17 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if modelsUsedWithinProperties == nil {
 		logger.Trace(fmt.Sprintf("a model within the properties block was marked as skip - skipping"))
 		return nil, nil
+	}
+
+	// @tombuildsstuff: this is a temporary workaround to strip out the `encryption` block for the Load Test Service
+	// the fix is tracked in https://github.com/hashicorp/pandora/issues/2608
+	// NOTE: other resources shouldn't use this approach and should instead fix the issue blocking generation - this
+	// is temporary to unblock this migration, since this has already shipped.
+	if input.SchemaModelName == "LoadTestResource" {
+		modelsUsedWithinProperties, mappings, err = applyTemporaryWorkaroundToLoadTestModelsAndMappings(*modelsUsedWithinProperties, mappings)
+		if err != nil {
+			return nil, fmt.Errorf("applying temporary workaround for Load Test: %+v", err)
+		}
 	}
 
 	return &modelParseResult{
@@ -310,6 +319,7 @@ func (b Builder) identifyModelsWithinPropertiesBlock(payloads operationPayloads,
 		if _, ok := allFields[fieldName]; ok {
 			continue
 		}
+
 		if fieldShouldBeIgnored(fieldName, field, b.constants) {
 			continue
 		}
@@ -454,7 +464,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details)
+		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.constants)
 		if err != nil {
 			return nil, nil, err
 		}

@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text.Json.Serialization;
 using NUnit.Framework;
+using Pandora.Data.Models;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;
 using Pandora.Definitions.Operations;
+using ServiceDefinition = Pandora.Definitions.Interfaces.ServiceDefinition;
 
 namespace Pandora.Data.Transformers;
 
@@ -15,16 +17,16 @@ public static class ServiceTests
     [TestCase]
     public static void MappingWithNoVersionsShouldFail()
     {
-        Assert.Throws<Exception>(() => Service.Map(new NoVersionsContainer.ServiceWithNoVersions()));
+        Assert.Throws<Exception>(() => Service.Map(new NoVersionsContainer.ServiceWithNoVersions(), ServiceDefinitionType.ResourceManager));
     }
 
     [TestCase]
     public static void MappingAResourceManagerService()
     {
-        var actual = Service.Map(new ResourceManagerContainer.FakeResourceManagerService());
+        var actual = Service.Map(new ResourceManagerContainer.FakeResourceManagerService(), ServiceDefinitionType.ResourceManager);
         Assert.NotNull(actual);
         Assert.AreEqual("FakeResourceManager", actual.Name);
-        Assert.AreEqual(true, actual.ResourceManager);
+        Assert.AreEqual(ServiceDefinitionType.ResourceManager, actual.DefinitionType);
         Assert.AreEqual("Microsoft.Foo", actual.ResourceProvider);
         Assert.AreEqual("foo", actual.TerraformPackageName);
         Assert.AreEqual(0, actual.TerraformResources.Count());
@@ -33,10 +35,10 @@ public static class ServiceTests
     [TestCase]
     public static void MappingAResourceManagerServiceContainingResources()
     {
-        var actual = Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithTerraformResource());
+        var actual = Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithTerraformResource(), ServiceDefinitionType.ResourceManager);
         Assert.NotNull(actual);
         Assert.AreEqual("FakeResourceManagerServiceWithTerraformResource", actual.Name);
-        Assert.AreEqual(true, actual.ResourceManager);
+        Assert.AreEqual(ServiceDefinitionType.ResourceManager, actual.DefinitionType);
         Assert.AreEqual("Microsoft.Foo", actual.ResourceProvider);
         Assert.AreEqual("foo", actual.TerraformPackageName);
         Assert.AreEqual(1, actual.TerraformResources.Count());
@@ -45,16 +47,16 @@ public static class ServiceTests
     [TestCase]
     public static void MappingAResourceManagerServiceContainingDuplicateResources()
     {
-        Assert.Throws<Exception>(() => Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithDuplicateTerraformResources()));
+        Assert.Throws<Exception>(() => Service.Map(new ResourceManagerContainer.FakeResourceManagerServiceWithDuplicateTerraformResources(), ServiceDefinitionType.ResourceManager));
     }
 
     [TestCase]
     public static void MappingANonResourceManagerService()
     {
-        var actual = Service.Map(new FakeDataPlaneContainer.FakeDataPlaneService());
+        var actual = Service.Map(new FakeDataPlaneContainer.FakeDataPlaneService(), ServiceDefinitionType.DataPlane);
         Assert.NotNull(actual);
         Assert.AreEqual("FakeDataPlane", actual.Name);
-        Assert.AreEqual(false, actual.ResourceManager);
+        Assert.AreEqual(ServiceDefinitionType.DataPlane, actual.DefinitionType);
         Assert.Null(actual.ResourceProvider);
         Assert.Null(actual.TerraformPackageName);
         Assert.AreEqual(0, actual.TerraformResources.Count());

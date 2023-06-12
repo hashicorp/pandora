@@ -93,7 +93,7 @@ func modelDefinitionsMatch(t *testing.T, actual *map[string]resourcemanager.Terr
 func fieldDefinitionsMatch(t *testing.T, modelName string, first map[string]resourcemanager.TerraformSchemaFieldDefinition, second map[string]resourcemanager.TerraformSchemaFieldDefinition) bool {
 	// we can't use reflect.DeepEqual since there's pointers involved, so we'll do this the old-fashioned way
 	if len(first) != len(second) {
-		t.Fatalf("model %q - first had %d fields but second had %d fields", modelName, len(first), len(second))
+		t.Fatalf("model %q - first had %d fields but second had %d fields.\nFirst: %+v\nSecond: %+v", modelName, len(first), len(second), first, second)
 		return false
 	}
 

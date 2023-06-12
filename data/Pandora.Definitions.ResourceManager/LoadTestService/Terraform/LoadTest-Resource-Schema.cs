@@ -24,7 +24,7 @@ public class LoadTestResourceSchema
     [Documentation("Specifies the Managed Identity which should be assigned to this Load Test.")]
     [HclName("identity")]
     [Optional]
-    public CommonSchema.SystemAssignedIdentity Identity { get; set; }
+    public CommonSchema.SystemAndUserAssignedIdentity Identity { get; set; }
 
 
     [Documentation("The Azure Region where the Load Test should exist.")]

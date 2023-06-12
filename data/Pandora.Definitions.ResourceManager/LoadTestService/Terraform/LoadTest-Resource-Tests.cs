@@ -7,52 +7,59 @@ namespace Pandora.Definitions.ResourceManager.LoadTestService.Terraform;
 public class LoadTestResourceTests : TerraformResourceTestDefinition
 {
     public string BasicTestConfig => @"
+provider 'azurerm' {
+  features {}
+}
+
 resource 'azurerm_load_test' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
+  name                = 'acctestlt-${var.random_integer}'
   resource_group_name = azurerm_resource_group.test.name
 }
     ".AsTerraformTestConfig();
 
     public string RequiresImportConfig => @"
 resource 'azurerm_load_test' 'import' {
-  location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
-  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_load_test.test.location
+  name                = azurerm_load_test.test.name
+  resource_group_name = azurerm_load_test.test.resource_group_name
 }
     ".AsTerraformTestConfig();
 
     public string? CompleteConfig => @"
-resource 'azurerm_load_test' 'test' {
-  location            = azurerm_resource_group.test.location
-  name                = 'acctest-${local.random_integer}'
-  resource_group_name = azurerm_resource_group.test.name
-  description         = 'foo'
-
-  identity {
-    type = 'SystemAssigned'
-  }
-
-  tags = {
-    env  = 'Production'
-    test = 'Acceptance'
-  }
-}
-".AsTerraformTestConfig();
-    public string? TemplateConfig => @"
 provider 'azurerm' {
   features {}
 }
 
-locals {
-  random_integer   = %[1]d
-  primary_location = %[2]q
+resource 'azurerm_load_test' 'test' {
+  location            = azurerm_resource_group.test.location
+  name                = 'acctestlt-${var.random_integer}'
+  resource_group_name = azurerm_resource_group.test.name
+  description         = 'Description for the Load Test'
+  tags = {
+    environment = 'terraform-acctests'
+    some_key    = 'some-value'
+  }
+  identity {
+    type         = 'SystemAssigned, UserAssigned'
+    identity_ids = [azurerm_user_assigned_identity.test.id]
+  }
+}
+".AsTerraformTestConfig();
+    public string? TemplateConfig => @"
+variable 'primary_location' {}
+variable 'random_integer' {}
+
+resource 'azurerm_resource_group' 'test' {
+  name     = 'acctestrg-${var.random_integer}'
+  location = var.primary_location
 }
 
 
-resource 'azurerm_resource_group' 'test' {
-  name     = 'acctestrg-${local.random_integer}'
-  location = local.primary_location
+resource 'azurerm_user_assigned_identity' 'test' {
+  name                = 'acctest-${var.random_integer}'
+  resource_group_name = azurerm_resource_group.test.name
+  location            = azurerm_resource_group.test.location
 }
 ".AsTerraformTestConfig();
 
