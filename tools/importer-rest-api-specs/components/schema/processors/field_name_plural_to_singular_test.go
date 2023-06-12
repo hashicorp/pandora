@@ -1,6 +1,7 @@
 package processors
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -20,12 +21,15 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 						"Pandas": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type: resourcemanager.ListApiObjectDefinitionType,
+								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
+									Type: resourcemanager.StringApiObjectDefinitionType,
+								}),
 							},
 						},
 					},
 				},
 			},
-			expected: stringPointer("Panda"),
+			expected: nil,
 		},
 		{
 			fieldInput: "Statuses",
@@ -35,6 +39,9 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 						"Statuses": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type: resourcemanager.ListApiObjectDefinitionType,
+								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
+									Type: resourcemanager.ReferenceApiObjectDefinitionType,
+								}),
 							},
 						},
 					},
@@ -50,6 +57,9 @@ func TestProcessField_PluralToSingular(t *testing.T) {
 						"Metadata": {
 							ObjectDefinition: resourcemanager.ApiObjectDefinition{
 								Type: resourcemanager.ListApiObjectDefinitionType,
+								NestedItem: pointer.To(resourcemanager.ApiObjectDefinition{
+									Type: resourcemanager.ReferenceApiObjectDefinitionType,
+								}),
 							},
 						},
 					},

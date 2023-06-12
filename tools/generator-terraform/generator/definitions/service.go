@@ -12,7 +12,7 @@ func ForService(input models.ServiceInput) error {
 	serviceDirectory := fmt.Sprintf("%s/internal/services/%s", input.RootDirectory, input.ServicePackageName)
 	os.MkdirAll(serviceDirectory, 0755)
 
-	// ensure the Client directory existsq
+	// ensure the Client directory exists
 	serviceClientDirectory := fmt.Sprintf("%s/client", serviceDirectory)
 	os.MkdirAll(serviceClientDirectory, 0755)
 

@@ -18,27 +18,27 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 	}
 
 	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
-		// TODO: support for Lists of Basic Types
-		if field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeReference {
-			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference - but got %q", string(field.ObjectDefinition.NestedObject.Type))
+		var nestedBlock *hclwrite.Block
+		var err error
+
+		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
+			nestedModel, ok := tb.details.SchemaModels[nestedModelName]
+			if !ok {
+				return nil, fmt.Errorf("the schema model %q referenced by nested List/Set %q was not found", nestedModelName, field.HclName)
+			}
+
+			// first go pull out the nested item
+			nestedBlock, err = tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
+			}
 		}
 
-		nestedModelName := *field.ObjectDefinition.NestedObject.ReferenceName
-		nestedModel, ok := tb.details.SchemaModels[nestedModelName]
-		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced by nested List/Set %q was not found", nestedModelName, field.HclName)
-		}
+		// TODO add support for lists of basic types or check for nested items of basic types and add as an attribute elsewhere
 
-		// first go pull out the nested item
-		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
-		if err != nil {
-			return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
-		}
-
-		if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList {
-			return &[]*hclwrite.Block{
-				nestedBlock,
-			}, nil
+		if nestedBlock == nil {
+			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
 		}
 
 		return &[]*hclwrite.Block{

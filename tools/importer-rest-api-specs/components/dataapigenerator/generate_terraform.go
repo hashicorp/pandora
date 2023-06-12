@@ -2,6 +2,7 @@ package dataapigenerator
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"strings"
 
@@ -20,7 +21,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 		return nil
 	}
 
-	if err := RecreateDirectory(s.workingDirectoryForTerraform, s.logger); err != nil {
+	if err := os.MkdirAll(s.workingDirectoryForTerraform, os.FileMode(0755)); err != nil {
 		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
 	}
 
@@ -50,6 +51,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 			// output the Schema for this Terraform Resource
 			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
+
 			resourceSchema, ok := details.SchemaModels[details.SchemaModelName]
 			if !ok {
 				return fmt.Errorf("the Schema Model %q was not found", details.SchemaModelName)

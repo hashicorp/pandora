@@ -51,7 +51,7 @@ public partial class Service : ServiceDefinition
 		%[6]s
 	};
 }
-`, restApiSpecsLicence, namespace, serviceName, rp, terraformPackageName, strings.Join(terraformResources, "\n"))
+`, restApiSpecsLicence, namespace, serviceName, rp, terraformPackageName, strings.Join(terraformResources, "\n\t\t"))
 }
 
 func codeForServiceDefinitionGenerationSettings(namespace string, serviceName string) string {
