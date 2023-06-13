@@ -16,7 +16,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(SensitivityLabelModel);
 
-    public override ResourceID? ResourceId() => new SensitivityLabelSourceId();
+    public override ResourceID? ResourceId() => new SensitivityLabelSensitivityLabelSourceId();
 
     public override Type? ResponseObject() => typeof(SensitivityLabelModel);
 

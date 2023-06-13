@@ -35,7 +35,6 @@ internal class Definition : ResourceDefinition
         typeof(BackupStorageRedundancyConstant),
         typeof(CatalogCollationTypeConstant),
         typeof(CreateModeConstant),
-        typeof(DatabaseIdentityTypeConstant),
         typeof(DatabaseKeyTypeConstant),
         typeof(DatabaseLicenseTypeConstant),
         typeof(DatabaseReadScaleConstant),
@@ -48,12 +47,10 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
         typeof(DatabaseModel),
-        typeof(DatabaseIdentityModel),
         typeof(DatabaseKeyModel),
         typeof(DatabasePropertiesModel),
         typeof(DatabaseUpdateModel),
         typeof(DatabaseUpdatePropertiesModel),
-        typeof(DatabaseUserIdentityModel),
         typeof(ExportDatabaseDefinitionModel),
         typeof(ImportExistingDatabaseDefinitionModel),
         typeof(ImportExportOperationResultModel),

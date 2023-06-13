@@ -19,7 +19,7 @@ internal class DatabaseModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public DatabaseIdentityModel? Identity { get; set; }
+    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("kind")]
     public string? Kind { get; set; }

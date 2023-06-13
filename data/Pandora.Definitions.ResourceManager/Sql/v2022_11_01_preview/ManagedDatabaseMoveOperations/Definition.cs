@@ -13,7 +13,6 @@ internal class Definition : ResourceDefinition
     public string Name => "ManagedDatabaseMoveOperations";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetOperation(),
         new ListByLocationOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>

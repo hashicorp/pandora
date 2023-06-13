@@ -1,0 +1,37 @@
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
+using System;
+using System.Collections.Generic;
+using System.Net;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.Sql.v2021_02_01_preview.SensitivityLabels;
+
+internal class ListRecommendedByDatabaseOperation : Pandora.Definitions.Operations.ListOperation
+{
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
+    public override ResourceID? ResourceId() => new DatabaseId();
+
+    public override Type NestedItemType() => typeof(SensitivityLabelModel);
+
+    public override Type? OptionsObject() => typeof(ListRecommendedByDatabaseOperation.ListRecommendedByDatabaseOptions);
+
+    public override string? UriSuffix() => "/recommendedSensitivityLabels";
+
+    internal class ListRecommendedByDatabaseOptions
+    {
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
+
+        [QueryStringName("includeDisabledRecommendations")]
+        [Optional]
+        public bool IncludeDisabledRecommendations { get; set; }
+    }
+}
