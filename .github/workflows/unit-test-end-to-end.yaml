@@ -39,6 +39,14 @@ jobs:
           make build
           make import
 
+      - name: "Build and Run importer-msgraph-metadata"
+        id: import-data
+        run: |
+          cd ./tools/importer-msgraph-metadata
+          make tools
+          make build
+          make import
+
       - name: "Run the Go SDK Generator"
         run: |
           # go go gadget generator
