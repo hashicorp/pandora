@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.Databases;
 internal class DatabaseUpdateModel
 {
     [JsonPropertyName("identity")]
-    public DatabaseIdentityModel? Identity { get; set; }
+    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("properties")]
     public DatabaseUpdatePropertiesModel? Properties { get; set; }
