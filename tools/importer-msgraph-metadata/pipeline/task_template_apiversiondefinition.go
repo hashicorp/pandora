@@ -10,30 +10,32 @@ import (
 )
 
 func (pipelineTask) templateApiVersionDefinitionForService(files *Tree, serviceName, apiVersion string, resources Resources, logger hclog.Logger) error {
-	if resources.ServiceHasValidResources(serviceName) {
-		categoriesMap := make(map[string]bool)
-		for _, resource := range resources {
-			if resource.Category == "" {
-				continue // TODO do something about orphaned resources
-			}
+	if !resources.ServiceHasValidResources(serviceName) {
+		return nil
+	}
 
-			categoriesMap[resource.Category] = true
+	categoriesMap := make(map[string]bool)
+	for _, resource := range resources {
+		if resource.Category == "" {
+			continue // TODO do something about orphaned resources
 		}
 
-		categories := make([]string, 0, len(categoriesMap))
-		for c, _ := range categoriesMap {
-			categories = append(categories, c)
-		}
+		categoriesMap[resource.Category] = true
+	}
 
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion))
-		if err := files.addFile(filename, templateApiVersionDefinition(serviceName, apiVersion, categories)); err != nil {
-			return err
-		}
+	categories := make([]string, 0, len(categoriesMap))
+	for c, _ := range categoriesMap {
+		categories = append(categories, c)
+	}
 
-		filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion))
-		if err := files.addFile(filename, templateApiVersionDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
-			return err
-		}
+	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion))
+	if err := files.addFile(filename, templateApiVersionDefinition(serviceName, apiVersion, categories)); err != nil {
+		return err
+	}
+
+	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion))
+	if err := files.addFile(filename, templateApiVersionDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
+		return err
 	}
 
 	return nil

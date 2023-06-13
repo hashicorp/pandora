@@ -8,16 +8,18 @@ import (
 )
 
 func (pipelineTask) templateServiceDefinitionForService(files *Tree, serviceName, apiVersion string, resources Resources, logger hclog.Logger) error {
-	if resources.ServiceHasValidResources(serviceName) {
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
-		if err := files.addFile(filename, templateServiceDefinition(serviceName, apiVersion)); err != nil {
-			return err
-		}
+	if !resources.ServiceHasValidResources(serviceName) {
+		return nil
+	}
 
-		filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
-		if err := files.addFile(filename, templateServiceDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
-			return err
-		}
+	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
+	if err := files.addFile(filename, templateServiceDefinition(serviceName, apiVersion)); err != nil {
+		return err
+	}
+
+	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
+	if err := files.addFile(filename, templateServiceDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
+		return err
 	}
 
 	return nil
