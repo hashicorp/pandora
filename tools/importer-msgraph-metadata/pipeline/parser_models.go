@@ -33,10 +33,6 @@ type ModelField struct {
 	JsonField   string
 }
 
-func (f ModelField) GoTag() string {
-	return fmt.Sprintf("`json:\"%s,omitempty\"`", f.JsonField)
-}
-
 func (f ModelField) CSType() string {
 	switch f.Type {
 	case FieldTypeUnknown:
@@ -64,37 +60,6 @@ func (f ModelField) CSType() string {
 		return "string"
 	default:
 		return f.Type.CSType()
-	}
-	return ""
-}
-
-func (f ModelField) GoType() string {
-	switch f.Type {
-	case FieldTypeUnknown:
-		return "interface{}"
-	case FieldTypeModel:
-		if f.ModelName == "" {
-			return "interface{}" // TODO: model not found
-		}
-		return fmt.Sprintf("*%s", f.ModelName)
-	case FieldTypeArray:
-		if f.ModelName == "" {
-			if f.Enum != nil {
-				return fmt.Sprintf("*[]%s", f.Title)
-			}
-			if f.ItemType > 0 {
-				return fmt.Sprintf("*[]%s", f.ItemType.GoType())
-			}
-			return "[]interface{}" // TODO: model not found
-		}
-		return fmt.Sprintf("*[]%s", f.ModelName)
-	case FieldTypeString:
-		if f.Enum != nil {
-			return fmt.Sprintf("*%s", f.Title)
-		}
-		return "*string"
-	default:
-		return fmt.Sprintf("*%s", f.Type.GoType())
 	}
 	return ""
 }
@@ -170,50 +135,6 @@ func (ft FieldType) CSType() string {
 	return "string" // TODO: should never get here
 }
 
-func (ft FieldType) GoType() string {
-	switch ft {
-	case FieldTypeString:
-		return "string"
-	case FieldTypeInteger64:
-		return "int"
-	case FieldTypeIntegerUnsigned64:
-		return "uint"
-	case FieldTypeInteger32:
-		return "int32"
-	case FieldTypeIntegerUnsigned32:
-		return "uint32"
-	case FieldTypeInteger16:
-		return "int16"
-	case FieldTypeIntegerUnsigned16:
-		return "uint16"
-	case FieldTypeInteger8:
-		return "int8"
-	case FieldTypeIntegerUnsigned8:
-		return "uint8"
-	case FieldTypeFloat32:
-		return "float32"
-	case FieldTypeFloat64:
-		return "float64"
-	case FieldTypeBool:
-		return "bool"
-	case FieldTypeInterface:
-		return "interface{}"
-	case FieldTypeBase64:
-		return "[]byte"
-	case FieldTypeDate:
-		return "time.Time" // TODO: date
-	case FieldTypeDateTime:
-		return "time.Time"
-	case FieldTypeDuration:
-		return "string" // TODO: ISO8601 duration
-	case FieldTypeTime:
-		return "time.Time" // TODO: time
-	case FieldTypeUuid:
-		return "UUID"
-	}
-	return "interface{}"
-}
-
 func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
 	switch strings.ToLower(schemaFormat) {
 	case "int64":
@@ -281,20 +202,6 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
 // SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
 // Schema leads to SchemaRefs and Schemas
 
-func parseModels(schemas openapi3.Schemas) Models {
-	models := make(Models)
-	for modelName, schemaRef := range schemas {
-		name := cleanName(modelName)
-		if schema := parseSchemaRef(schemaRef); schema != nil {
-			var f flattenedSchema
-			f, _ = flattenSchema(schema, nil)
-			models = parseSchemas(f, name, models)
-		}
-	}
-
-	return models
-}
-
 type flattenedSchema struct {
 	Schemas openapi3.Schemas
 	Title   string
@@ -307,11 +214,13 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 	if seenRefs == nil {
 		seenRefs = make([]string, 0)
 	}
+
 	schemas := make(openapi3.Schemas, 0)
 	title := ""
 	typ := ""
 	format := ""
 	enum := make([]interface{}, 0)
+
 	if r := schema.Items; r != nil {
 		if r.Ref != "" {
 			for _, s := range seenRefs {
@@ -321,6 +230,7 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 			}
 			seenRefs = append(seenRefs, r.Ref)
 		}
+
 		if s := parseSchemaRef(r); s != nil {
 			var result flattenedSchema
 			result, seenRefs = flattenSchema(s, seenRefs)
@@ -372,6 +282,7 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 				}
 			}
 		}
+
 		if schema.AnyOf != nil {
 			for _, r := range schema.AnyOf {
 				if r.Ref != "" {
@@ -382,6 +293,7 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 					}
 					seenRefs = append(seenRefs, r.Ref)
 				}
+
 				if s := parseSchemaRef(r); s != nil {
 					var result flattenedSchema
 					result, seenRefs = flattenSchema(s, seenRefs)
@@ -404,28 +316,35 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 			}
 		}
 	}
+
 	if schema.Title != "" {
 		title = schema.Title
 	}
+
 	// prefer the innermost type
 	if typ == "" && schema.Type != "" {
 		typ = schema.Type
 	}
+
 	// prefer the innermost format
 	if format == "" && schema.Format != "" {
 		format = schema.Format
 	}
+
 	if len(schema.Enum) > 0 {
 		enum = schema.Enum
 	}
+
 	if schema.Properties != nil {
 		for k, v := range schema.Properties {
 			schemas[k] = v
 		}
 	}
+
 	if len(schemas) == 0 {
 		schemas = nil
 	}
+
 	return flattenedSchema{
 		Schemas: schemas,
 		Title:   title,
@@ -450,16 +369,19 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 		Fields: make(map[string]*ModelField),
 	}
 	models[modelName] = &model
+
 	for k, v := range input.Schemas {
 		schema := parseSchemaRef(v)
 		result, _ := flattenSchema(schema, nil)
 		title := ""
+
 		if result.Title != "" {
 			title = strings.Title(result.Title)
 		} else {
 			//title = fmt.Sprintf("%s%s", strings.Title(modelName), strings.Title(k))
 			title = strings.Title(k)
 		}
+
 		field := ModelField{
 			Title:       title,
 			Description: schema.Description,
@@ -467,27 +389,34 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 			Enum:        schema.Enum,
 			JsonField:   k,
 		}
+
 		if len(field.Enum) == 0 && len(result.Enum) > 0 {
 			field.Enum = result.Enum
 		}
+
 		if result.Schemas != nil {
 			if _, ok := models[title]; !ok {
 				models = parseSchemas(result, title, models)
 			}
 			field.ModelName = title
 		}
+
 		if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
 			field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != "")
 		}
+
 		if schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
 			field.Type = fieldType(result.Type, result.Format, field.ModelName != "")
 		} else {
 			field.Type = fieldType(schema.Type, schema.Format, field.ModelName != "")
 		}
+
 		if field.Type == FieldTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
 			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != "")
 		}
+
 		model.Fields[cleanName(k)] = &field
 	}
+
 	return models
 }

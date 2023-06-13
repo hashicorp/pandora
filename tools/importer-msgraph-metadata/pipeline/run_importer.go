@@ -33,7 +33,15 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, swaggerGitSha 
 
 	files := newTree()
 
-	models := parseModels(spec.Components.Schemas)
+	task := &pipelineTask{
+		spec:          spec,
+		swaggerGitSha: swaggerGitSha,
+	}
+
+	models, err := task.parseModels(logger, spec.Components.Schemas)
+	if err != nil {
+		return err
+	}
 
 	logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
 	if err = templateModels(apiVersion, files, models); err != nil {
@@ -45,7 +53,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, swaggerGitSha 
 		return err
 	}
 
-	services, err := parseTags(spec)
+	services, err := task.parseTags(logger, spec.Tags)
 	if err != nil {
 		return err
 	}
@@ -71,7 +79,7 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, swaggerGitSha 
 			}
 		}
 
-		if err = runImportForService(input, files, apiVersion, service, serviceTags, models, spec, swaggerGitSha); err != nil {
+		if err = runImportForService(input, files, task, apiVersion, service, serviceTags, models, spec, swaggerGitSha); err != nil {
 			return err
 		}
 	}
@@ -83,13 +91,8 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, swaggerGitSha 
 	return nil
 }
 
-func runImportForService(input RunInput, files *Tree, apiVersion, service string, serviceTags []string, models Models, spec *openapi3.T, swaggerGitSha string) error {
+func runImportForService(input RunInput, files *Tree, task *pipelineTask, apiVersion, service string, serviceTags []string, models Models, spec *openapi3.T, swaggerGitSha string) error {
 	logger := input.Logger
-
-	task := pipelineTask{
-		spec:          spec,
-		swaggerGitSha: swaggerGitSha,
-	}
 
 	logger.Info(fmt.Sprintf("Parsing resource IDs for %q", service))
 	resourceIds, err := task.parseResourceIDsForService(logger, apiVersion, service, serviceTags, spec.Paths)

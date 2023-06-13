@@ -5,13 +5,12 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/go-hclog"
 )
 
-type Services map[string][]string
-
-func parseTags(spec *openapi3.T) (Services, error) {
-	services := make(map[string][]string, 0)
-	for _, tag := range spec.Tags {
+func (pipelineTask) parseTags(logger hclog.Logger, tags openapi3.Tags) (services Services, err error) {
+	services = make(map[string][]string, 0)
+	for _, tag := range tags {
 		if tag == nil {
 			continue
 		}
@@ -26,14 +25,5 @@ func parseTags(spec *openapi3.T) (Services, error) {
 			services[t[0]] = append(services[t[0]], t[1])
 		}
 	}
-	return services, nil
-}
-
-func tagMatches(tagName string, tags []string) bool {
-	for _, tag := range tags {
-		if t := strings.Split(tag, "."); len(t) > 0 && t[0] == tagName {
-			return true
-		}
-	}
-	return false
+	return
 }
