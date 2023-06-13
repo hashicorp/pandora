@@ -41,6 +41,8 @@ jobs:
           make tools
           make build
           make import
+        env:
+          SERVICES: "applications,servicePrincipals"
 
       - name: then commit the diff
         id: commit-imported-data

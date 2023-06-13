@@ -15,22 +15,20 @@ import (
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(metadataDirectory, openApiFilePattern, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
+func NewImportCommand(metadataDirectory, openApiFilePattern, outputDirectory string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
-			metadataDirectory:        metadataDirectory,
-			openApiFilePattern:       openApiFilePattern,
-			outputDirectory:          outputDirectory,
-			terraformDefinitionsPath: terraformDefinitionsPath,
+			metadataDirectory:  metadataDirectory,
+			openApiFilePattern: openApiFilePattern,
+			outputDirectory:    outputDirectory,
 		}, nil
 	}
 }
 
 type ImportCommand struct {
-	metadataDirectory        string
-	openApiFilePattern       string
-	outputDirectory          string
-	terraformDefinitionsPath string
+	metadataDirectory  string
+	openApiFilePattern string
+	outputDirectory    string
 }
 
 func (ImportCommand) Synopsis() string {
@@ -80,13 +78,12 @@ func (c ImportCommand) Run(args []string) int {
 	input := pipeline.RunInput{
 		Logger: logger,
 
-		ApiVersions:              apiVersions,
-		MetadataDirectory:        c.metadataDirectory,
-		OpenApiFilePattern:       c.openApiFilePattern,
-		OutputDirectory:          c.outputDirectory,
-		ProviderPrefix:           "azuread",
-		Tags:                     tags,
-		TerraformDefinitionsPath: c.terraformDefinitionsPath,
+		ApiVersions:        apiVersions,
+		MetadataDirectory:  c.metadataDirectory,
+		OpenApiFilePattern: c.openApiFilePattern,
+		OutputDirectory:    c.outputDirectory,
+		ProviderPrefix:     "azuread",
+		Tags:               tags,
 	}
 	if err := pipeline.Run(input); err != nil {
 		log.Printf("Error: %+v", err)

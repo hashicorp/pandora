@@ -92,7 +92,8 @@ func cleanVersion(version string) string {
 	case "beta":
 		return "Beta"
 	}
-	return "UnknownApiVersion"
+
+	panic(fmt.Sprintf("Unrecognised API version string: %s", version))
 }
 
 func definitionsDirectory(version string) string {

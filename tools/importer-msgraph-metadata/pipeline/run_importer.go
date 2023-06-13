@@ -7,14 +7,13 @@ import (
 	"strings"
 
 	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 )
 
-func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha string) error {
+func runImporter(input RunInput, swaggerGitSha string) error {
 	logger := input.Logger
 	for _, apiVersion := range input.ApiVersions {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
-		if err := runImportForVersion(input, resources, apiVersion, openApiFile, swaggerGitSha); err != nil {
+		if err := runImportForVersion(input, apiVersion, openApiFile, swaggerGitSha); err != nil {
 			return err
 		}
 	}
@@ -23,7 +22,7 @@ func runImporter(input RunInput, resources *definitions.Config, swaggerGitSha st
 	return nil
 }
 
-func runImportForVersion(input RunInput, resources *definitions.Config, apiVersion, openApiFile, swaggerGitSha string) error {
+func runImportForVersion(input RunInput, apiVersion, openApiFile, swaggerGitSha string) error {
 	logger := input.Logger
 
 	logger.Info(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))

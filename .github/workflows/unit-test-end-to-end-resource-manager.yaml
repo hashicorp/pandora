@@ -1,5 +1,5 @@
 ---
-name: Verify All Services can be Imported and Generated
+name: Verify All Resource Manager Services can be Imported and Generated
 on:
   pull_request:
     types: ['opened', 'synchronize']
@@ -35,14 +35,6 @@ jobs:
         id: import-data
         run: |
           cd ./tools/importer-rest-api-specs
-          make tools
-          make build
-          make import
-
-      - name: "Build and Run importer-msgraph-metadata"
-        id: import-data
-        run: |
-          cd ./tools/importer-msgraph-metadata
           make tools
           make build
           make import
