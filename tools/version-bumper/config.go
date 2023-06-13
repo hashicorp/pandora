@@ -188,6 +188,7 @@ func normalizeDateString(input string) string {
 	output = strings.TrimSuffix(output, "-publicpreview")
 	output = strings.TrimSuffix(output, "-preview")
 	output = strings.TrimSuffix(output, "-beta")
+	output = strings.TrimSuffix(output, "-legacy")
 	return output
 }
 
