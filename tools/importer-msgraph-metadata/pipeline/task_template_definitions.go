@@ -5,11 +5,9 @@ import (
 	"os"
 	"sort"
 	"strings"
-
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiVersion string, resources Resources, models Models, logger hclog.Logger) error {
+func (p pipelineTask) templateDefinitionsForService(resources Resources, models Models) error {
 	definitions := make(map[string]string)
 
 	categories := make(map[string]bool)
@@ -84,13 +82,13 @@ func (pipelineTask) templateDefinitionsForService(files *Tree, serviceName, apiV
 			modelNames = append(modelNames, m)
 		}
 
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName), cleanVersion(apiVersion), category)
-		definitions[filename] = templateDefinition(serviceName, apiVersion, category, operationNames, constantNames, modelNames)
+		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
+		definitions[filename] = templateDefinition(p.service, p.apiVersion, category, operationNames, constantNames, modelNames)
 	}
 
 	definitionFiles := sortedKeys(definitions)
 	for _, definitionFile := range definitionFiles {
-		if err := files.addFile(definitionFile, definitions[definitionFile]); err != nil {
+		if err := p.files.addFile(definitionFile, definitions[definitionFile]); err != nil {
 			return err
 		}
 	}

@@ -3,14 +3,11 @@ package pipeline
 import (
 	"fmt"
 	"strings"
-
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) parseTags(logger hclog.Logger, tags openapi3.Tags) (services Services, err error) {
+func (p pipelineTask) parseTags() (services Services, err error) {
 	services = make(map[string][]string, 0)
-	for _, tag := range tags {
+	for _, tag := range p.spec.Tags {
 		if tag == nil {
 			continue
 		}

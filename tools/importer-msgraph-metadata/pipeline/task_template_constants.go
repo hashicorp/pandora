@@ -6,7 +6,7 @@ import (
 	"strings"
 )
 
-func templateConstants(apiVersion string, files *Tree, models Models) error {
+func (p pipelineTask) templateConstants(apiVersion string, models Models) error {
 	seenEnums := make(map[string]uint8, 0)
 	for _, model := range models {
 		for _, field := range model.Fields {
@@ -39,7 +39,7 @@ internal enum %[2]sConstant
 
 				filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), field.Title)
 
-				if err := files.addFile(filename, code); err != nil {
+				if err := p.files.addFile(filename, code); err != nil {
 					return err
 				}
 			}

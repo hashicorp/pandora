@@ -4,22 +4,19 @@ import (
 	"fmt"
 	"strconv"
 	"strings"
-
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths, resourceIds ResourceIds, models Models) (resources Resources, err error) {
+func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models Models) (resources Resources, err error) {
 	resources = make(Resources)
-	for p, item := range paths {
-		path := strings.Clone(p)
+	for pathRaw, item := range p.spec.Paths {
+		path := strings.Clone(pathRaw)
 		operations := item.Operations()
 		operationTags := make([]string, 0)
 
 		// Check tags and skip
 		skip := true
 		for _, operation := range operations {
-			if tagMatches(service, operation.Tags) {
+			if tagMatches(p.service, operation.Tags) {
 				operationTags = append(operationTags, operation.Tags...)
 				skip = false
 			}
@@ -53,13 +50,13 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 
 		// Create a new resource if not already encountered
 		if _, ok := resources[resourceName]; !ok {
-			logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, service, apiVersion))
+			p.logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
 			resources[resourceName] = &Resource{
 				Name:       resourceName,
 				Category:   resourceCategory,
-				Version:    apiVersion,
-				Service:    cleanName(service),
+				Version:    p.apiVersion,
+				Service:    cleanName(p.service),
 				Paths:      []ResourceId{parsedPath},
 				Operations: make([]Operation, 0, len(operations)),
 			}
@@ -68,7 +65,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 		}
 
 		for method, operation := range operations {
-			if !tagMatches(service, operation.Tags) {
+			if !tagMatches(p.service, operation.Tags) {
 				continue
 			}
 
@@ -96,7 +93,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 
 			if uriSuffix != nil {
 				if uriSuffixParsed := NewResourceId(*uriSuffix, operationTags); uriSuffixParsed.HasUserValue() {
-					err = fmt.Errorf("encountered URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, service, apiVersion, *uriSuffix)
+					err = fmt.Errorf("encountered URI suffix containing user value in resource %q (category %q, service %q, version %q): %q", resourceName, resourceCategory, p.service, p.apiVersion, *uriSuffix)
 					return
 				}
 			}
@@ -153,7 +150,7 @@ func (pipelineTask) parseResourcesForService(logger hclog.Logger, apiVersion, se
 			}
 
 			operationName := ""
-			shortResourceName := strings.TrimPrefix(resourceName, singularize(cleanName(service)))
+			shortResourceName := strings.TrimPrefix(resourceName, singularize(cleanName(p.service)))
 
 			switch operationType {
 			case OperationTypeList:

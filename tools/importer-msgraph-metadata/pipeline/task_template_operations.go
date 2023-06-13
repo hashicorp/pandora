@@ -5,11 +5,9 @@ import (
 	"os"
 	"strconv"
 	"strings"
-
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateOperationsForService(files *Tree, resources Resources, logger hclog.Logger) error {
+func (p pipelineTask) templateOperationsForService(resources Resources) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
@@ -52,7 +50,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
 					}
-					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
+					p.logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateListOperation(resource, &operation, responseModel)
@@ -62,7 +60,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
 					}
-					logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
+					p.logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateReadOperation(resource, &operation, responseModel, statuses)
@@ -81,7 +79,7 @@ func (pipelineTask) templateOperationsForService(files *Tree, resources Resource
 	// Then output them as separate source files
 	operationFiles := sortedKeys(operations)
 	for _, operationFile := range operationFiles {
-		if err := files.addFile(operationFile, operations[operationFile]); err != nil {
+		if err := p.files.addFile(operationFile, operations[operationFile]); err != nil {
 			return err
 		}
 	}

@@ -3,22 +3,20 @@ package pipeline
 import (
 	"fmt"
 	"os"
-
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateServiceDefinitionForService(files *Tree, serviceName, apiVersion string, resources Resources, logger hclog.Logger) error {
-	if !resources.ServiceHasValidResources(serviceName) {
+func (p pipelineTask) templateServiceDefinitionForService(resources Resources) error {
+	if !resources.ServiceHasValidResources(p.service) {
 		return nil
 	}
 
-	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
-	if err := files.addFile(filename, templateServiceDefinition(serviceName, apiVersion)); err != nil {
+	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service))
+	if err := p.files.addFile(filename, templateServiceDefinition(p.service, p.apiVersion)); err != nil {
 		return err
 	}
 
-	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), cleanName(serviceName))
-	if err := files.addFile(filename, templateServiceDefinitionGenerationSettings(serviceName, apiVersion)); err != nil {
+	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service))
+	if err := p.files.addFile(filename, templateServiceDefinitionGenerationSettings(p.service, p.apiVersion)); err != nil {
 		return err
 	}
 

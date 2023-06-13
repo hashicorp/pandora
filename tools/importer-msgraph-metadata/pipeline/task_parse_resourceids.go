@@ -2,21 +2,18 @@ package pipeline
 
 import (
 	"fmt"
-
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) parseResourceIDsForService(logger hclog.Logger, apiVersion, service string, serviceTags []string, paths openapi3.Paths) (resources ResourceIds, err error) {
+func (p pipelineTask) parseResourceIDsForService() (resources ResourceIds, err error) {
 	resources = make(ResourceIds, 0)
-	for path, item := range paths {
+	for path, item := range p.spec.Paths {
 		operations := item.Operations()
 		operationTags := make([]string, 0)
 
 		// Check tags and skip
 		skip := true
 		for _, operation := range operations {
-			if tagMatches(service, operation.Tags) {
+			if tagMatches(p.service, operation.Tags) {
 				operationTags = append(operationTags, operation.Tags...)
 				skip = false
 			}
@@ -33,7 +30,7 @@ func (pipelineTask) parseResourceIDsForService(logger hclog.Logger, apiVersion, 
 			lastSegment = id.Segments[segmentsLastIndex-1]
 			truncated := id.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{}, segmentsLastIndex)
 			if truncated == nil {
-				err = fmt.Errorf("unable to truncate resource ID with OData Reference (service %q, version %q): %q", service, apiVersion, id.ID())
+				err = fmt.Errorf("unable to truncate resource ID with OData Reference (service %q, version %q): %q", p.service, p.apiVersion, id.ID())
 				return
 			}
 			id = *truncated
@@ -48,11 +45,11 @@ func (pipelineTask) parseResourceIDsForService(logger hclog.Logger, apiVersion, 
 		}
 
 		if resourceIdName != "" {
-			logger.Info(fmt.Sprintf("found resource ID %q (service %q, version %q)", resourceIdName, service, apiVersion))
+			p.logger.Info(fmt.Sprintf("found resource ID %q (service %q, version %q)", resourceIdName, p.service, p.apiVersion))
 
 			id.Name = resourceIdName
-			id.Service = cleanName(service)
-			id.Version = apiVersion
+			id.Service = cleanName(p.service)
+			id.Version = p.apiVersion
 			resources = append(resources, &id)
 		}
 	}

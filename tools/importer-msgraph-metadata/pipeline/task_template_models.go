@@ -7,7 +7,7 @@ import (
 	"strings"
 )
 
-func templateModels(apiVersion string, files *Tree, models Models) error {
+func (p pipelineTask) templateModels(apiVersion string, models Models) error {
 	for name, model := range models {
 		fieldNames := make([]string, 0, len(model.Fields))
 		for fieldName := range model.Fields {
@@ -45,7 +45,7 @@ internal class %[2]sModel
 
 		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sModel-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), name)
 
-		if err := files.addFile(filename, code); err != nil {
+		if err := p.files.addFile(filename, code); err != nil {
 			return err
 		}
 	}

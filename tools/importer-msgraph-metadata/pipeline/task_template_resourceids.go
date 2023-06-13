@@ -4,11 +4,9 @@ import (
 	"fmt"
 	"os"
 	"strings"
-
-	"github.com/hashicorp/go-hclog"
 )
 
-func (pipelineTask) templateResourceIdsForService(files *Tree, resources Resources, logger hclog.Logger) error {
+func (p pipelineTask) templateResourceIdsForService(resources Resources) error {
 	ids := make(map[string]string)
 
 	for _, resource := range resources {
@@ -27,7 +25,7 @@ func (pipelineTask) templateResourceIdsForService(files *Tree, resources Resourc
 
 	resourceIdFiles := sortedKeys(ids)
 	for _, resourceIdFile := range resourceIdFiles {
-		if err := files.addFile(resourceIdFile, ids[resourceIdFile]); err != nil {
+		if err := p.files.addFile(resourceIdFile, ids[resourceIdFile]); err != nil {
 			return err
 		}
 	}
