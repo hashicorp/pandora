@@ -126,7 +126,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"fqn":                               "fqn", // handles FQN
 		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
 		"functionappsettings":                     "functionAppSettings",
-		"globalRulestacks":                        "globalRuleStacks",
+		"globalrulestacks":                        "globalRuleStacks",
 		"hybridconnection":                        "hybridConnection",
 		"hypervsites":                             "hyperVSites",
 		"integrationruntimes":                     "integrationRuntimes",
@@ -137,7 +137,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
-		"localRulestacks":                         "localRuleStacks",
+		"localrulestacks":                         "localRuleStacks",
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
