@@ -19,9 +19,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new TableColumnId();
-
-    public override string? UriSuffix() => "/sensitivityLabels/current";
+    public override ResourceID? ResourceId() => new SensitivityLabelSourceId();
 
 
 }

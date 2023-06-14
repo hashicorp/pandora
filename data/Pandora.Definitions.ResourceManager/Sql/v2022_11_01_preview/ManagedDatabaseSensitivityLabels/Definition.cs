@@ -28,7 +28,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(RecommendedSensitivityLabelUpdateKindConstant),
         typeof(SensitivityLabelRankConstant),
-        typeof(SensitivityLabelSourceConstant),
         typeof(SensitivityLabelUpdateKindConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>

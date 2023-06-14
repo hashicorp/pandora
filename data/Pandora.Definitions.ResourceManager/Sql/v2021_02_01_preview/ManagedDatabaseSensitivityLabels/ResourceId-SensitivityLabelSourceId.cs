@@ -6,9 +6,9 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.ManagedDatabaseSensitivityLabels;
+namespace Pandora.Definitions.ResourceManager.Sql.v2021_02_01_preview.ManagedDatabaseSensitivityLabels;
 
-internal class SensitivityLabelSensitivityLabelSourceId : ResourceID
+internal class SensitivityLabelSourceId : ResourceID
 {
     public string? CommonAlias => null;
 
