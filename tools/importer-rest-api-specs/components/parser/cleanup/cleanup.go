@@ -122,9 +122,11 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"fhirservices":                      "fhirServices",
 		"fileservers":                       "fileServers",
 		"fallbackroute":                     "fallbackRoute",
+		"fqdnlists":                         "fqdnLists",
 		"fqn":                               "fqn", // handles FQN
 		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
 		"functionappsettings":                     "functionAppSettings",
+		"globalrulestacks":                        "globalRuleStacks",
 		"hybridconnection":                        "hybridConnection",
 		"hypervsites":                             "hyperVSites",
 		"integrationruntimes":                     "integrationRuntimes",
@@ -135,6 +137,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
+		"localrulestacks":                         "localRuleStacks",
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
@@ -153,6 +156,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"pipelineruns":                            "pipelineRuns",
 		"policysets":                              "policySets",
 		"portalconfigs":                           "portalConfigs",
+		"prefixlists":                             "prefixLists",
 		"premieraddons":                           "premierAddons",
 		"principalassignments":                    "principalAssignments",
 		"publicipaddresses":                       "publicIPAddresses",
@@ -359,6 +363,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.windowsesu":                     "Microsoft.WindowsESU",
 		"microsoft.windowsiot":                     "Microsoft.WindowsIoT",
 		"microsoft.workloadmonitor":                "Microsoft.WorkloadMonitor",
+		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.CloudNGFW",
 	}
 	if v, ok := replacements[strings.ToLower(input)]; ok {
 		return v
