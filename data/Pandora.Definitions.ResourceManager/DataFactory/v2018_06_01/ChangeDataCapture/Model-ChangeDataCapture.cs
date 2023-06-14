@@ -24,18 +24,18 @@ internal class ChangeDataCaptureModel
     [JsonPropertyName("folder")]
     public ChangeDataCaptureFolderModel? Folder { get; set; }
 
-    [JsonPropertyName("Policy")]
+    [JsonPropertyName("policy")]
     [Required]
     public MapperPolicyModel Policy { get; set; }
 
-    [JsonPropertyName("SourceConnectionsInfo")]
+    [JsonPropertyName("sourceConnectionsInfo")]
     [Required]
     public List<MapperSourceConnectionsInfoModel> SourceConnectionsInfo { get; set; }
 
     [JsonPropertyName("status")]
     public string? Status { get; set; }
 
-    [JsonPropertyName("TargetConnectionsInfo")]
+    [JsonPropertyName("targetConnectionsInfo")]
     [Required]
     public List<MapperTargetConnectionsInfoModel> TargetConnectionsInfo { get; set; }
 }

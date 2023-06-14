@@ -15,15 +15,15 @@ namespace Pandora.Definitions.ResourceManager.DataFactory.v2018_06_01.ChangeData
 
 internal class MapperTargetConnectionsInfoModel
 {
-    [JsonPropertyName("Connection")]
+    [JsonPropertyName("connection")]
     public MapperConnectionModel? Connection { get; set; }
 
-    [JsonPropertyName("DataMapperMappings")]
+    [JsonPropertyName("dataMapperMappings")]
     public List<DataMapperMappingModel>? DataMapperMappings { get; set; }
 
-    [JsonPropertyName("Relationships")]
+    [JsonPropertyName("relationships")]
     public List<object>? Relationships { get; set; }
 
-    [JsonPropertyName("TargetEntities")]
+    [JsonPropertyName("targetEntities")]
     public List<MapperTableModel>? TargetEntities { get; set; }
 }
