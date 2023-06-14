@@ -223,6 +223,10 @@ service "frontdoor" {
   name      = "FrontDoor"
   available = ["2020-04-01", "2020-05-01", "2022-05-01"]
 }
+service "graphservicesprod" {
+  name = "GraphServices"
+  available = ["2023-04-13"]
+}
 service "guestconfiguration" {
   name      = "GuestConfiguration"
   available = ["2020-06-25", "2022-01-25"]
