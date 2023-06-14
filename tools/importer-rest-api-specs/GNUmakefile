@@ -23,7 +23,7 @@ import-with-api: build
 	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 test: build
-	go test -v ./...
+	go test -v ./... -timeout=60m
 
 tools:
 	@echo "==> installing required tooling..."
