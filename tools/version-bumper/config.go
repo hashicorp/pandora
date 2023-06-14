@@ -216,9 +216,9 @@ func isStableVersion(version string) bool {
 	}
 	for _, v := range knownBetaSegments {
 		if strings.Contains(val, v) {
-			return true
+			return false
 		}
 	}
 
-	return false
+	return true
 }
