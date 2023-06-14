@@ -363,7 +363,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.windowsesu":                     "Microsoft.WindowsESU",
 		"microsoft.windowsiot":                     "Microsoft.WindowsIoT",
 		"microsoft.workloadmonitor":                "Microsoft.WorkloadMonitor",
-		"PaloAltoNetworks.Cloudngfw":               "PaloAltoNetworks.CloudNGFW",
+		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.CloudNGFW",
 	}
 	if v, ok := replacements[strings.ToLower(input)]; ok {
 		return v
