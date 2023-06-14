@@ -8,7 +8,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.ManagedDatabaseSensitivityLabels;
 
-internal class SensitivityLabelSensitivityLabelSourceId : ResourceID
+internal class SensitivityLabelSourceId : ResourceID
 {
     public string? CommonAlias => null;
 

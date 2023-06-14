@@ -24,7 +24,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(SensitivityLabelRankConstant),
-        typeof(SensitivityLabelSourceConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {

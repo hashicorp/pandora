@@ -11,13 +11,13 @@ public class UserAssignedIdentityResource : TerraformResourceDefinition
     public string ResourceLabel => "user_assigned_identity";
     public string ResourceCategory => "Authorization";
     public string ResourceDescription => @"Manages a User Assigned Identity";
-    public string ResourceExampleUsage => @"provider 'azurerm' {
-  features {}
+    public string ResourceExampleUsage => @"resource 'azurerm_resource_group' 'example' {
+  name     = 'example-resources'
+  location = 'West Europe'
 }
-
 resource 'azurerm_user_assigned_identity' 'example' {
   location            = azurerm_resource_group.example.location
-  name                = 'exampleuai'
+  name                = 'example'
   resource_group_name = azurerm_resource_group.example.name
 }".AsTerraformTestConfig();
     public Type? SchemaModel => typeof(UserAssignedIdentityResourceSchema);
