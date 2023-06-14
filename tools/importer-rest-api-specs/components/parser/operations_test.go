@@ -2770,8 +2770,8 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 		t.Fatal("expected a non-long running operation but it was long running")
 	}
 
-	if len(world.Options) != 6 {
-		t.Fatalf("expected HeadWorld to have 6 options but got %d", len(world.Options))
+	if len(world.Options) != 7 {
+		t.Fatalf("expected HeadWorld to have 7 options but got %d", len(world.Options))
 	}
 
 	boolOption, ok := world.Options["BoolValue"]
@@ -2829,6 +2829,23 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 	}
 	if csvOfStringOption.HeaderName != nil && *csvOfStringOption.HeaderName != "csvOfStringValue" {
 		t.Fatalf("expected HeadWorld Option 'CsvOfStringValue's HeaderName to be `csvOfStringValue` but got %q", *csvOfStringOption.HeaderName)
+	}
+
+	decimalOption, ok := world.Options["DecimalValue"]
+	if !ok {
+		t.Fatalf("expected HeadWorld Options to contain 'DecimalValue' but didn't get it")
+	}
+	if decimalOption.ObjectDefinition.Type != models.ObjectDefinitionFloat {
+		t.Fatalf("expected HeadWorld Option 'DecimalValue' to be a Float but got %q", string(decimalOption.ObjectDefinition.Type))
+	}
+	if decimalOption.QueryStringName != nil {
+		t.Fatalf("expected HeadWorld Option 'DecimalValue's QueryStringName to be nil but got %q", *decimalOption.QueryStringName)
+	}
+	if decimalOption.HeaderName == nil {
+		t.Fatalf("expected HeadWorld Option 'DecimalValue's HeaderName to be `decimalValue` but was nil")
+	}
+	if decimalOption.HeaderName != nil && *decimalOption.HeaderName != "decimalValue" {
+		t.Fatalf("expected HeadWorld Option 'DecimalValue's HeaderName to be `decimalValue` but got %q", *decimalOption.HeaderName)
 	}
 
 	doubleOption, ok := world.Options["DoubleValue"]
