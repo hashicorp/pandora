@@ -121,7 +121,7 @@ func reconcileWithAvailableServices(input services.Config, availableServices []A
 			}
 
 			// for now we don't want to auto-import Preview versions, only Stable releases
-			if isPreviewVersion(version) {
+			if !isStableVersion(version) {
 				continue
 			}
 
@@ -160,7 +160,7 @@ func isVersionIsOlderThanExistingVersion(new string, existing string) (*bool, er
 		v := true
 		// if we're using an older preview (e.g. 2020-01-01-preview) but
 		// a GA version gets published, we should import the new version
-		if isPreviewVersion(existing) {
+		if !isStableVersion(existing) {
 			v = false
 		}
 		return &v, nil
@@ -188,13 +188,14 @@ func normalizeDateString(input string) string {
 	output = strings.TrimSuffix(output, "-publicpreview")
 	output = strings.TrimSuffix(output, "-preview")
 	output = strings.TrimSuffix(output, "-beta")
+	output = strings.TrimSuffix(output, "-legacy")
 	return output
 }
 
 func filterToStableVersions(input []string) []string {
 	output := make([]string, 0)
 	for _, v := range input {
-		if isPreviewVersion(v) {
+		if !isStableVersion(v) {
 			continue
 		}
 
@@ -205,18 +206,19 @@ func filterToStableVersions(input []string) []string {
 	return output
 }
 
-func isPreviewVersion(version string) bool {
+func isStableVersion(version string) bool {
 	val := strings.ToLower(version)
 	knownBetaSegments := []string{
 		"beta",
+		"legacy",
 		// privatepreview and publicpreview are implied
 		"preview",
 	}
 	for _, v := range knownBetaSegments {
 		if strings.Contains(val, v) {
-			return true
+			return false
 		}
 	}
 
-	return false
+	return true
 }
