@@ -15,9 +15,9 @@ namespace Pandora.Definitions.ResourceManager.DataFactory.v2018_06_01.ChangeData
 
 internal class MapperSourceConnectionsInfoModel
 {
-    [JsonPropertyName("Connection")]
+    [JsonPropertyName("connection")]
     public MapperConnectionModel? Connection { get; set; }
 
-    [JsonPropertyName("SourceEntities")]
+    [JsonPropertyName("sourceEntities")]
     public List<MapperTableModel>? SourceEntities { get; set; }
 }
