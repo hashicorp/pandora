@@ -14,9 +14,11 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2022_11_01_preview.Sensitivit
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SensitivityLabelSourceId();
+    public override ResourceID? ResourceId() => new ColumnId();
 
     public override Type? ResponseObject() => typeof(SensitivityLabelModel);
+
+    public override string? UriSuffix() => "/sensitivityLabels/current";
 
 
 }
