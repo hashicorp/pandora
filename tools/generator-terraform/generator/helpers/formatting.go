@@ -22,3 +22,8 @@ func NamespaceForApiVersion(input string) string {
 	}
 	return output
 }
+
+func LowerCaseName(input string) string {
+	firstLetter := strings.ToLower(string(input[0]))
+	return firstLetter + input[1:]
+}

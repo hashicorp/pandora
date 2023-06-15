@@ -232,6 +232,9 @@ type ResourceIdMappingDefinition struct {
 	// SegmentName is the name of the ResourceId Segment which should be mapped to/from
 	// the Schema Field defined in SchemaFieldName.
 	SegmentName string `json:"segmentName"`
+
+	// Parent specifies whether the field in SchemaFieldName is a parent resource.
+	Parent bool `json:"parent"`
 }
 
 type ModelToModelMappingDefinition struct {

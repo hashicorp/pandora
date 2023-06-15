@@ -8,6 +8,7 @@ type testDependencies struct {
 	needsEdgeZone             bool
 	needsKeyVault             bool
 	needsKeyVaultKey          bool
+	needsKubernetesCluster    bool
 	needsNetworkInterface     bool
 	needsPublicIP             bool
 	needsResourceGroup        bool
@@ -46,6 +47,13 @@ func (d *testDependencies) setNeedsKeyVault() {
 func (d *testDependencies) setNeedsKeyVaultKey() {
 	d.setNeedsKeyVault()
 	d.needsKeyVaultKey = true
+
+	d.variables.needsRandomString = true
+}
+
+func (d *testDependencies) setNeedsKubernetesCluster() {
+	d.setNeedsResourceGroup()
+	d.needsKubernetesCluster = true
 
 	d.variables.needsRandomString = true
 }
