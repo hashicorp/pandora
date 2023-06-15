@@ -138,6 +138,7 @@ func (h createFunctionComponents) create() (*string, error) {
 func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 	newIdFuncName := h.newResourceIdFuncName
 	segments := make([]string, 0)
+	parseParentId := ""
 
 	subscriptionIdDefinition := ""
 	for _, v := range h.resourceId.Segments {
@@ -164,6 +165,20 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 					if v.ConstantReference != nil {
 						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
 						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
+					} else if resourceIdMapping.Parent {
+						// @stephybun: this currently only works for cases where the parent resource segment comes after
+						// the resource group segment - we need additional logic to determine the levels of nesting
+						if !strings.EqualFold(v.Name, "resourceGroupName") && parseParentId == "" {
+							parentResource := strings.Replace(resourceIdMapping.SchemaFieldName, "Id", "", -1)
+							// TODO how to get the package name
+							parseParentId = fmt.Sprintf(`
+								%[1]sId, err := parentresource.Parse%[2]sID(config.%[3]s)
+								if err != nil {
+									return err
+								}
+							`, helpers.LowerCaseName(parentResource), parentResource, resourceIdMapping.SchemaFieldName)
+						}
+						segments = append(segments, fmt.Sprintf("%s.%s", resourceIdMapping.SchemaFieldName, resourceIdMapping.SegmentName))
 					} else {
 						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
 					}
@@ -174,9 +189,10 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 	}
 
 	output := fmt.Sprintf(`
-%[3]s
-id := %[1]s(%[2]s)
-`, newIdFuncName, strings.Join(segments, ", "), subscriptionIdDefinition)
+%[1]s
+%[2]s
+id := %[3]s(%[4]s)
+`, subscriptionIdDefinition, parseParentId, newIdFuncName, strings.Join(segments, ", "))
 	return &output, nil
 }
 
