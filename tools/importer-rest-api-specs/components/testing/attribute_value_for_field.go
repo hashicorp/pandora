@@ -121,6 +121,10 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 				dependencies.setNeedsKeyVaultKey()
 				reference = fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)
 			}
+			if strings.EqualFold(field.HclName, "kubernetes_cluster_id") {
+				dependencies.setNeedsKubernetesCluster()
+				reference = fmt.Sprintf("%s_kubernetes_cluster.test.id", providerPrefix)
+			}
 			if strings.EqualFold(field.HclName, "network_interface_id") {
 				dependencies.setNeedsNetworkInterface()
 				reference = fmt.Sprintf("%s_network_interface.test.id", providerPrefix)
@@ -144,6 +148,12 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 			if strings.EqualFold(field.HclName, "virtual_network_id") {
 				dependencies.setNeedsVirtualNetwork()
 				reference = fmt.Sprintf("%s_virtual_network.test.id", providerPrefix)
+			}
+
+			// TODO temp fix for kubernetes cluster trusted access role binding
+			if strings.EqualFold(field.HclName, "source_resource_id") {
+				//dependencies.setWhat()
+				reference = fmt.Sprintf("%s_machine_learning_workspace.test.id", providerPrefix)
 			}
 
 			if reference == "" {

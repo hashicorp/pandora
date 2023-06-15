@@ -328,6 +328,46 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
+func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "kubernetes_cluster_id",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"KubernetesClusterId": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+	}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `example_kubernetes_cluster.test.id`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+			needsRandomInteger:   true,
+			needsRandomString:    true,
+		},
+		needsResourceGroup:     true,
+		needsKubernetesCluster: true,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
 func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "network_interface_id",
