@@ -29,7 +29,7 @@ internal class DeploymentWhatIfPropertiesModel
     public OnErrorDeploymentModel? OnErrorDeployment { get; set; }
 
     [JsonPropertyName("parameters")]
-    public object? Parameters { get; set; }
+    public Dictionary<string, DeploymentParameterModel>? Parameters { get; set; }
 
     [JsonPropertyName("parametersLink")]
     public ParametersLinkModel? ParametersLink { get; set; }
