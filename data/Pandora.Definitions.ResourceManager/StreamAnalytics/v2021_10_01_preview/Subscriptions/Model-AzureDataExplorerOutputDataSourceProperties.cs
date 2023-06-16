@@ -13,17 +13,17 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2021_10_01_preview.Subscriptions;
 
 
-internal class IdentityModel
+internal class AzureDataExplorerOutputDataSourcePropertiesModel
 {
-    [JsonPropertyName("principalId")]
-    public string? PrincipalId { get; set; }
+    [JsonPropertyName("authenticationMode")]
+    public AuthenticationModeConstant? AuthenticationMode { get; set; }
 
-    [JsonPropertyName("tenantId")]
-    public string? TenantId { get; set; }
+    [JsonPropertyName("cluster")]
+    public string? Cluster { get; set; }
 
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
+    [JsonPropertyName("database")]
+    public string? Database { get; set; }
 
-    [JsonPropertyName("userAssignedIdentities")]
-    public Dictionary<string, object>? UserAssignedIdentities { get; set; }
+    [JsonPropertyName("table")]
+    public string? Table { get; set; }
 }
