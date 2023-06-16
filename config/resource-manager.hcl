@@ -414,7 +414,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-01-15", "2023-02-01"]
+  available = ["2023-01-15", "2023-02-01", "2023-04-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
