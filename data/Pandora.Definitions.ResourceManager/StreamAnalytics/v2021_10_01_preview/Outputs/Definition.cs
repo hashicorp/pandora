@@ -32,6 +32,8 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
         typeof(AvroSerializationModel),
+        typeof(AzureDataExplorerOutputDataSourceModel),
+        typeof(AzureDataExplorerOutputDataSourcePropertiesModel),
         typeof(AzureDataLakeStoreOutputDataSourceModel),
         typeof(AzureDataLakeStoreOutputDataSourcePropertiesModel),
         typeof(AzureFunctionOutputDataSourceModel),

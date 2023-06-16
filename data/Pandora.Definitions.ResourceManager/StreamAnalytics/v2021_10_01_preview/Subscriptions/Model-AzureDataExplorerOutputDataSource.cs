@@ -12,18 +12,9 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.StreamAnalytics.v2021_10_01_preview.Subscriptions;
 
-
-internal class IdentityModel
+[ValueForType("Microsoft.Kusto/clusters/databases")]
+internal class AzureDataExplorerOutputDataSourceModel : OutputDataSourceModel
 {
-    [JsonPropertyName("principalId")]
-    public string? PrincipalId { get; set; }
-
-    [JsonPropertyName("tenantId")]
-    public string? TenantId { get; set; }
-
-    [JsonPropertyName("type")]
-    public string? Type { get; set; }
-
-    [JsonPropertyName("userAssignedIdentities")]
-    public Dictionary<string, object>? UserAssignedIdentities { get; set; }
+    [JsonPropertyName("properties")]
+    public AzureDataExplorerOutputDataSourcePropertiesModel? Properties { get; set; }
 }

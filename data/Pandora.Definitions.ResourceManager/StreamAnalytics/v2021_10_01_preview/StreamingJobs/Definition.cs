@@ -52,6 +52,8 @@ internal class Definition : ResourceDefinition
     {
         typeof(AggregateFunctionPropertiesModel),
         typeof(AvroSerializationModel),
+        typeof(AzureDataExplorerOutputDataSourceModel),
+        typeof(AzureDataExplorerOutputDataSourcePropertiesModel),
         typeof(AzureDataLakeStoreOutputDataSourceModel),
         typeof(AzureDataLakeStoreOutputDataSourcePropertiesModel),
         typeof(AzureFunctionOutputDataSourceModel),
