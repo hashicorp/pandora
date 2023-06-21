@@ -272,7 +272,7 @@ service "labservices" {
   available = ["2021-10-01-preview", "2022-08-01"]
 }
 service "liftrqumulo" {
-  name = "Qumulo.Storage"
+  name = "QumuloStorage"
     available = ["2022-10-12"]
 }
 service "loadtestservice" {
