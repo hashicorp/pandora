@@ -121,7 +121,8 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 				dependencies.setNeedsKeyVaultKey()
 				reference = fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)
 			}
-			if strings.EqualFold(field.HclName, "kubernetes_cluster_id") {
+			// TODO: this should be kubernetes_cluster_id
+			if strings.EqualFold(field.HclName, "managed_cluster_id") {
 				dependencies.setNeedsKubernetesCluster()
 				reference = fmt.Sprintf("%s_kubernetes_cluster.test.id", providerPrefix)
 			}
