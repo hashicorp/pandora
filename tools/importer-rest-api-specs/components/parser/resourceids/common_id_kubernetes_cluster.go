@@ -10,7 +10,7 @@ var _ commonIdMatcher = commonIdKubernetesCluster{}
 type commonIdKubernetesCluster struct{}
 
 func (c commonIdKubernetesCluster) id() models.ParsedResourceId {
-	name := "KeyVault"
+	name := "KubernetesCluster"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
