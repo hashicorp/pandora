@@ -16,7 +16,7 @@ internal class RoleBindingsListOperation : Pandora.Definitions.Operations.ListOp
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type NestedItemType() => typeof(TrustedAccessRoleBindingModel);
 

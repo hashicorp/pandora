@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.Network.v2023_02_01.Subnets;
 
 internal class VirtualNetworkId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "VirtualNetwork";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/virtualNetworks/{virtualNetworkName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftNetwork", "Microsoft.Network"),
-        ResourceIDSegment.Static("staticVirtualNetworks", "virtualNetworks"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Network"),
+        ResourceIDSegment.Static("virtualNetworks", "virtualNetworks"),
         ResourceIDSegment.UserSpecified("virtualNetworkName"),
     };
 }

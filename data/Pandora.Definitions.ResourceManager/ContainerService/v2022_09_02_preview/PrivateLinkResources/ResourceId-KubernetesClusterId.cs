@@ -6,23 +6,23 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.ContainerService.v2023_04_02_preview.AgentPools;
+namespace Pandora.Definitions.ResourceManager.ContainerService.v2022_09_02_preview.PrivateLinkResources;
 
-internal class ManagedClusterId : ResourceID
+internal class KubernetesClusterId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "KubernetesCluster";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftContainerService", "Microsoft.ContainerService"),
-        ResourceIDSegment.Static("staticManagedClusters", "managedClusters"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.ContainerService"),
+        ResourceIDSegment.Static("managedClusters", "managedClusters"),
         ResourceIDSegment.UserSpecified("managedClusterName"),
     };
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2019_08_01.Manag
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(ManagedClusterModel);
 

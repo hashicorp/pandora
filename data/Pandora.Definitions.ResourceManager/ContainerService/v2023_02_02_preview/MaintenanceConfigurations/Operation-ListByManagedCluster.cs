@@ -16,7 +16,7 @@ internal class ListByManagedClusterOperation : Pandora.Definitions.Operations.Li
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type NestedItemType() => typeof(MaintenanceConfigurationModel);
 
