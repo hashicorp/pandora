@@ -20,6 +20,8 @@ var commonIdTypes = []commonIdMatcher{
 	// "Core"
 	commonIdNetworkInterface{},
 	commonIdPublicIPAddress{},
+	commonIdSubnet{},
+	commonIdVirtualNetwork{},
 	commonIdVPNConnection{},
 
 	// RP Specific
