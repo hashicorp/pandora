@@ -21,7 +21,7 @@ internal class POSTOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(PrivateLinkResourceModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(PrivateLinkResourceModel);
 

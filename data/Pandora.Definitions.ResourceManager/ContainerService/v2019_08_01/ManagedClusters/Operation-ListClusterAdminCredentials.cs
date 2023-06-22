@@ -21,7 +21,7 @@ internal class ListClusterAdminCredentialsOperation : Pandora.Definitions.Operat
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(CredentialResultsModel);
 

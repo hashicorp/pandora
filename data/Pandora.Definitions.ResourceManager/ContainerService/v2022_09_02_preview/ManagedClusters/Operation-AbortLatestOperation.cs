@@ -21,7 +21,7 @@ internal class AbortLatestOperationOperation : Pandora.Definitions.Operations.Po
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override string? UriSuffix() => "/abort";
 

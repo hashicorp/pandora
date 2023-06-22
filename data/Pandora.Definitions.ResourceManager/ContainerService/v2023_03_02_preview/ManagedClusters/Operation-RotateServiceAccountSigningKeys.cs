@@ -24,7 +24,7 @@ internal class RotateServiceAccountSigningKeysOperation : Pandora.Definitions.Op
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override string? UriSuffix() => "/rotateServiceAccountSigningKeys";
 
