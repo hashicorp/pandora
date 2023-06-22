@@ -24,7 +24,7 @@ internal class ResetServicePrincipalProfileOperation : Pandora.Definitions.Opera
 
     public override Type? RequestObject() => typeof(ManagedClusterServicePrincipalProfileModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override string? UriSuffix() => "/resetServicePrincipalProfile";
 

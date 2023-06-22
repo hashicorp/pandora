@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2019_08_01.Agent
 
 internal class GetAvailableAgentPoolVersionsOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(AgentPoolAvailableVersionsModel);
 

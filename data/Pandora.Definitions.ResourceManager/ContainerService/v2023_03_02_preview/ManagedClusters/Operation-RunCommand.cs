@@ -24,7 +24,7 @@ internal class RunCommandOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override Type? RequestObject() => typeof(RunCommandRequestModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(RunCommandResultModel);
 

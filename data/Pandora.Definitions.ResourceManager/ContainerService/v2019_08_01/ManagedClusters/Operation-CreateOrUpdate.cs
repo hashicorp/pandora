@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ManagedClusterModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(ManagedClusterModel);
 

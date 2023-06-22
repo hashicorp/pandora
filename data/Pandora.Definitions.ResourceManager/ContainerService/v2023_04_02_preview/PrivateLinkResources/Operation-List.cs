@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.v2023_04_02_previ
 
 internal class ListOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override Type? ResponseObject() => typeof(PrivateLinkResourcesListResultModel);
 

@@ -24,7 +24,7 @@ internal class RotateClusterCertificatesOperation : Pandora.Definitions.Operatio
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override string? UriSuffix() => "/rotateClusterCertificates";
 

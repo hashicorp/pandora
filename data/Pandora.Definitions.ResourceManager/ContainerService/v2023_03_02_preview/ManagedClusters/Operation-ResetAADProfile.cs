@@ -24,7 +24,7 @@ internal class ResetAADProfileOperation : Pandora.Definitions.Operations.PostOpe
 
     public override Type? RequestObject() => typeof(ManagedClusterAADProfileModel);
 
-    public override ResourceID? ResourceId() => new ManagedClusterId();
+    public override ResourceID? ResourceId() => new KubernetesClusterId();
 
     public override string? UriSuffix() => "/resetAADProfile";
 
