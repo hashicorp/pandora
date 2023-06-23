@@ -17,7 +17,7 @@ public class FromMapping
 
     /// <summary>
     /// ToResourceIdSegmentNamed specifies that the Schema Field should be mapped to and from
-    /// the Resource ID Segment with the specified name. 
+    /// the Resource ID Segment with the specified name.
     /// </summary>
     public ResourceIdMapping ToResourceIdSegmentNamed(string name)
     {
@@ -32,6 +32,25 @@ public class FromMapping
             SegmentName = name,
         };
     }
+
+        /// <summary>
+        /// ToCommonIdSegmentNamed specifies that the Schema Field contains a common ID and should be mapped to and from
+        /// the Resource ID Segment with the specified name.
+        /// </summary>
+        public ResourceIdMapping ToCommonIdSegmentNamed(string name)
+        {
+            if (FromFieldPath.Contains('.'))
+            {
+                throw new NotSupportedException("ResourceIDSegments can only be mapped to top-level fields");
+            }
+
+            return new ResourceIdMapping
+            {
+                SchemaFieldName = FromFieldPath,
+                SegmentName = name,
+                Parent = true,
+            };
+        }
 
     /// <summary>
     /// ToSdkField defines a Mapping between a Schema Field and an SDK Field, however it doesn't specify
