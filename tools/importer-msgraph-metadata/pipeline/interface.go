@@ -15,6 +15,10 @@ type RunInput struct {
 	OutputDirectory    string
 	ProviderPrefix     string
 	Tags               []string
+
+	// ModelsPerService will output models and constants for each service, duplicating where necessary. However, this
+	// yields >400,000 files at over 1.5GB, so setting this to false will instead output a single Models namespace
+	ModelsPerService bool
 }
 
 func Run(input RunInput) error {

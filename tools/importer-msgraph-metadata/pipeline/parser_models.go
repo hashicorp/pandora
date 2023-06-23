@@ -9,9 +9,50 @@ import (
 
 type Models map[string]*Model
 
-func (m Models) Found(modelName string) (ok bool) {
-	_, ok = m[modelName]
-	return
+func (m Models) Found(modelName string) bool {
+	if model, ok := m[modelName]; ok && model != nil {
+		return true
+	}
+	return false
+}
+
+func (m Models) MergeDependants(allModels Models, modelName string) error {
+	if !allModels.Found(modelName) {
+		return fmt.Errorf("model not found: %q", modelName)
+	}
+
+	if _, ok := m[modelName]; !ok {
+		m[modelName] = allModels[modelName]
+	}
+
+	for _, field := range allModels[modelName].Fields {
+		if field.ModelName == "" {
+			continue
+		}
+
+		if _, ok := m[field.ModelName]; ok {
+			continue
+		}
+
+		if !allModels.Found(field.ModelName) {
+			return fmt.Errorf("dependant model not found: %q", modelName)
+		}
+
+		if err := m.MergeDependants(allModels, field.ModelName); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
+func (m Models) Merge(m2 Models) {
+	if m2 == nil {
+		return
+	}
+	for modelName, model := range m2 {
+		m[modelName] = model
+	}
 }
 
 type Model struct {
@@ -201,6 +242,20 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
 // Schemas is a model
 // SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
 // Schema leads to SchemaRefs and Schemas
+
+func parseModels(schemas openapi3.Schemas) (models Models, err error) {
+	models = make(Models)
+	for modelName, schemaRef := range schemas {
+		name := cleanName(modelName)
+		if schema := parseSchemaRef(schemaRef); schema != nil {
+			var f flattenedSchema
+			f, _ = flattenSchema(schema, nil)
+			models = parseSchemas(f, name, models)
+		}
+	}
+
+	return
+}
 
 type flattenedSchema struct {
 	Schemas openapi3.Schemas

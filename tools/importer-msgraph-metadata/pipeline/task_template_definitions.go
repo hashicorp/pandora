@@ -39,6 +39,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 					}
 
 					operationNamesMap[operation.Name] = true
+
 					if m := operation.RequestModel; m != nil {
 						modelNamesMap[*m] = true
 
@@ -50,6 +51,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 							}
 						}
 					}
+
 					for _, response := range operation.Responses {
 						if m := response.ModelName; m != nil {
 							modelNamesMap[*m] = true
@@ -82,8 +84,14 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 			modelNames = append(modelNames, m)
 		}
 
+		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
+		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
+		if p.modelsPerService {
+			modelsNamespace = ""
+		}
+
 		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
-		definitions[filename] = templateDefinition(p.service, p.apiVersion, category, operationNames, constantNames, modelNames)
+		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, modelNames)
 	}
 
 	definitionFiles := sortedKeys(definitions)
@@ -96,7 +104,12 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 	return nil
 }
 
-func templateDefinition(serviceName, apiVersion, category string, operationNames, constantNames, modelNames []string) string {
+func templateDefinition(namespace, modelsNamespace, category string, operationNames, constantNames, modelNames []string) string {
+	modelsImportCode := ""
+	if modelsNamespace != "" {
+		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
+	}
+
 	operations := make([]string, 0, len(operationNames))
 	for _, operation := range operationNames {
 		operations = append(operations, fmt.Sprintf(`new %sOperation()`, operation))
@@ -119,33 +132,33 @@ func templateDefinition(serviceName, apiVersion, category string, operationNames
 	modelsCode := indentSpace(strings.Join(models, ",\n"), 8)
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
-using Pandora.Definitions.%[2]s.Models;
+%[2]s
 using System;
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
+namespace %[1]s;
 
 internal class Definition : ResourceDefinition
 {
-    public string Name => "%[4]s";
+    public string Name => "%[3]s";
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-%[5]s
+%[4]s
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-%[6]s
+%[5]s
     };
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-%[7]s
+%[6]s
     };
 }
-`, cleanName(serviceName), definitionsDirectory(apiVersion), cleanVersion(apiVersion), category, operationsCode, constantsCode, modelsCode)
+`, namespace, modelsImportCode, category, operationsCode, constantsCode, modelsCode)
 
 }
