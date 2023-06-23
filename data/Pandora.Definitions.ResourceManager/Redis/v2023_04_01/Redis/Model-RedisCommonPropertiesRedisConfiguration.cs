@@ -42,6 +42,9 @@ internal class RedisCommonPropertiesRedisConfigurationModel
     [JsonPropertyName("maxmemory-reserved")]
     public string? MaxmemoryReserved { get; set; }
 
+    [JsonPropertyName("notify-keyspace-events")]
+    public string? NotifyKeyspaceEvents { get; set; }
+
     [JsonPropertyName("preferred-data-archive-auth-method")]
     public string? PreferredDataArchiveAuthMethod { get; set; }
 
