@@ -13,6 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "RecoveryPointsCrr";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new RecoveryPointsCrrGetOperation(),
         new RecoveryPointsCrrListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>

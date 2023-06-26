@@ -1,14 +1,11 @@
 using Pandora.Definitions.Attributes;
 using System.ComponentModel;
 
-namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_04_01.BackupResourceVaultConfigs;
+namespace Pandora.Definitions.ResourceManager.RecoveryServices.v2023_04_01.Vaults;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum SoftDeleteFeatureStateConstant
+internal enum MultiUserAuthorizationConstant
 {
-    [Description("AlwaysON")]
-    AlwaysON,
-
     [Description("Disabled")]
     Disabled,
 

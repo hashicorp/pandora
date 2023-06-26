@@ -27,6 +27,9 @@ internal class BackupResourceVaultConfigModel
     [JsonPropertyName("softDeleteFeatureState")]
     public SoftDeleteFeatureStateConstant? SoftDeleteFeatureState { get; set; }
 
+    [JsonPropertyName("softDeleteRetentionPeriodInDays")]
+    public int? SoftDeleteRetentionPeriodInDays { get; set; }
+
     [JsonPropertyName("storageModelType")]
     public StorageTypeConstant? StorageModelType { get; set; }
 

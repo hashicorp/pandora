@@ -6,6 +6,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_02_01
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum SoftDeleteFeatureStateConstant
 {
+    [Description("AlwaysON")]
+    AlwaysON,
+
     [Description("Disabled")]
     Disabled,
 
