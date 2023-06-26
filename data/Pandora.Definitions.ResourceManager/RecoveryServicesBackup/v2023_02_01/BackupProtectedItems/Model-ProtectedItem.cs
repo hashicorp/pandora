@@ -64,8 +64,8 @@ internal abstract class ProtectedItemModel
     [JsonPropertyName("resourceGuardOperationRequests")]
     public List<string>? ResourceGuardOperationRequests { get; set; }
 
-    [JsonPropertyName("softDeleteRetentionPeriod")]
-    public int? SoftDeleteRetentionPeriod { get; set; }
+    [JsonPropertyName("softDeleteRetentionPeriodInDays")]
+    public int? SoftDeleteRetentionPeriodInDays { get; set; }
 
     [JsonPropertyName("sourceResourceId")]
     public string? SourceResourceId { get; set; }

@@ -21,6 +21,9 @@ internal class InquiryValidationModel
     [JsonPropertyName("errorDetail")]
     public ErrorDetailModel? ErrorDetail { get; set; }
 
+    [JsonPropertyName("protectableItemCount")]
+    public object? ProtectableItemCount { get; set; }
+
     [JsonPropertyName("status")]
     public string? Status { get; set; }
 }

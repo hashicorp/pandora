@@ -13,14 +13,11 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.RecoveryServices.v2023_04_01.Vaults;
 
 
-internal class SecuritySettingsModel
+internal class SoftDeleteSettingsModel
 {
-    [JsonPropertyName("immutabilitySettings")]
-    public ImmutabilitySettingsModel? ImmutabilitySettings { get; set; }
+    [JsonPropertyName("softDeleteRetentionPeriodInDays")]
+    public int? SoftDeleteRetentionPeriodInDays { get; set; }
 
-    [JsonPropertyName("multiUserAuthorization")]
-    public MultiUserAuthorizationConstant? MultiUserAuthorization { get; set; }
-
-    [JsonPropertyName("softDeleteSettings")]
-    public SoftDeleteSettingsModel? SoftDeleteSettings { get; set; }
+    [JsonPropertyName("softDeleteState")]
+    public SoftDeleteStateConstant? SoftDeleteState { get; set; }
 }
