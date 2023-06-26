@@ -205,6 +205,12 @@ func (p operationsParser) determineObjectDefinitionForOptionRaw(paramType string
 				}, nil
 			}
 
+			if strings.EqualFold(format, "decimal") {
+				return &models.ObjectDefinition{
+					Type: models.ObjectDefinitionFloat,
+				}, nil
+			}
+
 			if format != "" {
 				// we don't know what this is, better to raise an error and handle it than make
 				// it an integer if it should be a float or something
