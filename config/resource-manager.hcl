@@ -49,7 +49,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29"]
+  available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29", "2023-05-02"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
@@ -93,7 +93,7 @@ service "connectedvmware" {
 }
 service "consumption" {
   name      = "Consumption"
-  available = ["2019-10-01", "2021-10-01", "2022-09-01"]
+  available = ["2019-10-01", "2021-10-01", "2022-09-01", "2023-05-01"]
   ignore    = ["2023-03-01"]
 }
 service "containerinstance" {
