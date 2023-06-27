@@ -325,7 +325,7 @@ service "mixedreality" {
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
-  available = ["2022-11-01"]
+  available = ["2022-11-01", "2023-06-01"]
 }
 service "monitor" {
   name      = "Insights"
