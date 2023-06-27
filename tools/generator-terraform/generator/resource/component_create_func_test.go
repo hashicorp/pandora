@@ -994,7 +994,7 @@ func TestComponentCreate_IdDefinitionAndMapping_ParentResourceID(t *testing.T) {
 	}
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
-	parentResourceId, err := parentresource.ParseParentResourceID(config.ParentResourceId)
+	parentResourceId, err := commonids.ParseParentResourceID(config.ParentResourceId)
 	if err != nil {
 		return err
 	}
@@ -1096,7 +1096,7 @@ func TestComponentCreate_IdDefinitionAndMapping_ParentResourceIDKubernetesExampl
 	// TODO parentresource needs to be replaced by managedclusters here
 	expected := `
 	subscriptionId := metadata.Client.Account.SubscriptionId
-	managedClusterId, err := parentresource.ParseManagedClusterID(config.ManagedClusterId)
+	managedClusterId, err := commonids.ParseManagedClusterID(config.ManagedClusterId)
 	if err != nil {
 		return err
 	}

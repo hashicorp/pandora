@@ -170,15 +170,14 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 						// the resource group segment - we need additional logic to determine the levels of nesting
 						if !strings.EqualFold(v.Name, "resourceGroupName") && parseParentId == "" {
 							parentResource := strings.Replace(resourceIdMapping.SchemaFieldName, "Id", "", -1)
-							// TODO how to get the package name
 							parseParentId = fmt.Sprintf(`
-								%[1]sId, err := parentresource.Parse%[2]sID(config.%[3]s)
-								if err != nil {
-									return err
-								}
+			%[1]sId, err := commonids.Parse%[2]sID(config.%[3]s)
+			if err != nil {
+				return err
+			}
 							`, helpers.LowerCaseName(parentResource), parentResource, resourceIdMapping.SchemaFieldName)
 						}
-						segments = append(segments, fmt.Sprintf("%s.%s", resourceIdMapping.SchemaFieldName, resourceIdMapping.SegmentName))
+						segments = append(segments, fmt.Sprintf("%s.%s", helpers.LowerCaseName(resourceIdMapping.SchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
 					} else {
 						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
 					}
