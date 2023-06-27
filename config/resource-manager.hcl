@@ -473,7 +473,7 @@ service "servicelinker" {
   available = ["2022-05-01"]
 }
 service "servicenetworking" {
-  name = "ServiceNetworking"
+  name      = "ServiceNetworking"
   available = ["2023-05-01-preview"]
 }
 service "signalr" {
