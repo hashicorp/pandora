@@ -12,9 +12,6 @@ import (
 func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, resourceDisplayName string, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
-	// TODO: handle using the Parent Resource ID instead where possible, we'd need to thread through the
-	// Parent Resource ID here, so this is an enhancement (#1570)
-
 	if len(input.Segments) > 2 {
 		parentSegments := input.Segments[0 : len(input.Segments)-2]
 		if segmentsContainResource(parentSegments) {
@@ -26,22 +23,46 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 					break
 				}
 			}
-			if parentResourceIdName != "" {
-				parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
-				out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
-						//ReferenceName: &parentResourceIdName,
-					},
-					// since this is included in the Resource ID it's implicitly Required/ForceNew
-					Required: true,
-					ForceNew: true,
-					HclName:  parentResourceSchemaField,
+
+			if parentResourceIdName == "" {
+				return nil, nil, fmt.Errorf("parent resource detected but corresponding resource ID not found")
+			}
+
+			// add field definition for the resource name
+			out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				},
+				Required: true,
+				ForceNew: true,
+				HclName:  "name",
+			}
+
+			// add the parent resource ID and then the name of the resource
+			parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
+			out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
+				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				},
+				// since this is included in the Resource ID it's implicitly Required/ForceNew
+				Required: true,
+				ForceNew: true,
+				HclName:  parentResourceSchemaField,
+			}
+
+			mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
+				SchemaFieldName: "Name",
+				SegmentName:     input.Segments[len(input.Segments)-1].Name,
+			})
+
+			for _, v := range parentSegments {
+				if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment || v.Type == resourcemanager.ResourceProviderSegment {
+					continue
 				}
 
 				mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
 					SchemaFieldName: parentResourceIdName,
-					SegmentName:     parentSegments[len(parentSegments)-1].Name,
+					SegmentName:     v.Name,
 					Parent:          true,
 				})
 			}
