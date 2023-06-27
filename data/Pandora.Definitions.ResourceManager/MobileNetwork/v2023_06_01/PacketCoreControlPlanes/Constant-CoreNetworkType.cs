@@ -1,0 +1,17 @@
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.ResourceManager.MobileNetwork.v2023_06_01.PacketCoreControlPlanes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum CoreNetworkTypeConstant
+{
+    [Description("EPC")]
+    EPC,
+
+    [Description("EPC + 5GC")]
+    EPCPositiveFiveGC,
+
+    [Description("5GC")]
+    FiveGC,
+}
