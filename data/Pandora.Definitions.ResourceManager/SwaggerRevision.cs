@@ -5,4 +5,4 @@ namespace Pandora.Definitions.ResourceManager;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-// Generated from Swagger revision "d03c1964cb76ffd6884d10a1871bbe779a2f68ef"
+// Generated from Swagger revision "4aa4e842c6821ff7ca76e80fd8229cd3c7873681"
