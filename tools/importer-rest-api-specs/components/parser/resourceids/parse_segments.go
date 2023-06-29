@@ -15,6 +15,7 @@ import (
 
 var knownSegmentsUsedForScope = []string{
 	"billingScope",
+	"denyAssignmentId",
 	"ResourceId",
 	"resourceScope",
 	"resourceUri",
