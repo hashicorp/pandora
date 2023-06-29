@@ -6,9 +6,9 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.CosmosDB.v2021_10_15.Rbacs;
+namespace Pandora.Definitions.ResourceManager.CosmosDB.v2023_04_15.Rbacs;
 
-internal class SqlRoleAssignmentId : ResourceID
+internal class AccountId : ResourceID
 {
     public string? CommonAlias => null;
 
@@ -25,6 +25,6 @@ internal class SqlRoleAssignmentId : ResourceID
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
         ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticSqlRoleAssignments", "sqlRoleAssignments"),
-        ResourceIDSegment.UserSpecified("roleAssignmentId"),
+        ResourceIDSegment.Scope("roleAssignmentId"),
     };
 }
