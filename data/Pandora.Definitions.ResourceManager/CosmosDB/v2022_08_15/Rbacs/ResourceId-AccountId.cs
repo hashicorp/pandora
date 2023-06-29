@@ -8,7 +8,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.CosmosDB.v2022_08_15.Rbacs;
 
-internal class SqlRoleAssignmentId : ResourceID
+internal class AccountId : ResourceID
 {
     public string? CommonAlias => null;
 
@@ -25,6 +25,6 @@ internal class SqlRoleAssignmentId : ResourceID
         ResourceIDSegment.Static("staticDatabaseAccounts", "databaseAccounts"),
         ResourceIDSegment.UserSpecified("databaseAccountName"),
         ResourceIDSegment.Static("staticSqlRoleAssignments", "sqlRoleAssignments"),
-        ResourceIDSegment.UserSpecified("roleAssignmentId"),
+        ResourceIDSegment.Scope("roleAssignmentId"),
     };
 }

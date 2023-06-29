@@ -23,7 +23,7 @@ internal class SqlResourcesDeleteSqlRoleAssignmentOperation : Pandora.Definition
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new SqlRoleAssignmentId();
+    public override ResourceID? ResourceId() => new AccountId();
 
 
 }
