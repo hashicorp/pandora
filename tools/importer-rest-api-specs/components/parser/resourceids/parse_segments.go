@@ -18,6 +18,7 @@ var knownSegmentsUsedForScope = []string{
 	"ResourceId",
 	"resourceScope",
 	"resourceUri",
+	"roleAssignmentId",
 	"scope",
 	"scopePath",
 }
