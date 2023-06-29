@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Authorization.v2022_04_01.DenyAssi
 
 internal class GetByIdOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DenyAssignmentIdId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(DenyAssignmentModel);
 
