@@ -40,8 +40,7 @@ service "attestation" {
 }
 service "authorization" {
   name      = "Authorization"
-  available = ["2020-10-01"]
-  ignore    = ["2022-04-01"]
+  available = ["2020-10-01", "2022-04-01"]
 }
 service "automation" {
   name      = "Automation"
