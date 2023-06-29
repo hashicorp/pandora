@@ -8,7 +8,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Authorization.v2022_04_01.DenyAssignments;
 
-internal class ScopedDenyAssignmentId : ResourceID
+internal class ScopedDenyAssignmentIdId : ResourceID
 {
     public string? CommonAlias => null;
 
@@ -20,6 +20,6 @@ internal class ScopedDenyAssignmentId : ResourceID
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAuthorization", "Microsoft.Authorization"),
         ResourceIDSegment.Static("staticDenyAssignments", "denyAssignments"),
-        ResourceIDSegment.UserSpecified("denyAssignmentId"),
+        ResourceIDSegment.Scope("denyAssignmentId"),
     };
 }
