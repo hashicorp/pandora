@@ -104,9 +104,13 @@ service "containerregistry" {
   name      = "ContainerRegistry"
   available = ["2019-06-01-preview", "2021-08-01-preview", "2022-12-01"]
 }
+#service "containerservice" {
+#  name      = "ContainerService"
+#  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview", "2023-04-02-preview"]
+#}
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview", "2023-04-02-preview"]
+  available = ["2023-03-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"

@@ -184,6 +184,28 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 	},
 }
 
+type attributeValueFunctionForLists func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string) (*hclwrite.Tokens, error)
+
+var attributeValuesForListsOfBasicTypes = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunctionForLists{
+	resourcemanager.TerraformSchemaFieldTypeString: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string) (*hclwrite.Tokens, error) {
+		val := hclwrite.Tokens{
+			{
+				Type:  hclsyntax.TokenOBrack,
+				Bytes: []byte(`[`),
+			},
+			{
+				Type:  hclsyntax.TokenIdent,
+				Bytes: []byte(`test.id`),
+			},
+			{
+				Type:  hclsyntax.TokenCBrack,
+				Bytes: []byte(`]`),
+			},
+		}
+		return &val, nil
+	},
+}
+
 var commonSchemaAttributeValueFunctions = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
 	// NOTE: there's a handful of top-level resources which have specific overrides (e.g. the Resource Group Name etc)
 	resourcemanager.TerraformSchemaFieldTypeEdgeZone: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string) (*hclwrite.Tokens, error) {
