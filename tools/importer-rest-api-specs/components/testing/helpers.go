@@ -27,7 +27,7 @@ func getRequiredFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelD
 			continue
 		}
 
-		if needsBlock(field.ObjectDefinition.Type) {
+		if needsBlock(field.ObjectDefinition.Type, field.ObjectDefinition.NestedObject) {
 			requiredBlockNames = append(requiredBlockNames, fieldName)
 		} else {
 			requiredAttributeNames = append(requiredAttributeNames, fieldName)
@@ -59,7 +59,7 @@ func getOptionalFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelD
 			continue
 		}
 
-		if needsBlock(field.ObjectDefinition.Type) {
+		if needsBlock(field.ObjectDefinition.Type, field.ObjectDefinition.NestedObject) {
 			blockFieldNames = append(blockFieldNames, fieldName)
 		} else {
 			attributeFieldNames = append(attributeFieldNames, fieldName)
@@ -81,7 +81,7 @@ func getOptionalFieldsForSchemaModel(input resourcemanager.TerraformSchemaModelD
 	return out
 }
 
-func needsBlock(input resourcemanager.TerraformSchemaFieldType) bool {
+func needsBlock(input resourcemanager.TerraformSchemaFieldType, nestedObject *resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
 	typesNeedingBlocks := map[resourcemanager.TerraformSchemaFieldType]struct{}{
 		resourcemanager.TerraformSchemaFieldTypeList:      {},
 		resourcemanager.TerraformSchemaFieldTypeReference: {},
@@ -94,8 +94,15 @@ func needsBlock(input resourcemanager.TerraformSchemaFieldType) bool {
 		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
 		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
 	}
-	_, ok := typesNeedingBlocks[input]
-	return ok
+
+	if _, ok := typesNeedingBlocks[input]; ok {
+		// lists of basic types should be treated as attributes rather than blocks
+		if nestedObject != nil && nestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
+			return false
+		}
+		return true
+	}
+	return false
 }
 
 func suffixFromResourceLabel(input string) string {

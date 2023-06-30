@@ -16,7 +16,7 @@ func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanage
 	}
 
 	for _, nestedField := range fields {
-		if needsBlock(nestedField.ObjectDefinition.Type) {
+		if needsBlock(nestedField.ObjectDefinition.Type, nestedField.ObjectDefinition.NestedObject) {
 			nestedBlocks, err := tb.getBlockValueForField(nestedField, dependencies, onlyRequiredFields)
 			if err != nil {
 				return nil, fmt.Errorf("getting block value for field %q: %+v", nestedField.HclName, err)

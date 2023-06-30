@@ -32,6 +32,14 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 			return nil, fmt.Errorf("for basic type: %+v", err)
 		}
 		return out, nil
+
+		if function, isListOrSet := attributeValuesForListsOfBasicTypes[field.ObjectDefinition.Type]; isListOrSet {
+			out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName)
+			if err != nil {
+				return nil, fmt.Errorf("for list or set type: %+v", err)
+			}
+			return out, nil
+		}
 	}
 
 	return nil, fmt.Errorf("internal-error: support for ObjectDefinition Type %q as an Attribute is not implemented", field.ObjectDefinition)
@@ -181,6 +189,34 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 			},
 		}
 		return &val, nil
+	},
+}
+
+var attributeValuesForListsOfBasicTypes = map[resourcemanager.TerraformSchemaFieldType]attributeValueFunction{
+	resourcemanager.TerraformSchemaFieldTypeList: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string) (*hclwrite.Tokens, error) {
+		if field.ObjectDefinition.NestedObject != nil && field.ObjectDefinition.NestedObject.Type != resourcemanager.TerraformSchemaFieldTypeString {
+			return nil, fmt.Errorf("not a list or set of basic types")
+		}
+
+		val := hclwrite.Tokens{
+			{
+				Type:  hclsyntax.TokenOBrack,
+				Bytes: []byte(`[`),
+			},
+			{
+				Type:  hclsyntax.TokenIdent,
+				Bytes: []byte(`"test.id"`),
+			},
+			{
+				Type:  hclsyntax.TokenCBrack,
+				Bytes: []byte(`]`),
+			},
+		}
+		return &val, nil
+	},
+
+	resourcemanager.TerraformSchemaFieldTypeSet: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string) (*hclwrite.Tokens, error) {
+		return nil, fmt.Errorf("not implemented yet")
 	},
 }
 

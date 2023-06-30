@@ -35,11 +35,6 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			}
 		}
 
-		// TODO add support for lists of basic types or check for nested items of basic types and add as an attribute elsewhere
-		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
-			nestedBlock = hclwrite.NewBlock(field.HclName, []string{})
-		}
-
 		if nestedBlock == nil {
 			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
 		}
