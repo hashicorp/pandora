@@ -2,8 +2,6 @@ package testing
 
 import (
 	"fmt"
-	"github.com/hashicorp/hcl/v2/hclsyntax"
-
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/hcl/v2/hclwrite"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -34,31 +32,6 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			if err != nil {
 				return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
 			}
-		}
-
-		// TODO add support for lists of basic types or check for nested items of basic types and add as an attribute elsewhere
-		if field.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
-			nestedBlock = hclwrite.NewBlock(field.HclName, []string{})
-			val := hclwrite.Tokens{
-				{
-					Type:  hclsyntax.TokenOBrack,
-					Bytes: []byte(`[`),
-				},
-				{
-					Type:  hclsyntax.TokenIdent,
-					Bytes: []byte(`test.id`),
-				},
-				{
-					Type:  hclsyntax.TokenCBrack,
-					Bytes: []byte(`]`),
-				},
-			}
-			//nestedBlock = nestedBlock.Body().SetAttributeValue(field.HclName, val)
-
-			nestedBlock2 := nestedBlock.Body().SetAttributeRaw(field.HclName, val)
-			return &[]*hclwrite.Block{
-				nestedBlock2,
-			}, nil
 		}
 
 		if nestedBlock == nil {
