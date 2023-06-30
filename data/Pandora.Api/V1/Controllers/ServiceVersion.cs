@@ -29,7 +29,7 @@ public class ServiceVersionController : ControllerBase
             return BadRequest($"the API Version {apiVersion} is not supported");
         }
 
-        return ForService(serviceName, serviceApiVersion, definitionType.Value, "/v1/microsoft-graph/{apiVersion}");
+        return ForService(serviceName, serviceApiVersion, definitionType.Value, $"/v1/microsoft-graph/{apiVersion}");
     }
 
     [Route("/v1/resource-manager/services/{serviceName}/{serviceApiVersion}")]
