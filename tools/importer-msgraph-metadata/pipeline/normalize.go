@@ -96,6 +96,31 @@ func cleanVersion(version string) string {
 	panic(fmt.Sprintf("Unrecognised API version string: %s", version))
 }
 
+func deDuplicateName(name string) string {
+	words := make([]string, 0)
+	i := 0
+	for j, c := range name {
+		char := string(c)
+		if j > 0 && strings.ToUpper(char) == char {
+			i++
+		}
+		if len(words) <= i {
+			words = append(words, "")
+		}
+		words[i] = words[i] + char
+	}
+
+	out := ""
+	for k, word := range words {
+		if k > 0 && strings.EqualFold(words[k-1], word) {
+			continue
+		}
+		out = out + word
+	}
+
+	return out
+}
+
 func definitionsDirectory(version string) string {
 	return fmt.Sprintf("MicrosoftGraph.%s", cleanVersion(version))
 }
@@ -128,6 +153,7 @@ func (ov operationVerbs) match(operation string) (*string, bool) {
 var verbs = operationVerbs{
 	"Acquire",
 	"Add",
+	"Assign",
 	"Check",
 	"Discover",
 	"Get",
@@ -135,6 +161,7 @@ var verbs = operationVerbs{
 	"Pause",
 	"Provision",
 	"Remove",
+	"Renew",
 	"Restart",
 	"Restore",
 	"Set",

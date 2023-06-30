@@ -21,8 +21,8 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 
 	for category, _ := range categories {
 		operationNamesMap := make(map[string]bool)
-		modelNamesMap := make(map[string]bool)
 		constantNamesMap := make(map[string]bool)
+		serviceModels := make(Models)
 
 		for _, resource := range resources {
 			if strings.EqualFold(resource.Category, category) {
@@ -41,27 +41,23 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 					operationNamesMap[operation.Name] = true
 
 					if m := operation.RequestModel; m != nil {
-						modelNamesMap[*m] = true
-
-						if model, ok := models[*m]; ok {
-							for _, field := range model.Fields {
-								if field.Enum != nil && (field.Type == FieldTypeString || field.ItemType == FieldTypeString) {
-									constantNamesMap[field.Title] = true
-								}
-							}
+						if err := serviceModels.MergeDependants(models, *m); err != nil {
+							return err
 						}
 					}
 
 					for _, response := range operation.Responses {
 						if m := response.ModelName; m != nil {
-							modelNamesMap[*m] = true
+							if err := serviceModels.MergeDependants(models, *m); err != nil {
+								return err
+							}
+						}
+					}
 
-							if model, ok := models[*m]; ok {
-								for _, field := range model.Fields {
-									if field.Enum != nil && (field.Type == FieldTypeString || field.ItemType == FieldTypeString) {
-										constantNamesMap[field.Title] = true
-									}
-								}
+					for _, model := range serviceModels {
+						for _, field := range model.Fields {
+							if len(field.Enum) > 0 && (field.Type == FieldTypeString || field.ItemType == FieldTypeString) {
+								constantNamesMap[field.Title] = true
 							}
 						}
 					}
@@ -79,11 +75,6 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 			constantNames = append(constantNames, m)
 		}
 
-		modelNames := make([]string, 0, len(modelNamesMap))
-		for m, _ := range modelNamesMap {
-			modelNames = append(modelNames, m)
-		}
-
 		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
 		if p.modelsPerService {
@@ -91,7 +82,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 		}
 
 		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
-		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, modelNames)
+		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, serviceModels)
 	}
 
 	definitionFiles := sortedKeys(definitions)
@@ -104,7 +95,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 	return nil
 }
 
-func templateDefinition(namespace, modelsNamespace, category string, operationNames, constantNames, modelNames []string) string {
+func templateDefinition(namespace, modelsNamespace, category string, operationNames, constantNames []string, models Models) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -124,12 +115,12 @@ func templateDefinition(namespace, modelsNamespace, category string, operationNa
 	sort.Strings(constants)
 	constantsCode := indentSpace(strings.Join(constants, ",\n"), 8)
 
-	models := make([]string, 0, len(modelNames))
-	for _, model := range modelNames {
-		models = append(models, fmt.Sprintf(`typeof(%sModel)`, model))
+	modelsLines := make([]string, 0, len(models))
+	for modelName := range models {
+		modelsLines = append(modelsLines, fmt.Sprintf(`typeof(%sModel)`, modelName))
 	}
-	sort.Strings(models)
-	modelsCode := indentSpace(strings.Join(models, ",\n"), 8)
+	sort.Strings(modelsLines)
+	modelsCode := indentSpace(strings.Join(modelsLines, ",\n"), 8)
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
 %[2]s

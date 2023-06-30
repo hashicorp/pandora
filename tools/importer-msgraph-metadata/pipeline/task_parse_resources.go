@@ -19,6 +19,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			if tagMatches(p.service, operation.Tags) {
 				operationTags = append(operationTags, operation.Tags...)
 				skip = false
+				break
 			}
 		}
 		if skip {
@@ -32,6 +33,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		}
 
 		resourceName := ""
+		fullyQualifiedResourceName := ""
 		if r, ok := parsedPath.FindResourceName(); ok {
 			resourceName = *r
 		}
@@ -40,19 +42,21 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			continue
 		}
 
+		if fqrn, ok := parsedPath.FullyQualifiedResourceName(); ok {
+			fullyQualifiedResourceName = *fqrn
+		}
+
 		// Resources by default go into their own category when their final URI segment is a label
 		resourceCategory := ""
 		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
-			if r, ok := parsedPath.FullyQualifiedResourceName(); ok {
-				resourceCategory = *r
-			}
+			resourceCategory = fullyQualifiedResourceName
 		}
 
 		// Create a new resource if not already encountered
-		if _, ok := resources[resourceName]; !ok {
+		if _, ok := resources[fullyQualifiedResourceName]; !ok {
 			p.logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
-			resources[resourceName] = &Resource{
+			resources[fullyQualifiedResourceName] = &Resource{
 				Name:       resourceName,
 				Category:   resourceCategory,
 				Version:    p.apiVersion,
@@ -61,7 +65,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				Operations: make([]Operation, 0, len(operations)),
 			}
 		} else {
-			resources[resourceName].Paths = append(resources[resourceName].Paths, parsedPath)
+			resources[fullyQualifiedResourceName].Paths = append(resources[fullyQualifiedResourceName].Paths, parsedPath)
 		}
 
 		for method, operation := range operations {
@@ -183,6 +187,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 			// Trim the "Ref" suffix from operation names
 			operationName = strings.TrimSuffix(operationName, "Ref")
+			operationName = strings.TrimSuffix(operationName, "Refs")
 
 			// Determine request model
 			var requestModel *string
@@ -208,7 +213,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				}
 			}
 
-			resources[resourceName].Operations = append(resources[resourceName].Operations, Operation{
+			resources[fullyQualifiedResourceName].Operations = append(resources[fullyQualifiedResourceName].Operations, Operation{
 				Name:         operationName,
 				Type:         operationType,
 				Method:       method,

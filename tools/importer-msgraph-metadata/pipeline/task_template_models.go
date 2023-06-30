@@ -96,11 +96,13 @@ func templateModel(namespace, modelName string, model *Model) string {
 
 	fieldsCode := make([]string, 0, len(fieldNames)*2)
 	for _, fieldName := range fieldNames {
-		field := []string{
-			fmt.Sprintf(`[JsonPropertyName("%s")]`, fieldName),
-			fmt.Sprintf("public %s? %s { get; set; }", model.Fields[fieldName].CSType(), fieldName),
+		if fType := model.Fields[fieldName].CSType(); fType != nil {
+			field := []string{
+				fmt.Sprintf(`[JsonPropertyName("%s")]`, model.Fields[fieldName].JsonField),
+				fmt.Sprintf("public %s? %s { get; set; }", *fType, fieldName),
+			}
+			fieldsCode = append(fieldsCode, strings.Join(field, "\n"))
 		}
-		fieldsCode = append(fieldsCode, strings.Join(field, "\n"))
 	}
 
 	return fmt.Sprintf(`using System;

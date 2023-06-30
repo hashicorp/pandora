@@ -45,7 +45,7 @@ func (p pipelineTask) templateConstantsForService(resources Resources, models Mo
 			for _, field := range model.Fields {
 				namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", cleanName(p.service), definitionsDirectory(p.apiVersion), cleanVersion(p.apiVersion), category)
 				filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sConstant-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category, field.Title)
-				if _, seen := constantFiles[filename]; (field.Type == FieldTypeString || field.ItemType == FieldTypeString) && field.Enum != nil && !seen {
+				if _, seen := constantFiles[filename]; (field.Type == FieldTypeString || field.ItemType == FieldTypeString) && len(field.Enum) > 0 && !seen {
 					constantFiles[filename] = templateConstant(namespace, field)
 				}
 			}
@@ -69,7 +69,7 @@ func templateConstants(files *Tree, apiVersion string, models Models) error {
 		for _, field := range model.Fields {
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(apiVersion))
 			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sConstant-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), field.Title)
-			if _, seen := constantFiles[filename]; (field.Type == FieldTypeString || field.ItemType == FieldTypeString) && field.Enum != nil && !seen {
+			if _, seen := constantFiles[filename]; (field.Type == FieldTypeString || field.ItemType == FieldTypeString) && len(field.Enum) > 0 && !seen {
 				constantFiles[filename] = templateConstant(namespace, field)
 			}
 		}

@@ -16,6 +16,7 @@ func (m Models) Found(modelName string) bool {
 	return false
 }
 
+// MergeDependants inspects the named model in m, then traverses allModels and appends any dependant models to m, recursively
 func (m Models) MergeDependants(allModels Models, modelName string) error {
 	if !allModels.Found(modelName) {
 		return fmt.Errorf("model not found: %q", modelName)
@@ -68,13 +69,13 @@ type ModelField struct {
 	Type        FieldType
 	Description string
 	Default     interface{}
-	Enum        []interface{}
+	Enum        []string
 	ItemType    FieldType
 	ModelName   string
 	JsonField   string
 }
 
-func (f ModelField) CSType() string {
+func (f ModelField) CSType() *string {
 	switch f.Type {
 	case FieldTypeUnknown:
 		panic("unknown field") // TODO
@@ -82,27 +83,32 @@ func (f ModelField) CSType() string {
 		if f.ModelName == "" {
 			panic("model not found") // TODO
 		}
-		return fmt.Sprintf("%sModel", f.ModelName)
+		return pointerTo(fmt.Sprintf("%sModel", f.ModelName))
 	case FieldTypeArray:
 		if f.ModelName == "" {
-			if f.Enum != nil {
-				return fmt.Sprintf("%sConstant[]", f.Title)
+			if len(f.Enum) > 0 {
+				return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
 			}
 			if f.ItemType > 0 {
-				return fmt.Sprintf("%s[]", f.ItemType.CSType())
+				itemType := f.ItemType.CSType()
+				if itemType == nil {
+					return nil
+				}
+				return pointerTo(fmt.Sprintf("List<%s>", *itemType))
 			}
 			panic("model for array not found") // TODO
 		}
-		return fmt.Sprintf("%sModel[]", f.ModelName)
+		return pointerTo(fmt.Sprintf("List<%sModel>", f.ModelName))
 	case FieldTypeString:
-		if f.Enum != nil {
-			return fmt.Sprintf("%sConstant", f.Title)
+		if len(f.Enum) > 0 {
+			return pointerTo(fmt.Sprintf("%sConstant", f.Title))
 		}
-		return "string"
+		return pointerTo("string")
 	default:
 		return f.Type.CSType()
 	}
-	return ""
+
+	return nil
 }
 
 type FieldType uint8
@@ -132,48 +138,52 @@ const (
 	FieldTypeUuid
 )
 
-func (ft FieldType) CSType() string {
+func (ft FieldType) CSType() *string {
+	csType := ""
 	switch ft {
 	case FieldTypeString:
-		return "string"
+		csType = "string"
 	case FieldTypeInteger64:
-		return "long"
+		csType = "long"
 	case FieldTypeIntegerUnsigned64:
-		return "ulong"
+		csType = "ulong"
 	case FieldTypeInteger32:
-		return "int"
+		csType = "int"
 	case FieldTypeIntegerUnsigned32:
-		return "uint"
+		csType = "uint"
 	case FieldTypeInteger16:
-		return "short"
+		csType = "short"
 	case FieldTypeIntegerUnsigned16:
-		return "ushort"
+		csType = "ushort"
 	case FieldTypeInteger8:
-		return "sbyte"
+		csType = "sbyte"
 	case FieldTypeIntegerUnsigned8:
-		return "byte"
+		csType = "byte"
 	case FieldTypeFloat32:
-		return "float"
+		csType = "float"
 	case FieldTypeFloat64:
-		return "double"
+		csType = "double"
 	case FieldTypeBool:
-		return "bool"
+		csType = "bool"
 	case FieldTypeInterface:
-		return "string" // TODO: unknown things can just be strings
+		csType = "string" // TODO: unknown things can just be strings
 	case FieldTypeBase64:
-		return "byte[]"
+		//csType = "byte[]" // TODO: byte arrays not yet supported
 	case FieldTypeDate:
-		return "DateTime" // TODO: date
+		csType = "DateTime" // TODO: date
 	case FieldTypeDateTime:
-		return "DateTime"
+		csType = "DateTime"
 	case FieldTypeDuration:
-		return "string" // TODO: ISO8601 duration
+		csType = "string" // TODO: ISO8601 duration
 	case FieldTypeTime:
-		return "DateTime" // TODO: time
+		csType = "DateTime" // TODO: time
 	case FieldTypeUuid:
-		return "string"
+		csType = "string"
 	}
-	return "string" // TODO: should never get here
+	if csType == "" {
+		return nil
+	}
+	return &csType
 }
 
 func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
@@ -441,12 +451,12 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 			Title:       title,
 			Description: schema.Description,
 			Default:     schema.Default,
-			Enum:        schema.Enum,
+			Enum:        parseEnum(schema.Enum),
 			JsonField:   k,
 		}
 
 		if len(field.Enum) == 0 && len(result.Enum) > 0 {
-			field.Enum = result.Enum
+			field.Enum = parseEnum(result.Enum)
 		}
 
 		if result.Schemas != nil {
@@ -474,4 +484,17 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 	}
 
 	return models
+}
+
+func parseEnum(input []interface{}) []string {
+	out := make([]string, 0, len(input))
+	for _, raw := range input {
+		if v, ok := raw.(string); ok {
+			if strings.EqualFold(v, "unknownFutureValue") {
+				continue
+			}
+			out = append(out, v)
+		}
+	}
+	return out
 }

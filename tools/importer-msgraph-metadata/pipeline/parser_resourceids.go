@@ -74,6 +74,8 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 	if name == "" {
 		return nil, false
 	}
+
+	name = deDuplicateName(name)
 	return &name, true
 }
 
