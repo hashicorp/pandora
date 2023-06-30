@@ -255,6 +255,9 @@ public partial class TerraformController
 
         [JsonPropertyName("segmentName")]
         public string SegmentName { get; set; }
+
+        [JsonPropertyName("parent")]
+        public bool Parent { get; set; }
     }
 
     private class MappingsDefinition
