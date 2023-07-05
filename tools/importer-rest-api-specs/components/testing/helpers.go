@@ -114,3 +114,12 @@ func suffixFromResourceLabel(input string) string {
 
 	return strings.Join(vals, "")
 }
+
+func findTestDataValue[V any](field string, m map[string]V) *V {
+	for k, v := range m {
+		if strings.EqualFold(field, k) {
+			return &v
+		}
+	}
+	return nil
+}
