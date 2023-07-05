@@ -36,11 +36,13 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 				}
 			}
 
+			contentType := ""
 			statuses := make([]string, 0)
 			for _, response := range operation.Responses {
-				if response.Status >= 200 && response.Status < 400 {
-					statuses = append(statuses, strconv.Itoa(response.Status))
+				if response.ContentType != nil && *response.ContentType != "" {
+					contentType = strings.ToLower(*response.ContentType)
 				}
+				statuses = append(statuses, strconv.Itoa(response.Status))
 			}
 
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(resource.Version), resource.Service, cleanVersion(resource.Version), resource.Category)
@@ -51,26 +53,22 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 			switch operation.Type {
 			case OperationTypeList:
 				if responseModel == "" {
-					id := "{unknown-id}"
+					id := ""
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
 					}
-					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
+					uriSuffix := ""
+					if operation.UriSuffix != nil {
+						uriSuffix = *operation.UriSuffix
+					}
+					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, suffix %q, category %q, service %q, version %q)", operation.Method, id, uriSuffix, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateListOperation(namespace, modelsNamespace, &operation, responseModel)
 			case OperationTypeRead:
-				if responseModel == "" {
-					id := "{unknown-id}"
-					if operation.ResourceId != nil {
-						id = operation.ResourceId.ID()
-					}
-					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
-					continue
-				}
-				methodCode = templateReadOperation(namespace, modelsNamespace, &operation, responseModel, statuses)
+				methodCode = templateReadOperation(namespace, modelsNamespace, &operation, contentType, responseModel, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
-				methodCode = templateCreateUpdateOperation(namespace, modelsNamespace, &operation, requestModel, responseModel, statuses)
+				methodCode = templateCreateUpdateOperation(namespace, modelsNamespace, &operation, contentType, requestModel, responseModel, statuses)
 			case OperationTypeDelete:
 				methodCode = templateDeleteOperation(namespace, &operation, statuses)
 			}
@@ -128,7 +126,7 @@ internal class %[3]sOperation : Operations.ListOperation
 
 }
 
-func templateReadOperation(namespace, modelsNamespace string, operation *Operation, responseModel string, statuses []string) string {
+func templateReadOperation(namespace, modelsNamespace string, operation *Operation, contentType, responseModel string, statuses []string) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -142,6 +140,11 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 
+	contentTypeCode := ""
+	if !strings.HasPrefix(contentType, "application/json") {
+		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, contentType), 4)
+	}
+
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
 		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
@@ -150,6 +153,11 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
 		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
+
+	responseObjectCode := "null"
+	if responseModel != "" {
+		responseObjectCode = fmt.Sprintf("typeof(%sModel)", responseModel)
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
@@ -165,18 +173,19 @@ namespace %[1]s;
 
 internal class %[3]sOperation : Operations.%[4]sOperation
 {
+%[9]s
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
 %[5]s,
         };
     public override ResourceID? ResourceId() => %[6]s;
-    public override Type? ResponseObject() => typeof(%[7]sModel);
+    public override Type? ResponseObject() => %[10]s;
     public override string? UriSuffix() => %[8]s;
 }
-`, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode)
+`, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode, contentTypeCode, responseObjectCode)
 }
 
-func templateCreateUpdateOperation(namespace, modelsNamespace string, operation *Operation, requestModel, responseModel string, statuses []string) string {
+func templateCreateUpdateOperation(namespace, modelsNamespace string, operation *Operation, contentType, requestModel, responseModel string, statuses []string) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -189,6 +198,11 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 	}
 
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+
+	contentTypeCode := ""
+	if !strings.HasPrefix(contentType, "application/json") {
+		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, contentType), 4)
+	}
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
@@ -223,6 +237,7 @@ namespace %[1]s;
 
 internal class %[3]sOperation : Operations.%[4]sOperation
 {
+%[10]s
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
 %[5]s,
@@ -232,7 +247,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
     public override Type? ResponseObject() => %[8]s;
     public override string? UriSuffix() => %[9]s;
 }
-`, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode)
+`, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, requestObjectCode, resourceIdCode, responseObjectCode, uriSuffixCode, contentTypeCode)
 }
 
 func templateDeleteOperation(namespace string, operation *Operation, statuses []string) string {

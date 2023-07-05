@@ -114,36 +114,45 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				for stat, resp := range operation.Responses {
 					var status int
 					var contentType, responseModel *string
-					var collection bool
-					// TODO: expand status codes so we handle more than 200, 300 etc
+
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
 					}
+					if status < 200 || status >= 300 {
+						continue
+					}
+
 					if resp.Value != nil && len(resp.Value.Content) > 0 {
 						for t, m := range resp.Value.Content {
 							contentType = &t
+
 							if s := parseSchemaRef(m.Schema); s != nil {
 								f, _ := flattenSchema(s, nil)
+
 								if f.Title != "" {
 									if strings.HasPrefix(strings.ToLower(f.Title), "collection of ") {
 										f.Title = f.Title[14:]
-										collection = true
 										listOperation = true
 									}
-									if f.Title != "string" {
-										if modelName := cleanName(f.Title); models.Found(modelName) {
-											responseModel = &modelName
-										}
+
+									// TODO: support simple response types such as string arrays
+									if f.Title == "string" && listOperation {
+										continue
+									}
+
+									if modelName := cleanName(f.Title); models.Found(modelName) {
+										responseModel = &modelName
 									}
 								}
 							}
+
 							break
 						}
 					}
+
 					responses = append(responses, Response{
 						Status:      status,
 						ContentType: contentType,
-						Collection:  collection,
 						ModelName:   responseModel,
 					})
 				}

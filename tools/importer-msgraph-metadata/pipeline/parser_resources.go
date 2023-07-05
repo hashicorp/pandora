@@ -27,7 +27,6 @@ type Operation struct {
 type Response struct {
 	Status      int
 	ContentType *string
-	Collection  bool
 	ModelName   *string
 }
 
