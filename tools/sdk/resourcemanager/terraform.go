@@ -505,4 +505,21 @@ type TerraformResourceTestsDefinition struct {
 	// as the Template for each of the Tests defined above, which should include any parent
 	// resources required in the Tests.
 	TemplateConfiguration *string `json:"templateConfiguration,omitempty"`
+
+	// TestData contains variables that define specific testing values for fields within the
+	// test config.
+	TestData *TerraformResourceTestDataDefinition `json:"testDataDefinition,omitempty"`
+}
+
+type TerraformResourceTestDataDefinition struct {
+	// Variables is a struct that contains key value pairs of hcl field to test value for
+	// different variable types.
+	Variables TerraformTestDataVariables `json:"testDataVariables"`
+}
+
+type TerraformTestDataVariables struct {
+	Bools    map[string]bool     `json:"bools"`
+	Integers map[string]int64    `json:"integers"`
+	Lists    map[string][]string `json:"lists"`
+	Strings  map[string]string   `json:"strings"`
 }

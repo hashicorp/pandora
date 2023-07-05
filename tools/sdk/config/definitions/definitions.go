@@ -96,11 +96,39 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 							return nil, fmt.Errorf("definition %q within package %q within api version %q within service %q is defined multiple times", def.ResourceType, pkg.Name, api.Version, service.Name)
 						}
 
+						variables := VariablesDefinition{
+							Bools:    map[string]bool{},
+							Integers: map[string]int64{},
+							Lists:    map[string][]string{},
+							Strings:  map[string]string{},
+						}
+						if len(def.TestData) > 1 || (len(def.TestData) == 1 && len(def.TestData[0].Variables) != 1) {
+							return nil, fmt.Errorf("definition %q within package %q within api version %q within service %q should define 1 testdata and 1 variable block or 0 testdata and 0 variable blocks", def.ResourceType, pkg.Name, api.Version, service.Name)
+						}
+						if len(def.TestData) == 1 && len(def.TestData[0].Variables) == 1 {
+							vars := def.TestData[0].Variables[0]
+							if vars.Bools != nil {
+								variables.Bools = *vars.Bools
+							}
+							if vars.Integers != nil {
+								variables.Integers = *vars.Integers
+							}
+							if vars.Lists != nil {
+								variables.Lists = *vars.Lists
+							}
+							if vars.Strings != nil {
+								variables.Strings = *vars.Strings
+							}
+						}
+
 						definitions[def.ResourceType] = ResourceDefinition{
 							ID:                 def.Id,
 							Name:               def.DisplayName,
 							WebsiteSubcategory: def.WebsiteSubcategory,
 							Description:        def.Description,
+							TestData: ResourceTestDataDefinition{
+								Variables: variables,
+							},
 						}
 					}
 

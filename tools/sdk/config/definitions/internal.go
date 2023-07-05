@@ -49,4 +49,19 @@ type resourceDefinition struct {
 
 	// Description is the description for this Resource
 	Description string `hcl:"description"`
+
+	// TestData contains specific values for the tests of this resource
+	TestData []resourceTestDataDefinition `hcl:"test_data,block"`
+}
+
+type resourceTestDataDefinition struct {
+	// Variables contains key value pairs of field to test value for different variable types
+	Variables []variablesDefinition `hcl:"variables,block"`
+}
+
+type variablesDefinition struct {
+	Bools    *map[string]bool     `hcl:"bools"`
+	Integers *map[string]int64    `hcl:"integers"`
+	Lists    *map[string][]string `hcl:"lists"`
+	Strings  *map[string]string   `hcl:"strings"`
 }
