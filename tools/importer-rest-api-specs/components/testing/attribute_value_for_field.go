@@ -19,7 +19,7 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 	}
 
 	if function, isCommonSchema := commonSchemaAttributeValueFunctions[field.ObjectDefinition.Type]; isCommonSchema {
-		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, tb.details.Tests.TestData.Variables)
+		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, testData)
 		if err != nil {
 			return nil, fmt.Errorf("for commonschema type: %+v", err)
 		}
@@ -27,7 +27,7 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 	}
 
 	if function, isBasicType := attributeValuesForBasicTypes[field.ObjectDefinition.Type]; isBasicType {
-		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, tb.details.Tests.TestData.Variables)
+		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, testData)
 		if err != nil {
 			return nil, fmt.Errorf("for basic type: %+v", err)
 		}
@@ -35,7 +35,7 @@ func (tb TestBuilder) getAttributeValueForField(field resourcemanager.TerraformS
 	}
 
 	if function, isListOrSet := attributeValuesForListsOfBasicTypes[field.ObjectDefinition.Type]; isListOrSet {
-		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, tb.details.Tests.TestData.Variables)
+		out, err := function(field, dependencies, tb.resourceLabel, tb.providerPrefix, tb.details.DisplayName, testData)
 		if err != nil {
 			return nil, fmt.Errorf("for list or set type: %+v", err)
 		}
