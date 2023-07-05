@@ -21,7 +21,7 @@ public static class TerraformMappingDefinition
                 resourceIds.Add(new Models.TerraformResourceIDMappingDefinition
                 {
                     SegmentName = resourceIdMapping.SegmentName,
-                    SchemaFieldName = resourceIdMapping.SchemaFieldName
+                    SchemaFieldName = resourceIdMapping.SchemaFieldName,
                     Parent = resourceIdMapping.Parent
                 });
                 continue;

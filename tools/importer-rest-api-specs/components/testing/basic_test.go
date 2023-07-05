@@ -77,6 +77,9 @@ func TestGenerateBasicTest_NameOnly(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 		SchemaModelName: "TopLevelModel",
 	}
 	actualDependencies := testDependencies{
@@ -200,6 +203,9 @@ func TestGenerateBasicTest_CoreProperties(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -271,6 +277,9 @@ func TestGenerateBasicTest_OnlyRequiredPropertiesShouldBeOutput(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -346,6 +355,9 @@ func TestGenerateBasicTest_NestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -427,6 +439,9 @@ func TestGenerateBasicTest_ListOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -508,6 +523,9 @@ func TestGenerateBasicTest_SetOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
