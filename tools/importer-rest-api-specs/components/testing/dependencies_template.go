@@ -86,6 +86,23 @@ resource "%[1]s_key_vault_key" "test" {
 `, tb.providerPrefix))
 	}
 
+	if dependencies.needsMachineLearningWorkspace {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_machine_learning_workspace" "test" {
+  name                = "acctestmlw-${var.random_integer}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+  key_vault_id		  = azurerm_key_vault.test.id
+  //storage_account_id = azurerm_storage_account.test.id
+  //application_insights_id = azurerm_application_insights.test.id
+  
+  identity {
+	type = "SystemAssigned"
+  }
+}
+`, tb.providerPrefix))
+	}
+
 	if dependencies.needsNetworkInterface {
 		components = append(components, fmt.Sprintf(`
 resource "%[1]s_network_interface" "test" {
