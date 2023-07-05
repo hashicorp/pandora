@@ -68,7 +68,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
 	if len(*actualFields) != 1 {
-		t.Fatalf("expcted actualFields to contain 1 item but got %d", len(*actualFields))
+		t.Fatalf("expected actualFields to contain 1 item but got %d", len(*actualFields))
 	}
 	name, ok := (*actualFields)["Name"]
 	if !ok {
@@ -156,7 +156,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
 	if len(*actualFields) != 2 {
-		t.Fatalf("expcted actualFields to contain 2 items but got %d", len(*actualFields))
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
 	}
 	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
 	if !ok {
@@ -337,9 +337,9 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if virtualMachineId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
 		t.Fatalf("expected VirtualMachineName to be a String Field but got %q", string(virtualMachineId.ObjectDefinition.Type))
 	}
-	//if virtualMachineId.Documentation.Markdown != "Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist." {
-	//	t.Fatalf("expected the description for `VirtualMachineName` to be `Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist.` but got %q", virtualMachineId.Documentation.Markdown)
-	//}
+	if virtualMachineId.Documentation.Markdown != "Specifies the Virtual Machine Id within which this Virtual Machine Extension should exist." {
+		t.Fatalf("expected the description for `VirtualMachineId` to be `Specifies the Virtual Machine Id within which this Virtual Machine Extension should exist.` but got %q", virtualMachineId.Documentation.Markdown)
+	}
 
 	name, ok := (*actualFields)["Name"]
 	if !ok {
@@ -354,9 +354,9 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
-	//if name.Documentation.Markdown != "Specifies the name of this Virtual Machine Extension." {
-	//	t.Fatalf("expected the description for `Name` to be `Specifies the name of this Virtual Machine Extension.` but got %q", name.Documentation.Markdown)
-	//}
+	if name.Documentation.Markdown != "Specifies the name of this Virtual Machine Extension." {
+		t.Fatalf("expected the description for `Name` to be `Specifies the name of this Virtual Machine Extension.` but got %q", name.Documentation.Markdown)
+	}
 
 	// then check the mappings
 	if actualMappings == nil {
@@ -500,9 +500,11 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 	if !kubernetesClusterId.ForceNew {
 		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-
 	if kubernetesClusterId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
 		t.Fatalf("expected KubernetesClusterId to be a String Field but got %q", string(kubernetesClusterId.ObjectDefinition.Type))
+	}
+	if kubernetesClusterId.Documentation.Markdown != "Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist." {
+		t.Fatalf("expected the description for `KubernetesClusterId` to be `Specifies the Kubernetes Cluster Id within which this Kubernetes Cluster Trusted Access Role Binding should exist.` but got %q", kubernetesClusterId.Documentation.Markdown)
 	}
 
 	name, ok := (*actualFields)["Name"]
@@ -517,6 +519,9 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 	}
 	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
+	}
+	if name.Documentation.Markdown != "Specifies the name of this Kubernetes Cluster Trusted Access Role Binding." {
+		t.Fatalf("expected the description for `Name` to be `Specifies the name of this Kubernetes Cluster Trusted Access Role Binding.` but got %q", name.Documentation.Markdown)
 	}
 
 	// then check the mappings

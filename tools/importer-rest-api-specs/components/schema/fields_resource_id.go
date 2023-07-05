@@ -12,60 +12,73 @@ import (
 func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, resourceDisplayName string, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
+	// first determine whether we are dealing with a nested resource
+	parentResourceFound := false
+	parentResourceIdName := ""
+	parentSegments := make([]resourcemanager.ResourceIdSegment, 0)
 	if len(input.Segments) > 2 {
-		parentSegments := input.Segments[0 : len(input.Segments)-2]
+		parentSegments = input.Segments[0 : len(input.Segments)-2]
 		if segmentsContainResource(parentSegments) {
+			parentResourceFound = true
 			// find the parent Resource ID and use that
-			parentResourceIdName := ""
 			for name, id := range b.resourceIds {
 				if segmentsMatch(id.Segments, parentSegments) {
 					parentResourceIdName = name
 					break
 				}
 			}
+		}
+	}
 
-			if parentResourceIdName == "" {
-				return nil, nil, fmt.Errorf("parent resource detected but corresponding resource ID not found")
-			}
+	if parentResourceFound && parentResourceIdName == "" {
+		logger.Debug("parent resource detected for %s but was not present in resource's ID definitions", resourceDisplayName)
+	}
 
-			// add field definition for the resource name
-			out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
-				},
-				Required: true,
-				ForceNew: true,
-				HclName:  "name",
-			}
+	// if a parent is resource is found and present in the ResourceID mappings then we use this
+	if parentResourceIdName != "" {
+		// add field definition for the resource name
+		out["Name"] = resourcemanager.TerraformSchemaFieldDefinition{
+			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			},
+			Required: true,
+			ForceNew: true,
+			HclName:  "name",
+			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Markdown: descriptionForResourceIDSegment("Name", resourceDisplayName),
+			},
+		}
 
-			// add the parent resource ID and then the name of the resource
-			parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
-			out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
-				},
-				// since this is included in the Resource ID it's implicitly Required/ForceNew
-				Required: true,
-				ForceNew: true,
-				HclName:  parentResourceSchemaField,
+		// add the parent resource ID and then the name of the resource
+		parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
+		out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
+			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			},
+			// since this is included in the Resource ID it's implicitly Required/ForceNew
+			Required: true,
+			ForceNew: true,
+			HclName:  parentResourceSchemaField,
+			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resourceDisplayName),
+			},
+		}
+
+		mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
+			SchemaFieldName: "Name",
+			SegmentName:     input.Segments[len(input.Segments)-1].Name,
+		})
+
+		for _, v := range parentSegments {
+			if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment || v.Type == resourcemanager.ResourceProviderSegment {
+				continue
 			}
 
 			mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
-				SchemaFieldName: "Name",
-				SegmentName:     input.Segments[len(input.Segments)-1].Name,
+				SchemaFieldName: parentResourceIdName,
+				SegmentName:     v.Name,
+				Parent:          true,
 			})
-
-			for _, v := range parentSegments {
-				if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment || v.Type == resourcemanager.ResourceProviderSegment {
-					continue
-				}
-
-				mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
-					SchemaFieldName: parentResourceIdName,
-					SegmentName:     v.Name,
-					Parent:          true,
-				})
-			}
 		}
 	} else {
 		// TODO: perhaps add the components here instead, aside from Subscription/Tenant ID etc?
@@ -122,6 +135,11 @@ func descriptionForResourceIDSegment(input, resourceDisplayName string) string {
 
 	// e.g. AppServiceName -> App Service
 	wordified := wordifyParentSegment(input)
+
+	if strings.HasSuffix(input, "Id") {
+		return fmt.Sprintf("Specifies the %s within which this %s should exist.", wordified, resourceDisplayName)
+	}
+
 	return fmt.Sprintf("Specifies the name of the %s within which this %s should exist.", wordified, resourceDisplayName)
 }
 
