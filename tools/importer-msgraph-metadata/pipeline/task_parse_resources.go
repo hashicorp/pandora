@@ -29,21 +29,26 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		parsedPath := NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
 		if lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
+			p.logger.Info(fmt.Sprintf("skipping path containing cast or function for %q: %v", p.service, path))
 			continue
 		}
 
 		resourceName := ""
-		fullyQualifiedResourceName := ""
 		if r, ok := parsedPath.FindResourceName(); ok {
 			resourceName = *r
 		}
-
 		if resourceName == "" {
+			p.logger.Warn(fmt.Sprintf("path with unknown name was encountered for %q: %v", p.service, path))
 			continue
 		}
 
+		fullyQualifiedResourceName := ""
 		if fqrn, ok := parsedPath.FullyQualifiedResourceName(); ok {
 			fullyQualifiedResourceName = *fqrn
+		}
+		if fullyQualifiedResourceName == "" {
+			p.logger.Warn(fmt.Sprintf("path with unknown fully-qualified name was encountered for %q: %v", p.service, path))
+			continue
 		}
 
 		// Resources by default go into their own category when their final URI segment is a label
@@ -52,8 +57,8 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			resourceCategory = fullyQualifiedResourceName
 		}
 
-		// Create a new resource if not already encountered
 		if _, ok := resources[fullyQualifiedResourceName]; !ok {
+			// Create a new resource if not already encountered
 			p.logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
 			resources[fullyQualifiedResourceName] = &Resource{
@@ -65,6 +70,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				Operations: make([]Operation, 0, len(operations)),
 			}
 		} else {
+			// Append the current path if the resource was already encountered (used for category matching later)
 			resources[fullyQualifiedResourceName].Paths = append(resources[fullyQualifiedResourceName].Paths, parsedPath)
 		}
 
@@ -76,7 +82,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			// Determine resource ID and/or URI suffix
 			var resourceId *ResourceId
 			var uriSuffix *string
-			match, ok := resourceIds.MatchIdOrParent(parsedPath)
+			match, ok := resourceIds.MatchIdOrAncestor(parsedPath)
 			if ok {
 				if match.Id != nil {
 					resourceId = match.Id
@@ -234,7 +240,8 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 	}
 
 	// Look for resources without a category, then iterate the known paths of it and all potential parent resources
-	// to find a match by trimming the path to the preceding label segment, then adopt the parent resource category to ensure they are grouped together
+	// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
+	// resource category of the matched parent to ensure they are grouped together.
 	for _, resource := range resources {
 		if pathsLen := len(resource.Paths); resource.Category == "" && pathsLen > 0 {
 			for _, path := range resource.Paths {

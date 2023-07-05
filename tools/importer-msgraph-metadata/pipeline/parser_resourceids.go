@@ -7,6 +7,36 @@ import (
 	"strings"
 )
 
+type ResourceIds []*ResourceId
+
+type ResourceIdMatch struct {
+	Id        *ResourceId
+	Remainder *ResourceId
+}
+
+func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch, bool) {
+	matches := make([]ResourceIdMatch, 0)
+
+	for _, potentialMatchingOrParentId := range ri {
+		if potentialMatchingOrParentId == nil {
+			continue
+		}
+		if remainder, ok := potentialMatchingOrParentId.IsMatchOrAncestor(resourceId); ok {
+			matches = append(matches, ResourceIdMatch{potentialMatchingOrParentId, &remainder})
+		}
+	}
+
+	// Select the matching ID with most segments, assume this is the most granular match
+	if len(matches) > 0 {
+		sort.SliceStable(matches, func(i int, j int) bool {
+			return len(matches[i].Id.Segments) > len(matches[j].Id.Segments)
+		})
+		return &matches[0], true
+	}
+
+	return nil, false
+}
+
 type ResourceId struct {
 	Name     string
 	Service  string
@@ -22,22 +52,32 @@ func (r ResourceId) ID() string {
 	return "/" + strings.Join(segments, "/")
 }
 
-func (r ResourceId) Match(r2 ResourceId) (ResourceId, bool) {
-	var i int
-	for i = 0; i < len(r.Segments); i++ {
-		if i < len(r2.Segments) {
-			s := r.Segments[i]
-			if s2 := r2.Segments[i]; s.Type == s2.Type && s.Value == s2.Value {
-				continue
-			}
-		}
+func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
+	rLen := len(r.Segments)
+	r2Len := len(r2.Segments)
+
+	if rLen > r2Len {
+		// The candidate ID is longer than the provided ID, so it cannot be a match nor an ancestor
 		return r2, false
 	}
-	if len(r2.Segments) >= i {
-		return ResourceId{Segments: r2.Segments[i:]}, true
-	} else {
-		return ResourceId{Segments: make([]ResourceIdSegment, 0)}, true
+
+	for i := range r.Segments {
+		s := r.Segments[i]
+		s2 := r2.Segments[i]
+
+		if s.Type != s2.Type || s.Value != s2.Value {
+			// A non-matching segment was reached, so it cannot be a match or an ancestor
+			return r2, false
+		}
 	}
+
+	if r2Len > rLen {
+		// A match was found but this candidate is shorter, ergo it must be an ancestor, so return the remainder
+		return ResourceId{Segments: r2.Segments[rLen:]}, true
+	}
+
+	// This candidate matches the provided ID
+	return ResourceId{Segments: make([]ResourceIdSegment, 0)}, true
 }
 
 func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
@@ -225,61 +265,66 @@ func NewResourceId(path string, tags []string) (id ResourceId) {
 
 	for i, s := range segments {
 		segment := ResourceIdSegment{}
+
 		if strings.HasPrefix(s, "{") && strings.HasSuffix(s, "}") {
 			value := s[1 : len(s)-1]
 			value = strings.Title(strings.ReplaceAll(value, "-", " "))
 			value = regexp.MustCompile("([^A-Za-z0-9])").ReplaceAllString(value, "")
 			value = strings.ToLower(value[0:1]) + value[1:]
 			field := strings.Title(value)
-			segment = ResourceIdSegment{SegmentUserValue, fmt.Sprintf("{%s}", value), &field}
+			segment = ResourceIdSegment{
+				Type:  SegmentUserValue,
+				Value: fmt.Sprintf("{%s}", value),
+				Field: &field,
+			}
 		} else if strings.Contains(s, "(") {
-			segment = ResourceIdSegment{SegmentFunction, s, nil}
+			segment = ResourceIdSegment{
+				Type:  SegmentFunction,
+				Value: s,
+				Field: nil,
+			}
 		} else if strings.HasPrefix(strings.ToLower(s), "microsoft.graph.") || strings.HasPrefix(strings.ToLower(s), "graph.") {
 			if tagSuffix(".actions") {
-				segment = ResourceIdSegment{SegmentAction, s, nil}
+				segment = ResourceIdSegment{
+					Type:  SegmentAction,
+					Value: s,
+					Field: nil,
+				}
 			} else {
-				segment = ResourceIdSegment{SegmentCast, s, nil}
+				segment = ResourceIdSegment{
+					Type:  SegmentCast,
+					Value: s,
+					Field: nil,
+				}
 			}
-		} else if strings.HasPrefix(strings.ToLower(s), "$") {
-			segment = ResourceIdSegment{SegmentODataReference, s, nil}
+		} else if strings.HasPrefix(s, "$") {
+			segment = ResourceIdSegment{
+				Type:  SegmentODataReference,
+				Value: s,
+				Field: nil,
+			}
 		} else if i == len(segments)-1 && tagSuffix(".actions") {
-			segment = ResourceIdSegment{SegmentAction, s, nil}
+			segment = ResourceIdSegment{
+				Type:  SegmentAction,
+				Value: s,
+				Field: nil,
+			}
 		} else if i == len(segments)-1 && tagSuffix(".functions") {
-			segment = ResourceIdSegment{SegmentFunction, s, nil}
+			segment = ResourceIdSegment{
+				Type:  SegmentFunction,
+				Value: s,
+				Field: nil,
+			}
 		} else {
-			segment = ResourceIdSegment{SegmentLabel, s, nil}
+			segment = ResourceIdSegment{
+				Type:  SegmentLabel,
+				Value: s,
+				Field: nil,
+			}
 		}
+
 		id.Segments = append(id.Segments, segment)
 	}
+
 	return
-}
-
-type ResourceIds []*ResourceId
-
-type ResourceIdMatch struct {
-	Id        *ResourceId
-	Remainder *ResourceId
-}
-
-func (ri ResourceIds) MatchIdOrParent(r2 ResourceId) (*ResourceIdMatch, bool) {
-	matches := make([]ResourceIdMatch, 0)
-
-	for _, r1 := range ri {
-		if r1 == nil {
-			continue
-		}
-		if remainder, ok := r1.Match(r2); ok {
-			matches = append(matches, ResourceIdMatch{r1, &remainder})
-		}
-	}
-
-	// Select the matching ID with most segments, assume this is the most granular match
-	if len(matches) > 0 {
-		sort.SliceStable(matches, func(i int, j int) bool {
-			return len(matches[i].Id.Segments) > len(matches[j].Id.Segments)
-		})
-		return &matches[0], true
-	}
-
-	return nil, false
 }

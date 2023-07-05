@@ -71,8 +71,8 @@ func (c ImportCommand) Run(args []string) int {
 		TimeFn: time.Now,
 	})
 
-	if strings.TrimSpace(os.Getenv("DEBUG")) != "" {
-		logger.SetLevel(hclog.Trace)
+	if logLevel := strings.TrimSpace(os.Getenv("PANDORA_LOG")); logLevel != "" {
+		logger.SetLevel(hclog.LevelFromString(logLevel))
 	}
 
 	input := pipeline.RunInput{
@@ -86,8 +86,7 @@ func (c ImportCommand) Run(args []string) int {
 		Tags:               tags,
 	}
 	if err := pipeline.Run(input); err != nil {
-		log.Printf("Error: %+v", err)
-		return 1
+		log.Fatalf("Error: %+v", err)
 	}
 
 	return 0

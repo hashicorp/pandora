@@ -75,7 +75,8 @@ type Resources map[string]*Resource
 func (r Resources) ServiceHasValidResources(serviceName string) bool {
 	for _, resource := range r {
 		if resource.Category == "" {
-			continue // TODO do something about orphaned resources
+			// These are logged earlier in the pipeline
+			continue
 		}
 
 		for _, operation := range resource.Operations {

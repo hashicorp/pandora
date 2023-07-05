@@ -74,7 +74,6 @@ func cleanName(name string) string {
 	name = strings.Title(strings.TrimPrefix(name, "microsoft.graph."))
 	name = regexp.MustCompile("[.]").ReplaceAllString(name, "_")
 	name = regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(name, "")
-	//name = regexp.MustCompile("^Is([A-Z])").ReplaceAllString(name, "$1")
 	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
 	return name

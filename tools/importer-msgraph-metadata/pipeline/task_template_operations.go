@@ -55,7 +55,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
 					}
-					p.logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
+					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateListOperation(namespace, modelsNamespace, &operation, responseModel)
@@ -65,7 +65,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
 					}
-					p.logger.Debug(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
+					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, category %q, service %q, version %q)", operation.Method, id, resource.Category, resource.Service, resource.Version))
 					continue
 				}
 				methodCode = templateReadOperation(namespace, modelsNamespace, &operation, responseModel, statuses)

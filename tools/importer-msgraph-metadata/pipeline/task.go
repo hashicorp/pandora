@@ -3,6 +3,7 @@ package pipeline
 import (
 	"fmt"
 
+	"github.com/davecgh/go-spew/spew"
 	"github.com/getkin/kin-openapi/openapi3"
 	"github.com/hashicorp/go-hclog"
 )
@@ -31,6 +32,16 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 	}
 	if len(resources) == 0 {
 		return nil
+	}
+
+	// Consistency checks for discovered resources
+	for resourceName, resource := range resources {
+		if resource == nil {
+			return fmt.Errorf("nil resource named %q was encountered for %q", resourceName, p.service)
+		}
+		if resource.Category == "" {
+			p.logger.Warn(spew.Sprintf("resource with no category was encountered for %q: %#v", p.service, *resource))
+		}
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating resource IDs for %q", p.service))

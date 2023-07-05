@@ -276,9 +276,9 @@ type flattenedSchema struct {
 	Enum    []interface{}
 }
 
-func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema, []string) {
+func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattenedSchema, map[string]bool) {
 	if seenRefs == nil {
-		seenRefs = make([]string, 0)
+		seenRefs = make(map[string]bool)
 	}
 
 	schemas := make(openapi3.Schemas, 0)
@@ -289,12 +289,12 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 
 	if r := schema.Items; r != nil {
 		if r.Ref != "" {
-			for _, s := range seenRefs {
+			for s := range seenRefs {
 				if s == r.Ref {
 					continue
 				}
 			}
-			seenRefs = append(seenRefs, r.Ref)
+			seenRefs[r.Ref] = true
 		}
 
 		if s := parseSchemaRef(r); s != nil {
@@ -320,12 +320,12 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 		if schema.AllOf != nil {
 			for _, r := range schema.AllOf {
 				if r.Ref != "" {
-					for _, s := range seenRefs {
+					for s := range seenRefs {
 						if s == r.Ref {
 							continue
 						}
 					}
-					seenRefs = append(seenRefs, r.Ref)
+					seenRefs[r.Ref] = true
 				}
 				if s := parseSchemaRef(r); s != nil {
 					var result flattenedSchema
@@ -352,12 +352,12 @@ func flattenSchema(schema *openapi3.Schema, seenRefs []string) (flattenedSchema,
 		if schema.AnyOf != nil {
 			for _, r := range schema.AnyOf {
 				if r.Ref != "" {
-					for _, s := range seenRefs {
+					for s := range seenRefs {
 						if s == r.Ref {
 							continue
 						}
 					}
-					seenRefs = append(seenRefs, r.Ref)
+					seenRefs[r.Ref] = true
 				}
 
 				if s := parseSchemaRef(r); s != nil {
@@ -445,7 +445,6 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 		if result.Title != "" {
 			title = strings.Title(result.Title)
 		} else {
-			//title = fmt.Sprintf("%s%s", strings.Title(modelName), strings.Title(k))
 			title = strings.Title(k)
 		}
 
