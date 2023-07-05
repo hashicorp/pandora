@@ -123,6 +123,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				// TODO: output Singular, Plural and the other stuff..
 			}
 		}
+
 		var resourceDefinition *resourcemanager.TerraformResourceDetails
 		if createMethod != nil && getMethod != nil && deleteMethod != nil {
 			resourceDefinition = &resourcemanager.TerraformResourceDetails{
@@ -140,6 +141,16 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				Documentation: resourcemanager.ResourceDocumentationDefinition{
 					Category:    resourceMetaData.WebsiteSubcategory,
 					Description: resourceMetaData.Description,
+				},
+				Tests: resourcemanager.TerraformResourceTestsDefinition{
+					TestData: &resourcemanager.TerraformResourceTestDataDefinition{
+						Variables: resourcemanager.TerraformTestDataVariables{
+							Bools:    resourceMetaData.TestData.Variables.Bools,
+							Integers: resourceMetaData.TestData.Variables.Integers,
+							Lists:    resourceMetaData.TestData.Variables.Lists,
+							Strings:  resourceMetaData.TestData.Variables.Strings,
+						},
+					},
 				},
 			}
 		}

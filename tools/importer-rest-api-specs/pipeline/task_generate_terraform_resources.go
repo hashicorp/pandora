@@ -46,9 +46,7 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, lo
 
 			resourceDetails.SchemaModels = *modelsForResource
 			resourceDetails.Mappings = *mappings
-			resourceDetails.Tests = resourcemanager.TerraformResourceTestsDefinition{
-				Generate: true,
-			}
+			resourceDetails.Tests.Generate = true
 
 			terraformResources[resourceLabel] = resourceDetails
 		}
