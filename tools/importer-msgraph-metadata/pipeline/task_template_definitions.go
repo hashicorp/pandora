@@ -77,9 +77,6 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 
 		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
-		if p.modelsPerService {
-			modelsNamespace = ""
-		}
 
 		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, serviceModels)

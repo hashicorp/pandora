@@ -27,6 +27,8 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 			var responseModel string
 			if operation.Type != OperationTypeDelete {
 				responseModel = operation.Responses.FindModelName()
+
+				// Infer a DirectoryObject response model when no model found and the final ID segment indicates an OData reference
 				if responseModel == "" {
 					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
 						responseModel = "DirectoryObject"
@@ -43,9 +45,6 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(resource.Version), resource.Service, cleanVersion(resource.Version), resource.Category)
 			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(resource.Version))
-			if p.modelsPerService {
-				modelsNamespace = ""
-			}
 
 			// Template the operationFile code
 			var methodCode string

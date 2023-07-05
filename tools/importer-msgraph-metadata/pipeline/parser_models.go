@@ -58,6 +58,7 @@ func (m Models) Merge(m2 Models) {
 
 type Model struct {
 	Fields map[string]*ModelField
+	Common bool
 }
 
 func (m Model) Merge(m2 Model) {
@@ -253,14 +254,14 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
 // SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
 // Schema leads to SchemaRefs and Schemas
 
-func parseModels(schemas openapi3.Schemas) (models Models, err error) {
+func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 	models = make(Models)
 	for modelName, schemaRef := range schemas {
 		name := cleanName(modelName)
 		if schema := parseSchemaRef(schemaRef); schema != nil {
 			var f flattenedSchema
 			f, _ = flattenSchema(schema, nil)
-			models = parseSchemas(f, name, models)
+			models = parseSchemas(f, name, models, true)
 		}
 	}
 
@@ -426,12 +427,13 @@ func parseSchemaRef(schemaRef *openapi3.SchemaRef) *openapi3.Schema {
 	return nil
 }
 
-func parseSchemas(input flattenedSchema, modelName string, models Models) Models {
+func parseSchemas(input flattenedSchema, modelName string, models Models, common bool) Models {
 	if _, ok := models[modelName]; ok {
 		return models
 	}
 	model := Model{
 		Fields: make(map[string]*ModelField),
+		Common: common,
 	}
 	models[modelName] = &model
 
@@ -461,7 +463,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models) Models
 
 		if result.Schemas != nil {
 			if _, ok := models[title]; !ok {
-				models = parseSchemas(result, title, models)
+				models = parseSchemas(result, title, models, common)
 			}
 			field.ModelName = title
 		}

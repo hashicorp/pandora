@@ -8,9 +8,9 @@ import (
 
 func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models Models) (resources Resources, err error) {
 	resources = make(Resources)
-	for pathRaw, item := range p.spec.Paths {
-		path := strings.Clone(pathRaw)
-		operations := item.Operations()
+	for pathKey, pathItem := range p.spec.Paths {
+		path := strings.Clone(pathKey)
+		operations := pathItem.Operations()
 		operationTags := make([]string, 0)
 
 		// Check tags and skip
@@ -113,7 +113,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
 					}
-					if resp.Value != nil && resp.Value.Content != nil {
+					if resp.Value != nil && len(resp.Value.Content) > 0 {
 						for t, m := range resp.Value.Content {
 							contentType = &t
 							if s := parseSchemaRef(m.Schema); s != nil {
@@ -196,11 +196,18 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 					if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
 						if content.Schema != nil {
 							schema, _ := flattenSchema(content.Schema.Value, nil)
+							var modelName string
 							if schema.Title != "" {
-								if modelName := cleanName(schema.Title); models.Found(modelName) {
+								// Should be a known model
+								if modelName = cleanName(schema.Title); models.Found(modelName) {
 									requestModel = &modelName
 									break
 								}
+							} else if len(schema.Schemas) > 0 {
+								// Unique object for this operation
+								modelName = fmt.Sprintf("%sRequest", operationName)
+								models = parseSchemas(schema, modelName, models, false)
+								requestModel = &modelName
 							}
 						}
 					}

@@ -80,7 +80,6 @@ func (c ImportCommand) Run(args []string) int {
 
 		ApiVersions:        apiVersions,
 		MetadataDirectory:  c.metadataDirectory,
-		ModelsPerService:   false,
 		OpenApiFilePattern: c.openApiFilePattern,
 		OutputDirectory:    c.outputDirectory,
 		ProviderPrefix:     "azuread",

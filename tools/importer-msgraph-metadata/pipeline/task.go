@@ -8,14 +8,13 @@ import (
 )
 
 type pipelineTask struct {
-	apiVersion       string
-	service          string
-	files            *Tree
-	logger           hclog.Logger
-	metadataGitSha   string
-	outputDirectory  string
-	spec             *openapi3.T
-	modelsPerService bool
+	apiVersion      string
+	service         string
+	files           *Tree
+	logger          hclog.Logger
+	metadataGitSha  string
+	outputDirectory string
+	spec            *openapi3.T
 }
 
 func (p pipelineTask) runImportForService(serviceTags []string, models Models) error {
@@ -39,16 +38,14 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 		return err
 	}
 
-	if p.modelsPerService {
-		p.logger.Info(fmt.Sprintf("Templating models for %q", p.service))
-		if err := p.templateModelsForService(resources, models); err != nil {
-			return err
-		}
+	p.logger.Info(fmt.Sprintf("Templating models for %q", p.service))
+	if err := p.templateModelsForService(resources, models); err != nil {
+		return err
+	}
 
-		p.logger.Info(fmt.Sprintf("Templating constants for %q", p.service))
-		if err := p.templateConstantsForService(resources, models); err != nil {
-			return err
-		}
+	p.logger.Info(fmt.Sprintf("Templating constants for %q", p.service))
+	if err := p.templateConstantsForService(resources, models); err != nil {
+		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating operations for %q", p.service))

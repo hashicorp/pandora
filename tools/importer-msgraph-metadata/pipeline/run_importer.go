@@ -29,27 +29,9 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	models, err := parseModels(spec.Components.Schemas)
+	models, err := parseCommonModels(spec.Components.Schemas)
 	if err != nil {
 		return err
-	}
-
-	if !input.ModelsPerService {
-		files := newTree()
-
-		input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
-		if err = templateModels(files, apiVersion, models); err != nil {
-			return err
-		}
-
-		input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
-		if err = templateConstants(files, apiVersion, models); err != nil {
-			return err
-		}
-
-		if err = files.write(input.OutputDirectory, input.Logger); err != nil {
-			return err
-		}
 	}
 
 	services, err := parseTags(spec.Tags)
@@ -79,19 +61,34 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		}
 
 		task := &pipelineTask{
-			apiVersion:       apiVersion,
-			files:            newTree(),
-			logger:           input.Logger,
-			metadataGitSha:   metadataGitSha,
-			outputDirectory:  input.OutputDirectory,
-			service:          service,
-			spec:             spec,
-			modelsPerService: input.ModelsPerService,
+			apiVersion:      apiVersion,
+			files:           newTree(),
+			logger:          input.Logger,
+			metadataGitSha:  metadataGitSha,
+			outputDirectory: input.OutputDirectory,
+			service:         service,
+			spec:            spec,
 		}
 
 		if err = task.runImportForService(serviceTags, models); err != nil {
 			return err
 		}
+	}
+
+	files := newTree()
+
+	input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
+	if err = templateCommonModels(files, apiVersion, models); err != nil {
+		return err
+	}
+
+	input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
+	if err = templateCommonConstants(files, apiVersion, models); err != nil {
+		return err
+	}
+
+	if err = files.write(input.OutputDirectory, input.Logger); err != nil {
+		return err
 	}
 
 	return nil

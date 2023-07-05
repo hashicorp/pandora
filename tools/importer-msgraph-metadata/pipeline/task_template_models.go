@@ -43,9 +43,14 @@ func (p pipelineTask) templateModelsForService(resources Resources, models Model
 		}
 
 		for modelName, model := range serviceModels {
+			if model.Common {
+				continue
+			}
+
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sModel-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category, modelName)
-			modelFiles[filename] = templateModel(namespace, modelName, model)
+			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
+			modelFiles[filename] = templateModel(namespace, modelsNamespace, modelName, model)
 		}
 
 	}
@@ -60,10 +65,14 @@ func (p pipelineTask) templateModelsForService(resources Resources, models Model
 	return nil
 }
 
-func templateModels(files *Tree, apiVersion string, models Models) error {
+func templateCommonModels(files *Tree, apiVersion string, models Models) error {
 	modelFiles := make(map[string]string)
 
 	for modelName, model := range models {
+		if !model.Common {
+			continue
+		}
+
 		fieldNames := make([]string, 0, len(model.Fields))
 		for fieldName := range model.Fields {
 			fieldNames = append(fieldNames, fieldName)
@@ -73,7 +82,7 @@ func templateModels(files *Tree, apiVersion string, models Models) error {
 
 		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(apiVersion))
 		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sModel-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), modelName)
-		modelFiles[filename] = templateModel(namespace, modelName, model)
+		modelFiles[filename] = templateModel(namespace, "", modelName, model)
 	}
 
 	modelFileNames := sortedKeys(modelFiles)
@@ -86,7 +95,12 @@ func templateModels(files *Tree, apiVersion string, models Models) error {
 	return nil
 }
 
-func templateModel(namespace, modelName string, model *Model) string {
+func templateModel(namespace, modelsNamespace, modelName string, model *Model) string {
+	modelsImportCode := ""
+	if modelsNamespace != "" {
+		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
+	}
+
 	fieldNames := make([]string, 0, len(model.Fields))
 	for fieldName := range model.Fields {
 		fieldNames = append(fieldNames, fieldName)
@@ -111,6 +125,7 @@ using System.Text.Json.Serialization;
 using Pandora.Definitions.Attributes;
 using Pandora.Definitions.Attributes.Validation;
 using Pandora.Definitions.CustomTypes;
+%[4]s
 
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
@@ -121,5 +136,5 @@ internal class %[2]sModel
 {
 %[3]s
 }
-`, namespace, modelName, indentSpace(strings.Join(fieldsCode, "\n\n"), 4))
+`, namespace, modelName, indentSpace(strings.Join(fieldsCode, "\n\n"), 4), modelsImportCode)
 }
