@@ -172,7 +172,7 @@ var attributeValuesForListsOfBasicTypes = map[resourcemanager.TerraformSchemaFie
 		testDataForList := findTestDataValue(field.HclName, testData.Lists)
 
 		if testDataForList == nil {
-			return nil, fmt.Errorf("no test data found for field %s in resource %s", field, resourceDisplayName)
+			return nil, fmt.Errorf("no test data found for field %s in resource %s", field.HclName, resourceDisplayName)
 		}
 
 		listValues := ""
