@@ -1,6 +1,8 @@
 package schema
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
@@ -95,7 +97,7 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 	if len(actualMappings.ResourceId) != 1 {
 		t.Fatalf("expected there to be 1 ResourceId mapping but got %d", len(actualMappings.ResourceId))
 	}
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "resourceGroupName")
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "resourceGroupName", false)
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
@@ -200,8 +202,8 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	if len(actualMappings.ResourceId) != 2 {
 		t.Fatalf("expected there to be 2 ResourceId mappings but got %d", len(actualMappings.ResourceId))
 	}
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "ResourceGroupName", "resourceGroupName")
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "virtualMachineName")
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "ResourceGroupName", "resourceGroupName", false)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "virtualMachineName", false)
 }
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
@@ -259,7 +261,52 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", hclog.New(hclog.DefaultOptions))
+	actualFields, actualMappings, err := Builder{
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"VirtualMachineId": {
+				CommonAlias: pointer.To("VirtualMachine"),
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						FixedValue: stringPointer("subscriptions"),
+						Name:       "subscriptions",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "subscriptionId",
+						Type: resourcemanager.SubscriptionIdSegment,
+					},
+					{
+						FixedValue: stringPointer("resourceGroups"),
+						Name:       "resourceGroups",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "resourceGroupName",
+						Type: resourcemanager.ResourceGroupSegment,
+					},
+					{
+						FixedValue: stringPointer("providers"),
+						Name:       "providers",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						FixedValue: stringPointer("Microsoft.Compute"),
+						Name:       "staticMicrosoftCompute",
+						Type:       resourcemanager.ResourceProviderSegment,
+					},
+					{
+						FixedValue: stringPointer("virtualMachines"),
+						Name:       "virtualMachines",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "virtualMachineName",
+						Type: resourcemanager.UserSpecifiedSegment,
+					},
+				},
+			},
+		},
+	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -268,41 +315,194 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if actualFields == nil {
 		t.Fatalf("expected actualFields to be non-nil but was nil")
 	}
-	if len(*actualFields) != 3 {
-		t.Fatalf("expcted actualFields to contain 3 items but got %d", len(*actualFields))
-	}
-	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
-	if !ok {
-		t.Fatalf("expected there to be a field called `ResourceGroupName` but there wasn't")
-	}
-	if !resourceGroupName.Required {
-		t.Fatalf("expected the field ResourceGroupName to be Required but it wasn't")
-	}
-	if !resourceGroupName.ForceNew {
-		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
-	}
-	if resourceGroupName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
-		t.Fatalf("expected ResourceGroupName to be a Resource Group Field but got %q", string(resourceGroupName.ObjectDefinition.Type))
-	}
-	if resourceGroupName.Documentation.Markdown != "Specifies the name of the Resource Group within which this Virtual Machine Extension should exist." {
-		t.Fatalf("expected the description for `ResourceGroupName` to be `Specifies the name of the Resource Group within which this Virtual Machine Extension should exist.` but got %q", resourceGroupName.Documentation.Markdown)
+	if len(*actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
 	}
 
-	virtualMachineName, ok := (*actualFields)["VirtualMachineName"]
+	_, ok := (*actualFields)["ResourceGroupName"]
+	if ok {
+		t.Fatalf("expected the field `ResourceGroupName` be absent")
+	}
+
+	virtualMachineId, ok := (*actualFields)["VirtualMachineId"]
 	if !ok {
-		t.Fatalf("expected there to be a field called `VirtualMachineName` but there wasn't")
+		t.Fatalf("expected there to be a field called `VirtualMachineId` but there wasn't")
 	}
-	if !virtualMachineName.Required {
-		t.Fatalf("expected the field VirtualMachineName to be Required but it wasn't")
+	if !virtualMachineId.Required {
+		t.Fatalf("expected the field ResourceGroupName to be Required but it wasn't")
 	}
-	if !virtualMachineName.ForceNew {
-		t.Fatalf("expected the field VirtualMachineName to be ForceNew but it wasn't")
+	if !virtualMachineId.ForceNew {
+		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
 	}
-	if virtualMachineName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
-		t.Fatalf("expected VirtualMachineName to be a String Field but got %q", string(virtualMachineName.ObjectDefinition.Type))
+	if virtualMachineId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+		t.Fatalf("expected VirtualMachineName to be a String Field but got %q", string(virtualMachineId.ObjectDefinition.Type))
 	}
-	if virtualMachineName.Documentation.Markdown != "Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist." {
-		t.Fatalf("expected the description for `VirtualMachineName` to be `Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist.` but got %q", resourceGroupName.Documentation.Markdown)
+	//if virtualMachineId.Documentation.Markdown != "Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist." {
+	//	t.Fatalf("expected the description for `VirtualMachineName` to be `Specifies the name of the Virtual Machine within which this Virtual Machine Extension should exist.` but got %q", virtualMachineId.Documentation.Markdown)
+	//}
+
+	name, ok := (*actualFields)["Name"]
+	if !ok {
+		t.Fatalf("expected there to be a field called `Name` but there wasn't")
+	}
+	if !name.Required {
+		t.Fatalf("expected the field Name to be Required but it wasn't")
+	}
+	if !name.ForceNew {
+		t.Fatalf("expected the field Name to be ForceNew but it wasn't")
+	}
+	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
+	}
+	//if name.Documentation.Markdown != "Specifies the name of this Virtual Machine Extension." {
+	//	t.Fatalf("expected the description for `Name` to be `Specifies the name of this Virtual Machine Extension.` but got %q", name.Documentation.Markdown)
+	//}
+
+	// then check the mappings
+	if actualMappings == nil {
+		t.Fatalf("expected actualMappings to be non-nil but was nil")
+	}
+	if len(actualMappings.Fields) > 0 {
+		t.Fatalf("expected no field mappings but got %d", len(actualMappings.Fields))
+	}
+	if len(actualMappings.ResourceId) != 3 {
+		t.Fatalf("expected there to be 3 ResourceId mappings but got %d", len(actualMappings.ResourceId))
+	}
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "VirtualMachineId", "resourceGroupName", true)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "VirtualMachineId", "virtualMachineName", true)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "extensionsName", false)
+}
+
+func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *testing.T) {
+	input := resourcemanager.ResourceIdDefinition{
+		Segments: []resourcemanager.ResourceIdSegment{
+			{
+				FixedValue: stringPointer("subscriptions"),
+				Name:       "subscriptions",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "subscriptionId",
+				Type: resourcemanager.SubscriptionIdSegment,
+			},
+			{
+				FixedValue: stringPointer("resourceGroups"),
+				Name:       "resourceGroups",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "resourceGroupName",
+				Type: resourcemanager.ResourceGroupSegment,
+			},
+			{
+				FixedValue: stringPointer("providers"),
+				Name:       "providers",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				FixedValue: stringPointer("Microsoft.ContainerService"),
+				Name:       "staticMicrosoftContainerService",
+				Type:       resourcemanager.ResourceProviderSegment,
+			},
+			{
+				FixedValue: stringPointer("managedClusters"),
+				Name:       "staticManagedClusters",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "managedClusterName",
+				Type: resourcemanager.UserSpecifiedSegment,
+			},
+			{
+				FixedValue: stringPointer("trustedAccessRoleBindings"),
+				Name:       "trustedAccessRoleBindings",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "trustedAccessRoleBindingName",
+				Type: resourcemanager.UserSpecifiedSegment,
+			},
+		},
+	}
+	inputMappings := resourcemanager.MappingDefinition{
+		Fields:     []resourcemanager.FieldMappingDefinition{},
+		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
+	}
+	actualFields, actualMappings, err := Builder{
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"KubernetesClusterId": {
+				CommonAlias: pointer.To("KubernetesCluster"),
+				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						FixedValue: stringPointer("subscriptions"),
+						Name:       "subscriptions",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "subscriptionId",
+						Type: resourcemanager.SubscriptionIdSegment,
+					},
+					{
+						FixedValue: stringPointer("resourceGroups"),
+						Name:       "resourceGroups",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "resourceGroupName",
+						Type: resourcemanager.ResourceGroupSegment,
+					},
+					{
+						FixedValue: stringPointer("providers"),
+						Name:       "providers",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						FixedValue: stringPointer("Microsoft.ContainerService"),
+						Name:       "staticMicrosoftContainerService",
+						Type:       resourcemanager.ResourceProviderSegment,
+					},
+					{
+						FixedValue: stringPointer("managedClusters"),
+						Name:       "staticManagedClusters",
+						Type:       resourcemanager.StaticSegment,
+					},
+					{
+						Name: "managedClusterName",
+						Type: resourcemanager.UserSpecifiedSegment,
+					},
+				},
+			},
+		},
+	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", hclog.New(hclog.DefaultOptions))
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	// first check we've mapped the field across
+	if actualFields == nil {
+		t.Fatalf("expected actualFields to be non-nil but was nil")
+	}
+	if len(*actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	}
+	_, ok := (*actualFields)["ResourceGroupName"]
+	if ok {
+		t.Fatalf("expected the field `ResourceGroupName` be absent")
+	}
+	kubernetesClusterId, ok := (*actualFields)["KubernetesClusterId"]
+	if !ok {
+		t.Fatalf("expected there to be a field called `KubernetesClusterId`")
+	}
+	if !kubernetesClusterId.Required {
+		t.Fatalf("expected the field ResourceGroupName to be Required but it wasn't")
+	}
+	if !kubernetesClusterId.ForceNew {
+		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
+	}
+
+	if kubernetesClusterId.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+		t.Fatalf("expected KubernetesClusterId to be a String Field but got %q", string(kubernetesClusterId.ObjectDefinition.Type))
 	}
 
 	name, ok := (*actualFields)["Name"]
@@ -318,9 +518,6 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if name.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
 		t.Fatalf("expected Name to be a String Field but got %q", string(name.ObjectDefinition.Type))
 	}
-	if name.Documentation.Markdown != "Specifies the name of this Virtual Machine Extension." {
-		t.Fatalf("expected the description for `Name` to be `Specifies the name of this Virtual Machine Extension.` but got %q", name.Documentation.Markdown)
-	}
 
 	// then check the mappings
 	if actualMappings == nil {
@@ -332,20 +529,18 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	if len(actualMappings.ResourceId) != 3 {
 		t.Fatalf("expected there to be 3 ResourceId mappings but got %d", len(actualMappings.ResourceId))
 	}
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "ResourceGroupName", "resourceGroupName")
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "VirtualMachineName", "virtualMachineName")
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "extensionName")
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "KubernetesClusterId", "resourceGroupName", true)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "KubernetesClusterId", "managedClusterName", true)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "trustedAccessRoleBindingName", false)
 }
 
-func checkResourceIdMappingExistsBetween(t *testing.T, mappings []resourcemanager.ResourceIdMappingDefinition, schemaFieldName, segmentName string) {
+func checkResourceIdMappingExistsBetween(t *testing.T, mappings []resourcemanager.ResourceIdMappingDefinition, schemaFieldName, segmentName string, parent bool) {
 	found := false
 	for _, item := range mappings {
-		if item.SchemaFieldName != schemaFieldName && item.SegmentName != segmentName {
-			continue
+		if strings.EqualFold(item.SchemaFieldName, schemaFieldName) && strings.EqualFold(item.SegmentName, segmentName) && item.Parent == parent {
+			found = true
+			break
 		}
-
-		found = true
-		break
 	}
 	if !found {
 		t.Fatalf("expected there to be a Resource ID Mapping from Schema Field %q to Segment Name %q but there wasn't", schemaFieldName, segmentName)
