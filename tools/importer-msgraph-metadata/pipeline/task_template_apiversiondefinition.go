@@ -15,7 +15,7 @@ func (p pipelineTask) templateApiVersionDefinitionForService(resources Resources
 	categoriesMap := make(map[string]bool)
 	for _, resource := range resources {
 		if resource.Category == "" {
-			continue // TODO do something about orphaned resources
+			continue
 		}
 
 		categoriesMap[resource.Category] = true

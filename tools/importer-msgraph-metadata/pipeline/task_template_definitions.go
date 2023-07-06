@@ -13,7 +13,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 	categories := make(map[string]bool)
 	for _, resource := range resources {
 		if resource.Category == "" {
-			continue // TODO do something about orphaned resources
+			continue
 		}
 
 		categories[resource.Category] = true

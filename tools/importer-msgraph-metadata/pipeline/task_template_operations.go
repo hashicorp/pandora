@@ -13,7 +13,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 	// First build all the methods
 	for _, resource := range resources {
 		if resource.Category == "" {
-			continue // TODO do something about orphaned resources
+			continue
 		}
 
 		for _, operation := range resource.Operations {
