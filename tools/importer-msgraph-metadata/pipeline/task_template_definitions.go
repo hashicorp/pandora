@@ -30,7 +30,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 					if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
 						// Determine whether to skip operation with missing response model
 						if operation.Type != OperationTypeDelete {
-							if responseModel := operation.Responses.FindModelName(); responseModel == "" {
+							if responseModel := operation.Responses.FindModelName(); responseModel != nil {
 								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
 									continue
 								}
@@ -56,7 +56,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 
 					for _, model := range serviceModels {
 						for _, field := range model.Fields {
-							if len(field.Enum) > 0 && (field.Type == FieldTypeString || field.ItemType == FieldTypeString) {
+							if len(field.Enum) > 0 && ((field.Type != nil && *field.Type == FieldTypeString) || (field.ItemType != nil && *field.ItemType == FieldTypeString)) {
 								constantNamesMap[field.Title] = true
 							}
 						}

@@ -17,30 +17,31 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 		}
 
 		for _, operation := range resource.Operations {
-			// Determine request model
-			var requestModel string
-			if operation.RequestModel != nil {
-				requestModel = *operation.RequestModel
-			}
-
 			// Determine response model and return values
-			var responseModel string
+			var responseModel, responseType *string
 			if operation.Type != OperationTypeDelete {
 				responseModel = operation.Responses.FindModelName()
 
 				// Infer a DirectoryObject response model when no model found and the final ID segment indicates an OData reference
-				if responseModel == "" {
+				if responseModel == nil {
 					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
-						responseModel = "DirectoryObject"
+						responseModel = pointerTo("DirectoryObject")
+					}
+				}
+
+				for _, r := range operation.Responses {
+					if r.Type != nil {
+						responseType = r.Type.CSType()
+						break
 					}
 				}
 			}
 
-			contentType := ""
+			var contentType *string
 			statuses := make([]string, 0)
 			for _, response := range operation.Responses {
 				if response.ContentType != nil && *response.ContentType != "" {
-					contentType = strings.ToLower(*response.ContentType)
+					contentType = pointerTo(strings.ToLower(*response.ContentType))
 				}
 				statuses = append(statuses, strconv.Itoa(response.Status))
 			}
@@ -52,7 +53,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 			var methodCode string
 			switch operation.Type {
 			case OperationTypeList:
-				if responseModel == "" {
+				if responseModel == nil && responseType == nil {
 					id := ""
 					if operation.ResourceId != nil {
 						id = operation.ResourceId.ID()
@@ -64,11 +65,11 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 					p.logger.Warn(fmt.Sprintf("Skipping operation with empty response model for method %q (ID %q, suffix %q, category %q, service %q, version %q)", operation.Method, id, uriSuffix, resource.Category, resource.Service, resource.Version))
 					continue
 				}
-				methodCode = templateListOperation(namespace, modelsNamespace, &operation, responseModel)
+				methodCode = templateListOperation(namespace, modelsNamespace, &operation, responseModel, responseType)
 			case OperationTypeRead:
-				methodCode = templateReadOperation(namespace, modelsNamespace, &operation, contentType, responseModel, statuses)
+				methodCode = templateReadOperation(namespace, modelsNamespace, &operation, contentType, responseModel, responseType, statuses)
 			case OperationTypeCreate, OperationTypeUpdate, OperationTypeCreateUpdate:
-				methodCode = templateCreateUpdateOperation(namespace, modelsNamespace, &operation, contentType, requestModel, responseModel, statuses)
+				methodCode = templateCreateUpdateOperation(namespace, modelsNamespace, &operation, contentType, responseModel, statuses)
 			case OperationTypeDelete:
 				methodCode = templateDeleteOperation(namespace, &operation, statuses)
 			}
@@ -90,7 +91,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 	return nil
 }
 
-func templateListOperation(namespace, modelsNamespace string, operation *Operation, responseModel string) string {
+func templateListOperation(namespace, modelsNamespace string, operation *Operation, responseModel, responseType *string) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -104,6 +105,13 @@ func templateListOperation(namespace, modelsNamespace string, operation *Operati
 	uriSuffixCode := "null"
 	if operation.UriSuffix != nil {
 		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
+	}
+
+	nestedItemTypeCode := "null"
+	if responseModel != nil {
+		nestedItemTypeCode = fmt.Sprintf("typeof(%sModel)", *responseModel)
+	} else if responseType != nil {
+		nestedItemTypeCode = fmt.Sprintf("typeof(%s)", *responseType)
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
@@ -119,14 +127,14 @@ internal class %[3]sOperation : Operations.ListOperation
 {
    public override string? FieldContainingPaginationDetails() => "nextLink";
    public override ResourceID? ResourceId() => %[4]s;
-   public override Type NestedItemType() => typeof(%[5]sModel);
+   public override Type NestedItemType() => %[5]s;
    public override string? UriSuffix() => %[6]s;
 }
-`, namespace, modelsImportCode, operation.Name, resourceIdCode, responseModel, uriSuffixCode)
+`, namespace, modelsImportCode, operation.Name, resourceIdCode, nestedItemTypeCode, uriSuffixCode)
 
 }
 
-func templateReadOperation(namespace, modelsNamespace string, operation *Operation, contentType, responseModel string, statuses []string) string {
+func templateReadOperation(namespace, modelsNamespace string, operation *Operation, contentType, responseModel, responseType *string, statuses []string) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -141,8 +149,8 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 
 	contentTypeCode := ""
-	if !strings.HasPrefix(contentType, "application/json") {
-		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, contentType), 4)
+	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
+		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, *contentType), 4)
 	}
 
 	resourceIdCode := "null"
@@ -156,8 +164,10 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 	}
 
 	responseObjectCode := "null"
-	if responseModel != "" {
-		responseObjectCode = fmt.Sprintf("typeof(%sModel)", responseModel)
+	if responseModel != nil {
+		responseObjectCode = fmt.Sprintf("typeof(%sModel)", *responseModel)
+	} else if responseType != nil {
+		responseObjectCode = fmt.Sprintf("typeof(%s)", *responseType)
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
@@ -185,7 +195,7 @@ internal class %[3]sOperation : Operations.%[4]sOperation
 `, namespace, modelsImportCode, operation.Name, strings.Title(strings.ToLower(operation.Method)), expectedStatusesCode, resourceIdCode, responseModel, uriSuffixCode, contentTypeCode, responseObjectCode)
 }
 
-func templateCreateUpdateOperation(namespace, modelsNamespace string, operation *Operation, contentType, requestModel, responseModel string, statuses []string) string {
+func templateCreateUpdateOperation(namespace, modelsNamespace string, operation *Operation, contentType, responseModel *string, statuses []string) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -200,8 +210,8 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
 
 	contentTypeCode := ""
-	if !strings.HasPrefix(contentType, "application/json") {
-		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, contentType), 4)
+	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
+		contentTypeCode = indentSpace(fmt.Sprintf(`public override string? ContentType() => "%s";`, *contentType), 4)
 	}
 
 	resourceIdCode := "null"
@@ -215,13 +225,13 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 	}
 
 	requestObjectCode := "null"
-	if requestModel != "" {
-		requestObjectCode = fmt.Sprintf("typeof(%sModel)", requestModel)
+	if operation.RequestModel != nil {
+		requestObjectCode = fmt.Sprintf("typeof(%sModel)", *operation.RequestModel)
 	}
 
 	responseObjectCode := "null"
-	if responseModel != "" {
-		responseObjectCode = fmt.Sprintf("typeof(%sModel)", responseModel)
+	if responseModel != nil {
+		responseObjectCode = fmt.Sprintf("typeof(%sModel)", *responseModel)
 	}
 
 	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;

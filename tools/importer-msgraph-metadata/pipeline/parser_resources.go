@@ -28,17 +28,18 @@ type Response struct {
 	Status      int
 	ContentType *string
 	ModelName   *string
+	Type        *FieldType
 }
 
 type Responses []Response
 
-func (rs Responses) FindModelName() string {
+func (rs Responses) FindModelName() *string {
 	for _, r := range rs {
 		if r.ModelName != nil {
-			return *r.ModelName
+			return r.ModelName
 		}
 	}
-	return ""
+	return nil
 }
 
 type OperationType uint8
@@ -82,7 +83,7 @@ func (r Resources) ServiceHasValidResources(serviceName string) bool {
 			if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
 				// Determine whether to skip operation with missing response model
 				if operation.Type != OperationTypeDelete {
-					if responseModel := operation.Responses.FindModelName(); responseModel == "" {
+					if responseModel := operation.Responses.FindModelName(); responseModel == nil {
 						if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
 							continue
 						}

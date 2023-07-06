@@ -114,6 +114,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				for stat, resp := range operation.Responses {
 					var status int
 					var contentType, responseModel *string
+					var responseType *FieldType
 
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
@@ -129,19 +130,18 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 							if s := parseSchemaRef(m.Schema); s != nil {
 								f, _ := flattenSchema(s, nil)
 
-								if f.Title != "" {
-									if strings.HasPrefix(strings.ToLower(f.Title), "collection of ") {
-										f.Title = f.Title[14:]
+								if title := f.Title; title != "" || f.Type != "" {
+									if strings.HasPrefix(strings.ToLower(title), "collection of ") {
+										title = title[14:]
 										listOperation = true
 									}
 
-									// TODO: support simple response types such as string arrays
-									if f.Title == "string" && listOperation {
-										continue
+									if modelName := cleanName(title); models.Found(modelName) {
+										responseModel = &modelName
 									}
 
-									if modelName := cleanName(f.Title); models.Found(modelName) {
-										responseModel = &modelName
+									if l := fieldType(f.Type, title, responseModel != nil); l != nil {
+										responseType = l
 									}
 								}
 							}
@@ -154,6 +154,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						Status:      status,
 						ContentType: contentType,
 						ModelName:   responseModel,
+						Type:        responseType,
 					})
 				}
 			}
@@ -200,9 +201,11 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				}
 			}
 
+			// TODO: not certain whether we should or shouldn't do this. mainly for cosmetic reasons, in that it looks
+			// and reads better with the suffix trimmed, but it's less verbose (although doesn't conflict with anything else)
 			// Trim the "Ref" suffix from operation names
-			operationName = strings.TrimSuffix(operationName, "Ref")
-			operationName = strings.TrimSuffix(operationName, "Refs")
+			//operationName = strings.TrimSuffix(operationName, "Ref")
+			//operationName = strings.TrimSuffix(operationName, "Refs")
 
 			// Determine request model
 			var requestModel *string

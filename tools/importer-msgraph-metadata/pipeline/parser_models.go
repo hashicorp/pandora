@@ -10,9 +10,15 @@ import (
 type Models map[string]*Model
 
 func (m Models) Found(modelName string) bool {
+	// Safety check, don't allow an empty model name
+	if modelName == "" {
+		return false
+	}
+
 	if model, ok := m[modelName]; ok && model != nil {
 		return true
 	}
+
 	return false
 }
 
@@ -27,19 +33,19 @@ func (m Models) MergeDependants(allModels Models, modelName string) error {
 	}
 
 	for _, field := range allModels[modelName].Fields {
-		if field.ModelName == "" {
+		if field.ModelName == nil {
 			continue
 		}
 
-		if _, ok := m[field.ModelName]; ok {
+		if _, ok := m[*field.ModelName]; ok {
 			continue
 		}
 
-		if !allModels.Found(field.ModelName) {
+		if !allModels.Found(*field.ModelName) {
 			return fmt.Errorf("dependant model not found: %q", modelName)
 		}
 
-		if err := m.MergeDependants(allModels, field.ModelName); err != nil {
+		if err := m.MergeDependants(allModels, *field.ModelName); err != nil {
 			return err
 		}
 	}
@@ -61,62 +67,67 @@ type Model struct {
 	Common bool
 }
 
-func (m Model) Merge(m2 Model) {
-	// TODO maybe implement this
-}
-
 type ModelField struct {
 	Title       string
-	Type        FieldType
+	Type        *FieldType
 	Description string
 	Default     interface{}
 	Enum        []string
-	ItemType    FieldType
-	ModelName   string
+	ItemType    *FieldType
+	ModelName   *string
 	JsonField   string
 }
 
 func (f ModelField) CSType() *string {
-	switch f.Type {
+	if f.Type == nil {
+		return nil
+	}
+
+	switch *f.Type {
 	case FieldTypeUnknown:
-		panic("unknown field") // TODO
+		return nil
+
 	case FieldTypeModel:
-		if f.ModelName == "" {
-			panic("model not found") // TODO
+		if f.ModelName == nil {
+			return nil
 		}
+
 		return pointerTo(fmt.Sprintf("%sModel", f.ModelName))
+
 	case FieldTypeArray:
-		if f.ModelName == "" {
+		if f.ModelName == nil {
 			if len(f.Enum) > 0 {
 				return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
 			}
-			if f.ItemType > 0 {
-				itemType := f.ItemType.CSType()
-				if itemType == nil {
+
+			if f.ItemType != nil {
+				itemCSType := f.ItemType.CSType()
+				if itemCSType == nil {
 					return nil
 				}
-				return pointerTo(fmt.Sprintf("List<%s>", *itemType))
+				return pointerTo(fmt.Sprintf("List<%s>", *itemCSType))
 			}
-			panic("model for array not found") // TODO
+
+			return nil
 		}
+
 		return pointerTo(fmt.Sprintf("List<%sModel>", f.ModelName))
+
 	case FieldTypeString:
 		if len(f.Enum) > 0 {
 			return pointerTo(fmt.Sprintf("%sConstant", f.Title))
 		}
+
 		return pointerTo("string")
-	default:
-		return f.Type.CSType()
 	}
 
-	return nil
+	return f.Type.CSType()
 }
 
 type FieldType uint8
 
 const (
 	FieldTypeUnknown FieldType = iota
-	FieldTypeInterface
 	FieldTypeModel
 	FieldTypeArray
 	FieldTypeString
@@ -166,18 +177,16 @@ func (ft FieldType) CSType() *string {
 		csType = "double"
 	case FieldTypeBool:
 		csType = "bool"
-	case FieldTypeInterface:
-		csType = "string" // TODO: unknown things can just be strings
 	case FieldTypeBase64:
-		//csType = "byte[]" // TODO: byte arrays not yet supported
+		csType = "string"
 	case FieldTypeDate:
-		csType = "DateTime" // TODO: date
+		csType = "DateTime"
 	case FieldTypeDateTime:
 		csType = "DateTime"
 	case FieldTypeDuration:
-		csType = "string" // TODO: ISO8601 duration
+		csType = "string"
 	case FieldTypeTime:
-		csType = "DateTime" // TODO: time
+		csType = "DateTime"
 	case FieldTypeUuid:
 		csType = "string"
 	}
@@ -187,60 +196,71 @@ func (ft FieldType) CSType() *string {
 	return &csType
 }
 
-func fieldType(schemaType, schemaFormat string, hasModel bool) FieldType {
+func fieldType(schemaType, schemaFormat string, hasModel bool) *FieldType {
+	var ret FieldType
+
 	switch strings.ToLower(schemaFormat) {
 	case "int64":
-		return FieldTypeInteger64
+		ret = FieldTypeInteger64
 	case "uint64":
-		return FieldTypeIntegerUnsigned64
+		ret = FieldTypeIntegerUnsigned64
 	case "int32":
-		return FieldTypeInteger32
+		ret = FieldTypeInteger32
 	case "uint32":
-		return FieldTypeIntegerUnsigned32
+		ret = FieldTypeIntegerUnsigned32
 	case "int16":
-		return FieldTypeInteger16
+		ret = FieldTypeInteger16
 	case "uint16":
-		return FieldTypeIntegerUnsigned16
+		ret = FieldTypeIntegerUnsigned16
 	case "int8":
-		return FieldTypeInteger8
+		ret = FieldTypeInteger8
 	case "uint8":
-		return FieldTypeIntegerUnsigned8
+		ret = FieldTypeIntegerUnsigned8
 	case "float":
-		return FieldTypeFloat32
+		ret = FieldTypeFloat32
 	case "double":
-		return FieldTypeFloat64
+		ret = FieldTypeFloat64
 	case "decimal":
-		return FieldTypeFloat32 // TODO: custom decimal type
+		ret = FieldTypeFloat32
 	case "base64url":
-		return FieldTypeBase64
+		ret = FieldTypeBase64
 	case "date":
-		return FieldTypeDate
+		ret = FieldTypeDate
 	case "date-time":
-		return FieldTypeDateTime
+		ret = FieldTypeDateTime
 	case "duration":
-		return FieldTypeDuration
+		ret = FieldTypeDuration
 	case "time":
-		return FieldTypeTime
+		ret = FieldTypeTime
 	case "uuid":
-		return FieldTypeUuid
-	}
-	switch strings.ToLower(schemaType) {
-	case "object":
-		return FieldTypeModel
-	case "array":
-		return FieldTypeArray
-	case "boolean":
-		return FieldTypeBool
-	case "integer":
-		return FieldTypeInteger64
+		ret = FieldTypeUuid
 	case "string":
-		return FieldTypeString
+		ret = FieldTypeString
 	}
+	if ret > 0 {
+		return &ret
+	}
+
+	switch strings.ToLower(schemaType) {
+	case "array":
+		ret = FieldTypeArray
+	case "boolean":
+		ret = FieldTypeBool
+	case "integer":
+		ret = FieldTypeInteger64
+	case "string":
+		ret = FieldTypeString
+	}
+	if ret > 0 {
+		return &ret
+	}
+
 	if hasModel {
-		return FieldTypeModel
-	} else {
-		return FieldTypeInterface
+		ret = FieldTypeModel
+		return &ret
 	}
+
+	return nil
 }
 
 // Schemas is a map[string]*SchemaRef
@@ -464,21 +484,21 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 			if _, ok := models[title]; !ok {
 				models = parseSchemas(result, title, models, common)
 			}
-			field.ModelName = title
+			field.ModelName = &title
 		}
 
 		if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
-			field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != "")
+			field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
 		}
 
 		if schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
-			field.Type = fieldType(result.Type, result.Format, field.ModelName != "")
+			field.Type = fieldType(result.Type, result.Format, field.ModelName != nil)
 		} else {
-			field.Type = fieldType(schema.Type, schema.Format, field.ModelName != "")
+			field.Type = fieldType(schema.Type, schema.Format, field.ModelName != nil)
 		}
 
-		if field.Type == FieldTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
-			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != "")
+		if field.Type != nil && *field.Type == FieldTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
+			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
 		}
 
 		model.Fields[cleanName(k)] = &field
