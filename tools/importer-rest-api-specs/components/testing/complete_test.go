@@ -73,6 +73,9 @@ func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -128,6 +131,9 @@ func TestGenerateCompleteTest_NameOnlyOptional(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -302,6 +308,9 @@ func TestGenerateCompleteTest_CoreProperties(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -373,6 +382,9 @@ func TestGenerateCompleteTest_BothRequiredAndOptionalPropertiesShouldBeOutput(t 
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -452,6 +464,9 @@ func TestGenerateCompleteTest_NestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -533,6 +548,9 @@ func TestGenerateCompleteTest_ListOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -614,6 +632,9 @@ func TestGenerateCompleteTest_SetOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},

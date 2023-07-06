@@ -37,6 +37,9 @@ func TestBlockValueForField_Reference(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -115,6 +118,9 @@ func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -216,6 +222,9 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -286,6 +295,9 @@ func TestBlockValueForField_List(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -348,6 +360,9 @@ func TestBlockValueForField_Set(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)

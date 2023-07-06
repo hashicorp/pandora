@@ -31,6 +31,9 @@ func TestBlockValueForModel_RequiredOnly_OnlyTopLevelProperties(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	onlyRequiredFields := true
 	actualDependencies := testDependencies{}
@@ -75,6 +78,9 @@ func TestBlockValueForModel_RequiredAndOptional_OnlyTopLevelProperties(t *testin
 					},
 				},
 			},
+		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
 		},
 	}
 	onlyRequiredFields := false
@@ -155,6 +161,9 @@ func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
 					},
 				},
 			},
+		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
 		},
 	}
 	onlyRequiredFields := true
@@ -238,6 +247,9 @@ func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
 					},
 				},
 			},
+		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
 		},
 	}
 	onlyRequiredFields := false
