@@ -83,13 +83,18 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 	name := ""
 	verb := ""
-	for _, segment := range r.Segments {
+	for i, segment := range r.Segments {
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
 			newName := cleanName(segment.Value)
 			shouldSingularize := false
 
 			if segment.Type == SegmentLabel {
 				shouldSingularize = true
+			}
+
+			// $count indicates a plural entity whereas $ref does not
+			if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && r.Segments[i+1].Value == "$count" {
+				shouldSingularize = false
 			}
 
 			if v, ok := verbs.match(newName); ok && verb == "" {
