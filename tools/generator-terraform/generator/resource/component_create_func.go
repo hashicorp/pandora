@@ -166,11 +166,8 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
 						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
 					} else if resourceIdMapping.Parent {
-						// @stephybun: this currently only works for cases where the parent resource segment comes after
-						// the resource group segment - we need additional logic to determine the levels of nesting
 						if !strings.EqualFold(v.Name, "resourceGroupName") && parseParentId == "" {
 							parentResource := strings.Replace(resourceIdMapping.SchemaFieldName, "Id", "", -1)
-							// TODO how to get the package name
 							parseParentId = fmt.Sprintf(`
 								%[1]sId, err := commonids.Parse%[2]sID(config.%[3]s)
 								if err != nil {

@@ -811,6 +811,144 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestComponentReadFunc_ParentResourceId(t *testing.T) {
+	input := models.ResourceInput{
+		ResourceTypeName: "Example",
+		SdkResourceName:  "SdkResource",
+		ServiceName:      "Resources",
+		SdkApiVersion:    "2021-01-01",
+		Details: resourcemanager.TerraformResourceDetails{
+			ReadMethod: resourcemanager.MethodDefinition{
+				Generate:         true,
+				MethodName:       "Get",
+				TimeoutInMinutes: 10,
+			},
+			ResourceIdName: "CustomSubscriptionId",
+			Mappings: resourcemanager.MappingDefinition{
+				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+					{
+						SchemaFieldName: "Name",
+						SegmentName:     "resourceGroupName",
+					},
+				},
+			},
+		},
+		Operations: map[string]resourcemanager.ApiOperation{
+			"Get": {
+				LongRunning:    false,
+				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &resourcemanager.ApiObjectDefinition{
+					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ReferenceName: pointer.To("GetModel"),
+				},
+			},
+		},
+		Models: map[string]resourcemanager.ModelDetails{
+			"GetModel": {
+				Fields: map[string]resourcemanager.FieldDetails{
+					"Name": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "name",
+					},
+					"SomeSdkField": {
+						ObjectDefinition: resourcemanager.ApiObjectDefinition{
+							Type: resourcemanager.StringApiObjectDefinitionType,
+						},
+						Required: true,
+						JsonName: "someSdkField",
+					},
+				},
+			},
+		},
+		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"CustomSubscriptionId": {
+				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "subscriptions",
+						FixedValue: pointer.To("subscriptions"),
+					},
+					{
+						Type: resourcemanager.SubscriptionIdSegment,
+						Name: "subscriptionId",
+					},
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "resourceGroups",
+						FixedValue: pointer.To("resourceGroups"),
+					},
+					{
+						Type: resourcemanager.ResourceGroupSegment,
+						Name: "resourceGroupName",
+					},
+				},
+			},
+		},
+		SchemaModelName: "ExampleModel",
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"ExampleModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName: "name",
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+					},
+					"SomeField": {
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+						Required: true,
+						ForceNew: true,
+						HclName:  "some_field",
+					},
+				},
+			},
+		},
+	}
+	actual, err := readFunctionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+func (r ExampleResource) Read() sdk.ResourceFunc {
+	return sdk.ResourceFunc{
+        Timeout: 10 * time.Minute,
+        Func: func(ctx context.Context, metadata sdk.ResourceMetaData) error {
+			client := metadata.Client.Resources.V20210101.SdkResource
+			schema := ExampleModel{}
+			id, err := sdkresource.ParseCustomSubscriptionID(metadata.ResourceData.Id())
+			if err != nil {
+				return err
+			}
+			parentResourceId := commonids.NewParentResourceID()
+			resp, err := client.Get(ctx, *id)
+			if err != nil {
+				if response.WasNotFound(resp.HttpResponse) {
+					return metadata.MarkAsGone(*id)
+				}
+				return fmt.Errorf("retrieving %s: %+v", *id, err)
+			}
+			if model := resp.Model; model != nil {
+				schema.Name = id.ResourceGroupName
+				if err := r.mapGetModelToExampleModel(*model, &schema); err != nil {
+					return fmt.Errorf("flattening model: %+v", err)
+				}
+			}
+			return metadata.Encode(&schema)
+        },
+	}
+}
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
 	actual, err := readFunctionComponents{
 		idParseLine: "plz.Parse",
@@ -823,6 +961,108 @@ func TestComponentReadFunc_CodeForIDParser(t *testing.T) {
 	if err != nil {
 		return err
 	}
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t *testing.T) {
+	actual, err := readFunctionComponents{
+		idParseLine:    "trustedaccess.ParseTrustedAccessRoleBindingID",
+		parentResource: "ManagedClusterId",
+		parentSegment:  "managedClusterName",
+		resourceId: resourcemanager.ResourceIdDefinition{
+			CommonAlias: nil,
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+			Segments: []resourcemanager.ResourceIdSegment{
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "subscriptions",
+					FixedValue: pointer.To("subscriptions"),
+				},
+				{
+					Type: resourcemanager.SubscriptionIdSegment,
+					Name: "subscriptionId",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "resourceGroups",
+					FixedValue: pointer.To("resourceGroups"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "resourceGroupName",
+					ExampleValue: "resource-group-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "managedClusters",
+					FixedValue: pointer.To("managedClusters"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "managedClusterName",
+					ExampleValue: "managed-cluster-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "trustedAccessRoleBindings",
+					FixedValue: pointer.To("trustedAccessRoleBindings"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "trustedAccessRoleBindingName",
+					ExampleValue: "trusted-access-role-binding-value",
+				},
+			},
+		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+				"ManagedClusterId": {
+					HclName: "kubernetes_cluster_id",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+			},
+		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "trustedAccessRoleBindingName",
+				},
+				{
+					SchemaFieldName: "ManagedClusterId",
+					SegmentName:     "managedClusterName",
+					Parent:          true,
+				},
+				{
+					SchemaFieldName: "ManagedClusterId",
+					SegmentName:     "resourceGroupName",
+					Parent:          true,
+				},
+			},
+		},
+	}.codeForIDParser()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	id, err := trustedaccess.ParseTrustedAccessRoleBindingID(metadata.ResourceData.Id())
+	if err != nil {
+		return err
+	}
+	managedClusterId := commonids.NewManagedClusterId(id.Subscription, id.ResourceGroupName, id.ManagedClusterName)
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -874,6 +1114,33 @@ func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
 	}
 	expected := `
 		resp, err := client.Get(ctx, *id, sdkresource.DefaultGetOperationOptions())
+		if err != nil {
+			if response.WasNotFound(resp.HttpResponse) {
+				return metadata.MarkAsGone(*id)
+			}
+			return fmt.Errorf("retrieving %s: %+v", *id, err)
+		}
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentReadFunc_CodeForModelAssignment(t *testing.T) {
+	actual, err := readFunctionComponents{
+		readMethod: resourcemanager.MethodDefinition{
+			Generate:         true,
+			MethodName:       "Get",
+			TimeoutInMinutes: 5,
+		},
+		readOperation: resourcemanager.ApiOperation{
+			ResourceIdName: pointer.To("SomeResourceId"),
+		},
+		sdkResourceName: "SdkResource",
+	}.codeForModelAssignments()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+		resp, err := client.Get(ctx, *id)
 		if err != nil {
 			if response.WasNotFound(resp.HttpResponse) {
 				return metadata.MarkAsGone(*id)

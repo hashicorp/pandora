@@ -2,7 +2,7 @@ package mappings
 
 import (
 	"fmt"
-	
+
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/helpers"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
