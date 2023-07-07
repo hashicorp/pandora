@@ -84,41 +84,34 @@ func (f ModelField) CSType() *string {
 	}
 
 	switch *f.Type {
-	case DataTypeUnknown:
-		return nil
-
 	case DataTypeModel:
 		if f.ModelName == nil {
 			return nil
 		}
 
-		return pointerTo(fmt.Sprintf("%sModel", f.ModelName))
+		return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
 
 	case DataTypeArray:
-		if f.ModelName == nil {
-			if len(f.Enum) > 0 {
-				return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
-			}
+		if f.ModelName != nil {
+			return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
+		}
 
-			if f.ItemType != nil {
-				itemCSType := f.ItemType.CSType()
-				if itemCSType == nil {
-					return nil
-				}
+		if f.Title != "" && len(f.Enum) > 0 {
+			return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
+		}
+
+		if f.ItemType != nil {
+			if itemCSType := f.ItemType.CSType(); itemCSType != nil {
 				return pointerTo(fmt.Sprintf("List<%s>", *itemCSType))
 			}
-
-			return nil
 		}
 
-		return pointerTo(fmt.Sprintf("List<%sModel>", f.ModelName))
+		return nil
 
 	case DataTypeString:
-		if len(f.Enum) > 0 {
+		if f.Title != "" && len(f.Enum) > 0 {
 			return pointerTo(fmt.Sprintf("%sConstant", f.Title))
 		}
-
-		return pointerTo("string")
 	}
 
 	return f.Type.CSType()

@@ -47,7 +47,7 @@ func (p pipelineTask) templateConstantsForService(resources Resources, models Mo
 			}
 
 			for _, field := range model.Fields {
-				namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", cleanName(p.service), definitionsDirectory(p.apiVersion), cleanVersion(p.apiVersion), category)
+				namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 				filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, fmt.Sprintf("Constant-%s.cs", field.Title))
 				if _, seen := constantFiles[filename]; ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(field.Enum) > 0 && !seen {
 					constantFiles[filename] = templateConstant(namespace, field)
