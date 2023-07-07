@@ -31,7 +31,7 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 						// Determine whether to skip operation with missing response model
 						if operation.Type != OperationTypeDelete {
 							if responseModel := operation.Responses.FindModelName(); responseModel != nil {
-								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 || operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value != "$ref" {
+								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 {
 									continue
 								}
 							}
