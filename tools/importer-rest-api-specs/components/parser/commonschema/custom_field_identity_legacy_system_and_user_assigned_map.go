@@ -45,7 +45,18 @@ func (legacySystemAndUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetai
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a Map of an Object containing ClientId/PrincipalId
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionDictionary {
+			if fieldVal.ObjectDefinition == nil {
+				continue
+			}
+			if fieldVal.ObjectDefinition.Type == models.ObjectDefinitionDictionary {
+				// however some Swaggers don't define the internals e.g. DataFactory
+				//type FactoryIdentity struct {
+				//	PrincipalId            *string                 `json:"principalId,omitempty"`
+				//	TenantId               *string                 `json:"tenantId,omitempty"`
+				//	Type                   FactoryIdentityType     `json:"type"`
+				//	UserAssignedIdentities *map[string]interface{} `json:"userAssignedIdentities,omitempty"`
+				//}
+				hasUserAssignedIdentities = true
 				continue
 			}
 			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
