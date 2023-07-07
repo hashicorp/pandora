@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-        typeof(FactoryIdentityTypeConstant),
         typeof(GlobalParameterTypeConstant),
         typeof(PublicNetworkAccessConstant),
     };
@@ -36,7 +35,6 @@ internal class Definition : ResourceDefinition
         typeof(EncryptionConfigurationModel),
         typeof(FactoryModel),
         typeof(FactoryGitHubConfigurationModel),
-        typeof(FactoryIdentityModel),
         typeof(FactoryPropertiesModel),
         typeof(FactoryRepoConfigurationModel),
         typeof(FactoryRepoUpdateModel),
