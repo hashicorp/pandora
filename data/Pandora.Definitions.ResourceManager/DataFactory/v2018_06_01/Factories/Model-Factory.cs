@@ -22,7 +22,7 @@ internal class FactoryModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public FactoryIdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("location")]
     public CustomTypes.Location? Location { get; set; }

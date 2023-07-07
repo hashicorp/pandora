@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.DataFactory.v2018_06_01.Factories;
 internal class FactoryUpdateParametersModel
 {
     [JsonPropertyName("identity")]
-    public FactoryIdentityModel? Identity { get; set; }
+    public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("properties")]
     public FactoryUpdatePropertiesModel? Properties { get; set; }
