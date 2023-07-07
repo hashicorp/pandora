@@ -2,12 +2,12 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 	"sort"
 	"strings"
 )
 
-func (p pipelineTask) templateDefinitionsForService(resources Resources, models Models) error {
+func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName string, resources Resources, models Models) error {
 	definitions := make(map[string]string)
 
 	categories := make(map[string]bool)
@@ -56,7 +56,7 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 
 					for _, model := range serviceModels {
 						for _, field := range model.Fields {
-							if len(field.Enum) > 0 && ((field.Type != nil && *field.Type == FieldTypeString) || (field.ItemType != nil && *field.ItemType == FieldTypeString)) {
+							if len(field.Enum) > 0 && ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) {
 								constantNamesMap[field.Title] = true
 							}
 						}
@@ -76,9 +76,9 @@ func (p pipelineTask) templateDefinitionsForService(resources Resources, models 
 		}
 
 		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
-		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
+		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(p.apiVersion), commonTypesDirectoryName)
 
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
+		filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, "Definition.cs")
 		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, serviceModels)
 	}
 

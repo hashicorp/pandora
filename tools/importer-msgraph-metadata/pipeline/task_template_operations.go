@@ -2,12 +2,12 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 	"strconv"
 	"strings"
 )
 
-func (p pipelineTask) templateOperationsForService(resources Resources) error {
+func (p pipelineTask) templateOperationsForService(commonTypesDirectoryName string, resources Resources) error {
 	operations := make(map[string]string)
 
 	// First build all the methods
@@ -47,7 +47,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 			}
 
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(resource.Version), resource.Service, cleanVersion(resource.Version), resource.Category)
-			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(resource.Version))
+			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(resource.Version), commonTypesDirectoryName)
 
 			// Template the operationFile code
 			var methodCode string
@@ -75,7 +75,7 @@ func (p pipelineTask) templateOperationsForService(resources Resources) error {
 			}
 
 			// Build it
-			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sOperation-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(resource.Version), resource.Service, cleanVersion(resource.Version), resource.Category, operation.Name)
+			filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(resource.Version)), resource.Service, cleanVersion(resource.Version), resource.Category, fmt.Sprintf("Operation-%s.cs", operation.Name))
 			operations[filename] = methodCode
 		}
 	}
@@ -114,7 +114,8 @@ func templateListOperation(namespace, modelsNamespace string, operation *Operati
 		nestedItemTypeCode = fmt.Sprintf("typeof(%s)", *responseType)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
 %[2]s
 using System;
 
@@ -170,7 +171,8 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 		responseObjectCode = fmt.Sprintf("typeof(%s)", *responseType)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
 %[2]s
 using System.Collections.Generic;
 using System.Net;
@@ -227,6 +229,8 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 	requestObjectCode := "null"
 	if operation.RequestModel != nil {
 		requestObjectCode = fmt.Sprintf("typeof(%sModel)", *operation.RequestModel)
+	} else if operation.RequestType != nil {
+		requestObjectCode = fmt.Sprintf("typeof(%s)", *operation.RequestType.CSType())
 	}
 
 	responseObjectCode := "null"
@@ -234,7 +238,8 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 		responseObjectCode = fmt.Sprintf("typeof(%sModel)", *responseModel)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
 %[2]s
 using System.Collections.Generic;
 using System.Net;
@@ -279,7 +284,8 @@ func templateDeleteOperation(namespace string, operation *Operation, statuses []
 		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
 using System.Collections.Generic;
 using System.Net;
 

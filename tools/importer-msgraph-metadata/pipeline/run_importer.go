@@ -61,13 +61,14 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		}
 
 		task := &pipelineTask{
-			apiVersion:      apiVersion,
-			files:           newTree(),
-			logger:          input.Logger,
-			metadataGitSha:  metadataGitSha,
-			outputDirectory: input.OutputDirectory,
-			service:         service,
-			spec:            spec,
+			apiVersion:               apiVersion,
+			commonTypesDirectoryName: input.CommonTypesDirectoryName,
+			files:                    newTree(),
+			logger:                   input.Logger,
+			metadataGitSha:           metadataGitSha,
+			outputDirectory:          input.OutputDirectory,
+			service:                  service,
+			spec:                     spec,
 		}
 
 		if err = task.runImportForService(serviceTags, models); err != nil {
@@ -78,12 +79,12 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 	files := newTree()
 
 	input.Logger.Info(fmt.Sprintf("Templating models for API version %q", apiVersion))
-	if err = templateCommonModels(files, apiVersion, models); err != nil {
+	if err = templateCommonModels(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
 		return err
 	}
 
 	input.Logger.Info(fmt.Sprintf("Templating constants for API version %q", apiVersion))
-	if err = templateCommonConstants(files, apiVersion, models); err != nil {
+	if err = templateCommonConstants(files, input.CommonTypesDirectoryName, apiVersion, models); err != nil {
 		return err
 	}
 

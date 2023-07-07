@@ -69,11 +69,11 @@ type Model struct {
 
 type ModelField struct {
 	Title       string
-	Type        *FieldType
+	Type        *DataType
 	Description string
 	Default     interface{}
 	Enum        []string
-	ItemType    *FieldType
+	ItemType    *DataType
 	ModelName   *string
 	JsonField   string
 }
@@ -84,17 +84,17 @@ func (f ModelField) CSType() *string {
 	}
 
 	switch *f.Type {
-	case FieldTypeUnknown:
+	case DataTypeUnknown:
 		return nil
 
-	case FieldTypeModel:
+	case DataTypeModel:
 		if f.ModelName == nil {
 			return nil
 		}
 
 		return pointerTo(fmt.Sprintf("%sModel", f.ModelName))
 
-	case FieldTypeArray:
+	case DataTypeArray:
 		if f.ModelName == nil {
 			if len(f.Enum) > 0 {
 				return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
@@ -113,7 +113,7 @@ func (f ModelField) CSType() *string {
 
 		return pointerTo(fmt.Sprintf("List<%sModel>", f.ModelName))
 
-	case FieldTypeString:
+	case DataTypeString:
 		if len(f.Enum) > 0 {
 			return pointerTo(fmt.Sprintf("%sConstant", f.Title))
 		}
@@ -124,71 +124,74 @@ func (f ModelField) CSType() *string {
 	return f.Type.CSType()
 }
 
-type FieldType uint8
+type DataType uint8
 
 const (
-	FieldTypeUnknown FieldType = iota
-	FieldTypeModel
-	FieldTypeArray
-	FieldTypeString
-	FieldTypeInteger64
-	FieldTypeIntegerUnsigned64
-	FieldTypeInteger32
-	FieldTypeIntegerUnsigned32
-	FieldTypeInteger16
-	FieldTypeIntegerUnsigned16
-	FieldTypeInteger8
-	FieldTypeIntegerUnsigned8
-	FieldTypeFloat32
-	FieldTypeFloat64
-	FieldTypeBool
-	FieldTypeBase64
-	FieldTypeDate
-	FieldTypeDateTime
-	FieldTypeDuration
-	FieldTypeTime
-	FieldTypeUuid
+	DataTypeUnknown DataType = iota
+	DataTypeModel
+	DataTypeArray
+	DataTypeString
+	DataTypeInteger64
+	DataTypeIntegerUnsigned64
+	DataTypeInteger32
+	DataTypeIntegerUnsigned32
+	DataTypeInteger16
+	DataTypeIntegerUnsigned16
+	DataTypeInteger8
+	DataTypeIntegerUnsigned8
+	DataTypeFloat32
+	DataTypeFloat64
+	DataTypeBool
+	DataTypeBase64
+	DataTypeDate
+	DataTypeDateTime
+	DataTypeDuration
+	DataTypeTime
+	DataTypeUuid
+	DataTypeBinary
 )
 
-func (ft FieldType) CSType() *string {
+func (ft DataType) CSType() *string {
 	csType := ""
 	switch ft {
-	case FieldTypeString:
+	case DataTypeString:
 		csType = "string"
-	case FieldTypeInteger64:
+	case DataTypeInteger64:
 		csType = "long"
-	case FieldTypeIntegerUnsigned64:
+	case DataTypeIntegerUnsigned64:
 		csType = "ulong"
-	case FieldTypeInteger32:
+	case DataTypeInteger32:
 		csType = "int"
-	case FieldTypeIntegerUnsigned32:
+	case DataTypeIntegerUnsigned32:
 		csType = "uint"
-	case FieldTypeInteger16:
+	case DataTypeInteger16:
 		csType = "short"
-	case FieldTypeIntegerUnsigned16:
+	case DataTypeIntegerUnsigned16:
 		csType = "ushort"
-	case FieldTypeInteger8:
+	case DataTypeInteger8:
 		csType = "sbyte"
-	case FieldTypeIntegerUnsigned8:
+	case DataTypeIntegerUnsigned8:
 		csType = "byte"
-	case FieldTypeFloat32:
+	case DataTypeFloat32:
 		csType = "float"
-	case FieldTypeFloat64:
+	case DataTypeFloat64:
 		csType = "double"
-	case FieldTypeBool:
+	case DataTypeBool:
 		csType = "bool"
-	case FieldTypeBase64:
+	case DataTypeBase64:
 		csType = "string"
-	case FieldTypeDate:
+	case DataTypeDate:
 		csType = "DateTime"
-	case FieldTypeDateTime:
+	case DataTypeDateTime:
 		csType = "DateTime"
-	case FieldTypeDuration:
+	case DataTypeDuration:
 		csType = "string"
-	case FieldTypeTime:
+	case DataTypeTime:
 		csType = "DateTime"
-	case FieldTypeUuid:
+	case DataTypeUuid:
 		csType = "string"
+	case DataTypeBinary:
+		csType = "RawFile"
 	}
 	if csType == "" {
 		return nil
@@ -196,46 +199,46 @@ func (ft FieldType) CSType() *string {
 	return &csType
 }
 
-func fieldType(schemaType, schemaFormat string, hasModel bool) *FieldType {
-	var ret FieldType
+func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
+	var ret DataType
 
 	switch strings.ToLower(schemaFormat) {
 	case "int64":
-		ret = FieldTypeInteger64
+		ret = DataTypeInteger64
 	case "uint64":
-		ret = FieldTypeIntegerUnsigned64
+		ret = DataTypeIntegerUnsigned64
 	case "int32":
-		ret = FieldTypeInteger32
+		ret = DataTypeInteger32
 	case "uint32":
-		ret = FieldTypeIntegerUnsigned32
+		ret = DataTypeIntegerUnsigned32
 	case "int16":
-		ret = FieldTypeInteger16
+		ret = DataTypeInteger16
 	case "uint16":
-		ret = FieldTypeIntegerUnsigned16
+		ret = DataTypeIntegerUnsigned16
 	case "int8":
-		ret = FieldTypeInteger8
+		ret = DataTypeInteger8
 	case "uint8":
-		ret = FieldTypeIntegerUnsigned8
+		ret = DataTypeIntegerUnsigned8
 	case "float":
-		ret = FieldTypeFloat32
+		ret = DataTypeFloat32
 	case "double":
-		ret = FieldTypeFloat64
+		ret = DataTypeFloat64
 	case "decimal":
-		ret = FieldTypeFloat32
+		ret = DataTypeFloat32
 	case "base64url":
-		ret = FieldTypeBase64
+		ret = DataTypeBase64
 	case "date":
-		ret = FieldTypeDate
+		ret = DataTypeDate
 	case "date-time":
-		ret = FieldTypeDateTime
+		ret = DataTypeDateTime
 	case "duration":
-		ret = FieldTypeDuration
+		ret = DataTypeDuration
 	case "time":
-		ret = FieldTypeTime
+		ret = DataTypeTime
 	case "uuid":
-		ret = FieldTypeUuid
+		ret = DataTypeUuid
 	case "string":
-		ret = FieldTypeString
+		ret = DataTypeString
 	}
 	if ret > 0 {
 		return &ret
@@ -243,20 +246,20 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) *FieldType {
 
 	switch strings.ToLower(schemaType) {
 	case "array":
-		ret = FieldTypeArray
+		ret = DataTypeArray
 	case "boolean":
-		ret = FieldTypeBool
+		ret = DataTypeBool
 	case "integer":
-		ret = FieldTypeInteger64
+		ret = DataTypeInteger64
 	case "string":
-		ret = FieldTypeString
+		ret = DataTypeString
 	}
 	if ret > 0 {
 		return &ret
 	}
 
 	if hasModel {
-		ret = FieldTypeModel
+		ret = DataTypeModel
 		return &ret
 	}
 
@@ -497,7 +500,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 			field.Type = fieldType(schema.Type, schema.Format, field.ModelName != nil)
 		}
 
-		if field.Type != nil && *field.Type == FieldTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
+		if field.Type != nil && *field.Type == DataTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
 			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
 		}
 

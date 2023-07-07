@@ -2,7 +2,7 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 )
 
 func (p pipelineTask) templateServiceDefinitionForService(resources Resources) error {
@@ -10,12 +10,12 @@ func (p pipelineTask) templateServiceDefinitionForService(resources Resources) e
 		return nil
 	}
 
-	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service))
+	filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), "ServiceDefinition.cs")
 	if err := p.files.addFile(filename, templateServiceDefinition(p.service, p.apiVersion)); err != nil {
 		return err
 	}
 
-	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]sServiceDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service))
+	filename = path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), "ServiceDefinition-GenerationSettings.cs")
 	if err := p.files.addFile(filename, templateServiceDefinitionGenerationSettings(p.service, p.apiVersion)); err != nil {
 		return err
 	}

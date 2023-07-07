@@ -2,7 +2,7 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 	"sort"
 	"strings"
 )
@@ -26,12 +26,12 @@ func (p pipelineTask) templateApiVersionDefinitionForService(resources Resources
 		categories = append(categories, c)
 	}
 
-	filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion))
+	filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), "ApiVersionDefinition.cs")
 	if err := p.files.addFile(filename, templateApiVersionDefinition(p.service, p.apiVersion, categories)); err != nil {
 		return err
 	}
 
-	filename = fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]sApiVersionDefinition-GenerationSettings.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion))
+	filename = path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), "ApiVersionDefinition-GenerationSettings.cs")
 	if err := p.files.addFile(filename, templateApiVersionDefinitionGenerationSettings(p.service, p.apiVersion)); err != nil {
 		return err
 	}

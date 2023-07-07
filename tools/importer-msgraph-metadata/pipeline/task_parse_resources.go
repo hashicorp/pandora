@@ -114,7 +114,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				for stat, resp := range operation.Responses {
 					var status int
 					var contentType, responseModel *string
-					var responseType *FieldType
+					var responseType *DataType
 
 					if s, err := strconv.Atoi(strings.ReplaceAll(stat, "X", "0")); err == nil {
 						status = s
@@ -129,6 +129,11 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 							if s := parseSchemaRef(m.Schema); s != nil {
 								f, _ := flattenSchema(s, nil)
+
+								if f.Format == "binary" {
+									responseType = pointerTo(DataTypeBinary)
+									break
+								}
 
 								if title := f.Title; title != "" || f.Type != "" {
 									if strings.HasPrefix(strings.ToLower(title), "collection of ") {
@@ -209,11 +214,18 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 			// Determine request model
 			var requestModel *string
+			var requestType *DataType
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
 				for contentType, content := range operation.RequestBody.Value.Content {
-					if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
-						if content.Schema != nil {
-							schema, _ := flattenSchema(content.Schema.Value, nil)
+					if content.Schema != nil {
+						schema, _ := flattenSchema(content.Schema.Value, nil)
+
+						if schema.Format == "binary" {
+							requestType = pointerTo(DataTypeBinary)
+							break
+						}
+
+						if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
 							var modelName string
 							if schema.Title != "" {
 								// Should be a known model
@@ -226,6 +238,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 								modelName = fmt.Sprintf("%sRequest", operationName)
 								models = parseSchemas(schema, modelName, models, false)
 								requestModel = &modelName
+								break
 							}
 						}
 					}
@@ -245,6 +258,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				ResourceId:   resourceId,
 				UriSuffix:    uriSuffix,
 				RequestModel: requestModel,
+				RequestType:  requestType,
 				Responses:    responses,
 				Tags:         operation.Tags,
 			})

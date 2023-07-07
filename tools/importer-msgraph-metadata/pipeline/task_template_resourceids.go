@@ -2,7 +2,7 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 	"strings"
 )
 
@@ -18,7 +18,7 @@ func (p pipelineTask) templateResourceIdsForService(resources Resources) error {
 			if operation.ResourceId == nil {
 				continue
 			}
-			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sResourceId-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(operation.ResourceId.Version), operation.ResourceId.Service, cleanVersion(operation.ResourceId.Version), resource.Category, operation.ResourceId.Name)
+			filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(operation.ResourceId.Version)), operation.ResourceId.Service, cleanVersion(operation.ResourceId.Version), resource.Category, fmt.Sprintf("ResourceId-%s.cs", operation.ResourceId.Name))
 			ids[filename] = templateResourceId(operation.ResourceId, resource.Category)
 		}
 	}

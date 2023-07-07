@@ -9,12 +9,13 @@ import (
 type RunInput struct {
 	Logger hclog.Logger
 
-	ApiVersions        []string
-	MetadataDirectory  string
-	OpenApiFilePattern string
-	OutputDirectory    string
-	ProviderPrefix     string
-	Tags               []string
+	ApiVersions              []string
+	CommonTypesDirectoryName string
+	MetadataDirectory        string
+	OpenApiFilePattern       string
+	OutputDirectory          string
+	ProviderPrefix           string
+	Tags                     []string
 }
 
 func Run(input RunInput) error {

@@ -2,12 +2,12 @@ package pipeline
 
 import (
 	"fmt"
-	"os"
+	"path"
 	"sort"
 	"strings"
 )
 
-func (p pipelineTask) templateModelsForService(resources Resources, models Models) error {
+func (p pipelineTask) templateModelsForService(commonTypesDirectoryName string, resources Resources, models Models) error {
 	modelFiles := make(map[string]string)
 
 	categories := make(map[string]bool)
@@ -48,8 +48,8 @@ func (p pipelineTask) templateModelsForService(resources Resources, models Model
 			}
 
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
-			filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]s%[3]s%[1]s%[4]s%[1]s%[5]s%[1]sModel-%[6]s.cs", string(os.PathSeparator), definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category, modelName)
-			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(p.apiVersion))
+			filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, fmt.Sprintf("Model-%s.cs", modelName))
+			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(p.apiVersion), commonTypesDirectoryName)
 			modelFiles[filename] = templateModel(namespace, modelsNamespace, modelName, model)
 		}
 
@@ -65,7 +65,7 @@ func (p pipelineTask) templateModelsForService(resources Resources, models Model
 	return nil
 }
 
-func templateCommonModels(files *Tree, apiVersion string, models Models) error {
+func templateCommonModels(files *Tree, commonTypesDirectoryName, apiVersion string, models Models) error {
 	modelFiles := make(map[string]string)
 
 	for modelName, model := range models {
@@ -80,8 +80,8 @@ func templateCommonModels(files *Tree, apiVersion string, models Models) error {
 
 		sort.Strings(fieldNames)
 
-		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.Models", definitionsDirectory(apiVersion))
-		filename := fmt.Sprintf("Pandora.Definitions.%[2]s%[1]sModels%[1]sModel-%[3]s.cs", string(os.PathSeparator), definitionsDirectory(apiVersion), modelName)
+		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(apiVersion), commonTypesDirectoryName)
+		filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(apiVersion)), commonTypesDirectoryName, fmt.Sprintf("Model-%s.cs", modelName))
 		modelFiles[filename] = templateModel(namespace, "", modelName, model)
 	}
 

@@ -20,6 +20,7 @@ type Operation struct {
 	ResourceId   *ResourceId
 	UriSuffix    *string
 	RequestModel *string
+	RequestType  *DataType
 	Responses    Responses
 	Tags         []string
 }
@@ -28,7 +29,7 @@ type Response struct {
 	Status      int
 	ContentType *string
 	ModelName   *string
-	Type        *FieldType
+	Type        *DataType
 }
 
 type Responses []Response
