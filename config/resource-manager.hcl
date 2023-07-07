@@ -60,7 +60,7 @@ service "azurestackhci" {
 }
 service "batch" {
   name      = "Batch"
-  available = ["2022-01-01", "2022-10-01", "2023-05-01"]
+  available = ["2023-05-01"]
 }
 service "blueprint" {
   name      = "Blueprints"
