@@ -48,7 +48,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-12-29", "2023-05-02"]
+  available = ["2023-05-02"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
@@ -56,7 +56,7 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-12-01", "2023-02-01", "2023-03-01"]
+  available = ["2023-03-01"]
 }
 service "batch" {
   name      = "Batch"
