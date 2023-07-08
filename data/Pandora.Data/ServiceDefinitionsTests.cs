@@ -8,7 +8,7 @@ using Pandora.Definitions.DataPlane;
 using Pandora.Definitions.HandDefined;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.MicrosoftGraph.Beta;
-using Pandora.Definitions.MicrosoftGraph.Stable;
+using Pandora.Definitions.MicrosoftGraph.StableV1;
 using Pandora.Definitions.ResourceManager;
 using ServiceDefinition = Pandora.Data.Models.ServiceDefinition;
 

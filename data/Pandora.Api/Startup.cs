@@ -23,6 +23,7 @@ public class Startup
     public void ConfigureServices(IServiceCollection services)
     {
         services.AddSingleton<IServiceReferencesRepository>(new ServiceReferencesRepository(SupportedServices.Get()));
+        services.AddSingleton<ICommonTypesRepository>(new CommonTypesRepository(SupportedCommonTypes.Get()));
         services.AddControllers();
     }
 
