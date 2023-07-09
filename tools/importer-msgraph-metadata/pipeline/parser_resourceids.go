@@ -14,6 +14,17 @@ type ResourceIdMatch struct {
 	Remainder *ResourceId
 }
 
+// MatchIdOrAncestor returns a ResourceIdMatch containing a matching/ancestor ResourceId and/or a remaininder value, or nil if no
+// match/ancestor was found. A match is a ResourceId that represents the same path, and an ancestor is any ResourceId that
+// represents a shorter matching path. Where multiple ancestors are found, the most granular (i.e. the longest) ancestor is returned.
+//
+// Example 1:
+// If resourceId represents `/users/{userId}`
+// The returned ResourceIdMatch is likely to represent `/users/{userId}` (a match) with no remainder.
+//
+// Example 2:
+// If resourceId represents `/applications/{applicationId}/owners`
+// The returned ResourceIdMatch is likely to represent `/applications/{applicationId}` with a remainder of `/owners`
 func (ri ResourceIds) MatchIdOrAncestor(resourceId ResourceId) (*ResourceIdMatch, bool) {
 	matches := make([]ResourceIdMatch, 0)
 
@@ -52,6 +63,8 @@ func (r ResourceId) ID() string {
 	return "/" + strings.Join(segments, "/")
 }
 
+// IsMatchOrAncestor compares the provided ResourceId (r2) against the current ResourceId and returns true if the
+// two resource IDs match, or if this ResourceId is an ancestor of the provided ResourceId.
 func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 	rLen := len(r.Segments)
 	r2Len := len(r2.Segments)
@@ -80,6 +93,11 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 	return ResourceId{Segments: make([]ResourceIdSegment, 0)}, true
 }
 
+// FullyQualifiedResourceName returns a human-readable name for the ResourceId, using all segments, each segment singularized
+// except when the following segment is a plural function, or the first known verb is encountered.
+// e.g.
+// if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
+// will be `ApplicationSynchronizationJob`
 func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 	name := ""
 	verb := ""
@@ -124,6 +142,11 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 	return &name, true
 }
 
+// FindResourceName returns a short resource name based on the last significant segments of the ResourceId. Singularization
+// follows the same rules as FullyQualifiedResourceName.
+// e.g.
+// if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the (shortened)
+// returned name will be `SynchronizationJob`.
 func (r ResourceId) FindResourceName() (*string, bool) {
 	r2 := ResourceId{
 		Segments: make([]ResourceIdSegment, 0),
@@ -170,6 +193,8 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 	return r2.FullyQualifiedResourceName()
 }
 
+// FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
+// but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
 	idName := ""
 	if resourceName, ok := r.FindResourceName(); ok {
@@ -192,14 +217,18 @@ func (r ResourceId) HasUserValue() bool {
 	return false
 }
 
+// LastLabel returns the last label segment from the ResourceId
 func (r ResourceId) LastLabel() *ResourceIdSegment {
 	return r.LastLabelBeforeSegment(-1)
 }
 
+// LastLabelBeforeSegment returns the last label segment from the ResourceId that precedes the provided segment index
 func (r ResourceId) LastLabelBeforeSegment(i int) *ResourceIdSegment {
 	return r.LastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentLabel}, i)
 }
 
+// LastSegmentOfTypeBeforeSegment returns the last segment of the specified type from the ResourceId that precedes the
+// provided segment index
 func (r ResourceId) LastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType, i int) *ResourceIdSegment {
 	if segmentsLen := len(r.Segments); i < 0 || i > segmentsLen {
 		i = segmentsLen
@@ -216,6 +245,8 @@ func (r ResourceId) LastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType
 	return nil
 }
 
+// TruncateToLastSegmentOfTypeBeforeSegment returns a new ResourceId, truncating this ResourceId to the last segment of
+// the specified type from the ResourceId that precedes the provided segment index
 func (r ResourceId) TruncateToLastSegmentOfTypeBeforeSegment(types []ResourceIdSegmentType, i int) *ResourceId {
 	ret := r
 	if segmentsLen := len(r.Segments); i < 0 || i > segmentsLen {

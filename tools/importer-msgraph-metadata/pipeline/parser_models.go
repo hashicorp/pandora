@@ -9,6 +9,7 @@ import (
 
 type Models map[string]*Model
 
+// Found returns true when the provided modelName was found in the Models map
 func (m Models) Found(modelName string) bool {
 	// Safety check, don't allow an empty model name
 	if modelName == "" {
@@ -78,6 +79,8 @@ type ModelField struct {
 	JsonField   string
 }
 
+// CSType returns a string containing the C# type name for the ModelField, either describing it as a literal type, a
+// specific model type, or a collection of either.
 func (f ModelField) CSType() *string {
 	if f.Type == nil {
 		return nil
@@ -144,6 +147,7 @@ const (
 	DataTypeBinary
 )
 
+// CSType returns a string containing the C# type name for the DataType
 func (ft DataType) CSType() *string {
 	csType := ""
 	switch ft {
@@ -192,6 +196,7 @@ func (ft DataType) CSType() *string {
 	return &csType
 }
 
+// fieldType parses the schemaType and schemaFormat from the OpenAPI spec for a given field, and returns the appropriate DataType
 func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 	var ret DataType
 
@@ -259,16 +264,19 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 	return nil
 }
 
-// Schemas is a map[string]*SchemaRef
-// SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
-// The Ref string (after trimming) indicates a Schemas map key to follow/inherit
-// Schema has Properties which is a nested Schemas
-// Schema has AllOf which is a SchemaRefs
-// SchemaRefs is a []*SchemaRef
-
-// Schemas is a model
-// SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
-// Schema leads to SchemaRefs and Schemas
+/* ===================
+   openapi3 cheatsheet
+   ===================
+   Schemas is a map[string]*SchemaRef
+   SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
+   The Ref string (after trimming) indicates a Schemas map key to follow/inherit
+   Schema has Properties which is a nested Schemas
+   Schema has AllOf and/or AnyOf which are SchemaRefs
+   SchemaRefs is a []*SchemaRef
+   Schemas is a model
+   SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
+   Schema leads to SchemaRefs and Schemas
+*/
 
 func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 	models = make(Models)
@@ -292,6 +300,9 @@ type flattenedSchema struct {
 	Enum    []interface{}
 }
 
+// flattenSchema attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
+// which is much more convenient to inspect for types. The returned map[string]bool is used when recursing to track
+// Refs which have been observed in order to avoid infinite recursion, and is usually not interesting to the caller.
 func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattenedSchema, map[string]bool) {
 	if seenRefs == nil {
 		seenRefs = make(map[string]bool)
@@ -443,6 +454,8 @@ func parseSchemaRef(schemaRef *openapi3.SchemaRef) *openapi3.Schema {
 	return nil
 }
 
+// parseSchemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
+// marking it as a common model. The provided Models (map[string]Model) is mutated to append the new model and its fields.
 func parseSchemas(input flattenedSchema, modelName string, models Models, common bool) Models {
 	if _, ok := models[modelName]; ok {
 		return models
@@ -503,6 +516,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 	return models
 }
 
+// parseEnum returns a slice of sanitized enum values (which are always strings)
 func parseEnum(input []interface{}) []string {
 	out := make([]string, 0, len(input))
 	for _, raw := range input {
