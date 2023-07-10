@@ -111,7 +111,7 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 			suffixForResourceLabel := suffixFromResourceLabel(resourceLabel)
 			val := hclwrite.Tokens{
 				{
-					Type: hclsyntax.TokenQuotedLit, Bytes: []byte(fmt.Sprintf(`"acctest%s-${var.random_integer}"`, suffixForResourceLabel)),
+					Type: hclsyntax.TokenQuotedLit, Bytes: []byte(fmt.Sprintf(`"acctest%s-${var.random_string}"`, suffixForResourceLabel)),
 				},
 			}
 			return &val, nil
