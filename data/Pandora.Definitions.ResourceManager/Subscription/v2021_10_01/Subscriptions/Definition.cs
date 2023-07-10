@@ -22,6 +22,7 @@ internal class Definition : ResourceDefinition
         new SubscriptionAcceptOwnershipStatusOperation(),
         new SubscriptionCancelOperation(),
         new SubscriptionEnableOperation(),
+        new SubscriptionOperationGetOperation(),
         new SubscriptionPolicyAddUpdatePolicyForTenantOperation(),
         new SubscriptionPolicyGetPolicyForTenantOperation(),
         new SubscriptionPolicyListPolicyForTenantOperation(),
@@ -53,6 +54,7 @@ internal class Definition : ResourceDefinition
         typeof(SubscriptionAliasListResultModel),
         typeof(SubscriptionAliasResponseModel),
         typeof(SubscriptionAliasResponsePropertiesModel),
+        typeof(SubscriptionCreationResultModel),
         typeof(SubscriptionNameModel),
         typeof(TenantPolicyModel),
     };
