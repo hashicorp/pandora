@@ -105,9 +105,9 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 		return &val, nil
 	},
 	resourcemanager.TerraformSchemaFieldTypeString: func(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, resourceLabel, providerPrefix, resourceDisplayName string, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Tokens, error) {
-		// when `field.hclName` is `name`, we should be able to do `acctest{letters}-{var.random_integer}` using the first letter of each bit of the resource label
+		// when `field.hclName` is `name`, we should be able to do `acctest{letters}-{var.random_string}` using the first letter of each bit of the resource label
 		if strings.EqualFold(field.HclName, "name") {
-			dependencies.variables.needsRandomInteger = true
+			dependencies.variables.needsRandomString = true
 			suffixForResourceLabel := suffixFromResourceLabel(resourceLabel)
 			val := hclwrite.Tokens{
 				{

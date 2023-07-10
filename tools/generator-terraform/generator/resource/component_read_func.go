@@ -126,7 +126,7 @@ func (c readFunctionComponents) codeForIDParser() (*string, error) {
 `, c.idParseLine)
 
 	if c.parentResource != "" && c.parentSegment != "" {
-		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.Subscription, id.ResourceGroupName, id.%s)", helpers.LowerCaseName(c.parentResource), c.parentResource, strings.Title(c.parentSegment))
+		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers.LowerCaseName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
 	}
 
 	return &output, nil

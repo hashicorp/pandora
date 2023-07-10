@@ -8,15 +8,18 @@ type testDependencies struct {
 	variables testVariables
 
 	// NOTE: use the Set methods
+	needsApplicationInsights      bool
 	needsClientConfig             bool
 	needsEdgeZone                 bool
 	needsKeyVault                 bool
+	needsKeyVaultAccessPolicy     bool
 	needsKeyVaultKey              bool
 	needsKubernetesCluster        bool
 	needsMachineLearningWorkspace bool
 	needsNetworkInterface         bool
 	needsPublicIP                 bool
 	needsResourceGroup            bool
+	needsStorageAccount           bool
 	needsSubnet                   bool
 	needsUserAssignedIdentity     bool
 	needsVirtualNetwork           bool
@@ -29,6 +32,13 @@ type testDependencies struct {
 	//   2. In the longer-term, can we infer the dependencies from
 	//      the reference name, for example `virtual_network.test`
 	//      and find the matching `basic` test and reference that?
+}
+
+func (d *testDependencies) setNeedsApplicationInsights() {
+	d.setNeedsResourceGroup()
+	d.needsApplicationInsights = true
+
+	d.variables.needsRandomInteger = true
 }
 
 func (d *testDependencies) setNeedsClientConfig() {
@@ -49,6 +59,13 @@ func (d *testDependencies) setNeedsKeyVault() {
 	d.variables.needsRandomInteger = true
 }
 
+func (d *testDependencies) setNeedsKeyVaultAccessPolicy() {
+	d.setNeedsResourceGroup()
+	d.setNeedsClientConfig()
+	d.setNeedsKeyVault()
+	d.needsKeyVaultAccessPolicy = true
+}
+
 func (d *testDependencies) setNeedsKeyVaultKey() {
 	d.setNeedsKeyVault()
 	d.needsKeyVaultKey = true
@@ -66,6 +83,9 @@ func (d *testDependencies) setNeedsKubernetesCluster() {
 func (d *testDependencies) setNeedsMachineLearningWorkspace() {
 	d.setNeedsResourceGroup()
 	d.setNeedsKeyVault()
+	d.setNeedsKeyVaultAccessPolicy()
+	d.setNeedsApplicationInsights()
+	d.setNeedsStorageAccount()
 	d.needsMachineLearningWorkspace = true
 
 	d.variables.needsRandomString = true
@@ -89,6 +109,13 @@ func (d *testDependencies) setNeedsResourceGroup() {
 
 	d.variables.needsRandomInteger = true
 	d.variables.needsPrimaryLocation = true
+}
+
+func (d *testDependencies) setNeedsStorageAccount() {
+	d.setNeedsResourceGroup()
+	d.needsStorageAccount = true
+
+	d.variables.needsRandomString = true
 }
 
 func (d *testDependencies) setNeedsSubnet() {
@@ -123,11 +150,14 @@ type dependencyDefinition struct {
 
 func DetermineDependencies(field, providerPrefix string, dependencies *testDependencies) (*string, *testDependencies, error) {
 	dependencyMapping := map[string]dependencyDefinition{
+		"application_insights_id":       {dependencies.setNeedsApplicationInsights, fmt.Sprintf("%s_application_insights.test.id", providerPrefix)},
 		"key_vault_id":                  {dependencies.setNeedsKeyVault, fmt.Sprintf("%s_key_vault.test.id", providerPrefix)},
+		"key_vault_access_policy_id":    {dependencies.setNeedsKeyVaultAccessPolicy, fmt.Sprintf("%s_key_vault_access_policy.test.id", providerPrefix)},
 		"key_vault_key_id":              {dependencies.setNeedsKeyVaultKey, fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)},
 		"kubernetes_cluster_id":         {dependencies.setNeedsKubernetesCluster, fmt.Sprintf("%s_kubernetes_cluster.test.id", providerPrefix)},
 		"machine_learning_workspace_id": {dependencies.setNeedsMachineLearningWorkspace, fmt.Sprintf("%s_machine_learning_workspace.test.id", providerPrefix)},
 		"network_interface_id":          {dependencies.setNeedsNetworkInterface, fmt.Sprintf("%s_network_interface.test.id", providerPrefix)},
+		"storage_account_id":            {dependencies.setNeedsStorageAccount, fmt.Sprintf("%s_storage_account.test.id", providerPrefix)},
 		"subnet_id":                     {dependencies.setNeedsSubnet, fmt.Sprintf("%s_subnet.test.id", providerPrefix)},
 		"subscription_id":               {dependencies.setNeedsClientConfig, fmt.Sprintf("data.%s_client_config.test.subscription_id", providerPrefix)},
 		"tenant_id":                     {dependencies.setNeedsClientConfig, fmt.Sprintf("data.%s_client_config.test.tenant_id", providerPrefix)},

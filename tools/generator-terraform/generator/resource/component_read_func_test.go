@@ -1062,7 +1062,7 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 	if err != nil {
 		return err
 	}
-	managedClusterId := commonids.NewManagedClusterId(id.Subscription, id.ResourceGroupName, id.ManagedClusterName)
+	managedClusterId := commonids.NewManagedClusterID(id.SubscriptionId, id.ResourceGroupName, id.ManagedClusterName)
 `
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
