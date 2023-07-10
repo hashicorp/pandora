@@ -65,8 +65,28 @@ func (s ResourceManagerService) AvailableServices() (*[]AvailableService, error)
 		return nil, err
 	}
 
+	servicesToSkip := map[string]struct{}{
+		// These services are Removed and should be excluded
+		"blockchain":        {},
+		"devspaces":         {},
+		"servicefabricmesh": {},
+		"vmwarecloudsimple": {},
+
+		// These services are Deprecated and should be excluded
+		"servicemap": {},
+
+		// NOTE: we believe these services are deprecated?
+		"adhybridhealthservice": {},
+		"customerlockbox":       {},
+		"dynamicstelemetry":     {},
+		"iotspaces":             {},
+	}
 	output := make([]AvailableService, 0)
 	for _, service := range services {
+		if _, shouldSkip := servicesToSkip[strings.ToLower(service.Name)]; shouldSkip {
+			continue
+		}
+
 		output = append(output, service)
 	}
 

@@ -54,12 +54,12 @@ func reconcileWithAvailableServices(input services.Config, availableServices []A
 	result := make(map[string]services.Service, 0)
 	// first add the existing services we know about
 	for _, service := range input.Services {
-		result[strings.ToLower(service.Directory)] = service
+		result[normalizeServiceName(service.Directory)] = service
 	}
 
 	// first add the existing services we know about
 	for _, availableService := range availableServices {
-		key := strings.ToLower(availableService.Directory)
+		key := normalizeServiceName(availableService.Directory)
 		existing, hasExisting := result[key]
 		if !hasExisting {
 			// temporary feature-flag to ensure we only update the versions for previously-imported services
@@ -77,7 +77,7 @@ func reconcileWithAvailableServices(input services.Config, availableServices []A
 
 			result[key] = services.Service{
 				Directory: availableService.Directory,
-				Name:      strings.Title(availableService.Directory),
+				Name:      key,
 				Available: []string{
 					latestVersion,
 				},
