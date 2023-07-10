@@ -1,30 +1,33 @@
 package resourcemanager
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/render"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func serviceDetails(w http.ResponseWriter, r *http.Request) {
+	ctx := r.Context()
+	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
+	if !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		return
+	}
+
 	payload := models.ServiceDetails{
-		ResourceProvider:     "Microsoft.Compute",
-		TerraformPackageName: pointer.To("compute"),
-		TerraformUri:         "/v1/resource-manager/services/Compute/terraform",
-		Versions: map[string]models.ServiceVersion{
-			"2020-01-01": {
-				Generate: true,
-				Uri:      "/v1/resource-manager/services/Compute/2020-01-01",
-				Preview:  false,
-			},
-			"2021-01-01": {
-				Generate: true,
-				Uri:      "/v1/resource-manager/services/Compute/2021-01-01",
-				Preview:  false,
-			},
-		},
+		ResourceProvider:     service.ResourceProvider,
+		TerraformPackageName: service.TerraformPackageName,
+		TerraformUri:         fmt.Sprintf("/v1/resource-manager/services/%s/terraform", service.Name),
+		Versions:             make(map[string]models.ServiceVersion, 0),
+	}
+	for _, version := range service.ApiVersions {
+		payload.Versions[version.Name] = models.ServiceVersion{
+			Generate: version.Generate,
+			Uri:      fmt.Sprintf("/v1/resource-manager/services/%s/%s", service.Name, version.Name),
+		}
 	}
 	render.JSON(w, r, payload)
 }

@@ -2,9 +2,12 @@ package resourcemanager
 
 import (
 	"context"
+	"fmt"
+	"log"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
 func Router(router chi.Router) {
@@ -37,14 +40,18 @@ func Router(router chi.Router) {
 
 func serviceRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// TODO: implement me
-		//articleID := chi.URLParam(r, "articleID")
-		//article, err := dbGetArticle(articleID)
-		//if err != nil {
-		//	http.Error(w, http.StatusText(404), 404)
-		//	return
-		//}
-		service := struct{}{}
+		serviceName := chi.URLParam(r, "serviceName")
+		if serviceName == "" {
+			log.Printf("[DEBUG] Missing Service Name")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		}
+
+		service, err := servicesRepository.GetByName(serviceName, repositories.ResourceManagerServiceType)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("retrieving service %q: %+v", serviceName, err))
+			return
+		}
+
 		ctx := context.WithValue(r.Context(), "service", service)
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
