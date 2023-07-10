@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"regexp"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -35,25 +36,24 @@ func capitalizeFirstLetter(input string) string {
 }
 
 func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
-	if input == resourcemanager.ApiDefinitionsSourceHandWritten {
+	switch input {
+	case resourcemanager.ApiDefinitionsSourceHandWritten, resourcemanager.ApiDefinitionsSourceMicrosoftGraphMetadata:
 		out := `
 // Copyright (c) HashiCorp Inc. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil
-	}
 
-	if input == resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs {
+	case resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs:
 		out := `
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 		return &out, nil
-	}
 
-	// this is used purely for acctests - to ensure the config is stable this is a
-	// hand-defined value
-	if string(input) == "acctest" {
+	case "acctest":
+		// this is used purely for acctests - to ensure the config is stable this is a
+		// hand-defined value
 		out := "// acctests licence placeholder"
 		return &out, nil
 	}
@@ -107,6 +107,23 @@ func golangTypeNameForConstantType(input resourcemanager.ConstantType) (*string,
 		return nil, fmt.Errorf("constant type %q has no segmentTypes mapping", string(input))
 	}
 	return &segmentType, nil
+}
+
+func golangPackageName(input string) (output string) {
+	output = input
+	output = regexp.MustCompile("[^0-9A-z-]").ReplaceAllString(output, "_")
+	output = strings.ToLower(output)
+	return
+}
+
+func golangPackageNameForVersion(input string) (output string) {
+	output = input
+	output = regexp.MustCompile("[^0-9A-z]").ReplaceAllString(output, "_")
+	output = strings.ToLower(output)
+	if regexp.MustCompile("^[0-9]").MatchString(output) {
+		output = fmt.Sprintf("v%s", output)
+	}
+	return
 }
 
 func urlFromSegments(input []string) string {

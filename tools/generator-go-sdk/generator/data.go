@@ -55,13 +55,16 @@ type ServiceGeneratorData struct {
 	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
 	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
+
+	baseClientMethod  string
+	baseClientPackage string
 }
 
 func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGeneratorData {
-	servicePackageName := strings.ToLower(i.ServiceName)
-	versionPackageName := strings.ToLower(i.VersionName)
+	servicePackageName := golangPackageName(i.ServiceName)
+	versionPackageName := golangPackageName(i.VersionName)
 	// TODO: it'd be nice to make these snake_case but that's a problem for another day
-	resourcePackageName := strings.ToLower(i.ResourceName)
+	resourcePackageName := golangPackageName(i.ResourceName)
 	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")
@@ -70,6 +73,8 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGenerator
 
 	return ServiceGeneratorData{
 		apiVersion:         i.VersionName,
+		baseClientMethod:   i.BaseClientMethod,
+		baseClientPackage:  i.BaseClientPackage,
 		constants:          i.ResourceDetails.Schema.Constants,
 		idsOutputPath:      idsPath,
 		models:             i.ResourceDetails.Schema.Models,

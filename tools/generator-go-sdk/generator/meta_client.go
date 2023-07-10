@@ -12,10 +12,12 @@ func (s *ServiceGenerator) metaClient(data VersionInput, versionDirectory string
 	var templater templaterForVersion
 	if data.UseNewBaseLayer {
 		templater = metaClientTemplater{
-			serviceName: data.ServiceName,
-			apiVersion:  data.VersionName,
-			resources:   data.Resources,
-			source:      data.Source,
+			serviceName:       data.ServiceName,
+			apiVersion:        data.VersionName,
+			baseClientPackage: data.BaseClientPackage,
+			sdkPackage:        data.SdkPackage,
+			resources:         data.Resources,
+			source:            data.Source,
 		}
 	} else {
 		templater = metaClientAutorestTemplater{
