@@ -29,6 +29,12 @@ public class CommonTypesController : ControllerBase
         return CommonTypes(definitionType.Value);
     }
 
+    [Route("/v1/resource-manager/commonTypes")]
+    public IActionResult ResourceManager(string apiVersion)
+    {
+        return CommonTypes(ServiceDefinitionType.ResourceManager);
+    }
+
     private IActionResult CommonTypes(ServiceDefinitionType serviceDefinitionType)
     {
         var commonTypes = _repo.Get(serviceDefinitionType);
@@ -42,9 +48,6 @@ public class CommonTypesController : ControllerBase
 
         [JsonPropertyName("models")]
         public Dictionary<string, ModelApiDefinition> Models { get; set; }
-
-        [JsonPropertyName("resourceIds")]
-        public Dictionary<string, ResourceIdDefinition> ResourceIds { get; set; }
     }
 
     private static CommonTypesResponse MapResponse(IEnumerable<CommonTypesDefinition> resource)
