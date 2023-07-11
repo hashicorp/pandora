@@ -512,9 +512,13 @@ type TerraformResourceTestsDefinition struct {
 }
 
 type TerraformResourceTestDataDefinition struct {
-	// Variables is a struct that contains key value pairs of hcl field to test value for
-	// different variable types.
-	Variables TerraformTestDataVariables `json:"testDataVariables"`
+	// BasicVariables is a struct that contains key value pairs of hcl field to test value for
+	// different variable types for the basic test.
+	BasicVariables TerraformTestDataVariables `json:"basicTestDataVariables"`
+
+	// CompleteVariables is a struct that contains key value pairs of hcl field to test value for
+	// different variable types for the complete test.
+	CompleteVariables TerraformTestDataVariables `json:"completeTestDataVariables"`
 }
 
 type TerraformTestDataVariables struct {

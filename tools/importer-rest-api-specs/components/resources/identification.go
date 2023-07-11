@@ -144,11 +144,17 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				},
 				Tests: resourcemanager.TerraformResourceTestsDefinition{
 					TestData: &resourcemanager.TerraformResourceTestDataDefinition{
-						Variables: resourcemanager.TerraformTestDataVariables{
-							Bools:    resourceMetaData.TestData.Variables.Bools,
-							Integers: resourceMetaData.TestData.Variables.Integers,
-							Lists:    resourceMetaData.TestData.Variables.Lists,
-							Strings:  resourceMetaData.TestData.Variables.Strings,
+						BasicVariables: resourcemanager.TerraformTestDataVariables{
+							Bools:    resourceMetaData.TestData.BasicVariables.Bools,
+							Integers: resourceMetaData.TestData.BasicVariables.Integers,
+							Lists:    resourceMetaData.TestData.BasicVariables.Lists,
+							Strings:  resourceMetaData.TestData.BasicVariables.Strings,
+						},
+						CompleteVariables: resourcemanager.TerraformTestDataVariables{
+							Bools:    resourceMetaData.TestData.CompleteVariables.Bools,
+							Integers: resourceMetaData.TestData.CompleteVariables.Integers,
+							Lists:    resourceMetaData.TestData.CompleteVariables.Lists,
+							Strings:  resourceMetaData.TestData.CompleteVariables.Strings,
 						},
 					},
 				},

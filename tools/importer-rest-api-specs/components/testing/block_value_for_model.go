@@ -28,7 +28,7 @@ func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanage
 			continue
 		}
 
-		attributeVal, err := tb.getAttributeValueForField(nestedField, dependencies, tb.details.Tests.TestData.Variables)
+		attributeVal, err := tb.getAttributeValueForField(nestedField, dependencies, tb.details.Tests.TestData.BasicVariables)
 		if err != nil {
 			return nil, fmt.Errorf("getting attribute value for field %q: %+v", nestedField.HclName, err)
 		}

@@ -41,8 +41,11 @@ type ResourceDefinition struct {
 }
 
 type ResourceTestDataDefinition struct {
-	// Variables contains key value pairs of field to test value for different variable types
-	Variables VariablesDefinition
+	// BasicVariables contains key value pairs of field to test value for different variable types
+	BasicVariables VariablesDefinition
+
+	// CompleteVariables contains key value pairs of field to test value for different variable types
+	CompleteVariables VariablesDefinition
 }
 
 type VariablesDefinition struct {

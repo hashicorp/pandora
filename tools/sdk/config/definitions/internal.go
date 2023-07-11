@@ -55,8 +55,11 @@ type resourceDefinition struct {
 }
 
 type resourceTestDataDefinition struct {
-	// Variables contains key value pairs of field to test value for different variable types
-	Variables []variablesDefinition `hcl:"variables,block"`
+	// BasicVariables contains key value pairs of field to test value for the basic test
+	BasicVariables []variablesDefinition `hcl:"basic_variables,block"`
+
+	// CompleteVariables contains key value pairs of field to test value for the complete test
+	CompleteVariables []variablesDefinition `hcl:"complete_variables,block"`
 }
 
 type variablesDefinition struct {
