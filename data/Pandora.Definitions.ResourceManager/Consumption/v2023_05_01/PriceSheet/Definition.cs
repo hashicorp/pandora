@@ -29,5 +29,6 @@ internal class Definition : ResourceDefinition
         typeof(PriceSheetPropertiesModel),
         typeof(PriceSheetResultModel),
         typeof(PricesheetDownloadPropertiesModel),
+        typeof(SavingsPlanModel),
     };
 }

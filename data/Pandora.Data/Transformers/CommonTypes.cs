@@ -14,7 +14,7 @@ public static class CommonTypes
         {
             var output = new CommonTypesDefinition
             {
-                ServiceDefinitionType=serviceDefinitionType,
+                ServiceDefinitionType = serviceDefinitionType,
             };
             if (input == null)
             {
