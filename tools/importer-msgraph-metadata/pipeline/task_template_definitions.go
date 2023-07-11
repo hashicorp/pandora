@@ -23,6 +23,7 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 		operationNamesMap := make(map[string]bool)
 		constantNamesMap := make(map[string]bool)
 		serviceModels := make(Models)
+		serviceLocalModels := make(Models)
 
 		for _, resource := range resources {
 			if strings.EqualFold(resource.Category, category) {
@@ -54,7 +55,14 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 						}
 					}
 
-					for _, model := range serviceModels {
+					for modelName, model := range serviceModels {
+						if model.Common {
+							continue
+						}
+						serviceLocalModels[modelName] = model
+					}
+
+					for _, model := range serviceLocalModels {
 						for _, field := range model.Fields {
 							if len(field.Enum) > 0 && ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) {
 								constantNamesMap[field.Title] = true
@@ -79,7 +87,7 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 		modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(p.apiVersion), commonTypesDirectoryName)
 
 		filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, "Definition.cs")
-		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, serviceModels)
+		definitions[filename] = templateDefinition(namespace, modelsNamespace, category, operationNames, constantNames, serviceLocalModels)
 	}
 
 	definitionFiles := sortedKeys(definitions)
