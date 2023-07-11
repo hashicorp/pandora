@@ -201,11 +201,11 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 
 func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 	resourceLabelsToExpected := map[string]string{
-		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_integer}"`,
-		"resource":                        `"acctestr-${var.random_integer}"`,
-		"resource_group":                  `"acctestrg-${var.random_integer}"`,
-		"subnet":                          `"acctests-${var.random_integer}"`,
-		"virtual_network":                 `"acctestvn-${var.random_integer}"`,
+		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_string}"`,
+		"resource":                        `"acctestr-${var.random_string}"`,
+		"resource_group":                  `"acctestrg-${var.random_string}"`,
+		"subnet":                          `"acctests-${var.random_string}"`,
+		"virtual_network":                 `"acctestvn-${var.random_string}"`,
 	}
 	for resourceLabel, expectedValue := range resourceLabelsToExpected {
 		t.Logf("testing Label %q", resourceLabel)
@@ -239,7 +239,7 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 		testhelpers.AssertTemplatedCodeMatches(t, expectedValue, string(actual.Bytes()))
 		expectedDependencies := testDependencies{
 			variables: testVariables{
-				needsRandomInteger: true,
+				needsRandomString: true,
 			},
 			needsEdgeZone:             false,
 			needsPublicIP:             false,

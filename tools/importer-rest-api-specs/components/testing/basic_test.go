@@ -25,6 +25,9 @@ func TestGenerateBasicTest_NoRequiredProperties(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -108,7 +111,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -136,6 +139,9 @@ func TestGenerateBasicTest_SystemAssignedIdentityOnly(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -242,6 +248,7 @@ resource "example_resource" "test" {
 	expectedDependencies := testDependencies{
 		variables: testVariables{
 			needsRandomInteger:   true,
+			needsRandomString:    true,
 			needsPrimaryLocation: true,
 		},
 		needsEdgeZone:             false,
@@ -307,7 +314,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -389,7 +396,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -473,7 +480,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -557,7 +564,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
