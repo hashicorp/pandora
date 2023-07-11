@@ -17,4 +17,10 @@ public enum Source
     /// is sourced from data within the github.com/Azure/azure-rest-api-specs repository
     /// </summary>
     ResourceManagerRestApiSpecs,
+
+    /// <summary>
+    /// MicrosoftGraphMetadata specifies that this set of API Definitions
+    /// is sourced from data within the github.com/microsoftgraph/msgraph-metadata repository
+    /// </summary>
+    MicrosoftGraphMetadata,
 }

@@ -29,7 +29,7 @@ public class ServiceVersionController : ControllerBase
             return BadRequest($"the API Version {apiVersion} is not supported");
         }
 
-        return ForService(serviceName, serviceApiVersion, definitionType.Value, "/v1/microsoft-graph/{apiVersion}");
+        return ForService(serviceName, serviceApiVersion, definitionType.Value, $"/v1/microsoft-graph/{apiVersion}");
     }
 
     [Route("/v1/resource-manager/services/{serviceName}/{serviceApiVersion}")]
@@ -69,11 +69,12 @@ public class ServiceVersionController : ControllerBase
     {
         switch (input)
         {
-            // TODO: support a Graph source
             case Data.Models.ApiDefinitionsSource.HandWritten:
                 return ApiDefinitionsSource.HandWritten.ToString();
             case Data.Models.ApiDefinitionsSource.ResourceManagerRestApiSpecs:
                 return ApiDefinitionsSource.ResourceManagerRestApiSpecs.ToString();
+            case Data.Models.ApiDefinitionsSource.MicrosoftGraphMetadata:
+                return ApiDefinitionsSource.MicrosoftGraphMetadata.ToString();
         }
 
         throw new NotSupportedException($"unsupported/unmapped Source {input.ToString()}");
@@ -115,8 +116,9 @@ public class ServiceVersionController : ControllerBase
         ResourceManagerRestApiSpecs,
 
         [Description("HandWritten")]
-        HandWritten
+        HandWritten,
 
-        // TODO: support for Graph
+        [Description("MicrosoftGraphMetadata")]
+        MicrosoftGraphMetadata,
     }
 }

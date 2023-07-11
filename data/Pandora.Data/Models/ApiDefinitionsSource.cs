@@ -10,5 +10,8 @@ public enum ApiDefinitionsSource
     ResourceManagerRestApiSpecs,
 
     [Description("HandWritten")]
-    HandWritten
+    HandWritten,
+
+    [Description("MicrosoftGraphMetadata")]
+    MicrosoftGraphMetadata,
 }
