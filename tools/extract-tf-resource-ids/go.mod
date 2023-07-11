@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/extract-tf-resource-ids
 
-go 1.19
+go 1.20
 
 require (
 	github.com/go-test/deep v1.0.8
