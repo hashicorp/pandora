@@ -137,7 +137,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
-		"localrulestacks":                         "localRuleStacks",
+		"localrulestacks":                         "localRulestacks", // (@jackofallops) - "Rulestack" is considered one word
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
@@ -363,7 +363,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.windowsesu":                     "Microsoft.WindowsESU",
 		"microsoft.windowsiot":                     "Microsoft.WindowsIoT",
 		"microsoft.workloadmonitor":                "Microsoft.WorkloadMonitor",
-		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.CloudNGFW",
+		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.Cloudngfw",
 	}
 	if v, ok := replacements[strings.ToLower(input)]; ok {
 		return v
@@ -459,6 +459,7 @@ func NormalizeServiceName(input string) string {
 		"keyvault":                       "KeyVault",
 		"kubernetesconfiguration":        "KubernetesConfiguration",
 		"labservices":                    "LabServices",
+		"localrulestacks":                "localRulestacks",
 		"machinelearning":                "MachineLearning",
 		"machinelearningcompute":         "MachineLearningCompute",
 		"machinelearningexperimentation": "MachineLearningExperimentation",
