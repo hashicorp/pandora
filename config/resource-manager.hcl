@@ -24,7 +24,7 @@ service "app" {
 }
 service "appconfiguration" {
   name      = "AppConfiguration"
-  available = ["2022-05-01", "2023-03-01"]
+  available = ["2023-03-01"]
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
@@ -48,7 +48,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2022-02-01", "2022-07-07", "2022-11-11", "2022-12-29", "2023-05-02"]
+  available = ["2023-05-02"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
@@ -56,11 +56,11 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2022-12-01", "2023-02-01", "2023-03-01"]
+  available = ["2023-03-01"]
 }
 service "batch" {
   name      = "Batch"
-  available = ["2022-01-01", "2022-10-01", "2023-05-01"]
+  available = ["2023-05-01"]
 }
 service "blueprint" {
   name      = "Blueprints"
@@ -72,11 +72,11 @@ service "chaos" {
 }
 service "cognitiveservices" {
   name      = "Cognitive"
-  available = ["2021-04-30", "2022-10-01", "2022-12-01", "2023-05-01"]
+  available = ["2023-05-01"]
 }
 service "communication" {
   name      = "Communication"
-  available = ["2020-08-20", "2023-03-31"]
+  available = ["2023-03-31"]
 }
 service "compute" {
   name      = "Compute"
@@ -97,7 +97,7 @@ service "consumption" {
 }
 service "containerinstance" {
   name      = "ContainerInstance"
-  available = ["2021-10-01", "2022-09-01", "2023-05-01"]
+  available = ["2023-05-01"]
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
@@ -105,11 +105,11 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-02-02-preview", "2023-03-02-preview", "2023-04-02-preview"]
+  available = ["2019-08-01", "2022-09-02-preview", "2023-04-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2021-10-15", "2022-05-15", "2022-08-15", "2022-11-15", "2023-03-15", "2023-04-15"]
+  available = ["2022-05-15", "2022-11-15", "2023-04-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -125,7 +125,7 @@ service "dashboard" {
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
-  available = ["2020-12-01", "2022-03-01"]
+  available = ["2022-03-01"]
 }
 service "databricks" {
   name      = "Databricks"
@@ -179,7 +179,7 @@ service "devtestlabs" {
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
-  available = ["2020-12-01", "2022-05-31", "2022-10-31", "2023-01-31"]
+  available = ["2020-12-01", "2022-10-31", "2023-01-31"]
 }
 service "dns" {
   name      = "DNS"
@@ -240,15 +240,15 @@ service "hdinsight" {
 }
 service "healthbot" {
   name      = "HealthBot"
-  available = ["2020-12-08", "2022-08-08", "2023-05-01"]
+  available = ["2022-08-08", "2023-05-01"]
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2021-06-01-preview", "2021-11-01", "2022-06-01", "2022-12-01", "2023-02-28"]
+  available = ["2022-12-01", "2023-02-28"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
-  available = ["2022-03-10", "2022-11-10", "2022-12-27"]
+  available = ["2022-11-10", "2022-12-27"]
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
@@ -400,7 +400,7 @@ service "powerbidedicated" {
 }
 service "privatedns" {
   name      = "PrivateDNS"
-  available = ["2018-09-01", "2020-06-01"]
+  available = ["2020-06-01"]
 }
 service "purview" {
   name      = "Purview"
@@ -534,7 +534,7 @@ service "vmware" {
 }
 service "voiceservices" {
   name      = "VoiceServices"
-  available = ["2023-01-31", "2023-04-03"]
+  available = ["2023-04-03"]
 }
 service "web" {
   name      = "Web"
