@@ -48,7 +48,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -133,7 +133,7 @@ some_nested_item {
   }
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -241,7 +241,7 @@ some_nested_item {
   }
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -306,7 +306,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -371,7 +371,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
