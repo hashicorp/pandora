@@ -22,13 +22,6 @@ func (p pipelineTask) templateOperationsForService(commonTypesDirectoryName stri
 			if operation.Type != OperationTypeDelete {
 				responseModel = operation.Responses.FindModelName()
 
-				// Infer a DirectoryObject response model when no model found and the final ID segment indicates an OData reference
-				if responseModel == nil {
-					if operation.ResourceId != nil && len(operation.ResourceId.Segments) > 0 && operation.ResourceId.Segments[len(operation.ResourceId.Segments)-1].Value == "$ref" {
-						responseModel = pointerTo("DirectoryObject")
-					}
-				}
-
 				for _, r := range operation.Responses {
 					if r.Type != nil {
 						responseType = r.Type.CSType()

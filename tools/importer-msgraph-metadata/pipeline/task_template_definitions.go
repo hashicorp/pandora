@@ -28,14 +28,10 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 		for _, resource := range resources {
 			if strings.EqualFold(resource.Category, category) {
 				for _, operation := range resource.Operations {
-					if operation.Type == OperationTypeList || operation.Type == OperationTypeRead {
-						// Determine whether to skip operation with missing response model
-						if operation.Type != OperationTypeDelete {
-							if responseModel := operation.Responses.FindModelName(); responseModel != nil {
-								if operation.ResourceId == nil || len(operation.ResourceId.Segments) == 0 {
-									continue
-								}
-							}
+					// Determine whether to skip List operation with missing response model
+					if operation.Type == OperationTypeList {
+						if responseModel := operation.Responses.FindModelName(); responseModel == nil {
+							continue
 						}
 					}
 

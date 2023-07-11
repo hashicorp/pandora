@@ -155,6 +155,11 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						}
 					}
 
+					// Use generic DirectoryObject model for List operations ending in "/$ref" where no other model was found
+					if listOperation && responseModel == nil && resourceId != nil && len(resourceId.Segments) > 0 && resourceId.Segments[len(resourceId.Segments)-1].Value == "$ref" {
+						responseModel = pointerTo("DirectoryObject")
+					}
+
 					responses = append(responses, Response{
 						Status:      status,
 						ContentType: contentType,
