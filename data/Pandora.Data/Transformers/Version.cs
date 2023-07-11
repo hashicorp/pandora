@@ -50,6 +50,9 @@ public static class Version
 
             case Source.ResourceManagerRestApiSpecs:
                 return ApiDefinitionsSource.ResourceManagerRestApiSpecs;
+
+            case Source.MicrosoftGraphMetadata:
+                return ApiDefinitionsSource.MicrosoftGraphMetadata;
         }
 
         throw new NotSupportedException($"unsupported/unmapped Source ${input.ToString()}");

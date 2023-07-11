@@ -52,7 +52,7 @@ public class ServiceDetailsController : ControllerBase
         {
             ResourceProvider = version.ResourceProvider!,
             TerraformPackageName = version.TerraformPackageName,
-            TerraformUri = $"/v1/resource-manager/services/{serviceName}/terraform",
+            TerraformUri = $"{routePrefix}/services/{serviceName}/terraform",
             Versions = version.Versions.ToDictionary(v => v.Version, v => MapVersion(v, serviceName, routePrefix))
         };
     }
