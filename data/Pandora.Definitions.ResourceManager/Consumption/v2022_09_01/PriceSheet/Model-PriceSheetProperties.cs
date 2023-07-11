@@ -36,6 +36,9 @@ internal class PriceSheetPropertiesModel
     [JsonPropertyName("partNumber")]
     public string? PartNumber { get; set; }
 
+    [JsonPropertyName("savingsPlan")]
+    public SavingsPlanModel? SavingsPlan { get; set; }
+
     [JsonPropertyName("unitOfMeasure")]
     public string? UnitOfMeasure { get; set; }
 
