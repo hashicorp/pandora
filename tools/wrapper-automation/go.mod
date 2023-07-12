@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/wrapper-automation
 
-go 1.19
+go 1.20
 
 require github.com/mitchellh/cli v1.1.4
 
