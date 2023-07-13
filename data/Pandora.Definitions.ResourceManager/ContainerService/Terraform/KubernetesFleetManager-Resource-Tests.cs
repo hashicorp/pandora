@@ -13,7 +13,7 @@ provider 'azurerm' {
 
 resource 'azurerm_kubernetes_fleet_manager' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestkfm-${var.random_integer}'
+  name                = 'acctestkfm-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
 }
     ".AsTerraformTestConfig();
@@ -33,7 +33,7 @@ provider 'azurerm' {
 
 resource 'azurerm_kubernetes_fleet_manager' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestkfm-${var.random_integer}'
+  name                = 'acctestkfm-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
   tags = {
     environment = 'terraform-acctests'

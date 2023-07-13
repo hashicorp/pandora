@@ -14,7 +14,7 @@ func (tb TestBuilder) generateBasicTest(dependencies *testDependencies) (*string
 		return nil, fmt.Errorf("the schema model %q was not found", tb.details.SchemaModelName)
 	}
 	onlyRequiredFields := true // Basic should only include the required fields
-	block, err := tb.getBlockValueForModel("resource", topLevelModel, dependencies, onlyRequiredFields)
+	block, err := tb.getBlockValueForModel("resource", topLevelModel, dependencies, onlyRequiredFields, tb.details.Tests.TestData.BasicVariables)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving block value for top-level model %q: %+v", tb.details.SchemaModelName, err)
 	}

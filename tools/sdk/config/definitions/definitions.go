@@ -96,11 +96,63 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 							return nil, fmt.Errorf("definition %q within package %q within api version %q within service %q is defined multiple times", def.ResourceType, pkg.Name, api.Version, service.Name)
 						}
 
+						basicVariables := VariablesDefinition{
+							Bools:    map[string]bool{},
+							Integers: map[string]int64{},
+							Lists:    map[string][]string{},
+							Strings:  map[string]string{},
+						}
+						completeVariables := VariablesDefinition{
+							Bools:    map[string]bool{},
+							Integers: map[string]int64{},
+							Lists:    map[string][]string{},
+							Strings:  map[string]string{},
+						}
+						if (def.TestData != nil && len(def.TestData) > 2) && (len(def.TestData[0].CompleteVariables) > 1 || len(def.TestData[0].BasicVariables) > 1) {
+							return nil, fmt.Errorf("definition %q within package %q within api version %q within service %q should define 1 testdata and 1 variable block or 0 testdata and 0 variable blocks", def.ResourceType, pkg.Name, api.Version, service.Name)
+						}
+						if len(def.TestData) > 0 {
+							if len(def.TestData[0].BasicVariables) == 1 {
+								vars := def.TestData[0].BasicVariables[0]
+								if vars.Bools != nil {
+									basicVariables.Bools = *vars.Bools
+								}
+								if vars.Integers != nil {
+									basicVariables.Integers = *vars.Integers
+								}
+								if vars.Lists != nil {
+									basicVariables.Lists = *vars.Lists
+								}
+								if vars.Strings != nil {
+									basicVariables.Strings = *vars.Strings
+								}
+							}
+							if len(def.TestData[0].CompleteVariables) == 1 {
+								vars := def.TestData[0].CompleteVariables[0]
+								if vars.Bools != nil {
+									completeVariables.Bools = *vars.Bools
+								}
+								if vars.Integers != nil {
+									completeVariables.Integers = *vars.Integers
+								}
+								if vars.Lists != nil {
+									completeVariables.Lists = *vars.Lists
+								}
+								if vars.Strings != nil {
+									completeVariables.Strings = *vars.Strings
+								}
+							}
+						}
+
 						definitions[def.ResourceType] = ResourceDefinition{
 							ID:                 def.Id,
 							Name:               def.DisplayName,
 							WebsiteSubcategory: def.WebsiteSubcategory,
 							Description:        def.Description,
+							TestData: ResourceTestDataDefinition{
+								BasicVariables:    basicVariables,
+								CompleteVariables: completeVariables,
+							},
 						}
 					}
 

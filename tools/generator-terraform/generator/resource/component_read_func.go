@@ -15,6 +15,8 @@ type readFunctionComponents struct {
 	constants       map[string]resourcemanager.ConstantDetails
 	idParseLine     string
 	mappings        resourcemanager.MappingDefinition
+	parentResource  string
+	parentSegment   string
 	readMethod      resourcemanager.MethodDefinition
 	readOperation   resourcemanager.ApiOperation
 	resourceId      resourcemanager.ResourceIdDefinition
@@ -39,6 +41,19 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
+	parentResource := ""
+	parentSegment := ""
+
+	for _, m := range input.Details.Mappings.ResourceId {
+		if m.ParsedFromParentID {
+			// TODO this relies on the fact that the resource ID mappings are output in a certain order
+			// for now it's okay but we should make this more robust
+			parentResource = m.SchemaFieldName
+			parentSegment = m.SegmentName
+			break
+		}
+	}
+
 	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
 	if !ok {
 		return nil, fmt.Errorf("the Schema Model named %q was not found", input.SchemaModelName)
@@ -59,6 +74,8 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 		constants:       input.Constants,
 		idParseLine:     *idParseLine,
 		mappings:        input.Details.Mappings,
+		parentResource:  parentResource,
+		parentSegment:   parentSegment,
 		readMethod:      input.Details.ReadMethod,
 		readOperation:   readOperation,
 		resourceId:      resourceId,
@@ -107,6 +124,11 @@ func (c readFunctionComponents) codeForIDParser() (*string, error) {
 				return err
 			}
 `, c.idParseLine)
+
+	if c.parentResource != "" && c.parentSegment != "" {
+		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers.CamelCasedName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
+	}
+
 	return &output, nil
 }
 
@@ -145,8 +167,6 @@ func (c readFunctionComponents) codeForModelAssignments() (*string, error) {
 func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 	lines := make([]string, 0)
 
-	// TODO: note that when there's a parent ID field present we'll need to call `parent.NewParentID(..).ID()`
-	// to get the right URI
 	for _, v := range c.resourceId.Segments {
 		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment {
 			continue
@@ -157,6 +177,9 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 				continue
 			}
 
+			if v.Type == resourcemanager.ResourceGroupSegment && c.parentResource != "" {
+				continue
+			}
 			// Constants are output into the Schema as their native types (e.g. int/float/string) so we need to convert prior to assigning
 			if v.ConstantReference != nil {
 				constant, ok := c.constants[*v.ConstantReference]
@@ -168,6 +191,8 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 					return nil, fmt.Errorf("determining Golang Type name for Constant Type %q: %+v", string(constant.Type), err)
 				}
 				lines = append(lines, fmt.Sprintf("schema.%s = %s(id.%s)", resourceIdMapping.SchemaFieldName, *constantGoTypeName, strings.Title(resourceIdMapping.SegmentName)))
+			} else if c.parentResource != "" && v.Name == c.parentSegment {
+				lines = append(lines, fmt.Sprintf("schema.%s = %s.ID()", c.parentResource, helpers.CamelCasedName(c.parentResource)))
 			} else {
 				lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
 			}

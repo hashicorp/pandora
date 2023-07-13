@@ -31,11 +31,14 @@ func TestBlockValueForModel_RequiredOnly_OnlyTopLevelProperties(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	onlyRequiredFields := true
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields)
+	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -76,11 +79,14 @@ func TestBlockValueForModel_RequiredAndOptional_OnlyTopLevelProperties(t *testin
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	onlyRequiredFields := false
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields)
+	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -156,11 +162,14 @@ func TestBlockValueForModel_RequiredOnly_MapsANestedItem(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	onlyRequiredFields := true
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields)
+	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -239,11 +248,14 @@ func TestBlockValueForModel_RequiredAndOptional_MapsANestedItem(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	onlyRequiredFields := false
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields)
+	actual, err := builder.getBlockValueForModel("wrapper", details.SchemaModels["TopLevelModel"], &actualDependencies, onlyRequiredFields, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

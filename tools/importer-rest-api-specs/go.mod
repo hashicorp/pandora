@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/importer-rest-api-specs
 
-go 1.19
+go 1.20
 
 require (
 	github.com/gertd/go-pluralize v0.2.1

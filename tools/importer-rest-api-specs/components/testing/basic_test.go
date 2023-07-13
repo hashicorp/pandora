@@ -25,6 +25,9 @@ func TestGenerateBasicTest_NoRequiredProperties(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -77,6 +80,9 @@ func TestGenerateBasicTest_NameOnly(t *testing.T) {
 				},
 			},
 		},
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 		SchemaModelName: "TopLevelModel",
 	}
 	actualDependencies := testDependencies{
@@ -105,7 +111,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -133,6 +139,9 @@ func TestGenerateBasicTest_SystemAssignedIdentityOnly(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -200,6 +209,9 @@ func TestGenerateBasicTest_CoreProperties(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -236,6 +248,7 @@ resource "example_resource" "test" {
 	expectedDependencies := testDependencies{
 		variables: testVariables{
 			needsRandomInteger:   true,
+			needsRandomString:    true,
 			needsPrimaryLocation: true,
 		},
 		needsEdgeZone:             false,
@@ -271,6 +284,9 @@ func TestGenerateBasicTest_OnlyRequiredPropertiesShouldBeOutput(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -298,7 +314,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -346,6 +362,9 @@ func TestGenerateBasicTest_NestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -377,7 +396,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -427,6 +446,9 @@ func TestGenerateBasicTest_ListOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -458,7 +480,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,
@@ -508,6 +530,9 @@ func TestGenerateBasicTest_SetOfANestedObject(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
@@ -539,7 +564,7 @@ resource "example_resource" "test" {
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{
-			needsRandomInteger: true,
+			needsRandomString: true,
 		},
 		needsEdgeZone:             false,
 		needsPublicIP:             false,

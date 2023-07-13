@@ -11,7 +11,12 @@ import (
 func codeForTerraformResourceMappings(terraformNamespace string, apiResourceNamespace string, details resourcemanager.TerraformResourceDetails) (*string, error) {
 	resourceIdMappings := make([]string, 0)
 	for _, item := range details.Mappings.ResourceId {
-		line := fmt.Sprintf("Mapping.FromSchema<%[1]sResourceSchema>(s => s.%[2]s).ToResourceIdSegmentNamed(%[3]q)", details.ResourceName, item.SchemaFieldName, item.SegmentName)
+		resourceIdMappingFunction := "ToResourceIdSegmentNamed"
+		if item.ParsedFromParentID {
+			resourceIdMappingFunction = "ToCommonIdSegmentNamed"
+		}
+		line := fmt.Sprintf("Mapping.FromSchema<%[1]sResourceSchema>(s => s.%[2]s).%[3]s(%[4]q)", details.ResourceName, item.SchemaFieldName, resourceIdMappingFunction, item.SegmentName)
+
 		resourceIdMappings = append(resourceIdMappings, fmt.Sprintf("\t\t%s,", line))
 	}
 	sort.Strings(resourceIdMappings)

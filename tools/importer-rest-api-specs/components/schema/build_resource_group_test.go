@@ -388,7 +388,7 @@ func testValidateResourceGroupSchema(t *testing.T, actualModels *map[string]reso
 	}
 
 	t.Logf("Checking Resource ID Mappings..")
-	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "resourceGroupName")
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "Name", "resourceGroupName", false)
 
 	t.Logf("Checking Field Mappings..")
 	checkDirectAssignmentMappingExistsBetween(t, actualMappings.Fields, "ResourceGroupResource", "Location", "ResourceGroup", "Location")

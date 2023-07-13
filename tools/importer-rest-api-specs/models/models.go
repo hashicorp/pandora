@@ -1,6 +1,10 @@
 package models
 
 import (
+	"fmt"
+	"strings"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -53,6 +57,23 @@ type ObjectDefinition struct {
 
 	// UniqueItems specifies whether every item in this List/Dictionary must be unique
 	UniqueItems *bool
+}
+
+func (od ObjectDefinition) String() string {
+	nestedItem := "<nil>"
+	if od.NestedItem != nil {
+		nestedItem = od.NestedItem.String()
+	}
+
+	components := []string{
+		fmt.Sprintf("Type: %q", string(od.Type)),
+		fmt.Sprintf("Reference: %q", pointer.From(od.ReferenceName)),
+		fmt.Sprintf("Minimum: %d", pointer.From(od.Minimum)),
+		fmt.Sprintf("Maximum: %d", pointer.From(od.Maximum)),
+		fmt.Sprintf("Unique Items: %t", pointer.From(od.UniqueItems)),
+		fmt.Sprintf("Nested Item: %q", nestedItem),
+	}
+	return strings.Join(components, " / ")
 }
 
 type ObjectDefinitionType string
