@@ -16,27 +16,35 @@ import (
 )
 
 type GeneratorInput struct {
-	apiServerEndpoint string
-	outputDirectory   string
-	sdkName           string
-	services          []string
-	settings          generator.Settings
+	apiServerEndpoint   string
+	outputDirectoryPath string
+	sdkName             string
+	services            []string
+	settings            generator.Settings
 }
 
 type SDK struct {
-	baseClientMethod   string
-	baseClientPackage  string
-	clients            []func(string) resourcemanager.Client
-	outputSubDirectory string
-	versionMapper      func(string) (*string, error)
+	baseClientMethod                   string
+	baseClientPackage                  string
+	clients                            map[string]func(string) resourcemanager.Client
+	commonModelsPackageNameFromVersion func(string) (*string, error)
+	commonModelsPackagePathFromVersion func(string) (*string, error)
+	outputSubDirectory                 string
+	versionMapper                      func(string) (*string, error)
 }
 
 var availableSDKs = map[string]SDK{
 	"resource-manager": {
 		baseClientMethod:  "NewResourceManagerClient",
 		baseClientPackage: "resourcemanager",
-		clients: []func(string) resourcemanager.Client{
-			resourcemanager.NewResourceManagerClient,
+		clients: map[string]func(string) resourcemanager.Client{
+			"resource-manager": resourcemanager.NewResourceManagerClient,
+		},
+		commonModelsPackageNameFromVersion: func(in string) (*string, error) {
+			return nil, nil
+		},
+		commonModelsPackagePathFromVersion: func(in string) (*string, error) {
+			return nil, nil
 		},
 		outputSubDirectory: "resource-manager",
 		versionMapper:      func(in string) (*string, error) { return &in, nil },
@@ -45,9 +53,17 @@ var availableSDKs = map[string]SDK{
 	"microsoft-graph": {
 		baseClientMethod:  "NewMsGraphClient",
 		baseClientPackage: "msgraph",
-		clients: []func(string) resourcemanager.Client{
-			resourcemanager.NewMicrosoftGraphStableV1Client,
-			resourcemanager.NewMicrosoftGraphBetaClient,
+		clients: map[string]func(string) resourcemanager.Client{
+			"v1.0": resourcemanager.NewMicrosoftGraphStableV1Client,
+			"beta": resourcemanager.NewMicrosoftGraphBetaClient,
+		},
+		commonModelsPackageNameFromVersion: func(in string) (*string, error) {
+			name := "models"
+			return &name, nil
+		},
+		commonModelsPackagePathFromVersion: func(in string) (*string, error) {
+			path := fmt.Sprintf("common/%s/models", fmt.Sprintf(generator.GolangPackageNameForVersion(in)))
+			return &path, nil
 		},
 		outputSubDirectory: "microsoft-graph",
 		versionMapper: func(in string) (*string, error) {
@@ -75,7 +91,7 @@ func main() {
 
 	f := flag.NewFlagSet("generator-go-sdk", flag.ExitOnError)
 	f.StringVar(&input.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
-	f.StringVar(&input.outputDirectory, "output-dir", "", "-output-dir=../generated-sdk-dev")
+	f.StringVar(&input.outputDirectoryPath, "output-dir", "", "-output-dir=../generated-sdk-dev")
 	f.StringVar(&input.sdkName, "sdk", "resource-manager", "-sdk=resource-manager")
 	f.StringVar(&serviceNames, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(os.Args[1:]); err != nil {
@@ -86,9 +102,9 @@ func main() {
 		input.services = strings.Split(serviceNames, ",")
 	}
 
-	if input.outputDirectory == "" {
+	if input.outputDirectoryPath == "" {
 		homeDir, _ := os.UserHomeDir()
-		input.outputDirectory = filepath.Join(homeDir, "/Desktop/generated-sdk-dev")
+		input.outputDirectoryPath = filepath.Join(homeDir, "/Desktop/generated-sdk-dev")
 	}
 
 	if input.sdkName == "resource-manager" {
@@ -152,11 +168,15 @@ func run(input GeneratorInput) error {
 		return fmt.Errorf("unsupported SDK %q", input.sdkName)
 	}
 
-	input.outputDirectory = path.Join(input.outputDirectory, sdk.outputSubDirectory)
+	input.outputDirectoryPath = path.Join(input.outputDirectoryPath, sdk.outputSubDirectory)
 
-	for _, apiClient := range sdk.clients {
+	for clientName, apiClient := range sdk.clients {
 		client := apiClient(input.apiServerEndpoint)
 
+		commonTypes, err := services.GetResourceManagerCommonTypes(client)
+		if err != nil {
+			return fmt.Errorf("retrieving resource manager common types: %+v", err)
+		}
 		var loadedServices services.ResourceManagerServices
 		if len(input.services) > 0 {
 			log.Printf("[DEBUG] Loading the Services from the Data API %q..", strings.Join(input.services, " / "))
@@ -185,6 +205,31 @@ func run(input GeneratorInput) error {
 			}
 		}
 
+		wg.Add(1)
+		go func(input GeneratorInput) {
+			defer wg.Done()
+			log.Printf("[DEBUG] Common Types for %q..", clientName)
+			commonPackageRelativePath, err := sdk.commonModelsPackagePathFromVersion(clientName)
+			if err != nil {
+				addErr(fmt.Errorf("generating Common Types for %q: %+v", clientName, err))
+				return
+			}
+			generatorTypes := generator.NewCommonTypesGenerator()
+			generatorData := generator.SDKInput{
+				CommonTypes:               commonTypes,
+				CommonPackageRelativePath: *commonPackageRelativePath,
+				OutputDirectoryPath:       input.outputDirectoryPath,
+				OutputSubDirectoryName:    sdk.outputSubDirectory,
+				VersionName:               clientName,
+			}
+			log.Printf("[DEBUG] Generating Common Types..")
+			if err := generatorTypes.GenerateForSDK(generatorData); err != nil {
+				addErr(fmt.Errorf("generating common types: %+v", err))
+				return
+			}
+			log.Printf("[DEBUG] Generated Common Types..")
+		}(input)
+
 		generatorService := generator.NewServiceGenerator(input.settings)
 		for serviceName, service := range loadedServices.Services {
 			log.Printf("[DEBUG] Service %q..", serviceName)
@@ -199,24 +244,35 @@ func run(input GeneratorInput) error {
 				log.Printf("[DEBUG] Service %q", serviceName)
 				for versionNumber, versionDetails := range service.Versions {
 					log.Printf("[DEBUG]   Version %q", versionNumber)
-					versionName, err := sdk.versionMapper(versionNumber)
+
+					commonPackageName, err := sdk.commonModelsPackageNameFromVersion(clientName)
 					if err != nil {
 						addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
 						return
 					}
+
+					commonPackageRelativePath, err := sdk.commonModelsPackagePathFromVersion(clientName)
+					if err != nil {
+						addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
+						return
+					}
+
 					for resourceName, resourceDetails := range versionDetails.Resources {
 						log.Printf("[DEBUG]      Resource %q..", resourceName)
 						generatorData := generator.ServiceGeneratorInput{
-							ServiceName:       serviceName,
-							ServiceDetails:    service,
-							VersionName:       *versionName,
-							VersionDetails:    versionDetails,
-							ResourceName:      resourceName,
-							ResourceDetails:   resourceDetails,
-							BaseClientMethod:  sdk.baseClientMethod,
-							BaseClientPackage: sdk.baseClientPackage,
-							OutputDirectory:   input.outputDirectory,
-							Source:            versionDetails.Details.Source,
+							ServiceName:               serviceName,
+							ServiceDetails:            service,
+							VersionName:               clientName,
+							VersionDetails:            versionDetails,
+							ResourceName:              resourceName,
+							ResourceDetails:           resourceDetails,
+							BaseClientMethod:          sdk.baseClientMethod,
+							BaseClientPackage:         sdk.baseClientPackage,
+							CommonPackageName:         *commonPackageName,
+							CommonPackageRelativePath: *commonPackageRelativePath,
+							OutputDirectoryPath:       input.outputDirectoryPath,
+							OutputSubDirectoryName:    sdk.outputSubDirectory,
+							Source:                    versionDetails.Details.Source,
 						}
 						log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
 						if err := generatorService.Generate(generatorData); err != nil {
@@ -228,9 +284,9 @@ func run(input GeneratorInput) error {
 
 					// then output the Meta Client
 					generatorData := generator.VersionInput{
-						OutputDirectory:   input.outputDirectory,
+						OutputDirectory:   input.outputDirectoryPath,
 						ServiceName:       serviceName,
-						VersionName:       *versionName,
+						VersionName:       clientName,
 						BaseClientPackage: sdk.baseClientPackage,
 						SdkPackage:        sdk.outputSubDirectory,
 						Resources:         versionDetails.Resources,

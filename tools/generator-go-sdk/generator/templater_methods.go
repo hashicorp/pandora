@@ -40,12 +40,13 @@ import (
 	"github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/go-azure-sdk/sdk/odata"
+    "github.com/hashicorp/go-azure-sdk/%[4]s"
 )
 
 %[2]s
 
 %[3]s
-`, data.packageName, *copyrightLines, *methods)
+`, data.packageName, *copyrightLines, *methods, data.commonPackageImportPath)
 	return &template, nil
 }
 
@@ -288,7 +289,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
-	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -453,7 +454,7 @@ func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGenerato
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -531,7 +532,7 @@ func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) (*string, error) {
 	var output string
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -593,7 +594,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorDat
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -655,7 +656,7 @@ func (c methodsPandoraTemplater) optionsStruct(data ServiceGeneratorData) (*stri
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
+		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}

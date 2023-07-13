@@ -22,3 +22,8 @@ type Resource struct {
 	Operations resourcemanager.ApiOperationDetails
 	Schema     resourcemanager.ApiSchemaDetails
 }
+
+type ResourceManagerCommonTypes struct {
+	Constants map[string]resourcemanager.ConstantDetails
+	Models    map[string]resourcemanager.ModelDetails
+}

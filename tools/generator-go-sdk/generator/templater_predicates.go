@@ -94,7 +94,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		for _, fieldName := range fieldNames {
 			fieldVal := model.Fields[fieldName]
 
-			typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition)
+			typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition, nil) // TODO package path needed?
 			if err != nil {
 				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 			}

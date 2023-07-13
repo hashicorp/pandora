@@ -46,12 +46,13 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/response"
 	"github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
 	"github.com/hashicorp/go-azure-helpers/polling"
+	"github.com/hashicorp/go-azure-sdk/%[4]s"
 )
 
 %s
 
 %s
-`, data.packageName, *copyrightLines, *methods)
+`, data.packageName, *copyrightLines, *methods, data.commonPackageImportPath)
 	return &template, nil
 }
 
@@ -224,7 +225,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	if err != nil {
 		return nil, fmt.Errorf("building responder template: %+v", err)
 	}
-	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -449,7 +450,7 @@ func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGenerat
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -601,7 +602,7 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil && discriminatedType == "" {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -653,7 +654,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 	}
 
 	if discriminatedType != "" && c.operation.FieldContainingPaginationDetails != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -768,7 +769,7 @@ func (c methodsAutoRestTemplater) responseStructTemplate(responseStructName stri
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject, nil) // TODO package path
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -869,7 +870,7 @@ func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*str
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
+		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition, &data.commonPackageName)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}

@@ -5,9 +5,10 @@ import (
 )
 
 type ApiObjectDefinition struct {
-	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
-	ReferenceName *string                 `json:"referenceName,omitempty"`
-	Type          ApiObjectDefinitionType `json:"type"`
+	NestedItem            *ApiObjectDefinition    `json:"nestedItem,omitempty"`
+	ReferenceName         *string                 `json:"referenceName,omitempty"`
+	ReferenceIsCommonType *bool                   `json:"referenceIsCommonType,omitempty"`
+	Type                  ApiObjectDefinitionType `json:"type"`
 }
 
 func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error) {

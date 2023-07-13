@@ -52,6 +52,12 @@ func (c Client) ApiSchema() ApiSchemaClient {
 	}
 }
 
+func (c Client) CommonTypes() CommonTypesClient {
+	return CommonTypesClient{
+		Client: c,
+	}
+}
+
 func (c Client) ServiceDetails() ServiceDetailsClient {
 	return ServiceDetailsClient{
 		Client: c,

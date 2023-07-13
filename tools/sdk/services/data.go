@@ -6,7 +6,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-// GetResourceManagerServices returns all of the Services supported by the Resource Manager endpoint
+// GetResourceManagerServices returns all the Services supported by the Resource Manager endpoint
 func GetResourceManagerServices(client resourcemanager.Client) (*ResourceManagerServices, error) {
 	return GetResourceManagerServicesByName(client, nil)
 }
@@ -18,9 +18,9 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 		return nil, err
 	}
 
-	serviceNames := make(map[string]struct{})
+	serviceNames := make(map[string]bool)
 	for _, serviceName := range servicesToLoad {
-		serviceNames[serviceName] = struct{}{}
+		serviceNames[serviceName] = true
 	}
 
 	resourceManagerServices := make(map[string]ResourceManagerService, 0)
@@ -119,5 +119,18 @@ func GetResourceManagerServicesByName(client resourcemanager.Client, servicesToL
 
 	return &ResourceManagerServices{
 		Services: resourceManagerServices,
+	}, nil
+}
+
+// GetResourceManagerCommonTypes returns the specified Services from the Data API
+func GetResourceManagerCommonTypes(client resourcemanager.Client) (*ResourceManagerCommonTypes, error) {
+	commonTypes, err := client.CommonTypes().Get()
+	if err != nil {
+		return nil, err
+	}
+
+	return &ResourceManagerCommonTypes{
+		Constants: commonTypes.Constants,
+		Models:    commonTypes.Models,
 	}, nil
 }

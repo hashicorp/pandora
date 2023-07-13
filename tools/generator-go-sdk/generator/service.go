@@ -23,16 +23,19 @@ func NewServiceGenerator(settings Settings) ServiceGenerator {
 }
 
 type ServiceGeneratorInput struct {
-	ServiceName       string
-	ServiceDetails    services.ResourceManagerService
-	VersionName       string
-	VersionDetails    services.ServiceVersion
-	ResourceName      string
-	ResourceDetails   services.Resource
-	BaseClientMethod  string
-	BaseClientPackage string
-	OutputDirectory   string
-	Source            resourcemanager.ApiDefinitionsSource
+	ServiceName               string
+	ServiceDetails            services.ResourceManagerService
+	VersionName               string
+	VersionDetails            services.ServiceVersion
+	ResourceName              string
+	ResourceDetails           services.Resource
+	BaseClientMethod          string
+	BaseClientPackage         string
+	CommonPackageName         string
+	CommonPackageRelativePath string
+	OutputDirectoryPath       string
+	OutputSubDirectoryName    string
+	Source                    resourcemanager.ApiDefinitionsSource
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
@@ -84,7 +87,7 @@ type VersionInput struct {
 func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
 	input.ServiceName = strings.ToLower(input.ServiceName)
 	input.VersionName = strings.ToLower(input.VersionName)
-	versionDirectory := filepath.Join(input.OutputDirectory, golangPackageName(input.ServiceName), golangPackageName(input.VersionName))
+	versionDirectory := filepath.Join(input.OutputDirectory, GolangPackageName(input.ServiceName), GolangPackageName(input.VersionName))
 
 	stages := map[string]func(data VersionInput, versionDirectory string) error{
 		"metaClient": s.metaClient,

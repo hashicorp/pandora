@@ -57,4 +57,9 @@ const (
 	// that this set of API Definitions is based on data within the Azure
 	// Rest API Specs repository.
 	ApiDefinitionsSourceResourceManagerRestApiSpecs ApiDefinitionsSource = "ResourceManagerRestApiSpecs"
+
+	// ApiDefinitionsSourceMicrosoftGraphMetadata is used to signify that
+	// this set of API Definitions is based on data within the
+	// Microsoft-Graph/MSGraph-Metadata repository.
+	ApiDefinitionsSourceMicrosoftGraphMetadata ApiDefinitionsSource = "MicrosoftGraphMetadata"
 )

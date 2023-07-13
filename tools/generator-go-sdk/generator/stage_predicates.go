@@ -6,7 +6,7 @@ import (
 )
 
 func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
-	modelNames := make(map[string]struct{}, 0)
+	modelNames := make(map[string]struct{})
 	for _, operation := range data.operations {
 		if operation.FieldContainingPaginationDetails == nil {
 			continue
@@ -20,7 +20,13 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 			continue
 		}
 
-		modelNames[*operation.ResponseObject.ReferenceName] = struct{}{}
+		modelName := *operation.ResponseObject.ReferenceName
+
+		if _, ok := data.models[modelName]; !ok {
+			continue
+		}
+
+		modelNames[modelName] = struct{}{}
 	}
 
 	sortedModelNames := make([]string, 0)

@@ -48,6 +48,42 @@ func templateForConstant(name string, details resourcemanager.ConstantDetails, g
 	return &out, nil
 }
 
+func (c constantTemplater) template(data ServiceGeneratorData) (*string, error) {
+	copyrightLines, err := copyrightLinesForSource(data.source)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
+	}
+
+	// the rollout of the Constant Normalization functions can be done at the same time as the
+	// rollout of the new base layer, to allow us to go gradually
+	generateNormalizationFunction := data.useNewBaseLayer
+
+	// used to reduce the TLOC being output
+	usedInAResourceId := false
+	for _, id := range data.resourceIds {
+		for _, segment := range id.Segments {
+			if segment.Type == resourcemanager.ConstantSegment && segment.ConstantReference != nil && *segment.ConstantReference == c.name {
+				usedInAResourceId = true
+				break
+			}
+		}
+	}
+
+	constantLines, err := templateForConstant(c.name, c.details, generateNormalizationFunction, usedInAResourceId)
+	if err != nil {
+		return nil, fmt.Errorf("generating template for constant %q: %+v", c.name, err)
+	}
+
+	template := fmt.Sprintf(`package %[1]s
+
+import "strings"
+
+%[3]s
+
+%[2]s`, data.packageName, *constantLines, *copyrightLines)
+	return &template, nil
+}
+
 func (t constantTemplater) constantDefinition() string {
 	valueKeys := make([]string, 0)
 	for key := range t.details.Values {

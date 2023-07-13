@@ -129,8 +129,8 @@ payload := %[1]s.%[2]s{
 }
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
-			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			// for simplicity's sake
+			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject, &data.commonPackageName)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -185,8 +185,8 @@ payload := %[1]s.%[2]s{
 }
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
-			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			// for simplicity's sake
+			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject, &data.commonPackageName)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -242,8 +242,8 @@ payload := %[1]s.%[2]s{
 }
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
-			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			// for simplicity's sake
+			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject, &data.commonPackageName)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}

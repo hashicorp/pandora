@@ -86,7 +86,7 @@ type Raw%[1]sImpl struct {
 	for _, fieldName := range fields {
 		fieldDetails := c.model.Fields[fieldName]
 		fieldTypeName := "FIXME"
-		fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+		fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 		}
@@ -137,7 +137,7 @@ type Raw%[1]sImpl struct {
 			for _, fieldName := range parentFields {
 				fieldDetails := parent.Fields[fieldName]
 				fieldTypeName := "FIXME"
-				fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+				fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition, nil)
 				if err != nil {
 					return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 				}

@@ -56,36 +56,41 @@ type ServiceGeneratorData struct {
 	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
 
-	baseClientMethod  string
-	baseClientPackage string
+	baseClientMethod        string
+	baseClientPackage       string
+	commonPackageName       string
+	commonPackageImportPath string
 }
 
 func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGeneratorData {
-	servicePackageName := golangPackageName(i.ServiceName)
-	versionPackageName := golangPackageName(i.VersionName)
+	servicePackageName := GolangPackageName(i.ServiceName)
+	versionPackageName := GolangPackageName(i.VersionName)
 	// TODO: it'd be nice to make these snake_case but that's a problem for another day
-	resourcePackageName := golangPackageName(i.ResourceName)
-	versionOutputPath := filepath.Join(i.OutputDirectory, servicePackageName, versionPackageName)
+	resourcePackageName := GolangPackageName(i.ResourceName)
+	versionOutputPath := filepath.Join(i.OutputDirectoryPath, servicePackageName, versionPackageName)
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")
+	commonPackageImportPath := fmt.Sprintf("%s/%s", i.OutputSubDirectoryName, i.CommonPackageRelativePath)
 
 	useNewBaseLayer := settings.ShouldUseNewBaseLayer(i.ServiceName, i.VersionName)
 
 	return ServiceGeneratorData{
-		apiVersion:         i.VersionName,
-		baseClientMethod:   i.BaseClientMethod,
-		baseClientPackage:  i.BaseClientPackage,
-		constants:          i.ResourceDetails.Schema.Constants,
-		idsOutputPath:      idsPath,
-		models:             i.ResourceDetails.Schema.Models,
-		operations:         i.ResourceDetails.Operations.Operations,
-		resourceOutputPath: resourceOutputPath,
-		packageName:        resourcePackageName,
-		resourceIds:        i.ResourceDetails.Schema.ResourceIds,
-		serviceClientName:  fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
-		servicePackageName: strings.ToLower(i.ServiceName),
-		source:             i.Source,
-		useIdAliases:       false,
-		useNewBaseLayer:    useNewBaseLayer,
+		apiVersion:              i.VersionName,
+		baseClientMethod:        i.BaseClientMethod,
+		baseClientPackage:       i.BaseClientPackage,
+		commonPackageName:       i.CommonPackageName,
+		commonPackageImportPath: commonPackageImportPath,
+		constants:               i.ResourceDetails.Schema.Constants,
+		idsOutputPath:           idsPath,
+		models:                  i.ResourceDetails.Schema.Models,
+		operations:              i.ResourceDetails.Operations.Operations,
+		resourceOutputPath:      resourceOutputPath,
+		packageName:             resourcePackageName,
+		resourceIds:             i.ResourceDetails.Schema.ResourceIds,
+		serviceClientName:       fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
+		servicePackageName:      strings.ToLower(i.ServiceName),
+		source:                  i.Source,
+		useIdAliases:            false,
+		useNewBaseLayer:         useNewBaseLayer,
 	}
 }
