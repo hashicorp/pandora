@@ -1,0 +1,82 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.FooBar/{parentResourceType}/{parentResourceName}/{resourceType}/{resourceName}": {
+      "head": {
+        "tags": [
+          "Example"
+        ],
+        "operationId": "Example_OperationContainingAHiddenScope",
+        "description": "This example is an operation containing a hidden Scope",
+        "parameters": [
+          {
+            "name": "subscriptionId",
+            "in": "path",
+            "description": "The ID of the Subscription.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceGroupName",
+            "in": "path",
+            "description": "The name of the Resource Group.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parentResourceType",
+            "in": "path",
+            "description": "The name of the parent resource type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "parentResourceName",
+            "in": "path",
+            "description": "The name of the parent resource",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceType",
+            "in": "path",
+            "description": "The name of the resource type",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "resourceName",
+            "in": "path",
+            "description": "The name of the resource",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    }
+  },
+  "definitions": {},
+  "parameters": {}
+}

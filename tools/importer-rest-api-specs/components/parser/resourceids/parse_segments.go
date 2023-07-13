@@ -294,8 +294,20 @@ func segmentsContainAResourceManagerScope(input []resourcemanager.ResourceIdSegm
 				Name: "scope",
 			},
 		}
-		if len(input) > 8 {
-			output = append(output, input[8:]...)
+
+		// However it can _also_ be a Nested ID, e.g. for a Child Resource nested under a Parent Resource, for example:
+		// > /subscriptions/{}/resourceGroups/{}/providers/{}/{}/{}/{}/{}
+		// so we also need to check that
+		startingIndex := 8
+		if len(input) >= 10 {
+			nestedResourcePresent := input[8].Type == resourcemanager.UserSpecifiedSegment || input[8].Type == resourcemanager.ConstantSegment
+			nestedResourceNamePresent := input[9].Type == resourcemanager.UserSpecifiedSegment
+			if nestedResourcePresent && nestedResourceNamePresent {
+				startingIndex = 10
+			}
+		}
+		if len(input) > startingIndex {
+			output = append(output, input[startingIndex:]...)
 		}
 		return &output, true
 	}
