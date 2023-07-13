@@ -16,6 +16,17 @@ func (tb TestBuilder) generateTemplateConfigForDependencies(dependencies testDep
 	// this is an intentional design choice to order these alphabetically - but that makes reviewing
 	// the generated output harder, so with more dependencies this approach becomes problematic.
 
+	if dependencies.needsApplicationInsights {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_application_insights" "test" {
+  name                = "acctestai-${var.random_integer}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+  application_type    = "web"
+}
+`, tb.providerPrefix))
+	}
+
 	if dependencies.needsClientConfig {
 		components = append(components, fmt.Sprintf(`
 data "%[1]s_client_config" "test" {}
@@ -31,9 +42,21 @@ data "%[1]s_extended_locations" "test" {
 	}
 
 	if dependencies.needsKeyVault {
-		components = append(components, fmt.Sprintf(`
+		if dependencies.needsKeyVaultAccessPolicy {
+			components = append(components, fmt.Sprintf(`
 resource "%[1]s_key_vault" "test" {
-  name                       = "acctest-${var.random_integer}"
+  name                       = "acctest-${var.random_string}"
+  location                   = %[1]s_resource_group.test.location
+  resource_group_name        = %[1]s_resource_group.test.name
+  tenant_id                  = data.%[1]s_client_config.test.tenant_id
+  sku_name                   = "standard"
+  soft_delete_retention_days = 7
+}
+`, tb.providerPrefix))
+		} else {
+			components = append(components, fmt.Sprintf(`
+resource "%[1]s_key_vault" "test" {
+  name                       = "acctest-${var.random_string}"
   location                   = %[1]s_resource_group.test.location
   resource_group_name        = %[1]s_resource_group.test.name
   tenant_id                  = data.%[1]s_client_config.test.tenant_id
@@ -41,8 +64,8 @@ resource "%[1]s_key_vault" "test" {
   soft_delete_retention_days = 7
 
   access_policy {
-	tenant_id = data.%[1]s_client_config.current.tenant_id
-	object_id = data.%[1]s_client_config.current.object_id
+	tenant_id = data.%[1]s_client_config.test.tenant_id
+	object_id = data.%[1]s_client_config.test.object_id
 
 	certificate_permissions = [
 	  "ManageContacts",
@@ -68,6 +91,25 @@ resource "%[1]s_key_vault" "test" {
   }
 }
 `, tb.providerPrefix))
+		}
+	}
+
+	if dependencies.needsKeyVaultAccessPolicy {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_key_vault_access_policy" "test" {
+  key_vault_id = %[1]s_key_vault.test.id
+  tenant_id    = data.%[1]s_client_config.test.tenant_id
+  object_id    = data.%[1]s_client_config.test.object_id
+
+  key_permissions = [
+    "Create",
+    "Get",
+    "Delete",
+    "Purge",
+    "GetRotationPolicy",
+  ]
+}
+`, tb.providerPrefix))
 	}
 
 	if dependencies.needsKeyVaultKey {
@@ -82,6 +124,44 @@ resource "%[1]s_key_vault_key" "test" {
     "sign",
     "verify",
   ]
+}
+`, tb.providerPrefix))
+	}
+
+	if dependencies.needsKubernetesCluster {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_kubernetes_cluster" "test" {
+  name         = "acctestaks${var.random_string}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+  dns_prefix          = "acctestaks${var.random_string}"
+
+  default_node_pool {
+    name       = "default"
+    node_count = 1
+    vm_size    = "Standard_DS2_v2"
+  }
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+`, tb.providerPrefix))
+	}
+
+	if dependencies.needsMachineLearningWorkspace {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_machine_learning_workspace" "test" {
+  name                = "acctestmlw-${var.random_integer}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+  key_vault_id		  = azurerm_key_vault.test.id
+  storage_account_id = azurerm_storage_account.test.id
+  application_insights_id = azurerm_application_insights.test.id
+  
+  identity {
+	type = "SystemAssigned"
+  }
 }
 `, tb.providerPrefix))
 	}
@@ -118,6 +198,18 @@ resource "%[1]s_public_ip" "test" {
 resource "%[1]s_resource_group" "test" {
   name     = "acctestrg-${var.random_integer}"
   location = var.primary_location
+}
+`, tb.providerPrefix))
+	}
+
+	if dependencies.needsStorageAccount {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_storage_account" "test" {
+  name                     = "acctestsa${var.random_string}"
+  location                 = %[1]s_resource_group.test.location
+  resource_group_name      = %[1]s_resource_group.test.name
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
 }
 `, tb.providerPrefix))
 	}

@@ -25,10 +25,11 @@ func TestAttributeValueForField_BasicTypeBoolean(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `false`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -63,10 +64,11 @@ func TestAttributeValueForField_BasicTypeInteger(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `21`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -101,10 +103,11 @@ func TestAttributeValueForField_BasicTypeFloat(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `21.42`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -139,10 +142,11 @@ func TestAttributeValueForField_BasicTypeString(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `"val-${var.random_string}"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -180,10 +184,11 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 		SchemaModelName: "TopLevelModel",
 		DisplayName:     "Example Thing",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `"Description for the Example Thing"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -196,11 +201,11 @@ func TestAttributeValueForField_BasicTypeStringDescription(t *testing.T) {
 
 func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 	resourceLabelsToExpected := map[string]string{
-		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_integer}"`,
-		"resource":                        `"acctestr-${var.random_integer}"`,
-		"resource_group":                  `"acctestrg-${var.random_integer}"`,
-		"subnet":                          `"acctests-${var.random_integer}"`,
-		"virtual_network":                 `"acctestvn-${var.random_integer}"`,
+		"linux_virtual_machine_scale_set": `"acctestlvmss-${var.random_string}"`,
+		"resource":                        `"acctestr-${var.random_string}"`,
+		"resource_group":                  `"acctestrg-${var.random_string}"`,
+		"subnet":                          `"acctests-${var.random_string}"`,
+		"virtual_network":                 `"acctestvn-${var.random_string}"`,
 	}
 	for resourceLabel, expectedValue := range resourceLabelsToExpected {
 		t.Logf("testing Label %q", resourceLabel)
@@ -222,18 +227,19 @@ func TestAttributeValueForField_BasicTypeStringName(t *testing.T) {
 			},
 			SchemaModelName: "TopLevelModel",
 		}
+		variables := resourcemanager.TerraformTestDataVariables{}
 		actualDependencies := testDependencies{
 			variables: testVariables{},
 		}
 		builder := NewTestBuilder("example", resourceLabel, details)
-		actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+		actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 		if err != nil {
 			t.Fatalf(err.Error())
 		}
 		testhelpers.AssertTemplatedCodeMatches(t, expectedValue, string(actual.Bytes()))
 		expectedDependencies := testDependencies{
 			variables: testVariables{
-				needsRandomInteger: true,
+				needsRandomString: true,
 			},
 			needsEdgeZone:             false,
 			needsPublicIP:             false,
@@ -264,11 +270,12 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -304,11 +311,12 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -324,6 +332,47 @@ func TestAttributeValueForField_BasicTypeStringKeyVaultKeyID(t *testing.T) {
 		needsResourceGroup: true,
 		needsKeyVault:      true,
 		needsKeyVaultKey:   true,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
+func TestAttributeValueForField_BasicTypeStringKubernetesClusterID(t *testing.T) {
+	field := resourcemanager.TerraformSchemaFieldDefinition{
+		HclName:  "kubernetes_cluster_id",
+		Required: true,
+		ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+			Type: resourcemanager.TerraformSchemaFieldTypeString,
+		},
+	}
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"KubernetesClusterId": field,
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+	}
+	variables := resourcemanager.TerraformTestDataVariables{}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `example_kubernetes_cluster.test.id`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, string(actual.Bytes()))
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsPrimaryLocation: true,
+			needsRandomInteger:   true,
+			needsRandomString:    true,
+		},
+		needsResourceGroup:     true,
+		needsKubernetesCluster: true,
 	}
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
@@ -346,11 +395,12 @@ func TestAttributeValueForField_BasicTypeStringNetworkInterfaceID(t *testing.T) 
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -387,11 +437,12 @@ func TestAttributeValueForField_BasicTypeStringSubnetID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -427,11 +478,12 @@ func TestAttributeValueForField_BasicTypeStringSubscriptionID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -461,11 +513,12 @@ func TestAttributeValueForField_BasicTypeStringTenantID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -495,11 +548,12 @@ func TestAttributeValueForField_BasicTypeStringUserAssignedIdentityID(t *testing
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -534,11 +588,12 @@ func TestAttributeValueForField_BasicTypeStringVirtualNetworkID(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
 	builder := NewTestBuilder("example", "resource", details)
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

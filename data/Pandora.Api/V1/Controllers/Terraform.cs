@@ -175,6 +175,7 @@ public partial class TerraformController : ControllerBase
         {
             SegmentName = input.SegmentName,
             SchemaFieldName = input.SchemaFieldName,
+            ParsedFromParentID = input.ParsedFromParentID,
         };
     }
 

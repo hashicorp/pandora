@@ -7,6 +7,10 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
+func emptyTestData() resourcemanager.TerraformTestDataVariables {
+	return resourcemanager.TerraformTestDataVariables{}
+}
+
 func TestBlockValueForField_CommonSchemaIdentitySystemAssigned(t *testing.T) {
 	field := resourcemanager.TerraformSchemaFieldDefinition{
 		HclName:  "identity",
@@ -31,7 +35,7 @@ identity {
   type = "SystemAssigned"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -76,7 +80,7 @@ identity {
   identity_ids = [example_user_assigned_identity.test.id]
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -126,7 +130,7 @@ identity {
   identity_ids = []
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -171,7 +175,7 @@ identity {
   identity_ids = [example_user_assigned_identity.test.id]
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

@@ -902,6 +902,208 @@ func TestComponentCreate_IdDefinitionAndMapping_RegularResourceIDConstantSegment
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestComponentCreate_IdDefinitionAndMapping_ParentResourceID(t *testing.T) {
+	actual, err := createFunctionComponents{
+		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
+		resourceId: resourcemanager.ResourceIdDefinition{
+			CommonAlias: nil,
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/parentResource/{parentResourceName}/resource/{resourceName}",
+			Segments: []resourcemanager.ResourceIdSegment{
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "subscriptions",
+					FixedValue: pointer.To("subscriptions"),
+				},
+				{
+					Type: resourcemanager.SubscriptionIdSegment,
+					Name: "subscriptionId",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "resourceGroups",
+					FixedValue: pointer.To("resourceGroups"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "resourceGroupName",
+					ExampleValue: "resource-group-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "parentResource",
+					FixedValue: pointer.To("parentResource"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "parentResourceName",
+					ExampleValue: "parent-resource-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "resource",
+					FixedValue: pointer.To("resource"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "resourceName",
+					ExampleValue: "resource-value",
+				},
+			},
+		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+				"ParentResourceId": {
+					HclName: "parent_resource_id",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+			},
+		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "resourceName",
+				},
+				{
+					SchemaFieldName:    "ParentResourceId",
+					SegmentName:        "parentResourceName",
+					ParsedFromParentID: true,
+				},
+				{
+					SchemaFieldName:    "ParentResourceId",
+					SegmentName:        "resourceGroupName",
+					ParsedFromParentID: true,
+				},
+			},
+		},
+	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	subscriptionId := metadata.Client.Account.SubscriptionId
+	parentResourceId, err := commonids.ParseParentResourceID(config.ParentResourceId)
+	if err != nil {
+		return err
+	}
+	id := sdkresource.NewSomeResourceID(subscriptionId, parentResourceId.ResourceGroupName, parentResourceId.parentResourceName, config.Name)
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentCreate_IdDefinitionAndMapping_ParentResourceIDKubernetesExample(t *testing.T) {
+	actual, err := createFunctionComponents{
+		newResourceIdFuncName: "trustedAccess.NewTrustedAccessRoleBindingID",
+		resourceId: resourcemanager.ResourceIdDefinition{
+			CommonAlias: nil,
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
+			Segments: []resourcemanager.ResourceIdSegment{
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "subscriptions",
+					FixedValue: pointer.To("subscriptions"),
+				},
+				{
+					Type: resourcemanager.SubscriptionIdSegment,
+					Name: "subscriptionId",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "resourceGroups",
+					FixedValue: pointer.To("resourceGroups"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "resourceGroupName",
+					ExampleValue: "resource-group-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "managedClusters",
+					FixedValue: pointer.To("managedClusters"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "managedClusterName",
+					ExampleValue: "managed-cluster-value",
+				},
+				{
+					Type:       resourcemanager.StaticSegment,
+					Name:       "trustedAccessRoleBindings",
+					FixedValue: pointer.To("trustedAccessRoleBindings"),
+				},
+				{
+					Type:         resourcemanager.UserSpecifiedSegment,
+					Name:         "trustedAccessRoleBindingName",
+					ExampleValue: "trusted-access-role-binding-value",
+				},
+			},
+		},
+		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
+			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				"Name": {
+					HclName: "name",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+				"ManagedClusterId": {
+					HclName: "kubernetes_cluster_id",
+					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					},
+					Required: true,
+					ForceNew: true,
+				},
+			},
+		},
+		mappings: resourcemanager.MappingDefinition{
+			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+				{
+					SchemaFieldName: "Name",
+					SegmentName:     "trustedAccessRoleBindingName",
+				},
+				{
+					SchemaFieldName:    "ManagedClusterId",
+					SegmentName:        "managedClusterName",
+					ParsedFromParentID: true,
+				},
+				{
+					SchemaFieldName:    "ManagedClusterId",
+					SegmentName:        "resourceGroupName",
+					ParsedFromParentID: true,
+				},
+			},
+		},
+	}.idDefinitionAndMapping()
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := `
+	subscriptionId := metadata.Client.Account.SubscriptionId
+	managedClusterId, err := commonids.ParseManagedClusterID(config.ManagedClusterId)
+	if err != nil {
+		return err
+	}
+	id := trustedaccess.NewTrustedAccessRoleBindingID(subscriptionId, managedClusterId.ResourceGroupName, managedClusterId.ManagedClusterName, config.Name)
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestComponentCreate_PayloadDefinition(t *testing.T) {
 	actual, err := createFunctionComponents{
 		createMethod: resourcemanager.ApiOperation{

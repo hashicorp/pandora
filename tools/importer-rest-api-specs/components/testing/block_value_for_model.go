@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanager.TerraformSchemaModelDefinition, dependencies *testDependencies, onlyRequiredFields bool) (*hclwrite.Block, error) {
+func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanager.TerraformSchemaModelDefinition, dependencies *testDependencies, onlyRequiredFields bool, testData resourcemanager.TerraformTestDataVariables) (*hclwrite.Block, error) {
 	block := hclwrite.NewBlock(hclName, []string{})
 	fields := getRequiredFieldsForSchemaModel(model)
 	if !onlyRequiredFields {
@@ -16,8 +16,8 @@ func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanage
 	}
 
 	for _, nestedField := range fields {
-		if needsBlock(nestedField.ObjectDefinition.Type) {
-			nestedBlocks, err := tb.getBlockValueForField(nestedField, dependencies, onlyRequiredFields)
+		if needsBlock(nestedField.ObjectDefinition.Type, nestedField.ObjectDefinition.NestedObject) {
+			nestedBlocks, err := tb.getBlockValueForField(nestedField, dependencies, onlyRequiredFields, testData)
 			if err != nil {
 				return nil, fmt.Errorf("getting block value for field %q: %+v", nestedField.HclName, err)
 			}
@@ -28,7 +28,7 @@ func (tb TestBuilder) getBlockValueForModel(hclName string, model resourcemanage
 			continue
 		}
 
-		attributeVal, err := tb.getAttributeValueForField(nestedField, dependencies)
+		attributeVal, err := tb.getAttributeValueForField(nestedField, dependencies, testData)
 		if err != nil {
 			return nil, fmt.Errorf("getting attribute value for field %q: %+v", nestedField.HclName, err)
 		}

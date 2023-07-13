@@ -35,4 +35,22 @@ type ResourceDefinition struct {
 
 	// Description is the description for this Resource
 	Description string
+
+	// TestData contains specific values for the tests of this resource
+	TestData ResourceTestDataDefinition
+}
+
+type ResourceTestDataDefinition struct {
+	// BasicVariables contains key value pairs of field to test value for different variable types
+	BasicVariables VariablesDefinition
+
+	// CompleteVariables contains key value pairs of field to test value for different variable types
+	CompleteVariables VariablesDefinition
+}
+
+type VariablesDefinition struct {
+	Bools    map[string]bool
+	Integers map[string]int64
+	Lists    map[string][]string
+	Strings  map[string]string
 }

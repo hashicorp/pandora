@@ -232,6 +232,9 @@ type ResourceIdMappingDefinition struct {
 	// SegmentName is the name of the ResourceId Segment which should be mapped to/from
 	// the Schema Field defined in SchemaFieldName.
 	SegmentName string `json:"segmentName"`
+
+	// ParsedFromParentID specifies whether the field in SchemaFieldName is a parent resource.
+	ParsedFromParentID bool `json:"parsedFromParentId"`
 }
 
 type ModelToModelMappingDefinition struct {
@@ -502,4 +505,25 @@ type TerraformResourceTestsDefinition struct {
 	// as the Template for each of the Tests defined above, which should include any parent
 	// resources required in the Tests.
 	TemplateConfiguration *string `json:"templateConfiguration,omitempty"`
+
+	// TestData contains variables that define specific testing values for fields within the
+	// test config.
+	TestData *TerraformResourceTestDataDefinition `json:"testDataDefinition,omitempty"`
+}
+
+type TerraformResourceTestDataDefinition struct {
+	// BasicVariables is a struct that contains key value pairs of hcl field to test value for
+	// different variable types for the basic test.
+	BasicVariables TerraformTestDataVariables `json:"basicTestDataVariables"`
+
+	// CompleteVariables is a struct that contains key value pairs of hcl field to test value for
+	// different variable types for the complete test.
+	CompleteVariables TerraformTestDataVariables `json:"completeTestDataVariables"`
+}
+
+type TerraformTestDataVariables struct {
+	Bools    map[string]bool     `json:"bools"`
+	Integers map[string]int64    `json:"integers"`
+	Lists    map[string][]string `json:"lists"`
+	Strings  map[string]string   `json:"strings"`
 }

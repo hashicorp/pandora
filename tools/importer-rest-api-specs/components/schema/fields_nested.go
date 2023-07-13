@@ -3,6 +3,7 @@ package schema
 import (
 	"fmt"
 	"log"
+	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
@@ -32,7 +33,10 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		var updateField *resourcemanager.FieldDetails
 		hasUpdate := false
 		if input.updatePropertiesPayload != nil {
-			updateField, hasUpdate = getField(*input.updatePropertiesPayload, k)
+			// we can assume ID fields are not updatable even if they're in the CreateUpdate payload
+			if !strings.HasSuffix(k, "Id") {
+				updateField, hasUpdate = getField(*input.updatePropertiesPayload, k)
+			}
 		}
 
 		// based on this information
@@ -52,7 +56,7 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 			} else if hasCreate {
 				isRequired = createField.Required
 				isOptional = createField.Optional
-				isForceNew = hasUpdate
+				isForceNew = !hasUpdate
 			} else if hasUpdate {
 				isRequired = updateField.Required
 				isOptional = updateField.Optional

@@ -36,10 +36,11 @@ func TestAttributeValueForField_PossibleValuesInteger(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `32`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -85,10 +86,11 @@ func TestAttributeValueForField_PossibleValuesFloat(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `32.02`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -134,10 +136,11 @@ func TestAttributeValueForField_PossibleValuesString(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `"First"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

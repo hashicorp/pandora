@@ -125,7 +125,7 @@ func TestDependenciesTemplate_NeedsKeyVault(t *testing.T) {
 	}
 	expected := `
 resource "example_key_vault" "test" {
-  name                       = "acctest-${var.random_integer}"
+  name                       = "acctest-${var.random_string}"
   location                   = example_resource_group.test.location
   resource_group_name        = example_resource_group.test.name
   tenant_id                  = data.example_client_config.test.tenant_id
@@ -133,8 +133,8 @@ resource "example_key_vault" "test" {
   soft_delete_retention_days = 7
 
   access_policy {
-	tenant_id = data.example_client_config.current.tenant_id
-	object_id = data.example_client_config.current.object_id
+	tenant_id = data.example_client_config.test.tenant_id
+	object_id = data.example_client_config.test.object_id
 
 	certificate_permissions = [
 	  "ManageContacts",

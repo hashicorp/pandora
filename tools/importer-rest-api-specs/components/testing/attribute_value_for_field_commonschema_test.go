@@ -25,10 +25,11 @@ func TestAttributeValueForField_EdgeZone(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := "element(data.azurerm_extended_locations.test.extended_locations, 0)"
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -65,10 +66,11 @@ func TestAttributeValueForField_Location(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := "example_resource_group.test.location"
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -108,10 +110,11 @@ func TestAttributeValueForField_LocationWithinTheResourceGroupResource(t *testin
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource_group", details)
 	expected := `var.primary_location`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -148,10 +151,11 @@ func TestAttributeValueForField_ResourceGroup(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := "example_resource_group.test.name"
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -191,10 +195,11 @@ func TestAttributeValueForField_ResourceGroupWithinTheResourceGroupResource(t *t
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource_group", details)
 	expected := `"acctestrg-${var.random_integer}"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -231,10 +236,11 @@ func TestAttributeValueForField_Sku(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `"Standard"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -269,6 +275,7 @@ func TestAttributeValueForField_Tags(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `
@@ -277,7 +284,7 @@ func TestAttributeValueForField_Tags(t *testing.T) {
 	some_key    = "some-value"
 }
 `
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -315,10 +322,11 @@ func TestAttributeValueForField_Zone(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `"1"`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -353,10 +361,11 @@ func TestAttributeValueForField_Zones(t *testing.T) {
 		},
 		SchemaModelName: "TopLevelModel",
 	}
+	variables := resourcemanager.TerraformTestDataVariables{}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `["1", "2", "3"]`
-	actual, err := builder.getAttributeValueForField(field, &actualDependencies)
+	actual, err := builder.getAttributeValueForField(field, &actualDependencies, variables)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

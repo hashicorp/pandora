@@ -37,6 +37,9 @@ func TestBlockValueForField_Reference(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -45,7 +48,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -115,6 +118,9 @@ func TestBlockValueForField_ReferenceContainingAReference(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -127,7 +133,7 @@ some_nested_item {
   }
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -216,6 +222,9 @@ func TestBlockValueForField_ReferenceContainingAReferenceThatContainsAReference(
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -232,7 +241,7 @@ some_nested_item {
   }
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -286,6 +295,9 @@ func TestBlockValueForField_List(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -294,7 +306,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
@@ -348,6 +360,9 @@ func TestBlockValueForField_Set(t *testing.T) {
 			},
 		},
 		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
 	}
 	actualDependencies := testDependencies{}
 	builder := NewTestBuilder("example", "resource", details)
@@ -356,7 +371,7 @@ some_nested_item {
   some_key = "val-${var.random_string}"
 }
 `
-	actual, err := builder.getBlockValueForField(field, &actualDependencies, true)
+	actual, err := builder.getBlockValueForField(field, &actualDependencies, true, emptyTestData())
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

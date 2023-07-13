@@ -9,7 +9,7 @@ import (
 	"github.com/zclconf/go-cty/cty"
 )
 
-func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, onlyRequiredFields bool) (*[]*hclwrite.Block, error) {
+func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchemaFieldDefinition, dependencies *testDependencies, onlyRequiredFields bool, testData resourcemanager.TerraformTestDataVariables) (*[]*hclwrite.Block, error) {
 	if function, isCommonSchema := blocksToCommonSchemaFunctions[field.ObjectDefinition.Type]; isCommonSchema {
 		val := function(field, dependencies, tb.resourceLabel, tb.providerPrefix)
 		return &[]*hclwrite.Block{
@@ -29,13 +29,11 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			}
 
 			// first go pull out the nested item
-			nestedBlock, err = tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+			nestedBlock, err = tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields, testData)
 			if err != nil {
 				return nil, fmt.Errorf("retrieving block value for field %q containing nested List/Set reference to %q: %+v", field.HclName, nestedModelName, err)
 			}
 		}
-
-		// TODO add support for lists of basic types or check for nested items of basic types and add as an attribute elsewhere
 
 		if nestedBlock == nil {
 			return nil, fmt.Errorf("internal-error: Lists and Sets currently only support a Reference or String - but got %q", string(field.ObjectDefinition.NestedObject.Type))
@@ -54,7 +52,7 @@ func (tb TestBuilder) getBlockValueForField(field resourcemanager.TerraformSchem
 			return nil, fmt.Errorf("the referenced SchemaModel %q was not found", nestedModelName)
 		}
 
-		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields)
+		nestedBlock, err := tb.getBlockValueForModel(field.HclName, nestedModel, dependencies, onlyRequiredFields, testData)
 		if err != nil {
 			return nil, fmt.Errorf("retrieving block value for field %q's nested model %q: %+v", field.HclName, nestedModelName, err)
 		}
