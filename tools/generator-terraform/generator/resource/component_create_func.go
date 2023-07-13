@@ -165,7 +165,7 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 					if v.ConstantReference != nil {
 						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
 						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
-					} else if resourceIdMapping.Parent {
+					} else if resourceIdMapping.ParsedFromParentID {
 						if !strings.EqualFold(v.Name, "resourceGroupName") && parseParentId == "" {
 							parentResource := strings.Replace(resourceIdMapping.SchemaFieldName, "Id", "", -1)
 							parseParentId = fmt.Sprintf(`

@@ -45,7 +45,7 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 	parentSegment := ""
 
 	for _, m := range input.Details.Mappings.ResourceId {
-		if m.Parent {
+		if m.ParsedFromParentID {
 			// TODO this relies on the fact that the resource ID mappings are output in a certain order
 			// for now it's okay but we should make this more robust
 			parentResource = m.SchemaFieldName
