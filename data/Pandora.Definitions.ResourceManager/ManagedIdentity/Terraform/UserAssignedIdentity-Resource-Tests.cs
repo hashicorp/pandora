@@ -13,7 +13,7 @@ provider 'azurerm' {
 
 resource 'azurerm_user_assigned_identity' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestuai-${var.random_integer}'
+  name                = 'acctestuai-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
 }
     ".AsTerraformTestConfig();
@@ -33,7 +33,7 @@ provider 'azurerm' {
 
 resource 'azurerm_user_assigned_identity' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestuai-${var.random_integer}'
+  name                = 'acctestuai-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
   tags = {
     environment = 'terraform-acctests'
@@ -44,6 +44,7 @@ resource 'azurerm_user_assigned_identity' 'test' {
     public string? TemplateConfig => @"
 variable 'primary_location' {}
 variable 'random_integer' {}
+variable 'random_string' {}
 
 resource 'azurerm_resource_group' 'test' {
   name     = 'acctestrg-${var.random_integer}'
