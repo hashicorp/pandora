@@ -1,10 +1,10 @@
 package schema
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -542,7 +542,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 func checkResourceIdMappingExistsBetween(t *testing.T, mappings []resourcemanager.ResourceIdMappingDefinition, schemaFieldName, segmentName string, parent bool) {
 	found := false
 	for _, item := range mappings {
-		if strings.EqualFold(item.SchemaFieldName, schemaFieldName) && strings.EqualFold(item.SegmentName, segmentName) && item.Parent == parent {
+		if strings.EqualFold(item.SchemaFieldName, schemaFieldName) && strings.EqualFold(item.SegmentName, segmentName) && item.ParsedFromParentID == parent {
 			found = true
 			break
 		}

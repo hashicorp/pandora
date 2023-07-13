@@ -257,7 +257,7 @@ public partial class TerraformController
         public string SegmentName { get; set; }
 
         [JsonPropertyName("parent")]
-        public bool Parent { get; set; }
+        public bool ParsedFromParentID { get; set; }
     }
 
     private class MappingsDefinition

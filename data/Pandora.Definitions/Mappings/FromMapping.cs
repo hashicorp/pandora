@@ -48,7 +48,7 @@ public class FromMapping
         {
             SchemaFieldName = FromFieldPath,
             SegmentName = name,
-            Parent = true,
+            ParsedFromParentID = true,
         };
     }
 

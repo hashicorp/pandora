@@ -12,7 +12,7 @@ func codeForTerraformResourceMappings(terraformNamespace string, apiResourceName
 	resourceIdMappings := make([]string, 0)
 	for _, item := range details.Mappings.ResourceId {
 		resourceIdMappingFunction := "ToResourceIdSegmentNamed"
-		if item.Parent {
+		if item.ParsedFromParentID {
 			resourceIdMappingFunction = "ToCommonIdSegmentNamed"
 		}
 		line := fmt.Sprintf("Mapping.FromSchema<%[1]sResourceSchema>(s => s.%[2]s).%[3]s(%[4]q)", details.ResourceName, item.SchemaFieldName, resourceIdMappingFunction, item.SegmentName)

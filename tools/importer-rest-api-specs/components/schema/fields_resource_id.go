@@ -75,9 +75,9 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			}
 
 			mappings.ResourceId = append(mappings.ResourceId, resourcemanager.ResourceIdMappingDefinition{
-				SchemaFieldName: parentResourceIdName,
-				SegmentName:     v.Name,
-				Parent:          true,
+				SchemaFieldName:    parentResourceIdName,
+				SegmentName:        v.Name,
+				ParsedFromParentID: true,
 			})
 		}
 	} else {

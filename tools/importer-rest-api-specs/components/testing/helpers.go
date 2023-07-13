@@ -96,6 +96,7 @@ func needsBlock(input resourcemanager.TerraformSchemaFieldType, nestedObject *re
 	}
 
 	if _, ok := typesNeedingBlocks[input]; ok {
+		// TODO add support for list of ints
 		// lists of basic types should be treated as attributes rather than blocks
 		if nestedObject != nil && nestedObject.Type == resourcemanager.TerraformSchemaFieldTypeString {
 			return false
@@ -115,6 +116,7 @@ func suffixFromResourceLabel(input string) string {
 	return strings.Join(vals, "")
 }
 
+// TODO this currently only works for top level properties - we should extend this use the path to the field e.g. foo.bar
 func findTestDataValue[V any](field string, m map[string]V) *V {
 	for k, v := range m {
 		if strings.EqualFold(field, k) {

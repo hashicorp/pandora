@@ -834,7 +834,7 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 		parentSegment:  "managedClusterName",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
-			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,

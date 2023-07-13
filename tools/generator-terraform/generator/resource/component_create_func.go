@@ -173,9 +173,9 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 								if err != nil {
 									return err
 								}
-							`, helpers.LowerCaseName(parentResource), parentResource, resourceIdMapping.SchemaFieldName)
+							`, helpers.CamelCasedName(parentResource), parentResource, resourceIdMapping.SchemaFieldName)
 						}
-						segments = append(segments, fmt.Sprintf("%s.%s", helpers.LowerCaseName(resourceIdMapping.SchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
+						segments = append(segments, fmt.Sprintf("%s.%s", helpers.CamelCasedName(resourceIdMapping.SchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
 					} else {
 						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
 					}

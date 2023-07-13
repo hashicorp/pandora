@@ -25,7 +25,6 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	for k := range allFields {
-		//if k := ""
 		// TODO: pull the right resourcemanager.ModelDetails for naming below
 
 		readField, hasRead := getField(input.readPropertiesPayload, k)

@@ -126,7 +126,7 @@ func (c readFunctionComponents) codeForIDParser() (*string, error) {
 `, c.idParseLine)
 
 	if c.parentResource != "" && c.parentSegment != "" {
-		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers.LowerCaseName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
+		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers.CamelCasedName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
 	}
 
 	return &output, nil
@@ -192,7 +192,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 				}
 				lines = append(lines, fmt.Sprintf("schema.%s = %s(id.%s)", resourceIdMapping.SchemaFieldName, *constantGoTypeName, strings.Title(resourceIdMapping.SegmentName)))
 			} else if c.parentResource != "" && v.Name == c.parentSegment {
-				lines = append(lines, fmt.Sprintf("schema.%s = %s.ID()", c.parentResource, helpers.LowerCaseName(c.parentResource)))
+				lines = append(lines, fmt.Sprintf("schema.%s = %s.ID()", c.parentResource, helpers.CamelCasedName(c.parentResource)))
 			} else {
 				lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
 			}

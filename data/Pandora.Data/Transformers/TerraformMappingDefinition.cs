@@ -22,7 +22,7 @@ public static class TerraformMappingDefinition
                 {
                     SegmentName = resourceIdMapping.SegmentName,
                     SchemaFieldName = resourceIdMapping.SchemaFieldName,
-                    Parent = resourceIdMapping.Parent
+                    ParsedFromParentID = resourceIdMapping.ParsedFromParentID
                 });
                 continue;
             }

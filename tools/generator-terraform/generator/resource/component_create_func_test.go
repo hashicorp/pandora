@@ -907,7 +907,7 @@ func TestComponentCreate_IdDefinitionAndMapping_ParentResourceID(t *testing.T) {
 		newResourceIdFuncName: "sdkresource.NewSomeResourceID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
-			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/parentResource/{parentResourceName}/resource/{resourceName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
@@ -1008,7 +1008,7 @@ func TestComponentCreate_IdDefinitionAndMapping_ParentResourceIDKubernetesExampl
 		newResourceIdFuncName: "trustedAccess.NewTrustedAccessRoleBindingID",
 		resourceId: resourcemanager.ResourceIdDefinition{
 			CommonAlias: nil,
-			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
 			Segments: []resourcemanager.ResourceIdSegment{
 				{
 					Type:       resourcemanager.StaticSegment,
