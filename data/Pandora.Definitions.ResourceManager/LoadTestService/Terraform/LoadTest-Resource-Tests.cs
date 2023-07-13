@@ -13,7 +13,7 @@ provider 'azurerm' {
 
 resource 'azurerm_load_test' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestlt-${var.random_integer}'
+  name                = 'acctestlt-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
 }
     ".AsTerraformTestConfig();
@@ -33,7 +33,7 @@ provider 'azurerm' {
 
 resource 'azurerm_load_test' 'test' {
   location            = azurerm_resource_group.test.location
-  name                = 'acctestlt-${var.random_integer}'
+  name                = 'acctestlt-${var.random_string}'
   resource_group_name = azurerm_resource_group.test.name
   description         = 'Description for the Load Test'
   tags = {
@@ -49,6 +49,7 @@ resource 'azurerm_load_test' 'test' {
     public string? TemplateConfig => @"
 variable 'primary_location' {}
 variable 'random_integer' {}
+variable 'random_string' {}
 
 resource 'azurerm_resource_group' 'test' {
   name     = 'acctestrg-${var.random_integer}'

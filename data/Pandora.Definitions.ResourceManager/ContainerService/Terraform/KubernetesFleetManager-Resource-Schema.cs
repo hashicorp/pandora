@@ -9,7 +9,6 @@ public class KubernetesFleetManagerResourceSchema
 {
 
     [Documentation("The FleetHubProfile configures the Fleet's hub.")]
-    [ForceNew]
     [HclName("hub_profile")]
     [Optional]
     public KubernetesFleetManagerResourceFleetHubProfileSchema HubProfile { get; set; }
