@@ -27,6 +27,24 @@ Manages a Kubernetes Cluster Trusted Access Role Binding
 
 ~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
 HERE
+        test_data {
+          basic_variables {
+            lists = {
+              "roles" = ["Microsoft.MachineLearningServices/workspaces/mlworkload"]
+            }
+            strings = {
+              "source_resource_id" = "machine_learning_workspace_id"
+            }
+          }
+          complete_variables {
+            lists = {
+              "roles" = ["Microsoft.MachineLearningServices/workspaces/mlworkload", "Microsoft.MachineLearningServices/workspaces/inference-v1"]
+            }
+            strings = {
+              "source_resource_id" = "machine_learning_workspace_id"
+            }
+          }
+        }
       }
     }
   }
