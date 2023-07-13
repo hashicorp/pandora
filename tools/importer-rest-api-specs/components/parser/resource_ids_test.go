@@ -296,6 +296,210 @@ func TestParseResourceIdContainingAScope(t *testing.T) {
 	}
 }
 
+func TestParseResourceIdContainingAHiddenScope(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 1 {
+		t.Fatalf("expected 1 ResourceId but got %d", len(hello.ResourceIds))
+	}
+
+	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
+			{
+				Type: resourcemanager.ScopeSegment,
+				Name: "scope",
+			},
+		},
+	}
+	expectedValue := "/{scope}"
+	actualValue, ok := hello.ResourceIds["ScopeId"]
+	if !ok {
+		t.Fatalf("expected a ResourceId named ScopeId but didn't get one")
+	}
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the OperationContainingAHiddenScope ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	// then check it's exposed in the operation itself
+	operation, ok := hello.Operations["OperationContainingAHiddenScope"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named OperationContainingAHiddenScope but didn't get one")
+	}
+	if operation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to have a value but didn't get one")
+	}
+	if *operation.ResourceIdName != "ScopeId" {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to be ScopeId but got %q", *operation.ResourceIdName)
+	}
+	if operation.UriSuffix != nil {
+		t.Fatalf("expected the UriSuffix for the Operation OperationContainingAScope to have no value but got %q", *operation.UriSuffix)
+	}
+}
+
+func TestParseResourceIdContainingAHiddenScopeConstant(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_constant.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 1 {
+		t.Fatalf("expected 1 ResourceId but got %d", len(hello.ResourceIds))
+	}
+
+	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
+			{
+				Type: resourcemanager.ScopeSegment,
+				Name: "scope",
+			},
+		},
+	}
+	expectedValue := "/{scope}"
+	actualValue, ok := hello.ResourceIds["ScopeId"]
+	if !ok {
+		t.Fatalf("expected a ResourceId named ScopeId but didn't get one")
+	}
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the OperationContainingAHiddenScope ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	// then check it's exposed in the operation itself
+	operation, ok := hello.Operations["OperationContainingAHiddenScope"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named OperationContainingAHiddenScope but didn't get one")
+	}
+	if operation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to have a value but didn't get one")
+	}
+	if *operation.ResourceIdName != "ScopeId" {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to be ScopeId but got %q", *operation.ResourceIdName)
+	}
+	if operation.UriSuffix != nil {
+		t.Fatalf("expected the UriSuffix for the Operation OperationContainingAScope to have no value but got %q", *operation.UriSuffix)
+	}
+}
+
+func TestParseResourceIdContainingAHiddenScopeAndAHardcodedProviderName(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "resource_ids_containing_hidden_scope_hardcoded_provider.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	hello, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatalf("no resources were output with the tag Example")
+	}
+
+	if len(hello.Constants) != 0 {
+		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
+	}
+	if len(hello.Models) != 0 {
+		t.Fatalf("expected no Models but got %d", len(hello.Models))
+	}
+	if len(hello.Operations) != 1 {
+		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
+	}
+	if len(hello.ResourceIds) != 1 {
+		t.Fatalf("expected 1 ResourceId but got %d", len(hello.ResourceIds))
+	}
+
+	// first check the ResourceId looks good
+	expectedResourceId := models.ParsedResourceId{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Segments: []resourcemanager.ResourceIdSegment{
+			{
+				Type: resourcemanager.ScopeSegment,
+				Name: "scope",
+			},
+		},
+	}
+	expectedValue := "/{scope}"
+	actualValue, ok := hello.ResourceIds["ScopeId"]
+	if !ok {
+		t.Fatalf("expected a ResourceId named ScopeId but didn't get one")
+	}
+	if actualValue.String() != expectedValue {
+		t.Fatalf("expected the OperationContainingAHiddenScope ResourceId to match %q but got %q", expectedValue, actualValue)
+	}
+	if err := validateResourceId(actualValue, expectedValue, expectedResourceId); err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	// then check it's exposed in the operation itself
+	operation, ok := hello.Operations["OperationContainingAHiddenScope"]
+	if !ok {
+		t.Fatalf("expected there to be an Operation named OperationContainingAHiddenScope but didn't get one")
+	}
+	if operation.ResourceIdName == nil {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to have a value but didn't get one")
+	}
+	if *operation.ResourceIdName != "ScopeId" {
+		t.Fatalf("expected the ResourceIdName for the Operation OperationContainingAHiddenScope to be ScopeId but got %q", *operation.ResourceIdName)
+	}
+	if operation.UriSuffix != nil {
+		t.Fatalf("expected the UriSuffix for the Operation OperationContainingAScope to have no value but got %q", *operation.UriSuffix)
+	}
+}
+
 func TestParseResourceIdWithJustUriSuffix(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "resource_ids_with_just_suffix.json")
 	if err != nil {
