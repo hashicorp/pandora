@@ -234,7 +234,7 @@ type ResourceIdMappingDefinition struct {
 	SegmentName string `json:"segmentName"`
 
 	// ParsedFromParentID specifies whether the field in SchemaFieldName is a parent resource.
-	ParsedFromParentID bool `json:"parent"`
+	ParsedFromParentID bool `json:"parsedFromParentId"`
 }
 
 type ModelToModelMappingDefinition struct {
