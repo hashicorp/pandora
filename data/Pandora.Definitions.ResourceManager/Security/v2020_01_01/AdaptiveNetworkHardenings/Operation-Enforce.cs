@@ -24,7 +24,7 @@ internal class EnforceOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(AdaptiveNetworkHardeningEnforceRequestModel);
 
-    public override ResourceID? ResourceId() => new AdaptiveNetworkHardeningId();
+    public override ResourceID? ResourceId() => new ScopedAdaptiveNetworkHardeningId();
 
     public override string? UriSuffix() => "/enforce";
 

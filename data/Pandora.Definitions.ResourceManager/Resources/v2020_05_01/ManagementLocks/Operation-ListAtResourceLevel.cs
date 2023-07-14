@@ -16,7 +16,7 @@ internal class ListAtResourceLevelOperation : Pandora.Definitions.Operations.Lis
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ResourceId();
+    public override ResourceID? ResourceId() => new ScopedResourceId();
 
     public override Type NestedItemType() => typeof(ManagementLockObjectModel);
 

@@ -23,7 +23,7 @@ internal class ConfigurationsDeleteOperation : Pandora.Definitions.Operations.De
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new FluxConfigurationId();
+    public override ResourceID? ResourceId() => new ScopedFluxConfigurationId();
 
     public override Type? OptionsObject() => typeof(ConfigurationsDeleteOperation.ConfigurationsDeleteOptions);
 

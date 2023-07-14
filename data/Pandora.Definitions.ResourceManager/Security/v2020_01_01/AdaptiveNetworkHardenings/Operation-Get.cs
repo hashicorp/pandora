@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Security.v2020_01_01.AdaptiveNetwo
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new AdaptiveNetworkHardeningId();
+    public override ResourceID? ResourceId() => new ScopedAdaptiveNetworkHardeningId();
 
     public override Type? ResponseObject() => typeof(AdaptiveNetworkHardeningModel);
 

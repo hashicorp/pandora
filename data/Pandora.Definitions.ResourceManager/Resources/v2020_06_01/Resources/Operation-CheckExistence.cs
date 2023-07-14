@@ -19,7 +19,7 @@ internal class CheckExistenceOperation : Pandora.Definitions.Operations.HeadOper
                 HttpStatusCode.NoContent,
         };
 
-    public override ResourceID? ResourceId() => new ResourceId();
+    public override ResourceID? ResourceId() => new ScopedResourceId();
 
 
 }

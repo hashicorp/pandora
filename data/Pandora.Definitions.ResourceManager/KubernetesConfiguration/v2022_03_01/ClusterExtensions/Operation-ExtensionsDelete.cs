@@ -23,7 +23,7 @@ internal class ExtensionsDeleteOperation : Pandora.Definitions.Operations.Delete
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+    public override ResourceID? ResourceId() => new ScopedExtensionId();
 
     public override Type? OptionsObject() => typeof(ExtensionsDeleteOperation.ExtensionsDeleteOptions);
 

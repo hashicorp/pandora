@@ -21,7 +21,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ManagementAssociationModel);
 
-    public override ResourceID? ResourceId() => new ManagementAssociationId();
+    public override ResourceID? ResourceId() => new ScopedManagementAssociationId();
 
     public override Type? ResponseObject() => typeof(ManagementAssociationModel);
 

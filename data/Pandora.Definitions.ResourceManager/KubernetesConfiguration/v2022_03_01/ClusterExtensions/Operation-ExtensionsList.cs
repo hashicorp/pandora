@@ -16,7 +16,7 @@ internal class ExtensionsListOperation : Pandora.Definitions.Operations.ListOper
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProviderId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type NestedItemType() => typeof(ExtensionModel);
 

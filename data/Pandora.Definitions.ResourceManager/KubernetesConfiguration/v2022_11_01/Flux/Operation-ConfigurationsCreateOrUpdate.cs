@@ -18,7 +18,7 @@ internal class ConfigurationsCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override Type? RequestObject() => typeof(FluxConfigurationModel);
 
-    public override ResourceID? ResourceId() => new FluxConfigurationId();
+    public override ResourceID? ResourceId() => new ScopedFluxConfigurationId();
 
     public override Type? ResponseObject() => typeof(FluxConfigurationModel);
 

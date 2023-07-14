@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.Configurat
 
 internal class ListParentOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceGroupProviderId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(ListConfigurationAssignmentsResultModel);
 

@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(PatchExtensionModel);
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+    public override ResourceID? ResourceId() => new ScopedExtensionId();
 
     public override Type? ResponseObject() => typeof(ExtensionModel);
 

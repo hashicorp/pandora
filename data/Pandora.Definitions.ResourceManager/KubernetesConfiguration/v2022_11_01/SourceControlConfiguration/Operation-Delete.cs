@@ -22,7 +22,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new SourceControlConfigurationId();
+    public override ResourceID? ResourceId() => new ScopedSourceControlConfigurationId();
 
 
 }

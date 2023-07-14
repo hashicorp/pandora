@@ -20,7 +20,7 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ConfigurationAssignmentId();
+    public override ResourceID? ResourceId() => new ScopedConfigurationAssignmentId();
 
     public override Type? ResponseObject() => typeof(ConfigurationAssignmentModel);
 
