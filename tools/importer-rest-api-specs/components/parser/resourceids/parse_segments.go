@@ -306,6 +306,15 @@ func segmentsContainAResourceManagerScope(input []resourcemanager.ResourceIdSegm
 				startingIndex = 10
 			}
 		}
+		// Continue trimming any user specified segments until we get to actual Resource ID
+		// since these can be included in the Scope itself
+		for len(input) > startingIndex {
+			segment := input[startingIndex]
+			if segment.Type != resourcemanager.UserSpecifiedSegment {
+				break
+			}
+			startingIndex++
+		}
 		if len(input) > startingIndex {
 			output = append(output, input[startingIndex:]...)
 		}
