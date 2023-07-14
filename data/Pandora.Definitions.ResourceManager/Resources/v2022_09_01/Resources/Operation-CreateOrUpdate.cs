@@ -25,7 +25,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(GenericResourceModel);
 
-    public override ResourceID? ResourceId() => new ScopedResourceId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(GenericResourceModel);
 

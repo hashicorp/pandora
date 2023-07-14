@@ -6,17 +6,16 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Authorization.v2022_04_01.Permissions;
+namespace Pandora.Definitions.ResourceManager.Resources.v2022_06_01.PolicyAssignments;
 
-internal class ScopedResourceId : ResourceID
+internal class ScopeId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "Scope";
 
-    public string ID => "/{scope}/{resourceName}";
+    public string ID => "/{scope}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Scope("scope"),
-        ResourceIDSegment.UserSpecified("resourceName"),
     };
 }
