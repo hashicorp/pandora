@@ -196,7 +196,7 @@ service "domainservices" {
 }
 service "dynatrace" {
   name      = "Dynatrace"
-  available = ["2021-09-01"]
+  available = ["2021-09-01", "2023-04-27"]
 }
 service "elastic" {
   name      = "Elastic"
