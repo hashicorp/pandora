@@ -21,7 +21,7 @@ internal class CreateOrUpdateParentOperation : Pandora.Definitions.Operations.Pu
 
     public override Type? RequestObject() => typeof(ConfigurationAssignmentModel);
 
-    public override ResourceID? ResourceId() => new Providers2ConfigurationAssignmentId();
+    public override ResourceID? ResourceId() => new ScopedConfigurationAssignmentId();
 
     public override Type? ResponseObject() => typeof(ConfigurationAssignmentModel);
 

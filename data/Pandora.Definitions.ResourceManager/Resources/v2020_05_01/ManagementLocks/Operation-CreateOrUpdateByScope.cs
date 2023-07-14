@@ -16,7 +16,7 @@ internal class CreateOrUpdateByScopeOperation : Pandora.Definitions.Operations.P
 {
     public override Type? RequestObject() => typeof(ManagementLockObjectModel);
 
-    public override ResourceID? ResourceId() => new ScopedLockId();
+    public override ResourceID? ResourceId() => new LockScopedId();
 
     public override Type? ResponseObject() => typeof(ManagementLockObjectModel);
 

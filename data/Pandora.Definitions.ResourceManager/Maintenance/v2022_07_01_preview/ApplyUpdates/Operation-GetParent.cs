@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2022_07_01_preview.Ap
 
 internal class GetParentOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Providers2ApplyUpdateId();
+    public override ResourceID? ResourceId() => new ScopedApplyUpdateId();
 
     public override Type? ResponseObject() => typeof(ApplyUpdateModel);
 

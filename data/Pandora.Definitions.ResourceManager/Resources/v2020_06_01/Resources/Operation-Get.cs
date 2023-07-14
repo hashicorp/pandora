@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_06_01.Resources;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceId();
+    public override ResourceID? ResourceId() => new ScopedResourceId();
 
     public override Type? ResponseObject() => typeof(GenericResourceModel);
 

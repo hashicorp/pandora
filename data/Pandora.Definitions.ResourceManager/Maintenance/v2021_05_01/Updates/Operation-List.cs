@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.Updates;
 
 internal class ListOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ProviderId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(ListUpdatesResultModel);
 

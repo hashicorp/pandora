@@ -21,7 +21,7 @@ internal class CreateOrUpdateParentOperation : Pandora.Definitions.Operations.Pu
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ResourceGroupProviderId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type? ResponseObject() => typeof(ApplyUpdateModel);
 

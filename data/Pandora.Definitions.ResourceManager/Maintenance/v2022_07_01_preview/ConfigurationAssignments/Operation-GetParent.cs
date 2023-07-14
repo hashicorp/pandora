@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2022_07_01_preview.Co
 
 internal class GetParentOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new Providers2ConfigurationAssignmentId();
+    public override ResourceID? ResourceId() => new ScopedConfigurationAssignmentId();
 
     public override Type? ResponseObject() => typeof(ConfigurationAssignmentModel);
 

@@ -18,7 +18,7 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override Type? RequestObject() => typeof(ExtensionModel);
 
-    public override ResourceID? ResourceId() => new ExtensionId();
+    public override ResourceID? ResourceId() => new ScopedExtensionId();
 
     public override Type? ResponseObject() => typeof(ExtensionModel);
 

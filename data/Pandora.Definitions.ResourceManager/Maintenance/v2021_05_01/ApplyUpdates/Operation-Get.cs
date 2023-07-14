@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Maintenance.v2021_05_01.ApplyUpdat
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ApplyUpdateId();
+    public override ResourceID? ResourceId() => new ScopedApplyUpdateId();
 
     public override Type? ResponseObject() => typeof(ApplyUpdateModel);
 
