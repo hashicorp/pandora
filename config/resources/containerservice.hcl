@@ -16,7 +16,7 @@ HERE
     }
   }
 
-  api "2023-03-02-preview" {
+  api "2023-04-02-preview" {
     package "TrustedAccess" {
       definition "kubernetes_cluster_trusted_access_role_binding" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}"
