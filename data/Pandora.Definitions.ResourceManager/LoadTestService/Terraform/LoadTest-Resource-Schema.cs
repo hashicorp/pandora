@@ -15,6 +15,7 @@ public class LoadTestResourceSchema
 
 
     [Documentation("Description of the resource.")]
+    [ForceNew]
     [HclName("description")]
     [Optional]
     public string Description { get; set; }
