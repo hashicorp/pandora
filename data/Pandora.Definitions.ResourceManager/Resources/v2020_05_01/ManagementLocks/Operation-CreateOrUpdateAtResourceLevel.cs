@@ -16,7 +16,7 @@ internal class CreateOrUpdateAtResourceLevelOperation : Pandora.Definitions.Oper
 {
     public override Type? RequestObject() => typeof(ManagementLockObjectModel);
 
-    public override ResourceID? ResourceId() => new ResourceLockScopedId();
+    public override ResourceID? ResourceId() => new ScopedLockId();
 
     public override Type? ResponseObject() => typeof(ManagementLockObjectModel);
 

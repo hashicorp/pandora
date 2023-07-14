@@ -8,16 +8,15 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.Resources.v2020_05_01.ManagementLocks;
 
-internal class ResourceLockScopedId : ResourceID
+internal class ScopedLockId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/{scope}/{resourceName}/providers/Microsoft.Authorization/locks/{lockName}";
+    public string ID => "/{scope}/providers/Microsoft.Authorization/locks/{lockName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Scope("scope"),
-        ResourceIDSegment.UserSpecified("resourceName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
         ResourceIDSegment.ResourceProvider("staticMicrosoftAuthorization", "Microsoft.Authorization"),
         ResourceIDSegment.Static("staticLocks", "locks"),

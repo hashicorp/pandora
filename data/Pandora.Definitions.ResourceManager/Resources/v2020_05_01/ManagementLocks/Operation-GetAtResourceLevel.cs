@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Resources.v2020_05_01.ManagementLo
 
 internal class GetAtResourceLevelOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ResourceLockScopedId();
+    public override ResourceID? ResourceId() => new ScopedLockId();
 
     public override Type? ResponseObject() => typeof(ManagementLockObjectModel);
 

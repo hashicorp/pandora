@@ -20,7 +20,7 @@ internal class DeleteByScopeOperation : Pandora.Definitions.Operations.DeleteOpe
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new LockScopedId();
+    public override ResourceID? ResourceId() => new ScopedLockId();
 
 
 }
