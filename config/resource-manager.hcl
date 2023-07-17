@@ -196,7 +196,7 @@ service "domainservices" {
 }
 service "dynatrace" {
   name      = "Dynatrace"
-  available = ["2021-09-01"]
+  available = ["2021-09-01", "2023-04-27"]
 }
 service "elastic" {
   name      = "Elastic"
@@ -288,7 +288,7 @@ service "machinelearningservices" {
 }
 service "maintenance" {
   name      = "Maintenance"
-  available = ["2021-05-01", "2022-07-01-preview"]
+  available = ["2021-05-01", "2022-07-01-preview", "2023-04-01"]
 }
 service "managedservices" {
   name      = "ManagedServices"
