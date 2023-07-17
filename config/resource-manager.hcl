@@ -270,6 +270,10 @@ service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview", "2022-08-01"]
 }
+service "liftrqumulo" {
+  name = "QumuloStorage"
+    available = ["2022-10-12"]
+}
 service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2022-12-01"]
