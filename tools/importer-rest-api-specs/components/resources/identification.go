@@ -21,6 +21,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
 		// no point
+		// @stephybun whai?
 		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
 			continue
 		}
