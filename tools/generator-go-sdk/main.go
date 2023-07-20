@@ -57,6 +57,7 @@ func main() {
 		"Insights",
 		"KeyVault",
 		"Kusto",
+		"Maintenance",
 		"ManagedServices",
 		"MySql",
 		"OperationalInsights",
