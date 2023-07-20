@@ -126,7 +126,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"fqn":                               "fqn", // handles FQN
 		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
 		"functionappsettings":                     "functionAppSettings",
-		"globalrulestacks":                        "globalRuleStacks",
+		"globalrulestacks":                        "globalRulestacks", // (@jackofallops) - "Rulestack" is considered one word, but also casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
 		"hybridconnection":                        "hybridConnection",
 		"hypervsites":                             "hyperVSites",
 		"integrationruntimes":                     "integrationRuntimes",
@@ -137,7 +137,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
-		"localrulestacks":                         "localRuleStacks",
+		"localrulestacks":                         "localRulestacks", // (@jackofallops) - "Rulestack" is considered one word, but also casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
 		"mediaservices":                           "mediaServices",
@@ -363,7 +363,7 @@ func NormalizeResourceProviderName(input string) string {
 		"microsoft.windowsesu":                     "Microsoft.WindowsESU",
 		"microsoft.windowsiot":                     "Microsoft.WindowsIoT",
 		"microsoft.workloadmonitor":                "Microsoft.WorkloadMonitor",
-		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.CloudNGFW",
+		"paloaltonetworks.cloudngfw":               "PaloAltoNetworks.Cloudngfw", // (@jackofallops) - Casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
 	}
 	if v, ok := replacements[strings.ToLower(input)]; ok {
 		return v
@@ -459,6 +459,7 @@ func NormalizeServiceName(input string) string {
 		"keyvault":                       "KeyVault",
 		"kubernetesconfiguration":        "KubernetesConfiguration",
 		"labservices":                    "LabServices",
+		"localrulestacks":                "localRulestacks", // (@jackofallops) - "Rulestack" is considered one word
 		"machinelearning":                "MachineLearning",
 		"machinelearningcompute":         "MachineLearningCompute",
 		"machinelearningexperimentation": "MachineLearningExperimentation",
