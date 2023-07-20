@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(FqdnListLocalRulestackResourceModel);
 
-    public override ResourceID? ResourceId() => new LocalRuleStackFqdnListId();
+    public override ResourceID? ResourceId() => new LocalRulestackFqdnListId();
 
     public override Type? ResponseObject() => typeof(FqdnListLocalRulestackResourceModel);
 

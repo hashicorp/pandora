@@ -12,14 +12,14 @@ internal class PostRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/PaloAltoNetworks.CloudNGFW/globalRuleStacks/{globalRuleStackName}/postRules/{postRuleName}";
+    public string ID => "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{postRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudNGFW", "PaloAltoNetworks.CloudNGFW"),
-        ResourceIDSegment.Static("staticGlobalRuleStacks", "globalRuleStacks"),
-        ResourceIDSegment.UserSpecified("globalRuleStackName"),
+        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudngfw", "PaloAltoNetworks.Cloudngfw"),
+        ResourceIDSegment.Static("staticGlobalRulestacks", "globalRulestacks"),
+        ResourceIDSegment.UserSpecified("globalRulestackName"),
         ResourceIDSegment.Static("staticPostRules", "postRules"),
         ResourceIDSegment.UserSpecified("postRuleName"),
     };

@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(GlobalRulestackResourceModel);
 
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override Type? ResponseObject() => typeof(GlobalRulestackResourceModel);
 

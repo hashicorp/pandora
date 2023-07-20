@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(GlobalRulestackResourceUpdateModel);
 
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override Type? ResponseObject() => typeof(GlobalRulestackResourceModel);
 

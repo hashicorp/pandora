@@ -18,7 +18,7 @@ internal class ListOperation : Pandora.Definitions.Operations.ListOperation
 
     public override Type NestedItemType() => typeof(GlobalRulestackResourceModel);
 
-    public override string? UriSuffix() => "/providers/PaloAltoNetworks.CloudNGFW/globalRuleStacks";
+    public override string? UriSuffix() => "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks";
 
 
 }

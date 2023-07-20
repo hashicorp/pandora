@@ -21,7 +21,7 @@ internal class RevertOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override string? UriSuffix() => "/revert";
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.PaloAltoNetworks.v2022_08_29.Prefi
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocalRuleStackPrefixListId();
+    public override ResourceID? ResourceId() => new LocalRulestackPrefixListId();
 
     public override Type? ResponseObject() => typeof(PrefixListResourceModel);
 

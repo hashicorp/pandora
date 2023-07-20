@@ -16,7 +16,7 @@ internal class ListOperation : Pandora.Definitions.Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override Type NestedItemType() => typeof(PrefixListGlobalRulestackResourceModel);
 

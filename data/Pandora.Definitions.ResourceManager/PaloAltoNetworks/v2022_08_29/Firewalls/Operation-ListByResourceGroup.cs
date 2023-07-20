@@ -20,7 +20,7 @@ internal class ListByResourceGroupOperation : Pandora.Definitions.Operations.Lis
 
     public override Type NestedItemType() => typeof(FirewallResourceModel);
 
-    public override string? UriSuffix() => "/providers/PaloAltoNetworks.CloudNGFW/firewalls";
+    public override string? UriSuffix() => "/providers/PaloAltoNetworks.Cloudngfw/firewalls";
 
 
 }

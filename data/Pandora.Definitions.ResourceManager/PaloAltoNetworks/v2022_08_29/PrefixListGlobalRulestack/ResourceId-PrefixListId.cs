@@ -12,14 +12,14 @@ internal class PrefixListId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/providers/PaloAltoNetworks.CloudNGFW/globalRuleStacks/{globalRuleStackName}/prefixLists/{prefixListName}";
+    public string ID => "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/prefixLists/{prefixListName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudNGFW", "PaloAltoNetworks.CloudNGFW"),
-        ResourceIDSegment.Static("staticGlobalRuleStacks", "globalRuleStacks"),
-        ResourceIDSegment.UserSpecified("globalRuleStackName"),
+        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudngfw", "PaloAltoNetworks.Cloudngfw"),
+        ResourceIDSegment.Static("staticGlobalRulestacks", "globalRulestacks"),
+        ResourceIDSegment.UserSpecified("globalRulestackName"),
         ResourceIDSegment.Static("staticPrefixLists", "prefixLists"),
         ResourceIDSegment.UserSpecified("prefixListName"),
     };

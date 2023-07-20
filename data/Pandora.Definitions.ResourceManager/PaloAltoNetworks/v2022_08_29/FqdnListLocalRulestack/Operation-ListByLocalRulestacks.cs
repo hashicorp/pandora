@@ -16,7 +16,7 @@ internal class ListByLocalRulestacksOperation : Pandora.Definitions.Operations.L
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new LocalRuleStackId();
+    public override ResourceID? ResourceId() => new LocalRulestackId();
 
     public override Type NestedItemType() => typeof(FqdnListLocalRulestackResourceModel);
 
