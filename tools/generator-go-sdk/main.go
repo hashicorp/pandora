@@ -83,6 +83,7 @@ func main() {
 		"Storage",
 		"StreamAnalytics",
 		"Subscription",
+		"TimeSeriesInsights",
 		"TrafficManager",
 		"Web",
 		"WebPubSub",
