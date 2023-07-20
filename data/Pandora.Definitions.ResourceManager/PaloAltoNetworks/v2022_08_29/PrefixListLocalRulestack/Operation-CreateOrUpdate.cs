@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(PrefixListResourceModel);
 
-    public override ResourceID? ResourceId() => new LocalRuleStackPrefixListId();
+    public override ResourceID? ResourceId() => new LocalRulestackPrefixListId();
 
     public override Type? ResponseObject() => typeof(PrefixListResourceModel);
 

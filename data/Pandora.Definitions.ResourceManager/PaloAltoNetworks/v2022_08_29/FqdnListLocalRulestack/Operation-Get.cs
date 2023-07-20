@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.PaloAltoNetworks.v2022_08_29.FqdnL
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new LocalRuleStackFqdnListId();
+    public override ResourceID? ResourceId() => new LocalRulestackFqdnListId();
 
     public override Type? ResponseObject() => typeof(FqdnListLocalRulestackResourceModel);
 

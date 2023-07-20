@@ -12,7 +12,7 @@ internal class LocalRuleId : ResourceID
 {
     public string? CommonAlias => null;
 
-    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.CloudNGFW/localRuleStacks/{localRuleStackName}/localRules/{localRuleName}";
+    public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/PaloAltoNetworks.Cloudngfw/localRulestacks/{localRulestackName}/localRules/{localRuleName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
@@ -21,9 +21,9 @@ internal class LocalRuleId : ResourceID
         ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
         ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudNGFW", "PaloAltoNetworks.CloudNGFW"),
-        ResourceIDSegment.Static("staticLocalRuleStacks", "localRuleStacks"),
-        ResourceIDSegment.UserSpecified("localRuleStackName"),
+        ResourceIDSegment.ResourceProvider("staticPaloAltoNetworksCloudngfw", "PaloAltoNetworks.Cloudngfw"),
+        ResourceIDSegment.Static("staticLocalRulestacks", "localRulestacks"),
+        ResourceIDSegment.UserSpecified("localRulestackName"),
         ResourceIDSegment.Static("staticLocalRules", "localRules"),
         ResourceIDSegment.UserSpecified("localRuleName"),
     };

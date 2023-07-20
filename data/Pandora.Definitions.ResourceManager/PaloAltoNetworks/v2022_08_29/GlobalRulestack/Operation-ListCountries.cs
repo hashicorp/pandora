@@ -21,7 +21,7 @@ internal class ListCountriesOperation : Pandora.Definitions.Operations.PostOpera
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override Type? ResponseObject() => typeof(CountriesResponseModel);
 
