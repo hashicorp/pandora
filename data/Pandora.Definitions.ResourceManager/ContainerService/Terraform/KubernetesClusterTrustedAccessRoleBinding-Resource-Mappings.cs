@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Pandora.Definitions.Interfaces;
 using Pandora.Definitions.Mappings;
-using Pandora.Definitions.ResourceManager.ContainerService.v2023_04_02_preview.TrustedAccess;
+using Pandora.Definitions.ResourceManager.ContainerService.v2023_03_02_preview.TrustedAccess;
 
 namespace Pandora.Definitions.ResourceManager.ContainerService.Terraform;
 

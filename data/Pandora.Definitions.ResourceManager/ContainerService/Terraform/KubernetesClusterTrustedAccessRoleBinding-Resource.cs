@@ -7,7 +7,7 @@ namespace Pandora.Definitions.ResourceManager.ContainerService.Terraform;
 public class KubernetesClusterTrustedAccessRoleBindingResource : TerraformResourceDefinition
 {
     public string DisplayName => "Kubernetes Cluster Trusted Access Role Binding";
-    public ResourceID ResourceId => new v2023_04_02_preview.TrustedAccess.TrustedAccessRoleBindingId();
+    public ResourceID ResourceId => new v2023_03_02_preview.TrustedAccess.TrustedAccessRoleBindingId();
     public string ResourceLabel => "kubernetes_cluster_trusted_access_role_binding";
     public string ResourceCategory => "Container";
     public string ResourceDescription => @"Manages a Kubernetes Cluster Trusted Access Role Binding
@@ -87,25 +87,25 @@ resource 'azurerm_kubernetes_cluster_trusted_access_role_binding' 'example' {
     public MethodDefinition CreateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2023_04_02_preview.TrustedAccess.RoleBindingsCreateOrUpdateOperation),
+        Method = typeof(v2023_03_02_preview.TrustedAccess.RoleBindingsCreateOrUpdateOperation),
         TimeoutInMinutes = 30,
     };
     public MethodDefinition DeleteMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2023_04_02_preview.TrustedAccess.RoleBindingsDeleteOperation),
+        Method = typeof(v2023_03_02_preview.TrustedAccess.RoleBindingsDeleteOperation),
         TimeoutInMinutes = 30,
     };
     public MethodDefinition ReadMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2023_04_02_preview.TrustedAccess.RoleBindingsGetOperation),
+        Method = typeof(v2023_03_02_preview.TrustedAccess.RoleBindingsGetOperation),
         TimeoutInMinutes = 5,
     };
     public MethodDefinition? UpdateMethod => new MethodDefinition
     {
         Generate = true,
-        Method = typeof(v2023_04_02_preview.TrustedAccess.RoleBindingsCreateOrUpdateOperation),
+        Method = typeof(v2023_03_02_preview.TrustedAccess.RoleBindingsCreateOrUpdateOperation),
         TimeoutInMinutes = 30,
     };
 }
