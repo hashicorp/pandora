@@ -256,7 +256,7 @@ public partial class TerraformController
         [JsonPropertyName("segmentName")]
         public string SegmentName { get; set; }
 
-        [JsonPropertyName("parent")]
+        [JsonPropertyName("parsedFromParentId")]
         public bool ParsedFromParentID { get; set; }
     }
 
