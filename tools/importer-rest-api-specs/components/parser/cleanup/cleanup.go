@@ -127,6 +127,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
 		"functionappsettings":                     "functionAppSettings",
 		"globalrulestacks":                        "globalRulestacks", // (@jackofallops) - "Rulestack" is considered one word, but also casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
+		"hostruntime":                             "hostRuntime",      // inconsistency in Web
 		"hybridconnection":                        "hybridConnection",
 		"hypervsites":                             "hyperVSites",
 		"integrationruntimes":                     "integrationRuntimes",
