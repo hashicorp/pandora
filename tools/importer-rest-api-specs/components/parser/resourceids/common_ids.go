@@ -59,6 +59,11 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdStorageAccount{},
 	commonIdStorageContainer{},
 
+	// Web / App Service
+	commonIdAppService{},
+	commonIdAppServiceEnvironment{},
+	commonIdAppServicePlan{},
+
 	// Parent IDs
 	commonIdKubernetesCluster{},
 }
