@@ -46,6 +46,7 @@ func main() {
 		"ContainerInstance",
 		"CosmosDB",
 		"DataShare",
+		"DevTestLab", // failed due to "devtestlab/2018-09-15/client.go:34:2: environments redeclared in this block"
 		"FrontDoor",
 		"HardwareSecurityModules",
 		"HealthBot",
