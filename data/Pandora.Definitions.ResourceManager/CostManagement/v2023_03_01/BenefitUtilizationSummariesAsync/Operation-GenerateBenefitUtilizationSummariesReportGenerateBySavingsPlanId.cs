@@ -12,7 +12,7 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_03_01.BenefitUtilizationSummariesAsync;
 
-internal class GenerateBenefitUtilizationSummariesReportAsyncGenerateBySavingsPlanIdOperation : Pandora.Definitions.Operations.PostOperation
+internal class GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanIdOperation : Pandora.Definitions.Operations.PostOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
