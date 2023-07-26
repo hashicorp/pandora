@@ -125,7 +125,7 @@ service "dashboard" {
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2023-07-01"]
 }
 service "databricks" {
   name      = "Databricks"
@@ -352,7 +352,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2022-09-01", "2022-11-01", "2023-02-01"]
+  available = ["2022-09-01", "2022-11-01", "2023-02-01", "2023-04-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -429,7 +429,7 @@ service "recoveryservicessiterecovery" {
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
-  available = ["2022-04-01", "2022-09-04"]
+  available = ["2022-04-01", "2022-09-04", "2023-04-01"]
 }
 service "redis" {
   name      = "Redis"
@@ -497,7 +497,7 @@ service "sqlvirtualmachine" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2022-05-01", "2022-09-01"]
+  available = ["2022-05-01", "2022-09-01", "2023-01-01"]
 }
 service "storagecache" {
   name      = "StorageCache"
