@@ -133,8 +133,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01"]
-  ignore    = ["2022-06-01"]
+  available = ["2021-03-01", "2022-06-01"]
 }
 service "datafactory" {
   name      = "DataFactory"
