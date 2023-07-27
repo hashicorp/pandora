@@ -44,8 +44,10 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 					Name:     "2020-01-01",
 					Generate: true,
 					Resources: map[string]*ServiceApiVersionResourceDetails{
+						"VirtualMachines": {},
 						// TODO:
 					},
+					Source: HandWrittenApiDefinitionsSource,
 				},
 			},
 			Generate: true,

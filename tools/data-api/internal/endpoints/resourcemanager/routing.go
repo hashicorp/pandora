@@ -59,15 +59,53 @@ func serviceRouteContext(next http.Handler) http.Handler {
 
 func serviceApiVersionRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// TODO: implement me
-		next.ServeHTTP(w, r)
+		serviceApiVersion := chi.URLParam(r, "serviceApiVersion")
+		if serviceApiVersion == "" {
+			log.Printf("[DEBUG] Missing Service API Version")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		}
+
+		ctx := r.Context()
+		service, ok := ctx.Value("service").(*repositories.ServiceDetails)
+		if !ok {
+			internalServerError(w, fmt.Errorf("service not found in request"))
+			return
+		}
+
+		apiVersion, ok := service.ApiVersions[serviceApiVersion]
+		if !ok {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
+		}
+
+		ctx = context.WithValue(ctx, "serviceApiVersion", apiVersion)
+		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
 
 func apiResourceNameRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-		// TODO: implement me, add the `Api Resource` to the Request
-		// this assumes we have an API Version and a Service pre-populated
-		next.ServeHTTP(w, r)
+		resourceName := chi.URLParam(r, "resourceName")
+		if resourceName == "" {
+			log.Printf("[DEBUG] Missing Resource Name")
+			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
+		}
+
+		ctx := r.Context()
+
+		apiVersion, ok := ctx.Value("serviceApiVersion").(*repositories.ServiceApiVersionDetails)
+		if !ok {
+			internalServerError(w, fmt.Errorf("service api version not found in request"))
+			return
+		}
+
+		resource, ok := apiVersion.Resources[resourceName]
+		if !ok {
+			http.Error(w, http.StatusText(http.StatusNotFound), http.StatusNotFound)
+			return
+		}
+
+		ctx = context.WithValue(ctx, "resourceName", resource)
+		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }
