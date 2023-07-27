@@ -14,8 +14,7 @@ service "analysisservices" {
 }
 service "apimanagement" {
   name      = "ApiManagement"
-  available = ["2021-08-01"]
-  ignore    = ["2022-08-01"]
+  available = ["2021-08-01", "2022-08-01"]
 }
 service "app" {
   name      = "ContainerApps"
