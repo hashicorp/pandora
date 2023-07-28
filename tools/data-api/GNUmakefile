@@ -6,4 +6,7 @@ build:
 fmt:
 	find . -name '*.go' | grep -v vendor | xargs gofmt -s -w
 
-.PHONY: build fmt
+run: build
+	./data-api serve
+
+.PHONY: build fmt run

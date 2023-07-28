@@ -7,13 +7,16 @@ import (
 )
 
 func mapObjectDefinition(input *repositories.ObjectDefinition) *models.ApiObjectDefinition {
-	output := models.ApiObjectDefinition{}
-
-	if input != nil {
-		output.NestedItem = mapObjectDefinition(input.NestedItem)
-		output.ReferenceName = input.ReferenceName
-		output.Type = models.ApiObjectDefinitionType(input.Type)
+	if input == nil {
+		return nil
 	}
+
+	output := models.ApiObjectDefinition{}
+	if input.NestedItem != nil {
+		output.NestedItem = mapObjectDefinition(input.NestedItem)
+	}
+	output.ReferenceName = input.ReferenceName
+	output.Type = models.ApiObjectDefinitionType(input.Type)
 
 	return &output
 }
@@ -41,12 +44,12 @@ func mapSchemaFields(input map[string]repositories.FieldDetails) map[string]mode
 }
 
 func mapFieldValidation(input *repositories.FieldValidationDetails) *models.FieldValidationDetails {
-	output := models.FieldValidationDetails{}
-
-	if input != nil {
-		output.Type = models.FieldValidationType(input.Type)
-		output.Values = input.Values
+	if input == nil {
+		return nil
 	}
+	output := models.FieldValidationDetails{}
+	output.Type = models.FieldValidationType(input.Type)
+	output.Values = input.Values
 
 	return &output
 }
