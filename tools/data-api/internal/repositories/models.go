@@ -1,16 +1,24 @@
 package repositories
 
+type ApiDefinitionSourceType string
+type ConstantType string
+type FieldValidationType string
+type ObjectDefinitionType string
+type ResourceIdSegmentType string
 type ServiceType string
-type ApiDefinitionSource string
+
+type DateFormat string
 
 const (
 	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"
 	MicrosoftGraphV1StableServiceType ServiceType = "microsoft-graph-v1-stable"
 	ResourceManagerServiceType        ServiceType = "resource-manager"
 
-	HandWrittenApiDefinitionsSource                 ApiDefinitionSource = "HandWritten"
-	MicrosoftGraphMetadataApiDefinitionsSource      ApiDefinitionSource = "MicrosoftGraphMetadata"
-	ResourceManagerRestApiSpecsApiDefinitionsSource ApiDefinitionSource = "ResourceManagerRestApiSpecs"
+	HandWrittenApiDefinitionsSource                 ApiDefinitionSourceType = "HandWritten"
+	MicrosoftGraphMetadataApiDefinitionsSource      ApiDefinitionSourceType = "MicrosoftGraphMetadata"
+	ResourceManagerRestApiSpecsApiDefinitionsSource ApiDefinitionSourceType = "ResourceManagerRestApiSpecs"
+
+	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
 )
 
 type ServiceDetails struct {
@@ -25,9 +33,87 @@ type ServiceApiVersionDetails struct {
 	Name      string
 	Generate  bool
 	Resources map[string]*ServiceApiVersionResourceDetails
-	Source    ApiDefinitionSource
+	Source    ApiDefinitionSourceType
 }
 
 type ServiceApiVersionResourceDetails struct {
-	// TODO: impl.
+	Operations map[string]ResourceOperations
+	Schema     ResourceSchema
+}
+
+type ResourceOperations struct {
+	ContentType                      string
+	ExpectedStatusCodes              []int
+	LongRunning                      bool
+	Method                           string
+	RequestObject                    *ObjectDefinition
+	ResourceIdName                   *string
+	ResponseObject                   *ObjectDefinition
+	FieldContainingPaginationDetails *string
+	Options                          *map[string]OperationOptions
+	UriSuffix                        *string
+}
+
+type ResourceSchema struct {
+	Constants   map[string]ConstantDetails
+	Models      map[string]ModelDetails
+	ResourceIds map[string]ResourceIdDefinition
+}
+
+type ObjectDefinition struct {
+	NestedItem    *ObjectDefinition
+	ReferenceName *string
+	Type          ObjectDefinitionType
+}
+
+type OperationOptions struct {
+	HeaderName       *string
+	QueryStringName  *string
+	ObjectDefinition *ObjectDefinition
+	Required         bool
+}
+
+type ConstantDetails struct {
+	CaseInsensitive bool
+	Type            ConstantType
+	Values          map[string]string
+}
+
+type FieldValidationDetails struct {
+	Type   FieldValidationType
+	Values *[]interface{}
+}
+
+type FieldDetails struct {
+	Default          *interface{}
+	DateFormat       *DateFormat
+	ForceNew         bool
+	IsTypeHint       bool
+	JsonName         string
+	ObjectDefinition ObjectDefinition
+	Optional         bool
+	Required         bool
+	Validation       *FieldValidationDetails
+	Description      string
+}
+
+type ModelDetails struct {
+	Fields        map[string]FieldDetails
+	TypeHintIn    *string
+	TypeHintValue *string
+}
+
+type ResourceIdSegment struct {
+	ConstantReference *string
+	ExampleValue      string
+	FixedValue        *string
+	Name              string
+	Type              ResourceIdSegmentType
+}
+
+type ResourceIdDefinition struct {
+	CommonAlias   *string
+	ConstantNames []string
+	Id            string
+	Segments      []ResourceIdSegment
 }

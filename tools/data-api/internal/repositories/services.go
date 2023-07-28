@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"fmt"
+	"net/http"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 )
@@ -44,8 +45,49 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 					Name:     "2020-01-01",
 					Generate: true,
 					Resources: map[string]*ServiceApiVersionResourceDetails{
-						"VirtualMachines": {},
-						// TODO:
+						"VirtualMachines": {
+							Operations: map[string]ResourceOperations{
+								"Get": {
+									ContentType: "application/json",
+									ExpectedStatusCodes: []int{
+										http.StatusOK,
+									},
+									LongRunning:    false,
+									Method:         http.MethodGet,
+									RequestObject:  nil,
+									ResourceIdName: nil,
+									ResponseObject: &ObjectDefinition{
+										NestedItem: &ObjectDefinition{
+											ReferenceName: pointer.To("Panda"),
+											Type:          ReferenceObjectDefinitionType,
+										},
+										ReferenceName: pointer.To("Computa"),
+										Type:          ReferenceObjectDefinitionType,
+									},
+									FieldContainingPaginationDetails: nil,
+									Options:                          nil,
+									UriSuffix:                        nil,
+								},
+							},
+							Schema: ResourceSchema{
+								Constants: map[string]ConstantDetails{},
+								Models: map[string]ModelDetails{
+									"Computa": {
+										Fields: map[string]FieldDetails{
+											"Name": {
+												ObjectDefinition: ObjectDefinition{
+													Type: ReferenceObjectDefinitionType,
+												},
+												Required: true,
+											},
+										},
+										TypeHintIn:    nil,
+										TypeHintValue: nil,
+									},
+								},
+								ResourceIds: map[string]ResourceIdDefinition{},
+							},
+						},
 					},
 					Source: HandWrittenApiDefinitionsSource,
 				},

@@ -2,7 +2,7 @@ package resourcemanager
 
 import (
 	"net/http"
-	
+
 	"github.com/go-chi/render"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )

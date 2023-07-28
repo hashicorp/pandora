@@ -1,6 +1,7 @@
 package resourcemanager
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"net/http"
 
 	"github.com/go-chi/render"
@@ -8,24 +9,48 @@ import (
 )
 
 func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
-	payload := models.ApiSchemaDetails{
-		Constants: map[string]models.ConstantDetails{},
-		Models: map[string]models.ModelDetails{
-			"Computa": {
-				Fields: map[string]models.FieldDetails{
-					"Name": {
-						ObjectDefinition: models.ApiObjectDefinition{
-							Type: models.StringApiObjectDefinitionType,
-						},
-						Required: true,
-					},
-				},
-				ParentTypeName: nil,
-				TypeHintIn:     nil,
-				TypeHintValue:  nil,
-			},
-		},
-		ResourceIds: map[string]models.ResourceIdDefinition{},
+	ctx := r.Context()
+
+	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
+	if !ok {
+		w.WriteHeader(http.StatusBadRequest)
+		return
 	}
+
+	constants := make(map[string]models.ConstantDetails, 0)
+	schemaModels := make(map[string]models.ModelDetails, 0)
+	resourceIds := make(map[string]models.ResourceIdDefinition, 0)
+
+	for k, constant := range resource.Schema.Constants {
+		constants[k] = models.ConstantDetails{
+			CaseInsensitive: constant.CaseInsensitive,
+			Type:            models.ConstantType(constant.Type),
+			Values:          constant.Values,
+		}
+	}
+
+	for k, schemaModel := range resource.Schema.Models {
+		schemaModels[k] = models.ModelDetails{
+			Fields:        mapSchemaFields(schemaModel.Fields),
+			TypeHintIn:    schemaModel.TypeHintIn,
+			TypeHintValue: schemaModel.TypeHintValue,
+		}
+	}
+
+	for k, resourceId := range resource.Schema.ResourceIds {
+		resourceIds[k] = models.ResourceIdDefinition{
+			CommonAlias:   resourceId.CommonAlias,
+			ConstantNames: resourceId.ConstantNames,
+			Id:            resourceId.Id,
+			Segments:      mapResourceIdSegments(resourceId.Segments),
+		}
+	}
+
+	payload := models.ApiSchemaDetails{
+		Constants:   constants,
+		Models:      schemaModels,
+		ResourceIds: resourceIds,
+	}
+
 	render.JSON(w, r, payload)
 }

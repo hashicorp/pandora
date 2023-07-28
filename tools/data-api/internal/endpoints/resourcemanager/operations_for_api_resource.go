@@ -52,38 +52,6 @@ func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 	payload := models.ApiOperationDetails{
 		Operations: operations,
 	}
-	//payload := models.ApiOperationDetails{
-	//	Operations: map[string]models.ApiOperation{
-	//		"Get": {
-	//			ContentType: pointer.To("application/json"),
-	//			ExpectedStatusCodes: []int{
-	//				http.StatusOK,
-	//			},
-	//			LongRunning:    false,
-	//			Method:         http.MethodGet,
-	//			RequestObject:  nil,
-	//			ResourceIdName: nil,
-	//			ResponseObject: &models.ApiObjectDefinition{
-	//				ReferenceName: pointer.To("Computa"),
-	//				Type:          models.ReferenceApiObjectDefinitionType,
-	//			},
-	//			FieldContainingPaginationDetails: nil,
-	//			Options:                          nil,
-	//			UriSuffix:                        nil,
-	//		},
-	//	},
-	//}
+
 	render.JSON(w, r, payload)
-}
-
-func mapObjectDefinition(input *repositories.ObjectDefinition) *models.ApiObjectDefinition {
-	output := models.ApiObjectDefinition{}
-
-	if input != nil {
-		output.NestedItem = mapObjectDefinition(input.NestedItem)
-		output.ReferenceName = input.ReferenceName
-		output.Type = models.ApiObjectDefinitionType(input.Type)
-	}
-
-	return &output
 }
