@@ -122,6 +122,8 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"fhirservices":                      "fhirServices",
 		"fileservers":                       "fileServers",
 		"fallbackroute":                     "fallbackRoute",
+		"featuresets":                       "featureSets",
+		"featurestoreentities":              "featureStoreEntities",
 		"fqdnlists":                         "fqdnLists",
 		"fqn":                               "fqn", // handles FQN
 		"frontdoorwebapplicationfirewallpolicies": "frontDoorWebApplicationFirewallPolicies",
