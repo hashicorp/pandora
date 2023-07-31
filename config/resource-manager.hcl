@@ -439,7 +439,7 @@ service "redisenterprise" {
 }
 service "relay" {
   name      = "Relay"
-  available = ["2017-04-01", "2021-11-01"]
+  available = ["2021-11-01"]
 }
 service "resourceconnector" {
   name      = "ResourceConnector"
