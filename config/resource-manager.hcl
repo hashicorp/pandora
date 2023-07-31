@@ -18,7 +18,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2022-03-01", "2022-11-01-preview"]
+  available = ["2022-03-01", "2022-11-01-preview", "2023-05-01"]
   ignore    = ["2022-10-01"]
 }
 service "appconfiguration" {
