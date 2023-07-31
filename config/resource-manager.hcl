@@ -346,7 +346,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2021-10-01", "2022-01-01", "2022-05-01", "2022-09-01", "2022-11-01"]
+  available = ["2022-05-01", "2022-09-01", "2022-11-01"]
 }
 service "network" {
   name      = "Network"
