@@ -35,18 +35,13 @@ func main() {
 
 		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
 		// for services/resources which are auto-generated
-		"AAD",
-		"Advisor",
-		"AlertsManagement",
-		"AnalysisServices",
 		"ApiManagement",
-		"AzureStackHCI",
 		"Compute",
 		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
 		"DataShare",
-		"DevTestLab", // failed due to "devtestlab/2018-09-15/client.go:34:2: environments redeclared in this block"
+		"DevTestLab", // https://github.com/hashicorp/pandora/issues/2825
 		"FrontDoor",
 		"HardwareSecurityModules",
 		"HealthBot",
