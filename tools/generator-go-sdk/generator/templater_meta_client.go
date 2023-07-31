@@ -59,8 +59,8 @@ configureFunc(%[1]s.Client)
 %[2]s
 
 import (
-	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
 	%[3]s
 )
 
@@ -68,7 +68,7 @@ type Client struct {
 	%[4]s
 }
 
-func NewClientWithBaseURI(api environments.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
+func NewClientWithBaseURI(api sdkEnv.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
 	%[5]s
 
 	return &Client{
