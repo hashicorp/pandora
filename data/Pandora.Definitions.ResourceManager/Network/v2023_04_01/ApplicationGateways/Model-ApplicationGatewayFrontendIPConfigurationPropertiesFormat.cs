@@ -15,9 +15,6 @@ namespace Pandora.Definitions.ResourceManager.Network.v2023_04_01.ApplicationGat
 
 internal class ApplicationGatewayFrontendIPConfigurationPropertiesFormatModel
 {
-    [JsonPropertyName("httpListeners")]
-    public SubResourceModel? HTTPListeners { get; set; }
-
     [JsonPropertyName("privateIPAddress")]
     public string? PrivateIPAddress { get; set; }
 
