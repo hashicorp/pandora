@@ -43,10 +43,6 @@ func main() {
 		"DataShare",
 		"DevTestLab", // https://github.com/hashicorp/pandora/issues/2825
 		"FrontDoor",
-		"HardwareSecurityModules",
-		"HealthBot",
-		"HybridCompute",
-		"HybridKubernetes",
 		"Insights",
 		"KeyVault",
 		"Kusto",
