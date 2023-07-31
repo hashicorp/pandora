@@ -40,7 +40,6 @@ func main() {
 		"ContainerInstance",
 		"CosmosDB",
 		"DataShare",
-		"DevTestLab", // https://github.com/hashicorp/pandora/issues/2825
 		"FrontDoor",
 		"HardwareSecurityModules",
 		"HealthBot",
