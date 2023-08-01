@@ -26,8 +26,8 @@ type %[2]s struct {
 	Client  *resourcemanager.Client
 }
 
-func New%[2]sWithBaseURI(api sdkEnv.Api) (*%[2]s, error) {
-	client, err := resourcemanager.NewResourceManagerClient(api, %[1]q, defaultApiVersion)
+func New%[2]sWithBaseURI(sdkApi sdkEnv.Api) (*%[2]s, error) {
+	client, err := resourcemanager.NewResourceManagerClient(sdkApi, %[1]q, defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating %[2]s: %%+v", err)
 	}
