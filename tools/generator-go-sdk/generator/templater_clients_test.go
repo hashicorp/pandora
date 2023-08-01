@@ -29,8 +29,8 @@ type ExampleClient struct {
 	Client  *resourcemanager.Client
 }
 
-func NewExampleClientWithBaseURI(api sdkEnv.Api) (*ExampleClient, error) {
-	client, err := resourcemanager.NewResourceManagerClient(api, "somepackage", defaultApiVersion)
+func NewExampleClientWithBaseURI(sdkApi sdkEnv.Api) (*ExampleClient, error) {
+	client, err := resourcemanager.NewResourceManagerClient(sdkApi, "somepackage", defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating ExampleClient: %+v", err)
 	}
