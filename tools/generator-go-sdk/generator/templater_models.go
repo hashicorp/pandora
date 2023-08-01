@@ -60,8 +60,19 @@ import (
 func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) {
 	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
 	if c.model.TypeHintIn != nil && c.model.ParentTypeName == nil {
-		out := fmt.Sprintf(`type %[1]s interface {
-}`, c.name)
+		out := fmt.Sprintf(`
+type %[1]s interface {
+}
+
+// RawModeOfTransitImpl is returned when the Discriminated Value
+// doesn't match any of the defined types
+// NOTE: this should only be used when a type isn't defined for this type of Object (as a workaround)
+// and is used only for Deserialization (e.g. this cannot be used as a Request Payload).
+type Raw%[1]sImpl struct {
+	Type string
+	Values map[string]interface{}
+}
+`, c.name)
 		return &out, nil
 	}
 
@@ -458,18 +469,13 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 
 		// if it doesn't match - we generate and deserialize into a 'Raw{Name}Impl' type - named intentionally
 		// so that we don't conflict with a generated 'Raw{Name}' type which exists in a handful of Swaggers
-		jsonIgnoreTag := "`json:\"-\"`"
 		lines = append(lines, fmt.Sprintf(`
-	type Raw%[1]sImpl struct {
-		Type string %[2]s
-		Values map[string]interface{} %[2]s
-	}
 	out := Raw%[1]sImpl{
 		Type:   value,
 		Values: temp,
 	}
 	return out, nil
-`, c.name, jsonIgnoreTag, *c.model.TypeHintIn))
+`, c.name))
 
 		lines = append(lines, "}")
 	}
