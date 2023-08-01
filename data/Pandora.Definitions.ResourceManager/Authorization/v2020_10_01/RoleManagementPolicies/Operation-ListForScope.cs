@@ -20,7 +20,14 @@ internal class ListForScopeOperation : Pandora.Definitions.Operations.ListOperat
 
     public override Type NestedItemType() => typeof(RoleManagementPolicyModel);
 
+    public override Type? OptionsObject() => typeof(ListForScopeOperation.ListForScopeOptions);
+
     public override string? UriSuffix() => "/providers/Microsoft.Authorization/roleManagementPolicies";
 
-
+    internal class ListForScopeOptions
+    {
+        [QueryStringName("$filter")]
+        [Optional]
+        public string Filter { get; set; }
+    }
 }
