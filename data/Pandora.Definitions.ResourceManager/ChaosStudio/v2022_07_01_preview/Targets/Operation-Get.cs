@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.ChaosStudio.v2022_07_01_preview.Ta
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new TargetId();
+    public override ResourceID? ResourceId() => new ScopedTargetId();
 
     public override Type? ResponseObject() => typeof(TargetModel);
 

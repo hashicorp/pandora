@@ -34,7 +34,8 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 		hasUpdate := false
 		if input.updatePropertiesPayload != nil {
 			// we can assume ID fields are not updatable even if they're in the CreateUpdate payload
-			if !strings.HasSuffix(k, "Id") {
+			// we ignore some fields temporarily until we can extend the functionality for update tests
+			if !strings.HasSuffix(k, "Id") && !ignoreUpdateForField(k) {
 				updateField, hasUpdate = getField(*input.updatePropertiesPayload, k)
 			}
 		}
@@ -189,4 +190,19 @@ func directAssignmentMappingForNestedField(schemaModelName, schemaModelField str
 		output = append(output, directAssignmentMappingBetween(schemaModelName, schemaModelField, *input.updatePropertiesModelName, sdkFieldName))
 	}
 	return output
+}
+
+// TODO this is a temporary check to keep the currently generated resources unchanged this can be removed
+// when functionality for update tests are extended
+func ignoreUpdateForField(field string) bool {
+	fieldsToIgnoreInUpdate := []string{
+		"HubProfile",
+		"Description",
+	}
+	for _, f := range fieldsToIgnoreInUpdate {
+		if strings.EqualFold(field, f) {
+			return true
+		}
+	}
+	return false
 }

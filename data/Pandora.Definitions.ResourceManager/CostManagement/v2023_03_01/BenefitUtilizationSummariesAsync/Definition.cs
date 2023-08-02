@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "BenefitUtilizationSummariesAsync";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GenerateBenefitUtilizationSummariesReportAsyncGenerateBySavingsPlanIdOperation(),
         new GenerateBenefitUtilizationSummariesReportGenerateByBillingAccountOperation(),
         new GenerateBenefitUtilizationSummariesReportGenerateByBillingProfileOperation(),
         new GenerateBenefitUtilizationSummariesReportGenerateByReservationIdOperation(),
         new GenerateBenefitUtilizationSummariesReportGenerateByReservationOrderIdOperation(),
+        new GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanIdOperation(),
         new GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanOrderIdOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>

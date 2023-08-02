@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_0
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SourceControlConfigurationId();
+    public override ResourceID? ResourceId() => new ScopedSourceControlConfigurationId();
 
     public override Type? ResponseObject() => typeof(SourceControlConfigurationModel);
 

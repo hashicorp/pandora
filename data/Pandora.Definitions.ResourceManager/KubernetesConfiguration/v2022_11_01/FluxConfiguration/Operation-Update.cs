@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(FluxConfigurationPatchModel);
 
-    public override ResourceID? ResourceId() => new FluxConfigurationId();
+    public override ResourceID? ResourceId() => new ScopedFluxConfigurationId();
 
     public override Type? ResponseObject() => typeof(FluxConfigurationModel);
 

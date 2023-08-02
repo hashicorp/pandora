@@ -496,17 +496,21 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 		options = "OptionsObject: options,"
 	}
 
-	out := fmt.Sprintf(`client.RequestOptions{
-		ContentType: "application/json",
-		ExpectedStatusCodes: []int{
-			%[1]s,
-		},
-		HttpMethod: http.Method%[2]s,
-		Path: %[3]s,
-		%[4]s
+	contentType := "application/json"
+	if c.operation.ContentType != nil {
+		contentType = *c.operation.ContentType
 	}
-`, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options)
 
+	out := fmt.Sprintf(`client.RequestOptions{
+		ContentType: %[1]q,
+		ExpectedStatusCodes: []int{
+			%[2]s,
+		},
+		HttpMethod: http.Method%[3]s,
+		Path: %[4]s,
+		%[5]s
+	}
+`, contentType, strings.Join(expectedStatusCodes, ",\n\t\t\t"), method, path, options)
 	return &out, nil
 }
 

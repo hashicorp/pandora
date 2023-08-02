@@ -16,7 +16,7 @@ internal class OperationStatusListOperation : Pandora.Definitions.Operations.Lis
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ProviderId();
+    public override ResourceID? ResourceId() => new ScopeId();
 
     public override Type NestedItemType() => typeof(OperationStatusResultModel);
 

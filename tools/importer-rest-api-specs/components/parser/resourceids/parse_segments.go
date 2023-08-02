@@ -189,6 +189,17 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 		segments = append(segments, models.StaticResourceIDSegment(normalizedName, normalizedSegment))
 	}
 
+	// now that we've parsed all of the URI Segments, let's determine if this contains a Resource ID scope
+
+	// Some Swaggers define Operation URI's which are generic scopes but which use the full Resource ID format
+	// rather than a /{scope} parameter, e.g.
+	// /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/{parentType}/{parentName}
+	//
+	// so we want to double-check if this is a matching scope
+	if replacement, ok := segmentsContainAResourceManagerScope(segments); ok {
+		segments = *replacement
+	}
+
 	out := processedResourceId{
 		segments:  nil,
 		uriSuffix: nil,
@@ -254,6 +265,63 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 	}
 
 	return &out, nil
+}
+
+func segmentsContainAResourceManagerScope(input []resourcemanager.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, bool) {
+	if len(input) < 8 {
+		return nil, false
+	}
+
+	// a Resource Manager Scope is where a Scope is defined as:
+	// > /subscriptions/{}/resourceGroups/{}/providers/Some.ResourceProvider/{}/{}
+	// or
+	// > /subscriptions/{}/resourceGroups/{}/providers/{}/{}/{}
+	// as such, let's check this
+	subscriptionsPresent := input[0].Type == resourcemanager.StaticSegment && input[0].FixedValue != nil && strings.EqualFold(*input[0].FixedValue, "subscriptions")
+	subscriptionIdPresent := input[1].Type == resourcemanager.SubscriptionIdSegment
+	resourceGroupsPresent := input[2].Type == resourcemanager.StaticSegment && input[2].FixedValue != nil && strings.EqualFold(*input[2].FixedValue, "resourceGroups")
+	resourceGroupNamePresent := input[3].Type == resourcemanager.ResourceGroupSegment
+	providersPresent := input[4].Type == resourcemanager.StaticSegment && input[4].FixedValue != nil && strings.EqualFold(*input[4].FixedValue, "providers")
+	providerPresent := input[5].Type == resourcemanager.ResourceProviderSegment || input[5].Type == resourcemanager.UserSpecifiedSegment
+	resourceTypePresent := input[6].Type == resourcemanager.UserSpecifiedSegment || input[6].Type == resourcemanager.ConstantSegment
+	resourceNamePresent := input[7].Type == resourcemanager.UserSpecifiedSegment
+
+	prefixedWithGenericArmId := subscriptionsPresent && subscriptionIdPresent && resourceGroupsPresent && resourceGroupNamePresent && providersPresent && providerPresent && resourceTypePresent && resourceNamePresent
+	if prefixedWithGenericArmId {
+		output := []resourcemanager.ResourceIdSegment{
+			{
+				Type: resourcemanager.ScopeSegment,
+				Name: "scope",
+			},
+		}
+
+		// However it can _also_ be a Nested ID, e.g. for a Child Resource nested under a Parent Resource, for example:
+		// > /subscriptions/{}/resourceGroups/{}/providers/{}/{}/{}/{}/{}
+		// so we also need to check that
+		startingIndex := 8
+		if len(input) >= 10 {
+			nestedResourcePresent := input[8].Type == resourcemanager.UserSpecifiedSegment || input[8].Type == resourcemanager.ConstantSegment
+			nestedResourceNamePresent := input[9].Type == resourcemanager.UserSpecifiedSegment
+			if nestedResourcePresent && nestedResourceNamePresent {
+				startingIndex = 10
+			}
+		}
+		// Continue trimming any user specified segments until we get to actual Resource ID
+		// since these can be included in the Scope itself
+		for len(input) > startingIndex {
+			segment := input[startingIndex]
+			if segment.Type != resourcemanager.UserSpecifiedSegment {
+				break
+			}
+			startingIndex++
+		}
+		if len(input) > startingIndex {
+			output = append(output, input[startingIndex:]...)
+		}
+		return &output, true
+	}
+
+	return nil, false
 }
 
 func determineUniqueNamesForSegments(input []resourcemanager.ResourceIdSegment) (*[]resourcemanager.ResourceIdSegment, error) {

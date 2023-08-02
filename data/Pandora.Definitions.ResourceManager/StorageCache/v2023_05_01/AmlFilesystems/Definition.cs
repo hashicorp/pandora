@@ -27,7 +27,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
         typeof(AmlFilesystemHealthStateTypeConstant),
-        typeof(AmlFilesystemIdentityTypeConstant),
         typeof(AmlFilesystemProvisioningStateTypeConstant),
         typeof(ArchiveStatusTypeConstant),
         typeof(MaintenanceDayOfWeekTypeConstant),
@@ -43,7 +42,6 @@ internal class Definition : ResourceDefinition
         typeof(AmlFilesystemEncryptionSettingsModel),
         typeof(AmlFilesystemHealthModel),
         typeof(AmlFilesystemHsmSettingsModel),
-        typeof(AmlFilesystemIdentityModel),
         typeof(AmlFilesystemPropertiesModel),
         typeof(AmlFilesystemPropertiesHsmModel),
         typeof(AmlFilesystemPropertiesMaintenanceWindowModel),
@@ -56,6 +54,5 @@ internal class Definition : ResourceDefinition
         typeof(RequiredAmlFilesystemSubnetsSizeModel),
         typeof(RequiredAmlFilesystemSubnetsSizeInfoModel),
         typeof(SkuNameModel),
-        typeof(UserAssignedIdentitiesPropertiesModel),
     };
 }

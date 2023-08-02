@@ -18,7 +18,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(CertificateObjectLocalRulestackResourceModel);
 
-    public override ResourceID? ResourceId() => new LocalRuleStackCertificateId();
+    public override ResourceID? ResourceId() => new LocalRulestackCertificateId();
 
     public override Type? ResponseObject() => typeof(CertificateObjectLocalRulestackResourceModel);
 

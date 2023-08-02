@@ -37,7 +37,7 @@ func (m metaClientTemplater) template() (*string, error) {
 
 		imports = append(imports, fmt.Sprintf(`"github.com/hashicorp/go-azure-sdk/resource-manager/%s/%s/%s"`, strings.ToLower(m.serviceName), m.apiVersion, strings.ToLower(resourceName)))
 		fields = append(fields, fmt.Sprintf("%[1]s *%[2]s.%[1]sClient", resourceName, strings.ToLower(resourceName)))
-		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(api)
+		clientInitializationTemplate := fmt.Sprintf(`%[1]s, err := %[2]s.New%[3]sClientWithBaseURI(sdkApi)
 if err != nil {
 	return nil, fmt.Errorf("building %[3]s client: %%+v", err)
 }
@@ -59,8 +59,8 @@ configureFunc(%[1]s.Client)
 %[2]s
 
 import (
-	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
 	%[3]s
 )
 
@@ -68,7 +68,7 @@ type Client struct {
 	%[4]s
 }
 
-func NewClientWithBaseURI(api environments.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
+func NewClientWithBaseURI(sdkApi sdkEnv.Api, configureFunc func(c *resourcemanager.Client)) (*Client, error) {
 	%[5]s
 
 	return &Client{

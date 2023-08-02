@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.PaloAltoNetworks.v2022_08_29.Globa
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new GlobalRuleStackId();
+    public override ResourceID? ResourceId() => new GlobalRulestackId();
 
     public override Type? ResponseObject() => typeof(GlobalRulestackResourceModel);
 

@@ -21,7 +21,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(CapabilityModel);
 
-    public override ResourceID? ResourceId() => new CapabilityId();
+    public override ResourceID? ResourceId() => new ScopedCapabilityId();
 
     public override Type? ResponseObject() => typeof(CapabilityModel);
 

@@ -19,7 +19,7 @@ internal class AmlFilesystemModel
     public string? Id { get; set; }
 
     [JsonPropertyName("identity")]
-    public AmlFilesystemIdentityModel? Identity { get; set; }
+    public CustomTypes.UserAssignedIdentityMap? Identity { get; set; }
 
     [JsonPropertyName("location")]
     [Required]

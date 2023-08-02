@@ -79,6 +79,78 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
+	input := ServiceGeneratorData{
+		packageName:       "skinnyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"PandaPop": {
+				Id: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: resourcemanager.ApiOperation{
+			ContentType:         stringPointer("text/powershell"),
+			ExpectedStatusCodes: []int{200},
+			Method:              "GET",
+			ResourceIdName:      stringPointer("PandaPop"),
+			ResponseObject: &resourcemanager.ApiObjectDefinition{
+				Type: resourcemanager.StringApiObjectDefinitionType,
+			},
+		},
+		operationName: "Get",
+	}.immediateOperationTemplate(input)
+
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := `
+type GetOperationResponse struct {
+	HttpResponse *http.Response
+	OData *odata.OData
+	Model *string
+}
+
+// Get ...
+func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: "text/powershell",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		Path: id.ID(),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.Execute(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+	if err != nil {
+		return
+	}
+
+	if err = resp.Unmarshal(&result.Model); err != nil {
+		return
+	}
+
+	return
+}
+`
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestTemplateMethodsLROCreate(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName:       "skinnyPandas",

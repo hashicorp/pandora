@@ -14,12 +14,11 @@ service "analysisservices" {
 }
 service "apimanagement" {
   name      = "ApiManagement"
-  available = ["2021-08-01"]
-  ignore    = ["2022-08-01"]
+  available = ["2021-08-01", "2022-08-01"]
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2022-11-01-preview"]
   ignore    = ["2022-10-01"]
 }
 service "appconfiguration" {
@@ -105,7 +104,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-04-02-preview"]
+  available = ["2019-08-01", "2022-09-02-preview", "2023-03-02-preview", "2023-04-02-preview"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -125,7 +124,7 @@ service "dashboard" {
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
-  available = ["2022-03-01"]
+  available = ["2022-03-01", "2023-07-01"]
 }
 service "databricks" {
   name      = "Databricks"
@@ -133,8 +132,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01"]
-  ignore    = ["2022-06-01"]
+  available = ["2021-03-01", "2022-06-01"]
 }
 service "datafactory" {
   name      = "DataFactory"
@@ -196,7 +194,7 @@ service "domainservices" {
 }
 service "dynatrace" {
   name      = "Dynatrace"
-  available = ["2021-09-01"]
+  available = ["2021-09-01", "2023-04-27"]
 }
 service "elastic" {
   name      = "Elastic"
@@ -205,6 +203,10 @@ service "elastic" {
 service "elasticsan" {
   name      = "ElasticSan"
   available = ["2021-11-20-preview"]
+}
+service "eventgrid" {
+  name      = "EventGrid"
+  available = ["2022-06-15"]
 }
 service "eventhub" {
   name      = "EventHub"
@@ -270,6 +272,10 @@ service "labservices" {
   name      = "LabServices"
   available = ["2021-10-01-preview", "2022-08-01"]
 }
+service "liftrqumulo" {
+  name      = "QumuloStorage"
+  available = ["2022-10-12"]
+}
 service "loadtestservice" {
   name      = "LoadTestService"
   available = ["2022-12-01"]
@@ -284,11 +290,11 @@ service "logz" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2022-05-01", "2022-10-01", "2023-04-01"]
+  available = ["2022-05-01", "2022-10-01", "2023-04-01", "2023-04-01-preview"]
 }
 service "maintenance" {
   name      = "Maintenance"
-  available = ["2021-05-01", "2022-07-01-preview"]
+  available = ["2021-05-01", "2022-07-01-preview", "2023-04-01"]
 }
 service "managedservices" {
   name      = "ManagedServices"
@@ -340,11 +346,11 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2021-10-01", "2022-01-01", "2022-05-01", "2022-09-01", "2022-11-01"]
+  available = ["2022-05-01", "2022-09-01", "2022-11-01"]
 }
 service "network" {
   name      = "Network"
-  available = ["2022-09-01", "2022-11-01", "2023-02-01"]
+  available = ["2023-02-01", "2023-04-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -421,7 +427,7 @@ service "recoveryservicessiterecovery" {
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
-  available = ["2022-04-01", "2022-09-04"]
+  available = ["2022-04-01", "2022-09-04", "2023-04-01"]
 }
 service "redis" {
   name      = "Redis"
@@ -433,7 +439,7 @@ service "redisenterprise" {
 }
 service "relay" {
   name      = "Relay"
-  available = ["2017-04-01", "2021-11-01"]
+  available = ["2021-11-01"]
 }
 service "resourceconnector" {
   name      = "ResourceConnector"
@@ -489,7 +495,7 @@ service "sqlvirtualmachine" {
 }
 service "storage" {
   name      = "Storage"
-  available = ["2022-05-01", "2022-09-01"]
+  available = ["2022-05-01", "2022-09-01", "2023-01-01"]
 }
 service "storagecache" {
   name      = "StorageCache"
@@ -538,8 +544,7 @@ service "voiceservices" {
 }
 service "web" {
   name      = "Web"
-  available = ["2016-06-01"]
-  ignore    = ["2016-08-01", "2016-09-01", "2018-02-01", "2018-11-01", "2019-08-01", "2020-06-01", "2020-09-01", "2020-10-01", "2020-12-01", "2021-01-01", "2021-01-15", "2021-02-01", "2021-03-01", "2022-03-01", "2022-09-01"]
+  available = ["2016-06-01", "2022-09-01"]
 }
 service "webpubsub" {
   name      = "WebPubSub"
