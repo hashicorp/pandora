@@ -18,7 +18,7 @@ service "apimanagement" {
 }
 service "app" {
   name      = "ContainerApps"
-  available = ["2022-03-01", "2022-11-01-preview"]
+  available = ["2022-03-01", "2022-11-01-preview", "2023-05-01"]
   ignore    = ["2022-10-01"]
 }
 service "appconfiguration" {
@@ -270,7 +270,7 @@ service "kubernetesconfiguration" {
 }
 service "labservices" {
   name      = "LabServices"
-  available = ["2021-10-01-preview", "2022-08-01"]
+  available = ["2021-10-01-preview", "2022-08-01", "2023-06-07"]
 }
 service "liftrqumulo" {
   name      = "QumuloStorage"
@@ -302,7 +302,7 @@ service "managedservices" {
 }
 service "managementgroups" {
   name      = "ManagementGroups"
-  available = ["2020-05-01", "2021-04-01"]
+  available = ["2020-05-01", "2021-04-01", "2023-04-01"]
 }
 service "maps" {
   name      = "Maps"
