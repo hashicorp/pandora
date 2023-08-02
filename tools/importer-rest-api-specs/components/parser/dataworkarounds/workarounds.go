@@ -9,6 +9,7 @@ import (
 
 var workarounds = []workaround{
 	workaroundAuthorization25080{},
+	workaroundAutomation25108{},
 	workaroundBatch21291{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
