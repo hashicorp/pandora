@@ -2,9 +2,8 @@ package repositories
 
 import (
 	"fmt"
-	"net/http"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"net/http"
 )
 
 type ServicesRepository interface {
@@ -93,7 +92,132 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 				},
 			},
 			TerraformDetails: TerraformDetails{
-				Resources: map[string]TerraformResourceDetails{},
+				Resources: map[string]TerraformResourceDetails{
+					"virtual_machine": {
+						ApiVersion: "2020-01-01",
+						CreateMethod: MethodDefinition{
+							Generate:         true,
+							MethodName:       "VirtualMachineCreateOrUpdate",
+							TimeoutInMinutes: 30,
+						},
+						DeleteMethod: MethodDefinition{
+							Generate:         true,
+							MethodName:       "VirtualMachineDelete",
+							TimeoutInMinutes: 30,
+						},
+						DisplayName: "Virtual Machine",
+						Documentation: ResourceDocumentationDefinition{
+							Description:     "Manages a Virtual Machine",
+							ExampleUsageHcl: "resource \"azurerm_virtual_machine\" \"example\" {}",
+						},
+						Generate:             true,
+						GenerateModel:        true,
+						GenerateIdValidation: true,
+						GenerateSchema:       true,
+						Mappings: MappingDefinition{
+							Fields: []FieldMappingDefinition{
+								{
+									Type: "DirectAssignment",
+									DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
+										SchemaModelName: "model",
+										SchemaFieldPath: "name",
+										SdkModelName:    "model",
+										SdkFieldPath:    "name",
+									},
+									),
+								},
+								{
+									Type: "DirectAssignment",
+									DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
+										SchemaModelName: "model",
+										SchemaFieldPath: "resource_group",
+										SdkModelName:    "model",
+										SdkFieldPath:    "resource_group",
+									},
+									),
+								},
+							},
+							ModelToModels: []ModelToModelMappingDefinition{
+								{
+									SchemaModelName: "VirtualMachineSchema",
+									SdkModelName:    "VirtualMachineProperties",
+								},
+							},
+							ResourceId: []ResourceIdMappingDefinition{
+								{
+									SchemaFieldName:    "VirtualMachineId",
+									SegmentName:        "virtualMachineName",
+									ParsedFromParentID: true,
+								},
+								{
+									SchemaFieldName:    "ResourceGroupName",
+									SegmentName:        "resourceGroupName",
+									ParsedFromParentID: false,
+								},
+							},
+						},
+						ReadMethod: MethodDefinition{
+							Generate:         true,
+							MethodName:       "VirtualMachineGet",
+							TimeoutInMinutes: 5,
+						},
+						Resource:        "VirtualMachine",
+						ResourceIdName:  "VirtualMachineId",
+						ResourceName:    "VirtualMachine",
+						SchemaModelName: "VirtualMachineSchema",
+						SchemaModels: map[string]TerraformSchemaModelDefinition{
+							"VirtualMachineSchema": {
+								Fields: map[string]TerraformSchemaFieldDefinition{
+									"VirtualMachineId": {
+										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
+											NestedObject:  nil,
+											ReferenceName: nil,
+											Type:          "TODO",
+										},
+										Computed: false,
+										ForceNew: true,
+										HclName:  "virtual_machine_id",
+										Optional: false,
+										Required: true,
+										Documentation: TerraformSchemaDocumentationDefinition{
+											Markdown: "blah",
+										},
+										Validation: nil,
+									},
+									"Name": {
+										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
+											NestedObject:  nil,
+											ReferenceName: nil,
+											Type:          "TODO",
+										},
+										Computed: false,
+										ForceNew: true,
+										HclName:  "name",
+										Optional: false,
+										Required: true,
+										Documentation: TerraformSchemaDocumentationDefinition{
+											Markdown: "blah",
+										},
+										Validation: nil,
+									},
+								},
+							},
+						},
+						Tests: TerraformResourceTestsDefinition{
+							BasicConfiguration:          "basictest",
+							RequiresImportConfiguration: "importtest",
+							CompleteConfiguration:       nil,
+							Generate:                    false,
+							OtherTests:                  nil,
+							TemplateConfiguration:       nil,
+						},
+						UpdateMethod: pointer.To(MethodDefinition{
+							Generate:         true,
+							MethodName:       "VirtualMachineCreateOrUpdate",
+							TimeoutInMinutes: 30,
+						}),
+					},
+				},
 			},
 
 			Generate: true,
