@@ -25,7 +25,6 @@ public partial class Definition : ApiVersionDefinition
         new JobSchedule.Definition(),
         new JobStream.Definition(),
         new LinkedWorkspace.Definition(),
-        new ListAllHybridRunbookWorkerGroupInAutomationAccount.Definition(),
         new ListKeys.Definition(),
         new Module.Definition(),
         new ObjectDataTypes.Definition(),
