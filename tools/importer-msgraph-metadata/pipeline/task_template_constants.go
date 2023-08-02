@@ -103,11 +103,11 @@ func templateConstant(namespace string, field *ModelField) string {
 		valuesCode = append(valuesCode, strings.Join(val, "\n"))
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.Attributes;
-using System.ComponentModel;
-
-// Copyright (c) HashiCorp, Inc.
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
 
 namespace %[1]s;
 

@@ -47,11 +47,11 @@ func templateApiVersionDefinition(serviceName, apiVersion string, categories []s
 	sort.Strings(categoriesSlice)
 	categoriesCode := indentSpace(strings.Join(categoriesSlice, ",\n"), 8)
 
-	return fmt.Sprintf(`using System.Collections.Generic;
-using Pandora.Definitions.Interfaces;
-
-// Copyright (c) HashiCorp, Inc.
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
+
+using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s;
 

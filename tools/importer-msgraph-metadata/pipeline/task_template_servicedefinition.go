@@ -24,11 +24,11 @@ func (p pipelineTask) templateServiceDefinitionForService(resources Resources) e
 }
 
 func templateServiceDefinition(serviceName, apiVersion string) string {
-	return fmt.Sprintf(`using System.Collections.Generic;
-using Pandora.Definitions.Interfaces;
-
-// Copyright (c) HashiCorp, Inc.
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
+
+using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.%[2]s.%[1]s;
 

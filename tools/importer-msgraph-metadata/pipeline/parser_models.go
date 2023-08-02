@@ -7,6 +7,20 @@ import (
 	"github.com/getkin/kin-openapi/openapi3"
 )
 
+/* ===================
+   openapi3 cheatsheet
+   ===================
+   Schemas is a map[string]*SchemaRef
+   SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
+   The Ref string (after trimming) indicates a Schemas map key to follow/inherit
+   Schema has Properties which is a nested Schemas
+   Schema has AllOf and/or AnyOf which are SchemaRefs
+   SchemaRefs is a []*SchemaRef
+   Schemas is a model
+   SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
+   Schema leads to SchemaRefs and Schemas
+*/
+
 type Models map[string]*Model
 
 // Found returns true when the provided modelName was found in the Models map
@@ -264,20 +278,6 @@ func fieldType(schemaType, schemaFormat string, hasModel bool) *DataType {
 	return nil
 }
 
-/* ===================
-   openapi3 cheatsheet
-   ===================
-   Schemas is a map[string]*SchemaRef
-   SchemaRef is a struct{Ref, Value} where Ref is a string, Value is a *Schema
-   The Ref string (after trimming) indicates a Schemas map key to follow/inherit
-   Schema has Properties which is a nested Schemas
-   Schema has AllOf and/or AnyOf which are SchemaRefs
-   SchemaRefs is a []*SchemaRef
-   Schemas is a model
-   SchemaRefs, SchemaRef lead to a Schema or other another SchemaRef
-   Schema leads to SchemaRefs and Schemas
-*/
-
 func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 	models = make(Models)
 	for modelName, schemaRef := range schemas {
@@ -466,15 +466,15 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 	}
 	models[modelName] = &model
 
-	for k, v := range input.Schemas {
-		schema := parseSchemaRef(v)
+	for jsonField, schemaRef := range input.Schemas {
+		schema := parseSchemaRef(schemaRef)
 		result, _ := flattenSchema(schema, nil)
 		title := ""
 
 		if result.Title != "" {
 			title = strings.Title(result.Title)
 		} else {
-			title = strings.Title(k)
+			title = strings.Title(jsonField)
 		}
 
 		field := ModelField{
@@ -482,7 +482,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 			Description: schema.Description,
 			Default:     schema.Default,
 			Enum:        parseEnum(schema.Enum),
-			JsonField:   k,
+			JsonField:   jsonField,
 		}
 
 		if len(field.Enum) == 0 && len(result.Enum) > 0 {
@@ -510,7 +510,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
 		}
 
-		model.Fields[cleanName(k)] = &field
+		model.Fields[cleanName(jsonField)] = &field
 	}
 
 	return models
@@ -518,7 +518,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 
 // parseEnum returns a slice of sanitized enum values (which are always strings)
 func parseEnum(input []interface{}) []string {
-	out := make([]string, 0, len(input))
+	out := make([]string, 0)
 	for _, raw := range input {
 		if v, ok := raw.(string); ok {
 			if strings.EqualFold(v, "unknownFutureValue") {

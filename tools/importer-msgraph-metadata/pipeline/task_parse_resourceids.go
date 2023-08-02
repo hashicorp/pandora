@@ -4,8 +4,8 @@ import (
 	"fmt"
 )
 
-func (p pipelineTask) parseResourceIDsForService() (resources ResourceIds, err error) {
-	resources = make(ResourceIds, 0)
+func (p pipelineTask) parseResourceIDsForService() (resourceIds ResourceIds, err error) {
+	resourceIds = make(ResourceIds, 0)
 	for path, item := range p.spec.Paths {
 		operations := item.Operations()
 		operationTags := make([]string, 0)
@@ -50,7 +50,7 @@ func (p pipelineTask) parseResourceIDsForService() (resources ResourceIds, err e
 			id.Name = resourceIdName
 			id.Service = cleanName(p.service)
 			id.Version = p.apiVersion
-			resources = append(resources, &id)
+			resourceIds = append(resourceIds, &id)
 		}
 	}
 

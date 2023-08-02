@@ -67,7 +67,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				Version:    p.apiVersion,
 				Service:    cleanName(p.service),
 				Paths:      []ResourceId{parsedPath},
-				Operations: make([]Operation, 0, len(operations)),
+				Operations: make([]Operation, 0),
 			}
 		} else {
 			// Append the current path if the resource was already encountered (used for category matching later)
@@ -211,11 +211,10 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				}
 			}
 
-			// TODO: not certain whether we should or shouldn't do this. mainly for cosmetic reasons, in that it looks
-			// and reads better with the suffix trimmed, but it's less verbose (although doesn't conflict with anything else)
 			// Trim the "Ref" suffix from operation names
-			//operationName = strings.TrimSuffix(operationName, "Ref")
-			//operationName = strings.TrimSuffix(operationName, "Refs")
+			for _, s := range []string{"Ref", "Refs"} {
+				operationName = strings.TrimSuffix(operationName, s)
+			}
 
 			// Determine request model
 			var requestModel *string
@@ -225,7 +224,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 					if content.Schema != nil {
 						schema, _ := flattenSchema(content.Schema.Value, nil)
 
-						if schema.Format == "binary" {
+						if strings.ToLower(schema.Format) == "binary" {
 							requestType = pointerTo(DataTypeBinary)
 							break
 						}

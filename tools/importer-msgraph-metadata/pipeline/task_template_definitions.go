@@ -123,12 +123,12 @@ func templateDefinition(namespace, modelsNamespace, category string, operationNa
 	sort.Strings(modelsLines)
 	modelsCode := indentSpace(strings.Join(modelsLines, ",\n"), 8)
 
-	return fmt.Sprintf(`using Pandora.Definitions.Interfaces;
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Interfaces;
 %[2]s
 using System;
-
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
 
 namespace %[1]s;
 
