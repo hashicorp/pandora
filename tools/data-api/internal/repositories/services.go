@@ -92,6 +92,10 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 					Source: HandWrittenApiDefinitionsSource,
 				},
 			},
+			TerraformDetails: TerraformDetails{
+				Resources: map[string]TerraformResourceDetails{},
+			},
+
 			Generate: true,
 		},
 	}, nil

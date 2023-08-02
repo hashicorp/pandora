@@ -27,6 +27,7 @@ type ServiceDetails struct {
 	Generate             bool
 	ResourceProvider     string
 	TerraformPackageName *string
+	TerraformDetails     TerraformDetails
 }
 
 type ServiceApiVersionDetails struct {
