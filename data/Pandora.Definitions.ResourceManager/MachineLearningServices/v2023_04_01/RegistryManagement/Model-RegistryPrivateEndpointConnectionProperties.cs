@@ -21,9 +21,9 @@ internal class RegistryPrivateEndpointConnectionPropertiesModel
     [JsonPropertyName("privateEndpoint")]
     public PrivateEndpointResourceModel? PrivateEndpoint { get; set; }
 
+    [JsonPropertyName("privateLinkServiceConnectionState")]
+    public RegistryPrivateLinkServiceConnectionStateModel? PrivateLinkServiceConnectionState { get; set; }
+
     [JsonPropertyName("provisioningState")]
     public string? ProvisioningState { get; set; }
-
-    [JsonPropertyName("registryPrivateLinkServiceConnectionState")]
-    public RegistryPrivateLinkServiceConnectionStateModel? RegistryPrivateLinkServiceConnectionState { get; set; }
 }

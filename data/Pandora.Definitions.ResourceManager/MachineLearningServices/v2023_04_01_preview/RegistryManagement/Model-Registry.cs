@@ -27,12 +27,12 @@ internal class RegistryModel
     [JsonPropertyName("mlFlowRegistryUri")]
     public string? MlFlowRegistryUri { get; set; }
 
+    [JsonPropertyName("privateEndpointConnections")]
+    public List<RegistryPrivateEndpointConnectionModel>? PrivateEndpointConnections { get; set; }
+
     [JsonPropertyName("publicNetworkAccess")]
     public string? PublicNetworkAccess { get; set; }
 
     [JsonPropertyName("regionDetails")]
     public List<RegistryRegionArmDetailsModel>? RegionDetails { get; set; }
-
-    [JsonPropertyName("registryPrivateEndpointConnections")]
-    public List<RegistryPrivateEndpointConnectionModel>? RegistryPrivateEndpointConnections { get; set; }
 }
