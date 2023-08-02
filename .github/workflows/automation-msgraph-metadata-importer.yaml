@@ -1,4 +1,4 @@
-name: Run the Version Bumper
+name: Regenerate API Data with New Microsoft Graph Changes after PR Merge
 on:
   push:
     branches:
@@ -7,49 +7,56 @@ on:
       - '.github/workflows/**'
       - 'config/**'
       - 'submodules/msgraph-metadata'
-      - 'swagger'
-      - 'tools/version-bumper/**'
+      - 'tools/importer-msgraph/**'
+
+
+concurrency:
+  group: 'regendataapi-msgraph-${{ github.head_ref }}'
+  cancel-in-progress: true
+
 
 jobs:
-  run-version-bumper:
+  regenerate-api-data:
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@c85c95e3d7251135ab7dc9ce3241c5835cc595a9 # v3.5.3
+      - uses: actions/checkout@8e5e7e5ab8b370d6c329ec480221332ada57f0ab # v3.5.2
         with:
           submodules: recursive
 
-      - uses: actions/setup-go@fac708d6674e30b6ba41289acaab6d4b75aa0753 # v4.0.1
+      - uses: actions/setup-go@4d34df0c2316fe8122ab82dc22947d607c0c91f9 # v4.0.0
         with:
           go-version: '1.20.5'
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@3447fd6a9f9e57506b15f895c5b76d3b197dc7c2 # v3.2.0
+        uses: actions/setup-dotnet@607fce577a46308457984d59e4954e075820f10a # v3.0.3
         with:
           dotnet-version: 7.0.x
 
-      - name: build and run version-bumper
-        id: bump-versions
+      - name: build and run importer-msgraph-metadata
+        id: import-data
         run: |
-          cd ./tools/version-bumper
+          cd ./tools/importer-msgraph-metadata
           make tools
           make build
-          make run
+          make import
+        env:
+          SERVICES: "applications,servicePrincipals"
 
       - name: then commit the diff
-        id: commit-versions-config
+        id: commit-imported-data
         run: |
-          git checkout -b config/regeneration-from-${{ github.sha }}
+          git checkout -b data/regeneration-from-${{ github.sha }}
           git config user.name "hc-github-team-tf-azure"
           git config user.email "<>"
-          ./scripts/conditionally-commit-codegen-changes.sh "config: regenerating based on the latest Swagger"
+          ./scripts/conditionally-commit-codegen-changes.sh "data: regenerating based on the latest MSGraph Metadata"
 
       - name: then conditionally push the branch
         id: push-branch
         if: ${{ steps.commit-versions-config.outputs.has_changes_to_push == 'true' || steps.commit-imported-data.outputs.has_changes_to_push == 'true' }}
         run: |
-          git push origin config/regeneration-from-${{ github.sha }}
+          git push origin data/regeneration-from-${{ github.sha }}
 
       - name: then conditionally open a pull request
         id: open-pr
@@ -57,8 +64,8 @@ jobs:
         run: |
           gh pr create --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
         env:
-          PR_TITLE: "Config: regenerating based on ${{ github.sha }}"
-          PR_BODY: "Updating the Resource Manager configuration based on the commit ${{ github.sha }}"
-          PR_SOURCE: "config/regeneration-from-${{ github.sha }}"
+          PR_TITLE: "Data: regenerating based on ${{ github.sha }}"
+          PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
+          PR_SOURCE: "data/regeneration-from-${{ github.sha }}"
           PR_TARGET: "main"
           GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
