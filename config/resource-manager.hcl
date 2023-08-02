@@ -514,6 +514,10 @@ service "storagesync" {
   available = ["2020-03-01"]
   ignore    = ["2020-09-01", "2022-06-01"]
 }
+service "storagetasks" {
+  name      = "StorageTasks"
+  available = ["2023-01-01"]
+}
 service "streamanalytics" {
   name      = "StreamAnalytics"
   available = ["2020-03-01", "2021-10-01-preview"]
