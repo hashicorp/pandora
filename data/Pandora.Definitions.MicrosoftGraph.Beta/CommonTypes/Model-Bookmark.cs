@@ -1,0 +1,69 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+
+internal class BookmarkModel
+{
+    [JsonPropertyName("availabilityEndDateTime")]
+    public DateTime? AvailabilityEndDateTime { get; set; }
+
+    [JsonPropertyName("availabilityStartDateTime")]
+    public DateTime? AvailabilityStartDateTime { get; set; }
+
+    [JsonPropertyName("categories")]
+    public List<string>? Categories { get; set; }
+
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
+
+    [JsonPropertyName("groupIds")]
+    public List<string>? GroupIds { get; set; }
+
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
+    [JsonPropertyName("isSuggested")]
+    public bool? IsSuggested { get; set; }
+
+    [JsonPropertyName("keywords")]
+    public AnswerKeywordModel? Keywords { get; set; }
+
+    [JsonPropertyName("languageTags")]
+    public List<string>? LanguageTags { get; set; }
+
+    [JsonPropertyName("lastModifiedBy")]
+    public IdentitySetModel? LastModifiedBy { get; set; }
+
+    [JsonPropertyName("lastModifiedDateTime")]
+    public DateTime? LastModifiedDateTime { get; set; }
+
+    [JsonPropertyName("@odata.type")]
+    public string? ODataType { get; set; }
+
+    [JsonPropertyName("platforms")]
+    public List<DevicePlatformTypeConstant>? Platforms { get; set; }
+
+    [JsonPropertyName("powerAppIds")]
+    public List<string>? PowerAppIds { get; set; }
+
+    [JsonPropertyName("state")]
+    public AnswerStateConstant? State { get; set; }
+
+    [JsonPropertyName("targetedVariations")]
+    public List<AnswerVariantModel>? TargetedVariations { get; set; }
+
+    [JsonPropertyName("webUrl")]
+    public string? WebUrl { get; set; }
+}

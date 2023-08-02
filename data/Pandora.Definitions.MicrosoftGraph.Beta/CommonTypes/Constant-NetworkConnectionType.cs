@@ -1,0 +1,26 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum NetworkConnectionTypeConstant
+{
+    [Description("Unknown")]
+    @unknown,
+
+    [Description("Wired")]
+    @wired,
+
+    [Description("Wifi")]
+    @wifi,
+
+    [Description("Mobile")]
+    @mobile,
+
+    [Description("Tunnel")]
+    @tunnel,
+}
