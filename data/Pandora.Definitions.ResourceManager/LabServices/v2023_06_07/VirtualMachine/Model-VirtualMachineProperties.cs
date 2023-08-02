@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.LabServices.v2023_06_07.VirtualMachine;
+
+
+internal class VirtualMachinePropertiesModel
+{
+    [JsonPropertyName("claimedByUserId")]
+    public string? ClaimedByUserId { get; set; }
+
+    [JsonPropertyName("connectionProfile")]
+    public VirtualMachineConnectionProfileModel? ConnectionProfile { get; set; }
+
+    [JsonPropertyName("provisioningState")]
+    public ProvisioningStateConstant? ProvisioningState { get; set; }
+
+    [JsonPropertyName("resourceOperationError")]
+    public ResourceOperationErrorModel? ResourceOperationError { get; set; }
+
+    [JsonPropertyName("state")]
+    public VirtualMachineStateConstant? State { get; set; }
+
+    [JsonPropertyName("vmType")]
+    public VirtualMachineTypeConstant? VMType { get; set; }
+}
