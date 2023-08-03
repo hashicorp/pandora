@@ -2,10 +2,10 @@ package resourcemanager
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"net/http"
 
 	"github.com/go-chi/render"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
@@ -13,12 +13,12 @@ func detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+		internalServerError(w, fmt.Errorf("missing service"))
 		return
 	}
 	apiVersion, ok := ctx.Value("serviceApiVersion").(*repositories.ServiceApiVersionDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+		internalServerError(w, fmt.Errorf("missing serviceApiVersion"))
 		return
 	}
 	resources := make(map[string]models.ResourceSummary, 0)

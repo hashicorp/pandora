@@ -1,10 +1,11 @@
 package resourcemanager
 
 import (
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/render"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
@@ -13,7 +14,7 @@ func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+		internalServerError(w, fmt.Errorf("missing resourceName"))
 		return
 	}
 

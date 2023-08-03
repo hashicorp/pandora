@@ -13,7 +13,7 @@ func serviceDetails(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+		internalServerError(w, fmt.Errorf("missing service"))
 		return
 	}
 

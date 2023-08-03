@@ -1,12 +1,13 @@
 package resourcemanager
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
-	"github.com/hashicorp/pandora/tools/data-api/models"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/render"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
+	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
@@ -14,7 +15,8 @@ func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+
+		internalServerError(w, fmt.Errorf("missing resourceName"))
 		return
 	}
 

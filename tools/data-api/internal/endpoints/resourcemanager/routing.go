@@ -10,7 +10,22 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-func Router(router chi.Router) {
+type Options struct {
+	// ServiceType specifies the type of Data that should be used for this endpoint.
+	ServiceType repositories.ServiceType
+
+	// UriPrefix specifies the URI which should be prefixed on any Operation URIs.
+	UriPrefix string
+
+	// UsesCommonTypes specifies whether this endpoint supports Common Types or not.
+	UsesCommonTypes bool
+}
+
+func Router(router chi.Router, options Options) {
+	router.Use(optionsContext(options))
+
+	router.Get("/commonTypes", commonTypes)
+
 	router.Route("/services", func(r chi.Router) {
 		r.Route("/{serviceName}", func(r chi.Router) {
 			r.Use(serviceRouteContext)
@@ -38,15 +53,30 @@ func Router(router chi.Router) {
 	})
 }
 
+func optionsContext(options Options) func(http.Handler) http.Handler {
+	return func(next http.Handler) http.Handler {
+		return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+			ctx := context.WithValue(r.Context(), "options", options)
+			next.ServeHTTP(w, r.WithContext(ctx))
+		})
+	}
+}
+
 func serviceRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		opts, ok := r.Context().Value("options").(Options)
+		if !ok {
+			w.WriteHeader(http.StatusInternalServerError)
+			return
+		}
+
 		serviceName := chi.URLParam(r, "serviceName")
 		if serviceName == "" {
 			log.Printf("[DEBUG] Missing Service Name")
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
-		service, err := servicesRepository.GetByName(serviceName, repositories.ResourceManagerServiceType)
+		service, err := servicesRepository.GetByName(serviceName, opts.ServiceType)
 		if err != nil {
 			internalServerError(w, fmt.Errorf("retrieving service %q: %+v", serviceName, err))
 			return

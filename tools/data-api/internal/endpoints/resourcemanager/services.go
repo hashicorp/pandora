@@ -12,10 +12,16 @@ import (
 var servicesRepository = &repositories.ServicesRepositoryImpl{}
 
 func services(w http.ResponseWriter, r *http.Request) {
+	opts, ok := r.Context().Value("options").(Options)
+	if !ok {
+		internalServerError(w, fmt.Errorf("missing options"))
+		return
+	}
+
 	payload := models.ServicesDefinition{
 		Services: make(map[string]models.ServiceSummary, 0),
 	}
-	services, err := servicesRepository.GetAll(repositories.ResourceManagerServiceType)
+	services, err := servicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return
