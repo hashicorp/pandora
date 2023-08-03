@@ -23,6 +23,8 @@ var workarounds = []workaround{
 
 	// @tombuildsstuff: we also have to account for package names which aren't valid in Go:
 	workaroundInvalidGoPackageNames{},
+
+	workaroundMachineLearning25142{},
 }
 
 func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {
