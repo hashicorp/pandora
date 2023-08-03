@@ -140,7 +140,7 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	contentTypeCode := ""
 	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
@@ -202,7 +202,7 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	contentTypeCode := ""
 	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
@@ -265,7 +265,7 @@ func templateDeleteOperation(namespace string, operation *Operation, statuses []
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
