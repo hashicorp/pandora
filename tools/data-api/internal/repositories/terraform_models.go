@@ -1,5 +1,9 @@
 package repositories
 
+const (
+	StringTerraformSchemaFieldType TerraformSchemaFieldType = "String"
+)
+
 type TerraformDetails struct {
 	DataSources map[string]TerraformDataSourceDetails
 	Resources   map[string]TerraformResourceDetails

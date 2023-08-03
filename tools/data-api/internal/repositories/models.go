@@ -19,6 +19,7 @@ const (
 	ResourceManagerRestApiSpecsApiDefinitionsSource ApiDefinitionSourceType = "ResourceManagerRestApiSpecs"
 
 	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
+	StringObjectDefinitionType    ObjectDefinitionType = "String"
 )
 
 type ServiceDetails struct {

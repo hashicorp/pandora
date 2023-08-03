@@ -172,7 +172,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
 											NestedObject:  nil,
 											ReferenceName: nil,
-											Type:          "TODO",
+											Type:          StringTerraformSchemaFieldType,
 										},
 										Computed: false,
 										ForceNew: true,
@@ -188,7 +188,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
 											NestedObject:  nil,
 											ReferenceName: nil,
-											Type:          "TODO",
+											Type:          StringTerraformSchemaFieldType,
 										},
 										Computed: false,
 										ForceNew: true,
