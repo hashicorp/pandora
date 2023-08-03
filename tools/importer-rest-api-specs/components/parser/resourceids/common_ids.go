@@ -55,6 +55,10 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultKeyVersion{},
 	commonIdKeyVaultPrivateEndpointConnection{},
 
+	// Storage
+	commonIdStorageAccount{},
+	commonIdStorageContainer{},
+
 	// Parent IDs
 	commonIdKubernetesCluster{},
 }
