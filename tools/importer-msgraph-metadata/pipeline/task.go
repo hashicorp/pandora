@@ -41,7 +41,11 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 			return fmt.Errorf("nil resource named %q was encountered for %q", resourceName, p.service)
 		}
 		if resource.Category == "" {
-			p.logger.Warn(spew.Sprintf("resource with no category was encountered for %q: %#v", p.service, *resource))
+			path := "(no path)"
+			if len(resource.Paths) > 0 {
+				path = resource.Paths[0].ID()
+			}
+			p.logger.Warn(spew.Sprintf("resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
 		}
 	}
 
