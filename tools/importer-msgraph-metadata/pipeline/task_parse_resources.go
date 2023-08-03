@@ -22,14 +22,20 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				break
 			}
 		}
-		if skip {
-			continue
-		}
 
 		parsedPath := NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
-		if lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
-			p.logger.Info(fmt.Sprintf("skipping path containing cast or function for %q: %v", p.service, path))
+
+		// Determine whether to skip a path containing unsupported segment types
+		for idx, segment := range parsedPath.Segments {
+			if segment.Type == SegmentCast || segment.Type == SegmentFunction {
+				p.logger.Info(fmt.Sprintf("skipping path containing cast or function at position %d for %q: %v", idx, p.service, path))
+				skip = true
+				break
+			}
+		}
+
+		if skip {
 			continue
 		}
 
