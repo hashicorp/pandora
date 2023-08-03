@@ -1,29 +1,31 @@
 package resourcemanager
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
+	"fmt"
 	"net/http"
 
 	"github.com/go-chi/render"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func terraform(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
-	terraform, ok := ctx.Value("terraform").(*repositories.TerraformDetails)
+	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
 	if !ok {
-		w.WriteHeader(http.StatusBadRequest)
+		internalServerError(w, fmt.Errorf("missing service"))
 		return
 	}
 
-	resources := mapTerraformResources(terraform.Resources)
+	resources := mapTerraformResources(service.TerraformDetails.Resources)
 
 	payload := models.TerraformDetails{
 		DataSources: map[string]models.TerraformDataSourceDetails{},
 		Resources:   resources,
 	}
+
 	render.JSON(w, r, payload)
 }
 

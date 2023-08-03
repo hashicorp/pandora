@@ -83,6 +83,7 @@ func serviceRouteContext(next http.Handler) http.Handler {
 		}
 
 		ctx := context.WithValue(r.Context(), "service", service)
+
 		next.ServeHTTP(w, r.WithContext(ctx))
 	})
 }

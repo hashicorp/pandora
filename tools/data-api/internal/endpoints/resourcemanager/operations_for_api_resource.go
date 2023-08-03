@@ -15,7 +15,6 @@ func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
 	if !ok {
-
 		internalServerError(w, fmt.Errorf("missing resourceName"))
 		return
 	}
