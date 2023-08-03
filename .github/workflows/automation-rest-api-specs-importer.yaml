@@ -64,6 +64,6 @@ jobs:
         env:
           PR_TITLE: "Data: regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
-          PR_SOURCE: "data/regeneration-from-${{ github.sha }}"
+          PR_SOURCE: "data/regeneration-from-${{ github.sha }}-rest-api-specs"
           PR_TARGET: "main"
           GITHUB_TOKEN: ${{ secrets.SERVICE_ACCOUNT_PANDORA_TOKEN }}
