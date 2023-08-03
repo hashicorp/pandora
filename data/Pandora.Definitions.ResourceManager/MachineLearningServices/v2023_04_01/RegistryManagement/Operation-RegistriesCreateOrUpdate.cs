@@ -14,6 +14,13 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2023_04_0
 
 internal class RegistriesCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+        {
+                HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
+                HttpStatusCode.OK,
+        };
+
     public override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(RegistryTrackedResourceModel);
