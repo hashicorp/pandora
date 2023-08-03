@@ -13,7 +13,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 )
 
-const swaggerDirectory = "../../../swagger/specification"
+const swaggerDirectory = "../../../submodules/rest-api-specs/specification"
 const runAllEnvVar = "ALL"
 
 func TestAllSwaggersUsingParser(t *testing.T) {

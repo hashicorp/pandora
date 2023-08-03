@@ -30,7 +30,7 @@ type ValidateCommand struct {
 }
 
 func (ValidateCommand) Help() string {
-	return "Validates that the data within the './swagger' submodule can be parsed"
+	return "Validates that the data within the './submodules/rest-api-specs' submodule can be parsed"
 }
 
 func (c ValidateCommand) Run(args []string) int {
@@ -62,5 +62,5 @@ func (c ValidateCommand) Run(args []string) int {
 }
 
 func (ValidateCommand) Synopsis() string {
-	return "Validates that the data within the './swagger' submodule can be parsed"
+	return "Validates that the data within the './submodules/rest-api-specs' submodule can be parsed"
 }

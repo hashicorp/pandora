@@ -38,7 +38,7 @@ Pandora's primarily intended to be run in automation (using both Github Actions 
 
 * Once a Pull Request is merged that updates one of the following paths, the Rest API Specs Importer is run.
   * The Resource Manager Config (`./config/resource-manager.hcl`).
-  * The Resource Manager Swagger Git Submodule (`./swagger`).
+  * The Resource Manager Swagger Git Submodule (`./submodules/rest-api-specs`).
   * Any of the tooling within `./tools`.
 * If the Rest API Specs Importer outputs any changes to the Imported API Definitions, those are committed and a Pull Request is opened.
 * Once that PR is merged, if there's any changes then the `hashicorp/go-azure-sdk` repository is updated in the same fashion via the Go SDK Generator (outputting any new/changes to the Go SDK).
@@ -58,9 +58,11 @@ More information on [how to import a new Resource Manager Service/API Version fo
 - `./config/resource-manager.hcl` - contains the list of Resource Manager Services and API Versions which should be imported.
 - `./data` - contains the Data API, containing the transformed Azure API Definitions in the intermediate C# format.
 - `./docs` - contains documentation.
-- `./swagger` - contains the Git Submodule to [the Azure Rest API Specs repository](https://github.com/Azure/azure-rest-api-specs) - containing the OpenAPI/Swagger definitions for Azure Resource Manager.
+- `./submodules/msgraph-metadata` - contains the Git Submodule to [the `microsoftgraph/msgraph-metadata` repository](https://github.com/microsoftgraph/msgraph-metadata) - containing the OpenAPI/Swagger definitions for Microsoft Graph.
+- `./submodules/rest-api-specs` - contains the Git Submodule to [the `Azure/azure-rest-api-specs` repository](https://github.com/Azure/azure-rest-api-specs) - containing the OpenAPI/Swagger definitions for Azure Resource Manager.
 - `./tools/generator-go-sdk` - contains the Go SDK Generator, pulling information from the Data API.
 - `./tools/generator-terraform` - contains the Terraform Generator, pulling information from the Data API.
+- `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.
 - `./tools/importer-rest-api-specs` - contains the Importer for the Azure Resource Manager OpenAPI/Swagger definitions.
 - `./tools/version-bumper` - contains a small tool to add new Services and new API Versions for existing Services to the config.
 
