@@ -26,10 +26,11 @@ func services(w http.ResponseWriter, r *http.Request) {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return
 	}
+
 	for _, service := range *services {
 		payload.Services[service.Name] = models.ServiceSummary{
 			Generate: service.Generate,
-			Uri:      fmt.Sprintf("/v1/resource-manager/services/%s", service.Name),
+			Uri:      fmt.Sprintf("%s/services/%s", opts.UriPrefix, service.Name),
 		}
 	}
 	render.JSON(w, r, payload)

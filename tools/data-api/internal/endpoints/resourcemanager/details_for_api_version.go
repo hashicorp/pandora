@@ -11,6 +11,13 @@ import (
 
 func detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
+
+	opts, ok := ctx.Value("options").(Options)
+	if !ok {
+		internalServerError(w, fmt.Errorf("missing options"))
+		return
+	}
+
 	service, ok := ctx.Value("service").(*repositories.ServiceDetails)
 	if !ok {
 		internalServerError(w, fmt.Errorf("missing service"))
@@ -25,8 +32,8 @@ func detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
 
 	for k := range apiVersion.Resources {
 		resources[k] = models.ResourceSummary{
-			OperationsUri: fmt.Sprintf("/v1/resource-manager/services/%s/%s/%s/operations", service.Name, apiVersion.Name, k),
-			SchemaUri:     fmt.Sprintf("/v1/resource-manager/services/%s/%s/%s/schema", service.Name, apiVersion.Name, k),
+			OperationsUri: fmt.Sprintf("%s/services/%s/%s/%s/operations", opts.UriPrefix, service.Name, apiVersion.Name, k),
+			SchemaUri:     fmt.Sprintf("%s/services/%s/%s/%s/schema", opts.UriPrefix, service.Name, apiVersion.Name, k),
 		}
 	}
 
