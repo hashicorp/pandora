@@ -16,6 +16,12 @@ const homePageTemplate = `
 	<h3>Routes</h3>
 	<ul>
 		<li>
+			<a href="/v1/resource-manager/commonTypes">
+				<strong>GET</strong>
+				<code>/v1/resource-manager/commonTypes</code>
+			</a>
+		</li>
+		<li>
 			<a href="/v1/resource-manager/services">
 				<strong>GET</strong>
 				<code>/v1/resource-manager/services</code>
