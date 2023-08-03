@@ -19,5 +19,5 @@ internal class GetCountOperation : Operations.GetOperation
         };
     public override ResourceID? ResourceId() => new ServicePrincipalId();
     public override Type? ResponseObject() => typeof(long);
-    public override string? UriSuffix() => "/ownedObjects/graph.servicePrincipal/$count";
+    public override string? UriSuffix() => "/ownedObjects/graph.appRoleAssignment/$count";
 }

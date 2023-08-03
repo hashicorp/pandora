@@ -19,5 +19,5 @@ internal class GetCountOperation : Operations.GetOperation
         };
     public override ResourceID? ResourceId() => new ServicePrincipalId();
     public override Type? ResponseObject() => typeof(long);
-    public override string? UriSuffix() => "/memberOf/graph.administrativeUnit/$count";
+    public override string? UriSuffix() => "/memberOf/graph.group/$count";
 }

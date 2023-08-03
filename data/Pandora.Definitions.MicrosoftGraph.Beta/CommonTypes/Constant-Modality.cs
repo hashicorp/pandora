@@ -9,9 +9,6 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum ModalityConstant
 {
-    [Description("Unknown")]
-    @unknown,
-
     [Description("Audio")]
     @audio,
 
@@ -23,4 +20,7 @@ internal enum ModalityConstant
 
     [Description("Data")]
     @data,
+
+    [Description("ScreenSharing")]
+    @screenSharing,
 }

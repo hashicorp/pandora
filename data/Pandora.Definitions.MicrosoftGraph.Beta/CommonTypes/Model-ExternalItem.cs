@@ -16,6 +16,9 @@ internal class ExternalItemModel
     [JsonPropertyName("acl")]
     public List<AclModel>? Acl { get; set; }
 
+    [JsonPropertyName("activities")]
+    public List<ExternalActivityModel>? Activities { get; set; }
+
     [JsonPropertyName("content")]
     public ExternalItemContentModel? Content { get; set; }
 

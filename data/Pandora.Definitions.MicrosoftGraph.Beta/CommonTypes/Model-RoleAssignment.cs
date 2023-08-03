@@ -13,27 +13,12 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class RoleAssignmentModel
 {
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
-
-    [JsonPropertyName("displayName")]
-    public string? DisplayName { get; set; }
-
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
+    [JsonPropertyName("assignmentType")]
+    public DelegatedPrivilegeStatusConstant? AssignmentType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("resourceScopes")]
-    public List<string>? ResourceScopes { get; set; }
-
-    [JsonPropertyName("roleDefinition")]
-    public RoleDefinitionModel? RoleDefinition { get; set; }
-
-    [JsonPropertyName("scopeMembers")]
-    public List<string>? ScopeMembers { get; set; }
-
-    [JsonPropertyName("scopeType")]
-    public RoleAssignmentScopeTypeConstant? ScopeType { get; set; }
+    [JsonPropertyName("roles")]
+    public List<RoleDefinitionModel>? Roles { get; set; }
 }

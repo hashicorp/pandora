@@ -13,17 +13,32 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class ExternalConnectionModel
 {
+    [JsonPropertyName("activitySettings")]
+    public ActivitySettingsModel? ActivitySettings { get; set; }
+
+    [JsonPropertyName("complianceSettings")]
+    public ComplianceSettingsModel? ComplianceSettings { get; set; }
+
     [JsonPropertyName("configuration")]
     public ConfigurationModel? Configuration { get; set; }
 
+    [JsonPropertyName("connectorId")]
+    public string? ConnectorId { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
+
+    [JsonPropertyName("enabledContentExperiences")]
+    public ContentExperienceTypeConstant? EnabledContentExperiences { get; set; }
 
     [JsonPropertyName("groups")]
     public List<ExternalGroupModel>? Groups { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
+    [JsonPropertyName("ingestedItemsCount")]
+    public long? IngestedItemsCount { get; set; }
 
     [JsonPropertyName("items")]
     public List<ExternalItemModel>? Items { get; set; }
@@ -37,8 +52,14 @@ internal class ExternalConnectionModel
     [JsonPropertyName("operations")]
     public List<ConnectionOperationModel>? Operations { get; set; }
 
+    [JsonPropertyName("quota")]
+    public ConnectionQuotaModel? Quota { get; set; }
+
     [JsonPropertyName("schema")]
     public SchemaModel? Schema { get; set; }
+
+    [JsonPropertyName("searchSettings")]
+    public SearchSettingsModel? SearchSettings { get; set; }
 
     [JsonPropertyName("state")]
     public ConnectionStateConstant? State { get; set; }

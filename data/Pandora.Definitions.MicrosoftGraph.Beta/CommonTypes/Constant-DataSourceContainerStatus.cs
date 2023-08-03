@@ -10,8 +10,8 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal enum DataSourceContainerStatusConstant
 {
     [Description("Active")]
-    @active,
+    @Active,
 
     [Description("Released")]
-    @released,
+    @Released,
 }

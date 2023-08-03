@@ -16,9 +16,6 @@ internal class ConfigurationModel
     [JsonPropertyName("authorizedAppIds")]
     public List<string>? AuthorizedAppIds { get; set; }
 
-    [JsonPropertyName("authorizedApps")]
-    public List<string>? AuthorizedApps { get; set; }
-
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

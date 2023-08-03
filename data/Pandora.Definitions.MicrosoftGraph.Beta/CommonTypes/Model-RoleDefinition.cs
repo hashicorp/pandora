@@ -19,27 +19,9 @@ internal class RoleDefinitionModel
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
-    [JsonPropertyName("id")]
-    public string? Id { get; set; }
-
-    [JsonPropertyName("isBuiltIn")]
-    public bool? IsBuiltIn { get; set; }
-
-    [JsonPropertyName("isBuiltInRoleDefinition")]
-    public bool? IsBuiltInRoleDefinition { get; set; }
-
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("permissions")]
-    public List<RolePermissionModel>? Permissions { get; set; }
-
-    [JsonPropertyName("roleAssignments")]
-    public List<RoleAssignmentModel>? RoleAssignments { get; set; }
-
-    [JsonPropertyName("rolePermissions")]
-    public List<RolePermissionModel>? RolePermissions { get; set; }
-
-    [JsonPropertyName("roleScopeTagIds")]
-    public List<string>? RoleScopeTagIds { get; set; }
+    [JsonPropertyName("templateId")]
+    public string? TemplateId { get; set; }
 }
