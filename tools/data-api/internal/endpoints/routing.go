@@ -9,6 +9,22 @@ import (
 
 func Router(router chi.Router) {
 	router.Route("/infrastructure", infrastructure.Router)
+	router.Route("/v1/microsoft-graph/beta", func(r chi.Router) {
+		opts := v1.Options{
+			ServiceType:     repositories.MicrosoftGraphV1BetaServiceType,
+			UriPrefix:       "/v1/microsoft-graph/beta",
+			UsesCommonTypes: false,
+		}
+		v1.Router(r, opts)
+	})
+	router.Route("/v1/microsoft-graph/stable-v1", func(r chi.Router) {
+		opts := v1.Options{
+			ServiceType:     repositories.MicrosoftGraphV1StableServiceType,
+			UriPrefix:       "/v1/microsoft-graph/stable-v1",
+			UsesCommonTypes: false,
+		}
+		v1.Router(r, opts)
+	})
 	router.Route("/v1/resource-manager", func(r chi.Router) {
 		opts := v1.Options{
 			ServiceType:     repositories.ResourceManagerServiceType,
