@@ -118,3 +118,21 @@ type ResourceIdDefinition struct {
 	Id            string
 	Segments      []ResourceIdSegment
 }
+
+type CommonTypesDetails struct {
+	Constants map[string]CommonTypesConstantDetails
+	Models    map[string]CommonTypesModelDetails
+}
+
+type CommonTypesConstantDetails struct {
+	CaseInsensitive bool
+	Type            ConstantType
+	Values          map[string]string
+}
+
+type CommonTypesModelDetails struct {
+	Fields         map[string]FieldDetails
+	ParentTypeName *string
+	TypeHintIn     *string
+	TypeHintValue  *string
+}

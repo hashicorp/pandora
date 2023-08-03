@@ -3,6 +3,7 @@ package endpoints
 import (
 	"github.com/go-chi/chi/v5"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/infrastructure"
+	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
