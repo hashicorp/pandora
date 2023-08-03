@@ -16,6 +16,7 @@ var workarounds = []workaround{
 	workaroundDataFactory23013{},
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
+	workaroundMachineLearning25142{},
 
 	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
 	// we should look at moving this into the `resourceids` package when time allows.
@@ -23,8 +24,6 @@ var workarounds = []workaround{
 
 	// @tombuildsstuff: we also have to account for package names which aren't valid in Go:
 	workaroundInvalidGoPackageNames{},
-
-	workaroundMachineLearning25142{},
 }
 
 func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {

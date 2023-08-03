@@ -27,7 +27,7 @@ func (workaroundMachineLearning25142) Name() string {
 func (workaroundMachineLearning25142) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["RegistryManagement"]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find API Resource MachineLearningServices")
+		return nil, fmt.Errorf("couldn't find API Resource RegistryManagement")
 	}
 
 	operation, ok := resource.Operations["RegistriesCreateOrUpdate"]
