@@ -18,7 +18,7 @@ internal class ValidateSynchronizationJobCredentialsOperation : Operations.PostO
                 HttpStatusCode.NoContent,
         };
     public override Type? RequestObject() => typeof(ValidateSynchronizationJobCredentialsRequestModel);
-    public override ResourceID? ResourceId() => new SynchronizationJobId();
+    public override ResourceID? ResourceId() => new ApplicationId();
     public override Type? ResponseObject() => null;
-    public override string? UriSuffix() => "/validateCredentials";
+    public override string? UriSuffix() => "/synchronization/jobs/validateCredentials";
 }

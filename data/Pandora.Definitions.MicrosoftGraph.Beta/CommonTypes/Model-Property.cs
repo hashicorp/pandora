@@ -16,6 +16,9 @@ internal class PropertyModel
     [JsonPropertyName("aliases")]
     public List<string>? Aliases { get; set; }
 
+    [JsonPropertyName("isExactMatchRequired")]
+    public bool? IsExactMatchRequired { get; set; }
+
     [JsonPropertyName("isQueryable")]
     public bool? IsQueryable { get; set; }
 
@@ -36,6 +39,9 @@ internal class PropertyModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("rankingHint")]
+    public RankingHintModel? RankingHint { get; set; }
 
     [JsonPropertyName("type")]
     public PropertyTypeConstant? Type { get; set; }

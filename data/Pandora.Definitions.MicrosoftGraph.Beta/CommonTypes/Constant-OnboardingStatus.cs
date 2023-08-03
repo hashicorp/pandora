@@ -9,18 +9,15 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum OnboardingStatusConstant
 {
-    [Description("Unknown")]
-    @unknown,
-
-    [Description("Inprogress")]
-    @inprogress,
+    [Description("InsufficientInfo")]
+    @insufficientInfo,
 
     [Description("Onboarded")]
     @onboarded,
 
-    [Description("Failed")]
-    @failed,
+    [Description("CanBeOnboarded")]
+    @canBeOnboarded,
 
-    [Description("Offboarding")]
-    @offboarding,
+    [Description("Unsupported")]
+    @unsupported,
 }

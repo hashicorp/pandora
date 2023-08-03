@@ -9,12 +9,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum ContentFormatConstant
 {
-    [Description("Text")]
-    @text,
+    [Description("Default")]
+    @default,
 
-    [Description("Html")]
-    @html,
-
-    [Description("Markdown")]
-    @markdown,
+    [Description("Email")]
+    @email,
 }

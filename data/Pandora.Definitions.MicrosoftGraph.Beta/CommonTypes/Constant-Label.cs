@@ -35,4 +35,13 @@ internal enum LabelConstant
 
     [Description("FileExtension")]
     @fileExtension,
+
+    [Description("IconUrl")]
+    @iconUrl,
+
+    [Description("ContainerName")]
+    @containerName,
+
+    [Description("ContainerUrl")]
+    @containerUrl,
 }
