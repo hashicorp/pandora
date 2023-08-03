@@ -156,6 +156,7 @@ var verbs = operationVerbs{
 	"Check",
 	"Discover",
 	"Get",
+	"Instantiate",
 	"Parse",
 	"Pause",
 	"Provision",
