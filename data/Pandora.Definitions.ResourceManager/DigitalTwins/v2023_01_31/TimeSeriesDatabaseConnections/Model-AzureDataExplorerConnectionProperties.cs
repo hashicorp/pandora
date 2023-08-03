@@ -52,5 +52,5 @@ internal class AzureDataExplorerConnectionPropertiesModel : TimeSeriesDatabaseCo
     public string EventHubNamespaceResourceId { get; set; }
 
     [JsonPropertyName("recordPropertyAndItemRemovals")]
-    public RecordPropertyAndItemRemovalsConstant? RecordPropertyAndItemRemovals { get; set; }
+    public bool? RecordPropertyAndItemRemovals { get; set; }
 }

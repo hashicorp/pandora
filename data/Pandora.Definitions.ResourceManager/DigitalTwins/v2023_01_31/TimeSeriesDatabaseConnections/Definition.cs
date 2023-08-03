@@ -23,7 +23,6 @@ internal class Definition : ResourceDefinition
         typeof(CleanupConnectionArtifactsConstant),
         typeof(ConnectionTypeConstant),
         typeof(IdentityTypeConstant),
-        typeof(RecordPropertyAndItemRemovalsConstant),
         typeof(TimeSeriesDatabaseConnectionStateConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
