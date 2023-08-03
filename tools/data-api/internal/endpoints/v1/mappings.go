@@ -1,4 +1,4 @@
-package resourcemanager
+package v1
 
 import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
