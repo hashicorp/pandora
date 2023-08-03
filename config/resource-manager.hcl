@@ -306,7 +306,7 @@ service "managementgroups" {
 }
 service "maps" {
   name      = "Maps"
-  available = ["2021-02-01"]
+  available = ["2021-02-01", "2023-06-01"]
 }
 service "mariadb" {
   name      = "MariaDB"
