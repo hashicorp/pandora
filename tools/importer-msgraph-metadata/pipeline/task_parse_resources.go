@@ -283,10 +283,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			for _, path := range resource.Paths {
 				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentLabel}, -1); trimmedPath != nil {
 					for _, parentResource := range resources {
-						for _, parentPath := range parentResource.Paths {
-							if parentPath.ID() == trimmedPath.ID() {
-								resource.Category = parentResource.Category
-								break
+						if parentResource.Category != "" {
+							for _, parentPath := range parentResource.Paths {
+								if parentPath.ID() == trimmedPath.ID() {
+									resource.Category = parentResource.Category
+									break
+								}
 							}
 						}
 					}
