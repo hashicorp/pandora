@@ -64,7 +64,7 @@ jobs:
         run: |
           gh pr create --title "$PR_TITLE" --body "$PR_BODY" -H "$PR_SOURCE" -B "$PR_TARGET"
         env:
-          PR_TITLE: "Data: regenerating based on ${{ github.sha }}"
+          PR_TITLE: "Data: Microsoft Graph - regenerating based on ${{ github.sha }}"
           PR_BODY: "This PR is automatically generated based on the commit ${{ github.sha }}"
           PR_SOURCE: "data/regeneration-from-${{ github.sha }}-graph"
           PR_TARGET: "main"

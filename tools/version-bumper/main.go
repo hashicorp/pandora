@@ -29,7 +29,7 @@ func run(directory string) error {
 	servicesToUpdate := map[string]ServiceLocator{
 		// TODO: active-directory / data-plane in time
 		"resource-manager": ResourceManagerService{
-			swaggerDirectory: "../../swagger",
+			swaggerDirectory: "../../submodules/rest-api-specs",
 		},
 	}
 	for name, service := range servicesToUpdate {
