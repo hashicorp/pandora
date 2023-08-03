@@ -23,7 +23,7 @@ internal class EdiscoveryCaseModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("custodians")]
-    public List<EdiscoveryCustodianModel>? Custodians { get; set; }
+    public List<CustodianModel>? Custodians { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -44,10 +44,10 @@ internal class EdiscoveryCaseModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("legalHolds")]
-    public List<EdiscoveryHoldPolicyModel>? LegalHolds { get; set; }
+    public List<LegalHoldModel>? LegalHolds { get; set; }
 
     [JsonPropertyName("noncustodialDataSources")]
-    public List<EdiscoveryNoncustodialDataSourceModel>? NoncustodialDataSources { get; set; }
+    public List<NoncustodialDataSourceModel>? NoncustodialDataSources { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -56,17 +56,17 @@ internal class EdiscoveryCaseModel
     public List<CaseOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("reviewSets")]
-    public List<EdiscoveryReviewSetModel>? ReviewSets { get; set; }
-
-    [JsonPropertyName("searches")]
-    public List<EdiscoverySearchModel>? Searches { get; set; }
+    public List<ReviewSetModel>? ReviewSets { get; set; }
 
     [JsonPropertyName("settings")]
-    public EdiscoveryCaseSettingsModel? Settings { get; set; }
+    public CaseSettingsModel? Settings { get; set; }
+
+    [JsonPropertyName("sourceCollections")]
+    public List<SourceCollectionModel>? SourceCollections { get; set; }
 
     [JsonPropertyName("status")]
     public CaseStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tags")]
-    public List<EdiscoveryReviewTagModel>? Tags { get; set; }
+    public List<TagModel>? Tags { get; set; }
 }

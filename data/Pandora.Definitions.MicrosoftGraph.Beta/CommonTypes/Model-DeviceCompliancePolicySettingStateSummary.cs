@@ -13,23 +13,26 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class DeviceCompliancePolicySettingStateSummaryModel
 {
-    [JsonPropertyName("compliantDeviceCount")]
-    public int? CompliantDeviceCount { get; set; }
-
     [JsonPropertyName("conflictDeviceCount")]
     public int? ConflictDeviceCount { get; set; }
-
-    [JsonPropertyName("deviceComplianceSettingStates")]
-    public List<DeviceComplianceSettingStateModel>? DeviceComplianceSettingStates { get; set; }
 
     [JsonPropertyName("errorDeviceCount")]
     public int? ErrorDeviceCount { get; set; }
 
+    [JsonPropertyName("failedDeviceCount")]
+    public int? FailedDeviceCount { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
-    [JsonPropertyName("nonCompliantDeviceCount")]
-    public int? NonCompliantDeviceCount { get; set; }
+    [JsonPropertyName("intuneAccountId")]
+    public string? IntuneAccountId { get; set; }
+
+    [JsonPropertyName("intuneSettingId")]
+    public string? IntuneSettingId { get; set; }
+
+    [JsonPropertyName("lastRefreshedDateTime")]
+    public DateTime? LastRefreshedDateTime { get; set; }
 
     [JsonPropertyName("notApplicableDeviceCount")]
     public int? NotApplicableDeviceCount { get; set; }
@@ -37,18 +40,21 @@ internal class DeviceCompliancePolicySettingStateSummaryModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    [JsonPropertyName("pendingDeviceCount")]
+    public int? PendingDeviceCount { get; set; }
 
-    [JsonPropertyName("remediatedDeviceCount")]
-    public int? RemediatedDeviceCount { get; set; }
-
-    [JsonPropertyName("setting")]
-    public string? Setting { get; set; }
+    [JsonPropertyName("policyType")]
+    public string? PolicyType { get; set; }
 
     [JsonPropertyName("settingName")]
     public string? SettingName { get; set; }
 
-    [JsonPropertyName("unknownDeviceCount")]
-    public int? UnknownDeviceCount { get; set; }
+    [JsonPropertyName("succeededDeviceCount")]
+    public int? SucceededDeviceCount { get; set; }
+
+    [JsonPropertyName("tenantDisplayName")]
+    public string? TenantDisplayName { get; set; }
+
+    [JsonPropertyName("tenantId")]
+    public string? TenantId { get; set; }
 }

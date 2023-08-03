@@ -20,7 +20,4 @@ internal enum ModalityConstant
 
     [Description("Data")]
     @data,
-
-    [Description("ScreenSharing")]
-    @screenSharing,
 }

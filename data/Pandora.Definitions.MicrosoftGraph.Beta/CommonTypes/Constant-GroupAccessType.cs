@@ -7,11 +7,17 @@ using System.ComponentModel;
 namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
-internal enum DataSourceContainerStatusConstant
+internal enum GroupAccessTypeConstant
 {
-    [Description("Active")]
-    @Active,
+    [Description("None")]
+    @none,
 
-    [Description("Released")]
-    @Released,
+    [Description("Private")]
+    @private,
+
+    [Description("Secret")]
+    @secret,
+
+    [Description("Public")]
+    @public,
 }
