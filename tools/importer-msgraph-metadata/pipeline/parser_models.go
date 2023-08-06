@@ -21,6 +21,8 @@ import (
    Schema leads to SchemaRefs and Schemas
 */
 
+const refPrefix = "#/components/schemas/"
+
 type Models map[string]*Model
 
 // Found returns true when the provided modelName was found in the Models map
@@ -282,10 +284,11 @@ func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 	models = make(Models)
 	for modelName, schemaRef := range schemas {
 		name := cleanName(modelName)
-		if schema := parseSchemaRef(schemaRef); schema != nil {
-			var f flattenedSchema
-			f, _ = flattenSchema(schema, nil)
-			models = parseSchemas(f, name, models, true)
+		if schemaRef.Value != nil {
+			var f *flattenedSchema
+			if f, _ = flattenSchemaRef(schemaRef, nil); f != nil {
+				models = parseSchemas(*f, name, models, true)
+			}
 		}
 	}
 
@@ -300,16 +303,26 @@ type flattenedSchema struct {
 	Enum    []interface{}
 }
 
-// flattenSchema attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
+// flattenSchemaRef attempts to recursively parse and flatten the provided *openapi3.Schema and returns a flattenedSchema
 // which is much more convenient to inspect for types. The returned map[string]bool is used when recursing to track
 // Refs which have been observed in order to avoid infinite recursion, and is usually not interesting to the caller.
-func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattenedSchema, map[string]bool) {
+func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (*flattenedSchema, map[string]bool) {
 	if seenRefs == nil {
 		seenRefs = make(map[string]bool)
 	}
 
-	schemas := make(openapi3.Schemas, 0)
+	if schemaRef.Value == nil {
+		return nil, seenRefs
+	}
+
 	title := ""
+	titleFromRef := false
+	if strings.HasPrefix(schemaRef.Ref, refPrefix) {
+		title = strings.Title(cleanName(schemaRef.Ref[21:]))
+		titleFromRef = true
+	}
+	schema := schemaRef.Value
+	schemas := make(openapi3.Schemas, 0)
 	typ := ""
 	format := ""
 	enum := make([]interface{}, 0)
@@ -322,13 +335,16 @@ func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattened
 				}
 			}
 			seenRefs[r.Ref] = true
+			if title == "" && strings.HasPrefix(r.Ref, refPrefix) {
+				title = strings.Title(cleanName(r.Ref[21:]))
+			}
 		}
 
-		if s := parseSchemaRef(r); s != nil {
-			var result flattenedSchema
-			result, seenRefs = flattenSchema(s, seenRefs)
-			if result.Title != "" {
-				title = result.Title
+		if r.Value != nil {
+			var result *flattenedSchema
+			result, seenRefs = flattenSchemaRef(r, seenRefs)
+			if title == "" && result.Title != "" {
+				title = strings.Title(cleanName(result.Title))
 			}
 			if result.Type != "" {
 				typ = result.Type
@@ -353,12 +369,17 @@ func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattened
 						}
 					}
 					seenRefs[r.Ref] = true
+					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
+						title = strings.Title(cleanName(r.Ref[21:]))
+						titleFromRef = true
+					}
 				}
-				if s := parseSchemaRef(r); s != nil {
-					var result flattenedSchema
-					result, seenRefs = flattenSchema(s, seenRefs)
-					if result.Title != "" {
-						title = result.Title
+
+				if r.Value != nil {
+					var result *flattenedSchema
+					result, seenRefs = flattenSchemaRef(r, seenRefs)
+					if !titleFromRef && result.Title != "" {
+						title = strings.Title(cleanName(result.Title))
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -385,13 +406,17 @@ func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattened
 						}
 					}
 					seenRefs[r.Ref] = true
+					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
+						title = strings.Title(cleanName(r.Ref[21:]))
+						titleFromRef = true
+					}
 				}
 
-				if s := parseSchemaRef(r); s != nil {
-					var result flattenedSchema
-					result, seenRefs = flattenSchema(s, seenRefs)
-					if result.Title != "" {
-						title = result.Title
+				if r.Value != nil {
+					var result *flattenedSchema
+					result, seenRefs = flattenSchemaRef(r, seenRefs)
+					if !titleFromRef && result.Title != "" {
+						title = strings.Title(cleanName(result.Title))
 					}
 					if typ == "" && result.Type != "" {
 						typ = result.Type
@@ -410,8 +435,9 @@ func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattened
 		}
 	}
 
+	// TODO: may need to prefer innermost title
 	if schema.Title != "" {
-		title = schema.Title
+		title = strings.Title(cleanName(schema.Title))
 	}
 
 	// prefer the innermost type
@@ -438,7 +464,7 @@ func flattenSchema(schema *openapi3.Schema, seenRefs map[string]bool) (flattened
 		schemas = nil
 	}
 
-	return flattenedSchema{
+	return &flattenedSchema{
 		Schemas: schemas,
 		Title:   title,
 		Type:    typ,
@@ -456,61 +482,60 @@ func parseSchemaRef(schemaRef *openapi3.SchemaRef) *openapi3.Schema {
 
 // parseSchemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
 // marking it as a common model. The provided Models (map[string]Model) is mutated to append the new model and its fields.
+// Fields having the type of another model are parsed recursively to extract all known models that may not be directly
+// referenced in the root schema.
 func parseSchemas(input flattenedSchema, modelName string, models Models, common bool) Models {
 	if _, ok := models[modelName]; ok {
 		return models
 	}
+
 	model := Model{
 		Fields: make(map[string]*ModelField),
 		Common: common,
 	}
+
+	// Add to models map before descending, to prevent recursion
 	models[modelName] = &model
 
 	for jsonField, schemaRef := range input.Schemas {
-		schema := parseSchemaRef(schemaRef)
-		result, _ := flattenSchema(schema, nil)
-		title := ""
-
-		if result.Title != "" {
-			title = strings.Title(result.Title)
-		} else {
-			title = strings.Title(jsonField)
-		}
-
-		field := ModelField{
-			Title:       title,
-			Description: schema.Description,
-			Default:     schema.Default,
-			Enum:        parseEnum(schema.Enum),
-			JsonField:   jsonField,
-		}
-
-		if len(field.Enum) == 0 && len(result.Enum) > 0 {
-			field.Enum = parseEnum(result.Enum)
-		}
-
-		if result.Schemas != nil {
-			if _, ok := models[title]; !ok {
-				models = parseSchemas(result, title, models, common)
+		if schema := schemaRef.Value; schema != nil {
+			field := ModelField{
+				Title:       strings.Title(jsonField),
+				Description: schema.Description,
+				Default:     schema.Default,
+				Enum:        parseEnum(schema.Enum),
+				JsonField:   jsonField,
 			}
-			field.ModelName = &title
-		}
 
-		if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
-			field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
-		}
+			result, _ := flattenSchemaRef(schemaRef, nil)
 
-		if schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
-			field.Type = fieldType(result.Type, result.Format, field.ModelName != nil)
-		} else {
-			field.Type = fieldType(schema.Type, schema.Format, field.ModelName != nil)
-		}
+			if result != nil && len(result.Enum) > 0 && len(field.Enum) == 0 {
+				field.Enum = parseEnum(result.Enum)
+			}
 
-		if field.Type != nil && *field.Type == DataTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
-			field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
-		}
+			if result != nil && result.Title != "" && result.Schemas != nil {
+				if _, ok := models[result.Title]; !ok {
+					models = parseSchemas(*result, result.Title, models, common)
+				}
+				field.ModelName = &result.Title
+			}
 
-		model.Fields[cleanName(jsonField)] = &field
+			if schema.Items != nil && schema.Items.Value != nil && schema.Items.Value.Type != "" {
+				field.ItemType = fieldType(schema.Items.Value.Type, schema.Items.Value.Format, field.ModelName != nil)
+			}
+
+			if result != nil && schema.Type == "" && schema.Format == "" && (result.Type != "" || result.Format != "") {
+				field.Type = fieldType(result.Type, result.Format, field.ModelName != nil)
+			} else {
+				field.Type = fieldType(schema.Type, schema.Format, field.ModelName != nil)
+			}
+
+			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
+				field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
+			}
+
+			model.Fields[cleanName(jsonField)] = &field
+		}
 	}
 
 	return models

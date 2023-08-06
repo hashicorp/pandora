@@ -133,26 +133,31 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
-							if s := parseSchemaRef(m.Schema); s != nil {
-								f, _ := flattenSchema(s, nil)
-
-								if f.Format == "binary" {
-									responseType = pointerTo(DataTypeBinary)
-									break
-								}
-
-								if title := f.Title; title != "" || f.Type != "" {
-									if strings.HasPrefix(strings.ToLower(title), "collection of ") {
-										title = title[14:]
-										listOperation = true
+							if strings.HasPrefix(m.Schema.Ref, refPrefix) {
+								modelName := cleanName(m.Schema.Ref[21:])
+								responseModel = &modelName
+							} else if m.Schema != nil {
+								if f, _ := flattenSchemaRef(m.Schema, nil); f != nil {
+									if f.Format == "binary" {
+										responseType = pointerTo(DataTypeBinary)
+										break
 									}
 
-									if modelName := cleanName(title); models.Found(modelName) {
-										responseModel = &modelName
-									}
+									if title := f.Title; title != "" || f.Type != "" {
+										if strings.HasPrefix(strings.ToLower(title), "collection of ") {
+											title = title[14:]
+											listOperation = true
+										}
 
-									if l := fieldType(f.Type, title, responseModel != nil); l != nil {
-										responseType = l
+										if title != "" {
+											if modelName := cleanName(title); models.Found(modelName) {
+												responseModel = &modelName
+											}
+										}
+
+										if l := fieldType(f.Type, title, responseModel != nil); l != nil {
+											responseType = l
+										}
 									}
 								}
 							}
@@ -228,27 +233,33 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
 				for contentType, content := range operation.RequestBody.Value.Content {
 					if content.Schema != nil {
-						schema, _ := flattenSchema(content.Schema.Value, nil)
+						if schema, _ := flattenSchemaRef(content.Schema, nil); schema != nil {
+							if strings.ToLower(schema.Format) == "binary" {
+								requestType = pointerTo(DataTypeBinary)
+								break
+							}
 
-						if strings.ToLower(schema.Format) == "binary" {
-							requestType = pointerTo(DataTypeBinary)
-							break
-						}
-
-						if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
-							var modelName string
-							if schema.Title != "" {
-								// Should be a known model
-								if modelName = cleanName(schema.Title); models.Found(modelName) {
+							if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
+								var modelName string
+								if strings.HasPrefix(content.Schema.Ref, refPrefix) {
+									// Should be a known model
+									if modelName = cleanName(content.Schema.Ref[21:]); models.Found(modelName) {
+										requestModel = &modelName
+										break
+									}
+								} else if schema.Title != "" {
+									// Should be a known model
+									if modelName = cleanName(schema.Title); models.Found(modelName) {
+										requestModel = &modelName
+										break
+									}
+								} else if len(schema.Schemas) > 0 {
+									// Unique object for this operation
+									modelName = fmt.Sprintf("%sRequest", operationName)
+									models = parseSchemas(*schema, modelName, models, false)
 									requestModel = &modelName
 									break
 								}
-							} else if len(schema.Schemas) > 0 {
-								// Unique object for this operation
-								modelName = fmt.Sprintf("%sRequest", operationName)
-								models = parseSchemas(schema, modelName, models, false)
-								requestModel = &modelName
-								break
 							}
 						}
 					}
