@@ -130,13 +130,17 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 					}
 
 					if resp.Value != nil && len(resp.Value.Content) > 0 {
+						if resp.Value.Description != nil && strings.Contains(strings.ToLower(*resp.Value.Description), "collection") {
+							listOperation = true
+						}
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
 							if strings.HasPrefix(m.Schema.Ref, refPrefix) {
 								modelName := cleanName(m.Schema.Ref[len(refPrefix):])
 								responseModel = &modelName
-							} else if m.Schema != nil {
+							}
+							if m.Schema != nil {
 								if f, _ := flattenSchemaRef(m.Schema, nil); f != nil {
 									if f.Format == "binary" {
 										responseType = pointerTo(DataTypeBinary)
@@ -144,12 +148,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 									}
 
 									if title := f.Title; title != "" || f.Type != "" {
-										if strings.HasPrefix(strings.ToLower(title), "collection of ") {
-											title = title[14:]
+										if strings.HasPrefix(title, "CollectionOf") {
+											title = title[12:]
 											listOperation = true
 										}
 
-										if title != "" {
+										if responseModel == nil && title != "" {
 											if modelName := cleanName(title); models.Found(modelName) {
 												responseModel = &modelName
 											}
