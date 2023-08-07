@@ -28,5 +28,5 @@ internal abstract class AutoMLVerticalModel
 
     [JsonPropertyName("trainingData")]
     [Required]
-    public JobInputModel TrainingData { get; set; }
+    public MLTableJobInputModel TrainingData { get; set; }
 }

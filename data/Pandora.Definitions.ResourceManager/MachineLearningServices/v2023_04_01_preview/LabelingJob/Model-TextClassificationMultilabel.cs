@@ -34,5 +34,5 @@ internal class TextClassificationMultilabelModel : AutoMLVerticalModel
     public NlpSweepSettingsModel? SweepSettings { get; set; }
 
     [JsonPropertyName("validationData")]
-    public JobInputModel? ValidationData { get; set; }
+    public MLTableJobInputModel? ValidationData { get; set; }
 }

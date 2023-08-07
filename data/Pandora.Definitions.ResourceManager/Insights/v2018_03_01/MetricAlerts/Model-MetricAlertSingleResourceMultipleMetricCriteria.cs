@@ -16,5 +16,5 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2018_03_01.MetricAlerts;
 internal class MetricAlertSingleResourceMultipleMetricCriteriaModel : MetricAlertCriteriaModel
 {
     [JsonPropertyName("allOf")]
-    public List<MultiMetricCriteriaModel>? AllOf { get; set; }
+    public List<MetricCriteriaModel>? AllOf { get; set; }
 }

@@ -17,5 +17,5 @@ internal class IncidentAlertListModel
 {
     [JsonPropertyName("value")]
     [Required]
-    public List<EntityModel> Value { get; set; }
+    public List<SecurityAlertModel> Value { get; set; }
 }

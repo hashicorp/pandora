@@ -17,5 +17,5 @@ internal class ImportDataActionModel : ScheduleActionBaseModel
 {
     [JsonPropertyName("dataImportDefinition")]
     [Required]
-    public DataVersionBaseModel DataImportDefinition { get; set; }
+    public DataImportModel DataImportDefinition { get; set; }
 }

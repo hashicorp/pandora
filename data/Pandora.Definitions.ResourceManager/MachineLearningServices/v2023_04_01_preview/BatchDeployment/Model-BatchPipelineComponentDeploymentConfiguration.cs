@@ -16,7 +16,7 @@ namespace Pandora.Definitions.ResourceManager.MachineLearningServices.v2023_04_0
 internal class BatchPipelineComponentDeploymentConfigurationModel : BatchDeploymentConfigurationModel
 {
     [JsonPropertyName("componentId")]
-    public AssetReferenceBaseModel? ComponentId { get; set; }
+    public IdAssetReferenceModel? ComponentId { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
