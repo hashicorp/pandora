@@ -409,7 +409,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 	// if this is a Discriminated Type (e.g. Parent) then we need to generate a unmarshal{Name}Implementations
 	// function which can be used in any usages
 	lines := make([]string, 0)
-	if c.model.TypeHintIn != nil && c.model.ParentTypeName == nil {
+	if c.model.IsDiscriminatedParentType() {
 		modelsImplementingThisClass := make([]string, 0)
 		for modelName, model := range data.models {
 			if model.ParentTypeName == nil || model.TypeHintIn == nil || model.TypeHintValue == nil || modelName == c.name {
@@ -486,7 +486,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 
 func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorData) (*string, error) {
 	// this is a parent, therefore there'll be no struct fields to check here
-	if c.model.TypeHintIn != nil && c.model.TypeHintValue == nil && c.model.ParentTypeName == nil {
+	if c.model.IsDiscriminatedParentType() {
 		out := ""
 		return &out, nil
 	}
@@ -500,7 +500,7 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 		topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
 		if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 			model, ok := data.models[*topLevelObject.ReferenceName]
-			if ok && model.TypeHintIn != nil {
+			if ok && model.IsDiscriminatedParentType() {
 				fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
 				continue
 			}
@@ -518,7 +518,7 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 			topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
 			if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
 				model, ok := data.models[*topLevelObject.ReferenceName]
-				if ok && model.TypeHintIn != nil {
+				if ok && model.IsDiscriminatedParentType() {
 					fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
 					continue
 				}

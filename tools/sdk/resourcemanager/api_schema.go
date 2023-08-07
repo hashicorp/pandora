@@ -72,6 +72,14 @@ type ModelDetails struct {
 	TypeHintValue *string `json:"typeHintValue"`
 }
 
+func (m ModelDetails) IsDiscriminatedParentType() bool {
+	return m.ParentTypeName == nil && m.TypeHintIn != nil && m.TypeHintValue == nil
+}
+
+func (m ModelDetails) IsDiscriminatedImplType() bool {
+	return m.ParentTypeName != nil && m.TypeHintIn != nil && m.TypeHintValue != nil
+}
+
 type FieldDetails struct {
 	// Default is an optional value which should be used as the default for this field
 	Default *interface{} `json:"default"`
