@@ -25,5 +25,5 @@ internal class TextNerModel : AutoMLVerticalModel
     public ClassificationPrimaryMetricsConstant? PrimaryMetric { get; set; }
 
     [JsonPropertyName("validationData")]
-    public JobInputModel? ValidationData { get; set; }
+    public MLTableJobInputModel? ValidationData { get; set; }
 }

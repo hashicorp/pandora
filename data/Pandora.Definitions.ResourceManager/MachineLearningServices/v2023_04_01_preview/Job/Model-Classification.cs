@@ -43,7 +43,7 @@ internal class ClassificationModel : AutoMLVerticalModel
     public TableSweepSettingsModel? SweepSettings { get; set; }
 
     [JsonPropertyName("testData")]
-    public JobInputModel? TestData { get; set; }
+    public MLTableJobInputModel? TestData { get; set; }
 
     [JsonPropertyName("testDataSize")]
     public float? TestDataSize { get; set; }
@@ -52,7 +52,7 @@ internal class ClassificationModel : AutoMLVerticalModel
     public ClassificationTrainingSettingsModel? TrainingSettings { get; set; }
 
     [JsonPropertyName("validationData")]
-    public JobInputModel? ValidationData { get; set; }
+    public MLTableJobInputModel? ValidationData { get; set; }
 
     [JsonPropertyName("validationDataSize")]
     public float? ValidationDataSize { get; set; }

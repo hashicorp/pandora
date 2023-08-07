@@ -23,7 +23,7 @@ internal class LabelingJobResourceModel
 
     [JsonPropertyName("properties")]
     [Required]
-    public JobBaseModel Properties { get; set; }
+    public LabelingJobModel Properties { get; set; }
 
     [JsonPropertyName("systemData")]
     public CustomTypes.SystemData? SystemData { get; set; }

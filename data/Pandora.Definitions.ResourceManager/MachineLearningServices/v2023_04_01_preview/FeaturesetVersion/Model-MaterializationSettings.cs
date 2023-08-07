@@ -22,7 +22,7 @@ internal class MaterializationSettingsModel
     public MaterializationComputeResourceModel? Resource { get; set; }
 
     [JsonPropertyName("schedule")]
-    public TriggerBaseModel? Schedule { get; set; }
+    public RecurrenceTriggerModel? Schedule { get; set; }
 
     [JsonPropertyName("sparkConfiguration")]
     public Dictionary<string, string>? SparkConfiguration { get; set; }

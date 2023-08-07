@@ -31,7 +31,7 @@ internal class RegressionModel : AutoMLVerticalModel
     public RegressionPrimaryMetricsConstant? PrimaryMetric { get; set; }
 
     [JsonPropertyName("testData")]
-    public JobInputModel? TestData { get; set; }
+    public MLTableJobInputModel? TestData { get; set; }
 
     [JsonPropertyName("testDataSize")]
     public float? TestDataSize { get; set; }
@@ -40,7 +40,7 @@ internal class RegressionModel : AutoMLVerticalModel
     public RegressionTrainingSettingsModel? TrainingSettings { get; set; }
 
     [JsonPropertyName("validationData")]
-    public JobInputModel? ValidationData { get; set; }
+    public MLTableJobInputModel? ValidationData { get; set; }
 
     [JsonPropertyName("validationDataSize")]
     public float? ValidationDataSize { get; set; }

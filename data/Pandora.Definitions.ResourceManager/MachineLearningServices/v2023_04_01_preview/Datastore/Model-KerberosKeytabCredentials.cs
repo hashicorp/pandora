@@ -29,5 +29,5 @@ internal class KerberosKeytabCredentialsModel : DatastoreCredentialsModel
 
     [JsonPropertyName("secrets")]
     [Required]
-    public DatastoreSecretsModel Secrets { get; set; }
+    public KerberosKeytabSecretsModel Secrets { get; set; }
 }

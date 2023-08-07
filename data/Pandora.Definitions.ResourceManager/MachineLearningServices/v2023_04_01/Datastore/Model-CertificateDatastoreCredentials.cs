@@ -27,7 +27,7 @@ internal class CertificateDatastoreCredentialsModel : DatastoreCredentialsModel
 
     [JsonPropertyName("secrets")]
     [Required]
-    public DatastoreSecretsModel Secrets { get; set; }
+    public CertificateDatastoreSecretsModel Secrets { get; set; }
 
     [JsonPropertyName("tenantId")]
     [Required]
