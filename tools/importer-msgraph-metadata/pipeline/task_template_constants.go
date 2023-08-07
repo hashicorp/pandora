@@ -47,10 +47,12 @@ func (p pipelineTask) templateConstantsForService(resources Resources, models Mo
 			}
 
 			for _, field := range model.Fields {
-				namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
-				filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, fmt.Sprintf("Constant-%s.cs", field.Title))
-				if _, seen := constantFiles[filename]; ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(field.Enum) > 0 && !seen {
-					constantFiles[filename] = templateConstant(namespace, field)
+				if field.ConstantName != nil {
+					namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
+					filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, fmt.Sprintf("Constant-%s.cs", *field.ConstantName))
+					if _, seen := constantFiles[filename]; !seen {
+						constantFiles[filename] = templateConstant(namespace, *field.ConstantName, field)
+					}
 				}
 			}
 		}
@@ -75,10 +77,12 @@ func templateCommonConstants(files *Tree, commonTypesDirectoryName, apiVersion s
 		}
 
 		for _, field := range model.Fields {
-			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(apiVersion), commonTypesDirectoryName)
-			filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(apiVersion)), commonTypesDirectoryName, fmt.Sprintf("Constant-%s.cs", field.Title))
-			if _, seen := constantFiles[filename]; ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(field.Enum) > 0 && !seen {
-				constantFiles[filename] = templateConstant(namespace, field)
+			if field.ConstantName != nil {
+				namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(apiVersion), commonTypesDirectoryName)
+				filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(apiVersion)), commonTypesDirectoryName, fmt.Sprintf("Constant-%s.cs", *field.ConstantName))
+				if _, seen := constantFiles[filename]; !seen {
+					constantFiles[filename] = templateConstant(namespace, *field.ConstantName, field)
+				}
 			}
 		}
 	}
@@ -93,7 +97,7 @@ func templateCommonConstants(files *Tree, commonTypesDirectoryName, apiVersion s
 	return nil
 }
 
-func templateConstant(namespace string, field *ModelField) string {
+func templateConstant(namespace string, constantName string, field *ModelField) string {
 	valuesCode := make([]string, 0, len(field.Enum))
 	for _, enumValue := range field.Enum {
 		val := []string{
@@ -116,5 +120,5 @@ internal enum %[2]sConstant
 {
 %[3]s
 }
-`, namespace, field.Title, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
+`, namespace, constantName, indentSpace(strings.Join(valuesCode, "\n\n"), 4))
 }

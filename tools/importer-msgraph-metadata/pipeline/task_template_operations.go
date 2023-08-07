@@ -140,7 +140,7 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	contentTypeCode := ""
 	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
@@ -164,15 +164,15 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 		responseObjectCode = fmt.Sprintf("typeof(%s)", *responseType)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
 %[2]s
 using System.Collections.Generic;
 using System.Net;
 using System;
-
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
 
 namespace %[1]s;
 
@@ -202,7 +202,7 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	contentTypeCode := ""
 	if contentType != nil && !strings.HasPrefix(*contentType, "application/json") {
@@ -231,15 +231,15 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 		responseObjectCode = fmt.Sprintf("typeof(%sModel)", *responseModel)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
 %[2]s
 using System.Collections.Generic;
 using System.Net;
 using System;
-
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
 
 namespace %[1]s;
 
@@ -265,7 +265,7 @@ func templateDeleteOperation(namespace string, operation *Operation, statuses []
 		statusEnums[i] = csHttpStatusCode(code)
 	}
 
-	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 16)
+	expectedStatusesCode := indentSpace(strings.Join(statusEnums, ",\n"), 12)
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
@@ -277,13 +277,13 @@ func templateDeleteOperation(namespace string, operation *Operation, statuses []
 		uriSuffixCode = fmt.Sprintf(`"%s"`, *operation.UriSuffix)
 	}
 
-	return fmt.Sprintf(`using Pandora.Definitions.CustomTypes;
+	return fmt.Sprintf(`// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.CustomTypes;
 using Pandora.Definitions.Interfaces;
 using System.Collections.Generic;
 using System.Net;
-
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
 
 namespace %[1]s;
 

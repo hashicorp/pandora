@@ -22,14 +22,20 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				break
 			}
 		}
-		if skip {
-			continue
-		}
 
 		parsedPath := NewResourceId(path, operationTags)
 		lastSegment := parsedPath.Segments[len(parsedPath.Segments)-1]
-		if lastSegment.Type == SegmentCast || lastSegment.Type == SegmentFunction {
-			p.logger.Info(fmt.Sprintf("skipping path containing cast or function for %q: %v", p.service, path))
+
+		// Determine whether to skip a path containing unsupported segment types
+		for idx, segment := range parsedPath.Segments {
+			if segment.Type == SegmentCast || segment.Type == SegmentFunction {
+				p.logger.Info(fmt.Sprintf("skipping path containing cast or function at position %d for %q: %v", idx, p.service, path))
+				skip = true
+				break
+			}
+		}
+
+		if skip {
 			continue
 		}
 
@@ -127,26 +133,31 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
-							if s := parseSchemaRef(m.Schema); s != nil {
-								f, _ := flattenSchema(s, nil)
-
-								if f.Format == "binary" {
-									responseType = pointerTo(DataTypeBinary)
-									break
-								}
-
-								if title := f.Title; title != "" || f.Type != "" {
-									if strings.HasPrefix(strings.ToLower(title), "collection of ") {
-										title = title[14:]
-										listOperation = true
+							if strings.HasPrefix(m.Schema.Ref, refPrefix) {
+								modelName := cleanName(m.Schema.Ref[len(refPrefix):])
+								responseModel = &modelName
+							} else if m.Schema != nil {
+								if f, _ := flattenSchemaRef(m.Schema, nil); f != nil {
+									if f.Format == "binary" {
+										responseType = pointerTo(DataTypeBinary)
+										break
 									}
 
-									if modelName := cleanName(title); models.Found(modelName) {
-										responseModel = &modelName
-									}
+									if title := f.Title; title != "" || f.Type != "" {
+										if strings.HasPrefix(strings.ToLower(title), "collection of ") {
+											title = title[14:]
+											listOperation = true
+										}
 
-									if l := fieldType(f.Type, title, responseModel != nil); l != nil {
-										responseType = l
+										if title != "" {
+											if modelName := cleanName(title); models.Found(modelName) {
+												responseModel = &modelName
+											}
+										}
+
+										if l := fieldType(f.Type, title, responseModel != nil); l != nil {
+											responseType = l
+										}
 									}
 								}
 							}
@@ -222,27 +233,33 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			if operation.RequestBody != nil && operation.RequestBody.Value != nil {
 				for contentType, content := range operation.RequestBody.Value.Content {
 					if content.Schema != nil {
-						schema, _ := flattenSchema(content.Schema.Value, nil)
+						if schema, _ := flattenSchemaRef(content.Schema, nil); schema != nil {
+							if strings.ToLower(schema.Format) == "binary" {
+								requestType = pointerTo(DataTypeBinary)
+								break
+							}
 
-						if strings.ToLower(schema.Format) == "binary" {
-							requestType = pointerTo(DataTypeBinary)
-							break
-						}
-
-						if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
-							var modelName string
-							if schema.Title != "" {
-								// Should be a known model
-								if modelName = cleanName(schema.Title); models.Found(modelName) {
+							if strings.HasPrefix(strings.ToLower(contentType), "application/json") {
+								var modelName string
+								if strings.HasPrefix(content.Schema.Ref, refPrefix) {
+									// Should be a known model
+									if modelName = cleanName(content.Schema.Ref[len(refPrefix):]); models.Found(modelName) {
+										requestModel = &modelName
+										break
+									}
+								} else if schema.Title != "" {
+									// Should be a known model
+									if modelName = cleanName(schema.Title); models.Found(modelName) {
+										requestModel = &modelName
+										break
+									}
+								} else if len(schema.Schemas) > 0 {
+									// Unique object for this operation
+									modelName = fmt.Sprintf("%sRequest", operationName)
+									models = parseSchemas(*schema, modelName, models, false)
 									requestModel = &modelName
 									break
 								}
-							} else if len(schema.Schemas) > 0 {
-								// Unique object for this operation
-								modelName = fmt.Sprintf("%sRequest", operationName)
-								models = parseSchemas(schema, modelName, models, false)
-								requestModel = &modelName
-								break
 							}
 						}
 					}
@@ -277,10 +294,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			for _, path := range resource.Paths {
 				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentLabel}, -1); trimmedPath != nil {
 					for _, parentResource := range resources {
-						for _, parentPath := range parentResource.Paths {
-							if parentPath.ID() == trimmedPath.ID() {
-								resource.Category = parentResource.Category
-								break
+						if parentResource.Category != "" {
+							for _, parentPath := range parentResource.Paths {
+								if parentPath.ID() == trimmedPath.ID() {
+									resource.Category = parentResource.Category
+									break
+								}
 							}
 						}
 					}

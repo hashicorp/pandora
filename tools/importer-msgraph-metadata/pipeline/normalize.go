@@ -71,7 +71,7 @@ func deDuplicate(name string) string {
 }
 
 func cleanName(name string) string {
-	name = strings.Title(strings.TrimPrefix(name, "microsoft.graph."))
+	name = strings.Title(strings.TrimPrefix(name, "microsoft.graph"))
 	name = regexp.MustCompile("[.]").ReplaceAllString(name, "_")
 	name = regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(name, "")
 	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
@@ -156,6 +156,7 @@ var verbs = operationVerbs{
 	"Check",
 	"Discover",
 	"Get",
+	"Instantiate",
 	"Parse",
 	"Pause",
 	"Provision",

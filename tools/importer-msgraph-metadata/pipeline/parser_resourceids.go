@@ -106,8 +106,18 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 			newName := cleanName(segment.Value)
 			shouldSingularize := false
 
+			// Singularize all labels by default
 			if segment.Type == SegmentLabel {
 				shouldSingularize = true
+			}
+
+			// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
+			// Example: in the following ID, we want to _not_ singularize the `jobs` label
+			//          /applications/{applicationId}/synchronization/jobs/validateCredentials
+			if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
+				if _, ok := verbs.match(cleanName(r.Segments[i+1].Value)); ok {
+					shouldSingularize = false
+				}
 			}
 
 			// $count indicates a plural entity whereas $ref does not
@@ -115,6 +125,7 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 				shouldSingularize = false
 			}
 
+			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
 			if v, ok := verbs.match(newName); ok && verb == "" {
 				verb = *v
 				newName = newName[len(verb):]
@@ -160,14 +171,18 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		}
 	}
 
+	// Note we're working backwards through the segments, starting at the end
 	for j := idx; j >= 0; j-- {
 		segment := r.Segments[j]
 		if segment.Type == SegmentAction || segment.Type == SegmentLabel || segment.Type == SegmentODataReference {
 			r2.Segments = append([]ResourceIdSegment{segment}, r2.Segments...)
 
-			// Hop over a SegmentUserValue if we only have an action or ref, to prevent unqualified resource names like "Stop" or "Ref"
+			// Hop over a SegmentUserValue if we only have an action or ref, to prevent unqualified resource names like "Stop" or "Ref",
+			// however also include the SegmentUserValue in the shortened ResourceId so that FullyQualifiedResourceName() can determine plurality
+			// Example: /applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/validateCredentials
 			if (segment.Type == SegmentAction || segment.Type == SegmentODataReference) && j > 0 {
 				if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
+					r2.Segments = append([]ResourceIdSegment{precedingSegment}, r2.Segments...)
 					j--
 				}
 			}
