@@ -82,17 +82,19 @@ func (m Models) Merge(m2 Models) {
 type Model struct {
 	Fields map[string]*ModelField
 	Common bool
+	Prefix string
 }
 
 type ModelField struct {
-	Title       string
-	Type        *DataType
-	Description string
-	Default     interface{}
-	Enum        []string
-	ItemType    *DataType
-	ModelName   *string
-	JsonField   string
+	Title        string
+	Type         *DataType
+	Description  string
+	Default      interface{}
+	Enum         []string
+	ItemType     *DataType
+	ConstantName *string
+	ModelName    *string
+	JsonField    string
 }
 
 // CSType returns a string containing the C# type name for the ModelField, either describing it as a literal type, a
@@ -115,8 +117,8 @@ func (f ModelField) CSType() *string {
 			return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
 		}
 
-		if f.Title != "" && len(f.Enum) > 0 {
-			return pointerTo(fmt.Sprintf("List<%sConstant>", f.Title))
+		if f.ConstantName != nil {
+			return pointerTo(fmt.Sprintf("List<%sConstant>", *f.ConstantName))
 		}
 
 		if f.ItemType != nil {
@@ -128,8 +130,8 @@ func (f ModelField) CSType() *string {
 		return nil
 
 	case DataTypeString:
-		if f.Title != "" && len(f.Enum) > 0 {
-			return pointerTo(fmt.Sprintf("%sConstant", f.Title))
+		if f.ConstantName != nil {
+			return pointerTo(fmt.Sprintf("%sConstant", *f.ConstantName))
 		}
 	}
 
@@ -297,6 +299,7 @@ func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 
 type flattenedSchema struct {
 	Schemas openapi3.Schemas
+	Prefix  string
 	Title   string
 	Type    string
 	Format  string
@@ -315,10 +318,15 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 		return nil, seenRefs
 	}
 
+	prefix := ""
 	title := ""
 	titleFromRef := false
 	if strings.HasPrefix(schemaRef.Ref, refPrefix) {
-		title = strings.Title(cleanName(schemaRef.Ref[21:]))
+		ref := schemaRef.Ref[len(refPrefix):]
+		if i := strings.LastIndex(ref, "."); i > 0 {
+			prefix = strings.Title(cleanName(ref[0:i]))
+		}
+		title = strings.Title(cleanName(ref))
 		titleFromRef = true
 	}
 	schema := schemaRef.Value
@@ -336,7 +344,11 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 			}
 			seenRefs[r.Ref] = true
 			if title == "" && strings.HasPrefix(r.Ref, refPrefix) {
-				title = strings.Title(cleanName(r.Ref[21:]))
+				ref := r.Ref[len(refPrefix):]
+				if i := strings.LastIndex(ref, "."); i > 0 {
+					prefix = strings.Title(cleanName(ref[0:i]))
+				}
+				title = strings.Title(cleanName(ref))
 			}
 		}
 
@@ -370,7 +382,11 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					}
 					seenRefs[r.Ref] = true
 					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
-						title = strings.Title(cleanName(r.Ref[21:]))
+						ref := r.Ref[len(refPrefix):]
+						if i := strings.LastIndex(ref, "."); i > 0 {
+							prefix = strings.Title(cleanName(ref[0:i]))
+						}
+						title = strings.Title(cleanName(ref))
 						titleFromRef = true
 					}
 				}
@@ -407,7 +423,11 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 					}
 					seenRefs[r.Ref] = true
 					if !titleFromRef && strings.HasPrefix(r.Ref, refPrefix) {
-						title = strings.Title(cleanName(r.Ref[21:]))
+						ref := r.Ref[len(refPrefix):]
+						if i := strings.LastIndex(ref, "."); i > 0 {
+							prefix = strings.Title(cleanName(ref[0:i]))
+						}
+						title = strings.Title(cleanName(ref))
 						titleFromRef = true
 					}
 				}
@@ -466,18 +486,12 @@ func flattenSchemaRef(schemaRef *openapi3.SchemaRef, seenRefs map[string]bool) (
 
 	return &flattenedSchema{
 		Schemas: schemas,
+		Prefix:  prefix,
 		Title:   title,
 		Type:    typ,
 		Format:  format,
 		Enum:    enum,
 	}, seenRefs
-}
-
-func parseSchemaRef(schemaRef *openapi3.SchemaRef) *openapi3.Schema {
-	if schemaRef.Value != nil {
-		return schemaRef.Value
-	}
-	return nil
 }
 
 // parseSchemas inspects the provided flattenedSchema to parse out the fields for the provided modelName, optionally
@@ -492,6 +506,7 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 	model := Model{
 		Fields: make(map[string]*ModelField),
 		Common: common,
+		Prefix: input.Prefix,
 	}
 
 	// Add to models map before descending, to prevent recursion
@@ -505,6 +520,10 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 				Default:     schema.Default,
 				Enum:        parseEnum(schema.Enum),
 				JsonField:   jsonField,
+			}
+
+			if field.Title == "" {
+				continue
 			}
 
 			result, _ := flattenSchemaRef(schemaRef, nil)
@@ -532,6 +551,10 @@ func parseSchemas(input flattenedSchema, modelName string, models Models, common
 
 			if result != nil && field.Type != nil && *field.Type == DataTypeArray && len(field.Enum) > 0 && (result.Type != "" || result.Format != "") {
 				field.ItemType = fieldType(result.Type, result.Format, field.ModelName != nil)
+			}
+
+			if ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) && len(field.Enum) > 0 {
+				field.ConstantName = pointerTo(modelName + field.Title)
 			}
 
 			model.Fields[cleanName(jsonField)] = &field

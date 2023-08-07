@@ -134,7 +134,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 							contentType = &t
 
 							if strings.HasPrefix(m.Schema.Ref, refPrefix) {
-								modelName := cleanName(m.Schema.Ref[21:])
+								modelName := cleanName(m.Schema.Ref[len(refPrefix):])
 								responseModel = &modelName
 							} else if m.Schema != nil {
 								if f, _ := flattenSchemaRef(m.Schema, nil); f != nil {
@@ -243,7 +243,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 								var modelName string
 								if strings.HasPrefix(content.Schema.Ref, refPrefix) {
 									// Should be a known model
-									if modelName = cleanName(content.Schema.Ref[21:]); models.Found(modelName) {
+									if modelName = cleanName(content.Schema.Ref[len(refPrefix):]); models.Found(modelName) {
 										requestModel = &modelName
 										break
 									}
