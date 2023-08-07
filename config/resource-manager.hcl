@@ -536,7 +536,7 @@ service "videoanalyzer" {
 }
 service "vmware" {
   name      = "VMware"
-  available = ["2022-05-01"]
+  available = ["2022-05-01", "2023-03-01"]
 }
 service "voiceservices" {
   name      = "VoiceServices"
