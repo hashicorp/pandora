@@ -42,6 +42,7 @@ jobs:
           make build
           make import
         env:
+          PANDORA_LOG: WARN
           SERVICES: "applications,servicePrincipals"
 
       - name: then commit the diff
