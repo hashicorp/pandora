@@ -92,7 +92,7 @@ func templateListOperation(namespace, modelsNamespace string, operation *Operati
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 
 	uriSuffixCode := "null"
@@ -149,7 +149,7 @@ func templateReadOperation(namespace, modelsNamespace string, operation *Operati
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 
 	uriSuffixCode := "null"
@@ -211,7 +211,7 @@ func templateCreateUpdateOperation(namespace, modelsNamespace string, operation 
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 
 	uriSuffixCode := "null"
@@ -269,7 +269,7 @@ func templateDeleteOperation(namespace string, operation *Operation, statuses []
 
 	resourceIdCode := "null"
 	if operation.ResourceId != nil {
-		resourceIdCode = fmt.Sprintf(`new %sId()`, operation.ResourceId.Name)
+		resourceIdCode = fmt.Sprintf(`new %s()`, operation.ResourceId.Name)
 	}
 
 	uriSuffixCode := "null"

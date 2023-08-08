@@ -48,15 +48,6 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			continue
 		}
 
-		fullyQualifiedResourceName := ""
-		if fqrn, ok := parsedPath.FullyQualifiedResourceName(true); ok {
-			fullyQualifiedResourceName = *fqrn
-		}
-		if fullyQualifiedResourceName == "" {
-			p.logger.Warn(fmt.Sprintf("path with unknown fully-qualified name was encountered for %q: %v", p.service, path))
-			continue
-		}
-
 		// Resources by default go into their own category when their final URI segment is a label or user value
 		resourceCategory := ""
 		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
@@ -65,11 +56,11 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			}
 		}
 
-		if _, ok := resources[fullyQualifiedResourceName]; !ok {
+		if _, ok := resources[resourceName]; !ok {
 			// Create a new resource if not already encountered
 			p.logger.Info(fmt.Sprintf("found new resource %q (category %q, service %q, version %q)", resourceName, resourceCategory, p.service, p.apiVersion))
 
-			resources[fullyQualifiedResourceName] = &Resource{
+			resources[resourceName] = &Resource{
 				Name:       resourceName,
 				Category:   resourceCategory,
 				Version:    p.apiVersion,
@@ -79,7 +70,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			}
 		} else {
 			// Append the current path if the resource was already encountered (used for category matching later)
-			resources[fullyQualifiedResourceName].Paths = append(resources[fullyQualifiedResourceName].Paths, parsedPath)
+			resources[resourceName].Paths = append(resources[resourceName].Paths, parsedPath)
 		}
 
 		for method, operation := range operations {
@@ -205,7 +196,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			}
 
 			operationName := ""
-			shortResourceName := strings.TrimPrefix(resourceName, singularize(cleanName(p.service)))
+
+			prefixToTrim := singularize(cleanName(p.service))
+			if resourceId != nil && uriSuffix == nil {
+				prefixToTrim = fmt.Sprintf("%sById", prefixToTrim)
+			}
+			shortResourceName := strings.TrimPrefix(resourceName, prefixToTrim)
 
 			switch operationType {
 			case OperationTypeList:
@@ -234,10 +230,6 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				} else {
 					operationName = fmt.Sprintf("Delete%s", singularize(resourceName))
 				}
-			}
-
-			if resourceId != nil && uriSuffix == nil {
-				operationName = fmt.Sprintf("%sById", operationName)
 			}
 
 			// Determine request model
@@ -285,7 +277,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				}
 			}
 
-			resources[fullyQualifiedResourceName].Operations = append(resources[fullyQualifiedResourceName].Operations, Operation{
+			resources[resourceName].Operations = append(resources[resourceName].Operations, Operation{
 				Name:         operationName,
 				Type:         operationType,
 				Method:       method,
