@@ -40,7 +40,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		}
 
 		resourceName := ""
-		if r, ok := parsedPath.FindResourceName(); ok {
+		if r, ok := parsedPath.FullyQualifiedResourceName(true); ok {
 			resourceName = *r
 		}
 		if resourceName == "" {
@@ -49,7 +49,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		}
 
 		fullyQualifiedResourceName := ""
-		if fqrn, ok := parsedPath.FullyQualifiedResourceName(); ok {
+		if fqrn, ok := parsedPath.FullyQualifiedResourceName(true); ok {
 			fullyQualifiedResourceName = *fqrn
 		}
 		if fullyQualifiedResourceName == "" {
@@ -57,10 +57,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			continue
 		}
 
-		// Resources by default go into their own category when their final URI segment is a label
+		// Resources by default go into their own category when their final URI segment is a label or user value
 		resourceCategory := ""
 		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
-			resourceCategory = fullyQualifiedResourceName
+			if fqrn, ok := parsedPath.FullyQualifiedResourceName(false); ok {
+				resourceCategory = *fqrn
+			}
 		}
 
 		if _, ok := resources[fullyQualifiedResourceName]; !ok {
@@ -136,17 +138,25 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						for t, m := range resp.Value.Content {
 							contentType = &t
 
+							if strings.HasPrefix(strings.ToLower(t), "text/plain") {
+								continue
+							}
+
+							// Prefer model name from Ref
 							if strings.HasPrefix(m.Schema.Ref, refPrefix) {
 								modelName := cleanName(m.Schema.Ref[len(refPrefix):])
 								responseModel = &modelName
 							}
+
 							if m.Schema != nil {
+								// Flatten the response SchemaRef for inspection
 								if f, _ := flattenSchemaRef(m.Schema, nil); f != nil {
 									if f.Format == "binary" {
 										responseType = pointerTo(DataTypeBinary)
 										break
 									}
 
+									// Derive model and response type from title
 									if title := f.Title; title != "" || f.Type != "" {
 										if strings.HasPrefix(title, "CollectionOf") {
 											title = title[12:]
@@ -200,15 +210,15 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 			switch operationType {
 			case OperationTypeList:
 				if _, ok = verbs.match(shortResourceName); ok {
-					operationName = resourceName
+					operationName = pluralize(singularize(resourceName))
 				} else {
-					operationName = fmt.Sprintf("List%s", pluralize(resourceName))
+					operationName = fmt.Sprintf("List%s", pluralize(singularize(resourceName)))
 				}
 			case OperationTypeRead:
-				operationName = fmt.Sprintf("Get%s", resourceName)
+				operationName = fmt.Sprintf("Get%s", singularize(resourceName))
 			case OperationTypeCreate:
 				if _, ok = verbs.match(shortResourceName); ok {
-					operationName = resourceName
+					operationName = singularize(resourceName)
 				} else if lastSegment.Type == SegmentODataReference {
 					operationName = fmt.Sprintf("Add%s", singularize(resourceName))
 				} else {
@@ -220,15 +230,14 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 				operationName = fmt.Sprintf("Update%s", singularize(resourceName))
 			case OperationTypeDelete:
 				if lastSegment.Type == SegmentODataReference {
-					operationName = fmt.Sprintf("Remove%s", resourceName)
+					operationName = fmt.Sprintf("Remove%s", singularize(resourceName))
 				} else {
-					operationName = fmt.Sprintf("Delete%s", resourceName)
+					operationName = fmt.Sprintf("Delete%s", singularize(resourceName))
 				}
 			}
 
-			// Trim the "Ref" suffix from operation names
-			for _, s := range []string{"Ref", "Refs"} {
-				operationName = strings.TrimSuffix(operationName, s)
+			if resourceId != nil && uriSuffix == nil {
+				operationName = fmt.Sprintf("%sById", operationName)
 			}
 
 			// Determine request model
@@ -290,10 +299,10 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		}
 	}
 
-	// Look for resources without a category, then iterate the known paths of it and all potential parent resources
-	// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
-	// resource category of the matched parent to ensure they are grouped together.
 	for _, resource := range resources {
+		// Look for resources without a category, then iterate the known paths of it and all potential parent resources
+		// to find a match by truncating its path to the preceding label segment. Once a match is found, adopt the
+		// resource category of the matched parent to ensure they are grouped together.
 		if pathsLen := len(resource.Paths); resource.Category == "" && pathsLen > 0 {
 			for _, path := range resource.Paths {
 				if trimmedPath := path.TruncateToLastSegmentOfTypeBeforeSegment([]ResourceIdSegmentType{SegmentLabel}, -1); trimmedPath != nil {
@@ -308,6 +317,12 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						}
 					}
 				}
+			}
+		}
+
+		for _, operation := range resource.Operations {
+			if len(operation.Tags) > 1 {
+				fmt.Printf("%#v\n", operation.Tags)
 			}
 		}
 	}
