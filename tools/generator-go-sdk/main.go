@@ -35,7 +35,6 @@ func main() {
 
 		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
 		// for services/resources which are auto-generated
-		"Compute",
 		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
