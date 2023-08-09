@@ -154,6 +154,9 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification bool) (*strin
 		return nil, false
 	}
 
+	// TODO: it would be nice to do this but it's causing some clobbering issues
+	//name = deDuplicateName(name)
+
 	return &name, true
 }
 

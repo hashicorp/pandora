@@ -15,13 +15,15 @@ import (
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(metadataDirectory, openApiFilePattern, outputDirectory, commonTypesDirectoryName string) func() (cli.Command, error) {
+func NewImportCommand(metadataDirectory, microsoftGraphConfigPath, openApiFilePattern, outputDirectory, commonTypesDirectoryName string, supportedVersions []string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
 			commonTypesDirectoryName: commonTypesDirectoryName,
 			metadataDirectory:        metadataDirectory,
+			microsoftGraphConfigPath: microsoftGraphConfigPath,
 			openApiFilePattern:       openApiFilePattern,
 			outputDirectory:          outputDirectory,
+			supportedVersions:        supportedVersions,
 		}, nil
 	}
 }
@@ -29,42 +31,30 @@ func NewImportCommand(metadataDirectory, openApiFilePattern, outputDirectory, co
 type ImportCommand struct {
 	commonTypesDirectoryName string
 	metadataDirectory        string
+	microsoftGraphConfigPath string
 	openApiFilePattern       string
 	outputDirectory          string
+	supportedVersions        []string
 }
 
 func (ImportCommand) Synopsis() string {
-	return "Imports Microsoft Graph API metadata and outputs HCL data definitions"
+	return "Imports Microsoft Graph API metadata and outputs this Data in the format used by the Data API"
 }
 
 func (ImportCommand) Help() string {
-	return fmt.Sprintf(`Imports and parses Microsoft Graph API metadata
-Arguments:
-
--tags=applications,servicePrincipals
-        Specifies a comma-separated list of services to import, rather than the entire API.
-
--versions=v1.0,beta
-        Specified the API versions to import. Defaults to 'v1.0,beta'
-`)
+	return fmt.Sprintf(`Imports and parses Microsoft Graph API metadata`)
 }
 
 func (c ImportCommand) Run(args []string) int {
-	var apiVersionsRaw, tagsRaw string
+	var serviceNamesRaw string
 
 	f := flag.NewFlagSet("importer-msgraph", flag.ExitOnError)
-	f.StringVar(&tagsRaw, "tags", "", "A list of comma separated tags to import")
-	f.StringVar(&apiVersionsRaw, "versions", "", "A list of comma separated API versions to import")
+	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
 	f.Parse(args)
 
-	apiVersions := []string{"v1.0", "beta"}
-	if apiVersionsRaw != "" {
-		apiVersions = strings.Split(apiVersionsRaw, ",")
-	}
-
-	var tags []string
-	if tagsRaw != "" {
-		tags = strings.Split(tagsRaw, ",")
+	var serviceNames []string
+	if serviceNamesRaw != "" {
+		serviceNames = strings.Split(serviceNamesRaw, ",")
 	}
 
 	logger := hclog.New(&hclog.LoggerOptions{
@@ -78,15 +68,16 @@ func (c ImportCommand) Run(args []string) int {
 	}
 
 	input := pipeline.RunInput{
-		Logger: logger,
+		ProviderPrefix: "azuread",
+		Logger:         logger,
 
-		ApiVersions:              apiVersions,
 		CommonTypesDirectoryName: c.commonTypesDirectoryName,
+		ConfigFilePath:           c.microsoftGraphConfigPath,
 		MetadataDirectory:        c.metadataDirectory,
 		OpenApiFilePattern:       c.openApiFilePattern,
 		OutputDirectory:          c.outputDirectory,
-		ProviderPrefix:           "azuread",
-		Tags:                     tags,
+		Services:                 serviceNames,
+		SupportedVersions:        c.supportedVersions,
 	}
 	if err := pipeline.Run(input); err != nil {
 		log.Fatalf("Error: %+v", err)
