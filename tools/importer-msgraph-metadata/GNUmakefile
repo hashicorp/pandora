@@ -10,7 +10,7 @@ import: build
 	if [ -z "$(SERVICES)" ]; then \
 		./importer-msgraph-metadata import; \
 	else \
-		./importer-msgraph-metadata import -tags=$(SERVICES); \
+		./importer-msgraph-metadata import -services=$(SERVICES); \
 	fi
 	# note we're intentionally only using whitespace here since the others try
 	# to fix design issues, which are actually issues in the API Data
