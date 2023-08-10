@@ -9,12 +9,6 @@ internal enum ProviderConstant
     [Description("HCI")]
     HCI,
 
-    [Description("KubeVirt")]
-    KubeVirt,
-
-    [Description("OpenStack")]
-    OpenStack,
-
     [Description("SCVMM")]
     SCVMM,
 
