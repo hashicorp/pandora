@@ -19,7 +19,7 @@ internal class DeleteImmutabilityPolicyOperation : Pandora.Definitions.Operation
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 

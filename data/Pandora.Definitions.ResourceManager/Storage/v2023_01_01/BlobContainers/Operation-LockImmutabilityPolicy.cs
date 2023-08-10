@@ -21,7 +21,7 @@ internal class LockImmutabilityPolicyOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 

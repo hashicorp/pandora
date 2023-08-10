@@ -24,7 +24,7 @@ internal class ObjectLevelWormOperation : Pandora.Definitions.Operations.PostOpe
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override string? UriSuffix() => "/migrate";
 

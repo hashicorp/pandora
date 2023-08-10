@@ -21,7 +21,7 @@ internal class CreateOrUpdateImmutabilityPolicyOperation : Pandora.Definitions.O
 
     public override Type? RequestObject() => typeof(ImmutabilityPolicyModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(ImmutabilityPolicyModel);
 
