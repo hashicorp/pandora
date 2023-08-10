@@ -21,7 +21,7 @@ internal class LeaseOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(LeaseContainerRequestModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(LeaseContainerResponseModel);
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2023_01_01.BlobContainers
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(BlobContainerModel);
 

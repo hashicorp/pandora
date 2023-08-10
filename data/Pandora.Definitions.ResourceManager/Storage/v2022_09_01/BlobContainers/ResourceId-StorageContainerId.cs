@@ -6,27 +6,27 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.BlobContainers;
+namespace Pandora.Definitions.ResourceManager.Storage.v2022_09_01.BlobContainers;
 
-internal class ContainerId : ResourceID
+internal class StorageContainerId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "StorageContainer";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default/containers/{containerName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
-        ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Storage"),
+        ResourceIDSegment.Static("storageAccounts", "storageAccounts"),
         ResourceIDSegment.UserSpecified("storageAccountName"),
-        ResourceIDSegment.Static("staticBlobServices", "blobServices"),
-        ResourceIDSegment.Static("staticDefault", "default"),
-        ResourceIDSegment.Static("staticContainers", "containers"),
+        ResourceIDSegment.Static("blobServices", "blobServices"),
+        ResourceIDSegment.Static("default", "default"),
+        ResourceIDSegment.Static("containers", "containers"),
         ResourceIDSegment.UserSpecified("containerName"),
     };
 }
