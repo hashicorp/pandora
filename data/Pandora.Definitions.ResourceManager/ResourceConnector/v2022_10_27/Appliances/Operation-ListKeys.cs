@@ -25,7 +25,14 @@ internal class ListKeysOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(ApplianceListKeysResultsModel);
 
+    public override Type? OptionsObject() => typeof(ListKeysOperation.ListKeysOptions);
+
     public override string? UriSuffix() => "/listkeys";
 
-
+    internal class ListKeysOptions
+    {
+        [QueryStringName("artifactType")]
+        [Optional]
+        public string ArtifactType { get; set; }
+    }
 }
