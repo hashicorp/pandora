@@ -100,9 +100,10 @@ type FieldDetails struct {
 }
 
 type ModelDetails struct {
-	Fields        map[string]FieldDetails
-	TypeHintIn    *string
-	TypeHintValue *string
+	Fields         map[string]FieldDetails
+	ParentTypeName *string
+	TypeHintIn     *string
+	TypeHintValue  *string
 }
 
 type ResourceIdSegment struct {

@@ -13,7 +13,7 @@ func Router(router chi.Router) {
 		opts := v1.Options{
 			ServiceType:     repositories.MicrosoftGraphV1BetaServiceType,
 			UriPrefix:       "/v1/microsoft-graph/beta",
-			UsesCommonTypes: false,
+			UsesCommonTypes: true,
 		}
 		v1.Router(r, opts)
 	})
@@ -21,7 +21,7 @@ func Router(router chi.Router) {
 		opts := v1.Options{
 			ServiceType:     repositories.MicrosoftGraphV1StableServiceType,
 			UriPrefix:       "/v1/microsoft-graph/stable-v1",
-			UsesCommonTypes: false,
+			UsesCommonTypes: true,
 		}
 		v1.Router(r, opts)
 	})

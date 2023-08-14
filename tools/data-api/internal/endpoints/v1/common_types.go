@@ -2,7 +2,6 @@ package v1
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"net/http"
 
 	"github.com/go-chi/render"
@@ -17,58 +16,60 @@ func commonTypes(w http.ResponseWriter, r *http.Request) {
 		internalServerError(w, fmt.Errorf("missing options"))
 		return
 	}
+
+	services, err := servicesRepository.GetAll(opts.ServiceType)
+	if err != nil {
+		internalServerError(w, fmt.Errorf("loading services: %+v", err))
+		return
+	}
+
 	payload := models.CommonTypesDetails{
 		Constants: map[string]models.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
 	}
-	if !opts.UsesCommonTypes {
+	if !opts.UsesCommonTypes || services == nil {
 		render.JSON(w, r, payload)
 		return
 	}
 
-	commonTypes, ok := ctx.Value("commonTypes").(repositories.CommonTypesDetails)
-	if !ok {
-		internalServerError(w, fmt.Errorf("missing commonTypes"))
-		return
-	}
+	for _, service := range *services {
+		for version, details := range service.ApiVersions {
+			if details == nil {
+				continue
+			}
+			for resourceName, resource := range details.Resources {
+				if resource == nil {
+					continue
+				}
+				for k, v := range resource.Schema.Constants {
+					if _, ok := payload.Constants[k]; ok {
+						internalServerError(w, fmt.Errorf("constant %q already exists in common types, there is a duplicated definition in the source data for service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
+						return
+					}
+					payload.Constants[k] = models.ConstantDetails{
+						CaseInsensitive: v.CaseInsensitive,
+						Type:            models.ConstantType(v.Type),
+						Values:          v.Values,
+					}
+				}
 
-	payload.Constants = mapCommonTypesConstants(commonTypes.Constants)
-	payload.Models = mapCommonTypesModels(commonTypes.Models)
+				for k, v := range resource.Schema.Models {
+					if _, ok := payload.Models[k]; ok {
+						internalServerError(w, fmt.Errorf("model %q already exists in common types, there is a duplicated definition in the source datafor service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
+						return
+					}
+					payload.Models[k] = models.ModelDetails{
+						Fields:         mapSchemaFields(v.Fields),
+						ParentTypeName: v.ParentTypeName,
+						TypeHintIn:     v.TypeHintIn,
+						TypeHintValue:  v.TypeHintValue,
+					}
+				}
+
+			}
+
+		}
+	}
 
 	render.JSON(w, r, payload)
-}
-
-func mapCommonTypesConstants(input map[string]repositories.CommonTypesConstantDetails) map[string]models.ConstantDetails {
-	output := make(map[string]models.ConstantDetails, 0)
-
-	for name, constant := range input {
-		values := make(map[string]string, 0)
-
-		for name, value := range constant.Values {
-			values[name] = value
-		}
-
-		output[name] = models.ConstantDetails{
-			CaseInsensitive: constant.CaseInsensitive,
-			Type:            models.ConstantType(constant.Type),
-			Values:          values,
-		}
-	}
-
-	return output
-}
-
-func mapCommonTypesModels(input map[string]repositories.CommonTypesModelDetails) map[string]models.ModelDetails {
-	output := make(map[string]models.ModelDetails, 0)
-
-	for name, model := range input {
-		output[name] = models.ModelDetails{
-			Fields:         mapSchemaFields(model.Fields),
-			ParentTypeName: model.ParentTypeName,
-			TypeHintIn:     model.TypeHintIn,
-			TypeHintValue:  model.TypeHintValue,
-		}
-	}
-
-	return output
 }

@@ -2,8 +2,9 @@ package repositories
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"net/http"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 )
 
 type ServicesRepository interface {
