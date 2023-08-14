@@ -109,7 +109,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 						DisplayName: "Virtual Machine",
 						Documentation: ResourceDocumentationDefinition{
 							Description:     "Manages a Virtual Machine",
-							ExampleUsageHcl: "resource \"azurerm_virtual_machine\" \"example\" {}",
+							ExampleUsageHcl: `resource "azurerm_virtual_machine" "example" {}`,
 						},
 						Generate:             true,
 						GenerateModel:        true,
