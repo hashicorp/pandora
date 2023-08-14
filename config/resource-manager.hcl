@@ -108,7 +108,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2022-05-15", "2022-11-15", "2023-04-15"]
+  available = ["2021-10-15", "2022-05-15", "2022-11-15", "2023-04-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -447,7 +447,7 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01"]
 }
 service "search" {
   name      = "Search"
@@ -536,7 +536,7 @@ service "videoanalyzer" {
 }
 service "vmware" {
   name      = "VMware"
-  available = ["2022-05-01"]
+  available = ["2022-05-01", "2023-03-01"]
 }
 service "voiceservices" {
   name      = "VoiceServices"

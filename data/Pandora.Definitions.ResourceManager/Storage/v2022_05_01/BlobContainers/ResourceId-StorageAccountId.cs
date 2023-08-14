@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.Storage.v2022_05_01.BlobContainers
 
 internal class StorageAccountId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "StorageAccount";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftStorage", "Microsoft.Storage"),
-        ResourceIDSegment.Static("staticStorageAccounts", "storageAccounts"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Storage"),
+        ResourceIDSegment.Static("storageAccounts", "storageAccounts"),
         ResourceIDSegment.UserSpecified("storageAccountName"),
     };
 }

@@ -21,7 +21,7 @@ internal class ClearLegalHoldOperation : Pandora.Definitions.Operations.PostOper
 
     public override Type? RequestObject() => typeof(LegalHoldModel);
 
-    public override ResourceID? ResourceId() => new ContainerId();
+    public override ResourceID? ResourceId() => new StorageContainerId();
 
     public override Type? ResponseObject() => typeof(LegalHoldModel);
 

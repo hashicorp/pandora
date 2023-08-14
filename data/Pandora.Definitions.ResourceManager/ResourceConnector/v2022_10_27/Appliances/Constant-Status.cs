@@ -12,6 +12,9 @@ internal enum StatusConstant
     [Description("Connecting")]
     Connecting,
 
+    [Description("ETCDSnapshotFailed")]
+    ETCDSnapshotFailed,
+
     [Description("ImageDeprovisioning")]
     ImageDeprovisioning,
 
@@ -77,6 +80,18 @@ internal enum StatusConstant
 
     [Description("Validating")]
     Validating,
+
+    [Description("ValidatingETCDHealth")]
+    ValidatingETCDHealth,
+
+    [Description("ValidatingImageDownload")]
+    ValidatingImageDownload,
+
+    [Description("ValidatingImageUpload")]
+    ValidatingImageUpload,
+
+    [Description("ValidatingSFSConnectivity")]
+    ValidatingSFSConnectivity,
 
     [Description("WaitingForCloudOperator")]
     WaitingForCloudOperator,
