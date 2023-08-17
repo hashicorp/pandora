@@ -11,4 +11,6 @@ service "ChaosStudio" {
       }
     }
   }
+  # allow generation of scoped resources
+  # overwrite method with generate_create = false
 }
