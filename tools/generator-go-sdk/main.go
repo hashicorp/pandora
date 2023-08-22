@@ -57,7 +57,7 @@ func main() {
 		"Storage",
 		"StreamAnalytics",
 		"Subscription",
-		"WebPubSub",
+		"TimeSeriesInsights",
 
 		// Automation @ 2022-08-08 uses the new base layer, so let's invert the older versions for now
 		"Automation@2015-10-31",
