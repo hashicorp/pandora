@@ -16,6 +16,7 @@ public partial class Definition : ApiVersionDefinition
         new BenefitUtilizationSummaries.Definition(),
         new BenefitUtilizationSummariesAsync.Definition(),
         new Budgets.Definition(),
+        new CostAllocationRules.Definition(),
         new CostDetails.Definition(),
         new Dimensions.Definition(),
         new Exports.Definition(),
@@ -24,6 +25,7 @@ public partial class Definition : ApiVersionDefinition
         new Query.Definition(),
         new ReservedInstances.Definition(),
         new ScheduledActions.Definition(),
+        new Settings.Definition(),
         new UsageDetails.Definition(),
         new Views.Definition(),
     };

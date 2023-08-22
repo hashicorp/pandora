@@ -10,28 +10,19 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_08_01.Exports;
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_08_01.CostAllocationRules;
 
 
-internal class ExportModel
+internal class CostAllocationRuleDefinitionModel
 {
-    [JsonPropertyName("eTag")]
-    public string? ETag { get; set; }
-
     [JsonPropertyName("id")]
     public string? Id { get; set; }
-
-    [JsonPropertyName("identity")]
-    public CustomTypes.SystemAssignedIdentity? Identity { get; set; }
-
-    [JsonPropertyName("location")]
-    public CustomTypes.Location? Location { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
     [JsonPropertyName("properties")]
-    public ExportPropertiesModel? Properties { get; set; }
+    public CostAllocationRulePropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }
