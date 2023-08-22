@@ -22,6 +22,7 @@ func templateForServiceClient(input models.ServiceInput) string {
 	assignmentLines := make([]string, 0)
 	assignmentOldBaseLayerLines := make([]string, 0)
 	returnLines := make([]string, 0)
+	returnOldBaseLayerLines := make([]string, 0)
 
 	versions := make([]string, 0)
 	versionsToResources := make(map[string][]string, 0)
@@ -60,8 +61,11 @@ func templateForServiceClient(input models.ServiceInput) string {
 `, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
 		assignmentOldBaseLayerLines = append(assignmentOldBaseLayerLines, assignmentOldBaseLayerLine)
 
-		returnLine := fmt.Sprintf(`%[1]s: %[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
+		returnLine := fmt.Sprintf(`%[1]s: *%[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
 		returnLines = append(returnLines, returnLine)
+
+		returnOldBaseLayerLine := fmt.Sprintf(`%[1]s: %[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
+		returnOldBaseLayerLines = append(returnOldBaseLayerLines, returnOldBaseLayerLine)
 	}
 
 	output := fmt.Sprintf(`
@@ -69,6 +73,7 @@ package client
 
 import (
 	%[1]s
+	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-%[5]s/internal/common"
 )
 
@@ -106,7 +111,7 @@ func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 		%[4]s
 	}, nil
 }
-`, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentOldBaseLayerLines, "\n"), strings.Join(returnLines, "\n"), input.ProviderPrefix)
+`, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentOldBaseLayerLines, "\n"), strings.Join(returnOldBaseLayerLines, "\n"), input.ProviderPrefix)
 	}
 
 	return strings.TrimSpace(output)
