@@ -57,8 +57,6 @@ func main() {
 		"Storage",
 		"StreamAnalytics",
 		"Subscription",
-		"TimeSeriesInsights",
-		"TrafficManager",
 		"WebPubSub",
 
 		// Automation @ 2022-08-08 uses the new base layer, so let's invert the older versions for now
