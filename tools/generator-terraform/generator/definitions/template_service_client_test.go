@@ -23,6 +23,7 @@ package client
 
 import (
 	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
@@ -38,7 +39,7 @@ func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 		return nil, fmt.Errorf("building client for resources v20151101Preview: %+v", err)
 	}
 	return &AutoClient{
-		V20151101Preview: v20151101PreviewClient,
+		V20151101Preview: *v20151101PreviewClient,
 	}, nil
 }
 `
@@ -62,6 +63,7 @@ package client
 import (
 	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
 	resourcesV20200101 "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2020-01-01"
+    	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
@@ -84,8 +86,8 @@ func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 		return nil, fmt.Errorf("building client for resources v20200101: %+v", err)
 	}
 	return &AutoClient{
-		V20151101Preview: v20151101PreviewClient,
-		V20200101: v20200101Client,
+		V20151101Preview: *v20151101PreviewClient,
+		V20200101: *v20200101Client,
 	}, nil
 }
 `
@@ -108,6 +110,7 @@ package client
 
 import (
 	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
+    	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
@@ -123,7 +126,7 @@ func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 		return nil, fmt.Errorf("building client for resources v20151101Preview: %+v", err)
 	}
 	return &AutoClient{
-		V20151101Preview: v20151101PreviewClient,
+		V20151101Preview: *v20151101PreviewClient,
 	}, nil
 }
 `
