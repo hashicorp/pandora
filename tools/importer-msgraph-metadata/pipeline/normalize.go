@@ -168,5 +168,6 @@ var verbs = operationVerbs{
 	"Start",
 	"Stop",
 	"Unset",
+	"Update",
 	"Validate",
 }

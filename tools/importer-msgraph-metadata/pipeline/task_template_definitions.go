@@ -60,8 +60,8 @@ func (p pipelineTask) templateDefinitionsForService(commonTypesDirectoryName str
 
 					for _, model := range serviceLocalModels {
 						for _, field := range model.Fields {
-							if len(field.Enum) > 0 && ((field.Type != nil && *field.Type == DataTypeString) || (field.ItemType != nil && *field.ItemType == DataTypeString)) {
-								constantNamesMap[field.Title] = true
+							if field.ConstantName != nil {
+								constantNamesMap[*field.ConstantName] = true
 							}
 						}
 					}
