@@ -41,6 +41,10 @@ service "authorization" {
   name      = "Authorization"
   available = ["2020-10-01", "2022-04-01"]
 }
+service "automanage" {
+  name      = "Automanage"
+  avaliable = ["2022-05-04"]
+}
 service "automation" {
   name      = "Automation"
   available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08"]
