@@ -63,7 +63,7 @@ package client
 import (
 	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
 	resourcesV20200101 "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2020-01-01"
-    "github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+    	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
@@ -110,7 +110,7 @@ package client
 
 import (
 	resourcesV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/resources/2015-11-01-preview"
-    "github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
+    	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
