@@ -43,7 +43,7 @@ service "authorization" {
 }
 service "automanage" {
   name      = "Automanage"
-  avaliable = ["2022-05-04"]
+  available = ["2022-05-04"]
 }
 service "automation" {
   name      = "Automation"
