@@ -11,6 +11,7 @@ var workarounds = []workaround{
 	workaroundAuthorization25080{},
 	workaroundDigitalTwins25120{},
 	workaroundAutomation25108{},
+	workaroundAutomation25435{},
 	workaroundBatch21291{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
