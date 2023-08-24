@@ -12,11 +12,8 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.ResourceManager.DataProtection.v2023_05_01.DeletedBackupInstances;
 
-
-internal abstract class BaseResourcePropertiesModel
+[ValueForType("DefaultResourceProperties")]
+internal class DefaultResourcePropertiesModel : BaseResourcePropertiesModel
 {
-    [JsonPropertyName("objectType")]
-    [ProvidesTypeHint]
-    [Required]
-    public ResourcePropertiesObjectTypeConstant ObjectType { get; set; }
+
 }

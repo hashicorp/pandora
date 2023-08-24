@@ -10,13 +10,10 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.DataProtection.v2023_05_01.DeletedBackupInstances;
+namespace Pandora.Definitions.ResourceManager.DataProtection.v2023_05_01.BackupInstances;
 
-
-internal abstract class BaseResourcePropertiesModel
+[ValueForType("DefaultResourceProperties")]
+internal class DefaultResourcePropertiesModel : BaseResourcePropertiesModel
 {
-    [JsonPropertyName("objectType")]
-    [ProvidesTypeHint]
-    [Required]
-    public ResourcePropertiesObjectTypeConstant ObjectType { get; set; }
+
 }
