@@ -13,9 +13,10 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.DataProtection.v2023_05_01.BackupInstances;
 
 
-internal class BaseResourcePropertiesModel
+internal abstract class BaseResourcePropertiesModel
 {
     [JsonPropertyName("objectType")]
+    [ProvidesTypeHint]
     [Required]
-    public string ObjectType { get; set; }
+    public ResourcePropertiesObjectTypeConstant ObjectType { get; set; }
 }

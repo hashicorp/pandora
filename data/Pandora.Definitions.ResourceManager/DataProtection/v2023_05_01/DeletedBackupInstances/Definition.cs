@@ -21,6 +21,7 @@ internal class Definition : ResourceDefinition
     {
         typeof(CurrentProtectionStateConstant),
         typeof(DataStoreTypesConstant),
+        typeof(ResourcePropertiesObjectTypeConstant),
         typeof(SecretStoreTypeConstant),
         typeof(StatusConstant),
         typeof(ValidationTypeConstant),
@@ -35,6 +36,7 @@ internal class Definition : ResourceDefinition
         typeof(DataStoreParametersModel),
         typeof(DatasourceModel),
         typeof(DatasourceSetModel),
+        typeof(DefaultResourcePropertiesModel),
         typeof(DeletedBackupInstanceModel),
         typeof(DeletedBackupInstanceResourceModel),
         typeof(DeletionInfoModel),
