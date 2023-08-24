@@ -152,7 +152,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01", "2023-05-01"]
+  available = ["2022-04-01", "2023-05-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -176,7 +176,7 @@ service "devtestlabs" {
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
-  available = ["2020-12-01", "2022-10-31", "2023-01-31"]
+  available = ["2023-01-31"]
 }
 service "dns" {
   name      = "DNS"
@@ -349,7 +349,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-02-01", "2023-04-01", "2023-05-01"]
+  available = ["2023-04-01", "2023-05-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
