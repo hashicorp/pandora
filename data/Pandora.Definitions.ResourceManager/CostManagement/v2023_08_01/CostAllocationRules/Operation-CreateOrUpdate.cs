@@ -10,17 +10,15 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Automation.v2022_08_08.Python3Package;
+namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_08_01.CostAllocationRules;
 
 internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
-    public override bool LongRunning() => true;
+    public override Type? RequestObject() => typeof(CostAllocationRuleDefinitionModel);
 
-    public override Type? RequestObject() => typeof(PythonPackageCreateParametersModel);
+    public override ResourceID? ResourceId() => new CostAllocationRuleId();
 
-    public override ResourceID? ResourceId() => new Python3PackageId();
-
-    public override Type? ResponseObject() => typeof(ModuleModel);
+    public override Type? ResponseObject() => typeof(CostAllocationRuleDefinitionModel);
 
 
 }

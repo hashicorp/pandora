@@ -100,7 +100,7 @@ service "containerinstance" {
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
-  available = ["2019-06-01-preview", "2021-08-01-preview", "2022-12-01", "2023-06-01-preview"]
+  available = ["2019-06-01-preview", "2021-08-01-preview", "2022-12-01", "2023-06-01-preview", "2023-07-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
@@ -349,7 +349,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-02-01", "2023-04-01"]
+  available = ["2023-02-01", "2023-04-01", "2023-05-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -422,7 +422,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -434,7 +434,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2022-01-01"]
+  available = ["2022-01-01", "2023-07-01"]
 }
 service "relay" {
   name      = "Relay"
@@ -446,7 +446,7 @@ service "resourceconnector" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-07-01"]
 }
 service "search" {
   name      = "Search"
