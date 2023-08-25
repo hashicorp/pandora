@@ -41,7 +41,6 @@ func main() {
 		"DataShare",
 		"FrontDoor",
 		"Insights",
-		"KeyVault",
 		"Kusto",
 		"Maintenance",
 		"ManagedServices",
