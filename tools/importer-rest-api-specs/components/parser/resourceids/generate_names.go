@@ -33,7 +33,7 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	}
 
 	sort.Slice(sortedUris, func(x, y int) bool {
-		return len(sortedUris[x]) < len(sortedUris[y])
+		return sortedUris[x] < sortedUris[y]
 	})
 
 	candidateNamesToUris := make(map[string]models.ParsedResourceId, 0)
