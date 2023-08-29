@@ -357,7 +357,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2022-07-01"]
+  available = ["2022-07-01", "2022-07-01-preview"]
 }
 service "nginx" {
   name      = "Nginx"
