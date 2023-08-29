@@ -444,6 +444,10 @@ service "resourceconnector" {
   name      = "ResourceConnector"
   available = ["2022-10-27"]
 }
+service "resourcegraph" {
+  name      = "ResourceGraph"
+  available = ["2022-10-01"]
+}
 service "resources" {
   name      = "Resources"
   available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-07-01"]
