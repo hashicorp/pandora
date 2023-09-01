@@ -29,7 +29,7 @@ service "appconfiguration" {
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
-  available = ["2020-11-20", "2022-04-01", "2022-06-15", "2023-06-01"]
+  available = ["2015-05-01", "2020-02-02", "2020-11-20", "2022-04-01", "2022-06-15", "2023-06-01"]
 }
 service "appplatform" {
   name      = "AppPlatform"
