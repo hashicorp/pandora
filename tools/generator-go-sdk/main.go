@@ -66,6 +66,10 @@ func main() {
 		"ContainerService",
 		"LoadTestService",
 		"ManagedIdentity",
+
+		// @tombuildsstuff: KeyVault requires that the exact casing retrieved from the API is re-sent back to the API
+		// as such will require custom work in the Provider (potentially a custom unmarshaller from the HTTP Body) to support this
+		"KeyVault",
 	)
 
 	var serviceNames string
