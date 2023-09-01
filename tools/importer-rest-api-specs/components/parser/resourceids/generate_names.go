@@ -33,6 +33,9 @@ func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logg
 	}
 
 	sort.Slice(sortedUris, func(x, y int) bool {
+		if len(sortedUris[x]) == len(sortedUris[y]) {
+			return sortedUris[x] < sortedUris[y]
+		}
 		return len(sortedUris[x]) < len(sortedUris[y])
 	})
 
