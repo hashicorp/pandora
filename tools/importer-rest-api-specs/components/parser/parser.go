@@ -58,11 +58,46 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		}
 	}
 
+	// now that we have a canonical list of resources, can we simplify the Operation names at all?
+	resourcesOut := make(map[string]models.AzureApiResource)
+	for resourceName, resource := range resources {
+		d.logger.Trace(fmt.Sprintf("Simplifying operation names for resource %q", resourceName))
+		updated := d.simplifyOperationNamesForResource(resource, resourceName)
+		resourcesOut[resourceName] = updated
+	}
+
 	return &models.AzureApiDefinition{
 		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
-		Resources:   resources,
+		Resources:   resourcesOut,
 	}, nil
+}
+
+func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.AzureApiResource, resourceName string) models.AzureApiResource {
+	allOperationsStartWithPrefix := true
+	resourceNameLower := strings.ToLower(resourceName)
+	for operationName := range resource.Operations {
+		operationNameLowered := strings.ToLower(operationName)
+		if !strings.HasPrefix(operationNameLowered, resourceNameLower) || strings.EqualFold(operationNameLowered, resourceNameLower) {
+			allOperationsStartWithPrefix = false
+			break
+		}
+	}
+
+	if !allOperationsStartWithPrefix {
+		d.logger.Trace(fmt.Sprintf("Skipping simplifying operation names for resource %q", resourceName))
+		return resource
+	}
+
+	output := make(map[string]models.OperationDetails)
+	for key, value := range resource.Operations {
+		updatedKey := key[len(resourceNameLower):]
+		d.logger.Trace(fmt.Sprintf("Simplifying Operation %q to %q", key, updatedKey))
+		output[updatedKey] = value
+	}
+
+	resource.Operations = output
+	return resource
 }
 
 func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourceids.ParseResult, error) {
