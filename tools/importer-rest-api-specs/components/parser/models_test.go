@@ -1861,3 +1861,20 @@ func TestParseModelWithLocation(t *testing.T) {
 		t.Fatalf("expected example.Fields['Location'] to be a Location but got %q", string(*field.CustomFieldType))
 	}
 }
+
+func TestParseModelBug2675DuplicateModel(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "models_bug_2675_duplicate_model.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+
+	example, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatal("the Resource 'Example' was not found")
+	}
+
+	t.Logf("%d", len(example.Operations))
+}
