@@ -1805,6 +1805,32 @@ func TestParseModelMultipleTopLevelInheritance(t *testing.T) {
 	}
 }
 
+func TestParseModelMultipleWithStuttering(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "operations_multiple_with_stuttering.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+	exampleTag, ok := result.Resources["ExampleTag"]
+	if !ok {
+		t.Fatalf("expected a resource named `ExampleTag` but didn't get one")
+	}
+	if len(exampleTag.Operations) != 2 {
+		t.Fatalf("expected the resource `ExampleTag` to have 2 operations but got %q", len(exampleTag.Operations))
+	}
+	if _, ok := exampleTag.Operations["There"]; !ok {
+		t.Fatalf("expected the resource to have an operation named `There` but didn't get one")
+	}
+	if _, ok := exampleTag.Operations["World"]; !ok {
+		t.Fatalf("expected the resource to have an operation named `World` but didn't get one")
+	}
+}
+
 func TestParseModelWithLocation(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_with_location.json")
 	if err != nil {
