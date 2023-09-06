@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "AlertRuleTemplates";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AlertRuleTemplatesGetOperation(),
-        new AlertRuleTemplatesListOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

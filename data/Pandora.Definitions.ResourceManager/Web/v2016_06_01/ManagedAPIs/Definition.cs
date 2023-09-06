@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "ManagedAPIs";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ManagedApisGetOperation(),
-        new ManagedApisListOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

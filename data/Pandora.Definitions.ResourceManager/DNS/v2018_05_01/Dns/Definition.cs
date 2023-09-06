@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "Dns";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new DnsResourceReferenceGetByTargetResourcesOperation(),
+        new ResourceReferenceGetByTargetResourcesOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

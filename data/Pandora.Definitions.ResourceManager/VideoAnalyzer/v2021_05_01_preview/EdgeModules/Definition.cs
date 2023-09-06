@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "EdgeModules";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new EdgeModulesCreateOrUpdateOperation(),
-        new EdgeModulesDeleteOperation(),
-        new EdgeModulesGetOperation(),
-        new EdgeModulesListOperation(),
-        new EdgeModulesListProvisioningTokenOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new ListProvisioningTokenOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

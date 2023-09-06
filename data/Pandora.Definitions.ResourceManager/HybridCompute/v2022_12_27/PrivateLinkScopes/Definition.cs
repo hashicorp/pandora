@@ -13,14 +13,14 @@ internal class Definition : ResourceDefinition
     public string Name => "PrivateLinkScopes";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new PrivateLinkScopesCreateOrUpdateOperation(),
-        new PrivateLinkScopesDeleteOperation(),
-        new PrivateLinkScopesGetOperation(),
-        new PrivateLinkScopesGetValidationDetailsOperation(),
-        new PrivateLinkScopesGetValidationDetailsForMachineOperation(),
-        new PrivateLinkScopesListOperation(),
-        new PrivateLinkScopesListByResourceGroupOperation(),
-        new PrivateLinkScopesUpdateTagsOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new GetValidationDetailsOperation(),
+        new GetValidationDetailsForMachineOperation(),
+        new ListOperation(),
+        new ListByResourceGroupOperation(),
+        new UpdateTagsOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

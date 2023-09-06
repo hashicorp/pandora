@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
     public string Name => "SoftwareUpdateConfiguration";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new SoftwareUpdateConfigurationsCreateOperation(),
-        new SoftwareUpdateConfigurationsDeleteOperation(),
-        new SoftwareUpdateConfigurationsGetByNameOperation(),
-        new SoftwareUpdateConfigurationsListOperation(),
+        new sCreateOperation(),
+        new sDeleteOperation(),
+        new sGetByNameOperation(),
+        new sListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
