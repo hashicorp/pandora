@@ -1820,8 +1820,11 @@ func TestParseModelMultipleWithStuttering(t *testing.T) {
 	if !ok {
 		t.Fatalf("expected a resource named `ExampleTag` but didn't get one")
 	}
-	if len(exampleTag.Operations) != 2 {
+	if len(exampleTag.Operations) != 3 {
 		t.Fatalf("expected the resource `ExampleTag` to have 2 operations but got %q", len(exampleTag.Operations))
+	}
+	if _, ok := exampleTag.Operations["Mars"]; !ok {
+		t.Fatalf("expected the resource to have an operation named `Mars` but didn't get one")
 	}
 	if _, ok := exampleTag.Operations["There"]; !ok {
 		t.Fatalf("expected the resource to have an operation named `There` but didn't get one")

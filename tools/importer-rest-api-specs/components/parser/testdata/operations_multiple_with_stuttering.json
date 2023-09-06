@@ -18,6 +18,34 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
+    "/mars": {
+      "head": {
+        "tags": [
+          "Example Tag"
+        ],
+        "operationId": "ExampleTags_Mars",
+        "description": "A HEAD request with no body returned.",
+        "parameters": [
+          {
+            "$ref": "#/parameters/SubscriptionIdParameter"
+          },
+          {
+            "$ref": "#/parameters/ResourceGroupParameter"
+          },
+          {
+            "$ref": "#/parameters/ThingParameter"
+          },
+          {
+            "$ref": "#/parameters/ApiVersionParameter"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success."
+          }
+        }
+      }
+    },
     "/there": {
       "head": {
         "tags": [
