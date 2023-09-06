@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
     public string Name => "SecurityMLAnalyticsSettings";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new SecurityMLAnalyticsSettingsCreateOrUpdateOperation(),
-        new SecurityMLAnalyticsSettingsDeleteOperation(),
-        new SecurityMLAnalyticsSettingsGetOperation(),
-        new SecurityMLAnalyticsSettingsListOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

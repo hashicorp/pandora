@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "AlertProcessingRules";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AlertProcessingRulesCreateOrUpdateOperation(),
-        new AlertProcessingRulesDeleteOperation(),
-        new AlertProcessingRulesGetByNameOperation(),
-        new AlertProcessingRulesListByResourceGroupOperation(),
-        new AlertProcessingRulesListBySubscriptionOperation(),
-        new AlertProcessingRulesUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetByNameOperation(),
+        new ListByResourceGroupOperation(),
+        new ListBySubscriptionOperation(),
+        new UpdateOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

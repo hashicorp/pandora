@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
     public string Name => "UpdateRuns";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new UpdateRunsDeleteOperation(),
-        new UpdateRunsGetOperation(),
-        new UpdateRunsListOperation(),
-        new UpdateRunsPutOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new PutOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

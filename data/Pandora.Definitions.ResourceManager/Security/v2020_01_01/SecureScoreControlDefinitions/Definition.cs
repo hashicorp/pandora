@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "SecureScoreControlDefinitions";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new SecureScoreControlDefinitionsListOperation(),
-        new SecureScoreControlDefinitionsListBySubscriptionOperation(),
+        new ListOperation(),
+        new ListBySubscriptionOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

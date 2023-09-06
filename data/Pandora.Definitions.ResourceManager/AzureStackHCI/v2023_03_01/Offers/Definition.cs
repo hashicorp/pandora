@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "Offers";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new OffersGetOperation(),
-        new OffersListByClusterOperation(),
-        new OffersListByPublisherOperation(),
+        new GetOperation(),
+        new ListByClusterOperation(),
+        new ListByPublisherOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

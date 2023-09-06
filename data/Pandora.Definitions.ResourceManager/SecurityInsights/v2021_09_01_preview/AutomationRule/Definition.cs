@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
     public string Name => "AutomationRule";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AutomationRulesDeleteOperation(),
+        new DeleteOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

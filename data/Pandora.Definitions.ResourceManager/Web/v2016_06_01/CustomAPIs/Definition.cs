@@ -13,15 +13,15 @@ internal class Definition : ResourceDefinition
     public string Name => "CustomAPIs";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CustomApisCreateOrUpdateOperation(),
-        new CustomApisDeleteOperation(),
-        new CustomApisExtractApiDefinitionFromWsdlOperation(),
-        new CustomApisGetOperation(),
-        new CustomApisListOperation(),
-        new CustomApisListByResourceGroupOperation(),
-        new CustomApisListWsdlInterfacesOperation(),
-        new CustomApisMoveOperation(),
-        new CustomApisUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new ExtractApiDefinitionFromWsdlOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new ListByResourceGroupOperation(),
+        new ListWsdlInterfacesOperation(),
+        new MoveOperation(),
+        new UpdateOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

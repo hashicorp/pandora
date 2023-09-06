@@ -13,18 +13,18 @@ internal class Definition : ResourceDefinition
     public string Name => "Attestations";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AttestationsCreateOrUpdateAtResourceOperation(),
-        new AttestationsCreateOrUpdateAtResourceGroupOperation(),
-        new AttestationsCreateOrUpdateAtSubscriptionOperation(),
-        new AttestationsDeleteAtResourceOperation(),
-        new AttestationsDeleteAtResourceGroupOperation(),
-        new AttestationsDeleteAtSubscriptionOperation(),
-        new AttestationsGetAtResourceOperation(),
-        new AttestationsGetAtResourceGroupOperation(),
-        new AttestationsGetAtSubscriptionOperation(),
-        new AttestationsListForResourceOperation(),
-        new AttestationsListForResourceGroupOperation(),
-        new AttestationsListForSubscriptionOperation(),
+        new CreateOrUpdateAtResourceOperation(),
+        new CreateOrUpdateAtResourceGroupOperation(),
+        new CreateOrUpdateAtSubscriptionOperation(),
+        new DeleteAtResourceOperation(),
+        new DeleteAtResourceGroupOperation(),
+        new DeleteAtSubscriptionOperation(),
+        new GetAtResourceOperation(),
+        new GetAtResourceGroupOperation(),
+        new GetAtSubscriptionOperation(),
+        new ListForResourceOperation(),
+        new ListForResourceGroupOperation(),
+        new ListForSubscriptionOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

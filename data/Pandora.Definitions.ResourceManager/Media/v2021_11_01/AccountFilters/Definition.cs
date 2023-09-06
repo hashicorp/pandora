@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "AccountFilters";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AccountFiltersCreateOrUpdateOperation(),
-        new AccountFiltersDeleteOperation(),
-        new AccountFiltersGetOperation(),
-        new AccountFiltersListOperation(),
-        new AccountFiltersUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new UpdateOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

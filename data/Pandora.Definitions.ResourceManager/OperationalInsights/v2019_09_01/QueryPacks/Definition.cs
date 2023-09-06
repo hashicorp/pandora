@@ -13,13 +13,13 @@ internal class Definition : ResourceDefinition
     public string Name => "QueryPacks";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new QueryPacksCreateOrUpdateOperation(),
-        new QueryPacksCreateOrUpdateWithoutNameOperation(),
-        new QueryPacksDeleteOperation(),
-        new QueryPacksGetOperation(),
-        new QueryPacksListOperation(),
-        new QueryPacksListByResourceGroupOperation(),
-        new QueryPacksUpdateTagsOperation(),
+        new CreateOrUpdateOperation(),
+        new CreateOrUpdateWithoutNameOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new ListByResourceGroupOperation(),
+        new UpdateTagsOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

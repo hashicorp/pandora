@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "AssessmentsMetadata";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AssessmentsMetadataGetOperation(),
-        new AssessmentsMetadataListOperation(),
-        new AssessmentsMetadataSubscriptionCreateOperation(),
-        new AssessmentsMetadataSubscriptionDeleteOperation(),
-        new AssessmentsMetadataSubscriptionGetOperation(),
-        new AssessmentsMetadataSubscriptionListOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new SubscriptionCreateOperation(),
+        new SubscriptionDeleteOperation(),
+        new SubscriptionGetOperation(),
+        new SubscriptionListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

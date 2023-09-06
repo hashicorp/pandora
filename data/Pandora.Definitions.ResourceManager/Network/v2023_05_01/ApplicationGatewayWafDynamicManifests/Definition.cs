@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "ApplicationGatewayWafDynamicManifests";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ApplicationGatewayWafDynamicManifestsDefaultGetOperation(),
-        new ApplicationGatewayWafDynamicManifestsGetOperation(),
+        new DefaultGetOperation(),
+        new GetOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

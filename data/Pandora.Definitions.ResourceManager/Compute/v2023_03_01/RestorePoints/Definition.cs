@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "RestorePoints";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new RestorePointsCreateOperation(),
-        new RestorePointsDeleteOperation(),
-        new RestorePointsGetOperation(),
+        new CreateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
