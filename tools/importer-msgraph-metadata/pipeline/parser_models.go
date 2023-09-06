@@ -165,46 +165,23 @@ const (
 	DataTypeBinary
 )
 
-// CSType returns a string containing the C# type name for the DataType
+// CSType returns a string containing the C# type name for the DataType. We intentionally consolidate
+// some of these (ints and floats all the same size) to ease downstream implementation.
 func (ft DataType) CSType() *string {
 	csType := ""
 	switch ft {
-	case DataTypeString:
+	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
 		csType = "string"
-	case DataTypeInteger64:
-		csType = "long"
-	case DataTypeIntegerUnsigned64:
-		csType = "ulong"
-	case DataTypeInteger32:
+	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8:
 		csType = "int"
-	case DataTypeIntegerUnsigned32:
+	case DataTypeIntegerUnsigned64, DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
 		csType = "uint"
-	case DataTypeInteger16:
-		csType = "short"
-	case DataTypeIntegerUnsigned16:
-		csType = "ushort"
-	case DataTypeInteger8:
-		csType = "sbyte"
-	case DataTypeIntegerUnsigned8:
-		csType = "byte"
-	case DataTypeFloat32:
+	case DataTypeFloat64, DataTypeFloat32:
 		csType = "float"
-	case DataTypeFloat64:
-		csType = "double"
 	case DataTypeBool:
 		csType = "bool"
-	case DataTypeBase64:
-		csType = "string"
-	case DataTypeDate:
+	case DataTypeDate, DataTypeDateTime, DataTypeTime:
 		csType = "DateTime"
-	case DataTypeDateTime:
-		csType = "DateTime"
-	case DataTypeDuration:
-		csType = "string"
-	case DataTypeTime:
-		csType = "DateTime"
-	case DataTypeUuid:
-		csType = "string"
 	case DataTypeBinary:
 		csType = "RawFile"
 	}
@@ -291,6 +268,13 @@ func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 			if f, _ = flattenSchemaRef(schemaRef, nil); f != nil {
 				models = parseSchemas(*f, name, models, true)
 			}
+		}
+	}
+
+	// Several constants are presented as models, to clean these up we'll remove any models having no fields
+	for modelName, model := range models {
+		if len(model.Fields) == 0 {
+			delete(models, modelName)
 		}
 	}
 
