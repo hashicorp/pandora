@@ -92,6 +92,11 @@ func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.Az
 	output := make(map[string]models.OperationDetails)
 	for key, value := range resource.Operations {
 		updatedKey := key[len(resourceNameLower):]
+		// trim off any spurious `s` at the start, to handle tags with singular vs plural
+		if strings.HasPrefix(updatedKey, "s") {
+			updatedKey = updatedKey[1:]
+		}
+
 		d.logger.Trace(fmt.Sprintf("Simplifying Operation %q to %q", key, updatedKey))
 		output[updatedKey] = value
 	}
