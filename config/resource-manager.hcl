@@ -41,6 +41,10 @@ service "authorization" {
   name      = "Authorization"
   available = ["2020-10-01", "2022-04-01"]
 }
+service "automanage" {
+  name      = "AutoManage"
+  available = ["2022-05-04"]
+}
 service "automation" {
   name      = "Automation"
   available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08"]
@@ -67,7 +71,7 @@ service "blueprint" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2022-07-01-preview"]
+  available = ["2023-04-15-preview"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
@@ -79,7 +83,7 @@ service "communication" {
 }
 service "compute" {
   name      = "Compute"
-  available = ["2021-07-01", "2021-11-01", "2022-03-01", "2022-03-02", "2022-03-03", "2023-03-01"]
+  available = ["2021-07-01", "2021-11-01", "2022-03-01", "2022-03-02", "2022-03-03", "2023-03-01", "2023-04-02"]
 }
 service "confidentialledger" {
   name      = "ConfidentialLedger"
@@ -100,7 +104,7 @@ service "containerinstance" {
 }
 service "containerregistry" {
   name      = "ContainerRegistry"
-  available = ["2019-06-01-preview", "2021-08-01-preview", "2022-12-01"]
+  available = ["2019-06-01-preview", "2021-08-01-preview", "2022-12-01", "2023-06-01-preview", "2023-07-01"]
 }
 service "containerservice" {
   name      = "ContainerService"
@@ -152,8 +156,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01"]
-  ignore    = ["2023-05-01"]
+  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01", "2023-05-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -350,7 +353,11 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-02-01", "2023-04-01"]
+  available = ["2023-02-01", "2023-04-01", "2023-05-01"]
+}
+service "networkcloud" {
+  name      = "NetworkCloud"
+  available = ["2023-07-01"]
 }
 service "networkfunction" {
   name      = "NetworkFunction"
@@ -358,7 +365,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2022-07-01"]
+  available = ["2022-07-01", "2022-07-01-preview"]
 }
 service "nginx" {
   name      = "Nginx"
@@ -423,7 +430,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -435,7 +442,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2022-01-01"]
+  available = ["2022-01-01", "2023-07-01"]
 }
 service "relay" {
   name      = "Relay"
@@ -445,9 +452,13 @@ service "resourceconnector" {
   name      = "ResourceConnector"
   available = ["2022-10-27"]
 }
+service "resourcegraph" {
+  name      = "ResourceGraph"
+  available = ["2022-10-01"]
+}
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-07-01"]
 }
 service "search" {
   name      = "Search"

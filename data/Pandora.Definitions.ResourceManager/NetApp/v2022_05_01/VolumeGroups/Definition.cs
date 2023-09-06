@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
     public string Name => "VolumeGroups";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new VolumeGroupsCreateOperation(),
-        new VolumeGroupsDeleteOperation(),
-        new VolumeGroupsGetOperation(),
-        new VolumeGroupsListByNetAppAccountOperation(),
+        new CreateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListByNetAppAccountOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

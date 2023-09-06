@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
     public string Name => "DataConnectors";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new DataConnectorsCreateOrUpdateOperation(),
-        new DataConnectorsDeleteOperation(),
-        new DataConnectorsGetOperation(),
-        new DataConnectorsListOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

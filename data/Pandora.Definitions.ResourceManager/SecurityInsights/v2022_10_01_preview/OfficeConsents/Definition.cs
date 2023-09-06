@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "OfficeConsents";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new OfficeConsentsDeleteOperation(),
-        new OfficeConsentsGetOperation(),
-        new OfficeConsentsListOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

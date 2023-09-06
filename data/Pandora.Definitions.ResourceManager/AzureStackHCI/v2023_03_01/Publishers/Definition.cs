@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "Publishers";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new PublishersGetOperation(),
-        new PublishersListByClusterOperation(),
+        new GetOperation(),
+        new ListByClusterOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

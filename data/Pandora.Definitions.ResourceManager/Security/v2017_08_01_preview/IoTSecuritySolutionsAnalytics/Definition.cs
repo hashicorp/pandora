@@ -13,13 +13,13 @@ internal class Definition : ResourceDefinition
     public string Name => "IoTSecuritySolutionsAnalytics";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new IoTSecuritySolutionsAnalyticsAggregatedAlertDismissOperation(),
-        new IoTSecuritySolutionsAnalyticsAggregatedAlertGetOperation(),
-        new IoTSecuritySolutionsAnalyticsAggregatedAlertsListOperation(),
-        new IoTSecuritySolutionsAnalyticsGetAllOperation(),
-        new IoTSecuritySolutionsAnalyticsGetDefaultOperation(),
-        new IoTSecuritySolutionsAnalyticsRecommendationGetOperation(),
-        new IoTSecuritySolutionsAnalyticsRecommendationsListOperation(),
+        new AggregatedAlertDismissOperation(),
+        new AggregatedAlertGetOperation(),
+        new AggregatedAlertsListOperation(),
+        new GetAllOperation(),
+        new GetDefaultOperation(),
+        new RecommendationGetOperation(),
+        new RecommendationsListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

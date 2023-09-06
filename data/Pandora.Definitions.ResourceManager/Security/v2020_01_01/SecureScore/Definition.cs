@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
     public string Name => "SecureScore";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new SecureScoreControlsListBySecureScoreOperation(),
-        new SecureScoresGetOperation(),
-        new SecureScoresListOperation(),
+        new ControlsListBySecureScoreOperation(),
+        new GetOperation(),
+        new ListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

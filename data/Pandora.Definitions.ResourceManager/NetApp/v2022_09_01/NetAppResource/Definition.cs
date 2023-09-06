@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "NetAppResource";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new NetAppResourceCheckFilePathAvailabilityOperation(),
-        new NetAppResourceCheckNameAvailabilityOperation(),
-        new NetAppResourceCheckQuotaAvailabilityOperation(),
-        new NetAppResourceQueryRegionInfoOperation(),
-        new NetAppResourceQuotaLimitsGetOperation(),
-        new NetAppResourceQuotaLimitsListOperation(),
+        new CheckFilePathAvailabilityOperation(),
+        new CheckNameAvailabilityOperation(),
+        new CheckQuotaAvailabilityOperation(),
+        new QueryRegionInfoOperation(),
+        new QuotaLimitsGetOperation(),
+        new QuotaLimitsListOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

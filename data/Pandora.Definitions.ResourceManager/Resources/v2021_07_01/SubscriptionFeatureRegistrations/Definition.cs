@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "SubscriptionFeatureRegistrations";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new SubscriptionFeatureRegistrationsCreateOrUpdateOperation(),
-        new SubscriptionFeatureRegistrationsDeleteOperation(),
-        new SubscriptionFeatureRegistrationsGetOperation(),
-        new SubscriptionFeatureRegistrationsListAllBySubscriptionOperation(),
-        new SubscriptionFeatureRegistrationsListBySubscriptionOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListAllBySubscriptionOperation(),
+        new ListBySubscriptionOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

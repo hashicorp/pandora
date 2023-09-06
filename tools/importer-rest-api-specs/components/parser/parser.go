@@ -58,11 +58,59 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 		}
 	}
 
+	// now that we have a canonical list of resources, can we simplify the Operation names at all?
+	resourcesOut := make(map[string]models.AzureApiResource)
+	for resourceName, resource := range resources {
+		d.logger.Trace(fmt.Sprintf("Simplifying operation names for resource %q", resourceName))
+		updated := d.simplifyOperationNamesForResource(resource, resourceName)
+		resourcesOut[resourceName] = updated
+	}
+
 	return &models.AzureApiDefinition{
 		ServiceName: cleanup.NormalizeServiceName(serviceName),
 		ApiVersion:  apiVersion,
-		Resources:   resources,
+		Resources:   resourcesOut,
 	}, nil
+}
+
+func (d *SwaggerDefinition) simplifyOperationNamesForResource(resource models.AzureApiResource, resourceName string) models.AzureApiResource {
+	allOperationsStartWithPrefix := true
+	resourceNameLower := strings.ToLower(resourceName)
+	for operationName := range resource.Operations {
+		operationNameLowered := strings.ToLower(operationName)
+		if !strings.HasPrefix(operationNameLowered, resourceNameLower) || strings.EqualFold(operationNameLowered, resourceNameLower) {
+			allOperationsStartWithPrefix = false
+			break
+		}
+	}
+
+	if !allOperationsStartWithPrefix {
+		d.logger.Trace(fmt.Sprintf("Skipping simplifying operation names for resource %q", resourceName))
+		return resource
+	}
+
+	output := make(map[string]models.OperationDetails)
+	for key, value := range resource.Operations {
+		updatedKey := key[len(resourceNameLower):]
+		// Trim off any spurious `s` at the start. This happens when the Swagger Tag and the Operation ID
+		// use different pluralizations (e.g. one is Singular and the other is Plural)
+		//
+		// Whilst it's possible this could happen for other suffixes (e.g. `ies`, or `y`)
+		// the Data only shows `s` at this point in time, so this is sufficient for now:
+		// https://github.com/hashicorp/pandora/pull/3016#pullrequestreview-1612987765
+		//
+		// Any other examples will generate successfully but be unusable in the Go SDK since these
+		// will be treated as unexported methods - and can be addressed then.
+		if strings.HasPrefix(updatedKey, "s") {
+			updatedKey = updatedKey[1:]
+		}
+
+		d.logger.Trace(fmt.Sprintf("Simplifying Operation %q to %q", key, updatedKey))
+		output[updatedKey] = value
+	}
+
+	resource.Operations = output
+	return resource
 }
 
 func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourceids.ParseResult, error) {

@@ -21,6 +21,12 @@ internal class ExportModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("identity")]
+    public CustomTypes.SystemAssignedIdentity? Identity { get; set; }
+
+    [JsonPropertyName("location")]
+    public CustomTypes.Location? Location { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 

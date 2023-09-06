@@ -41,12 +41,9 @@ func main() {
 		"DataShare",
 		"FrontDoor",
 		"Insights",
-		"KeyVault",
 		"Kusto",
 		"Maintenance",
 		"ManagedServices",
-		"OperationalInsights",
-		"OperationsManagement",
 		"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
 		"Security",
 		"SecurityInsights",
@@ -58,8 +55,6 @@ func main() {
 		"StreamAnalytics",
 		"Subscription",
 		"TimeSeriesInsights",
-		"TrafficManager",
-		"WebPubSub",
 
 		// Automation @ 2022-08-08 uses the new base layer, so let's invert the older versions for now
 		"Automation@2015-10-31",
@@ -71,6 +66,10 @@ func main() {
 		"ContainerService",
 		"LoadTestService",
 		"ManagedIdentity",
+
+		// @tombuildsstuff: KeyVault requires that the exact casing retrieved from the API is re-sent back to the API
+		// as such will require custom work in the Provider (potentially a custom unmarshaller from the HTTP Body) to support this
+		"KeyVault",
 	)
 
 	var serviceNames string
