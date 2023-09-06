@@ -21,7 +21,7 @@ internal class UpdateAseNetworkingConfigurationOperation : Pandora.Definitions.O
 
     public override Type? RequestObject() => typeof(AseV3NetworkingConfigurationModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(AseV3NetworkingConfigurationModel);
 

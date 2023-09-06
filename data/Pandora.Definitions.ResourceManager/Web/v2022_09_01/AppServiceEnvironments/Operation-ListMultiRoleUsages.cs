@@ -16,7 +16,7 @@ internal class ListMultiRoleUsagesOperation : Pandora.Definitions.Operations.Lis
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type NestedItemType() => typeof(UsageModel);
 

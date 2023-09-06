@@ -20,7 +20,7 @@ internal class DeleteAseCustomDnsSuffixConfigurationOperation : Pandora.Definiti
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(object);
 

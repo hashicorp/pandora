@@ -16,7 +16,7 @@ internal class ListTriggeredWebJobsOperation : Pandora.Definitions.Operations.Li
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type NestedItemType() => typeof(TriggeredWebJobModel);
 

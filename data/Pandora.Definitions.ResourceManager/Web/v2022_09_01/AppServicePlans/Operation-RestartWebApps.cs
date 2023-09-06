@@ -21,7 +21,7 @@ internal class RestartWebAppsOperation : Pandora.Definitions.Operations.PostOper
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServerFarmId();
+    public override ResourceID? ResourceId() => new AppServicePlanId();
 
     public override Type? OptionsObject() => typeof(RestartWebAppsOperation.RestartWebAppsOptions);
 

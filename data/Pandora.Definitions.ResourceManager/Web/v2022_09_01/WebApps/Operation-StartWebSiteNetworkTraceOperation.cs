@@ -24,7 +24,7 @@ internal class StartWebSiteNetworkTraceOperationOperation : Pandora.Definitions.
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(List<NetworkTraceModel>);
 

@@ -21,7 +21,7 @@ internal class UpdateConnectionStringsOperation : Pandora.Definitions.Operations
 
     public override Type? RequestObject() => typeof(ConnectionStringDictionaryModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(ConnectionStringDictionaryModel);
 

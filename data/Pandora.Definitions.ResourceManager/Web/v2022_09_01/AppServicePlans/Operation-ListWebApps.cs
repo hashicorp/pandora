@@ -16,7 +16,7 @@ internal class ListWebAppsOperation : Pandora.Definitions.Operations.ListOperati
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerFarmId();
+    public override ResourceID? ResourceId() => new AppServicePlanId();
 
     public override Type NestedItemType() => typeof(SiteModel);
 

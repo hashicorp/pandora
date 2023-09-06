@@ -21,7 +21,7 @@ internal class UpdateScmAllowedOperation : Pandora.Definitions.Operations.PutOpe
 
     public override Type? RequestObject() => typeof(CsmPublishingCredentialsPoliciesEntityModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(CsmPublishingCredentialsPoliciesEntityModel);
 

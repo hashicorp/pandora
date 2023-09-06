@@ -22,7 +22,7 @@ internal class StopNetworkTraceOperation : Pandora.Definitions.Operations.PostOp
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/stopNetworkTrace";
 

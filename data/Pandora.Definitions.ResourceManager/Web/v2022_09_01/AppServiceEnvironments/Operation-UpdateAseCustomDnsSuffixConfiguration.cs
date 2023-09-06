@@ -21,7 +21,7 @@ internal class UpdateAseCustomDnsSuffixConfigurationOperation : Pandora.Definiti
 
     public override Type? RequestObject() => typeof(CustomDnsSuffixConfigurationModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(CustomDnsSuffixConfigurationModel);
 

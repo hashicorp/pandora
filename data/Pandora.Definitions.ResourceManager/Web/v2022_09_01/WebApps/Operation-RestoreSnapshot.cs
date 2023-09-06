@@ -24,7 +24,7 @@ internal class RestoreSnapshotOperation : Pandora.Definitions.Operations.PostOpe
 
     public override Type? RequestObject() => typeof(SnapshotRestoreRequestModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/restoreSnapshot";
 

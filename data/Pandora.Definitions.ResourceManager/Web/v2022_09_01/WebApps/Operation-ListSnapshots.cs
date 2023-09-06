@@ -16,7 +16,7 @@ internal class ListSnapshotsOperation : Pandora.Definitions.Operations.ListOpera
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type NestedItemType() => typeof(SnapshotModel);
 

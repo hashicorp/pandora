@@ -24,7 +24,7 @@ internal class SwapSlotWithProductionOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => typeof(CsmSlotEntityModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/slotsswap";
 

@@ -21,7 +21,7 @@ internal class ListSyncStatusOperation : Pandora.Definitions.Operations.PostOper
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/host/default/listsyncstatus";
 

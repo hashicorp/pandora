@@ -21,7 +21,7 @@ internal class CreateOrUpdateSwiftVirtualNetworkConnectionWithCheckOperation : P
 
     public override Type? RequestObject() => typeof(SwiftVirtualNetworkModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(SwiftVirtualNetworkModel);
 

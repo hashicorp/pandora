@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Web.v2022_09_01.AppServicePlans;
 
 internal class GetHybridConnectionPlanLimitOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerFarmId();
+    public override ResourceID? ResourceId() => new AppServicePlanId();
 
     public override Type? ResponseObject() => typeof(HybridConnectionLimitsModel);
 

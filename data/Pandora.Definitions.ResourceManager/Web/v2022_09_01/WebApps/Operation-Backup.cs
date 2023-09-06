@@ -21,7 +21,7 @@ internal class BackupOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(BackupRequestModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(BackupItemModel);
 

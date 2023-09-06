@@ -21,7 +21,7 @@ internal class DiscoverBackupOperation : Pandora.Definitions.Operations.PostOper
 
     public override Type? RequestObject() => typeof(RestoreRequestModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(RestoreRequestModel);
 

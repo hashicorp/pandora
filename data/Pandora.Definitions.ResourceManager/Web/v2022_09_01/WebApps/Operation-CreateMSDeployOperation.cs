@@ -23,7 +23,7 @@ internal class CreateMSDeployOperationOperation : Pandora.Definitions.Operations
 
     public override Type? RequestObject() => typeof(MSDeployModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(MSDeployStatusModel);
 

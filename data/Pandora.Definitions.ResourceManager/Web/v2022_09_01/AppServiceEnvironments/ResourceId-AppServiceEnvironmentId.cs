@@ -6,23 +6,23 @@ using Pandora.Definitions.Interfaces;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Web.v2022_09_01.Recommendations;
+namespace Pandora.Definitions.ResourceManager.Web.v2022_09_01.AppServiceEnvironments;
 
-internal class HostingEnvironmentId : ResourceID
+internal class AppServiceEnvironmentId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "AppServiceEnvironment";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{hostingEnvironmentName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftWeb", "Microsoft.Web"),
-        ResourceIDSegment.Static("staticHostingEnvironments", "hostingEnvironments"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Web"),
+        ResourceIDSegment.Static("hostingEnvironments", "hostingEnvironments"),
         ResourceIDSegment.UserSpecified("hostingEnvironmentName"),
     };
 }
