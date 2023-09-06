@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "ContentKeyPolicies";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ContentKeyPoliciesCreateOrUpdateOperation(),
-        new ContentKeyPoliciesDeleteOperation(),
-        new ContentKeyPoliciesGetOperation(),
-        new ContentKeyPoliciesGetPolicyPropertiesWithSecretsOperation(),
-        new ContentKeyPoliciesListOperation(),
-        new ContentKeyPoliciesUpdateOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new GetPolicyPropertiesWithSecretsOperation(),
+        new ListOperation(),
+        new UpdateOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

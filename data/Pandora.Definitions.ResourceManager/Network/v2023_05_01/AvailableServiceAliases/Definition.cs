@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
     public string Name => "AvailableServiceAliases";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AvailableServiceAliasesListOperation(),
-        new AvailableServiceAliasesListByResourceGroupOperation(),
+        new ListOperation(),
+        new ListByResourceGroupOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "ContactProfile";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ContactProfilesCreateOrUpdateOperation(),
-        new ContactProfilesDeleteOperation(),
-        new ContactProfilesGetOperation(),
-        new ContactProfilesListOperation(),
-        new ContactProfilesListBySubscriptionOperation(),
-        new ContactProfilesUpdateTagsOperation(),
+        new CreateOrUpdateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new ListBySubscriptionOperation(),
+        new UpdateTagsOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
     public string Name => "Extensions";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new ExtensionsCreateOperation(),
-        new ExtensionsDeleteOperation(),
-        new ExtensionsGetOperation(),
-        new ExtensionsListByArcSettingOperation(),
-        new ExtensionsUpdateOperation(),
-        new ExtensionsUpgradeOperation(),
+        new CreateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListByArcSettingOperation(),
+        new UpdateOperation(),
+        new UpgradeOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

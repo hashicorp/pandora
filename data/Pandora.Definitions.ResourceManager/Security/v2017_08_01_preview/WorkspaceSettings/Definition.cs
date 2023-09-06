@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
     public string Name => "WorkspaceSettings";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new WorkspaceSettingsCreateOperation(),
-        new WorkspaceSettingsDeleteOperation(),
-        new WorkspaceSettingsGetOperation(),
-        new WorkspaceSettingsListOperation(),
-        new WorkspaceSettingsUpdateOperation(),
+        new CreateOperation(),
+        new DeleteOperation(),
+        new GetOperation(),
+        new ListOperation(),
+        new UpdateOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
