@@ -21,7 +21,7 @@ internal class UpdateAuthSettingsOperation : Pandora.Definitions.Operations.PutO
 
     public override Type? RequestObject() => typeof(SiteAuthSettingsModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(SiteAuthSettingsModel);
 

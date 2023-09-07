@@ -23,7 +23,7 @@ internal class ListSiteBackupsOperation : Pandora.Definitions.Operations.ListOpe
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type NestedItemType() => typeof(BackupItemModel);
 

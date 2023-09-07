@@ -19,7 +19,7 @@ internal class DeleteSwiftVirtualNetworkOperation : Pandora.Definitions.Operatio
                 HttpStatusCode.OK,
         };
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/networkConfig/virtualNetwork";
 

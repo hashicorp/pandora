@@ -21,7 +21,7 @@ internal class UpdateSlotConfigurationNamesOperation : Pandora.Definitions.Opera
 
     public override Type? RequestObject() => typeof(SlotConfigNamesResourceModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(SlotConfigNamesResourceModel);
 

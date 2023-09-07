@@ -21,7 +21,7 @@ internal class DisableAllForHostingEnvironmentOperation : Pandora.Definitions.Op
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? OptionsObject() => typeof(DisableAllForHostingEnvironmentOperation.DisableAllForHostingEnvironmentOptions);
 

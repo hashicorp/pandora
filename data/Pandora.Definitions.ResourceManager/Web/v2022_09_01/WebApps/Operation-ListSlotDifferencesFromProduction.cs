@@ -23,7 +23,7 @@ internal class ListSlotDifferencesFromProductionOperation : Pandora.Definitions.
 
     public override Type? RequestObject() => typeof(CsmSlotEntityModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type NestedItemType() => typeof(SlotDifferenceModel);
 

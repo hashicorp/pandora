@@ -16,7 +16,7 @@ internal class ListHybridConnectionsOperation : Pandora.Definitions.Operations.L
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerFarmId();
+    public override ResourceID? ResourceId() => new AppServicePlanId();
 
     public override Type NestedItemType() => typeof(HybridConnectionModel);
 

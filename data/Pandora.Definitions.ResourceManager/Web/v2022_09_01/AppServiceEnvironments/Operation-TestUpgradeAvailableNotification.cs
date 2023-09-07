@@ -21,7 +21,7 @@ internal class TestUpgradeAvailableNotificationOperation : Pandora.Definitions.O
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override string? UriSuffix() => "/testUpgradeAvailableNotification";
 

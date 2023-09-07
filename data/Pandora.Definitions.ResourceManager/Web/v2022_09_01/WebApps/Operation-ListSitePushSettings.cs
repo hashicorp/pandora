@@ -21,7 +21,7 @@ internal class ListSitePushSettingsOperation : Pandora.Definitions.Operations.Po
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(PushSettingsModel);
 

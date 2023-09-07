@@ -21,7 +21,7 @@ internal class DeployWorkflowArtifactsOperation : Pandora.Definitions.Operations
 
     public override Type? RequestObject() => typeof(WorkflowArtifactsModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/deployWorkflowArtifacts";
 

@@ -24,7 +24,7 @@ internal class RestoreFromBackupBlobOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => typeof(RestoreRequestModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override string? UriSuffix() => "/restoreFromBackupBlob";
 

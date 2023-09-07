@@ -16,7 +16,7 @@ internal class ListRecommendedRulesForHostingEnvironmentOperation : Pandora.Defi
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type NestedItemType() => typeof(RecommendationModel);
 

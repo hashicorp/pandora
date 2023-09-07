@@ -21,7 +21,7 @@ internal class UpdateAzureStorageAccountsOperation : Pandora.Definitions.Operati
 
     public override Type? RequestObject() => typeof(AzureStoragePropertyDictionaryResourceModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(AzureStoragePropertyDictionaryResourceModel);
 

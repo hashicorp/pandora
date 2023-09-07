@@ -16,7 +16,7 @@ internal class ListDeploymentsOperation : Pandora.Definitions.Operations.ListOpe
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type NestedItemType() => typeof(DeploymentModel);
 

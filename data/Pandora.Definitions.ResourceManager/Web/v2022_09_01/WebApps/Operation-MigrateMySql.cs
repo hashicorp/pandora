@@ -23,7 +23,7 @@ internal class MigrateMySqlOperation : Pandora.Definitions.Operations.PostOperat
 
     public override Type? RequestObject() => typeof(MigrateMySqlRequestModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(OperationModel);
 

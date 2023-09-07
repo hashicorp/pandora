@@ -25,7 +25,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(AppServiceEnvironmentResourceModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(AppServiceEnvironmentResourceModel);
 

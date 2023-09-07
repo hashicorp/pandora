@@ -21,7 +21,7 @@ internal class ListPublishingProfileXmlWithSecretsOperation : Pandora.Definition
 
     public override Type? RequestObject() => typeof(CsmPublishingProfileOptionsModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(CustomTypes.RawFile);
 

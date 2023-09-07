@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Web.v2022_09_01.WebApps;
 
 internal class GetSitePhpErrorLogFlagOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(SitePhpErrorLogFlagModel);
 

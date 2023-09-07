@@ -24,7 +24,7 @@ internal class CreateOrUpdateMultiRolePoolOperation : Pandora.Definitions.Operat
 
     public override Type? RequestObject() => typeof(WorkerPoolResourceModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(WorkerPoolResourceModel);
 

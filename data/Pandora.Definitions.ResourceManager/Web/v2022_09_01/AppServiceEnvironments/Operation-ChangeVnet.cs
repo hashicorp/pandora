@@ -26,7 +26,7 @@ internal class ChangeVnetOperation : Pandora.Definitions.Operations.ListOperatio
 
     public override Type? RequestObject() => typeof(VirtualNetworkProfileModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type NestedItemType() => typeof(SiteModel);
 

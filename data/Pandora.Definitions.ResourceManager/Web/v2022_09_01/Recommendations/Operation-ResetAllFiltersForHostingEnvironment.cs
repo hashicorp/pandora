@@ -21,7 +21,7 @@ internal class ResetAllFiltersForHostingEnvironmentOperation : Pandora.Definitio
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? OptionsObject() => typeof(ResetAllFiltersForHostingEnvironmentOperation.ResetAllFiltersForHostingEnvironmentOptions);
 

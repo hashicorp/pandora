@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Web.v2022_09_01.AppServiceEnvironm
 
 internal class GetAseV3NetworkingConfigurationOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(AseV3NetworkingConfigurationModel);
 

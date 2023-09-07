@@ -23,7 +23,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(AppServiceEnvironmentPatchResourceModel);
 
-    public override ResourceID? ResourceId() => new HostingEnvironmentId();
+    public override ResourceID? ResourceId() => new AppServiceEnvironmentId();
 
     public override Type? ResponseObject() => typeof(AppServiceEnvironmentResourceModel);
 

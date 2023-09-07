@@ -21,7 +21,7 @@ internal class PutPrivateAccessVnetOperation : Pandora.Definitions.Operations.Pu
 
     public override Type? RequestObject() => typeof(PrivateAccessModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(PrivateAccessModel);
 

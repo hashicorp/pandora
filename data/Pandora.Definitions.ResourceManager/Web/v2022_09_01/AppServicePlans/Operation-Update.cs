@@ -22,7 +22,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(AppServicePlanPatchResourceModel);
 
-    public override ResourceID? ResourceId() => new ServerFarmId();
+    public override ResourceID? ResourceId() => new AppServicePlanId();
 
     public override Type? ResponseObject() => typeof(AppServicePlanModel);
 

@@ -21,7 +21,7 @@ internal class UpdateDiagnosticLogsConfigOperation : Pandora.Definitions.Operati
 
     public override Type? RequestObject() => typeof(SiteLogsConfigModel);
 
-    public override ResourceID? ResourceId() => new SiteId();
+    public override ResourceID? ResourceId() => new AppServiceId();
 
     public override Type? ResponseObject() => typeof(SiteLogsConfigModel);
 
