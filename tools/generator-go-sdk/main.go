@@ -24,13 +24,26 @@ type GeneratorInput struct {
 }
 
 type SDK struct {
-	baseClientMethod                   string
-	baseClientPackage                  string
-	clients                            map[string]func(string) resourcemanager.Client
+	// baseClientMethod is the go function for instantiating the particular base client
+	baseClientMethod string
+
+	// baseClientPackage is the go package where the base client can be found
+	baseClientPackage string
+
+	// clients is a map of Data API clients to use when retrieving definitions for the SDK
+	clients map[string]func(string) resourcemanager.Client
+
+	// commonModelsPackageNameFromVersion is a function that returns the go package name containing common types (models, constants, predicates), for the SDK version
 	commonModelsPackageNameFromVersion func(string) (*string, error)
+
+	// commonModelsPackagePathFromVersion is a function that returns the go import path where common types can be found, for the SDK version
 	commonModelsPackagePathFromVersion func(string) (*string, error)
-	outputSubDirectory                 string
-	versionMapper                      func(string) (*string, error)
+
+	// outputSubDirectory is the base directory where the SDK will reside in the go-azure-sdk repository
+	outputSubDirectory string
+
+	// versionMapper is a function that returns a local API version for a given version as returned by the Data API
+	versionMapper func(string) (*string, error)
 }
 
 var availableSDKs = map[string]SDK{

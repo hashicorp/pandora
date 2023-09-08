@@ -87,7 +87,7 @@ type VersionInput struct {
 func (s *ServiceGenerator) GenerateForVersion(input VersionInput) error {
 	input.ServiceName = strings.ToLower(input.ServiceName)
 	input.VersionName = strings.ToLower(input.VersionName)
-	versionDirectory := filepath.Join(input.OutputDirectory, GolangPackageName(input.ServiceName), GolangPackageName(input.VersionName))
+	versionDirectory := filepath.Join(input.OutputDirectory, golangPackageName(input.ServiceName), golangPackageName(input.VersionName))
 
 	stages := map[string]func(data VersionInput, versionDirectory string) error{
 		"metaClient": s.metaClient,

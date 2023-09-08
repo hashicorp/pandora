@@ -109,7 +109,7 @@ func golangTypeNameForConstantType(input resourcemanager.ConstantType) (*string,
 	return &segmentType, nil
 }
 
-func GolangPackageName(input string) (output string) {
+func golangPackageName(input string) (output string) {
 	output = input
 	output = regexp.MustCompile("[^0-9A-z-]").ReplaceAllString(output, "_")
 	output = strings.ToLower(output)

@@ -48,6 +48,18 @@ type ServiceGeneratorData struct {
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string
 
+	// baseClientMethod is the go function for instantiating the particular base client
+	baseClientMethod string
+
+	// baseClientPackage is the go package where the base client can be found
+	baseClientPackage string
+
+	// commonPackageName is the go package containing common types (models, constants, predicates)
+	commonPackageName string
+
+	// commonPackageImportPath is the go import path where common types can be found
+	commonPackageImportPath string
+
 	// development feature flag - this requires work in the Resource ID parser to handle name conflicts
 	// @tombuildsstuff: fix this
 	useIdAliases bool
@@ -55,18 +67,13 @@ type ServiceGeneratorData struct {
 	// development feature flag - should this service use the new transport layer from `hashicorp/go-azure-sdk`
 	// rather than the existing Autorest base layer?
 	useNewBaseLayer bool
-
-	baseClientMethod        string
-	baseClientPackage       string
-	commonPackageName       string
-	commonPackageImportPath string
 }
 
 func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGeneratorData {
-	servicePackageName := GolangPackageName(i.ServiceName)
-	versionPackageName := GolangPackageName(i.VersionName)
+	servicePackageName := golangPackageName(i.ServiceName)
+	versionPackageName := golangPackageName(i.VersionName)
 	// TODO: it'd be nice to make these snake_case but that's a problem for another day
-	resourcePackageName := GolangPackageName(i.ResourceName)
+	resourcePackageName := golangPackageName(i.ResourceName)
 	versionOutputPath := filepath.Join(i.OutputDirectoryPath, servicePackageName, versionPackageName)
 	resourceOutputPath := filepath.Join(versionOutputPath, resourcePackageName)
 	idsPath := filepath.Join(versionOutputPath, "ids")

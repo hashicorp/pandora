@@ -17,13 +17,13 @@ func (c versionTemplater) template(data ServiceGeneratorData) (*string, error) {
 
 import "fmt"
 
-%[3]s
+%[4]s
 
-const defaultApiVersion = "%[2]s"
+const defaultApiVersion = "%[3]s"
 
 func userAgent() string {
-	return fmt.Sprintf("hashicorp/go-azure-sdk/%[1]s/%%s", defaultApiVersion)
+	return fmt.Sprintf("hashicorp/go-azure-sdk/%[1]s/%[2]s/%%s", defaultApiVersion)
 }
-`, data.packageName, data.apiVersion, *copyrightLines)
+`, data.baseClientPackage, data.packageName, data.apiVersion, *copyrightLines)
 	return &template, nil
 }
