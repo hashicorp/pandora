@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace Pandora.Data.Helpers;
 
@@ -114,6 +115,16 @@ public static class TypeExtensions
             typeof(Definitions.CustomTypes.Zones),
         };
         return customTypes.Contains(input);
+    }
+
+    public static bool? IsCommonType(this Type input)
+    {
+        if (input.Namespace == null)
+        {
+            return null;
+        }
+
+        return input.Namespace.EndsWith(".CommonTypes") || input.Namespace.Contains(".CommonTypes.");
     }
 
     internal static bool HasAttribute<T>(this MemberInfo info) where T : Attribute

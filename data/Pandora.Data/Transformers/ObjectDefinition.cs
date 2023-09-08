@@ -77,6 +77,7 @@ public static class ObjectDefinition
         {
             Type = ObjectType.Reference,
             ReferenceName = responseObjectName,
+            ReferenceIsCommonType = input.IsCommonType(),
         };
     }
 

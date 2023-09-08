@@ -16,7 +16,8 @@ public static class ApiObjectDefinitionMapper
         var definition = new ApiObjectDefinition
         {
             ReferenceName = input.ReferenceName,
-            Type = MapApiObjectType(input.Type)
+            Type = MapApiObjectType(input.Type),
+            ReferenceIsCommonType = input.ReferenceIsCommonType,
         };
         if (input.NestedItem != null)
         {
@@ -96,6 +97,9 @@ public class ApiObjectDefinition
 
     [JsonPropertyName("referenceName")]
     public string? ReferenceName { get; set; }
+
+    [JsonPropertyName("referenceIsCommonType")]
+    public bool? ReferenceIsCommonType { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

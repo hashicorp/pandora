@@ -6,6 +6,8 @@ public class ObjectDefinition
 
     public string? ReferenceName { get; set; }
 
+    public bool? ReferenceIsCommonType { get; set; }
+
     public ObjectDefinition? NestedItem { get; set; }
 
     // Minimum is the minimum number of items which must be specified when this is a Dictionary/List element, if specified
