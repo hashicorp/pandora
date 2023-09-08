@@ -227,7 +227,12 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	return r.FullyQualifiedResourceName(true)
+	name, ok := r.FullyQualifiedResourceName(false)
+	if name != nil {
+		*name = fmt.Sprintf("%sId", *name)
+	}
+
+	return name, ok
 }
 
 func (r ResourceId) HasUserValue() bool {
