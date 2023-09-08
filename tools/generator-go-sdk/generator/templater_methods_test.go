@@ -442,9 +442,10 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 
 func TestTemplateMethodsTopLevelDiscriminatorReferencingParentType(t *testing.T) {
 	input := ServiceGeneratorData{
-		packageName:       "chubbypandas",
-		serviceClientName: "pandaClient",
-		source:            AccTestLicenceType,
+		commonPackageImportPath: "pandas/common",
+		packageName:             "chubbypandas",
+		serviceClientName:       "pandaClient",
+		source:                  AccTestLicenceType,
 		models: map[string]resourcemanager.ModelDetails{
 			"FizzyDrink": {
 				TypeHintIn: stringPointer("Type"),
@@ -492,6 +493,7 @@ import (
 "github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
 "github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 "github.com/hashicorp/go-azure-sdk/sdk/odata"
+"github.com/hashicorp/go-azure-sdk/pandas/common"
 )
 // acctests licence placeholder
 type GetOperationResponse struct {
@@ -543,9 +545,10 @@ func (c pandaClient) Get(ctx context.Context ) (result GetOperationResponse, err
 
 func TestTemplateMethodsTopLevelDiscriminatorReferencingImplementation(t *testing.T) {
 	input := ServiceGeneratorData{
-		packageName:       "chubbypandas",
-		serviceClientName: "pandaClient",
-		source:            AccTestLicenceType,
+		commonPackageImportPath: "pandas/common",
+		packageName:             "chubbypandas",
+		serviceClientName:       "pandaClient",
+		source:                  AccTestLicenceType,
 		models: map[string]resourcemanager.ModelDetails{
 			"PandaPop": {
 				ParentTypeName: stringPointer("FizzyDrink"),
@@ -594,6 +597,7 @@ import (
 "github.com/hashicorp/go-azure-sdk/sdk/client/pollers"
 "github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 "github.com/hashicorp/go-azure-sdk/sdk/odata"
+"github.com/hashicorp/go-azure-sdk/pandas/common"
 )
 // acctests licence placeholder
 type GetOperationResponse struct {

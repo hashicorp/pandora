@@ -18,7 +18,6 @@ func (c clientsTemplater) template(data ServiceGeneratorData) (*string, error) {
 import (
 	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
 	"github.com/hashicorp/go-azure-sdk/sdk/client/%[4]s"
-	"github.com/hashicorp/go-azure-sdk/sdk/environments"
 )
 
 %[3]s

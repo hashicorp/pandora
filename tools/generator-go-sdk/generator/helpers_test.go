@@ -1,6 +1,7 @@
 package generator
 
 import (
+	"fmt"
 	"strings"
 	"testing"
 
@@ -16,32 +17,30 @@ func assertTemplatedCodeMatches(t *testing.T, expected string, actual string) {
 	actualLines := splitLines(actual)
 	expectedLines := splitLines(expected)
 
-	normalizedActualValue := strings.Join(actualLines, "\n")
-	normalizedExpectedValue := strings.Join(expectedLines, "\n")
+	normalizedActualValue := strings.Join(numberLines(actualLines), "\n")
+	normalizedExpectedValue := strings.Join(numberLines(expectedLines), "\n")
 
-	if len(actualLines) != len(expectedLines) {
-		t.Fatalf(`Expected %d lines but got %d lines.
+	actualLen := len(actualLines)
+	expectedLen := len(expectedLines)
 
-Expected Value:
----
-%s
----
-
-Actual Value:
----
-%s
----
-`, len(expectedLines), len(actualLines), normalizedExpectedValue, normalizedActualValue)
+	if actualLen != expectedLen {
+		t.Errorf("Expected %d lines but got %d lines.", len(expectedLines), len(actualLines))
 	}
 
 	for i := 0; i < len(actualLines); i++ {
 		actualLine := actualLines[i]
-		expectedLine := expectedLines[i]
-		if !strings.EqualFold(strings.TrimSpace(actualLine), strings.TrimSpace(expectedLine)) {
-			t.Fatalf(`Expected and Actual differ on line %d
 
-Expected %q but got %q
+		if expectedLen <= i {
+			t.Errorf("Actual ends at line %d", expectedLen)
+			break
+		} else if expectedLine := expectedLines[i]; !strings.EqualFold(strings.TrimSpace(actualLine), strings.TrimSpace(expectedLine)) {
+			t.Errorf("Expected and Actual differ on line %d\nExpected %q but got %q", i+1, expectedLine, actualLine)
+			break
+		}
+	}
 
+	if t.Failed() {
+		t.Fatalf(`
 Expected Value:
 ---
 %s
@@ -51,8 +50,7 @@ Actual Value:
 ---
 %s
 ---
-`, i, expectedLine, actualLine, normalizedExpectedValue, normalizedActualValue)
-		}
+`, normalizedExpectedValue, normalizedActualValue)
 	}
 }
 
@@ -68,6 +66,14 @@ func splitLines(input string) []string {
 		}
 
 		out = append(out, line)
+	}
+	return out
+}
+
+func numberLines(input []string) []string {
+	out := make([]string, len(input))
+	for n := range input {
+		out[n] = fmt.Sprintf("%d\t%s", n+1, input[n])
 	}
 	return out
 }

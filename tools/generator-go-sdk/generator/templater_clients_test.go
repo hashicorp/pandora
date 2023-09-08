@@ -6,6 +6,8 @@ import (
 
 func TestTemplateClient(t *testing.T) {
 	input := ServiceGeneratorData{
+		baseClientPackage: "baseClient",
+		baseClientMethod:  "NewBaseClient",
 		packageName:       "somepackage",
 		serviceClientName: "ExampleClient",
 		source:            AccTestLicenceType,
@@ -19,18 +21,18 @@ func TestTemplateClient(t *testing.T) {
 	expected := `package somepackage
 
 import (
-	"github.com/hashicorp/go-azure-sdk/sdk/client/resourcemanager"
 	sdkEnv "github.com/hashicorp/go-azure-sdk/sdk/environments"
+	"github.com/hashicorp/go-azure-sdk/sdk/client/baseClient"
 )
 
 // acctests licence placeholder
 
 type ExampleClient struct {
-	Client  *resourcemanager.Client
+	Client  *baseClient.Client
 }
 
-func NewExampleClientWithBaseURI(sdkApi sdkEnv.Api) (*ExampleClient, error) {
-	client, err := resourcemanager.NewResourceManagerClient(sdkApi, "somepackage", defaultApiVersion)
+func NewExampleClientWithBaseURI(api sdkEnv.Api) (*ExampleClient, error) {
+	client, err := baseClient.NewBaseClient(api, "somepackage", defaultApiVersion)
 	if err != nil {
 		return nil, fmt.Errorf("instantiating ExampleClient: %+v", err)
 	}

@@ -6,9 +6,10 @@ import (
 
 func TestTemplateVersion(t *testing.T) {
 	input := ServiceGeneratorData{
-		packageName: "somepackage",
-		apiVersion:  "2022-02-01",
-		source:      AccTestLicenceType,
+		baseClientPackage: "pandas-api",
+		packageName:       "somepackage",
+		apiVersion:        "2022-02-01",
+		source:            AccTestLicenceType,
 	}
 
 	actual, err := versionTemplater{}.template(input)
@@ -25,7 +26,7 @@ import "fmt"
 const defaultApiVersion = "2022-02-01"
 
 func userAgent() string {
-	return fmt.Sprintf("hashicorp/go-azure-sdk/somepackage/%s", defaultApiVersion)
+	return fmt.Sprintf("hashicorp/go-azure-sdk/pandas-api/somepackage/%s", defaultApiVersion)
 }`
 	assertTemplatedCodeMatches(t, expected, *actual)
 }

@@ -49,15 +49,15 @@ import (
 	"github.com/hashicorp/go-azure-sdk/%[4]s"
 )
 
-%s
+%[2]s
 
-%s
+%[3]s
 `, data.packageName, *copyrightLines, *methods, data.commonPackageImportPath)
 	return &template, nil
 }
 
 func (c methodsAutoRestTemplater) methods(data ServiceGeneratorData) (*string, error) {
-	// NOTE: most of this logic is sanity checking, but should be within the API and it's validators too
+	// NOTE: most of this logic is sanity checking, but should be within the API and it's validators too.
 	// that could be a separate validation tool, but this would be most useful as unit tests
 
 	switch strings.ToUpper(c.operation.Method) {
