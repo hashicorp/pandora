@@ -8,7 +8,7 @@ import (
 )
 
 func TestTemplaterModelsParent(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "ModeOfTransit",
 		model: resourcemanager.ModelDetails{
 			TypeHintIn: stringPointer("Type"),
@@ -125,7 +125,7 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 }
 
 func TestTemplaterModelsImplementation(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Train",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -244,7 +244,7 @@ func (s Train) MarshalJSON() ([]byte, error) {
 }
 
 func TestTemplaterModelsFieldImplementation(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "TrainFactory",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -336,7 +336,7 @@ type TrainFactory struct {
 }
 
 func TestTemplaterModelsImplementationInheritedFromParentType(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "FirstImplementation",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{

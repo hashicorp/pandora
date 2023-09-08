@@ -10,12 +10,12 @@ import (
 
 // TODO: add unit tests covering this
 
-type predicateTemplater struct {
+type predicatesTemplater struct {
 	sortedModelNames []string
 	models           map[string]resourcemanager.ModelDetails
 }
 
-func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (p predicatesTemplater) template(data ServiceGeneratorData) (*string, error) {
 	output := make([]string, 0)
 	for _, modelName := range p.sortedModelNames {
 		model := data.models[modelName]
@@ -44,7 +44,7 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 	return &template, nil
 }
 
-func (p predicateTemplater) templateForModel(predicateStructName string, name string, model resourcemanager.ModelDetails) (*string, error) {
+func (p predicatesTemplater) templateForModel(predicateStructName string, name string, model resourcemanager.ModelDetails) (*string, error) {
 	fieldNames := make([]string, 0)
 
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164

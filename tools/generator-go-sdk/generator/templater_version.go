@@ -13,7 +13,7 @@ func (c versionTemplater) template(data ServiceGeneratorData) (*string, error) {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
 	}
 
-	template := fmt.Sprintf(`package %[1]s
+	template := fmt.Sprintf(`package %[2]s
 
 import "fmt"
 

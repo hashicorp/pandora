@@ -23,6 +23,7 @@ type SDKInput struct {
 	CommonTypes               *services.ResourceManagerCommonTypes
 	OutputSubDirectoryName    string
 	OutputDirectoryPath       string
+	Source                    resourcemanager.ApiDefinitionsSource
 	VersionName               string
 }
 
@@ -35,8 +36,9 @@ func (s *CommonTypesGenerator) GenerateForSDK(input SDKInput) error {
 	}
 
 	stages := map[string]func(SDKInput, string) error{
-		"commonTypes": s.commonTypes,
-		"predicates":  s.predicates,
+		"constants":  s.constants,
+		"models":     s.models,
+		"predicates": s.predicates,
 	}
 	for name, stage := range stages {
 		log.Printf("[DEBUG] Running Stage %q..", name)
@@ -50,13 +52,13 @@ func (s *CommonTypesGenerator) GenerateForSDK(input SDKInput) error {
 	return nil
 }
 
-func (s *CommonTypesGenerator) commonTypes(input SDKInput, outputDirectory string) error {
+func (s *CommonTypesGenerator) constants(input SDKInput, outputDirectory string) error {
 	data := ServiceGeneratorData{
 		apiVersion:  input.VersionName,
 		constants:   input.CommonTypes.Constants,
 		models:      input.CommonTypes.Models,
-		packageName: "models",
-		source:      resourcemanager.ApiDefinitionsSourceMicrosoftGraphMetadata,
+		packageName: input.CommonPackageName,
+		source:      input.Source,
 	}
 
 	for constantName, constant := range input.CommonTypes.Constants {
@@ -70,9 +72,21 @@ func (s *CommonTypesGenerator) commonTypes(input SDKInput, outputDirectory strin
 		}
 	}
 
+	return nil
+}
+
+func (s *CommonTypesGenerator) models(input SDKInput, outputDirectory string) error {
+	data := ServiceGeneratorData{
+		apiVersion:  input.VersionName,
+		constants:   input.CommonTypes.Constants,
+		models:      input.CommonTypes.Models,
+		packageName: input.CommonPackageName,
+		source:      input.Source,
+	}
+
 	for modelName, model := range input.CommonTypes.Models {
 		fileName := fmt.Sprintf("model_%s.go", strings.ToLower(modelName))
-		gen := modelsTemplater{
+		gen := modelTemplater{
 			name:  modelName,
 			model: model,
 		}
@@ -89,13 +103,13 @@ func (s *CommonTypesGenerator) predicates(input SDKInput, outputDirectory string
 		apiVersion:  input.VersionName,
 		constants:   input.CommonTypes.Constants,
 		models:      input.CommonTypes.Models,
-		packageName: "models",
-		source:      resourcemanager.ApiDefinitionsSourceMicrosoftGraphMetadata,
+		packageName: input.CommonPackageName,
+		source:      input.Source,
 	}
 
 	for modelName := range input.CommonTypes.Models {
 		fileName := fmt.Sprintf("predicates_%s.go", strings.ToLower(modelName))
-		gen := predicateTemplater{
+		gen := predicatesTemplater{
 			sortedModelNames: []string{modelName},
 			models:           input.CommonTypes.Models,
 		}

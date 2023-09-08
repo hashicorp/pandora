@@ -12,14 +12,14 @@ import (
 
 // TODO: add unit tests covering this
 
-var _ templaterForResource = modelsTemplater{}
+var _ templaterForResource = modelTemplater{}
 
-type modelsTemplater struct {
+type modelTemplater struct {
 	name  string
 	model resourcemanager.ModelDetails
 }
 
-func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) template(data ServiceGeneratorData) (*string, error) {
 	copyrightLines, err := copyrightLinesForSource(data.source)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving copyright lines: %+v", err)
@@ -57,7 +57,7 @@ import (
 	return &template, nil
 }
 
-func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) structCode(data ServiceGeneratorData) (*string, error) {
 	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
 	if c.model.TypeHintIn != nil && c.model.ParentTypeName == nil {
 		out := fmt.Sprintf(`
@@ -168,7 +168,7 @@ type %[1]s struct {
 	return &out, nil
 }
 
-func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	code := make([]string, 0)
 
 	dateFunctions, err := c.codeForDateFunctions(data)
@@ -195,7 +195,7 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails, data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails, data ServiceGeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
 	isOptional := false
@@ -224,7 +224,7 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	return &line, nil
 }
 
-func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) string {
+func (c modelTemplater) dateFormatString(input resourcemanager.DateFormat) string {
 	switch input {
 	case resourcemanager.RFC3339:
 		return time.RFC3339
@@ -237,7 +237,7 @@ func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) stri
 	}
 }
 
-func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) codeForDateFunctions(data ServiceGeneratorData) (*string, error) {
 	fieldsRequiringDateFunctions := make([]string, 0)
 	// parent models are output as interfaces with no fields - so we can skip these
 	// since the inherited models output the fields from their parents, the methods are output there
@@ -290,7 +290,7 @@ func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*strin
 	return &output, nil
 }
 
-func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
+func (c modelTemplater) dateFunctionForField(fieldName string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
 	if fieldDetails.DateFormat == nil {
 		return nil, fmt.Errorf("Date Field %q has no DateFormat", fieldName)
 	}
@@ -327,7 +327,7 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails res
 	return &out, nil
 }
 
-func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
 	output := ""
 
 	if c.model.TypeHintValue != nil {
@@ -387,7 +387,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalFunctions(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) codeForUnmarshalFunctions(data ServiceGeneratorData) (*string, error) {
 	unmarshalFunction, err := c.codeForUnmarshalStructFunction(data)
 	if err != nil {
 		return nil, fmt.Errorf("generating code for unmarshal struct function: %+v", err)
@@ -405,7 +405,7 @@ func (c modelsTemplater) codeForUnmarshalFunctions(data ServiceGeneratorData) (*
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorData) (*string, error) {
 	// if this is a Discriminated Type (e.g. Parent) then we need to generate a unmarshal{Name}Implementations
 	// function which can be used in any usages
 	lines := make([]string, 0)
@@ -484,7 +484,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorData) (*string, error) {
+func (c modelTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorData) (*string, error) {
 	// this is a parent, therefore there'll be no struct fields to check here
 	if c.model.IsDiscriminatedParentType() {
 		out := ""
@@ -684,7 +684,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 // recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
 // This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
 // Tracked at: https://github.com/hashicorp/pandora/issues/1235
-func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
+func (c modelTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
 	parentModel, ok := data.models[model]
 	if !ok {
 		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)

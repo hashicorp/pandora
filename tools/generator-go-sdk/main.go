@@ -10,6 +10,7 @@ import (
 	"strings"
 	"sync"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -71,8 +72,7 @@ var availableSDKs = map[string]SDK{
 			"beta": resourcemanager.NewMicrosoftGraphBetaClient,
 		},
 		commonModelsPackageNameFromVersion: func(in string) (*string, error) {
-			name := "models"
-			return &name, nil
+			return pointer.To("models"), nil
 		},
 		commonModelsPackagePathFromVersion: func(in string) (*string, error) {
 			path := fmt.Sprintf("common/%s/models", fmt.Sprintf(generator.GolangPackageNameForVersion(in)))
@@ -207,6 +207,34 @@ func run(input GeneratorInput) error {
 			loadedServices = *servicesResult
 		}
 
+		commonPackageName, err := sdk.commonModelsPackageNameFromVersion(clientName)
+		if err != nil {
+			return fmt.Errorf("generating Common Types for %q: %+v", clientName, err)
+		}
+		commonPackageRelativePath, err := sdk.commonModelsPackagePathFromVersion(clientName)
+		if err != nil {
+			return fmt.Errorf("generating Common Types for %q: %+v", clientName, err)
+		}
+
+		log.Printf("[DEBUG] Common Types for %q..", clientName)
+		generatorTypes := generator.NewCommonTypesGenerator()
+		sdkInput := generator.SDKInput{
+			CommonTypes:               commonTypes,
+			CommonPackageName:         *commonPackageName,
+			CommonPackageRelativePath: *commonPackageRelativePath,
+			OutputDirectoryPath:       input.outputDirectoryPath,
+			OutputSubDirectoryName:    sdk.outputSubDirectory,
+			VersionName:               clientName,
+
+			// This is hardcoded for now since it's only used for copyright attribution
+			Source: resourcemanager.ApiDefinitionsSourceMicrosoftGraphMetadata,
+		}
+		log.Printf("[DEBUG] Generating Common Types..")
+		if err := generatorTypes.GenerateForSDK(sdkInput); err != nil {
+			return fmt.Errorf("generating common types: %+v", err)
+		}
+		log.Printf("[DEBUG] Generated Common Types..")
+
 		errCh := make(chan error, 1)
 		waitDone := make(chan struct{}, 1)
 		var wg sync.WaitGroup
@@ -217,31 +245,6 @@ func run(input GeneratorInput) error {
 			default:
 			}
 		}
-
-		wg.Add(1)
-		go func(input GeneratorInput) {
-			defer wg.Done()
-			log.Printf("[DEBUG] Common Types for %q..", clientName)
-			commonPackageRelativePath, err := sdk.commonModelsPackagePathFromVersion(clientName)
-			if err != nil {
-				addErr(fmt.Errorf("generating Common Types for %q: %+v", clientName, err))
-				return
-			}
-			generatorTypes := generator.NewCommonTypesGenerator()
-			generatorData := generator.SDKInput{
-				CommonTypes:               commonTypes,
-				CommonPackageRelativePath: *commonPackageRelativePath,
-				OutputDirectoryPath:       input.outputDirectoryPath,
-				OutputSubDirectoryName:    sdk.outputSubDirectory,
-				VersionName:               clientName,
-			}
-			log.Printf("[DEBUG] Generating Common Types..")
-			if err := generatorTypes.GenerateForSDK(generatorData); err != nil {
-				addErr(fmt.Errorf("generating common types: %+v", err))
-				return
-			}
-			log.Printf("[DEBUG] Generated Common Types..")
-		}(input)
 
 		generatorService := generator.NewServiceGenerator(input.settings)
 		for serviceName, service := range loadedServices.Services {
@@ -257,18 +260,6 @@ func run(input GeneratorInput) error {
 				log.Printf("[DEBUG] Service %q", serviceName)
 				for versionNumber, versionDetails := range service.Versions {
 					log.Printf("[DEBUG]   Version %q", versionNumber)
-
-					commonPackageName, err := sdk.commonModelsPackageNameFromVersion(clientName)
-					if err != nil {
-						addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
-						return
-					}
-
-					commonPackageRelativePath, err := sdk.commonModelsPackagePathFromVersion(clientName)
-					if err != nil {
-						addErr(fmt.Errorf("generating Service %q / Version %q: %+v", serviceName, versionNumber, err))
-						return
-					}
 
 					for resourceName, resourceDetails := range versionDetails.Resources {
 						log.Printf("[DEBUG]      Resource %q..", resourceName)

@@ -8,7 +8,7 @@ import (
 )
 
 func TestModelTemplaterSimple(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -80,7 +80,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithDate(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -169,7 +169,7 @@ func (o *Basic) SetDateOfBirthAsTime(input time.Time) {
 }
 
 func TestModelTemplaterWithOptionalObject(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{

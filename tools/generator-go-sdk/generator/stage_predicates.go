@@ -39,7 +39,7 @@ func (s *ServiceGenerator) predicates(data ServiceGeneratorData) error {
 		return nil
 	}
 
-	templater := predicateTemplater{
+	templater := predicatesTemplater{
 		sortedModelNames: sortedModelNames,
 		models:           data.models,
 	}

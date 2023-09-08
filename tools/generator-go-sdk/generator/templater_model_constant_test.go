@@ -8,7 +8,7 @@ import (
 )
 
 func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -81,7 +81,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -155,7 +155,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -229,7 +229,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -302,7 +302,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -375,7 +375,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -449,7 +449,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -528,7 +528,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -607,7 +607,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -687,7 +687,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -766,7 +766,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -845,7 +845,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -925,7 +925,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -1004,7 +1004,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -1083,7 +1083,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -1163,7 +1163,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -1242,7 +1242,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{
@@ -1321,7 +1321,7 @@ type Basic struct {
 }
 
 func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
-	actual, err := modelsTemplater{
+	actual, err := modelTemplater{
 		name: "Basic",
 		model: resourcemanager.ModelDetails{
 			Fields: map[string]resourcemanager.FieldDetails{

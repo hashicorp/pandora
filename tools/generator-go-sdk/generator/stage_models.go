@@ -14,7 +14,7 @@ func (s *ServiceGenerator) models(data ServiceGeneratorData) error {
 		// model_{name}.go
 		// arguably we could enhance this to make `MyThing` be `my_thing` but this is fine for now
 		fileName := fmt.Sprintf("model_%s.go", strings.ToLower(modelName))
-		gen := modelsTemplater{
+		gen := modelTemplater{
 			name:  modelName,
 			model: model,
 		}
