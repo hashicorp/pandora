@@ -966,14 +966,14 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 	if cat.ParentTypeName == nil {
 		t.Fatalf("cat.ParentTypeName should have a value but it doesn't")
 	}
-	if *cat.ParentTypeName != "Animal" {
-		t.Fatalf("cat.ParentTypeName should be `Animal` but it was %q", *cat.ParentTypeName)
+	if *cat.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("cat.ParentTypeName should be `BiologicalEntity` but it was %q", *cat.ParentTypeName)
 	}
 	if cat.TypeHintIn == nil {
 		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
 	}
-	if *cat.TypeHintIn != "AnimalType" {
-		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
+	if *cat.TypeHintIn != "TypeName" {
+		t.Fatalf("cat.TypeHintIn should be `TypeName` but it was %q", *cat.TypeHintIn)
 	}
 	if cat.TypeHintValue == nil {
 		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
@@ -982,27 +982,27 @@ func TestParseDiscriminatorsWithMultipleParents(t *testing.T) {
 		t.Fatalf("cat.TypeHintValue should be `cat` but it was %q", *cat.TypeHintValue)
 	}
 
-	dog, ok := resource.Models["Dog"]
+	human, ok := resource.Models["Human"]
 	if !ok {
-		t.Fatalf("the Model `Dog` was not found")
+		t.Fatalf("the Model `Human` was not found")
 	}
-	if dog.ParentTypeName == nil {
-		t.Fatalf("dog.ParentTypeName should have a value but it doesn't")
+	if human.ParentTypeName == nil {
+		t.Fatalf("human.ParentTypeName should have a value but it doesn't")
 	}
-	if *dog.ParentTypeName != "Animal" {
-		t.Fatalf("dog.ParentTypeName should be `Animal` but it was %q", *dog.ParentTypeName)
+	if *human.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("human.ParentTypeName should be `BiologicalEntity` but it was %q", *human.ParentTypeName)
 	}
-	if dog.TypeHintIn == nil {
-		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
+	if human.TypeHintIn == nil {
+		t.Fatal("human.TypeHintIn should have a value but it doesn't")
 	}
-	if *dog.TypeHintIn != "AnimalType" {
-		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
+	if *human.TypeHintIn != "TypeName" {
+		t.Fatalf("human.TypeHintIn should be `TypeName` but it was %q", *human.TypeHintIn)
 	}
-	if dog.TypeHintValue == nil {
-		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
+	if human.TypeHintValue == nil {
+		t.Fatalf("human.TypeHintValue should have a value but it doesn't")
 	}
-	if *dog.TypeHintValue != "dog" {
-		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
+	if *human.TypeHintValue != "human" {
+		t.Fatalf("human.TypeHintValue should be `human` but it was %q", *human.TypeHintValue)
 	}
 }
 
@@ -1077,14 +1077,14 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 	if cat.ParentTypeName == nil {
 		t.Fatalf("cat.ParentTypeName should have a value but it doesn't")
 	}
-	if *cat.ParentTypeName != "Animal" {
-		t.Fatalf("cat.ParentTypeName should be `Animal` but it was %q", *cat.ParentTypeName)
+	if *cat.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("cat.ParentTypeName should be `BiologicalEntity` but it was %q", *cat.ParentTypeName)
 	}
 	if cat.TypeHintIn == nil {
 		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
 	}
-	if *cat.TypeHintIn != "AnimalType" {
-		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
+	if *cat.TypeHintIn != "TypeName" {
+		t.Fatalf("cat.TypeHintIn should be `TypeName` but it was %q", *cat.TypeHintIn)
 	}
 	if cat.TypeHintValue == nil {
 		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
@@ -1093,26 +1093,26 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 		t.Fatalf("cat.TypeHintValue should be `cat` but it was %q", *cat.TypeHintValue)
 	}
 
-	dog, ok := resource.Models["Dog"]
+	human, ok := resource.Models["Human"]
 	if !ok {
-		t.Fatalf("the Model `Dog` was not found")
+		t.Fatalf("the Model `Human` was not found")
 	}
-	if dog.ParentTypeName == nil {
-		t.Fatalf("dog.ParentTypeName should have a value but it doesn't")
+	if human.ParentTypeName == nil {
+		t.Fatalf("human.ParentTypeName should have a value but it doesn't")
 	}
-	if *dog.ParentTypeName != "Animal" {
-		t.Fatalf("dog.ParentTypeName should be `Animal` but it was %q", *dog.ParentTypeName)
+	if *human.ParentTypeName != "BiologicalEntity" {
+		t.Fatalf("human.ParentTypeName should be `BiologicalEntity` but it was %q", *human.ParentTypeName)
 	}
-	if dog.TypeHintIn == nil {
-		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
+	if human.TypeHintIn == nil {
+		t.Fatal("human.TypeHintIn should have a value but it doesn't")
 	}
-	if *dog.TypeHintIn != "AnimalType" {
-		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
+	if *human.TypeHintIn != "TypeName" {
+		t.Fatalf("human.TypeHintIn should be `TypeName` but it was %q", *human.TypeHintIn)
 	}
-	if dog.TypeHintValue == nil {
-		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
+	if human.TypeHintValue == nil {
+		t.Fatalf("human.TypeHintValue should have a value but it doesn't")
 	}
-	if *dog.TypeHintValue != "dog" {
-		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
+	if *human.TypeHintValue != "human" {
+		t.Fatalf("human.TypeHintValue should be `human` but it was %q", *human.TypeHintValue)
 	}
 }
