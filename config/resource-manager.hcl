@@ -31,7 +31,7 @@ service "applicationinsights" {
 }
 service "appplatform" {
   name      = "AppPlatform"
-  available = ["2022-09-01-preview", "2022-12-01"]
+  available = ["2022-09-01-preview", "2022-12-01", "2023-05-01-preview", "2023-07-01-preview"]
 }
 service "attestation" {
   name      = "Attestation"
