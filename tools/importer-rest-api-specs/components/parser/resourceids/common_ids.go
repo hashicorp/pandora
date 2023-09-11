@@ -49,6 +49,13 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdAutomationCompilationJob{}, // (@stephybun) CompilationJobId segment is defined in three different ways `jobId`, `compilationJobId` and `compilationJobName`
 	commonIdProvisioningService{},      // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
 
+	// Compute
+	commonIdAvailabilitySet{},
+	commonIdDedicatedHost{},
+	commonIdDedicatedHostGroup{},
+	commonIdDiskEncryptionSet{},
+	commonIdManagedDisk{},
+
 	// Key Vault
 	commonIdKeyVault{},
 	commonIdKeyVaultKey{},
