@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.AppPlatform.v2023_05_01_preview.AppPlatform;
+
+
+internal class GatewayRouteConfigPropertiesModel
+{
+    [JsonPropertyName("appResourceId")]
+    public string? AppResourceId { get; set; }
+
+    [JsonPropertyName("filters")]
+    public List<string>? Filters { get; set; }
+
+    [JsonPropertyName("openApi")]
+    public GatewayRouteConfigOpenApiPropertiesModel? OpenApi { get; set; }
+
+    [JsonPropertyName("predicates")]
+    public List<string>? Predicates { get; set; }
+
+    [JsonPropertyName("protocol")]
+    public GatewayRouteConfigProtocolConstant? Protocol { get; set; }
+
+    [JsonPropertyName("provisioningState")]
+    public GatewayProvisioningStateConstant? ProvisioningState { get; set; }
+
+    [JsonPropertyName("routes")]
+    public List<GatewayApiRouteModel>? Routes { get; set; }
+
+    [JsonPropertyName("ssoEnabled")]
+    public bool? SsoEnabled { get; set; }
+}
