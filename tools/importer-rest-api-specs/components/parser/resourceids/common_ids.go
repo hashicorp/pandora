@@ -55,6 +55,9 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultKeyVersion{},
 	commonIdKeyVaultPrivateEndpointConnection{},
 
+	// Spring Cloud
+	commonIdSpringCloudService{},
+
 	// Storage
 	commonIdStorageAccount{},
 	commonIdStorageContainer{},
