@@ -1,4 +1,4 @@
-package dataapigenerator
+package dataapigeneratoryaml
 
 import (
 	"fmt"
@@ -11,7 +11,7 @@ import (
 
 func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
-	serviceNamespace := fmt.Sprintf("%s.%s", rootNamespace, strings.Title(normalisedServiceName))
+	serviceNamespace := strings.Title(normalisedServiceName)
 	serviceWorkingDirectory := path.Join(outputDirectory, rootNamespace, strings.Title(normalisedServiceName))
 	terraformNamespace := fmt.Sprintf("%s.Terraform", serviceNamespace)
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
@@ -33,6 +33,7 @@ func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha st
 
 func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	service := NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger)
+
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 
 	service.apiVersionPackageName = normalizedApiVersion
@@ -62,14 +63,15 @@ func (s Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) e
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
-	if s.terraformPackageName != nil {
-		s.logger.Debug("Generating Terraform Definitions")
-
-		if err := s.generateTerraformDefinitions(apiVersion); err != nil {
-			return fmt.Errorf("generating Terraform Definitions: %+v", err)
-		}
-	} else {
-		s.logger.Debug("Skipping generating Terraform Definitions as service isn't defined")
-	}
+	// TODO uncomment below and work through the remaining templates
+	//	if s.terraformPackageName != nil {
+	//		s.logger.Debug("Generating Terraform Definitions")
+	//
+	//		if err := s.generateTerraformDefinitions(apiVersion); err != nil {
+	//			return fmt.Errorf("generating Terraform Definitions: %+v", err)
+	//		}
+	//	} else {
+	//		s.logger.Debug("Skipping generating Terraform Definitions as service isn't defined")
+	//	}
 	return nil
 }

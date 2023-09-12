@@ -50,7 +50,7 @@ func (c SegmentsCommand) Run(_ []string) int {
 		DataApiEndpoint:          nil,
 		JustOutputSegments:       true,
 		Logger:                   logger,
-		OutputDirectory:          os.DevNull,
+		OutputDirectoryCS:        os.DevNull,
 		ProviderPrefix:           "azurerm",
 		SwaggerDirectory:         c.swaggerDirectory,
 		TerraformDefinitionsPath: c.terraformDefinitionsPath,

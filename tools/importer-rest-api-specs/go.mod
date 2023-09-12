@@ -14,6 +14,7 @@ require (
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 	github.com/zclconf/go-cty v1.10.0
+	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (

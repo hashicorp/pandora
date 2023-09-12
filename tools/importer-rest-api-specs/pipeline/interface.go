@@ -15,7 +15,8 @@ type RunInput struct {
 	JustOutputSegments       bool
 	JustParseData            bool
 	Logger                   hclog.Logger
-	OutputDirectory          string
+	OutputDirectoryCS        string
+	OutputDirectoryYaml      string
 	ProviderPrefix           string
 	Services                 []string
 	SwaggerDirectory         string
@@ -30,10 +31,11 @@ func Run(input RunInput) error {
 	}
 
 	findInput := discovery.FindServiceInput{
-		SwaggerDirectory: input.SwaggerDirectory,
-		ConfigFilePath:   input.ConfigFilePath,
-		OutputDirectory:  input.OutputDirectory,
-		Logger:           input.Logger.Named("Discovery"),
+		SwaggerDirectory:    input.SwaggerDirectory,
+		ConfigFilePath:      input.ConfigFilePath,
+		OutputDirectoryCS:   input.OutputDirectoryCS,
+		OutputDirectoryYaml: input.OutputDirectoryYaml,
+		Logger:              input.Logger.Named("Discovery"),
 	}
 
 	var generationData *[]discovery.ServiceInput
