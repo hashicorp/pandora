@@ -2,9 +2,10 @@ package dataapigeneratoryaml
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"gopkg.in/yaml.v3"
 	"sort"
+
+	"github.com/go-yaml/yaml"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type ServiceDefinition struct {

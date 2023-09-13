@@ -2,8 +2,9 @@ package dataapigeneratoryaml
 
 import (
 	"fmt"
-	"gopkg.in/yaml.v3"
 	"path"
+
+	"github.com/go-yaml/yaml"
 )
 
 func outputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {

@@ -19,7 +19,7 @@ func (s Generator) generateServiceDefinition(apiVersions []models.AzureApiDefini
 		return fmt.Errorf("generating Service Definition into %q: %+v", serviceDefinitionFilePath, err)
 	}
 
-	// ServiceDefinition-GenerationSettings.cs is retained between regenerations, so we special-case it
+	// ServiceDefinition-GenerationSettings.yaml is retained between regenerations, so we special-case it
 	generationSettingsFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition-GenerationSettings.yaml")
 	exists, err := fileExistsAtPath(generationSettingsFilePath)
 	if err != nil {

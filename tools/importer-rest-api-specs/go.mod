@@ -8,13 +8,13 @@ require (
 	github.com/go-openapi/analysis v0.20.1
 	github.com/go-openapi/loads v0.20.2
 	github.com/go-openapi/spec v0.20.3
+	github.com/go-yaml/yaml v2.1.0+incompatible
 	github.com/hashicorp/go-azure-helpers v0.42.0
 	github.com/hashicorp/go-hclog v1.2.1
 	github.com/hashicorp/hcl/v2 v2.13.0
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 	github.com/zclconf/go-cty v1.10.0
-	gopkg.in/yaml.v3 v3.0.1
 )
 
 require (
