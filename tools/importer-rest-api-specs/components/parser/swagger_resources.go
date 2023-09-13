@@ -4,12 +4,12 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
@@ -166,11 +166,14 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 	result.Append(known)
 
 	// Now that we have a complete list of all of the nested items to find, loop around and find them
-	// this is intentionaly not fetching nested models to avoid an infinite loop with Model1 referencing
+	// this is intentionally not fetching nested models to avoid an infinite loop with Model1 referencing
 	// Model2 which references Model1 (they instead get picked up in the next iteration)
-	referencesToFind := d.determineObjectsRequiredButNotParsed(operations, result)
-	for len(referencesToFind) > 0 {
-		for _, referenceName := range referencesToFind {
+	referencesToFind, err := d.determineObjectsRequiredButNotParsed(operations, result)
+	if err != nil {
+		return nil, fmt.Errorf("determining objects required but not parsed: %+v", err)
+	}
+	for len(*referencesToFind) > 0 {
+		for _, referenceName := range *referencesToFind {
 			topLevelObject, err := d.findTopLevelObject(referenceName)
 			if err != nil {
 				return nil, fmt.Errorf("finding top level object named %q: %+v", referenceName, err)
@@ -192,9 +195,12 @@ func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]
 			}
 		}
 
-		remainingReferencesToFind := d.determineObjectsRequiredButNotParsed(operations, result)
-		if referencesAreTheSame(referencesToFind, remainingReferencesToFind) {
-			return nil, fmt.Errorf("the following references couldn't be found: %q", strings.Join(referencesToFind, ", "))
+		remainingReferencesToFind, err := d.determineObjectsRequiredButNotParsed(operations, result)
+		if err != nil {
+			return nil, fmt.Errorf("determining objects required but not parsed: %+v", err)
+		}
+		if referencesAreTheSame(*referencesToFind, *remainingReferencesToFind) {
+			return nil, fmt.Errorf("the following references couldn't be found: %q", strings.Join(*referencesToFind, ", "))
 		}
 		referencesToFind = remainingReferencesToFind
 	}
@@ -223,15 +229,18 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) []string {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
-	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) []string {
+	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) (*[]string, error) {
 		result := make(map[string]struct{}, 0)
 		// if it's a model, we need to check all of the fields for this to find any constant or models
 		// that we don't know about
-		typesToFind := d.objectsUsedByModel(modelName, model)
-		for _, typeName := range typesToFind {
+		typesToFind, err := d.objectsUsedByModel(modelName, model)
+		if err != nil {
+			return nil, fmt.Errorf("determining objects used by model %q: %+v", modelName, err)
+		}
+		for _, typeName := range *typesToFind {
 			_, existingConstant := known.Constants[typeName]
 			_, existingModel := known.Models[typeName]
 			if !existingConstant && !existingModel {
@@ -243,7 +252,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		for k := range result {
 			out = append(out, k)
 		}
-		return out
+		return &out, nil
 	}
 
 	for _, operation := range *operations {
@@ -258,8 +267,11 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 				if isKnownModel {
 					modelName := *topLevelRef.ReferenceName
 					model := known.Models[modelName]
-					missingReferencesInModel := objectsRequiredByModel(modelName, model)
-					for _, name := range missingReferencesInModel {
+					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+					if err != nil {
+						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
+					}
+					for _, name := range *missingReferencesInModel {
 						referencesToFind[name] = struct{}{}
 					}
 				}
@@ -279,8 +291,11 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 					// that we don't know about
 					modelName := *topLevelRef.ReferenceName
 					model := known.Models[modelName]
-					missingReferencesInModel := objectsRequiredByModel(modelName, model)
-					for _, name := range missingReferencesInModel {
+					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+					if err != nil {
+						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
+					}
+					for _, name := range *missingReferencesInModel {
 						referencesToFind[name] = struct{}{}
 					}
 				}
@@ -305,8 +320,11 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 
 	// then verify we have all of the models for the current models we know about
 	for modelName, model := range known.Models {
-		missingReferencesInModel := objectsRequiredByModel(modelName, model)
-		for _, name := range missingReferencesInModel {
+		missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+		if err != nil {
+			return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
+		}
+		for _, name := range *missingReferencesInModel {
 			referencesToFind[name] = struct{}{}
 		}
 	}
@@ -323,10 +341,10 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		out = append(out, k)
 	}
 
-	return out
+	return &out, nil
 }
 
-func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.ModelDetails) []string {
+func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.ModelDetails) (*[]string, error) {
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {
@@ -346,8 +364,11 @@ func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.Mo
 
 	if model.TypeHintIn != nil {
 		// this must be a discriminator
-		modelNamesThatImplementThis := d.findModelNamesWhichImplement(modelName)
-		for _, k := range modelNamesThatImplementThis {
+		modelNamesThatImplementThis, err := d.findModelNamesWhichImplement(modelName)
+		if err != nil {
+			return nil, fmt.Errorf("finding models which implement %q: %+v", modelName, err)
+		}
+		for _, k := range *modelNamesThatImplementThis {
 			typeNames[k] = struct{}{}
 		}
 	}
@@ -356,19 +377,32 @@ func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.Mo
 	for k := range typeNames {
 		out = append(out, k)
 	}
-	return out
+	return &out, nil
 }
 
-func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []string {
+func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) (*[]string, error) {
 	modelNames := make([]string, 0)
 
 	for childName, value := range d.swaggerSpecExtendedRaw.Definitions {
-		if strings.EqualFold(childName, parentName) {
+		implementsParent, err := d.doesModelImplement(childName, value, parentName)
+		if err != nil {
+			return nil, fmt.Errorf("determining if model %q implements %q: %+v", childName, parentName, err)
+		}
+		if !*implementsParent {
 			continue
 		}
 
+		d.logger.Trace(fmt.Sprintf("Found %q implements %q", childName, parentName))
+		modelNames = append(modelNames, childName)
+	}
+
+	return &modelNames, nil
+}
+
+func (d *SwaggerDefinition) doesModelImplement(modelName string, value spec.Schema, parentName string) (*bool, error) {
+	implementsParent := false
+	if !strings.EqualFold(modelName, parentName) {
 		// does it implement (AllOf) the base class
-		implementsParent := false
 		for _, parent := range value.AllOf {
 			fragmentName := fragmentNameFromReference(parent.Ref)
 			if fragmentName == nil {
@@ -379,17 +413,26 @@ func (d *SwaggerDefinition) findModelNamesWhichImplement(parentName string) []st
 				implementsParent = true
 				break
 			}
-		}
-		if !implementsParent {
-			continue
-		}
 
-		d.logger.Trace(fmt.Sprintf("Found %q implements %q", childName, parentName))
-
-		modelNames = append(modelNames, childName)
+			// otherwise does this model inherit from a model which does?
+			item, err := d.findTopLevelObject(*fragmentName)
+			if err != nil {
+				return nil, fmt.Errorf("loading Parent %q: %+v", *fragmentName, err)
+			}
+			if len(item.AllOf) > 0 {
+				inheritsFromParent, err := d.doesModelImplement(*fragmentName, *item, parentName)
+				if err != nil {
+					return nil, fmt.Errorf("determining if model %q implements %q: %+v", *fragmentName, parentName, err)
+				}
+				if *inheritsFromParent {
+					implementsParent = true
+					break
+				}
+			}
+		}
 	}
 
-	return modelNames
+	return &implementsParent, nil
 }
 
 func isObjectKnown(name string, known internal.ParseResult) (bool, bool) {
