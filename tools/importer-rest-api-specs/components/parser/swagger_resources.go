@@ -2,15 +2,14 @@ package parser
 
 import (
 	"fmt"
-	"github.com/go-openapi/spec"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
