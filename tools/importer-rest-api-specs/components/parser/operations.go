@@ -346,11 +346,11 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 
 			// looks like these can be dates etc too
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "name": "reportedEndTime",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "in": "query",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "required": true,
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "in": "query",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "required": true,
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
 			objectDefinition, err := p.determineObjectDefinitionForOption(param)
 			if err != nil {
 				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
@@ -417,7 +417,7 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known)
+			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, true)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
@@ -473,7 +473,7 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 			continue
 		}
 
-		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result)
+		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}
@@ -520,7 +520,7 @@ type parsedOperation struct {
 func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOperation {
 	result := make([]parsedOperation, 0)
 	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
-		//operation = inferMissingTags(operation, tag)
+		// operation = inferMissingTags(operation, tag)
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
 				continue
