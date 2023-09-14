@@ -2,7 +2,6 @@ package dataapigeneratoryaml
 
 import (
 	"fmt"
-	"log"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -16,7 +15,7 @@ func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) err
 		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
 		outputDirectory := s.workingDirectoryForResource(resourceName)
 		resourceMetadata := s.resourceDetails(resourceName)
-		s.logger("%s, %s", outputDirectory, resourceMetadata)
+		s.logger.Debug("%s, %s", outputDirectory, resourceMetadata)
 		if err := s.generateResources(resourceName, resourceMetadata, resource, outputDirectory); err != nil {
 			return fmt.Errorf("generating Resource %q for %s: %+v", resourceName, resourceMetadata, err)
 		}
