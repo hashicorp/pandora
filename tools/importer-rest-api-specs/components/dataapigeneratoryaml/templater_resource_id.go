@@ -52,71 +52,67 @@ func codeForResourceID(resourceIdName string, resourceIdValue models.ParsedResou
 }
 
 func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment, error) {
-	segment := Segment{}
-
 	switch input.Type {
 	case resourcemanager.ConstantSegment:
 		{
 			if input.ConstantReference == nil {
 				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 			}
-
-			segment.Type = "Constant"
-			segment.Name = input.Name
-			segment.Value = *input.ConstantReference
-			return &segment, nil
+			return &Segment{
+				Type: "Constant",
+				Name: input.Name,
+				Value: *input.ConstantReference,
+			}, nil
 		}
-
 	case resourcemanager.ResourceGroupSegment:
 		{
-			segment.Type = "ResourceGroup"
-			segment.Name = "resourceGroupName"
-			return &segment, nil
+			return &Segment{
+				Type: "ResourceGroup",
+				Name: "resourceGroupName",
+			}, nil
 		}
-
 	case resourcemanager.ResourceProviderSegment:
 		{
 			if input.FixedValue == nil {
 				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
 			}
-
-			segment.Type = "ResourceProvider"
-			segment.Name = input.Name
-			segment.Value = *input.FixedValue
-			return &segment, nil
+			return &Segment{
+				Type: "ResourceProvider",
+				Name: input.Name,
+				Value: *input.FixedValue,
+			}, nil
 		}
-
 	case resourcemanager.ScopeSegment:
 		{
-			segment.Type = "Scope"
-			segment.Name = input.Name
-			return &segment, nil
+			return &Segment{
+				Type: "Scope",
+				Name: input.Name,
+			}, nil
 		}
-
 	case resourcemanager.StaticSegment:
 		{
 			if input.FixedValue == nil {
 				return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
 			}
-
-			segment.Type = "Static"
-			segment.Name = input.Name
-			segment.Value = *input.FixedValue
-			return &segment, nil
+			return &Segment{
+				Type: "Static",
+				Name: input.Name,
+				Value: *input.FixedValue,
+			}, nil
 		}
-
 	case resourcemanager.SubscriptionIdSegment:
 		{
-			segment.Type = "SubscriptionId"
-			segment.Name = input.Name
-			return &segment, nil
+			return &Segment{
+				Type: "SubscriptionId",
+				Name: input.Name,
+			}, nil
 		}
-
 	case resourcemanager.UserSpecifiedSegment:
 		{
-			segment.Type = "UserSpecified"
-			segment.Name = input.Name
-			return &segment, nil
+			return &Segment{
+				Type: "UserSpecified",
+				Name: input.Name,
+			}, nil
 		}
 	}
 
