@@ -14,8 +14,8 @@ const restApiSpecsLicence = `
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 `
 
-func (s Generator) namespaceForResource(resourceName string) string {
-	return fmt.Sprintf("%s.%s", s.namespaceForApiVersion, s.packageNameForResource(resourceName))
+func (s Generator) resourceDetails(resourceName string) string {
+	return fmt.Sprintf("%s %s %s", s.serviceName, s.apiVersionPackageName, s.packageNameForResource(resourceName))
 }
 
 func (s Generator) packageNameForResource(resourceName string) string {

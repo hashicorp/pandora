@@ -3,6 +3,7 @@ package dataapigeneratoryaml
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"log"
 )
 
 func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) error {
@@ -11,15 +12,15 @@ func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) err
 	}
 
 	// TODO uncomment below and work through the remaining templates
-	//	for resourceName, _ := range apiVersion.Resources {
-	//		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
-	//		outputDirectory := s.workingDirectoryForResource(resourceName)
-	//		namespace := s.namespaceForResource(resourceName)
-	//		log.Printf("%s, %s", outputDirectory, namespace)
-	//		if err := s.generateResources(resourceName, namespace, resource, outputDirectory); err != nil {
-	//			return fmt.Errorf("generating Resource %q (Namespace %q): %+v", resourceName, namespace, err)
-	//		}
-	//	}
+	for resourceName, resource := range apiVersion.Resources {
+		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
+		outputDirectory := s.workingDirectoryForResource(resourceName)
+		resourceMetadata := s.resourceDetails(resourceName)
+		log.Printf("%s, %s", outputDirectory, resourceMetadata)
+		if err := s.generateResources(resourceName, resourceMetadata, resource, outputDirectory); err != nil {
+			return fmt.Errorf("generating Resource %q for %s: %+v", resourceName, resourceMetadata, err)
+		}
+	}
 
 	return nil
 }
