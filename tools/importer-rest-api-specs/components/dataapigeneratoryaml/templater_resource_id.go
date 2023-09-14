@@ -64,7 +64,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 			segment.Type = "Constant"
 			segment.Name = input.Name
 			segment.Value = *input.ConstantReference
-
 			return &segment, nil
 		}
 
@@ -72,7 +71,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 		{
 			segment.Type = "ResourceGroup"
 			segment.Name = "resourceGroupName"
-
 			return &segment, nil
 		}
 
@@ -85,7 +83,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 			segment.Type = "ResourceProvider"
 			segment.Name = input.Name
 			segment.Value = *input.FixedValue
-
 			return &segment, nil
 		}
 
@@ -93,7 +90,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 		{
 			segment.Type = "Scope"
 			segment.Name = input.Name
-
 			return &segment, nil
 		}
 
@@ -106,7 +102,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 			segment.Type = "Static"
 			segment.Name = input.Name
 			segment.Value = *input.FixedValue
-
 			return &segment, nil
 		}
 
@@ -114,7 +109,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 		{
 			segment.Type = "SubscriptionId"
 			segment.Name = input.Name
-
 			return &segment, nil
 		}
 
@@ -122,7 +116,6 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 		{
 			segment.Type = "UserSpecified"
 			segment.Name = input.Name
-
 			return &segment, nil
 		}
 	}
