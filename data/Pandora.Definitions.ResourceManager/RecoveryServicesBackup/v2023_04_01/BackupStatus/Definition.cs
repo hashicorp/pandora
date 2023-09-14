@@ -17,6 +17,7 @@ internal class Definition : ResourceDefinition
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
+        typeof(AcquireStorageAccountLockConstant),
         typeof(DataSourceTypeConstant),
         typeof(FabricNameConstant),
         typeof(ProtectionStatusConstant),

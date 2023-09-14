@@ -15,6 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_04_01
 
 internal class BackupStatusResponseModel
 {
+    [JsonPropertyName("acquireStorageAccountLock")]
+    public AcquireStorageAccountLockConstant? AcquireStorageAccountLock { get; set; }
+
     [JsonPropertyName("containerName")]
     public string? ContainerName { get; set; }
 
@@ -32,6 +35,9 @@ internal class BackupStatusResponseModel
 
     [JsonPropertyName("protectedItemName")]
     public string? ProtectedItemName { get; set; }
+
+    [JsonPropertyName("protectedItemsCount")]
+    public int? ProtectedItemsCount { get; set; }
 
     [JsonPropertyName("protectionStatus")]
     public ProtectionStatusConstant? ProtectionStatus { get; set; }
