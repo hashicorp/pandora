@@ -14,13 +14,6 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 
-	// TODO: we should duplicate the types depending on the operation
-	// This would allow us to have a "CreateThing", "UpdateThing" and "GetThing" where "Thing"
-	// defines a single model in the Swagger. These could then output the specifics for each field, for example
-	// the GetThing model would be the only one with the ReadOnly fields output
-	// We'd also need to parse the mutability data out of the fields, which we're not doing today - but exists in
-	// the Swagger and is parsed out just unused
-
 	s.logger.Debug("Generating Constants..")
 	for constantName, vals := range resource.Constants {
 		s.logger.Trace(fmt.Sprintf("Generating Constant %q (in %s)", constantName, resourceMetadata))

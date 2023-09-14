@@ -27,7 +27,7 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 	}
 	sort.Strings(sortedKeys)
 
-	var values []Value
+	values := make([]Value, 0)
 
 	for _, key := range sortedKeys {
 		value := Value{
@@ -59,7 +59,7 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 
 func mapConstantFieldType(input resourcemanager.ConstantType) (*string, error) {
 	result := func(in string) (*string, error) {
-		return &in, nil
+		return pointer.To(in), nil
 	}
 	if input == resourcemanager.FloatConstant {
 		return result("float")

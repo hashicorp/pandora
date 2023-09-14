@@ -16,7 +16,7 @@ func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) err
 		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
 		outputDirectory := s.workingDirectoryForResource(resourceName)
 		resourceMetadata := s.resourceDetails(resourceName)
-		log.Printf("%s, %s", outputDirectory, resourceMetadata)
+		s.logger("%s, %s", outputDirectory, resourceMetadata)
 		if err := s.generateResources(resourceName, resourceMetadata, resource, outputDirectory); err != nil {
 			return fmt.Errorf("generating Resource %q for %s: %+v", resourceName, resourceMetadata, err)
 		}

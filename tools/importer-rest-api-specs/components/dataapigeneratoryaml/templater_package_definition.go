@@ -1,7 +1,6 @@
 package dataapigeneratoryaml
 
 import (
-	"fmt"
 	"sort"
 
 	"github.com/go-yaml/yaml"
@@ -25,7 +24,7 @@ func codeForPackageDefinition(resourceName string, input models.AzureApiResource
 	operations := make([]string, 0)
 
 	for _, operationName := range operationNames {
-		operations = append(operations, fmt.Sprintf("%sOperation", operationName))
+		operations = append(operations, operationName)
 	}
 
 	constantNames := make([]string, 0)
@@ -36,7 +35,7 @@ func codeForPackageDefinition(resourceName string, input models.AzureApiResource
 
 	constants := make([]string, 0)
 	for _, constantName := range constantNames {
-		constants = append(constants, fmt.Sprintf("%sConstant", constantName))
+		constants = append(constants, constantName)
 	}
 
 	modelNames := make([]string, 0)
@@ -47,7 +46,7 @@ func codeForPackageDefinition(resourceName string, input models.AzureApiResource
 
 	resourceModels := make([]string, 0)
 	for _, modelName := range modelNames {
-		resourceModels = append(resourceModels, fmt.Sprintf("%sModel", modelName))
+		resourceModels = append(resourceModels, modelName)
 	}
 
 	pkg := Package{
