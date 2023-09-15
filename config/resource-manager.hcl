@@ -325,7 +325,8 @@ service "mediaservices" {
 }
 service "migrate" {
   name      = "Migrate"
-  available = ["2020-01-01", "2020-07-07", "2023-06-06"]
+  available = ["2020-01-01", "2020-07-07"]
+  ignore    = ["2023-06-06"]
 }
 service "mixedreality" {
   name      = "MixedReality"
