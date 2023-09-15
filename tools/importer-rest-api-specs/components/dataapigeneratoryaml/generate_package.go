@@ -28,7 +28,20 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 	}
 
 	// TODO Generate Models
+
 	// TODO Generate Operations
+	s.logger.Debug("Generating Operations..")
+	for operationName, operation := range resource.Operations {
+		s.logger.Trace(fmt.Sprintf("Generating Operation %q (in %s)", operationName, resourceMetadata))
+		code, err := codeForOperation(operationName, operation, resource)
+		if err != nil {
+			return fmt.Errorf("marshaling Operation %q: %+v", operationName, err)
+		}
+		fileName := path.Join(workingDirectory, fmt.Sprintf("Operation-%s.yaml", operationName))
+		if err := writeYamlToFile(fileName, code); err != nil {
+			return fmt.Errorf("writing code for operation %q: %+v", operationName, err)
+		}
+	}
 
 	s.logger.Debug("Generating Resource IDs..")
 	for name, id := range resource.ResourceIds {

@@ -59,8 +59,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 			}
 			return &Segment{
-				Type: "Constant",
-				Name: input.Name,
+				Type:  "Constant",
+				Name:  input.Name,
 				Value: *input.ConstantReference,
 			}, nil
 		}
@@ -77,8 +77,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
 			}
 			return &Segment{
-				Type: "ResourceProvider",
-				Name: input.Name,
+				Type:  "ResourceProvider",
+				Name:  input.Name,
 				Value: *input.FixedValue,
 			}, nil
 		}
@@ -95,8 +95,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
 			}
 			return &Segment{
-				Type: "Static",
-				Name: input.Name,
+				Type:  "Static",
+				Name:  input.Name,
 				Value: *input.FixedValue,
 			}, nil
 		}
