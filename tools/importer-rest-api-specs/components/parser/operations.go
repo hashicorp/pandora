@@ -417,7 +417,8 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, true)
+			parsingModel := true
+			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, parsingModel)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
@@ -473,7 +474,8 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 			continue
 		}
 
-		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, true)
+		parsingModel := true
+		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, parsingModel)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}

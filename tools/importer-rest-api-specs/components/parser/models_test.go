@@ -1876,5 +1876,15 @@ func TestParseModelBug2675DuplicateModel(t *testing.T) {
 		t.Fatal("the Resource 'Example' was not found")
 	}
 
-	t.Logf("%d", len(example.Operations))
+	if len(example.Operations) != 3 {
+		t.Fatalf("expected the resource `Example` to have 3 operation but got %d", len(example.Operations))
+	}
+
+	if len(example.Models) != 7 {
+		t.Fatalf("expected the resource `Example` to have 7 models but got %d", len(example.Models))
+	}
+
+	if _, ok := example.Models["ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"]; !ok {
+		t.Fatalf("expected the resource `Example` to have a model named `ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment` but didn't get one")
+	}
 }

@@ -148,7 +148,8 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	}
 
 	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, result, false)
+	parsingModel := false
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, result, parsingModel)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
@@ -456,7 +457,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	modelName, propertyName string,
 	input *spec.Schema,
 	known internal.ParseResult,
-	isInputForModel bool,
+	parsingModel bool,
 ) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
@@ -525,8 +526,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		return objectDefinition, nestedResult, nil
 	}
 
-	// if it's an inlined model, pull it out and return that
-	// note: some models can just be references to other models
+	// however we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
@@ -538,7 +538,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		// check for / avoid circular references
 		// only parse model when modelName equals PropertyName, otherwise the `input` Schema may not for the modelName
 		// if parsing a top-level or an inlined model, should pass the propertyName just the same as the modelName
-		if _, ok := result.Models[modelName]; !ok && isInputForModel {
+		if _, ok := result.Models[modelName]; !ok && parsingModel {
 			nestedResult, err := d.parseModel(modelName, *input)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
