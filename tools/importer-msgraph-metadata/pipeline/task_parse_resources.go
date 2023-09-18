@@ -40,7 +40,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		}
 
 		resourceName := ""
-		if r, ok := parsedPath.FullyQualifiedResourceName(true); ok {
+		if r, ok := parsedPath.FullyQualifiedResourceName(&resourceSuffix); ok {
 			resourceName = *r
 		}
 		if resourceName == "" {
@@ -51,7 +51,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 		// Resources by default go into their own category when their final URI segment is a label or user value
 		resourceCategory := ""
 		if lastSegment.Type == SegmentLabel || lastSegment.Type == SegmentUserValue {
-			if fqrn, ok := parsedPath.FullyQualifiedResourceName(false); ok {
+			if fqrn, ok := parsedPath.FullyQualifiedResourceName(nil); ok {
 				resourceCategory = *fqrn
 			}
 		}

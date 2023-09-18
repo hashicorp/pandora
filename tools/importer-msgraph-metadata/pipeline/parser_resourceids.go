@@ -7,6 +7,9 @@ import (
 	"strings"
 )
 
+var resourceSuffix = "ById"
+var resourceIdSuffix = "Id"
+
 type ResourceIds []*ResourceId
 
 type ResourceIdMatch struct {
@@ -98,7 +101,7 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 // e.g.
 // if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
 // will be `ApplicationSynchronizationJob`
-func (r ResourceId) FullyQualifiedResourceName(suffixQualification bool) (*string, bool) {
+func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*string, bool) {
 	name := ""
 	verb := ""
 	for i, segment := range r.Segments {
@@ -141,8 +144,8 @@ func (r ResourceId) FullyQualifiedResourceName(suffixQualification bool) (*strin
 			}
 
 			name = name + newName
-		} else if segment.Type == SegmentUserValue && suffixQualification {
-			name = name + "ById"
+		} else if segment.Type == SegmentUserValue && suffixQualification != nil {
+			name = name + *suffixQualification
 		}
 	}
 
@@ -221,17 +224,13 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	return r2.FullyQualifiedResourceName(true)
+	return r2.FullyQualifiedResourceName(&resourceSuffix)
 }
 
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	name, ok := r.FullyQualifiedResourceName(false)
-	if name != nil {
-		*name = fmt.Sprintf("%sId", *name)
-	}
-
+	name, ok := r.FullyQualifiedResourceName(&resourceIdSuffix)
 	return name, ok
 }
 
