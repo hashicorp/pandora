@@ -149,7 +149,7 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 
 									// Derive model and response type from title
 									if title := f.Title; title != "" || f.Type != "" {
-										if strings.HasPrefix(title, "CollectionOf") {
+										if strings.HasPrefix(strings.ToLower(title), "collectionof") {
 											title = title[12:]
 											listOperation = true
 										}
@@ -309,12 +309,6 @@ func (p pipelineTask) parseResourcesForService(resourceIds ResourceIds, models M
 						}
 					}
 				}
-			}
-		}
-
-		for _, operation := range resource.Operations {
-			if len(operation.Tags) > 1 {
-				fmt.Printf("%#v\n", operation.Tags)
 			}
 		}
 	}

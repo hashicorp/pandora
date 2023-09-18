@@ -85,6 +85,14 @@ type Model struct {
 	Prefix string
 }
 
+func (m *Model) IsValid() bool {
+	// Several constants are presented as models, these have no fields and are of no use
+	if m == nil || len(m.Fields) == 0 {
+		return false
+	}
+	return true
+}
+
 type ModelField struct {
 	Title        string
 	Type         *DataType
@@ -99,7 +107,7 @@ type ModelField struct {
 
 // CSType returns a string containing the C# type name for the ModelField, either describing it as a literal type, a
 // specific model type, or a collection of either.
-func (f ModelField) CSType() *string {
+func (f ModelField) CSType(models Models) *string {
 	if f.Type == nil {
 		return nil
 	}
@@ -110,11 +118,15 @@ func (f ModelField) CSType() *string {
 			return nil
 		}
 
-		return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
+		if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
+			return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
+		}
 
 	case DataTypeArray:
 		if f.ModelName != nil {
-			return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
+			if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
+				return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
+			}
 		}
 
 		if f.ConstantName != nil {
@@ -185,9 +197,12 @@ func (ft DataType) CSType() *string {
 	case DataTypeBinary:
 		csType = "RawFile"
 	}
+
+	// Fall back to string where the type is not known
 	if csType == "" {
-		return nil
+		csType = "string"
 	}
+
 	return &csType
 }
 
@@ -268,13 +283,6 @@ func parseCommonModels(schemas openapi3.Schemas) (models Models, err error) {
 			if f, _ = flattenSchemaRef(schemaRef, nil); f != nil {
 				models = parseSchemas(*f, name, models, true)
 			}
-		}
-	}
-
-	// Several constants are presented as models, to clean these up we'll remove any models having no fields
-	for modelName, model := range models {
-		if len(model.Fields) == 0 {
-			delete(models, modelName)
 		}
 	}
 

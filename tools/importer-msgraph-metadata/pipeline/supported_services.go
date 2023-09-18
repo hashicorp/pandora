@@ -2,13 +2,14 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/getkin/kin-openapi/openapi3"
-	"github.com/jedib0t/go-pretty/v6/table"
-	"github.com/jedib0t/go-pretty/v6/text"
 	"os"
 	"path/filepath"
 	"sort"
 	"strings"
+
+	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/jedib0t/go-pretty/v6/table"
+	"github.com/jedib0t/go-pretty/v6/text"
 )
 
 func OutputSupportedServices(input RunInput) error {
