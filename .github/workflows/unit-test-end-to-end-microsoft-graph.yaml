@@ -5,7 +5,7 @@ on:
     types: ['opened', 'synchronize']
     paths:
       - '.github/workflows/**'
-      - 'config/**'
+      - 'config/microsoft-graph.hcl'
 
 jobs:
   test:
@@ -38,3 +38,5 @@ jobs:
           make tools
           make build
           make import
+        env:
+          PANDORA_LOG: WARN

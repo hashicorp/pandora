@@ -1,14 +1,14 @@
 name: Regenerate API Data with New Microsoft Graph Changes after PR Merge
 
-# manicminer: disabling until model consistency issue is resolved
-on: workflow_dispatch
-#  push:
-#    branches:
-#      - main
-#    paths:
-#      - '.github/workflows/**'
-#      - 'submodules/msgraph-metadata'
-#      - 'tools/importer-msgraph/**'
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/**'
+      - 'config/microsoft-graph.hcl'
+      - 'submodules/msgraph-metadata'
+      - 'tools/importer-msgraph/**'
 
 
 concurrency:
@@ -43,7 +43,7 @@ jobs:
           make build
           make import
         env:
-          SERVICES: "applications,servicePrincipals"
+          PANDORA_LOG: WARN
 
       - name: then commit the diff
         id: commit-imported-data

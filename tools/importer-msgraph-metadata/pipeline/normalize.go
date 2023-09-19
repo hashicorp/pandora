@@ -31,7 +31,7 @@ func pluralize(name string) string {
 	if len(name) == 0 {
 		return ret
 	}
-	if strings.EqualFold(name[len(name)-2:], "ey") {
+	if strings.EqualFold(name[len(name)-2:], "ay") || strings.EqualFold(name[len(name)-2:], "ey") {
 		return fmt.Sprintf("%ss", name)
 	}
 	if strings.EqualFold(name[len(name)-1:], "y") {
@@ -76,6 +76,9 @@ func cleanName(name string) string {
 	name = regexp.MustCompile("[^a-zA-Z0-9]").ReplaceAllString(name, "")
 	name = regexp.MustCompile("^Odata").ReplaceAllString(name, "OData")
 	name = regexp.MustCompile("^Innererror").ReplaceAllString(name, "InnerError")
+
+	// known issue where CloudPC appears with inconsistent casing
+	name = regexp.MustCompile("(?i)CloudPc").ReplaceAllString(name, "CloudPC")
 	return name
 }
 
@@ -168,5 +171,6 @@ var verbs = operationVerbs{
 	"Start",
 	"Stop",
 	"Unset",
+	"Update",
 	"Validate",
 }
