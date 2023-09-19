@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MacOSSystemExtensionTypeMappingModel
 {
     [JsonPropertyName("allowedTypes")]
-    public MacOSSystemExtensionTypeConstant? AllowedTypes { get; set; }
+    public MacOSSystemExtensionTypeMappingAllowedTypesConstant? AllowedTypes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

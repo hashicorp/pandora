@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesMonitoringSettingsModel
 {
     [JsonPropertyName("monitoringRules")]
-    public List<MonitoringRuleModel>? MonitoringRules { get; set; }
+    public List<WindowsUpdatesMonitoringRuleModel>? MonitoringRules { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

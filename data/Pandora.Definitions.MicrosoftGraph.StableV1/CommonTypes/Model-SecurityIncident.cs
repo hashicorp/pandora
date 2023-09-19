@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SecurityIncidentModel
 {
     [JsonPropertyName("alerts")]
-    public List<AlertModel>? Alerts { get; set; }
+    public List<SecurityAlertModel>? Alerts { get; set; }
 
     [JsonPropertyName("assignedTo")]
     public string? AssignedTo { get; set; }
 
     [JsonPropertyName("classification")]
-    public AlertClassificationConstant? Classification { get; set; }
+    public SecurityIncidentClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("comments")]
-    public List<AlertCommentModel>? Comments { get; set; }
+    public List<SecurityAlertCommentModel>? Comments { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -32,7 +32,7 @@ internal class SecurityIncidentModel
     public List<string>? CustomTags { get; set; }
 
     [JsonPropertyName("determination")]
-    public AlertDeterminationConstant? Determination { get; set; }
+    public SecurityIncidentDeterminationConstant? Determination { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -42,6 +42,9 @@ internal class SecurityIncidentModel
 
     [JsonPropertyName("incidentWebUrl")]
     public string? IncidentWebUrl { get; set; }
+
+    [JsonPropertyName("lastModifiedBy")]
+    public string? LastModifiedBy { get; set; }
 
     [JsonPropertyName("lastUpdateDateTime")]
     public DateTime? LastUpdateDateTime { get; set; }
@@ -53,10 +56,10 @@ internal class SecurityIncidentModel
     public string? RedirectIncidentId { get; set; }
 
     [JsonPropertyName("severity")]
-    public AlertSeverityConstant? Severity { get; set; }
+    public SecurityIncidentSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("status")]
-    public IncidentStatusConstant? Status { get; set; }
+    public SecurityIncidentStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

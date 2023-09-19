@@ -35,13 +35,13 @@ internal class SearchQnaModel
     public bool? IsSuggested { get; set; }
 
     [JsonPropertyName("keywords")]
-    public AnswerKeywordModel? Keywords { get; set; }
+    public SearchAnswerKeywordModel? Keywords { get; set; }
 
     [JsonPropertyName("languageTags")]
     public List<string>? LanguageTags { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
-    public IdentitySetModel? LastModifiedBy { get; set; }
+    public SearchIdentitySetModel? LastModifiedBy { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -50,13 +50,13 @@ internal class SearchQnaModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platforms")]
-    public List<DevicePlatformTypeConstant>? Platforms { get; set; }
+    public List<SearchQnaPlatformsConstant>? Platforms { get; set; }
 
     [JsonPropertyName("state")]
-    public AnswerStateConstant? State { get; set; }
+    public SearchQnaStateConstant? State { get; set; }
 
     [JsonPropertyName("targetedVariations")]
-    public List<AnswerVariantModel>? TargetedVariations { get; set; }
+    public List<SearchAnswerVariantModel>? TargetedVariations { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

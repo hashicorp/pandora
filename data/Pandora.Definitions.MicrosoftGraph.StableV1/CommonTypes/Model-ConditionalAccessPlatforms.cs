@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ConditionalAccessPlatformsModel
 {
     [JsonPropertyName("excludePlatforms")]
-    public List<ConditionalAccessDevicePlatformConstant>? ExcludePlatforms { get; set; }
+    public List<ConditionalAccessPlatformsExcludePlatformsConstant>? ExcludePlatforms { get; set; }
 
     [JsonPropertyName("includePlatforms")]
-    public List<ConditionalAccessDevicePlatformConstant>? IncludePlatforms { get; set; }
+    public List<ConditionalAccessPlatformsIncludePlatformsConstant>? IncludePlatforms { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

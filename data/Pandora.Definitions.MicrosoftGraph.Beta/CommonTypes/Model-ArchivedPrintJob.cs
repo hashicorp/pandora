@@ -52,8 +52,11 @@ internal class ArchivedPrintJobModel
     [JsonPropertyName("printerId")]
     public string? PrinterId { get; set; }
 
+    [JsonPropertyName("printerName")]
+    public string? PrinterName { get; set; }
+
     [JsonPropertyName("processingState")]
-    public PrintJobProcessingStateConstant? ProcessingState { get; set; }
+    public ArchivedPrintJobProcessingStateConstant? ProcessingState { get; set; }
 
     [JsonPropertyName("simplexPageCount")]
     public int? SimplexPageCount { get; set; }

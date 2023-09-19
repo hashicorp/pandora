@@ -50,5 +50,5 @@ internal class ParticipantModel
     public OnlineMeetingRestrictedModel? RestrictedExperience { get; set; }
 
     [JsonPropertyName("rosterSequenceNumber")]
-    public long? RosterSequenceNumber { get; set; }
+    public int? RosterSequenceNumber { get; set; }
 }

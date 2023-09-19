@@ -17,13 +17,13 @@ internal class PlannerPlanContextDetailsModel
     public string? CustomLinkText { get; set; }
 
     [JsonPropertyName("displayLinkType")]
-    public PlannerPlanContextTypeConstant? DisplayLinkType { get; set; }
+    public PlannerPlanContextDetailsDisplayLinkTypeConstant? DisplayLinkType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public PlannerContextStateConstant? State { get; set; }
+    public PlannerPlanContextDetailsStateConstant? State { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

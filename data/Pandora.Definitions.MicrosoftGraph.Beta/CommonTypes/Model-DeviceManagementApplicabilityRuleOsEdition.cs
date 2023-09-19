@@ -20,8 +20,8 @@ internal class DeviceManagementApplicabilityRuleOsEditionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("osEditionTypes")]
-    public List<Windows10EditionTypeConstant>? OsEditionTypes { get; set; }
+    public List<DeviceManagementApplicabilityRuleOsEditionOsEditionTypesConstant>? OsEditionTypes { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public DeviceManagementApplicabilityRuleTypeConstant? RuleType { get; set; }
+    public DeviceManagementApplicabilityRuleOsEditionRuleTypeConstant? RuleType { get; set; }
 }

@@ -34,9 +34,6 @@ internal class MicrosoftStoreForBusinessAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -45,9 +42,6 @@ internal class MicrosoftStoreForBusinessAppModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -62,7 +56,7 @@ internal class MicrosoftStoreForBusinessAppModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("licenseType")]
-    public MicrosoftStoreForBusinessLicenseTypeConstant? LicenseType { get; set; }
+    public MicrosoftStoreForBusinessAppLicenseTypeConstant? LicenseType { get; set; }
 
     [JsonPropertyName("licensingType")]
     public VppLicensingTypeModel? LicensingType { get; set; }
@@ -89,7 +83,7 @@ internal class MicrosoftStoreForBusinessAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MicrosoftStoreForBusinessAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -111,7 +105,4 @@ internal class MicrosoftStoreForBusinessAppModel
 
     [JsonPropertyName("usedLicenseCount")]
     public int? UsedLicenseCount { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

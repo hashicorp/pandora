@@ -65,5 +65,5 @@ internal class DepOnboardingSettingModel
     public string? TokenName { get; set; }
 
     [JsonPropertyName("tokenType")]
-    public DepTokenTypeConstant? TokenType { get; set; }
+    public DepOnboardingSettingTokenTypeConstant? TokenType { get; set; }
 }

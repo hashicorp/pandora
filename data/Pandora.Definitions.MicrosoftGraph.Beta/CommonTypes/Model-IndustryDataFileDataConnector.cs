@@ -23,5 +23,5 @@ internal class IndustryDataFileDataConnectorModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sourceSystem")]
-    public SourceSystemDefinitionModel? SourceSystem { get; set; }
+    public IndustryDataSourceSystemDefinitionModel? SourceSystem { get; set; }
 }

@@ -20,11 +20,11 @@ internal class SecurityEdiscoveryCaseSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ocr")]
-    public OcrSettingsModel? Ocr { get; set; }
+    public SecurityOcrSettingsModel? Ocr { get; set; }
 
     [JsonPropertyName("redundancyDetection")]
-    public RedundancyDetectionSettingsModel? RedundancyDetection { get; set; }
+    public SecurityRedundancyDetectionSettingsModel? RedundancyDetection { get; set; }
 
     [JsonPropertyName("topicModeling")]
-    public TopicModelingSettingsModel? TopicModeling { get; set; }
+    public SecurityTopicModelingSettingsModel? TopicModeling { get; set; }
 }

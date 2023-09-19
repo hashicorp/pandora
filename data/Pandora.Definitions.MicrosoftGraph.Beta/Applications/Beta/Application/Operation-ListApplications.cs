@@ -12,6 +12,6 @@ internal class ListApplicationsOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
     public override ResourceID? ResourceId() => null;
-    public override Type NestedItemType() => typeof(ApplicationModel);
+    public override Type NestedItemType() => typeof(ApplicationCollectionResponseModel);
     public override string? UriSuffix() => "/applications";
 }

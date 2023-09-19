@@ -46,9 +46,6 @@ internal class MacOSLobAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -66,9 +63,6 @@ internal class MacOSLobAppModel
 
     [JsonPropertyName("installAsManaged")]
     public bool? InstallAsManaged { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -107,7 +101,7 @@ internal class MacOSLobAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MacOSLobAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -116,7 +110,7 @@ internal class MacOSLobAppModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("supersededAppCount")]
     public int? SupersededAppCount { get; set; }
@@ -126,9 +120,6 @@ internal class MacOSLobAppModel
 
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("versionNumber")]
     public string? VersionNumber { get; set; }

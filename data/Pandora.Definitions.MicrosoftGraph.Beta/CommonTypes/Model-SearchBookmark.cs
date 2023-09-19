@@ -38,13 +38,13 @@ internal class SearchBookmarkModel
     public bool? IsSuggested { get; set; }
 
     [JsonPropertyName("keywords")]
-    public AnswerKeywordModel? Keywords { get; set; }
+    public SearchAnswerKeywordModel? Keywords { get; set; }
 
     [JsonPropertyName("languageTags")]
     public List<string>? LanguageTags { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
-    public IdentitySetModel? LastModifiedBy { get; set; }
+    public SearchIdentitySetModel? LastModifiedBy { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -53,16 +53,16 @@ internal class SearchBookmarkModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platforms")]
-    public List<DevicePlatformTypeConstant>? Platforms { get; set; }
+    public List<SearchBookmarkPlatformsConstant>? Platforms { get; set; }
 
     [JsonPropertyName("powerAppIds")]
     public List<string>? PowerAppIds { get; set; }
 
     [JsonPropertyName("state")]
-    public AnswerStateConstant? State { get; set; }
+    public SearchBookmarkStateConstant? State { get; set; }
 
     [JsonPropertyName("targetedVariations")]
-    public List<AnswerVariantModel>? TargetedVariations { get; set; }
+    public List<SearchAnswerVariantModel>? TargetedVariations { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

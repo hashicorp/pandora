@@ -35,5 +35,5 @@ internal class OpenShiftItemModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("theme")]
-    public ScheduleEntityThemeConstant? Theme { get; set; }
+    public OpenShiftItemThemeConstant? Theme { get; set; }
 }

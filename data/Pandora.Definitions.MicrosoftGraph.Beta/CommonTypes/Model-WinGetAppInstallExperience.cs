@@ -17,5 +17,5 @@ internal class WinGetAppInstallExperienceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public WinGetAppInstallExperienceRunAsAccountConstant? RunAsAccount { get; set; }
 }

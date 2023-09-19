@@ -14,25 +14,25 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedDeviceEncryptionStateModel
 {
     [JsonPropertyName("advancedBitLockerStates")]
-    public AdvancedBitLockerStateConstant? AdvancedBitLockerStates { get; set; }
+    public ManagedDeviceEncryptionStateAdvancedBitLockerStatesConstant? AdvancedBitLockerStates { get; set; }
 
     [JsonPropertyName("deviceName")]
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public DeviceTypesConstant? DeviceType { get; set; }
+    public ManagedDeviceEncryptionStateDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("encryptionPolicySettingState")]
-    public ComplianceStatusConstant? EncryptionPolicySettingState { get; set; }
+    public ManagedDeviceEncryptionStateEncryptionPolicySettingStateConstant? EncryptionPolicySettingState { get; set; }
 
     [JsonPropertyName("encryptionReadinessState")]
-    public EncryptionReadinessStateConstant? EncryptionReadinessState { get; set; }
+    public ManagedDeviceEncryptionStateEncryptionReadinessStateConstant? EncryptionReadinessState { get; set; }
 
     [JsonPropertyName("encryptionState")]
-    public EncryptionStateConstant? EncryptionState { get; set; }
+    public ManagedDeviceEncryptionStateEncryptionStateConstant? EncryptionState { get; set; }
 
     [JsonPropertyName("fileVaultStates")]
-    public FileVaultStateConstant? FileVaultStates { get; set; }
+    public ManagedDeviceEncryptionStateFileVaultStatesConstant? FileVaultStates { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

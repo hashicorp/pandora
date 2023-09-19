@@ -17,7 +17,7 @@ internal class RemoteLockActionResultModel
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public RemoteLockActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("lastUpdatedDateTime")]
     public DateTime? LastUpdatedDateTime { get; set; }

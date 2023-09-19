@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AndroidDeviceOwnerCompliancePolicyModel
 {
     [JsonPropertyName("advancedThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidDeviceOwnerCompliancePolicyAdvancedThreatProtectionRequiredSecurityLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceCompliancePolicyAssignmentModel>? Assignments { get; set; }
@@ -38,7 +38,7 @@ internal class AndroidDeviceOwnerCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidDeviceOwnerCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -95,7 +95,7 @@ internal class AndroidDeviceOwnerCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidDeviceOwnerRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidDeviceOwnerCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

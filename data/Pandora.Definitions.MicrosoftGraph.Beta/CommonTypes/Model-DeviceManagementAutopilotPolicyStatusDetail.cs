@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementAutopilotPolicyStatusDetailModel
 {
     [JsonPropertyName("complianceStatus")]
-    public DeviceManagementAutopilotPolicyComplianceStatusConstant? ComplianceStatus { get; set; }
+    public DeviceManagementAutopilotPolicyStatusDetailComplianceStatusConstant? ComplianceStatus { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -32,7 +32,7 @@ internal class DeviceManagementAutopilotPolicyStatusDetailModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyType")]
-    public DeviceManagementAutopilotPolicyTypeConstant? PolicyType { get; set; }
+    public DeviceManagementAutopilotPolicyStatusDetailPolicyTypeConstant? PolicyType { get; set; }
 
     [JsonPropertyName("trackedOnEnrollmentStatus")]
     public bool? TrackedOnEnrollmentStatus { get; set; }

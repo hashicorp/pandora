@@ -41,5 +41,5 @@ internal class SecurityBaselineSettingStateModel
     public List<SettingSourceModel>? SourcePolicies { get; set; }
 
     [JsonPropertyName("state")]
-    public SecurityBaselineComplianceStateConstant? State { get; set; }
+    public SecurityBaselineSettingStateStateConstant? State { get; set; }
 }

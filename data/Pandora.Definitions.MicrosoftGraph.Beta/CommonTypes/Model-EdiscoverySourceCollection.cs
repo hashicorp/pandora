@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoverySourceCollectionModel
 {
     [JsonPropertyName("addToReviewSetOperation")]
-    public AddToReviewSetOperationModel? AddToReviewSetOperation { get; set; }
+    public EdiscoveryAddToReviewSetOperationModel? AddToReviewSetOperation { get; set; }
 
     [JsonPropertyName("additionalSources")]
-    public List<DataSourceModel>? AdditionalSources { get; set; }
+    public List<EdiscoveryDataSourceModel>? AdditionalSources { get; set; }
 
     [JsonPropertyName("contentQuery")]
     public string? ContentQuery { get; set; }
@@ -29,10 +29,10 @@ internal class EdiscoverySourceCollectionModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("custodianSources")]
-    public List<DataSourceModel>? CustodianSources { get; set; }
+    public List<EdiscoveryDataSourceModel>? CustodianSources { get; set; }
 
     [JsonPropertyName("dataSourceScopes")]
-    public DataSourceScopesConstant? DataSourceScopes { get; set; }
+    public EdiscoverySourceCollectionDataSourceScopesConstant? DataSourceScopes { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -44,7 +44,7 @@ internal class EdiscoverySourceCollectionModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lastEstimateStatisticsOperation")]
-    public EstimateStatisticsOperationModel? LastEstimateStatisticsOperation { get; set; }
+    public EdiscoveryEstimateStatisticsOperationModel? LastEstimateStatisticsOperation { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
     public IdentitySetModel? LastModifiedBy { get; set; }
@@ -53,7 +53,7 @@ internal class EdiscoverySourceCollectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("noncustodialSources")]
-    public List<NoncustodialDataSourceModel>? NoncustodialSources { get; set; }
+    public List<EdiscoveryNoncustodialDataSourceModel>? NoncustodialSources { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

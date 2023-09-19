@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AssignmentFilterTypeAndEvaluationResultModel
 {
     [JsonPropertyName("assignmentFilterType")]
-    public DeviceAndAppManagementAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
+    public AssignmentFilterTypeAndEvaluationResultAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
 
     [JsonPropertyName("evaluationResult")]
-    public AssignmentFilterEvaluationResultConstant? EvaluationResult { get; set; }
+    public AssignmentFilterTypeAndEvaluationResultEvaluationResultConstant? EvaluationResult { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

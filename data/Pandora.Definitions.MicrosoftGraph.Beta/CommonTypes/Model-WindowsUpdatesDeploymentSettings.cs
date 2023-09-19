@@ -14,20 +14,20 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesDeploymentSettingsModel
 {
     [JsonPropertyName("contentApplicability")]
-    public ContentApplicabilitySettingsModel? ContentApplicability { get; set; }
+    public WindowsUpdatesContentApplicabilitySettingsModel? ContentApplicability { get; set; }
 
     [JsonPropertyName("expedite")]
-    public ExpediteSettingsModel? Expedite { get; set; }
+    public WindowsUpdatesExpediteSettingsModel? Expedite { get; set; }
 
     [JsonPropertyName("monitoring")]
-    public MonitoringSettingsModel? Monitoring { get; set; }
+    public WindowsUpdatesMonitoringSettingsModel? Monitoring { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("schedule")]
-    public ScheduleSettingsModel? Schedule { get; set; }
+    public WindowsUpdatesScheduleSettingsModel? Schedule { get; set; }
 
     [JsonPropertyName("userExperience")]
-    public UserExperienceSettingsModel? UserExperience { get; set; }
+    public WindowsUpdatesUserExperienceSettingsModel? UserExperience { get; set; }
 }

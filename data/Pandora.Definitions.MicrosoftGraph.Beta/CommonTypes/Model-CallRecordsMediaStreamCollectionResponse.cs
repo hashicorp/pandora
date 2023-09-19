@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallRecordsMediaStreamCollectionResponseModel
 {
     [JsonPropertyName("@odata.count")]
-    public long? ODataCount { get; set; }
+    public int? ODataCount { get; set; }
 
     [JsonPropertyName("@odata.nextLink")]
     public string? ODataNextLink { get; set; }
 
     [JsonPropertyName("value")]
-    public List<MediaStreamModel>? Value { get; set; }
+    public List<CallRecordsMediaStreamModel>? Value { get; set; }
 }

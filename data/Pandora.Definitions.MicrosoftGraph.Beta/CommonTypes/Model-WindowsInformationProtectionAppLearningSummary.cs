@@ -17,7 +17,7 @@ internal class WindowsInformationProtectionAppLearningSummaryModel
     public string? ApplicationName { get; set; }
 
     [JsonPropertyName("applicationType")]
-    public ApplicationTypeConstant? ApplicationType { get; set; }
+    public WindowsInformationProtectionAppLearningSummaryApplicationTypeConstant? ApplicationType { get; set; }
 
     [JsonPropertyName("deviceCount")]
     public int? DeviceCount { get; set; }

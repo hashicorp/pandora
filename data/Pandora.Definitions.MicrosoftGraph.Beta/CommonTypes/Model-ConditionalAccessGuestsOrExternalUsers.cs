@@ -17,7 +17,7 @@ internal class ConditionalAccessGuestsOrExternalUsersModel
     public ConditionalAccessExternalTenantsModel? ExternalTenants { get; set; }
 
     [JsonPropertyName("guestOrExternalUserTypes")]
-    public ConditionalAccessGuestOrExternalUserTypesConstant? GuestOrExternalUserTypes { get; set; }
+    public ConditionalAccessGuestsOrExternalUsersGuestOrExternalUserTypesConstant? GuestOrExternalUserTypes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

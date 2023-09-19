@@ -12,12 +12,15 @@ internal enum AlertStatusConstant
     [Description("Unknown")]
     @unknown,
 
-    [Description("New")]
-    @new,
+    [Description("NewAlert")]
+    @newAlert,
 
     [Description("InProgress")]
     @inProgress,
 
     [Description("Resolved")]
     @resolved,
+
+    [Description("Dismissed")]
+    @dismissed,
 }

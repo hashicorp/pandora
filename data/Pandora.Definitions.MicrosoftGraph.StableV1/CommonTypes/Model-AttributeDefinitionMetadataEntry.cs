@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AttributeDefinitionMetadataEntryModel
 {
     [JsonPropertyName("key")]
-    public AttributeDefinitionMetadataConstant? Key { get; set; }
+    public AttributeDefinitionMetadataEntryKeyConstant? Key { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RetentionLabelSettingsModel
 {
     [JsonPropertyName("behaviorDuringRetentionPeriod")]
-    public BehaviorDuringRetentionPeriodConstant? BehaviorDuringRetentionPeriod { get; set; }
+    public RetentionLabelSettingsBehaviorDuringRetentionPeriodConstant? BehaviorDuringRetentionPeriod { get; set; }
 
     [JsonPropertyName("isContentUpdateAllowed")]
     public bool? IsContentUpdateAllowed { get; set; }

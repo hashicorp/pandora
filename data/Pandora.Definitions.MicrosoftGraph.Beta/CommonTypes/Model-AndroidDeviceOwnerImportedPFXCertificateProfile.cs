@@ -17,10 +17,10 @@ internal class AndroidDeviceOwnerImportedPFXCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateAccessType")]
-    public AndroidDeviceOwnerCertificateAccessTypeConstant? CertificateAccessType { get; set; }
+    public AndroidDeviceOwnerImportedPFXCertificateProfileCertificateAccessTypeConstant? CertificateAccessType { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public AndroidDeviceOwnerImportedPFXCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -62,7 +62,7 @@ internal class AndroidDeviceOwnerImportedPFXCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public IntendedPurposeConstant? IntendedPurpose { get; set; }
+    public AndroidDeviceOwnerImportedPFXCertificateProfileIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -86,10 +86,10 @@ internal class AndroidDeviceOwnerImportedPFXCertificateProfileModel
     public List<AndroidDeviceOwnerSilentCertificateAccessModel>? SilentCertificateAccessDetails { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public AndroidDeviceOwnerImportedPFXCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public AndroidDeviceOwnerImportedPFXCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

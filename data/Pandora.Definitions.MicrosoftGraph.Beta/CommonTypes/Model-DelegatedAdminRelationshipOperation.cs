@@ -29,8 +29,8 @@ internal class DelegatedAdminRelationshipOperationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationType")]
-    public DelegatedAdminRelationshipOperationTypeConstant? OperationType { get; set; }
+    public DelegatedAdminRelationshipOperationOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public DelegatedAdminRelationshipOperationStatusConstant? Status { get; set; }
 }

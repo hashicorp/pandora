@@ -26,7 +26,7 @@ internal class WindowsUpdatesOperationalInsightsConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ResourceConnectionStateConstant? State { get; set; }
+    public WindowsUpdatesOperationalInsightsConnectionStateConstant? State { get; set; }
 
     [JsonPropertyName("workspaceName")]
     public string? WorkspaceName { get; set; }

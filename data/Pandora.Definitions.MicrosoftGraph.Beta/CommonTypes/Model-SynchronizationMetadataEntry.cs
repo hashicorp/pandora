@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SynchronizationMetadataEntryModel
 {
     [JsonPropertyName("key")]
-    public SynchronizationMetadataConstant? Key { get; set; }
+    public SynchronizationMetadataEntryKeyConstant? Key { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

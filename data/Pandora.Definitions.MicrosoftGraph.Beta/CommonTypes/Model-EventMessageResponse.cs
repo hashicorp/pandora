@@ -65,10 +65,10 @@ internal class EventMessageResponseModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public EventMessageResponseImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("inferenceClassification")]
-    public InferenceClassificationTypeConstant? InferenceClassification { get; set; }
+    public EventMessageResponseInferenceClassificationConstant? InferenceClassification { get; set; }
 
     [JsonPropertyName("internetMessageHeaders")]
     public List<InternetMessageHeaderModel>? InternetMessageHeaders { get; set; }
@@ -104,7 +104,7 @@ internal class EventMessageResponseModel
     public LocationModel? Location { get; set; }
 
     [JsonPropertyName("meetingMessageType")]
-    public MeetingMessageTypeConstant? MeetingMessageType { get; set; }
+    public EventMessageResponseMeetingMessageTypeConstant? MeetingMessageType { get; set; }
 
     [JsonPropertyName("mentions")]
     public List<MentionModel>? Mentions { get; set; }
@@ -134,7 +134,7 @@ internal class EventMessageResponseModel
     public List<RecipientModel>? ReplyTo { get; set; }
 
     [JsonPropertyName("responseType")]
-    public ResponseTypeConstant? ResponseType { get; set; }
+    public EventMessageResponseResponseTypeConstant? ResponseType { get; set; }
 
     [JsonPropertyName("sender")]
     public RecipientModel? Sender { get; set; }
@@ -155,7 +155,7 @@ internal class EventMessageResponseModel
     public List<RecipientModel>? ToRecipients { get; set; }
 
     [JsonPropertyName("type")]
-    public EventTypeConstant? Type { get; set; }
+    public EventMessageResponseTypeConstant? Type { get; set; }
 
     [JsonPropertyName("uniqueBody")]
     public ItemBodyModel? UniqueBody { get; set; }

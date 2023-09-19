@@ -23,10 +23,10 @@ internal class ManagedTenantsTenantGroupModel
     public string? Id { get; set; }
 
     [JsonPropertyName("managementActions")]
-    public List<ManagementActionInfoModel>? ManagementActions { get; set; }
+    public List<ManagedTenantsManagementActionInfoModel>? ManagementActions { get; set; }
 
     [JsonPropertyName("managementIntents")]
-    public List<ManagementIntentInfoModel>? ManagementIntents { get; set; }
+    public List<ManagedTenantsManagementIntentInfoModel>? ManagementIntents { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

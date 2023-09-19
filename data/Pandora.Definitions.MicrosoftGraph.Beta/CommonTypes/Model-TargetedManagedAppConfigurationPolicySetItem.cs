@@ -20,7 +20,7 @@ internal class TargetedManagedAppConfigurationPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public TargetedManagedAppConfigurationPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -41,5 +41,5 @@ internal class TargetedManagedAppConfigurationPolicySetItemModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public TargetedManagedAppConfigurationPolicySetItemStatusConstant? Status { get; set; }
 }

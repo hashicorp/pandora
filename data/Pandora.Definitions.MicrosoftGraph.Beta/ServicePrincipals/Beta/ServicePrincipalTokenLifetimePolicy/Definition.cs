@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetServicePrincipalTokenLifetimePoliciesCountOperation(),
-        new GetTokenLifetimePolicyOperation(),
-        new ListTokenLifetimePoliciesOperation()
+        new GetServicePrincipalByIdTokenLifetimePolicyByIdOperation(),
+        new GetServicePrincipalByIdTokenLifetimePolicyCountOperation(),
+        new ListServicePrincipalByIdTokenLifetimePoliciesOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

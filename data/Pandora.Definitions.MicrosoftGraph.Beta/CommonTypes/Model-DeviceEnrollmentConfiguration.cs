@@ -23,7 +23,7 @@ internal class DeviceEnrollmentConfigurationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceEnrollmentConfigurationType")]
-    public DeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
+    public DeviceEnrollmentConfigurationDeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

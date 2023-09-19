@@ -32,7 +32,7 @@ internal class IndustryDataFileValidateOperationModel
     public string? ResourceLocation { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public IndustryDataFileValidateOperationStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusDetail")]
     public string? StatusDetail { get; set; }

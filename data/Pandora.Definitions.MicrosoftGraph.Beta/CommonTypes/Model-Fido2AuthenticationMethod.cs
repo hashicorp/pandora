@@ -20,7 +20,7 @@ internal class Fido2AuthenticationMethodModel
     public List<string>? AttestationCertificates { get; set; }
 
     [JsonPropertyName("attestationLevel")]
-    public AttestationLevelConstant? AttestationLevel { get; set; }
+    public Fido2AuthenticationMethodAttestationLevelConstant? AttestationLevel { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ExternalConnectorsExternalItemModel
 {
     [JsonPropertyName("acl")]
-    public List<AclModel>? Acl { get; set; }
+    public List<ExternalConnectorsAclModel>? Acl { get; set; }
 
     [JsonPropertyName("activities")]
-    public List<ExternalActivityModel>? Activities { get; set; }
+    public List<ExternalConnectorsExternalActivityModel>? Activities { get; set; }
 
     [JsonPropertyName("content")]
-    public ExternalItemContentModel? Content { get; set; }
+    public ExternalConnectorsExternalItemContentModel? Content { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,5 +29,5 @@ internal class ExternalConnectorsExternalItemModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("properties")]
-    public PropertiesModel? Properties { get; set; }
+    public ExternalConnectorsPropertiesModel? Properties { get; set; }
 }

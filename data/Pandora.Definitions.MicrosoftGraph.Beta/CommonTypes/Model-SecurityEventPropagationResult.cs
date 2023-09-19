@@ -23,7 +23,7 @@ internal class SecurityEventPropagationResultModel
     public string? ServiceName { get; set; }
 
     [JsonPropertyName("status")]
-    public EventPropagationStatusConstant? Status { get; set; }
+    public SecurityEventPropagationResultStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusInformation")]
     public string? StatusInformation { get; set; }

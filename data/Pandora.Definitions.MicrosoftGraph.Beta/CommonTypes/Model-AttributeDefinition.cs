@@ -35,7 +35,7 @@ internal class AttributeDefinitionModel
     public bool? Multivalued { get; set; }
 
     [JsonPropertyName("mutability")]
-    public MutabilityConstant? Mutability { get; set; }
+    public AttributeDefinitionMutabilityConstant? Mutability { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -50,5 +50,5 @@ internal class AttributeDefinitionModel
     public bool? Required { get; set; }
 
     [JsonPropertyName("type")]
-    public AttributeTypeConstant? Type { get; set; }
+    public AttributeDefinitionTypeConstant? Type { get; set; }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsPackageInformationModel
 {
     [JsonPropertyName("applicableArchitecture")]
-    public WindowsArchitectureConstant? ApplicableArchitecture { get; set; }
+    public WindowsPackageInformationApplicableArchitectureConstant? ApplicableArchitecture { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

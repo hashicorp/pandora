@@ -17,7 +17,7 @@ internal class DeviceManagementConfigurationStringSettingValueDefinitionModel
     public List<string>? FileTypes { get; set; }
 
     [JsonPropertyName("format")]
-    public DeviceManagementConfigurationStringFormatConstant? Format { get; set; }
+    public DeviceManagementConfigurationStringSettingValueDefinitionFormatConstant? Format { get; set; }
 
     [JsonPropertyName("inputValidationSchema")]
     public string? InputValidationSchema { get; set; }
@@ -26,10 +26,10 @@ internal class DeviceManagementConfigurationStringSettingValueDefinitionModel
     public bool? IsSecret { get; set; }
 
     [JsonPropertyName("maximumLength")]
-    public long? MaximumLength { get; set; }
+    public int? MaximumLength { get; set; }
 
     [JsonPropertyName("minimumLength")]
-    public long? MinimumLength { get; set; }
+    public int? MinimumLength { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

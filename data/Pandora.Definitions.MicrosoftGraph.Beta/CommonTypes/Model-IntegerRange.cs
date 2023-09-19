@@ -14,17 +14,17 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IntegerRangeModel
 {
     [JsonPropertyName("end")]
-    public long? End { get; set; }
+    public int? End { get; set; }
 
     [JsonPropertyName("maximum")]
-    public long? Maximum { get; set; }
+    public int? Maximum { get; set; }
 
     [JsonPropertyName("minimum")]
-    public long? Minimum { get; set; }
+    public int? Minimum { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("start")]
-    public long? Start { get; set; }
+    public int? Start { get; set; }
 }

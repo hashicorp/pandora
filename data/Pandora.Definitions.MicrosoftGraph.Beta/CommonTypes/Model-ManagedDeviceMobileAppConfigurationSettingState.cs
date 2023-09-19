@@ -17,7 +17,7 @@ internal class ManagedDeviceMobileAppConfigurationSettingStateModel
     public string? CurrentValue { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public long? ErrorCode { get; set; }
+    public int? ErrorCode { get; set; }
 
     [JsonPropertyName("errorDescription")]
     public string? ErrorDescription { get; set; }
@@ -41,7 +41,7 @@ internal class ManagedDeviceMobileAppConfigurationSettingStateModel
     public List<SettingSourceModel>? Sources { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public ManagedDeviceMobileAppConfigurationSettingStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userEmail")]
     public string? UserEmail { get; set; }

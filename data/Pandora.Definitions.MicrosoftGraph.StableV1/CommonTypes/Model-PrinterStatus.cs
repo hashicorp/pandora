@@ -17,11 +17,11 @@ internal class PrinterStatusModel
     public string? Description { get; set; }
 
     [JsonPropertyName("details")]
-    public List<PrinterProcessingStateDetailConstant>? Details { get; set; }
+    public List<PrinterStatusDetailsConstant>? Details { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public PrinterProcessingStateConstant? State { get; set; }
+    public PrinterStatusStateConstant? State { get; set; }
 }

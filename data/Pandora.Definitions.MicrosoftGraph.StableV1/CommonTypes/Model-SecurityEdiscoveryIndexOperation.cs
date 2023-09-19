@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SecurityEdiscoveryIndexOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public SecurityEdiscoveryIndexOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("completedDateTime")]
     public DateTime? CompletedDateTime { get; set; }
@@ -38,5 +38,5 @@ internal class SecurityEdiscoveryIndexOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryIndexOperationStatusConstant? Status { get; set; }
 }

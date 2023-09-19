@@ -20,7 +20,7 @@ internal class EnrollmentConfigurationAssignmentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("source")]
-    public DeviceAndAppManagementAssignmentSourceConstant? Source { get; set; }
+    public EnrollmentConfigurationAssignmentSourceConstant? Source { get; set; }
 
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }

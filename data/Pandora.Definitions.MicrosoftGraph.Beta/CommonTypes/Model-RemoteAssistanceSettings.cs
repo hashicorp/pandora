@@ -26,5 +26,5 @@ internal class RemoteAssistanceSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remoteAssistanceState")]
-    public RemoteAssistanceStateConstant? RemoteAssistanceState { get; set; }
+    public RemoteAssistanceSettingsRemoteAssistanceStateConstant? RemoteAssistanceState { get; set; }
 }

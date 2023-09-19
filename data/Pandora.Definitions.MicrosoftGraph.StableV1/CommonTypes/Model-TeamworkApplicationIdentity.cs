@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class TeamworkApplicationIdentityModel
 {
     [JsonPropertyName("applicationIdentityType")]
-    public TeamworkApplicationIdentityTypeConstant? ApplicationIdentityType { get; set; }
+    public TeamworkApplicationIdentityApplicationIdentityTypeConstant? ApplicationIdentityType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

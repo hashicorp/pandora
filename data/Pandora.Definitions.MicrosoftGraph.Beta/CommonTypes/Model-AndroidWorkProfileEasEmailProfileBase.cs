@@ -17,7 +17,7 @@ internal class AndroidWorkProfileEasEmailProfileBaseModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public EasAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidWorkProfileEasEmailProfileBaseAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -47,10 +47,10 @@ internal class AndroidWorkProfileEasEmailProfileBaseModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public AndroidWorkProfileEasEmailProfileBaseDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public AndroidWorkProfileEasEmailProfileBaseEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -86,7 +86,7 @@ internal class AndroidWorkProfileEasEmailProfileBaseModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public AndroidUsernameSourceConstant? UsernameSource { get; set; }
+    public AndroidWorkProfileEasEmailProfileBaseUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

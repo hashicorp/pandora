@@ -38,5 +38,5 @@ internal class SecurityPolicyBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicyStatusConstant? Status { get; set; }
+    public SecurityPolicyBaseStatusConstant? Status { get; set; }
 }

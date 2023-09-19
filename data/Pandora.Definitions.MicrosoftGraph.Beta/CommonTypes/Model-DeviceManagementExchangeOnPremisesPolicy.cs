@@ -20,7 +20,7 @@ internal class DeviceManagementExchangeOnPremisesPolicyModel
     public OnPremisesConditionalAccessSettingsModel? ConditionalAccessSettings { get; set; }
 
     [JsonPropertyName("defaultAccessLevel")]
-    public DeviceManagementExchangeAccessLevelConstant? DefaultAccessLevel { get; set; }
+    public DeviceManagementExchangeOnPremisesPolicyDefaultAccessLevelConstant? DefaultAccessLevel { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

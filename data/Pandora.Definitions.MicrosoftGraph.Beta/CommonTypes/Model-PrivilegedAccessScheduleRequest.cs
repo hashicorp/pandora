@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PrivilegedAccessScheduleRequestModel
 {
     [JsonPropertyName("action")]
-    public ScheduleRequestActionsConstant? Action { get; set; }
+    public PrivilegedAccessScheduleRequestActionConstant? Action { get; set; }
 
     [JsonPropertyName("approvalId")]
     public string? ApprovalId { get; set; }

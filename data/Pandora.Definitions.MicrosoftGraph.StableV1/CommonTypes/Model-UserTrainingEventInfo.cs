@@ -17,7 +17,7 @@ internal class UserTrainingEventInfoModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("latestTrainingStatus")]
-    public TrainingStatusConstant? LatestTrainingStatus { get; set; }
+    public UserTrainingEventInfoLatestTrainingStatusConstant? LatestTrainingStatus { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

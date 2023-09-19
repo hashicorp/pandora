@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ManagedAndroidStoreAppModel
 {
     [JsonPropertyName("appAvailability")]
-    public ManagedAppAvailabilityConstant? AppAvailability { get; set; }
+    public ManagedAndroidStoreAppAppAvailabilityConstant? AppAvailability { get; set; }
 
     [JsonPropertyName("appStoreUrl")]
     public string? AppStoreUrl { get; set; }
@@ -74,7 +74,7 @@ internal class ManagedAndroidStoreAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public ManagedAndroidStoreAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

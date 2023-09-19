@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class OutOfBoxExperienceSettingsModel
 {
     [JsonPropertyName("deviceUsageType")]
-    public WindowsDeviceUsageTypeConstant? DeviceUsageType { get; set; }
+    public OutOfBoxExperienceSettingsDeviceUsageTypeConstant? DeviceUsageType { get; set; }
 
     [JsonPropertyName("hideEULA")]
     public bool? HideEULA { get; set; }
@@ -32,5 +32,5 @@ internal class OutOfBoxExperienceSettingsModel
     public bool? SkipKeyboardSelectionPage { get; set; }
 
     [JsonPropertyName("userType")]
-    public WindowsUserTypeConstant? UserType { get; set; }
+    public OutOfBoxExperienceSettingsUserTypeConstant? UserType { get; set; }
 }

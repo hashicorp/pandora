@@ -32,7 +32,7 @@ internal class EnterpriseCodeSigningCertificateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public CertificateStatusConstant? Status { get; set; }
+    public EnterpriseCodeSigningCertificateStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }

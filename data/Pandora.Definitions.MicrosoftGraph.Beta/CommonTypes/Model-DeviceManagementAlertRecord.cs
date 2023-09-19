@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementAlertRecordModel
 {
     [JsonPropertyName("alertImpact")]
-    public AlertImpactModel? AlertImpact { get; set; }
+    public DeviceManagementAlertImpactModel? AlertImpact { get; set; }
 
     [JsonPropertyName("alertRuleId")]
     public string? AlertRuleId { get; set; }
 
     [JsonPropertyName("alertRuleTemplate")]
-    public AlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
+    public DeviceManagementAlertRecordAlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
 
     [JsonPropertyName("detectedDateTime")]
     public DateTime? DetectedDateTime { get; set; }
@@ -41,8 +41,8 @@ internal class DeviceManagementAlertRecordModel
     public DateTime? ResolvedDateTime { get; set; }
 
     [JsonPropertyName("severity")]
-    public RuleSeverityTypeConstant? Severity { get; set; }
+    public DeviceManagementAlertRecordSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("status")]
-    public AlertStatusTypeConstant? Status { get; set; }
+    public DeviceManagementAlertRecordStatusConstant? Status { get; set; }
 }

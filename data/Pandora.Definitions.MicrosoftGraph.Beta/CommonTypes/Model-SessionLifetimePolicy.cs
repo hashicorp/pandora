@@ -17,7 +17,7 @@ internal class SessionLifetimePolicyModel
     public string? Detail { get; set; }
 
     [JsonPropertyName("expirationRequirement")]
-    public ExpirationRequirementConstant? ExpirationRequirement { get; set; }
+    public SessionLifetimePolicyExpirationRequirementConstant? ExpirationRequirement { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

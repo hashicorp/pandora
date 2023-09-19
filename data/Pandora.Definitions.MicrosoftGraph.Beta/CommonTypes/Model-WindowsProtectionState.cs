@@ -20,7 +20,7 @@ internal class WindowsProtectionStateModel
     public List<WindowsDeviceMalwareStateModel>? DetectedMalwareState { get; set; }
 
     [JsonPropertyName("deviceState")]
-    public WindowsDeviceHealthStateConstant? DeviceState { get; set; }
+    public WindowsProtectionStateDeviceStateConstant? DeviceState { get; set; }
 
     [JsonPropertyName("engineVersion")]
     public string? EngineVersion { get; set; }
@@ -62,7 +62,7 @@ internal class WindowsProtectionStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("productStatus")]
-    public WindowsDefenderProductStatusConstant? ProductStatus { get; set; }
+    public WindowsProtectionStateProductStatusConstant? ProductStatus { get; set; }
 
     [JsonPropertyName("quickScanOverdue")]
     public bool? QuickScanOverdue { get; set; }

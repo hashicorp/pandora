@@ -17,7 +17,7 @@ internal class IosVppEBookAssignmentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("installIntent")]
-    public InstallIntentConstant? InstallIntent { get; set; }
+    public IosVppEBookAssignmentInstallIntentConstant? InstallIntent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

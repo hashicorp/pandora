@@ -20,7 +20,7 @@ internal class PartnerInformationModel
     public string? CompanyName { get; set; }
 
     [JsonPropertyName("companyType")]
-    public PartnerTenantTypeConstant? CompanyType { get; set; }
+    public PartnerInformationCompanyTypeConstant? CompanyType { get; set; }
 
     [JsonPropertyName("helpUrl")]
     public string? HelpUrl { get; set; }

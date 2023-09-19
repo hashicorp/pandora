@@ -28,6 +28,9 @@ internal class DeviceHealthScriptModel
     [JsonPropertyName("detectionScriptParameters")]
     public List<DeviceHealthScriptParameterModel>? DetectionScriptParameters { get; set; }
 
+    [JsonPropertyName("deviceHealthScriptType")]
+    public DeviceHealthScriptDeviceHealthScriptTypeConstant? DeviceHealthScriptType { get; set; }
+
     [JsonPropertyName("deviceRunStates")]
     public List<DeviceHealthScriptDeviceStateModel>? DeviceRunStates { get; set; }
 
@@ -68,7 +71,7 @@ internal class DeviceHealthScriptModel
     public bool? RunAs32Bit { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public DeviceHealthScriptRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("runSummary")]
     public DeviceHealthScriptRunSummaryModel? RunSummary { get; set; }

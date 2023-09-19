@@ -22,6 +22,9 @@ internal class IdentityGovernanceModel
     [JsonPropertyName("entitlementManagement")]
     public EntitlementManagementModel? EntitlementManagement { get; set; }
 
+    [JsonPropertyName("lifecycleWorkflows")]
+    public IdentityGovernanceLifecycleWorkflowsContainerModel? LifecycleWorkflows { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 

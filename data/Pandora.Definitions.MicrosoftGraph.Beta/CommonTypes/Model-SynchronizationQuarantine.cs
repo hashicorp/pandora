@@ -26,11 +26,11 @@ internal class SynchronizationQuarantineModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("reason")]
-    public QuarantineReasonConstant? Reason { get; set; }
+    public SynchronizationQuarantineReasonConstant? Reason { get; set; }
 
     [JsonPropertyName("seriesBegan")]
     public DateTime? SeriesBegan { get; set; }
 
     [JsonPropertyName("seriesCount")]
-    public long? SeriesCount { get; set; }
+    public int? SeriesCount { get; set; }
 }

@@ -17,7 +17,7 @@ internal class EntitlementManagementSettingsModel
     public string? DurationUntilExternalUserDeletedAfterBlocked { get; set; }
 
     [JsonPropertyName("externalUserLifecycleAction")]
-    public AccessPackageExternalUserLifecycleActionConstant? ExternalUserLifecycleAction { get; set; }
+    public EntitlementManagementSettingsExternalUserLifecycleActionConstant? ExternalUserLifecycleAction { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

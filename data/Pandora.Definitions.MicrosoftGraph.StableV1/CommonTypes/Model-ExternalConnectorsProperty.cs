@@ -29,7 +29,7 @@ internal class ExternalConnectorsPropertyModel
     public bool? IsSearchable { get; set; }
 
     [JsonPropertyName("labels")]
-    public List<LabelConstant>? Labels { get; set; }
+    public List<ExternalConnectorsPropertyLabelsConstant>? Labels { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -38,5 +38,5 @@ internal class ExternalConnectorsPropertyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public PropertyTypeConstant? Type { get; set; }
+    public ExternalConnectorsPropertyTypeConstant? Type { get; set; }
 }

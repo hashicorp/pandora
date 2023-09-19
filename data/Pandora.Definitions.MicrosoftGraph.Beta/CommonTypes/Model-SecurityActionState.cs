@@ -20,7 +20,7 @@ internal class SecurityActionStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public SecurityActionStateStatusConstant? Status { get; set; }
 
     [JsonPropertyName("updatedDateTime")]
     public DateTime? UpdatedDateTime { get; set; }

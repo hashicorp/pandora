@@ -17,7 +17,7 @@ internal class WindowsDeliveryOptimizationConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("backgroundDownloadFromHttpDelayInSeconds")]
-    public long? BackgroundDownloadFromHttpDelayInSeconds { get; set; }
+    public int? BackgroundDownloadFromHttpDelayInSeconds { get; set; }
 
     [JsonPropertyName("bandwidthMode")]
     public DeliveryOptimizationBandwidthModel? BandwidthMode { get; set; }
@@ -35,7 +35,7 @@ internal class WindowsDeliveryOptimizationConfigurationModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("deliveryOptimizationMode")]
-    public WindowsDeliveryOptimizationModeConstant? DeliveryOptimizationMode { get; set; }
+    public WindowsDeliveryOptimizationConfigurationDeliveryOptimizationModeConstant? DeliveryOptimizationMode { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -62,7 +62,7 @@ internal class WindowsDeliveryOptimizationConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("foregroundDownloadFromHttpDelayInSeconds")]
-    public long? ForegroundDownloadFromHttpDelayInSeconds { get; set; }
+    public int? ForegroundDownloadFromHttpDelayInSeconds { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -101,7 +101,7 @@ internal class WindowsDeliveryOptimizationConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("restrictPeerSelectionBy")]
-    public DeliveryOptimizationRestrictPeerSelectionByOptionsConstant? RestrictPeerSelectionBy { get; set; }
+    public WindowsDeliveryOptimizationConfigurationRestrictPeerSelectionByConstant? RestrictPeerSelectionBy { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -119,5 +119,5 @@ internal class WindowsDeliveryOptimizationConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("vpnPeerCaching")]
-    public EnablementConstant? VpnPeerCaching { get; set; }
+    public WindowsDeliveryOptimizationConfigurationVpnPeerCachingConstant? VpnPeerCaching { get; set; }
 }

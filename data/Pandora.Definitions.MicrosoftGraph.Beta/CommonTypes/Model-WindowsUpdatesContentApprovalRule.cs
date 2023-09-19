@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesContentApprovalRuleModel
 {
     [JsonPropertyName("contentFilter")]
-    public ContentFilterModel? ContentFilter { get; set; }
+    public WindowsUpdatesContentFilterModel? ContentFilter { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

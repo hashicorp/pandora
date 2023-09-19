@@ -29,8 +29,8 @@ internal class CallRecordsClientUserAgentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public ClientPlatformConstant? Platform { get; set; }
+    public CallRecordsClientUserAgentPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("productFamily")]
-    public ProductFamilyConstant? ProductFamily { get; set; }
+    public CallRecordsClientUserAgentProductFamilyConstant? ProductFamily { get; set; }
 }

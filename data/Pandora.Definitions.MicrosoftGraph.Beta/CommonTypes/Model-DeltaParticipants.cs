@@ -23,5 +23,5 @@ internal class DeltaParticipantsModel
     public List<ParticipantModel>? Participants { get; set; }
 
     [JsonPropertyName("sequenceNumber")]
-    public long? SequenceNumber { get; set; }
+    public int? SequenceNumber { get; set; }
 }

@@ -29,7 +29,7 @@ internal class ManagedDeviceModel
     public DateTime? ComplianceGracePeriodExpirationDateTime { get; set; }
 
     [JsonPropertyName("complianceState")]
-    public ComplianceStateConstant? ComplianceState { get; set; }
+    public ManagedDeviceComplianceStateConstant? ComplianceState { get; set; }
 
     [JsonPropertyName("configurationManagerClientEnabledFeatures")]
     public ConfigurationManagerClientEnabledFeaturesModel? ConfigurationManagerClientEnabledFeatures { get; set; }
@@ -50,7 +50,7 @@ internal class ManagedDeviceModel
     public List<DeviceConfigurationStateModel>? DeviceConfigurationStates { get; set; }
 
     [JsonPropertyName("deviceEnrollmentType")]
-    public DeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
+    public ManagedDeviceDeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
 
     [JsonPropertyName("deviceHealthAttestationState")]
     public DeviceHealthAttestationStateModel? DeviceHealthAttestationState { get; set; }
@@ -59,7 +59,7 @@ internal class ManagedDeviceModel
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("deviceRegistrationState")]
-    public DeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
+    public ManagedDeviceDeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
 
     [JsonPropertyName("easActivated")]
     public bool? EasActivated { get; set; }
@@ -80,16 +80,16 @@ internal class ManagedDeviceModel
     public string? EthernetMacAddress { get; set; }
 
     [JsonPropertyName("exchangeAccessState")]
-    public DeviceManagementExchangeAccessStateConstant? ExchangeAccessState { get; set; }
+    public ManagedDeviceExchangeAccessStateConstant? ExchangeAccessState { get; set; }
 
     [JsonPropertyName("exchangeAccessStateReason")]
-    public DeviceManagementExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
+    public ManagedDeviceExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
 
     [JsonPropertyName("exchangeLastSuccessfulSyncDateTime")]
     public DateTime? ExchangeLastSuccessfulSyncDateTime { get; set; }
 
     [JsonPropertyName("freeStorageSpaceInBytes")]
-    public long? FreeStorageSpaceInBytes { get; set; }
+    public int? FreeStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("iccid")]
     public string? Iccid { get; set; }
@@ -112,14 +112,17 @@ internal class ManagedDeviceModel
     [JsonPropertyName("lastSyncDateTime")]
     public DateTime? LastSyncDateTime { get; set; }
 
+    [JsonPropertyName("logCollectionRequests")]
+    public List<DeviceLogCollectionResponseModel>? LogCollectionRequests { get; set; }
+
     [JsonPropertyName("managedDeviceName")]
     public string? ManagedDeviceName { get; set; }
 
     [JsonPropertyName("managedDeviceOwnerType")]
-    public ManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
+    public ManagedDeviceManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
 
     [JsonPropertyName("managementAgent")]
-    public ManagementAgentTypeConstant? ManagementAgent { get; set; }
+    public ManagedDeviceManagementAgentConstant? ManagementAgent { get; set; }
 
     [JsonPropertyName("managementCertificateExpirationDate")]
     public DateTime? ManagementCertificateExpirationDate { get; set; }
@@ -146,13 +149,13 @@ internal class ManagedDeviceModel
     public string? OsVersion { get; set; }
 
     [JsonPropertyName("partnerReportedThreatState")]
-    public ManagedDevicePartnerReportedHealthStateConstant? PartnerReportedThreatState { get; set; }
+    public ManagedDevicePartnerReportedThreatStateConstant? PartnerReportedThreatState { get; set; }
 
     [JsonPropertyName("phoneNumber")]
     public string? PhoneNumber { get; set; }
 
     [JsonPropertyName("physicalMemoryInBytes")]
-    public long? PhysicalMemoryInBytes { get; set; }
+    public int? PhysicalMemoryInBytes { get; set; }
 
     [JsonPropertyName("remoteAssistanceSessionErrorDetails")]
     public string? RemoteAssistanceSessionErrorDetails { get; set; }
@@ -170,7 +173,7 @@ internal class ManagedDeviceModel
     public string? SubscriberCarrier { get; set; }
 
     [JsonPropertyName("totalStorageSpaceInBytes")]
-    public long? TotalStorageSpaceInBytes { get; set; }
+    public int? TotalStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("udid")]
     public string? Udid { get; set; }
@@ -189,4 +192,7 @@ internal class ManagedDeviceModel
 
     [JsonPropertyName("wiFiMacAddress")]
     public string? WiFiMacAddress { get; set; }
+
+    [JsonPropertyName("windowsProtectionState")]
+    public WindowsProtectionStateModel? WindowsProtectionState { get; set; }
 }

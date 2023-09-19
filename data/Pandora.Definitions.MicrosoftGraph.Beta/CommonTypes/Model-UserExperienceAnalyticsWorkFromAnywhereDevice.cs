@@ -38,7 +38,7 @@ internal class UserExperienceAnalyticsWorkFromAnywhereDeviceModel
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsWorkFromAnywhereDeviceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -104,5 +104,5 @@ internal class UserExperienceAnalyticsWorkFromAnywhereDeviceModel
     public bool? TpmCheckFailed { get; set; }
 
     [JsonPropertyName("upgradeEligibility")]
-    public OperatingSystemUpgradeEligibilityConstant? UpgradeEligibility { get; set; }
+    public UserExperienceAnalyticsWorkFromAnywhereDeviceUpgradeEligibilityConstant? UpgradeEligibility { get; set; }
 }

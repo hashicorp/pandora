@@ -35,7 +35,7 @@ internal class ManagedDeviceMobileAppConfigurationDeviceStatusModel
     public int? Platform { get; set; }
 
     [JsonPropertyName("status")]
-    public ComplianceStatusConstant? Status { get; set; }
+    public ManagedDeviceMobileAppConfigurationDeviceStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userName")]
     public string? UserName { get; set; }

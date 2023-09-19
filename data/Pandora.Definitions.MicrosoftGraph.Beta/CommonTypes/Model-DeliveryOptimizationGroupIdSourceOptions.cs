@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeliveryOptimizationGroupIdSourceOptionsModel
 {
     [JsonPropertyName("groupIdSourceOption")]
-    public DeliveryOptimizationGroupIdOptionsTypeConstant? GroupIdSourceOption { get; set; }
+    public DeliveryOptimizationGroupIdSourceOptionsGroupIdSourceOptionConstant? GroupIdSourceOption { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AuthenticationStrengthRootModel
 {
     [JsonPropertyName("authenticationCombinations")]
-    public List<AuthenticationMethodModesConstant>? AuthenticationCombinations { get; set; }
+    public List<AuthenticationStrengthRootAuthenticationCombinationsConstant>? AuthenticationCombinations { get; set; }
 
     [JsonPropertyName("authenticationMethodModes")]
     public List<AuthenticationMethodModeDetailModel>? AuthenticationMethodModes { get; set; }
 
     [JsonPropertyName("combinations")]
-    public List<AuthenticationMethodModesConstant>? Combinations { get; set; }
+    public List<AuthenticationStrengthRootCombinationsConstant>? Combinations { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

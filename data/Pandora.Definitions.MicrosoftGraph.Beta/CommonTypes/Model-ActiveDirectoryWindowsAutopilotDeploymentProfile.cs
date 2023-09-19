@@ -29,7 +29,7 @@ internal class ActiveDirectoryWindowsAutopilotDeploymentProfileModel
     public string? DeviceNameTemplate { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public WindowsAutopilotDeviceTypeConstant? DeviceType { get; set; }
+    public ActiveDirectoryWindowsAutopilotDeploymentProfileDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

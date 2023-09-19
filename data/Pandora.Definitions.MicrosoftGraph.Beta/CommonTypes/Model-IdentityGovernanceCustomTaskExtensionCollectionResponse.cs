@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityGovernanceCustomTaskExtensionCollectionResponseModel
 {
     [JsonPropertyName("@odata.count")]
-    public long? ODataCount { get; set; }
+    public int? ODataCount { get; set; }
 
     [JsonPropertyName("@odata.nextLink")]
     public string? ODataNextLink { get; set; }
 
     [JsonPropertyName("value")]
-    public List<CustomTaskExtensionModel>? Value { get; set; }
+    public List<IdentityGovernanceCustomTaskExtensionModel>? Value { get; set; }
 }

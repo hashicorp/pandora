@@ -16,6 +16,9 @@ internal class EdiscoveryCustodianModel
     [JsonPropertyName("acknowledgedDateTime")]
     public DateTime? AcknowledgedDateTime { get; set; }
 
+    [JsonPropertyName("applyHoldToSources")]
+    public bool? ApplyHoldToSources { get; set; }
+
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
@@ -26,13 +29,13 @@ internal class EdiscoveryCustodianModel
     public string? Email { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public EdiscoveryCustodianHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("lastIndexOperation")]
-    public EdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
+    public EdiscoveryCaseIndexOperationModel? LastIndexOperation { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -44,14 +47,14 @@ internal class EdiscoveryCustodianModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("siteSources")]
-    public List<SiteSourceModel>? SiteSources { get; set; }
+    public List<EdiscoverySiteSourceModel>? SiteSources { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public EdiscoveryCustodianStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unifiedGroupSources")]
-    public List<UnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
+    public List<EdiscoveryUnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
 
     [JsonPropertyName("userSources")]
-    public List<UserSourceModel>? UserSources { get; set; }
+    public List<EdiscoveryUserSourceModel>? UserSources { get; set; }
 }

@@ -26,5 +26,5 @@ internal class BuiltInIdentityProviderModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public IdentityProviderStateConstant? State { get; set; }
+    public BuiltInIdentityProviderStateConstant? State { get; set; }
 }

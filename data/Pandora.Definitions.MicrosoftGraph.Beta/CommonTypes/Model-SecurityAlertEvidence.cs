@@ -23,17 +23,17 @@ internal class SecurityAlertEvidenceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityAlertEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityAlertEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityAlertEvidenceVerdictConstant? Verdict { get; set; }
 }

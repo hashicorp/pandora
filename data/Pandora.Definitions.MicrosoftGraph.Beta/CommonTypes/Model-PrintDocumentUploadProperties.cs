@@ -23,5 +23,5 @@ internal class PrintDocumentUploadPropertiesModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 }

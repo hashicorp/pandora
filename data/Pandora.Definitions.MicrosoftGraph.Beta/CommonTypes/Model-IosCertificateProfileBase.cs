@@ -17,7 +17,7 @@ internal class IosCertificateProfileBaseModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public IosCertificateProfileBaseCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -68,10 +68,10 @@ internal class IosCertificateProfileBaseModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public IosCertificateProfileBaseSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public AppleSubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public IosCertificateProfileBaseSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

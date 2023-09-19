@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ProtectSiteModel
 {
     [JsonPropertyName("accessType")]
-    public SiteAccessTypeConstant? AccessType { get; set; }
+    public ProtectSiteAccessTypeConstant? AccessType { get; set; }
 
     [JsonPropertyName("conditionalAccessProtectionLevelId")]
     public string? ConditionalAccessProtectionLevelId { get; set; }

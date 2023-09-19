@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsDriverUpdateProfileModel
 {
     [JsonPropertyName("approvalType")]
-    public DriverUpdateProfileApprovalTypeConstant? ApprovalType { get; set; }
+    public WindowsDriverUpdateProfileApprovalTypeConstant? ApprovalType { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<WindowsDriverUpdateProfileAssignmentModel>? Assignments { get; set; }

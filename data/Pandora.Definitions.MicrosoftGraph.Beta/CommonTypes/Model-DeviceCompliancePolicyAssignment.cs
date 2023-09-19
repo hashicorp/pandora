@@ -20,7 +20,7 @@ internal class DeviceCompliancePolicyAssignmentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("source")]
-    public DeviceAndAppManagementAssignmentSourceConstant? Source { get; set; }
+    public DeviceCompliancePolicyAssignmentSourceConstant? Source { get; set; }
 
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }

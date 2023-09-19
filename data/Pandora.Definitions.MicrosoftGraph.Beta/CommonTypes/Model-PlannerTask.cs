@@ -80,7 +80,7 @@ internal class PlannerTaskModel
     public string? PlanId { get; set; }
 
     [JsonPropertyName("previewType")]
-    public PlannerPreviewTypeConstant? PreviewType { get; set; }
+    public PlannerTaskPreviewTypeConstant? PreviewType { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
@@ -95,7 +95,7 @@ internal class PlannerTaskModel
     public int? ReferenceCount { get; set; }
 
     [JsonPropertyName("specifiedCompletionRequirements")]
-    public PlannerTaskCompletionRequirementsConstant? SpecifiedCompletionRequirements { get; set; }
+    public PlannerTaskSpecifiedCompletionRequirementsConstant? SpecifiedCompletionRequirements { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }

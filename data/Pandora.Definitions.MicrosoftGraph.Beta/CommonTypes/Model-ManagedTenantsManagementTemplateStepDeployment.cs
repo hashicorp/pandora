@@ -20,7 +20,7 @@ internal class ManagedTenantsManagementTemplateStepDeploymentModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("error")]
-    public GraphAPIErrorDetailsModel? Error { get; set; }
+    public ManagedTenantsGraphAPIErrorDetailsModel? Error { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,10 +35,10 @@ internal class ManagedTenantsManagementTemplateStepDeploymentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ManagementTemplateDeploymentStatusConstant? Status { get; set; }
+    public ManagedTenantsManagementTemplateStepDeploymentStatusConstant? Status { get; set; }
 
     [JsonPropertyName("templateStepVersion")]
-    public ManagementTemplateStepVersionModel? TemplateStepVersion { get; set; }
+    public ManagedTenantsManagementTemplateStepVersionModel? TemplateStepVersion { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

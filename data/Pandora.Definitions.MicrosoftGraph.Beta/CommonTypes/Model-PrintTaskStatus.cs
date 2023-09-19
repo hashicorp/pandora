@@ -20,5 +20,5 @@ internal class PrintTaskStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public PrintTaskProcessingStateConstant? State { get; set; }
+    public PrintTaskStatusStateConstant? State { get; set; }
 }

@@ -17,7 +17,7 @@ internal class IdentityGovernanceTaskModel
     public List<KeyValuePairModel>? Arguments { get; set; }
 
     [JsonPropertyName("category")]
-    public LifecycleTaskCategoryConstant? Category { get; set; }
+    public IdentityGovernanceTaskCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("continueOnError")]
     public bool? ContinueOnError { get; set; }
@@ -44,5 +44,5 @@ internal class IdentityGovernanceTaskModel
     public string? TaskDefinitionId { get; set; }
 
     [JsonPropertyName("taskProcessingResults")]
-    public List<TaskProcessingResultModel>? TaskProcessingResults { get; set; }
+    public List<IdentityGovernanceTaskProcessingResultModel>? TaskProcessingResults { get; set; }
 }

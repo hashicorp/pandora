@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CalendarPermissionModel
 {
     [JsonPropertyName("allowedRoles")]
-    public List<CalendarRoleTypeConstant>? AllowedRoles { get; set; }
+    public List<CalendarPermissionAllowedRolesConstant>? AllowedRoles { get; set; }
 
     [JsonPropertyName("emailAddress")]
     public EmailAddressModel? EmailAddress { get; set; }
@@ -32,5 +32,5 @@ internal class CalendarPermissionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("role")]
-    public CalendarRoleTypeConstant? Role { get; set; }
+    public CalendarPermissionRoleConstant? Role { get; set; }
 }

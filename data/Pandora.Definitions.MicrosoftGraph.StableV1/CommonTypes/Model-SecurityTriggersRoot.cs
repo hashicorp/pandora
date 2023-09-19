@@ -20,5 +20,5 @@ internal class SecurityTriggersRootModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("retentionEvents")]
-    public List<RetentionEventModel>? RetentionEvents { get; set; }
+    public List<SecurityRetentionEventModel>? RetentionEvents { get; set; }
 }

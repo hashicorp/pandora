@@ -17,7 +17,7 @@ internal class Fido2KeyRestrictionsModel
     public List<string>? AaGuids { get; set; }
 
     [JsonPropertyName("enforcementType")]
-    public Fido2RestrictionEnforcementTypeConstant? EnforcementType { get; set; }
+    public Fido2KeyRestrictionsEnforcementTypeConstant? EnforcementType { get; set; }
 
     [JsonPropertyName("isEnforced")]
     public bool? IsEnforced { get; set; }

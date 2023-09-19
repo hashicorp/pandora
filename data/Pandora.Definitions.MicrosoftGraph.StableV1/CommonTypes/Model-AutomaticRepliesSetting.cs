@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AutomaticRepliesSettingModel
 {
     [JsonPropertyName("externalAudience")]
-    public ExternalAudienceScopeConstant? ExternalAudience { get; set; }
+    public AutomaticRepliesSettingExternalAudienceConstant? ExternalAudience { get; set; }
 
     [JsonPropertyName("externalReplyMessage")]
     public string? ExternalReplyMessage { get; set; }
@@ -32,5 +32,5 @@ internal class AutomaticRepliesSettingModel
     public DateTimeTimeZoneModel? ScheduledStartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public AutomaticRepliesStatusConstant? Status { get; set; }
+    public AutomaticRepliesSettingStatusConstant? Status { get; set; }
 }

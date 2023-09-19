@@ -17,5 +17,5 @@ internal class Win32LobAppRuleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public Win32LobAppRuleTypeConstant? RuleType { get; set; }
+    public Win32LobAppRuleRuleTypeConstant? RuleType { get; set; }
 }

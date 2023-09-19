@@ -26,5 +26,5 @@ internal class StopHoldMusicOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public StopHoldMusicOperationStatusConstant? Status { get; set; }
 }

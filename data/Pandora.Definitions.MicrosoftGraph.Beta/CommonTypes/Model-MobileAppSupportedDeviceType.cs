@@ -23,5 +23,5 @@ internal class MobileAppSupportedDeviceTypeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public DeviceTypeConstant? Type { get; set; }
+    public MobileAppSupportedDeviceTypeTypeConstant? Type { get; set; }
 }

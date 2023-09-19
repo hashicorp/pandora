@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IndustryDataIndustryDataRunActivityModel
 {
     [JsonPropertyName("activity")]
-    public IndustryDataActivityModel? Activity { get; set; }
+    public IndustryDataIndustryDataActivityModel? Activity { get; set; }
 
     [JsonPropertyName("blockingError")]
     public PublicErrorModel? BlockingError { get; set; }
@@ -29,5 +29,5 @@ internal class IndustryDataIndustryDataRunActivityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public IndustryDataActivityStatusConstant? Status { get; set; }
+    public IndustryDataIndustryDataRunActivityStatusConstant? Status { get; set; }
 }

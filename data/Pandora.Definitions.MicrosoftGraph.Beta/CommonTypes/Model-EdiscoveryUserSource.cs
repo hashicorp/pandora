@@ -26,13 +26,13 @@ internal class EdiscoveryUserSourceModel
     public string? Email { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public EdiscoveryUserSourceHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("includedSources")]
-    public SourceTypeConstant? IncludedSources { get; set; }
+    public EdiscoveryUserSourceIncludedSourcesConstant? IncludedSources { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

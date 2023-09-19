@@ -23,7 +23,7 @@ internal class VirtualEventPresenterInfoModel
     public VirtualEventPresenterDetailsModel? PresenterDetails { get; set; }
 
     [JsonPropertyName("role")]
-    public OnlineMeetingRoleConstant? Role { get; set; }
+    public VirtualEventPresenterInfoRoleConstant? Role { get; set; }
 
     [JsonPropertyName("upn")]
     public string? Upn { get; set; }

@@ -20,5 +20,5 @@ internal class AttendeeBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public AttendeeTypeConstant? Type { get; set; }
+    public AttendeeBaseTypeConstant? Type { get; set; }
 }

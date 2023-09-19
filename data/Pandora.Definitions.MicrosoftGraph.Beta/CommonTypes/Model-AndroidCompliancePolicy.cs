@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AndroidCompliancePolicyModel
 {
     [JsonPropertyName("advancedThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidCompliancePolicyAdvancedThreatProtectionRequiredSecurityLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceCompliancePolicyAssignmentModel>? Assignments { get; set; }
@@ -41,7 +41,7 @@ internal class AndroidCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -80,13 +80,13 @@ internal class AndroidCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
 
     [JsonPropertyName("requiredPasswordComplexity")]
-    public AndroidRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
+    public AndroidCompliancePolicyRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
 
     [JsonPropertyName("restrictedApps")]
     public List<AppListItemModel>? RestrictedApps { get; set; }

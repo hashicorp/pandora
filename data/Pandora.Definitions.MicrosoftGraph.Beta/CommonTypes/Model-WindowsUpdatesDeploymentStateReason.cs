@@ -17,5 +17,5 @@ internal class WindowsUpdatesDeploymentStateReasonModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("value")]
-    public DeploymentStateReasonValueConstant? Value { get; set; }
+    public WindowsUpdatesDeploymentStateReasonValueConstant? Value { get; set; }
 }

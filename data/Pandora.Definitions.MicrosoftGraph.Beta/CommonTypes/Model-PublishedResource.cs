@@ -26,7 +26,7 @@ internal class PublishedResourceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("publishingType")]
-    public OnPremisesPublishingTypeConstant? PublishingType { get; set; }
+    public PublishedResourcePublishingTypeConstant? PublishingType { get; set; }
 
     [JsonPropertyName("resourceName")]
     public string? ResourceName { get; set; }

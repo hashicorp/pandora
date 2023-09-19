@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RemoteActionAuditModel
 {
     [JsonPropertyName("action")]
-    public RemoteActionConstant? Action { get; set; }
+    public RemoteActionAuditActionConstant? Action { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public RemoteActionAuditActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("deviceDisplayName")]
     public string? DeviceDisplayName { get; set; }

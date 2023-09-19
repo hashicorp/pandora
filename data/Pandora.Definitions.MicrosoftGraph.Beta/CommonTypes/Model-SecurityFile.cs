@@ -38,19 +38,19 @@ internal class SecurityFileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("otherProperties")]
-    public StringValueDictionaryModel? OtherProperties { get; set; }
+    public SecurityStringValueDictionaryModel? OtherProperties { get; set; }
 
     [JsonPropertyName("processingStatus")]
-    public FileProcessingStatusConstant? ProcessingStatus { get; set; }
+    public SecurityFileProcessingStatusConstant? ProcessingStatus { get; set; }
 
     [JsonPropertyName("senderOrAuthors")]
     public List<string>? SenderOrAuthors { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("sourceType")]
-    public SourceTypeConstant? SourceType { get; set; }
+    public SecurityFileSourceTypeConstant? SourceType { get; set; }
 
     [JsonPropertyName("subjectTitle")]
     public string? SubjectTitle { get; set; }

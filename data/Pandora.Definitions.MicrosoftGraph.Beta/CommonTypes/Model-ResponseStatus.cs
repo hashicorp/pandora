@@ -17,7 +17,7 @@ internal class ResponseStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("response")]
-    public ResponseTypeConstant? Response { get; set; }
+    public ResponseStatusResponseConstant? Response { get; set; }
 
     [JsonPropertyName("time")]
     public DateTime? Time { get; set; }

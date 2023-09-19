@@ -17,7 +17,7 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("authenticationPeriodInSeconds")]
     public int? AuthenticationPeriodInSeconds { get; set; }
@@ -26,7 +26,7 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public int? AuthenticationRetryDelayPeriodInSeconds { get; set; }
 
     [JsonPropertyName("authenticationType")]
-    public WifiAuthenticationTypeConstant? AuthenticationType { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationAuthenticationTypeConstant? AuthenticationType { get; set; }
 
     [JsonPropertyName("cacheCredentials")]
     public bool? CacheCredentials { get; set; }
@@ -71,7 +71,7 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapType")]
-    public EapTypeConstant? EapType { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("eapolStartPeriodInSeconds")]
     public int? EapolStartPeriodInSeconds { get; set; }
@@ -95,7 +95,7 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public WindowsCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEAPTTLS")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEAPTTLS { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationInnerAuthenticationProtocolForEAPTTLSConstant? InnerAuthenticationProtocolForEAPTTLS { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -119,13 +119,13 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public int? MaximumPreAuthenticationAttempts { get; set; }
 
     [JsonPropertyName("meteredConnectionLimit")]
-    public MeteredConnectionLimitTypeConstant? MeteredConnectionLimit { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationMeteredConnectionLimitConstant? MeteredConnectionLimit { get; set; }
 
     [JsonPropertyName("networkName")]
     public string? NetworkName { get; set; }
 
     [JsonPropertyName("networkSingleSignOn")]
-    public NetworkSingleSignOnTypeConstant? NetworkSingleSignOn { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationNetworkSingleSignOnConstant? NetworkSingleSignOn { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -152,7 +152,7 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySetting")]
-    public WiFiProxySettingConstant? ProxySetting { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationProxySettingConstant? ProxySetting { get; set; }
 
     [JsonPropertyName("requireCryptographicBinding")]
     public bool? RequireCryptographicBinding { get; set; }
@@ -188,5 +188,5 @@ internal class WindowsWifiEnterpriseEAPConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wifiSecurityType")]
-    public WiFiSecurityTypeConstant? WifiSecurityType { get; set; }
+    public WindowsWifiEnterpriseEAPConfigurationWifiSecurityTypeConstant? WifiSecurityType { get; set; }
 }

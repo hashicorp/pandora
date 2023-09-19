@@ -57,4 +57,7 @@ internal class DirectoryModel
 
     [JsonPropertyName("sharedEmailDomains")]
     public List<SharedEmailDomainModel>? SharedEmailDomains { get; set; }
+
+    [JsonPropertyName("subscriptions")]
+    public List<CompanySubscriptionModel>? Subscriptions { get; set; }
 }

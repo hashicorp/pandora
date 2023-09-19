@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ConfigurationManagerActionModel
 {
     [JsonPropertyName("action")]
-    public ConfigurationManagerActionTypeConstant? Action { get; set; }
+    public ConfigurationManagerActionActionConstant? Action { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

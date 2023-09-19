@@ -30,7 +30,4 @@ internal class UserExperienceAnalyticsAppHealthOSVersionPerformanceModel
 
     [JsonPropertyName("osVersion")]
     public string? OsVersion { get; set; }
-
-    [JsonPropertyName("osVersionAppHealthStatus")]
-    public string? OsVersionAppHealthStatus { get; set; }
 }

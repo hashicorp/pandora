@@ -23,7 +23,7 @@ internal class SecurityEdiscoveryCaseModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("custodians")]
-    public List<EdiscoveryCustodianModel>? Custodians { get; set; }
+    public List<SecurityEdiscoveryCustodianModel>? Custodians { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -44,26 +44,26 @@ internal class SecurityEdiscoveryCaseModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("noncustodialDataSources")]
-    public List<EdiscoveryNoncustodialDataSourceModel>? NoncustodialDataSources { get; set; }
+    public List<SecurityEdiscoveryNoncustodialDataSourceModel>? NoncustodialDataSources { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operations")]
-    public List<CaseOperationModel>? Operations { get; set; }
+    public List<SecurityCaseOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("reviewSets")]
-    public List<EdiscoveryReviewSetModel>? ReviewSets { get; set; }
+    public List<SecurityEdiscoveryReviewSetModel>? ReviewSets { get; set; }
 
     [JsonPropertyName("searches")]
-    public List<EdiscoverySearchModel>? Searches { get; set; }
+    public List<SecurityEdiscoverySearchModel>? Searches { get; set; }
 
     [JsonPropertyName("settings")]
-    public EdiscoveryCaseSettingsModel? Settings { get; set; }
+    public SecurityEdiscoveryCaseSettingsModel? Settings { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryCaseStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tags")]
-    public List<EdiscoveryReviewTagModel>? Tags { get; set; }
+    public List<SecurityEdiscoveryReviewTagModel>? Tags { get; set; }
 }

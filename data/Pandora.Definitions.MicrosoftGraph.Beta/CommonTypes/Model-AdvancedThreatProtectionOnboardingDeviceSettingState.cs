@@ -32,7 +32,7 @@ internal class AdvancedThreatProtectionOnboardingDeviceSettingStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public DeviceTypeConstant? PlatformType { get; set; }
+    public AdvancedThreatProtectionOnboardingDeviceSettingStatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("setting")]
     public string? Setting { get; set; }
@@ -41,7 +41,7 @@ internal class AdvancedThreatProtectionOnboardingDeviceSettingStateModel
     public string? SettingName { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public AdvancedThreatProtectionOnboardingDeviceSettingStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userEmail")]
     public string? UserEmail { get; set; }

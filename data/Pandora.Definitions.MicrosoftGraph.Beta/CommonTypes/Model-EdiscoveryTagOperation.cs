@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryTagOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public EdiscoveryTagOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("completedDateTime")]
     public DateTime? CompletedDateTime { get; set; }
@@ -38,5 +38,5 @@ internal class EdiscoveryTagOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public EdiscoveryTagOperationStatusConstant? Status { get; set; }
 }

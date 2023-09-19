@@ -20,11 +20,11 @@ internal class TermColumnModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parentTerm")]
-    public TermModel? ParentTerm { get; set; }
+    public TermStoreTermModel? ParentTerm { get; set; }
 
     [JsonPropertyName("showFullyQualifiedName")]
     public bool? ShowFullyQualifiedName { get; set; }
 
     [JsonPropertyName("termSet")]
-    public SetModel? TermSet { get; set; }
+    public TermStoreSetModel? TermSet { get; set; }
 }

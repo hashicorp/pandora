@@ -23,5 +23,5 @@ internal class ScoredEmailAddressModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("selectionLikelihood")]
-    public SelectionLikelihoodInfoConstant? SelectionLikelihood { get; set; }
+    public ScoredEmailAddressSelectionLikelihoodConstant? SelectionLikelihood { get; set; }
 }

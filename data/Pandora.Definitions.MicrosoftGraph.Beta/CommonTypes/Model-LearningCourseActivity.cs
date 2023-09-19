@@ -38,5 +38,5 @@ internal class LearningCourseActivityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public CourseStatusConstant? Status { get; set; }
+    public LearningCourseActivityStatusConstant? Status { get; set; }
 }

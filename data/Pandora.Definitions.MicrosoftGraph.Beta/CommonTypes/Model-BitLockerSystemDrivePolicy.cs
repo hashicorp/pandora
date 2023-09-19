@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class BitLockerSystemDrivePolicyModel
 {
     [JsonPropertyName("encryptionMethod")]
-    public BitLockerEncryptionMethodConstant? EncryptionMethod { get; set; }
+    public BitLockerSystemDrivePolicyEncryptionMethodConstant? EncryptionMethod { get; set; }
 
     [JsonPropertyName("minimumPinLength")]
     public int? MinimumPinLength { get; set; }
@@ -41,14 +41,14 @@ internal class BitLockerSystemDrivePolicyModel
     public bool? StartupAuthenticationRequired { get; set; }
 
     [JsonPropertyName("startupAuthenticationTpmKeyUsage")]
-    public ConfigurationUsageConstant? StartupAuthenticationTpmKeyUsage { get; set; }
+    public BitLockerSystemDrivePolicyStartupAuthenticationTpmKeyUsageConstant? StartupAuthenticationTpmKeyUsage { get; set; }
 
     [JsonPropertyName("startupAuthenticationTpmPinAndKeyUsage")]
-    public ConfigurationUsageConstant? StartupAuthenticationTpmPinAndKeyUsage { get; set; }
+    public BitLockerSystemDrivePolicyStartupAuthenticationTpmPinAndKeyUsageConstant? StartupAuthenticationTpmPinAndKeyUsage { get; set; }
 
     [JsonPropertyName("startupAuthenticationTpmPinUsage")]
-    public ConfigurationUsageConstant? StartupAuthenticationTpmPinUsage { get; set; }
+    public BitLockerSystemDrivePolicyStartupAuthenticationTpmPinUsageConstant? StartupAuthenticationTpmPinUsage { get; set; }
 
     [JsonPropertyName("startupAuthenticationTpmUsage")]
-    public ConfigurationUsageConstant? StartupAuthenticationTpmUsage { get; set; }
+    public BitLockerSystemDrivePolicyStartupAuthenticationTpmUsageConstant? StartupAuthenticationTpmUsage { get; set; }
 }

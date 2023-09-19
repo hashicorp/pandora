@@ -71,7 +71,7 @@ internal class Windows81CompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows81CompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("scheduledActionsForRule")]
     public List<DeviceComplianceScheduledActionForRuleModel>? ScheduledActionsForRule { get; set; }

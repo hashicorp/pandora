@@ -25,6 +25,9 @@ internal class AgedAccountsReceivableModel
     [JsonPropertyName("currentAmount")]
     public float? CurrentAmount { get; set; }
 
+    [JsonPropertyName("customerId")]
+    public string? CustomerId { get; set; }
+
     [JsonPropertyName("customerNumber")]
     public string? CustomerNumber { get; set; }
 

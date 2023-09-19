@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PersonResponsibilityModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public PersonResponsibilityAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("collaborationTags")]
     public List<string>? CollaborationTags { get; set; }

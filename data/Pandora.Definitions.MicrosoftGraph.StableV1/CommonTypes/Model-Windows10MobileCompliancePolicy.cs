@@ -83,7 +83,7 @@ internal class Windows10MobileCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows10MobileCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("scheduledActionsForRule")]
     public List<DeviceComplianceScheduledActionForRuleModel>? ScheduledActionsForRule { get; set; }

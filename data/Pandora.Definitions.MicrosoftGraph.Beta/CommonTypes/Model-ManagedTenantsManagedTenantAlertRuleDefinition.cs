@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagedTenantAlertRuleDefinitionModel
 {
     [JsonPropertyName("alertRules")]
-    public List<ManagedTenantAlertRuleModel>? AlertRules { get; set; }
+    public List<ManagedTenantsManagedTenantAlertRuleModel>? AlertRules { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }
@@ -23,7 +23,7 @@ internal class ManagedTenantsManagedTenantAlertRuleDefinitionModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("definitionTemplate")]
-    public AlertRuleDefinitionTemplateModel? DefinitionTemplate { get; set; }
+    public ManagedTenantsAlertRuleDefinitionTemplateModel? DefinitionTemplate { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

@@ -41,5 +41,5 @@ internal class B2cIdentityUserFlowModel
     public List<IdentityProviderBaseModel>? UserFlowIdentityProviders { get; set; }
 
     [JsonPropertyName("userFlowType")]
-    public UserFlowTypeConstant? UserFlowType { get; set; }
+    public B2cIdentityUserFlowUserFlowTypeConstant? UserFlowType { get; set; }
 }

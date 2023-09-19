@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeliveryOptimizationBandwidthAbsoluteModel
 {
     [JsonPropertyName("maximumDownloadBandwidthInKilobytesPerSecond")]
-    public long? MaximumDownloadBandwidthInKilobytesPerSecond { get; set; }
+    public int? MaximumDownloadBandwidthInKilobytesPerSecond { get; set; }
 
     [JsonPropertyName("maximumUploadBandwidthInKilobytesPerSecond")]
-    public long? MaximumUploadBandwidthInKilobytesPerSecond { get; set; }
+    public int? MaximumUploadBandwidthInKilobytesPerSecond { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

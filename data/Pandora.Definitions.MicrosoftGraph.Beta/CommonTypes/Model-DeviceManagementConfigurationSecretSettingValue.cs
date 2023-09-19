@@ -23,5 +23,5 @@ internal class DeviceManagementConfigurationSecretSettingValueModel
     public string? Value { get; set; }
 
     [JsonPropertyName("valueState")]
-    public DeviceManagementConfigurationSecretSettingValueStateConstant? ValueState { get; set; }
+    public DeviceManagementConfigurationSecretSettingValueValueStateConstant? ValueState { get; set; }
 }

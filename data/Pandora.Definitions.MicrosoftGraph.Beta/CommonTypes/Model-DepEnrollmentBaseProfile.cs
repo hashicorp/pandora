@@ -46,6 +46,9 @@ internal class DepEnrollmentBaseProfileModel
     [JsonPropertyName("enabledSkipKeys")]
     public List<string>? EnabledSkipKeys { get; set; }
 
+    [JsonPropertyName("enrollmentTimeAzureAdGroupIds")]
+    public List<string>? EnrollmentTimeAzureAdGroupIds { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

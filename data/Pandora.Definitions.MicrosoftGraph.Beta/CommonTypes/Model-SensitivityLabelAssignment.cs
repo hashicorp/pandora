@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SensitivityLabelAssignmentModel
 {
     [JsonPropertyName("assignmentMethod")]
-    public SensitivityLabelAssignmentMethodConstant? AssignmentMethod { get; set; }
+    public SensitivityLabelAssignmentAssignmentMethodConstant? AssignmentMethod { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

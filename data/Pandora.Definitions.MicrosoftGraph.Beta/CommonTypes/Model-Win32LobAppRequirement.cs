@@ -20,5 +20,5 @@ internal class Win32LobAppRequirementModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppDetectionOperatorConstant? Operator { get; set; }
+    public Win32LobAppRequirementOperatorConstant? Operator { get; set; }
 }

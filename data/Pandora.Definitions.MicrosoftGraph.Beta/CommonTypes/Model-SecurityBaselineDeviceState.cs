@@ -29,7 +29,7 @@ internal class SecurityBaselineDeviceStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public SecurityBaselineComplianceStateConstant? State { get; set; }
+    public SecurityBaselineDeviceStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }

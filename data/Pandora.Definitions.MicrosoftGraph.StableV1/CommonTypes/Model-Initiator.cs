@@ -20,7 +20,7 @@ internal class InitiatorModel
     public string? Id { get; set; }
 
     [JsonPropertyName("initiatorType")]
-    public InitiatorTypeConstant? InitiatorType { get; set; }
+    public InitiatorInitiatorTypeConstant? InitiatorType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

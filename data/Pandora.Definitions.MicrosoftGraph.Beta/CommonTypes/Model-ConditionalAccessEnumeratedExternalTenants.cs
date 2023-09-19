@@ -17,7 +17,7 @@ internal class ConditionalAccessEnumeratedExternalTenantsModel
     public List<string>? Members { get; set; }
 
     [JsonPropertyName("membershipKind")]
-    public ConditionalAccessExternalTenantsMembershipKindConstant? MembershipKind { get; set; }
+    public ConditionalAccessEnumeratedExternalTenantsMembershipKindConstant? MembershipKind { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

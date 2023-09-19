@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateAppRoleAssignmentOperation(),
-        new DeleteAppRoleAssignmentOperation(),
-        new GetAppRoleAssignmentOperation(),
-        new GetServicePrincipalAppRoleAssignmentsCountOperation(),
-        new ListAppRoleAssignmentsOperation(),
-        new UpdateAppRoleAssignmentOperation()
+        new CreateServicePrincipalByIdAppRoleAssignmentOperation(),
+        new DeleteServicePrincipalByIdAppRoleAssignmentByIdOperation(),
+        new GetServicePrincipalByIdAppRoleAssignmentByIdOperation(),
+        new GetServicePrincipalByIdAppRoleAssignmentCountOperation(),
+        new ListServicePrincipalByIdAppRoleAssignmentsOperation(),
+        new UpdateServicePrincipalByIdAppRoleAssignmentByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class AuditLogRootModel
 {
+    [JsonPropertyName("customSecurityAttributeAudits")]
+    public List<CustomSecurityAttributeAuditModel>? CustomSecurityAttributeAudits { get; set; }
+
     [JsonPropertyName("directoryAudits")]
     public List<DirectoryAuditModel>? DirectoryAudits { get; set; }
 

@@ -20,7 +20,7 @@ internal class ManagedTenantsManagedTenantAlertRuleModel
     public int? AlertTTL { get; set; }
 
     [JsonPropertyName("alerts")]
-    public List<ManagedTenantAlertModel>? Alerts { get; set; }
+    public List<ManagedTenantsManagedTenantAlertModel>? Alerts { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }
@@ -47,20 +47,20 @@ internal class ManagedTenantsManagedTenantAlertRuleModel
     public DateTime? LastRunDateTime { get; set; }
 
     [JsonPropertyName("notificationFinalDestinations")]
-    public NotificationDestinationConstant? NotificationFinalDestinations { get; set; }
+    public ManagedTenantsManagedTenantAlertRuleNotificationFinalDestinationsConstant? NotificationFinalDestinations { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleDefinition")]
-    public ManagedTenantAlertRuleDefinitionModel? RuleDefinition { get; set; }
+    public ManagedTenantsManagedTenantAlertRuleDefinitionModel? RuleDefinition { get; set; }
 
     [JsonPropertyName("severity")]
-    public AlertSeverityConstant? Severity { get; set; }
+    public ManagedTenantsManagedTenantAlertRuleSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("targets")]
-    public List<NotificationTargetModel>? Targets { get; set; }
+    public List<ManagedTenantsNotificationTargetModel>? Targets { get; set; }
 
     [JsonPropertyName("tenantIds")]
-    public List<TenantInfoModel>? TenantIds { get; set; }
+    public List<ManagedTenantsTenantInfoModel>? TenantIds { get; set; }
 }

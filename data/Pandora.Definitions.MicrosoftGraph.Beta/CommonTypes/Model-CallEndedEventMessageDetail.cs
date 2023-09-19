@@ -17,7 +17,7 @@ internal class CallEndedEventMessageDetailModel
     public string? CallDuration { get; set; }
 
     [JsonPropertyName("callEventType")]
-    public TeamworkCallEventTypeConstant? CallEventType { get; set; }
+    public CallEndedEventMessageDetailCallEventTypeConstant? CallEventType { get; set; }
 
     [JsonPropertyName("callId")]
     public string? CallId { get; set; }

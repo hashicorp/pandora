@@ -16,6 +16,12 @@ internal class SecurityAlertModel
     [JsonPropertyName("actorDisplayName")]
     public string? ActorDisplayName { get; set; }
 
+    [JsonPropertyName("additionalData")]
+    public SecurityDictionaryModel? AdditionalData { get; set; }
+
+    [JsonPropertyName("alertPolicyId")]
+    public string? AlertPolicyId { get; set; }
+
     [JsonPropertyName("alertWebUrl")]
     public string? AlertWebUrl { get; set; }
 
@@ -26,10 +32,10 @@ internal class SecurityAlertModel
     public string? Category { get; set; }
 
     [JsonPropertyName("classification")]
-    public AlertClassificationConstant? Classification { get; set; }
+    public SecurityAlertClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("comments")]
-    public List<AlertCommentModel>? Comments { get; set; }
+    public List<SecurityAlertCommentModel>? Comments { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -38,16 +44,16 @@ internal class SecurityAlertModel
     public string? Description { get; set; }
 
     [JsonPropertyName("detectionSource")]
-    public DetectionSourceConstant? DetectionSource { get; set; }
+    public SecurityAlertDetectionSourceConstant? DetectionSource { get; set; }
 
     [JsonPropertyName("detectorId")]
     public string? DetectorId { get; set; }
 
     [JsonPropertyName("determination")]
-    public AlertDeterminationConstant? Determination { get; set; }
+    public SecurityAlertDeterminationConstant? Determination { get; set; }
 
     [JsonPropertyName("evidence")]
-    public List<AlertEvidenceModel>? Evidence { get; set; }
+    public List<SecurityAlertEvidenceModel>? Evidence { get; set; }
 
     [JsonPropertyName("firstActivityDateTime")]
     public DateTime? FirstActivityDateTime { get; set; }
@@ -83,13 +89,13 @@ internal class SecurityAlertModel
     public DateTime? ResolvedDateTime { get; set; }
 
     [JsonPropertyName("serviceSource")]
-    public ServiceSourceConstant? ServiceSource { get; set; }
+    public SecurityAlertServiceSourceConstant? ServiceSource { get; set; }
 
     [JsonPropertyName("severity")]
-    public AlertSeverityConstant? Severity { get; set; }
+    public SecurityAlertSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("status")]
-    public AlertStatusConstant? Status { get; set; }
+    public SecurityAlertStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

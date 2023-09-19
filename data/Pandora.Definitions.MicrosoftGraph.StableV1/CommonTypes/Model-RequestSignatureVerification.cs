@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class RequestSignatureVerificationModel
 {
     [JsonPropertyName("allowedWeakAlgorithms")]
-    public WeakAlgorithmsConstant? AllowedWeakAlgorithms { get; set; }
+    public RequestSignatureVerificationAllowedWeakAlgorithmsConstant? AllowedWeakAlgorithms { get; set; }
 
     [JsonPropertyName("isSignedRequestRequired")]
     public bool? IsSignedRequestRequired { get; set; }

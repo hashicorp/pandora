@@ -26,5 +26,5 @@ internal class DeviceManagementApplicabilityRuleOsVersionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public DeviceManagementApplicabilityRuleTypeConstant? RuleType { get; set; }
+    public DeviceManagementApplicabilityRuleOsVersionRuleTypeConstant? RuleType { get; set; }
 }

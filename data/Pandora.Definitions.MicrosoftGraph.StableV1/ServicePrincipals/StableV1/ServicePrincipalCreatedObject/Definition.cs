@@ -13,10 +13,9 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetCountOperation(),
-        new GetCreatedObjectOperation(),
-        new GetServicePrincipalCreatedObjectsCountOperation(),
-        new ListCreatedObjectsOperation()
+        new GetServicePrincipalByIdCreatedObjectByIdOperation(),
+        new GetServicePrincipalByIdCreatedObjectCountOperation(),
+        new ListServicePrincipalByIdCreatedObjectsOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

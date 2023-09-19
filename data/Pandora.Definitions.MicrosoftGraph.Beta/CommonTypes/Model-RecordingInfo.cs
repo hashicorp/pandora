@@ -23,5 +23,5 @@ internal class RecordingInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("recordingStatus")]
-    public RecordingStatusConstant? RecordingStatus { get; set; }
+    public RecordingInfoRecordingStatusConstant? RecordingStatus { get; set; }
 }

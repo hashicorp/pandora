@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ChatModel
 {
     [JsonPropertyName("chatType")]
-    public ChatTypeConstant? ChatType { get; set; }
+    public ChatChatTypeConstant? ChatType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

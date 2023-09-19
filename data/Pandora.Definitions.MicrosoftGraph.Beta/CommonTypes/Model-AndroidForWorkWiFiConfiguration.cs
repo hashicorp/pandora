@@ -83,5 +83,5 @@ internal class AndroidForWorkWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AndroidWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AndroidForWorkWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

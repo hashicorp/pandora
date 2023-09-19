@@ -34,6 +34,9 @@ internal class CrossTenantAccessPolicyConfigurationPartnerModel
     [JsonPropertyName("inboundTrust")]
     public CrossTenantAccessPolicyInboundTrustModel? InboundTrust { get; set; }
 
+    [JsonPropertyName("isInMultiTenantOrganization")]
+    public bool? IsInMultiTenantOrganization { get; set; }
+
     [JsonPropertyName("isServiceProvider")]
     public bool? IsServiceProvider { get; set; }
 

@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateSynchronizationTemplateOperation(),
-        new DeleteSynchronizationTemplateOperation(),
-        new GetSynchronizationTemplateOperation(),
-        new GetSynchronizationTemplatesCountOperation(),
-        new ListSynchronizationTemplatesOperation(),
-        new UpdateSynchronizationTemplateOperation()
+        new CreateServicePrincipalByIdSynchronizationTemplateOperation(),
+        new DeleteServicePrincipalByIdSynchronizationTemplateByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationTemplateByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationTemplateCountOperation(),
+        new ListServicePrincipalByIdSynchronizationTemplatesOperation(),
+        new UpdateServicePrincipalByIdSynchronizationTemplateByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

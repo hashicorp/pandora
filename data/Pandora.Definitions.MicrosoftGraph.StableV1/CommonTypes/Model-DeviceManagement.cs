@@ -52,6 +52,9 @@ internal class DeviceManagementModel
     [JsonPropertyName("deviceManagementPartners")]
     public List<DeviceManagementPartnerModel>? DeviceManagementPartners { get; set; }
 
+    [JsonPropertyName("deviceProtectionOverview")]
+    public DeviceProtectionOverviewModel? DeviceProtectionOverview { get; set; }
+
     [JsonPropertyName("exchangeConnectors")]
     public List<DeviceManagementExchangeConnectorModel>? ExchangeConnectors { get; set; }
 
@@ -75,6 +78,9 @@ internal class DeviceManagementModel
 
     [JsonPropertyName("managedDevices")]
     public List<ManagedDeviceModel>? ManagedDevices { get; set; }
+
+    [JsonPropertyName("mobileAppTroubleshootingEvents")]
+    public List<MobileAppTroubleshootingEventModel>? MobileAppTroubleshootingEvents { get; set; }
 
     [JsonPropertyName("mobileThreatDefenseConnectors")]
     public List<MobileThreatDefenseConnectorModel>? MobileThreatDefenseConnectors { get; set; }
@@ -118,6 +124,75 @@ internal class DeviceManagementModel
     [JsonPropertyName("troubleshootingEvents")]
     public List<DeviceManagementTroubleshootingEventModel>? TroubleshootingEvents { get; set; }
 
+    [JsonPropertyName("userExperienceAnalyticsAppHealthApplicationPerformance")]
+    public List<UserExperienceAnalyticsAppHealthApplicationPerformanceModel>? UserExperienceAnalyticsAppHealthApplicationPerformance { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails")]
+    public List<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDetailsModel>? UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDetails { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId")]
+    public List<UserExperienceAnalyticsAppHealthAppPerformanceByAppVersionDeviceIdModel>? UserExperienceAnalyticsAppHealthApplicationPerformanceByAppVersionDeviceId { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion")]
+    public List<UserExperienceAnalyticsAppHealthAppPerformanceByOSVersionModel>? UserExperienceAnalyticsAppHealthApplicationPerformanceByOSVersion { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthDeviceModelPerformance")]
+    public List<UserExperienceAnalyticsAppHealthDeviceModelPerformanceModel>? UserExperienceAnalyticsAppHealthDeviceModelPerformance { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthDevicePerformance")]
+    public List<UserExperienceAnalyticsAppHealthDevicePerformanceModel>? UserExperienceAnalyticsAppHealthDevicePerformance { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthDevicePerformanceDetails")]
+    public List<UserExperienceAnalyticsAppHealthDevicePerformanceDetailsModel>? UserExperienceAnalyticsAppHealthDevicePerformanceDetails { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthOSVersionPerformance")]
+    public List<UserExperienceAnalyticsAppHealthOSVersionPerformanceModel>? UserExperienceAnalyticsAppHealthOSVersionPerformance { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAppHealthOverview")]
+    public UserExperienceAnalyticsCategoryModel? UserExperienceAnalyticsAppHealthOverview { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsBaselines")]
+    public List<UserExperienceAnalyticsBaselineModel>? UserExperienceAnalyticsBaselines { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsCategories")]
+    public List<UserExperienceAnalyticsCategoryModel>? UserExperienceAnalyticsCategories { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsDevicePerformance")]
+    public List<UserExperienceAnalyticsDevicePerformanceModel>? UserExperienceAnalyticsDevicePerformance { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsDeviceScores")]
+    public List<UserExperienceAnalyticsDeviceScoresModel>? UserExperienceAnalyticsDeviceScores { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsDeviceStartupHistory")]
+    public List<UserExperienceAnalyticsDeviceStartupHistoryModel>? UserExperienceAnalyticsDeviceStartupHistory { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsDeviceStartupProcesses")]
+    public List<UserExperienceAnalyticsDeviceStartupProcessModel>? UserExperienceAnalyticsDeviceStartupProcesses { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsMetricHistory")]
+    public List<UserExperienceAnalyticsMetricHistoryModel>? UserExperienceAnalyticsMetricHistory { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsModelScores")]
+    public List<UserExperienceAnalyticsModelScoresModel>? UserExperienceAnalyticsModelScores { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsOverview")]
+    public UserExperienceAnalyticsOverviewModel? UserExperienceAnalyticsOverview { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsScoreHistory")]
+    public List<UserExperienceAnalyticsScoreHistoryModel>? UserExperienceAnalyticsScoreHistory { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsSettings")]
+    public UserExperienceAnalyticsSettingsModel? UserExperienceAnalyticsSettings { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric")]
+    public UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetricModel? UserExperienceAnalyticsWorkFromAnywhereHardwareReadinessMetric { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsWorkFromAnywhereMetrics")]
+    public List<UserExperienceAnalyticsWorkFromAnywhereMetricModel>? UserExperienceAnalyticsWorkFromAnywhereMetrics { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsWorkFromAnywhereModelPerformance")]
+    public List<UserExperienceAnalyticsWorkFromAnywhereModelPerformanceModel>? UserExperienceAnalyticsWorkFromAnywhereModelPerformance { get; set; }
+
     [JsonPropertyName("windowsAutopilotDeviceIdentities")]
     public List<WindowsAutopilotDeviceIdentityModel>? WindowsAutopilotDeviceIdentities { get; set; }
 
@@ -126,4 +201,10 @@ internal class DeviceManagementModel
 
     [JsonPropertyName("windowsInformationProtectionNetworkLearningSummaries")]
     public List<WindowsInformationProtectionNetworkLearningSummaryModel>? WindowsInformationProtectionNetworkLearningSummaries { get; set; }
+
+    [JsonPropertyName("windowsMalwareInformation")]
+    public List<WindowsMalwareInformationModel>? WindowsMalwareInformation { get; set; }
+
+    [JsonPropertyName("windowsMalwareOverview")]
+    public WindowsMalwareOverviewModel? WindowsMalwareOverview { get; set; }
 }

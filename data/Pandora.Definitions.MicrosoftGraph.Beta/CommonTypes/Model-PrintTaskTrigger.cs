@@ -17,7 +17,7 @@ internal class PrintTaskTriggerModel
     public PrintTaskDefinitionModel? Definition { get; set; }
 
     [JsonPropertyName("event")]
-    public PrintEventConstant? Event { get; set; }
+    public PrintTaskTriggerEventConstant? Event { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

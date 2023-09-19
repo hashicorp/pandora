@@ -20,13 +20,16 @@ internal class OnlineMeetingModel
     public bool? AllowAttendeeToEnableMic { get; set; }
 
     [JsonPropertyName("allowMeetingChat")]
-    public MeetingChatModeConstant? AllowMeetingChat { get; set; }
+    public OnlineMeetingAllowMeetingChatConstant? AllowMeetingChat { get; set; }
+
+    [JsonPropertyName("allowParticipantsToChangeName")]
+    public bool? AllowParticipantsToChangeName { get; set; }
 
     [JsonPropertyName("allowTeamworkReactions")]
     public bool? AllowTeamworkReactions { get; set; }
 
     [JsonPropertyName("allowedPresenters")]
-    public OnlineMeetingPresentersConstant? AllowedPresenters { get; set; }
+    public OnlineMeetingAllowedPresentersConstant? AllowedPresenters { get; set; }
 
     [JsonPropertyName("attendanceReports")]
     public List<MeetingAttendanceReportModel>? AttendanceReports { get; set; }
@@ -81,6 +84,9 @@ internal class OnlineMeetingModel
 
     [JsonPropertyName("recordAutomatically")]
     public bool? RecordAutomatically { get; set; }
+
+    [JsonPropertyName("shareMeetingChatHistoryDefault")]
+    public OnlineMeetingShareMeetingChatHistoryDefaultConstant? ShareMeetingChatHistoryDefault { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }

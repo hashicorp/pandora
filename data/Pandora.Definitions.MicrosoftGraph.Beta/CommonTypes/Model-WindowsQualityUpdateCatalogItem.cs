@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsQualityUpdateCatalogItemModel
 {
     [JsonPropertyName("classification")]
-    public WindowsQualityUpdateClassificationConstant? Classification { get; set; }
+    public WindowsQualityUpdateCatalogItemClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

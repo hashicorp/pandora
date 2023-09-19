@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MicrosoftAuthenticatorAuthenticationMethodTargetModel
 {
     [JsonPropertyName("authenticationMode")]
-    public MicrosoftAuthenticatorAuthenticationModeConstant? AuthenticationMode { get; set; }
+    public MicrosoftAuthenticatorAuthenticationMethodTargetAuthenticationModeConstant? AuthenticationMode { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -26,5 +26,5 @@ internal class MicrosoftAuthenticatorAuthenticationMethodTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public MicrosoftAuthenticatorAuthenticationMethodTargetTargetTypeConstant? TargetType { get; set; }
 }

@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesAzureADDeviceModel
 {
     [JsonPropertyName("enrollments")]
-    public List<UpdatableAssetEnrollmentModel>? Enrollments { get; set; }
+    public List<WindowsUpdatesUpdatableAssetEnrollmentModel>? Enrollments { get; set; }
 
     [JsonPropertyName("errors")]
-    public List<UpdatableAssetErrorModel>? Errors { get; set; }
+    public List<WindowsUpdatesUpdatableAssetErrorModel>? Errors { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

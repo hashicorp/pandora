@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class InvitationParticipantInfoModel
 {
     [JsonPropertyName("endpointType")]
-    public EndpointTypeConstant? EndpointType { get; set; }
+    public InvitationParticipantInfoEndpointTypeConstant? EndpointType { get; set; }
 
     [JsonPropertyName("hidden")]
     public bool? Hidden { get; set; }

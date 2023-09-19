@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagedTenantApiNotificationModel
 {
     [JsonPropertyName("alert")]
-    public ManagedTenantAlertModel? Alert { get; set; }
+    public ManagedTenantsManagedTenantAlertModel? Alert { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }

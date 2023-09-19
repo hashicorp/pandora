@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Office365GroupsActivityCountsModel
 {
     [JsonPropertyName("exchangeEmailsReceived")]
-    public long? ExchangeEmailsReceived { get; set; }
+    public int? ExchangeEmailsReceived { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -32,17 +32,17 @@ internal class Office365GroupsActivityCountsModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("teamsChannelMessages")]
-    public long? TeamsChannelMessages { get; set; }
+    public int? TeamsChannelMessages { get; set; }
 
     [JsonPropertyName("teamsMeetingsOrganized")]
-    public long? TeamsMeetingsOrganized { get; set; }
+    public int? TeamsMeetingsOrganized { get; set; }
 
     [JsonPropertyName("yammerMessagesLiked")]
-    public long? YammerMessagesLiked { get; set; }
+    public int? YammerMessagesLiked { get; set; }
 
     [JsonPropertyName("yammerMessagesPosted")]
-    public long? YammerMessagesPosted { get; set; }
+    public int? YammerMessagesPosted { get; set; }
 
     [JsonPropertyName("yammerMessagesRead")]
-    public long? YammerMessagesRead { get; set; }
+    public int? YammerMessagesRead { get; set; }
 }

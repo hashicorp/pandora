@@ -20,7 +20,7 @@ internal class TranslationPreferencesModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("translationBehavior")]
-    public TranslationBehaviorConstant? TranslationBehavior { get; set; }
+    public TranslationPreferencesTranslationBehaviorConstant? TranslationBehavior { get; set; }
 
     [JsonPropertyName("untranslatedLanguages")]
     public List<string>? UntranslatedLanguages { get; set; }

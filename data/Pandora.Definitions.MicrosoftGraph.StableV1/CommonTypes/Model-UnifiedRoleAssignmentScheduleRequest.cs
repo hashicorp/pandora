@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class UnifiedRoleAssignmentScheduleRequestModel
 {
     [JsonPropertyName("action")]
-    public UnifiedRoleScheduleRequestActionsConstant? Action { get; set; }
+    public UnifiedRoleAssignmentScheduleRequestActionConstant? Action { get; set; }
 
     [JsonPropertyName("activatedUsing")]
     public UnifiedRoleEligibilityScheduleModel? ActivatedUsing { get; set; }

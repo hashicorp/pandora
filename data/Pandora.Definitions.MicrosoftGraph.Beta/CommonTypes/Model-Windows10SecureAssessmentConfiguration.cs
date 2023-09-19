@@ -32,7 +32,7 @@ internal class Windows10SecureAssessmentConfigurationModel
     public string? ConfigurationAccount { get; set; }
 
     [JsonPropertyName("configurationAccountType")]
-    public SecureAssessmentAccountTypeConstant? ConfigurationAccountType { get; set; }
+    public Windows10SecureAssessmentConfigurationConfigurationAccountTypeConstant? ConfigurationAccountType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

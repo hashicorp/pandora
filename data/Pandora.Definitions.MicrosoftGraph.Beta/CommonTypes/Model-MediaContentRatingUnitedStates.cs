@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MediaContentRatingUnitedStatesModel
 {
     [JsonPropertyName("movieRating")]
-    public RatingUnitedStatesMoviesTypeConstant? MovieRating { get; set; }
+    public MediaContentRatingUnitedStatesMovieRatingConstant? MovieRating { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("tvRating")]
-    public RatingUnitedStatesTelevisionTypeConstant? TvRating { get; set; }
+    public MediaContentRatingUnitedStatesTvRatingConstant? TvRating { get; set; }
 }

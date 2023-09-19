@@ -17,7 +17,7 @@ internal class SecurityEdiscoveryFileModel
     public string? Content { get; set; }
 
     [JsonPropertyName("custodian")]
-    public EdiscoveryCustodianModel? Custodian { get; set; }
+    public SecurityEdiscoveryCustodianModel? Custodian { get; set; }
 
     [JsonPropertyName("dateTime")]
     public DateTime? DateTime { get; set; }
@@ -41,23 +41,23 @@ internal class SecurityEdiscoveryFileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("otherProperties")]
-    public StringValueDictionaryModel? OtherProperties { get; set; }
+    public SecurityStringValueDictionaryModel? OtherProperties { get; set; }
 
     [JsonPropertyName("processingStatus")]
-    public FileProcessingStatusConstant? ProcessingStatus { get; set; }
+    public SecurityEdiscoveryFileProcessingStatusConstant? ProcessingStatus { get; set; }
 
     [JsonPropertyName("senderOrAuthors")]
     public List<string>? SenderOrAuthors { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("sourceType")]
-    public SourceTypeConstant? SourceType { get; set; }
+    public SecurityEdiscoveryFileSourceTypeConstant? SourceType { get; set; }
 
     [JsonPropertyName("subjectTitle")]
     public string? SubjectTitle { get; set; }
 
     [JsonPropertyName("tags")]
-    public List<EdiscoveryReviewTagModel>? Tags { get; set; }
+    public List<SecurityEdiscoveryReviewTagModel>? Tags { get; set; }
 }

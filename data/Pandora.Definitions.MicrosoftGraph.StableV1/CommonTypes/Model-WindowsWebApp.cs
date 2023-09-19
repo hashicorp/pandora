@@ -65,5 +65,5 @@ internal class WindowsWebAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public WindowsWebAppPublishingStateConstant? PublishingState { get; set; }
 }

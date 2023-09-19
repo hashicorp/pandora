@@ -20,11 +20,11 @@ internal class UpdateAllowedCombinationsResultModel
     public List<string>? ConditionalAccessReferences { get; set; }
 
     [JsonPropertyName("currentCombinations")]
-    public List<AuthenticationMethodModesConstant>? CurrentCombinations { get; set; }
+    public List<UpdateAllowedCombinationsResultCurrentCombinationsConstant>? CurrentCombinations { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("previousCombinations")]
-    public List<AuthenticationMethodModesConstant>? PreviousCombinations { get; set; }
+    public List<UpdateAllowedCombinationsResultPreviousCombinationsConstant>? PreviousCombinations { get; set; }
 }

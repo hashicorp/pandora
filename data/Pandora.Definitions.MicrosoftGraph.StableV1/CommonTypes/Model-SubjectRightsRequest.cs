@@ -29,7 +29,7 @@ internal class SubjectRightsRequestModel
     public DataSubjectModel? DataSubject { get; set; }
 
     [JsonPropertyName("dataSubjectType")]
-    public DataSubjectTypeConstant? DataSubjectType { get; set; }
+    public SubjectRightsRequestDataSubjectTypeConstant? DataSubjectType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }

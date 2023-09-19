@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallStartedEventMessageDetailModel
 {
     [JsonPropertyName("callEventType")]
-    public TeamworkCallEventTypeConstant? CallEventType { get; set; }
+    public CallStartedEventMessageDetailCallEventTypeConstant? CallEventType { get; set; }
 
     [JsonPropertyName("callId")]
     public string? CallId { get; set; }

@@ -20,8 +20,8 @@ internal class SubjectRightsRequestStageDetailModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("stage")]
-    public SubjectRightsRequestStageConstant? Stage { get; set; }
+    public SubjectRightsRequestStageDetailStageConstant? Stage { get; set; }
 
     [JsonPropertyName("status")]
-    public SubjectRightsRequestStageStatusConstant? Status { get; set; }
+    public SubjectRightsRequestStageDetailStatusConstant? Status { get; set; }
 }

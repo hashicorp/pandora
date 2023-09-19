@@ -38,7 +38,7 @@ internal class GroupPolicyConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyConfigurationIngestionType")]
-    public GroupPolicyConfigurationIngestionTypeConstant? PolicyConfigurationIngestionType { get; set; }
+    public GroupPolicyConfigurationPolicyConfigurationIngestionTypeConstant? PolicyConfigurationIngestionType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

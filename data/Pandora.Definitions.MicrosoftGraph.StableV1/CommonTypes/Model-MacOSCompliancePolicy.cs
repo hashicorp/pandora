@@ -35,7 +35,7 @@ internal class MacOSCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public MacOSCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -86,7 +86,7 @@ internal class MacOSCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public MacOSCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("scheduledActionsForRule")]
     public List<DeviceComplianceScheduledActionForRuleModel>? ScheduledActionsForRule { get; set; }

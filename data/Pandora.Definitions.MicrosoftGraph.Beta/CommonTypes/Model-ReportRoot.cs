@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class ReportRootModel
 {
+    [JsonPropertyName("appCredentialSignInActivities")]
+    public List<AppCredentialSignInActivityModel>? AppCredentialSignInActivities { get; set; }
+
     [JsonPropertyName("applicationSignInDetailedSummary")]
     public List<ApplicationSignInDetailedSummaryModel>? ApplicationSignInDetailedSummary { get; set; }
 
@@ -57,6 +60,12 @@ internal class ReportRootModel
 
     [JsonPropertyName("security")]
     public SecurityReportsRootModel? Security { get; set; }
+
+    [JsonPropertyName("servicePrincipalSignInActivities")]
+    public List<ServicePrincipalSignInActivityModel>? ServicePrincipalSignInActivities { get; set; }
+
+    [JsonPropertyName("sla")]
+    public ServiceLevelAgreementRootModel? Sla { get; set; }
 
     [JsonPropertyName("userCredentialUsageDetails")]
     public List<UserCredentialUsageDetailsModel>? UserCredentialUsageDetails { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class FileHashModel
 {
     [JsonPropertyName("hashType")]
-    public FileHashTypeConstant? HashType { get; set; }
+    public FileHashHashTypeConstant? HashType { get; set; }
 
     [JsonPropertyName("hashValue")]
     public string? HashValue { get; set; }

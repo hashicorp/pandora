@@ -23,7 +23,7 @@ internal class SecurityAddWatermarkActionModel
     public int? FontSize { get; set; }
 
     [JsonPropertyName("layout")]
-    public WatermarkLayoutConstant? Layout { get; set; }
+    public SecurityAddWatermarkActionLayoutConstant? Layout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

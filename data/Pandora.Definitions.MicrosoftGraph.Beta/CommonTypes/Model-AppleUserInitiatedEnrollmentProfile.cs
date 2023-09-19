@@ -23,7 +23,7 @@ internal class AppleUserInitiatedEnrollmentProfileModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("defaultEnrollmentType")]
-    public AppleUserInitiatedEnrollmentTypeConstant? DefaultEnrollmentType { get; set; }
+    public AppleUserInitiatedEnrollmentProfileDefaultEnrollmentTypeConstant? DefaultEnrollmentType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -41,7 +41,7 @@ internal class AppleUserInitiatedEnrollmentProfileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DevicePlatformTypeConstant? Platform { get; set; }
+    public AppleUserInitiatedEnrollmentProfilePlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }

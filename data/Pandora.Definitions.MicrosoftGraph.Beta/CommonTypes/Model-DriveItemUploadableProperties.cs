@@ -17,7 +17,7 @@ internal class DriveItemUploadablePropertiesModel
     public string? Description { get; set; }
 
     [JsonPropertyName("fileSize")]
-    public long? FileSize { get; set; }
+    public int? FileSize { get; set; }
 
     [JsonPropertyName("fileSystemInfo")]
     public FileSystemInfoModel? FileSystemInfo { get; set; }

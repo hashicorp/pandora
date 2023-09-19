@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MacOSCompliancePolicyModel
 {
     [JsonPropertyName("advancedThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+    public MacOSCompliancePolicyAdvancedThreatProtectionRequiredSecurityLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceCompliancePolicyAssignmentModel>? Assignments { get; set; }
@@ -38,7 +38,7 @@ internal class MacOSCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public MacOSCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -53,7 +53,7 @@ internal class MacOSCompliancePolicyModel
     public bool? FirewallEnabled { get; set; }
 
     [JsonPropertyName("gatekeeperAllowedAppSource")]
-    public MacOSGatekeeperAppSourcesConstant? GatekeeperAllowedAppSource { get; set; }
+    public MacOSCompliancePolicyGatekeeperAllowedAppSourceConstant? GatekeeperAllowedAppSource { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -98,7 +98,7 @@ internal class MacOSCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public MacOSCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

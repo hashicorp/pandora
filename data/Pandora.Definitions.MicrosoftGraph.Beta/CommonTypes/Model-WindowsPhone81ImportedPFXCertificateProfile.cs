@@ -17,7 +17,7 @@ internal class WindowsPhone81ImportedPFXCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public WindowsPhone81ImportedPFXCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -56,10 +56,10 @@ internal class WindowsPhone81ImportedPFXCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public IntendedPurposeConstant? IntendedPurpose { get; set; }
+    public WindowsPhone81ImportedPFXCertificateProfileIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public WindowsPhone81ImportedPFXCertificateProfileKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -77,10 +77,10 @@ internal class WindowsPhone81ImportedPFXCertificateProfileModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public WindowsPhone81ImportedPFXCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public WindowsPhone81ImportedPFXCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

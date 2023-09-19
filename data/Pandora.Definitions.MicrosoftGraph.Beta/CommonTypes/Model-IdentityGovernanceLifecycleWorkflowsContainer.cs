@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityGovernanceLifecycleWorkflowsContainerModel
 {
     [JsonPropertyName("customTaskExtensions")]
-    public List<CustomTaskExtensionModel>? CustomTaskExtensions { get; set; }
+    public List<IdentityGovernanceCustomTaskExtensionModel>? CustomTaskExtensions { get; set; }
 
     [JsonPropertyName("deletedItems")]
     public DeletedItemContainerModel? DeletedItems { get; set; }
@@ -26,14 +26,14 @@ internal class IdentityGovernanceLifecycleWorkflowsContainerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("settings")]
-    public LifecycleManagementSettingsModel? Settings { get; set; }
+    public IdentityGovernanceLifecycleManagementSettingsModel? Settings { get; set; }
 
     [JsonPropertyName("taskDefinitions")]
-    public List<TaskDefinitionModel>? TaskDefinitions { get; set; }
+    public List<IdentityGovernanceTaskDefinitionModel>? TaskDefinitions { get; set; }
 
     [JsonPropertyName("workflowTemplates")]
-    public List<WorkflowTemplateModel>? WorkflowTemplates { get; set; }
+    public List<IdentityGovernanceWorkflowTemplateModel>? WorkflowTemplates { get; set; }
 
     [JsonPropertyName("workflows")]
-    public List<WorkflowModel>? Workflows { get; set; }
+    public List<IdentityGovernanceWorkflowModel>? Workflows { get; set; }
 }

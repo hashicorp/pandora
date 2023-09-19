@@ -26,7 +26,7 @@ internal class TrustFrameworkKeyModel
     public string? E { get; set; }
 
     [JsonPropertyName("exp")]
-    public long? Exp { get; set; }
+    public int? Exp { get; set; }
 
     [JsonPropertyName("k")]
     public string? K { get; set; }
@@ -41,7 +41,7 @@ internal class TrustFrameworkKeyModel
     public string? N { get; set; }
 
     [JsonPropertyName("nbf")]
-    public long? Nbf { get; set; }
+    public int? Nbf { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

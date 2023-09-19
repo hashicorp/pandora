@@ -23,5 +23,5 @@ internal class SecuritySubmissionAdminReviewModel
     public DateTime? ReviewDateTime { get; set; }
 
     [JsonPropertyName("reviewResult")]
-    public SubmissionResultCategoryConstant? ReviewResult { get; set; }
+    public SecuritySubmissionAdminReviewReviewResultConstant? ReviewResult { get; set; }
 }

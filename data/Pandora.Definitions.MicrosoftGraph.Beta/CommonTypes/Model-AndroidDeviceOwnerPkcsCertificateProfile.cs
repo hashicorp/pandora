@@ -17,16 +17,16 @@ internal class AndroidDeviceOwnerPkcsCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateAccessType")]
-    public AndroidDeviceOwnerCertificateAccessTypeConstant? CertificateAccessType { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileCertificateAccessTypeConstant? CertificateAccessType { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateTemplateName")]
     public string? CertificateTemplateName { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -38,7 +38,7 @@ internal class AndroidDeviceOwnerPkcsCertificateProfileModel
     public string? CertificationAuthorityName { get; set; }
 
     [JsonPropertyName("certificationAuthorityType")]
-    public DeviceManagementCertificationAuthorityConstant? CertificationAuthorityType { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileCertificationAuthorityTypeConstant? CertificationAuthorityType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -104,10 +104,10 @@ internal class AndroidDeviceOwnerPkcsCertificateProfileModel
     public string? SubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public AndroidDeviceOwnerPkcsCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("subjectNameFormatString")]
     public string? SubjectNameFormatString { get; set; }

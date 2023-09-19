@@ -50,7 +50,7 @@ internal class TodoTaskModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public TodoTaskImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("isReminderOn")]
     public bool? IsReminderOn { get; set; }
@@ -74,7 +74,7 @@ internal class TodoTaskModel
     public DateTimeTimeZoneModel? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public TaskStatusConstant? Status { get; set; }
+    public TodoTaskStatusConstant? Status { get; set; }
 
     [JsonPropertyName("title")]
     public string? Title { get; set; }

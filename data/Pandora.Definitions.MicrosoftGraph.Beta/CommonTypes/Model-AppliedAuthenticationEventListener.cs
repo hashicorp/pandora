@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AppliedAuthenticationEventListenerModel
 {
     [JsonPropertyName("eventType")]
-    public AuthenticationEventTypeConstant? EventType { get; set; }
+    public AppliedAuthenticationEventListenerEventTypeConstant? EventType { get; set; }
 
     [JsonPropertyName("executedListenerId")]
     public string? ExecutedListenerId { get; set; }

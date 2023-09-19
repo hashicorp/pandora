@@ -32,5 +32,5 @@ internal class MicrosoftTunnelServerModel
     public string? ServerImageDigest { get; set; }
 
     [JsonPropertyName("tunnelServerHealthStatus")]
-    public MicrosoftTunnelServerHealthStatusConstant? TunnelServerHealthStatus { get; set; }
+    public MicrosoftTunnelServerTunnelServerHealthStatusConstant? TunnelServerHealthStatus { get; set; }
 }

@@ -29,5 +29,5 @@ internal class VoiceAuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public VoiceAuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

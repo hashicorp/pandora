@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsDriverUpdateProfileInventorySyncStatusModel
 {
     [JsonPropertyName("driverInventorySyncState")]
-    public WindowsDriverUpdateProfileInventorySyncStateConstant? DriverInventorySyncState { get; set; }
+    public WindowsDriverUpdateProfileInventorySyncStatusDriverInventorySyncStateConstant? DriverInventorySyncState { get; set; }
 
     [JsonPropertyName("lastSuccessfulSyncDateTime")]
     public DateTime? LastSuccessfulSyncDateTime { get; set; }

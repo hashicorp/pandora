@@ -26,5 +26,5 @@ internal class RecentNotebookModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sourceService")]
-    public OnenoteSourceServiceConstant? SourceService { get; set; }
+    public RecentNotebookSourceServiceConstant? SourceService { get; set; }
 }

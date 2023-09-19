@@ -25,9 +25,6 @@ internal class UserExperienceAnalyticsAppHealthApplicationPerformanceModel
     [JsonPropertyName("appHangCount")]
     public int? AppHangCount { get; set; }
 
-    [JsonPropertyName("appHealthStatus")]
-    public string? AppHealthStatus { get; set; }
-
     [JsonPropertyName("appName")]
     public string? AppName { get; set; }
 

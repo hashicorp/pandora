@@ -56,7 +56,7 @@ internal class FileSecurityProfileModel
     public string? RiskScore { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }

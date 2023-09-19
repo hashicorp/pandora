@@ -29,8 +29,8 @@ internal class OnPremisesAgentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public AgentStatusConstant? Status { get; set; }
+    public OnPremisesAgentStatusConstant? Status { get; set; }
 
     [JsonPropertyName("supportedPublishingTypes")]
-    public List<OnPremisesPublishingTypeConstant>? SupportedPublishingTypes { get; set; }
+    public List<OnPremisesAgentSupportedPublishingTypesConstant>? SupportedPublishingTypes { get; set; }
 }

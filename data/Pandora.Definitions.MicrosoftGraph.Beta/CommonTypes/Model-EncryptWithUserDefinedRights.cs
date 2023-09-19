@@ -23,7 +23,7 @@ internal class EncryptWithUserDefinedRightsModel
     public string? DecryptionRightsManagementTemplateId { get; set; }
 
     [JsonPropertyName("encryptWith")]
-    public EncryptWithConstant? EncryptWith { get; set; }
+    public EncryptWithUserDefinedRightsEncryptWithConstant? EncryptWith { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

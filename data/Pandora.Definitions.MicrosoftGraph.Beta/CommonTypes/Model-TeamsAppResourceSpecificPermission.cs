@@ -17,7 +17,7 @@ internal class TeamsAppResourceSpecificPermissionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("permissionType")]
-    public TeamsAppResourceSpecificPermissionTypeConstant? PermissionType { get; set; }
+    public TeamsAppResourceSpecificPermissionPermissionTypeConstant? PermissionType { get; set; }
 
     [JsonPropertyName("permissionValue")]
     public string? PermissionValue { get; set; }

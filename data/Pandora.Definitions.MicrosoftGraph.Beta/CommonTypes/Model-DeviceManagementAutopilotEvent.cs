@@ -17,7 +17,7 @@ internal class DeviceManagementAutopilotEventModel
     public string? AccountSetupDuration { get; set; }
 
     [JsonPropertyName("accountSetupStatus")]
-    public WindowsAutopilotDeploymentStateConstant? AccountSetupStatus { get; set; }
+    public DeviceManagementAutopilotEventAccountSetupStatusConstant? AccountSetupStatus { get; set; }
 
     [JsonPropertyName("deploymentDuration")]
     public string? DeploymentDuration { get; set; }
@@ -29,7 +29,7 @@ internal class DeviceManagementAutopilotEventModel
     public DateTime? DeploymentStartDateTime { get; set; }
 
     [JsonPropertyName("deploymentState")]
-    public WindowsAutopilotDeploymentStateConstant? DeploymentState { get; set; }
+    public DeviceManagementAutopilotEventDeploymentStateConstant? DeploymentState { get; set; }
 
     [JsonPropertyName("deploymentTotalDuration")]
     public string? DeploymentTotalDuration { get; set; }
@@ -50,7 +50,7 @@ internal class DeviceManagementAutopilotEventModel
     public string? DeviceSetupDuration { get; set; }
 
     [JsonPropertyName("deviceSetupStatus")]
-    public WindowsAutopilotDeploymentStateConstant? DeviceSetupStatus { get; set; }
+    public DeviceManagementAutopilotEventDeviceSetupStatusConstant? DeviceSetupStatus { get; set; }
 
     [JsonPropertyName("enrollmentFailureDetails")]
     public string? EnrollmentFailureDetails { get; set; }
@@ -59,10 +59,10 @@ internal class DeviceManagementAutopilotEventModel
     public DateTime? EnrollmentStartDateTime { get; set; }
 
     [JsonPropertyName("enrollmentState")]
-    public EnrollmentStateConstant? EnrollmentState { get; set; }
+    public DeviceManagementAutopilotEventEnrollmentStateConstant? EnrollmentState { get; set; }
 
     [JsonPropertyName("enrollmentType")]
-    public WindowsAutopilotEnrollmentTypeConstant? EnrollmentType { get; set; }
+    public DeviceManagementAutopilotEventEnrollmentTypeConstant? EnrollmentType { get; set; }
 
     [JsonPropertyName("eventDateTime")]
     public DateTime? EventDateTime { get; set; }

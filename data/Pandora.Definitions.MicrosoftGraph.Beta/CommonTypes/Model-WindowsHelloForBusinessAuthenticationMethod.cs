@@ -26,7 +26,7 @@ internal class WindowsHelloForBusinessAuthenticationMethodModel
     public string? Id { get; set; }
 
     [JsonPropertyName("keyStrength")]
-    public AuthenticationMethodKeyStrengthConstant? KeyStrength { get; set; }
+    public WindowsHelloForBusinessAuthenticationMethodKeyStrengthConstant? KeyStrength { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

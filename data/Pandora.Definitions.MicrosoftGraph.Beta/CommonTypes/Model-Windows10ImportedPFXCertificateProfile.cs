@@ -17,7 +17,7 @@ internal class Windows10ImportedPFXCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public Windows10ImportedPFXCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -56,10 +56,10 @@ internal class Windows10ImportedPFXCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public IntendedPurposeConstant? IntendedPurpose { get; set; }
+    public Windows10ImportedPFXCertificateProfileIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public Windows10ImportedPFXCertificateProfileKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -77,10 +77,10 @@ internal class Windows10ImportedPFXCertificateProfileModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public Windows10ImportedPFXCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public Windows10ImportedPFXCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

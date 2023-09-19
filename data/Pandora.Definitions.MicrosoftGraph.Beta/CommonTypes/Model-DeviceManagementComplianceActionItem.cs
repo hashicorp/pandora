@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementComplianceActionItemModel
 {
     [JsonPropertyName("actionType")]
-    public DeviceManagementComplianceActionTypeConstant? ActionType { get; set; }
+    public DeviceManagementComplianceActionItemActionTypeConstant? ActionType { get; set; }
 
     [JsonPropertyName("gracePeriodHours")]
     public int? GracePeriodHours { get; set; }

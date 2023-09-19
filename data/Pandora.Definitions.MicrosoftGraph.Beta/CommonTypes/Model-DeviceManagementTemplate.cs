@@ -38,7 +38,7 @@ internal class DeviceManagementTemplateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public DeviceManagementTemplatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("publishedDateTime")]
     public DateTime? PublishedDateTime { get; set; }
@@ -47,10 +47,10 @@ internal class DeviceManagementTemplateModel
     public List<DeviceManagementSettingInstanceModel>? Settings { get; set; }
 
     [JsonPropertyName("templateSubtype")]
-    public DeviceManagementTemplateSubtypeConstant? TemplateSubtype { get; set; }
+    public DeviceManagementTemplateTemplateSubtypeConstant? TemplateSubtype { get; set; }
 
     [JsonPropertyName("templateType")]
-    public DeviceManagementTemplateTypeConstant? TemplateType { get; set; }
+    public DeviceManagementTemplateTemplateTypeConstant? TemplateType { get; set; }
 
     [JsonPropertyName("versionInfo")]
     public string? VersionInfo { get; set; }

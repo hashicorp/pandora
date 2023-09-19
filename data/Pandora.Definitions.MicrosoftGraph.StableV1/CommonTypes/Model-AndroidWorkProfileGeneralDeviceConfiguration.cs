@@ -62,7 +62,7 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public int? PasswordPreviousPasswordBlockCount { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidWorkProfileRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -104,10 +104,10 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public bool? WorkProfileBluetoothEnableContactSharing { get; set; }
 
     [JsonPropertyName("workProfileDataSharingType")]
-    public AndroidWorkProfileCrossProfileDataSharingTypeConstant? WorkProfileDataSharingType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileDataSharingTypeConstant? WorkProfileDataSharingType { get; set; }
 
     [JsonPropertyName("workProfileDefaultAppPermissionPolicy")]
-    public AndroidWorkProfileDefaultAppPermissionPolicyTypeConstant? WorkProfileDefaultAppPermissionPolicy { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileDefaultAppPermissionPolicyConstant? WorkProfileDefaultAppPermissionPolicy { get; set; }
 
     [JsonPropertyName("workProfilePasswordBlockFingerprintUnlock")]
     public bool? WorkProfilePasswordBlockFingerprintUnlock { get; set; }
@@ -146,7 +146,7 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public int? WorkProfilePasswordPreviousPasswordBlockCount { get; set; }
 
     [JsonPropertyName("workProfilePasswordRequiredType")]
-    public AndroidWorkProfileRequiredPasswordTypeConstant? WorkProfilePasswordRequiredType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfilePasswordRequiredTypeConstant? WorkProfilePasswordRequiredType { get; set; }
 
     [JsonPropertyName("workProfilePasswordSignInFailureCountBeforeFactoryReset")]
     public int? WorkProfilePasswordSignInFailureCountBeforeFactoryReset { get; set; }

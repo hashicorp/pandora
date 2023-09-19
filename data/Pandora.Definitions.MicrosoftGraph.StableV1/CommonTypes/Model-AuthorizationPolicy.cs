@@ -17,7 +17,7 @@ internal class AuthorizationPolicyModel
     public bool? AllowEmailVerifiedUsersToJoinOrganization { get; set; }
 
     [JsonPropertyName("allowInvitesFrom")]
-    public AllowInvitesFromConstant? AllowInvitesFrom { get; set; }
+    public AuthorizationPolicyAllowInvitesFromConstant? AllowInvitesFrom { get; set; }
 
     [JsonPropertyName("allowUserConsentForRiskyApps")]
     public bool? AllowUserConsentForRiskyApps { get; set; }

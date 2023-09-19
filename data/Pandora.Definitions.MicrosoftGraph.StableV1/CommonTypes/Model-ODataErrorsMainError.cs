@@ -17,9 +17,9 @@ internal class ODataErrorsMainErrorModel
     public string? Code { get; set; }
 
     [JsonPropertyName("details")]
-    public List<DetailsModel>? Details { get; set; }
+    public List<ODataErrorsErrorDetailsModel>? Details { get; set; }
 
-    [JsonPropertyName("innererror")]
+    [JsonPropertyName("innerError")]
     public InnerErrorModel? InnerError { get; set; }
 
     [JsonPropertyName("message")]

@@ -20,7 +20,7 @@ internal class LoginPageLayoutConfigurationModel
     public bool? IsHeaderShown { get; set; }
 
     [JsonPropertyName("layoutTemplateType")]
-    public LayoutTemplateTypeConstant? LayoutTemplateType { get; set; }
+    public LoginPageLayoutConfigurationLayoutTemplateTypeConstant? LayoutTemplateType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -26,7 +26,7 @@ internal class ManagedDeviceMobileAppConfigurationUserStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ComplianceStatusConstant? Status { get; set; }
+    public ManagedDeviceMobileAppConfigurationUserStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }

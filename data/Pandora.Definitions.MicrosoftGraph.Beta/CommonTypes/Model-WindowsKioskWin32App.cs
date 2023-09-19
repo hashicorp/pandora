@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsKioskWin32AppModel
 {
     [JsonPropertyName("appType")]
-    public WindowsKioskAppTypeConstant? AppType { get; set; }
+    public WindowsKioskWin32AppAppTypeConstant? AppType { get; set; }
 
     [JsonPropertyName("autoLaunch")]
     public bool? AutoLaunch { get; set; }
@@ -29,7 +29,7 @@ internal class WindowsKioskWin32AppModel
     public int? EdgeKioskIdleTimeoutMinutes { get; set; }
 
     [JsonPropertyName("edgeKioskType")]
-    public WindowsEdgeKioskTypeConstant? EdgeKioskType { get; set; }
+    public WindowsKioskWin32AppEdgeKioskTypeConstant? EdgeKioskType { get; set; }
 
     [JsonPropertyName("edgeNoFirstRun")]
     public bool? EdgeNoFirstRun { get; set; }
@@ -41,5 +41,5 @@ internal class WindowsKioskWin32AppModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("startLayoutTileSize")]
-    public WindowsAppStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
+    public WindowsKioskWin32AppStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
 }

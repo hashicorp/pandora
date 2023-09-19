@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class GroupPolicyPresentationLongDecimalTextBoxModel
 {
     [JsonPropertyName("defaultValue")]
-    public long? DefaultValue { get; set; }
+    public int? DefaultValue { get; set; }
 
     [JsonPropertyName("definition")]
     public GroupPolicyDefinitionModel? Definition { get; set; }
@@ -29,10 +29,10 @@ internal class GroupPolicyPresentationLongDecimalTextBoxModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("maxValue")]
-    public long? MaxValue { get; set; }
+    public int? MaxValue { get; set; }
 
     [JsonPropertyName("minValue")]
-    public long? MinValue { get; set; }
+    public int? MinValue { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -44,5 +44,5 @@ internal class GroupPolicyPresentationLongDecimalTextBoxModel
     public bool? Spin { get; set; }
 
     [JsonPropertyName("spinStep")]
-    public long? SpinStep { get; set; }
+    public int? SpinStep { get; set; }
 }

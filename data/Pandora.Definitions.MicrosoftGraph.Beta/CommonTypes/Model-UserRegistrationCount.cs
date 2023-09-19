@@ -17,8 +17,8 @@ internal class UserRegistrationCountModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("registrationCount")]
-    public long? RegistrationCount { get; set; }
+    public int? RegistrationCount { get; set; }
 
     [JsonPropertyName("registrationStatus")]
-    public RegistrationStatusTypeConstant? RegistrationStatus { get; set; }
+    public UserRegistrationCountRegistrationStatusConstant? RegistrationStatus { get; set; }
 }

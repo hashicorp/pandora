@@ -17,7 +17,7 @@ internal class ExternalConnectorsPropertyRuleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operation")]
-    public RuleOperationConstant? Operation { get; set; }
+    public ExternalConnectorsPropertyRuleOperationConstant? Operation { get; set; }
 
     [JsonPropertyName("property")]
     public string? Property { get; set; }
@@ -26,5 +26,5 @@ internal class ExternalConnectorsPropertyRuleModel
     public List<string>? Values { get; set; }
 
     [JsonPropertyName("valuesJoinedBy")]
-    public BinaryOperatorConstant? ValuesJoinedBy { get; set; }
+    public ExternalConnectorsPropertyRuleValuesJoinedByConstant? ValuesJoinedBy { get; set; }
 }

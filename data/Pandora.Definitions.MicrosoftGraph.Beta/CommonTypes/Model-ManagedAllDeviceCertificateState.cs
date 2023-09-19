@@ -29,7 +29,7 @@ internal class ManagedAllDeviceCertificateStateModel
     public int? CertificateKeyUsages { get; set; }
 
     [JsonPropertyName("certificateRevokeStatus")]
-    public CertificateRevocationStatusConstant? CertificateRevokeStatus { get; set; }
+    public ManagedAllDeviceCertificateStateCertificateRevokeStatusConstant? CertificateRevokeStatus { get; set; }
 
     [JsonPropertyName("certificateRevokeStatusLastChangeDateTime")]
     public DateTime? CertificateRevokeStatusLastChangeDateTime { get; set; }

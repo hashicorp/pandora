@@ -20,7 +20,7 @@ internal class ActionStepModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("stepNumber")]
-    public long? StepNumber { get; set; }
+    public int? StepNumber { get; set; }
 
     [JsonPropertyName("text")]
     public string? Text { get; set; }

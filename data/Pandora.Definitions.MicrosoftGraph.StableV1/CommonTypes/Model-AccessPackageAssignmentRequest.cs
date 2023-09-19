@@ -28,6 +28,9 @@ internal class AccessPackageAssignmentRequestModel
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
+    [JsonPropertyName("customExtensionCalloutInstances")]
+    public List<CustomExtensionCalloutInstanceModel>? CustomExtensionCalloutInstances { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
@@ -35,7 +38,7 @@ internal class AccessPackageAssignmentRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("requestType")]
-    public AccessPackageRequestTypeConstant? RequestType { get; set; }
+    public AccessPackageAssignmentRequestRequestTypeConstant? RequestType { get; set; }
 
     [JsonPropertyName("requestor")]
     public AccessPackageSubjectModel? Requestor { get; set; }
@@ -44,7 +47,7 @@ internal class AccessPackageAssignmentRequestModel
     public EntitlementManagementScheduleModel? Schedule { get; set; }
 
     [JsonPropertyName("state")]
-    public AccessPackageRequestStateConstant? State { get; set; }
+    public AccessPackageAssignmentRequestStateConstant? State { get; set; }
 
     [JsonPropertyName("status")]
     public string? Status { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EncryptContentModel
 {
     [JsonPropertyName("encryptWith")]
-    public EncryptWithConstant? EncryptWith { get; set; }
+    public EncryptContentEncryptWithConstant? EncryptWith { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

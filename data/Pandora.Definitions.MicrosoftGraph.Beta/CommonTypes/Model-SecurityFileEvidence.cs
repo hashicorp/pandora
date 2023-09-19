@@ -20,10 +20,10 @@ internal class SecurityFileEvidenceModel
     public List<string>? DetailedRoles { get; set; }
 
     [JsonPropertyName("detectionStatus")]
-    public DetectionStatusConstant? DetectionStatus { get; set; }
+    public SecurityFileEvidenceDetectionStatusConstant? DetectionStatus { get; set; }
 
     [JsonPropertyName("fileDetails")]
-    public FileDetailsModel? FileDetails { get; set; }
+    public SecurityFileDetailsModel? FileDetails { get; set; }
 
     [JsonPropertyName("mdeDeviceId")]
     public string? MdeDeviceId { get; set; }
@@ -32,17 +32,17 @@ internal class SecurityFileEvidenceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityFileEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityFileEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityFileEvidenceVerdictConstant? Verdict { get; set; }
 }

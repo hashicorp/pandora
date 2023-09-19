@@ -20,7 +20,7 @@ internal class RecommendationBaseModel
     public string? Benefits { get; set; }
 
     [JsonPropertyName("category")]
-    public RecommendationCategoryConstant? Category { get; set; }
+    public RecommendationBaseCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -29,7 +29,7 @@ internal class RecommendationBaseModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("featureAreas")]
-    public List<RecommendationFeatureAreasConstant>? FeatureAreas { get; set; }
+    public List<RecommendationBaseFeatureAreasConstant>? FeatureAreas { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -62,14 +62,14 @@ internal class RecommendationBaseModel
     public DateTime? PostponeUntilDateTime { get; set; }
 
     [JsonPropertyName("priority")]
-    public RecommendationPriorityConstant? Priority { get; set; }
+    public RecommendationBasePriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("recommendationType")]
-    public RecommendationTypeConstant? RecommendationType { get; set; }
+    public RecommendationBaseRecommendationTypeConstant? RecommendationType { get; set; }
 
     [JsonPropertyName("remediationImpact")]
     public string? RemediationImpact { get; set; }
 
     [JsonPropertyName("status")]
-    public RecommendationStatusConstant? Status { get; set; }
+    public RecommendationBaseStatusConstant? Status { get; set; }
 }

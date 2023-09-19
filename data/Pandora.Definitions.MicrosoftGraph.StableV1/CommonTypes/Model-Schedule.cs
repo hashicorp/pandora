@@ -38,7 +38,7 @@ internal class ScheduleModel
     public bool? OpenShiftsEnabled { get; set; }
 
     [JsonPropertyName("provisionStatus")]
-    public OperationStatusConstant? ProvisionStatus { get; set; }
+    public ScheduleProvisionStatusConstant? ProvisionStatus { get; set; }
 
     [JsonPropertyName("provisionStatusCode")]
     public string? ProvisionStatusCode { get; set; }

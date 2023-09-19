@@ -40,6 +40,18 @@ internal class EntitlementManagementModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("resourceEnvironments")]
+    public List<AccessPackageResourceEnvironmentModel>? ResourceEnvironments { get; set; }
+
+    [JsonPropertyName("resourceRequests")]
+    public List<AccessPackageResourceRequestModel>? ResourceRequests { get; set; }
+
+    [JsonPropertyName("resourceRoleScopes")]
+    public List<AccessPackageResourceRoleScopeModel>? ResourceRoleScopes { get; set; }
+
+    [JsonPropertyName("resources")]
+    public List<AccessPackageResourceModel>? Resources { get; set; }
+
     [JsonPropertyName("settings")]
     public EntitlementManagementSettingsModel? Settings { get; set; }
 }

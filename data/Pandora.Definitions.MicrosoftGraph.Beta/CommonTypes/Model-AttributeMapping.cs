@@ -20,10 +20,10 @@ internal class AttributeMappingModel
     public bool? ExportMissingReferences { get; set; }
 
     [JsonPropertyName("flowBehavior")]
-    public AttributeFlowBehaviorConstant? FlowBehavior { get; set; }
+    public AttributeMappingFlowBehaviorConstant? FlowBehavior { get; set; }
 
     [JsonPropertyName("flowType")]
-    public AttributeFlowTypeConstant? FlowType { get; set; }
+    public AttributeMappingFlowTypeConstant? FlowType { get; set; }
 
     [JsonPropertyName("matchingPriority")]
     public int? MatchingPriority { get; set; }

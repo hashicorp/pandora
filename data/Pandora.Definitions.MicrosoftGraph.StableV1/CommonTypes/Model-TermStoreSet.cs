@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class TermStoreSetModel
 {
     [JsonPropertyName("children")]
-    public List<TermModel>? Children { get; set; }
+    public List<TermStoreTermModel>? Children { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -26,20 +26,20 @@ internal class TermStoreSetModel
     public string? Id { get; set; }
 
     [JsonPropertyName("localizedNames")]
-    public List<LocalizedNameModel>? LocalizedNames { get; set; }
+    public List<TermStoreLocalizedNameModel>? LocalizedNames { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parentGroup")]
-    public GroupModel? ParentGroup { get; set; }
+    public TermStoreGroupModel? ParentGroup { get; set; }
 
     [JsonPropertyName("properties")]
     public List<KeyValueModel>? Properties { get; set; }
 
     [JsonPropertyName("relations")]
-    public List<RelationModel>? Relations { get; set; }
+    public List<TermStoreRelationModel>? Relations { get; set; }
 
     [JsonPropertyName("terms")]
-    public List<TermModel>? Terms { get; set; }
+    public List<TermStoreTermModel>? Terms { get; set; }
 }

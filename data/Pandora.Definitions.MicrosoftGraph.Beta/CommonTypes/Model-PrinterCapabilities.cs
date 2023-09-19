@@ -20,7 +20,7 @@ internal class PrinterCapabilitiesModel
     public bool? Collation { get; set; }
 
     [JsonPropertyName("colorModes")]
-    public List<PrintColorModeConstant>? ColorModes { get; set; }
+    public List<PrinterCapabilitiesColorModesConstant>? ColorModes { get; set; }
 
     [JsonPropertyName("contentTypes")]
     public List<string>? ContentTypes { get; set; }
@@ -32,16 +32,16 @@ internal class PrinterCapabilitiesModel
     public List<int>? Dpis { get; set; }
 
     [JsonPropertyName("duplexModes")]
-    public List<PrintDuplexModeConstant>? DuplexModes { get; set; }
+    public List<PrinterCapabilitiesDuplexModesConstant>? DuplexModes { get; set; }
 
     [JsonPropertyName("feedDirections")]
-    public List<PrinterFeedDirectionConstant>? FeedDirections { get; set; }
+    public List<PrinterCapabilitiesFeedDirectionsConstant>? FeedDirections { get; set; }
 
     [JsonPropertyName("feedOrientations")]
-    public List<PrinterFeedOrientationConstant>? FeedOrientations { get; set; }
+    public List<PrinterCapabilitiesFeedOrientationsConstant>? FeedOrientations { get; set; }
 
     [JsonPropertyName("finishings")]
-    public List<PrintFinishingConstant>? Finishings { get; set; }
+    public List<PrinterCapabilitiesFinishingsConstant>? Finishings { get; set; }
 
     [JsonPropertyName("inputBins")]
     public List<string>? InputBins { get; set; }
@@ -65,13 +65,13 @@ internal class PrinterCapabilitiesModel
     public List<string>? MediaTypes { get; set; }
 
     [JsonPropertyName("multipageLayouts")]
-    public List<PrintMultipageLayoutConstant>? MultipageLayouts { get; set; }
+    public List<PrinterCapabilitiesMultipageLayoutsConstant>? MultipageLayouts { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientations")]
-    public List<PrintOrientationConstant>? Orientations { get; set; }
+    public List<PrinterCapabilitiesOrientationsConstant>? Orientations { get; set; }
 
     [JsonPropertyName("outputBins")]
     public List<string>? OutputBins { get; set; }
@@ -80,16 +80,16 @@ internal class PrinterCapabilitiesModel
     public List<int>? PagesPerSheet { get; set; }
 
     [JsonPropertyName("qualities")]
-    public List<PrintQualityConstant>? Qualities { get; set; }
+    public List<PrinterCapabilitiesQualitiesConstant>? Qualities { get; set; }
 
     [JsonPropertyName("rightMargins")]
     public List<int>? RightMargins { get; set; }
 
     [JsonPropertyName("scalings")]
-    public List<PrintScalingConstant>? Scalings { get; set; }
+    public List<PrinterCapabilitiesScalingsConstant>? Scalings { get; set; }
 
     [JsonPropertyName("supportedColorConfigurations")]
-    public List<PrintColorConfigurationConstant>? SupportedColorConfigurations { get; set; }
+    public List<PrinterCapabilitiesSupportedColorConfigurationsConstant>? SupportedColorConfigurations { get; set; }
 
     [JsonPropertyName("supportedCopiesPerJob")]
     public IntegerRangeModel? SupportedCopiesPerJob { get; set; }
@@ -98,10 +98,10 @@ internal class PrinterCapabilitiesModel
     public List<string>? SupportedDocumentMimeTypes { get; set; }
 
     [JsonPropertyName("supportedDuplexConfigurations")]
-    public List<PrintDuplexConfigurationConstant>? SupportedDuplexConfigurations { get; set; }
+    public List<PrinterCapabilitiesSupportedDuplexConfigurationsConstant>? SupportedDuplexConfigurations { get; set; }
 
     [JsonPropertyName("supportedFinishings")]
-    public List<PrintFinishingConstant>? SupportedFinishings { get; set; }
+    public List<PrinterCapabilitiesSupportedFinishingsConstant>? SupportedFinishings { get; set; }
 
     [JsonPropertyName("supportedMediaColors")]
     public List<string>? SupportedMediaColors { get; set; }
@@ -110,10 +110,10 @@ internal class PrinterCapabilitiesModel
     public List<string>? SupportedMediaSizes { get; set; }
 
     [JsonPropertyName("supportedMediaTypes")]
-    public List<PrintMediaTypeConstant>? SupportedMediaTypes { get; set; }
+    public List<PrinterCapabilitiesSupportedMediaTypesConstant>? SupportedMediaTypes { get; set; }
 
     [JsonPropertyName("supportedOrientations")]
-    public List<PrintOrientationConstant>? SupportedOrientations { get; set; }
+    public List<PrinterCapabilitiesSupportedOrientationsConstant>? SupportedOrientations { get; set; }
 
     [JsonPropertyName("supportedOutputBins")]
     public List<string>? SupportedOutputBins { get; set; }
@@ -122,10 +122,10 @@ internal class PrinterCapabilitiesModel
     public IntegerRangeModel? SupportedPagesPerSheet { get; set; }
 
     [JsonPropertyName("supportedPresentationDirections")]
-    public List<PrintPresentationDirectionConstant>? SupportedPresentationDirections { get; set; }
+    public List<PrinterCapabilitiesSupportedPresentationDirectionsConstant>? SupportedPresentationDirections { get; set; }
 
     [JsonPropertyName("supportedPrintQualities")]
-    public List<PrintQualityConstant>? SupportedPrintQualities { get; set; }
+    public List<PrinterCapabilitiesSupportedPrintQualitiesConstant>? SupportedPrintQualities { get; set; }
 
     [JsonPropertyName("supportsFitPdfToPage")]
     public bool? SupportsFitPdfToPage { get; set; }

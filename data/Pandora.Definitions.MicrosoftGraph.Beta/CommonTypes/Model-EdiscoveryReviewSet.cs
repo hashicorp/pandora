@@ -22,9 +22,6 @@ internal class EdiscoveryReviewSetModel
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
-    [JsonPropertyName("files")]
-    public List<EdiscoveryFileModel>? Files { get; set; }
-
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

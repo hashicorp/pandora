@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DevicesFilterModel
 {
     [JsonPropertyName("mode")]
-    public CrossTenantAccessPolicyTargetConfigurationAccessTypeConstant? Mode { get; set; }
+    public DevicesFilterModeConstant? Mode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

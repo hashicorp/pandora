@@ -20,5 +20,5 @@ internal class StringKeyLongValuePairModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("value")]
-    public long? Value { get; set; }
+    public int? Value { get; set; }
 }

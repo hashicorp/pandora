@@ -17,7 +17,7 @@ internal class SynchronizationStatusModel
     public SynchronizationStatusCodeConstant? Code { get; set; }
 
     [JsonPropertyName("countSuccessiveCompleteFailures")]
-    public long? CountSuccessiveCompleteFailures { get; set; }
+    public int? CountSuccessiveCompleteFailures { get; set; }
 
     [JsonPropertyName("escrowsPruned")]
     public bool? EscrowsPruned { get; set; }

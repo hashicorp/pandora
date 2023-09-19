@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SecurityCloudApplicationEvidenceModel
 {
     [JsonPropertyName("appId")]
-    public long? AppId { get; set; }
+    public int? AppId { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -26,7 +26,7 @@ internal class SecurityCloudApplicationEvidenceModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("instanceId")]
-    public long? InstanceId { get; set; }
+    public int? InstanceId { get; set; }
 
     [JsonPropertyName("instanceName")]
     public string? InstanceName { get; set; }
@@ -35,20 +35,20 @@ internal class SecurityCloudApplicationEvidenceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityCloudApplicationEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityCloudApplicationEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("saasAppId")]
-    public long? SaasAppId { get; set; }
+    public int? SaasAppId { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityCloudApplicationEvidenceVerdictConstant? Verdict { get; set; }
 }

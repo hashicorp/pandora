@@ -29,5 +29,5 @@ internal class InviteParticipantsOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public InviteParticipantsOperationStatusConstant? Status { get; set; }
 }

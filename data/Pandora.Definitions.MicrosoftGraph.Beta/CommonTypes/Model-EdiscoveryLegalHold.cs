@@ -47,14 +47,14 @@ internal class EdiscoveryLegalHoldModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("siteSources")]
-    public List<SiteSourceModel>? SiteSources { get; set; }
+    public List<EdiscoverySiteSourceModel>? SiteSources { get; set; }
 
     [JsonPropertyName("status")]
-    public LegalHoldStatusConstant? Status { get; set; }
+    public EdiscoveryLegalHoldStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unifiedGroupSources")]
-    public List<UnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
+    public List<EdiscoveryUnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
 
     [JsonPropertyName("userSources")]
-    public List<UserSourceModel>? UserSources { get; set; }
+    public List<EdiscoveryUserSourceModel>? UserSources { get; set; }
 }

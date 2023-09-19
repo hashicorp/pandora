@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementMonitoringModel
 {
     [JsonPropertyName("alertRecords")]
-    public List<AlertRecordModel>? AlertRecords { get; set; }
+    public List<DeviceManagementAlertRecordModel>? AlertRecords { get; set; }
 
     [JsonPropertyName("alertRules")]
-    public List<AlertRuleModel>? AlertRules { get; set; }
+    public List<DeviceManagementAlertRuleModel>? AlertRules { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

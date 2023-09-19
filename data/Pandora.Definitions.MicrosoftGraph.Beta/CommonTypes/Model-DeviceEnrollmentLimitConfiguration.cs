@@ -23,7 +23,7 @@ internal class DeviceEnrollmentLimitConfigurationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceEnrollmentConfigurationType")]
-    public DeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
+    public DeviceEnrollmentLimitConfigurationDeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

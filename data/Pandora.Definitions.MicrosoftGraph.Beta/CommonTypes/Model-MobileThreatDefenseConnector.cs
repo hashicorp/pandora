@@ -56,7 +56,7 @@ internal class MobileThreatDefenseConnectorModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("partnerState")]
-    public MobileThreatPartnerTenantStateConstant? PartnerState { get; set; }
+    public MobileThreatDefenseConnectorPartnerStateConstant? PartnerState { get; set; }
 
     [JsonPropertyName("partnerUnresponsivenessThresholdInDays")]
     public int? PartnerUnresponsivenessThresholdInDays { get; set; }

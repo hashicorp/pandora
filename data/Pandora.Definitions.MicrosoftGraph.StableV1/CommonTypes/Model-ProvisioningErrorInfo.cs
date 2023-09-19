@@ -17,7 +17,7 @@ internal class ProvisioningErrorInfoModel
     public string? AdditionalDetails { get; set; }
 
     [JsonPropertyName("errorCategory")]
-    public ProvisioningStatusErrorCategoryConstant? ErrorCategory { get; set; }
+    public ProvisioningErrorInfoErrorCategoryConstant? ErrorCategory { get; set; }
 
     [JsonPropertyName("errorCode")]
     public string? ErrorCode { get; set; }

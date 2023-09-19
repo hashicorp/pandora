@@ -14,22 +14,28 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class VirtualEndpointModel
 {
     [JsonPropertyName("auditEvents")]
-    public List<CloudPcAuditEventModel>? AuditEvents { get; set; }
+    public List<CloudPCAuditEventModel>? AuditEvents { get; set; }
+
+    [JsonPropertyName("bulkActions")]
+    public List<CloudPCBulkActionModel>? BulkActions { get; set; }
 
     [JsonPropertyName("cloudPCs")]
     public List<CloudPCModel>? CloudPCs { get; set; }
 
     [JsonPropertyName("crossCloudGovernmentOrganizationMapping")]
-    public CloudPcCrossCloudGovernmentOrganizationMappingModel? CrossCloudGovernmentOrganizationMapping { get; set; }
+    public CloudPCCrossCloudGovernmentOrganizationMappingModel? CrossCloudGovernmentOrganizationMapping { get; set; }
 
     [JsonPropertyName("deviceImages")]
-    public List<CloudPcDeviceImageModel>? DeviceImages { get; set; }
+    public List<CloudPCDeviceImageModel>? DeviceImages { get; set; }
 
     [JsonPropertyName("externalPartnerSettings")]
-    public List<CloudPcExternalPartnerSettingModel>? ExternalPartnerSettings { get; set; }
+    public List<CloudPCExternalPartnerSettingModel>? ExternalPartnerSettings { get; set; }
+
+    [JsonPropertyName("frontLineServicePlans")]
+    public List<CloudPCFrontLineServicePlanModel>? FrontLineServicePlans { get; set; }
 
     [JsonPropertyName("galleryImages")]
-    public List<CloudPcGalleryImageModel>? GalleryImages { get; set; }
+    public List<CloudPCGalleryImageModel>? GalleryImages { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -38,29 +44,29 @@ internal class VirtualEndpointModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("onPremisesConnections")]
-    public List<CloudPcOnPremisesConnectionModel>? OnPremisesConnections { get; set; }
+    public List<CloudPCOnPremisesConnectionModel>? OnPremisesConnections { get; set; }
 
     [JsonPropertyName("organizationSettings")]
-    public CloudPcOrganizationSettingsModel? OrganizationSettings { get; set; }
+    public CloudPCOrganizationSettingsModel? OrganizationSettings { get; set; }
 
     [JsonPropertyName("provisioningPolicies")]
-    public List<CloudPcProvisioningPolicyModel>? ProvisioningPolicies { get; set; }
+    public List<CloudPCProvisioningPolicyModel>? ProvisioningPolicies { get; set; }
 
     [JsonPropertyName("reports")]
-    public CloudPcReportsModel? Reports { get; set; }
+    public CloudPCReportsModel? Reports { get; set; }
 
     [JsonPropertyName("servicePlans")]
-    public List<CloudPcServicePlanModel>? ServicePlans { get; set; }
+    public List<CloudPCServicePlanModel>? ServicePlans { get; set; }
 
     [JsonPropertyName("sharedUseServicePlans")]
-    public List<CloudPcSharedUseServicePlanModel>? SharedUseServicePlans { get; set; }
+    public List<CloudPCSharedUseServicePlanModel>? SharedUseServicePlans { get; set; }
 
     [JsonPropertyName("snapshots")]
-    public List<CloudPcSnapshotModel>? Snapshots { get; set; }
+    public List<CloudPCSnapshotModel>? Snapshots { get; set; }
 
     [JsonPropertyName("supportedRegions")]
-    public List<CloudPcSupportedRegionModel>? SupportedRegions { get; set; }
+    public List<CloudPCSupportedRegionModel>? SupportedRegions { get; set; }
 
     [JsonPropertyName("userSettings")]
-    public List<CloudPcUserSettingModel>? UserSettings { get; set; }
+    public List<CloudPCUserSettingModel>? UserSettings { get; set; }
 }

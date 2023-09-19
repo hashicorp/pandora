@@ -14,19 +14,19 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityUrlThreatSubmissionModel
 {
     [JsonPropertyName("adminReview")]
-    public SubmissionAdminReviewModel? AdminReview { get; set; }
+    public SecuritySubmissionAdminReviewModel? AdminReview { get; set; }
 
     [JsonPropertyName("category")]
-    public SubmissionCategoryConstant? Category { get; set; }
+    public SecurityUrlThreatSubmissionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("clientSource")]
-    public SubmissionClientSourceConstant? ClientSource { get; set; }
+    public SecurityUrlThreatSubmissionClientSourceConstant? ClientSource { get; set; }
 
     [JsonPropertyName("contentType")]
-    public SubmissionContentTypeConstant? ContentType { get; set; }
+    public SecurityUrlThreatSubmissionContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
-    public SubmissionUserIdentityModel? CreatedBy { get; set; }
+    public SecuritySubmissionUserIdentityModel? CreatedBy { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -38,13 +38,13 @@ internal class SecurityUrlThreatSubmissionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("result")]
-    public SubmissionResultModel? Result { get; set; }
+    public SecuritySubmissionResultModel? Result { get; set; }
 
     [JsonPropertyName("source")]
-    public SubmissionSourceConstant? Source { get; set; }
+    public SecurityUrlThreatSubmissionSourceConstant? Source { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public SecurityUrlThreatSubmissionStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

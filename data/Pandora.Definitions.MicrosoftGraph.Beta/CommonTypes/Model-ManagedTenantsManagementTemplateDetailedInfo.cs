@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagementTemplateDetailedInfoModel
 {
     [JsonPropertyName("category")]
-    public ManagementCategoryConstant? Category { get; set; }
+    public ManagedTenantsManagementTemplateDetailedInfoCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

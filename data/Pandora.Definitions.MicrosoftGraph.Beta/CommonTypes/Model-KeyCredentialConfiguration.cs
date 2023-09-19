@@ -26,5 +26,5 @@ internal class KeyCredentialConfigurationModel
     public DateTime? RestrictForAppsCreatedAfterDateTime { get; set; }
 
     [JsonPropertyName("restrictionType")]
-    public AppKeyCredentialRestrictionTypeConstant? RestrictionType { get; set; }
+    public KeyCredentialConfigurationRestrictionTypeConstant? RestrictionType { get; set; }
 }

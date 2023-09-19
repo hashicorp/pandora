@@ -17,7 +17,7 @@ internal class VpnConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public VpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectionName")]
     public string? ConnectionName { get; set; }

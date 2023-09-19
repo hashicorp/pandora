@@ -20,7 +20,7 @@ internal class ZebraFotaDeploymentStatusModel
     public DateTime? CompleteOrCanceledDateTime { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ZebraFotaErrorCodeConstant? ErrorCode { get; set; }
+    public ZebraFotaDeploymentStatusErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("lastUpdatedDateTime")]
     public DateTime? LastUpdatedDateTime { get; set; }
@@ -29,7 +29,7 @@ internal class ZebraFotaDeploymentStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ZebraFotaDeploymentStateConstant? State { get; set; }
+    public ZebraFotaDeploymentStatusStateConstant? State { get; set; }
 
     [JsonPropertyName("totalAwaitingInstall")]
     public int? TotalAwaitingInstall { get; set; }

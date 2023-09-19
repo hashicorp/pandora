@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesDeploymentAudienceModel
 {
     [JsonPropertyName("applicableContent")]
-    public List<ApplicableContentModel>? ApplicableContent { get; set; }
+    public List<WindowsUpdatesApplicableContentModel>? ApplicableContent { get; set; }
 
     [JsonPropertyName("exclusions")]
-    public List<UpdatableAssetModel>? Exclusions { get; set; }
+    public List<WindowsUpdatesUpdatableAssetModel>? Exclusions { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("members")]
-    public List<UpdatableAssetModel>? Members { get; set; }
+    public List<WindowsUpdatesUpdatableAssetModel>? Members { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

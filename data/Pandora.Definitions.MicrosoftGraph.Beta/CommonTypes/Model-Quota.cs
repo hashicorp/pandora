@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class QuotaModel
 {
     [JsonPropertyName("deleted")]
-    public long? Deleted { get; set; }
+    public int? Deleted { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remaining")]
-    public long? Remaining { get; set; }
+    public int? Remaining { get; set; }
 
     [JsonPropertyName("state")]
     public string? State { get; set; }
@@ -29,8 +29,8 @@ internal class QuotaModel
     public StoragePlanInformationModel? StoragePlanInformation { get; set; }
 
     [JsonPropertyName("total")]
-    public long? Total { get; set; }
+    public int? Total { get; set; }
 
     [JsonPropertyName("used")]
-    public long? Used { get; set; }
+    public int? Used { get; set; }
 }

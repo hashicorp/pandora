@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementConfigurationSimpleSettingCollectionDefinitionModel
 {
     [JsonPropertyName("accessTypes")]
-    public DeviceManagementConfigurationSettingAccessTypesConstant? AccessTypes { get; set; }
+    public DeviceManagementConfigurationSimpleSettingCollectionDefinitionAccessTypesConstant? AccessTypes { get; set; }
 
     [JsonPropertyName("applicability")]
     public DeviceManagementConfigurationSettingApplicabilityModel? Applicability { get; set; }
@@ -77,10 +77,10 @@ internal class DeviceManagementConfigurationSimpleSettingCollectionDefinitionMod
     public string? RootDefinitionId { get; set; }
 
     [JsonPropertyName("settingUsage")]
-    public DeviceManagementConfigurationSettingUsageConstant? SettingUsage { get; set; }
+    public DeviceManagementConfigurationSimpleSettingCollectionDefinitionSettingUsageConstant? SettingUsage { get; set; }
 
     [JsonPropertyName("uxBehavior")]
-    public DeviceManagementConfigurationControlTypeConstant? UxBehavior { get; set; }
+    public DeviceManagementConfigurationSimpleSettingCollectionDefinitionUxBehaviorConstant? UxBehavior { get; set; }
 
     [JsonPropertyName("valueDefinition")]
     public DeviceManagementConfigurationSettingValueDefinitionModel? ValueDefinition { get; set; }
@@ -89,5 +89,5 @@ internal class DeviceManagementConfigurationSimpleSettingCollectionDefinitionMod
     public string? Version { get; set; }
 
     [JsonPropertyName("visibility")]
-    public DeviceManagementConfigurationSettingVisibilityConstant? Visibility { get; set; }
+    public DeviceManagementConfigurationSimpleSettingCollectionDefinitionVisibilityConstant? Visibility { get; set; }
 }

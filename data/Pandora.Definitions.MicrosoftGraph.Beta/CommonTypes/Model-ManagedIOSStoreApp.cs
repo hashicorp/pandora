@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedIOSStoreAppModel
 {
     [JsonPropertyName("appAvailability")]
-    public ManagedAppAvailabilityConstant? AppAvailability { get; set; }
+    public ManagedIOSStoreAppAppAvailabilityConstant? AppAvailability { get; set; }
 
     [JsonPropertyName("appStoreUrl")]
     public string? AppStoreUrl { get; set; }
@@ -43,9 +43,6 @@ internal class ManagedIOSStoreAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -54,9 +51,6 @@ internal class ManagedIOSStoreAppModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -89,7 +83,7 @@ internal class ManagedIOSStoreAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public ManagedIOSStoreAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -105,9 +99,6 @@ internal class ManagedIOSStoreAppModel
 
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

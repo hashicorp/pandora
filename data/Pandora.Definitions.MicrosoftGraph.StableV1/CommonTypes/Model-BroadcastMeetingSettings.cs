@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class BroadcastMeetingSettingsModel
 {
     [JsonPropertyName("allowedAudience")]
-    public BroadcastMeetingAudienceConstant? AllowedAudience { get; set; }
+    public BroadcastMeetingSettingsAllowedAudienceConstant? AllowedAudience { get; set; }
 
     [JsonPropertyName("captions")]
     public BroadcastMeetingCaptionSettingsModel? Captions { get; set; }

@@ -1,0 +1,24 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.CustomTypes;
+using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
+using System.Collections.Generic;
+using System.Net;
+using System;
+
+namespace Pandora.Definitions.MicrosoftGraph.StableV1.Users.StableV1.UserJoinedTeamChannelTab;
+
+internal class UpdateUserByIdJoinedTeamByIdChannelByIdTabByIdOperation : Operations.PatchOperation
+{
+
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+        {
+            HttpStatusCode.OK,
+        };
+    public override Type? RequestObject() => typeof(TeamsTabModel);
+    public override ResourceID? ResourceId() => new UserIdJoinedTeamIdChannelIdTabId();
+    public override Type? ResponseObject() => typeof(TeamsTabModel);
+    public override string? UriSuffix() => null;
+}

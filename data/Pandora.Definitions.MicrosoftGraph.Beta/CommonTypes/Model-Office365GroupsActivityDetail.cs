@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Office365GroupsActivityDetailModel
 {
     [JsonPropertyName("exchangeMailboxStorageUsedInBytes")]
-    public long? ExchangeMailboxStorageUsedInBytes { get; set; }
+    public int? ExchangeMailboxStorageUsedInBytes { get; set; }
 
     [JsonPropertyName("exchangeMailboxTotalItemCount")]
-    public long? ExchangeMailboxTotalItemCount { get; set; }
+    public int? ExchangeMailboxTotalItemCount { get; set; }
 
     [JsonPropertyName("exchangeReceivedEmailCount")]
-    public long? ExchangeReceivedEmailCount { get; set; }
+    public int? ExchangeReceivedEmailCount { get; set; }
 
     [JsonPropertyName("externalMemberCount")]
-    public long? ExternalMemberCount { get; set; }
+    public int? ExternalMemberCount { get; set; }
 
     [JsonPropertyName("groupDisplayName")]
     public string? GroupDisplayName { get; set; }
@@ -44,7 +44,7 @@ internal class Office365GroupsActivityDetailModel
     public DateTime? LastActivityDate { get; set; }
 
     [JsonPropertyName("memberCount")]
-    public long? MemberCount { get; set; }
+    public int? MemberCount { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -59,26 +59,26 @@ internal class Office365GroupsActivityDetailModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("sharePointActiveFileCount")]
-    public long? SharePointActiveFileCount { get; set; }
+    public int? SharePointActiveFileCount { get; set; }
 
     [JsonPropertyName("sharePointSiteStorageUsedInBytes")]
-    public long? SharePointSiteStorageUsedInBytes { get; set; }
+    public int? SharePointSiteStorageUsedInBytes { get; set; }
 
     [JsonPropertyName("sharePointTotalFileCount")]
-    public long? SharePointTotalFileCount { get; set; }
+    public int? SharePointTotalFileCount { get; set; }
 
     [JsonPropertyName("teamsChannelMessagesCount")]
-    public long? TeamsChannelMessagesCount { get; set; }
+    public int? TeamsChannelMessagesCount { get; set; }
 
     [JsonPropertyName("teamsMeetingsOrganizedCount")]
-    public long? TeamsMeetingsOrganizedCount { get; set; }
+    public int? TeamsMeetingsOrganizedCount { get; set; }
 
     [JsonPropertyName("yammerLikedMessageCount")]
-    public long? YammerLikedMessageCount { get; set; }
+    public int? YammerLikedMessageCount { get; set; }
 
     [JsonPropertyName("yammerPostedMessageCount")]
-    public long? YammerPostedMessageCount { get; set; }
+    public int? YammerPostedMessageCount { get; set; }
 
     [JsonPropertyName("yammerReadMessageCount")]
-    public long? YammerReadMessageCount { get; set; }
+    public int? YammerReadMessageCount { get; set; }
 }

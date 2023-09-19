@@ -32,7 +32,7 @@ internal class MdmWindowsInformationProtectionPolicyModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enforcementLevel")]
-    public WindowsInformationProtectionEnforcementLevelConstant? EnforcementLevel { get; set; }
+    public MdmWindowsInformationProtectionPolicyEnforcementLevelConstant? EnforcementLevel { get; set; }
 
     [JsonPropertyName("enterpriseDomain")]
     public string? EnterpriseDomain { get; set; }

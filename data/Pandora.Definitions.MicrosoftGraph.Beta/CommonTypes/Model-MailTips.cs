@@ -44,7 +44,7 @@ internal class MailTipsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("recipientScope")]
-    public RecipientScopeTypeConstant? RecipientScope { get; set; }
+    public MailTipsRecipientScopeConstant? RecipientScope { get; set; }
 
     [JsonPropertyName("recipientSuggestions")]
     public List<RecipientModel>? RecipientSuggestions { get; set; }

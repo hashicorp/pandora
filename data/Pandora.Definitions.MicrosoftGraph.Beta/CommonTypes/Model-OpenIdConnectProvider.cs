@@ -38,10 +38,10 @@ internal class OpenIdConnectProviderModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("responseMode")]
-    public OpenIdConnectResponseModeConstant? ResponseMode { get; set; }
+    public OpenIdConnectProviderResponseModeConstant? ResponseMode { get; set; }
 
     [JsonPropertyName("responseType")]
-    public OpenIdConnectResponseTypesConstant? ResponseType { get; set; }
+    public OpenIdConnectProviderResponseTypeConstant? ResponseType { get; set; }
 
     [JsonPropertyName("scope")]
     public string? Scope { get; set; }

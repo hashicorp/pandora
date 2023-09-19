@@ -62,7 +62,7 @@ internal class Windows10CompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public Windows10CompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -116,7 +116,7 @@ internal class Windows10CompliancePolicyModel
     public bool? PasswordRequiredToUnlockFromIdle { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows10CompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("requireHealthyDeviceReport")]
     public bool? RequireHealthyDeviceReport { get; set; }

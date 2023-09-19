@@ -23,7 +23,7 @@ internal class ManagedTenantsManagementIntentModel
     public bool? IsGlobal { get; set; }
 
     [JsonPropertyName("managementTemplates")]
-    public List<ManagementTemplateDetailedInfoModel>? ManagementTemplates { get; set; }
+    public List<ManagedTenantsManagementTemplateDetailedInfoModel>? ManagementTemplates { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

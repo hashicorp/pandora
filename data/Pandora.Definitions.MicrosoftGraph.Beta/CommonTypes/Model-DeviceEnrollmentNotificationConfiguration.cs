@@ -17,7 +17,7 @@ internal class DeviceEnrollmentNotificationConfigurationModel
     public List<EnrollmentConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("brandingOptions")]
-    public EnrollmentNotificationBrandingOptionsConstant? BrandingOptions { get; set; }
+    public DeviceEnrollmentNotificationConfigurationBrandingOptionsConstant? BrandingOptions { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -29,7 +29,7 @@ internal class DeviceEnrollmentNotificationConfigurationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceEnrollmentConfigurationType")]
-    public DeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
+    public DeviceEnrollmentNotificationConfigurationDeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -50,7 +50,7 @@ internal class DeviceEnrollmentNotificationConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public EnrollmentRestrictionPlatformTypeConstant? PlatformType { get; set; }
+    public DeviceEnrollmentNotificationConfigurationPlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
@@ -59,7 +59,7 @@ internal class DeviceEnrollmentNotificationConfigurationModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("templateType")]
-    public EnrollmentNotificationTemplateTypeConstant? TemplateType { get; set; }
+    public DeviceEnrollmentNotificationConfigurationTemplateTypeConstant? TemplateType { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

@@ -17,7 +17,7 @@ internal class WindowsPhone81CertificateProfileBaseModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public WindowsPhone81CertificateProfileBaseCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -59,7 +59,7 @@ internal class WindowsPhone81CertificateProfileBaseModel
     public string? Id { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public WindowsPhone81CertificateProfileBaseKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -74,10 +74,10 @@ internal class WindowsPhone81CertificateProfileBaseModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public WindowsPhone81CertificateProfileBaseSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public WindowsPhone81CertificateProfileBaseSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

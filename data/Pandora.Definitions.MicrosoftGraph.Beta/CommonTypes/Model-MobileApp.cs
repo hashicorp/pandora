@@ -31,9 +31,6 @@ internal class MobileAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -42,9 +39,6 @@ internal class MobileAppModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -90,7 +84,4 @@ internal class MobileAppModel
 
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

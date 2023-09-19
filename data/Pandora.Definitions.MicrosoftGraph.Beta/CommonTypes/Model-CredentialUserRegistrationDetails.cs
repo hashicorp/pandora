@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CredentialUserRegistrationDetailsModel
 {
     [JsonPropertyName("authMethods")]
-    public List<RegistrationAuthMethodConstant>? AuthMethods { get; set; }
+    public List<CredentialUserRegistrationDetailsAuthMethodsConstant>? AuthMethods { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

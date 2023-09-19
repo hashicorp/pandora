@@ -26,5 +26,5 @@ internal class SecurityHostReputationRuleModel
     public string? RelatedDetailsUrl { get; set; }
 
     [JsonPropertyName("severity")]
-    public HostReputationRuleSeverityConstant? Severity { get; set; }
+    public SecurityHostReputationRuleSeverityConstant? Severity { get; set; }
 }

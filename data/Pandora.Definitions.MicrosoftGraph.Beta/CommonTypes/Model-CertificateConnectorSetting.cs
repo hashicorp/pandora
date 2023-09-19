@@ -26,7 +26,7 @@ internal class CertificateConnectorSettingModel
     public DateTime? LastConnectorConnectionTime { get; set; }
 
     [JsonPropertyName("lastUploadVersion")]
-    public long? LastUploadVersion { get; set; }
+    public int? LastUploadVersion { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

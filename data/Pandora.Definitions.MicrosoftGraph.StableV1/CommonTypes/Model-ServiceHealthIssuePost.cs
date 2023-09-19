@@ -23,5 +23,5 @@ internal class ServiceHealthIssuePostModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("postType")]
-    public PostTypeConstant? PostType { get; set; }
+    public ServiceHealthIssuePostPostTypeConstant? PostType { get; set; }
 }

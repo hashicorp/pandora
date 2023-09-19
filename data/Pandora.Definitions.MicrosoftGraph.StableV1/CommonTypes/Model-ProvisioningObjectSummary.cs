@@ -41,7 +41,7 @@ internal class ProvisioningObjectSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("provisioningAction")]
-    public ProvisioningActionConstant? ProvisioningAction { get; set; }
+    public ProvisioningObjectSummaryProvisioningActionConstant? ProvisioningAction { get; set; }
 
     [JsonPropertyName("provisioningStatusInfo")]
     public ProvisioningStatusInfoModel? ProvisioningStatusInfo { get; set; }

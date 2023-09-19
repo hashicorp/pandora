@@ -38,5 +38,5 @@ internal class AccessPackageSubjectModel
     public string? PrincipalName { get; set; }
 
     [JsonPropertyName("subjectType")]
-    public AccessPackageSubjectTypeConstant? SubjectType { get; set; }
+    public AccessPackageSubjectSubjectTypeConstant? SubjectType { get; set; }
 }

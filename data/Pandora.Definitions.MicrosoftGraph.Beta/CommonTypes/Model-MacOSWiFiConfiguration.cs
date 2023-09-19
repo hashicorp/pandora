@@ -77,7 +77,7 @@ internal class MacOSWiFiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySettings")]
-    public WiFiProxySettingConstant? ProxySettings { get; set; }
+    public MacOSWiFiConfigurationProxySettingsConstant? ProxySettings { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -98,5 +98,5 @@ internal class MacOSWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public WiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public MacOSWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

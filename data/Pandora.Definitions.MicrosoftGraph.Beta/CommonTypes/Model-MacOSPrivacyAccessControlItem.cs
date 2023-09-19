@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MacOSPrivacyAccessControlItemModel
 {
     [JsonPropertyName("accessibility")]
-    public EnablementConstant? Accessibility { get; set; }
+    public MacOSPrivacyAccessControlItemAccessibilityConstant? Accessibility { get; set; }
 
     [JsonPropertyName("addressBook")]
-    public EnablementConstant? AddressBook { get; set; }
+    public MacOSPrivacyAccessControlItemAddressBookConstant? AddressBook { get; set; }
 
     [JsonPropertyName("appleEventsAllowedReceivers")]
     public List<MacOSAppleEventReceiverModel>? AppleEventsAllowedReceivers { get; set; }
@@ -35,7 +35,7 @@ internal class MacOSPrivacyAccessControlItemModel
     public bool? BlockScreenCapture { get; set; }
 
     [JsonPropertyName("calendar")]
-    public EnablementConstant? Calendar { get; set; }
+    public MacOSPrivacyAccessControlItemCalendarConstant? Calendar { get; set; }
 
     [JsonPropertyName("codeRequirement")]
     public string? CodeRequirement { get; set; }
@@ -44,53 +44,53 @@ internal class MacOSPrivacyAccessControlItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("fileProviderPresence")]
-    public EnablementConstant? FileProviderPresence { get; set; }
+    public MacOSPrivacyAccessControlItemFileProviderPresenceConstant? FileProviderPresence { get; set; }
 
     [JsonPropertyName("identifier")]
     public string? Identifier { get; set; }
 
     [JsonPropertyName("identifierType")]
-    public MacOSProcessIdentifierTypeConstant? IdentifierType { get; set; }
+    public MacOSPrivacyAccessControlItemIdentifierTypeConstant? IdentifierType { get; set; }
 
     [JsonPropertyName("mediaLibrary")]
-    public EnablementConstant? MediaLibrary { get; set; }
+    public MacOSPrivacyAccessControlItemMediaLibraryConstant? MediaLibrary { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("photos")]
-    public EnablementConstant? Photos { get; set; }
+    public MacOSPrivacyAccessControlItemPhotosConstant? Photos { get; set; }
 
     [JsonPropertyName("postEvent")]
-    public EnablementConstant? PostEvent { get; set; }
+    public MacOSPrivacyAccessControlItemPostEventConstant? PostEvent { get; set; }
 
     [JsonPropertyName("reminders")]
-    public EnablementConstant? Reminders { get; set; }
+    public MacOSPrivacyAccessControlItemRemindersConstant? Reminders { get; set; }
 
     [JsonPropertyName("speechRecognition")]
-    public EnablementConstant? SpeechRecognition { get; set; }
+    public MacOSPrivacyAccessControlItemSpeechRecognitionConstant? SpeechRecognition { get; set; }
 
     [JsonPropertyName("staticCodeValidation")]
     public bool? StaticCodeValidation { get; set; }
 
     [JsonPropertyName("systemPolicyAllFiles")]
-    public EnablementConstant? SystemPolicyAllFiles { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyAllFilesConstant? SystemPolicyAllFiles { get; set; }
 
     [JsonPropertyName("systemPolicyDesktopFolder")]
-    public EnablementConstant? SystemPolicyDesktopFolder { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyDesktopFolderConstant? SystemPolicyDesktopFolder { get; set; }
 
     [JsonPropertyName("systemPolicyDocumentsFolder")]
-    public EnablementConstant? SystemPolicyDocumentsFolder { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyDocumentsFolderConstant? SystemPolicyDocumentsFolder { get; set; }
 
     [JsonPropertyName("systemPolicyDownloadsFolder")]
-    public EnablementConstant? SystemPolicyDownloadsFolder { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyDownloadsFolderConstant? SystemPolicyDownloadsFolder { get; set; }
 
     [JsonPropertyName("systemPolicyNetworkVolumes")]
-    public EnablementConstant? SystemPolicyNetworkVolumes { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyNetworkVolumesConstant? SystemPolicyNetworkVolumes { get; set; }
 
     [JsonPropertyName("systemPolicyRemovableVolumes")]
-    public EnablementConstant? SystemPolicyRemovableVolumes { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicyRemovableVolumesConstant? SystemPolicyRemovableVolumes { get; set; }
 
     [JsonPropertyName("systemPolicySystemAdminFiles")]
-    public EnablementConstant? SystemPolicySystemAdminFiles { get; set; }
+    public MacOSPrivacyAccessControlItemSystemPolicySystemAdminFilesConstant? SystemPolicySystemAdminFiles { get; set; }
 }

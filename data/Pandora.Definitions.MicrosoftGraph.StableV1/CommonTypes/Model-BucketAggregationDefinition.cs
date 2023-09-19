@@ -29,5 +29,5 @@ internal class BucketAggregationDefinitionModel
     public List<BucketAggregationRangeModel>? Ranges { get; set; }
 
     [JsonPropertyName("sortBy")]
-    public BucketAggregationSortPropertyConstant? SortBy { get; set; }
+    public BucketAggregationDefinitionSortByConstant? SortBy { get; set; }
 }

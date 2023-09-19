@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Office365ServicesUserCountsModel
 {
     [JsonPropertyName("exchangeActive")]
-    public long? ExchangeActive { get; set; }
+    public int? ExchangeActive { get; set; }
 
     [JsonPropertyName("exchangeInactive")]
-    public long? ExchangeInactive { get; set; }
+    public int? ExchangeInactive { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -26,16 +26,16 @@ internal class Office365ServicesUserCountsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("office365Active")]
-    public long? Office365Active { get; set; }
+    public int? Office365Active { get; set; }
 
     [JsonPropertyName("office365Inactive")]
-    public long? Office365Inactive { get; set; }
+    public int? Office365Inactive { get; set; }
 
     [JsonPropertyName("oneDriveActive")]
-    public long? OneDriveActive { get; set; }
+    public int? OneDriveActive { get; set; }
 
     [JsonPropertyName("oneDriveInactive")]
-    public long? OneDriveInactive { get; set; }
+    public int? OneDriveInactive { get; set; }
 
     [JsonPropertyName("reportPeriod")]
     public string? ReportPeriod { get; set; }
@@ -44,26 +44,26 @@ internal class Office365ServicesUserCountsModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("sharePointActive")]
-    public long? SharePointActive { get; set; }
+    public int? SharePointActive { get; set; }
 
     [JsonPropertyName("sharePointInactive")]
-    public long? SharePointInactive { get; set; }
+    public int? SharePointInactive { get; set; }
 
     [JsonPropertyName("skypeForBusinessActive")]
-    public long? SkypeForBusinessActive { get; set; }
+    public int? SkypeForBusinessActive { get; set; }
 
     [JsonPropertyName("skypeForBusinessInactive")]
-    public long? SkypeForBusinessInactive { get; set; }
+    public int? SkypeForBusinessInactive { get; set; }
 
     [JsonPropertyName("teamsActive")]
-    public long? TeamsActive { get; set; }
+    public int? TeamsActive { get; set; }
 
     [JsonPropertyName("teamsInactive")]
-    public long? TeamsInactive { get; set; }
+    public int? TeamsInactive { get; set; }
 
     [JsonPropertyName("yammerActive")]
-    public long? YammerActive { get; set; }
+    public int? YammerActive { get; set; }
 
     [JsonPropertyName("yammerInactive")]
-    public long? YammerInactive { get; set; }
+    public int? YammerInactive { get; set; }
 }

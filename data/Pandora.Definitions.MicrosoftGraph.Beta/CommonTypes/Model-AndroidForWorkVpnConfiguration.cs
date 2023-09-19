@@ -17,13 +17,13 @@ internal class AndroidForWorkVpnConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidForWorkVpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectionName")]
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public AndroidForWorkVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public AndroidForWorkVpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -32,5 +32,5 @@ internal class MobileAppRelationshipModel
     public string? TargetPublisher { get; set; }
 
     [JsonPropertyName("targetType")]
-    public MobileAppRelationshipTypeConstant? TargetType { get; set; }
+    public MobileAppRelationshipTargetTypeConstant? TargetType { get; set; }
 }

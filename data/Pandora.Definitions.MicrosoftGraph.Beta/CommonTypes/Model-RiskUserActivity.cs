@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RiskUserActivityModel
 {
     [JsonPropertyName("detail")]
-    public RiskDetailConstant? Detail { get; set; }
+    public RiskUserActivityDetailConstant? Detail { get; set; }
 
     [JsonPropertyName("eventTypes")]
-    public List<RiskEventTypeConstant>? EventTypes { get; set; }
+    public List<RiskUserActivityEventTypesConstant>? EventTypes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

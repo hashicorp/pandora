@@ -17,5 +17,5 @@ internal class OnUserCreateStartExternalUsersSelfServiceSignUpModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userTypeToCreate")]
-    public UserTypeConstant? UserTypeToCreate { get; set; }
+    public OnUserCreateStartExternalUsersSelfServiceSignUpUserTypeToCreateConstant? UserTypeToCreate { get; set; }
 }

@@ -29,7 +29,7 @@ internal class MeetingTimeSuggestionModel
     public int? Order { get; set; }
 
     [JsonPropertyName("organizerAvailability")]
-    public FreeBusyStatusConstant? OrganizerAvailability { get; set; }
+    public MeetingTimeSuggestionOrganizerAvailabilityConstant? OrganizerAvailability { get; set; }
 
     [JsonPropertyName("suggestionReason")]
     public string? SuggestionReason { get; set; }

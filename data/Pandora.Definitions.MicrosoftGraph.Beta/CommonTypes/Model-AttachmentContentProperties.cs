@@ -16,6 +16,9 @@ internal class AttachmentContentPropertiesModel
     [JsonPropertyName("currentLabel")]
     public CurrentLabelModel? CurrentLabel { get; set; }
 
+    [JsonPropertyName("discoveredSensitiveTypes")]
+    public List<DiscoveredSensitiveTypeModel>? DiscoveredSensitiveTypes { get; set; }
+
     [JsonPropertyName("extensions")]
     public List<string>? Extensions { get; set; }
 

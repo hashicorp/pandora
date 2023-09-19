@@ -26,7 +26,7 @@ internal class AuthenticationAttributeCollectionInputConfigurationModel
     public bool? Hidden { get; set; }
 
     [JsonPropertyName("inputType")]
-    public AuthenticationAttributeCollectionInputTypeConstant? InputType { get; set; }
+    public AuthenticationAttributeCollectionInputConfigurationInputTypeConstant? InputType { get; set; }
 
     [JsonPropertyName("label")]
     public string? Label { get; set; }

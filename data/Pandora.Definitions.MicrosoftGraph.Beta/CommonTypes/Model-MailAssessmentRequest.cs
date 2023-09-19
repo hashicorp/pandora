@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MailAssessmentRequestModel
 {
     [JsonPropertyName("category")]
-    public ThreatCategoryConstant? Category { get; set; }
+    public MailAssessmentRequestCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("contentType")]
-    public ThreatAssessmentContentTypeConstant? ContentType { get; set; }
+    public MailAssessmentRequestContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -26,10 +26,10 @@ internal class MailAssessmentRequestModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("destinationRoutingReason")]
-    public MailDestinationRoutingReasonConstant? DestinationRoutingReason { get; set; }
+    public MailAssessmentRequestDestinationRoutingReasonConstant? DestinationRoutingReason { get; set; }
 
     [JsonPropertyName("expectedAssessment")]
-    public ThreatExpectedAssessmentConstant? ExpectedAssessment { get; set; }
+    public MailAssessmentRequestExpectedAssessmentConstant? ExpectedAssessment { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -44,11 +44,11 @@ internal class MailAssessmentRequestModel
     public string? RecipientEmail { get; set; }
 
     [JsonPropertyName("requestSource")]
-    public ThreatAssessmentRequestSourceConstant? RequestSource { get; set; }
+    public MailAssessmentRequestRequestSourceConstant? RequestSource { get; set; }
 
     [JsonPropertyName("results")]
     public List<ThreatAssessmentResultModel>? Results { get; set; }
 
     [JsonPropertyName("status")]
-    public ThreatAssessmentStatusConstant? Status { get; set; }
+    public MailAssessmentRequestStatusConstant? Status { get; set; }
 }

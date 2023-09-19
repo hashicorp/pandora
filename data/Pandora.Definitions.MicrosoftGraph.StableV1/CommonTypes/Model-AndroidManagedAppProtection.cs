@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AndroidManagedAppProtectionModel
 {
     [JsonPropertyName("allowedDataStorageLocations")]
-    public List<ManagedAppDataStorageLocationConstant>? AllowedDataStorageLocations { get; set; }
+    public List<AndroidManagedAppProtectionAllowedDataStorageLocationsConstant>? AllowedDataStorageLocations { get; set; }
 
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public ManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public AndroidManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public ManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public AndroidManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public ManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public AndroidManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("apps")]
     public List<ManagedMobileAppModel>? Apps { get; set; }
@@ -83,7 +83,7 @@ internal class AndroidManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("managedBrowser")]
-    public ManagedBrowserTypeConstant? ManagedBrowser { get; set; }
+    public AndroidManagedAppProtectionManagedBrowserConstant? ManagedBrowser { get; set; }
 
     [JsonPropertyName("managedBrowserToOpenLinksRequired")]
     public bool? ManagedBrowserToOpenLinksRequired { get; set; }
@@ -131,7 +131,7 @@ internal class AndroidManagedAppProtectionModel
     public string? PeriodOnlineBeforeAccessCheck { get; set; }
 
     [JsonPropertyName("pinCharacterSet")]
-    public ManagedAppPinCharacterSetConstant? PinCharacterSet { get; set; }
+    public AndroidManagedAppProtectionPinCharacterSetConstant? PinCharacterSet { get; set; }
 
     [JsonPropertyName("pinRequired")]
     public bool? PinRequired { get; set; }

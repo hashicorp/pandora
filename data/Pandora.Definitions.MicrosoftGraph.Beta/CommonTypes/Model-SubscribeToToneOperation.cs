@@ -26,5 +26,5 @@ internal class SubscribeToToneOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public SubscribeToToneOperationStatusConstant? Status { get; set; }
 }

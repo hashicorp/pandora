@@ -127,6 +127,9 @@ internal class ApplicationModel
     [JsonPropertyName("serviceManagementReference")]
     public string? ServiceManagementReference { get; set; }
 
+    [JsonPropertyName("servicePrincipalLockConfiguration")]
+    public ServicePrincipalLockConfigurationModel? ServicePrincipalLockConfiguration { get; set; }
+
     [JsonPropertyName("signInAudience")]
     public string? SignInAudience { get; set; }
 

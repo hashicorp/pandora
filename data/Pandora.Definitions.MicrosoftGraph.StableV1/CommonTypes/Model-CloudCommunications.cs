@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CloudCommunicationsModel
 {
     [JsonPropertyName("callRecords")]
-    public List<CallRecordModel>? CallRecords { get; set; }
+    public List<CallRecordsCallRecordModel>? CallRecords { get; set; }
 
     [JsonPropertyName("calls")]
     public List<CallModel>? Calls { get; set; }

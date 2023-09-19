@@ -17,5 +17,5 @@ internal class PlannerTaskConfigurationRoleBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("roleKind")]
-    public PlannerUserRoleKindConstant? RoleKind { get; set; }
+    public PlannerTaskConfigurationRoleBaseRoleKindConstant? RoleKind { get; set; }
 }

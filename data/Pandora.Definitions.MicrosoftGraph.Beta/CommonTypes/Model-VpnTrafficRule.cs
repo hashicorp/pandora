@@ -47,5 +47,5 @@ internal class VpnTrafficRuleModel
     public VpnTrafficRuleRoutingPolicyTypeConstant? RoutingPolicyType { get; set; }
 
     [JsonPropertyName("vpnTrafficDirection")]
-    public VpnTrafficDirectionConstant? VpnTrafficDirection { get; set; }
+    public VpnTrafficRuleVpnTrafficDirectionConstant? VpnTrafficDirection { get; set; }
 }

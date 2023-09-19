@@ -1,0 +1,38 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+using System;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.Policies.Beta.PolicyFeatureRolloutPolicyAppliesTo;
+
+internal class Definition : ResourceDefinition
+{
+    public string Name => "PolicyFeatureRolloutPolicyAppliesTo";
+
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
+    {
+        new AddPolicyFeatureRolloutPolicyByIdAppliesToRefOperation(),
+        new CreatePolicyFeatureRolloutPolicyByIdAppliesToOperation(),
+        new GetPolicyFeatureRolloutPolicyByIdAppliesToByIdsOperation(),
+        new GetPolicyFeatureRolloutPolicyByIdAppliesToCountOperation(),
+        new GetPolicyFeatureRolloutPolicyByIdAppliesToUserOwnedObjectOperation(),
+        new ListPolicyFeatureRolloutPolicyByIdAppliesToRefsOperation(),
+        new ListPolicyFeatureRolloutPolicyByIdAppliesTosOperation(),
+        new RemovePolicyFeatureRolloutPolicyByIdAppliesToByIdRefOperation(),
+        new ValidatePolicyFeatureRolloutPolicyByIdAppliesToPropertyOperation()
+    };
+
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+        typeof(GetPolicyFeatureRolloutPolicyByIdAppliesToByIdsRequestModel),
+        typeof(GetPolicyFeatureRolloutPolicyByIdAppliesToUserOwnedObjectRequestModel),
+        typeof(ValidatePolicyFeatureRolloutPolicyByIdAppliesToPropertyRequestModel)
+    };
+}

@@ -56,7 +56,7 @@ internal class ImpactedResourceModel
     public string? ResourceType { get; set; }
 
     [JsonPropertyName("status")]
-    public RecommendationStatusConstant? Status { get; set; }
+    public ImpactedResourceStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subjectId")]
     public string? SubjectId { get; set; }

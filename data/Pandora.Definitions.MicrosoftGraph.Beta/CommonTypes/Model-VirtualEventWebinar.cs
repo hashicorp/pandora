@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class VirtualEventWebinarModel
 {
     [JsonPropertyName("audience")]
-    public MeetingAudienceConstant? Audience { get; set; }
+    public VirtualEventWebinarAudienceConstant? Audience { get; set; }
 
     [JsonPropertyName("coOrganizers")]
     public List<CommunicationsUserIdentityModel>? CoOrganizers { get; set; }
@@ -40,8 +40,11 @@ internal class VirtualEventWebinarModel
     [JsonPropertyName("presenters")]
     public List<VirtualEventPresenterModel>? Presenters { get; set; }
 
-    [JsonPropertyName("registration")]
-    public VirtualEventRegistrationModel? Registration { get; set; }
+    [JsonPropertyName("registrationConfiguration")]
+    public VirtualEventRegistrationConfigurationModel? RegistrationConfiguration { get; set; }
+
+    [JsonPropertyName("registrations")]
+    public List<VirtualEventRegistrationModel>? Registrations { get; set; }
 
     [JsonPropertyName("sessions")]
     public List<VirtualEventSessionModel>? Sessions { get; set; }
@@ -50,5 +53,5 @@ internal class VirtualEventWebinarModel
     public DateTimeTimeZoneModel? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public VirtualEventStatusConstant? Status { get; set; }
+    public VirtualEventWebinarStatusConstant? Status { get; set; }
 }

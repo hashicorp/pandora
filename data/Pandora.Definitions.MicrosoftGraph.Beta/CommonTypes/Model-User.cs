@@ -82,6 +82,9 @@ internal class UserModel
     [JsonPropertyName("cloudPCs")]
     public List<CloudPCModel>? CloudPCs { get; set; }
 
+    [JsonPropertyName("cloudRealtimeCommunicationInfo")]
+    public CloudRealtimeCommunicationInfoModel? CloudRealtimeCommunicationInfo { get; set; }
+
     [JsonPropertyName("companyName")]
     public string? CompanyName { get; set; }
 
@@ -313,6 +316,9 @@ internal class UserModel
     [JsonPropertyName("onPremisesSecurityIdentifier")]
     public string? OnPremisesSecurityIdentifier { get; set; }
 
+    [JsonPropertyName("onPremisesSipInfo")]
+    public OnPremisesSipInfoModel? OnPremisesSipInfo { get; set; }
+
     [JsonPropertyName("onPremisesSyncEnabled")]
     public bool? OnPremisesSyncEnabled { get; set; }
 
@@ -351,6 +357,9 @@ internal class UserModel
 
     [JsonPropertyName("people")]
     public List<PersonModel>? People { get; set; }
+
+    [JsonPropertyName("permissionGrants")]
+    public List<ResourceSpecificPermissionGrantModel>? PermissionGrants { get; set; }
 
     [JsonPropertyName("photo")]
     public ProfilePhotoModel? Photo { get; set; }
@@ -404,7 +413,7 @@ internal class UserModel
     public List<ScopedRoleMembershipModel>? ScopedRoleMemberOf { get; set; }
 
     [JsonPropertyName("security")]
-    public SecurityModel? Security { get; set; }
+    public SecuritySecurityModel? Security { get; set; }
 
     [JsonPropertyName("securityIdentifier")]
     public string? SecurityIdentifier { get; set; }
@@ -426,6 +435,9 @@ internal class UserModel
 
     [JsonPropertyName("skills")]
     public List<string>? Skills { get; set; }
+
+    [JsonPropertyName("sponsors")]
+    public List<DirectoryObjectModel>? Sponsors { get; set; }
 
     [JsonPropertyName("state")]
     public string? State { get; set; }

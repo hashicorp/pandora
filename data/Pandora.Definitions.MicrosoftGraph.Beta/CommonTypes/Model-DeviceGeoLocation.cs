@@ -16,9 +16,6 @@ internal class DeviceGeoLocationModel
     [JsonPropertyName("lastCollectedDateTime")]
     public DateTime? LastCollectedDateTime { get; set; }
 
-    [JsonPropertyName("lastCollectedDateTimeUtc")]
-    public DateTime? LastCollectedDateTimeUtc { get; set; }
-
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

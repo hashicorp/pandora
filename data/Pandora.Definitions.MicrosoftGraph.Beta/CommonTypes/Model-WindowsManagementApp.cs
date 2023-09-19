@@ -23,7 +23,7 @@ internal class WindowsManagementAppModel
     public string? Id { get; set; }
 
     [JsonPropertyName("managedInstaller")]
-    public ManagedInstallerStatusConstant? ManagedInstaller { get; set; }
+    public WindowsManagementAppManagedInstallerConstant? ManagedInstaller { get; set; }
 
     [JsonPropertyName("managedInstallerConfiguredDateTime")]
     public string? ManagedInstallerConfiguredDateTime { get; set; }

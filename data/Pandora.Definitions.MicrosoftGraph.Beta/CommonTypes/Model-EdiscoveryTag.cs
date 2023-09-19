@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryTagModel
 {
     [JsonPropertyName("childSelectability")]
-    public ChildSelectabilityConstant? ChildSelectability { get; set; }
+    public EdiscoveryTagChildSelectabilityConstant? ChildSelectability { get; set; }
 
     [JsonPropertyName("childTags")]
-    public List<TagModel>? ChildTags { get; set; }
+    public List<EdiscoveryTagModel>? ChildTags { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -38,5 +38,5 @@ internal class EdiscoveryTagModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parent")]
-    public TagModel? Parent { get; set; }
+    public EdiscoveryTagModel? Parent { get; set; }
 }

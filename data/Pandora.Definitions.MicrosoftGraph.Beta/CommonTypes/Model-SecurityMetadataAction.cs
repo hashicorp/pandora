@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityMetadataActionModel
 {
     [JsonPropertyName("metadataToAdd")]
-    public List<KeyValuePairModel>? MetadataToAdd { get; set; }
+    public List<SecurityKeyValuePairModel>? MetadataToAdd { get; set; }
 
     [JsonPropertyName("metadataToRemove")]
     public List<string>? MetadataToRemove { get; set; }

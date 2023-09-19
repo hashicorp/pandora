@@ -20,7 +20,7 @@ internal class RoomModel
     public string? AudioDeviceName { get; set; }
 
     [JsonPropertyName("bookingType")]
-    public BookingTypeConstant? BookingType { get; set; }
+    public RoomBookingTypeConstant? BookingType { get; set; }
 
     [JsonPropertyName("building")]
     public string? Building { get; set; }

@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsRoleAssignmentModel
 {
     [JsonPropertyName("assignmentType")]
-    public DelegatedPrivilegeStatusConstant? AssignmentType { get; set; }
+    public ManagedTenantsRoleAssignmentAssignmentTypeConstant? AssignmentType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<RoleDefinitionModel>? Roles { get; set; }
+    public List<ManagedTenantsRoleDefinitionModel>? Roles { get; set; }
 }

@@ -20,5 +20,5 @@ internal class ManagedDeviceSummarizedAppStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("summarizedAppState")]
-    public RunStateConstant? SummarizedAppState { get; set; }
+    public ManagedDeviceSummarizedAppStateSummarizedAppStateConstant? SummarizedAppState { get; set; }
 }

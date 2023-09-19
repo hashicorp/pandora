@@ -17,7 +17,7 @@ internal class AndroidManagedStoreAccountEnterpriseSettingsModel
     public bool? AndroidDeviceOwnerFullyManagedEnrollmentEnabled { get; set; }
 
     [JsonPropertyName("bindStatus")]
-    public AndroidManagedStoreAccountBindStatusConstant? BindStatus { get; set; }
+    public AndroidManagedStoreAccountEnterpriseSettingsBindStatusConstant? BindStatus { get; set; }
 
     [JsonPropertyName("companyCodes")]
     public List<AndroidEnrollmentCompanyCodeModel>? CompanyCodes { get; set; }
@@ -26,7 +26,7 @@ internal class AndroidManagedStoreAccountEnterpriseSettingsModel
     public bool? DeviceOwnerManagementEnabled { get; set; }
 
     [JsonPropertyName("enrollmentTarget")]
-    public AndroidManagedStoreAccountEnrollmentTargetConstant? EnrollmentTarget { get; set; }
+    public AndroidManagedStoreAccountEnterpriseSettingsEnrollmentTargetConstant? EnrollmentTarget { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,7 +35,7 @@ internal class AndroidManagedStoreAccountEnterpriseSettingsModel
     public DateTime? LastAppSyncDateTime { get; set; }
 
     [JsonPropertyName("lastAppSyncStatus")]
-    public AndroidManagedStoreAccountAppSyncStatusConstant? LastAppSyncStatus { get; set; }
+    public AndroidManagedStoreAccountEnterpriseSettingsLastAppSyncStatusConstant? LastAppSyncStatus { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

@@ -35,5 +35,5 @@ internal class Fido2AuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public Fido2AuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

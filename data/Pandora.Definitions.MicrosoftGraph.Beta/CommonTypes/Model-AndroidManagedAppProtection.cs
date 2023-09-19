@@ -20,61 +20,64 @@ internal class AndroidManagedAppProtectionModel
     public List<string>? AllowedAndroidDeviceModels { get; set; }
 
     [JsonPropertyName("allowedDataIngestionLocations")]
-    public List<ManagedAppDataIngestionLocationConstant>? AllowedDataIngestionLocations { get; set; }
+    public List<AndroidManagedAppProtectionAllowedDataIngestionLocationsConstant>? AllowedDataIngestionLocations { get; set; }
 
     [JsonPropertyName("allowedDataStorageLocations")]
-    public List<ManagedAppDataStorageLocationConstant>? AllowedDataStorageLocations { get; set; }
+    public List<AndroidManagedAppProtectionAllowedDataStorageLocationsConstant>? AllowedDataStorageLocations { get; set; }
 
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public ManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public AndroidManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingExceptionLength")]
     public int? AllowedOutboundClipboardSharingExceptionLength { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public ManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public AndroidManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public ManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public AndroidManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("appActionIfAccountIsClockedOut")]
-    public ManagedAppRemediationActionConstant? AppActionIfAccountIsClockedOut { get; set; }
+    public AndroidManagedAppProtectionAppActionIfAccountIsClockedOutConstant? AppActionIfAccountIsClockedOut { get; set; }
 
     [JsonPropertyName("appActionIfAndroidDeviceManufacturerNotAllowed")]
-    public ManagedAppRemediationActionConstant? AppActionIfAndroidDeviceManufacturerNotAllowed { get; set; }
+    public AndroidManagedAppProtectionAppActionIfAndroidDeviceManufacturerNotAllowedConstant? AppActionIfAndroidDeviceManufacturerNotAllowed { get; set; }
 
     [JsonPropertyName("appActionIfAndroidDeviceModelNotAllowed")]
-    public ManagedAppRemediationActionConstant? AppActionIfAndroidDeviceModelNotAllowed { get; set; }
+    public AndroidManagedAppProtectionAppActionIfAndroidDeviceModelNotAllowedConstant? AppActionIfAndroidDeviceModelNotAllowed { get; set; }
 
     [JsonPropertyName("appActionIfAndroidSafetyNetAppsVerificationFailed")]
-    public ManagedAppRemediationActionConstant? AppActionIfAndroidSafetyNetAppsVerificationFailed { get; set; }
+    public AndroidManagedAppProtectionAppActionIfAndroidSafetyNetAppsVerificationFailedConstant? AppActionIfAndroidSafetyNetAppsVerificationFailed { get; set; }
 
     [JsonPropertyName("appActionIfAndroidSafetyNetDeviceAttestationFailed")]
-    public ManagedAppRemediationActionConstant? AppActionIfAndroidSafetyNetDeviceAttestationFailed { get; set; }
+    public AndroidManagedAppProtectionAppActionIfAndroidSafetyNetDeviceAttestationFailedConstant? AppActionIfAndroidSafetyNetDeviceAttestationFailed { get; set; }
 
     [JsonPropertyName("appActionIfDeviceComplianceRequired")]
-    public ManagedAppRemediationActionConstant? AppActionIfDeviceComplianceRequired { get; set; }
+    public AndroidManagedAppProtectionAppActionIfDeviceComplianceRequiredConstant? AppActionIfDeviceComplianceRequired { get; set; }
 
     [JsonPropertyName("appActionIfDeviceLockNotSet")]
-    public ManagedAppRemediationActionConstant? AppActionIfDeviceLockNotSet { get; set; }
+    public AndroidManagedAppProtectionAppActionIfDeviceLockNotSetConstant? AppActionIfDeviceLockNotSet { get; set; }
 
     [JsonPropertyName("appActionIfDevicePasscodeComplexityLessThanHigh")]
-    public ManagedAppRemediationActionConstant? AppActionIfDevicePasscodeComplexityLessThanHigh { get; set; }
+    public AndroidManagedAppProtectionAppActionIfDevicePasscodeComplexityLessThanHighConstant? AppActionIfDevicePasscodeComplexityLessThanHigh { get; set; }
 
     [JsonPropertyName("appActionIfDevicePasscodeComplexityLessThanLow")]
-    public ManagedAppRemediationActionConstant? AppActionIfDevicePasscodeComplexityLessThanLow { get; set; }
+    public AndroidManagedAppProtectionAppActionIfDevicePasscodeComplexityLessThanLowConstant? AppActionIfDevicePasscodeComplexityLessThanLow { get; set; }
 
     [JsonPropertyName("appActionIfDevicePasscodeComplexityLessThanMedium")]
-    public ManagedAppRemediationActionConstant? AppActionIfDevicePasscodeComplexityLessThanMedium { get; set; }
+    public AndroidManagedAppProtectionAppActionIfDevicePasscodeComplexityLessThanMediumConstant? AppActionIfDevicePasscodeComplexityLessThanMedium { get; set; }
 
     [JsonPropertyName("appActionIfMaximumPinRetriesExceeded")]
-    public ManagedAppRemediationActionConstant? AppActionIfMaximumPinRetriesExceeded { get; set; }
+    public AndroidManagedAppProtectionAppActionIfMaximumPinRetriesExceededConstant? AppActionIfMaximumPinRetriesExceeded { get; set; }
+
+    [JsonPropertyName("appActionIfSamsungKnoxAttestationRequired")]
+    public AndroidManagedAppProtectionAppActionIfSamsungKnoxAttestationRequiredConstant? AppActionIfSamsungKnoxAttestationRequired { get; set; }
 
     [JsonPropertyName("appActionIfUnableToAuthenticateUser")]
-    public ManagedAppRemediationActionConstant? AppActionIfUnableToAuthenticateUser { get; set; }
+    public AndroidManagedAppProtectionAppActionIfUnableToAuthenticateUserConstant? AppActionIfUnableToAuthenticateUser { get; set; }
 
     [JsonPropertyName("appGroupType")]
-    public TargetedManagedAppGroupTypeConstant? AppGroupType { get; set; }
+    public AndroidManagedAppProtectionAppGroupTypeConstant? AppGroupType { get; set; }
 
     [JsonPropertyName("approvedKeyboards")]
     public List<KeyValuePairModel>? ApprovedKeyboards { get; set; }
@@ -134,7 +137,7 @@ internal class AndroidManagedAppProtectionModel
     public bool? DeviceLockRequired { get; set; }
 
     [JsonPropertyName("dialerRestrictionLevel")]
-    public ManagedAppPhoneNumberRedirectLevelConstant? DialerRestrictionLevel { get; set; }
+    public AndroidManagedAppProtectionDialerRestrictionLevelConstant? DialerRestrictionLevel { get; set; }
 
     [JsonPropertyName("disableAppEncryptionIfDeviceEncryptionIsEnabled")]
     public bool? DisableAppEncryptionIfDeviceEncryptionIsEnabled { get; set; }
@@ -173,13 +176,13 @@ internal class AndroidManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("managedBrowser")]
-    public ManagedBrowserTypeConstant? ManagedBrowser { get; set; }
+    public AndroidManagedAppProtectionManagedBrowserConstant? ManagedBrowser { get; set; }
 
     [JsonPropertyName("managedBrowserToOpenLinksRequired")]
     public bool? ManagedBrowserToOpenLinksRequired { get; set; }
 
     [JsonPropertyName("maximumAllowedDeviceThreatLevel")]
-    public ManagedAppDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
+    public AndroidManagedAppProtectionMaximumAllowedDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
 
     [JsonPropertyName("maximumPinRetries")]
     public int? MaximumPinRetries { get; set; }
@@ -233,13 +236,13 @@ internal class AndroidManagedAppProtectionModel
     public string? MinimumWipePatchVersion { get; set; }
 
     [JsonPropertyName("mobileThreatDefensePartnerPriority")]
-    public MobileThreatDefensePartnerPriorityConstant? MobileThreatDefensePartnerPriority { get; set; }
+    public AndroidManagedAppProtectionMobileThreatDefensePartnerPriorityConstant? MobileThreatDefensePartnerPriority { get; set; }
 
     [JsonPropertyName("mobileThreatDefenseRemediationAction")]
-    public ManagedAppRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
+    public AndroidManagedAppProtectionMobileThreatDefenseRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
 
     [JsonPropertyName("notificationRestriction")]
-    public ManagedAppNotificationRestrictionConstant? NotificationRestriction { get; set; }
+    public AndroidManagedAppProtectionNotificationRestrictionConstant? NotificationRestriction { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -260,7 +263,7 @@ internal class AndroidManagedAppProtectionModel
     public string? PeriodOnlineBeforeAccessCheck { get; set; }
 
     [JsonPropertyName("pinCharacterSet")]
-    public ManagedAppPinCharacterSetConstant? PinCharacterSet { get; set; }
+    public AndroidManagedAppProtectionPinCharacterSetConstant? PinCharacterSet { get; set; }
 
     [JsonPropertyName("pinRequired")]
     public bool? PinRequired { get; set; }
@@ -281,13 +284,13 @@ internal class AndroidManagedAppProtectionModel
     public bool? RequirePinAfterBiometricChange { get; set; }
 
     [JsonPropertyName("requiredAndroidSafetyNetAppsVerificationType")]
-    public AndroidManagedAppSafetyNetAppsVerificationTypeConstant? RequiredAndroidSafetyNetAppsVerificationType { get; set; }
+    public AndroidManagedAppProtectionRequiredAndroidSafetyNetAppsVerificationTypeConstant? RequiredAndroidSafetyNetAppsVerificationType { get; set; }
 
     [JsonPropertyName("requiredAndroidSafetyNetDeviceAttestationType")]
-    public AndroidManagedAppSafetyNetDeviceAttestationTypeConstant? RequiredAndroidSafetyNetDeviceAttestationType { get; set; }
+    public AndroidManagedAppProtectionRequiredAndroidSafetyNetDeviceAttestationTypeConstant? RequiredAndroidSafetyNetDeviceAttestationType { get; set; }
 
     [JsonPropertyName("requiredAndroidSafetyNetEvaluationType")]
-    public AndroidManagedAppSafetyNetEvaluationTypeConstant? RequiredAndroidSafetyNetEvaluationType { get; set; }
+    public AndroidManagedAppProtectionRequiredAndroidSafetyNetEvaluationTypeConstant? RequiredAndroidSafetyNetEvaluationType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -302,7 +305,7 @@ internal class AndroidManagedAppProtectionModel
     public bool? SimplePinBlocked { get; set; }
 
     [JsonPropertyName("targetedAppManagementLevels")]
-    public AppManagementLevelConstant? TargetedAppManagementLevels { get; set; }
+    public AndroidManagedAppProtectionTargetedAppManagementLevelsConstant? TargetedAppManagementLevels { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

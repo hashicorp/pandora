@@ -86,10 +86,10 @@ internal class DeviceHealthAttestationStateModel
     public string? PcrHashAlgorithm { get; set; }
 
     [JsonPropertyName("resetCount")]
-    public long? ResetCount { get; set; }
+    public int? ResetCount { get; set; }
 
     [JsonPropertyName("restartCount")]
-    public long? RestartCount { get; set; }
+    public int? RestartCount { get; set; }
 
     [JsonPropertyName("safeMode")]
     public string? SafeMode { get; set; }

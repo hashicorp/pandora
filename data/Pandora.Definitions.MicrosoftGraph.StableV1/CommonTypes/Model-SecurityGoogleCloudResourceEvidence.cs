@@ -23,7 +23,7 @@ internal class SecurityGoogleCloudResourceEvidenceModel
     public string? Location { get; set; }
 
     [JsonPropertyName("locationType")]
-    public GoogleCloudLocationTypeConstant? LocationType { get; set; }
+    public SecurityGoogleCloudResourceEvidenceLocationTypeConstant? LocationType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -32,10 +32,10 @@ internal class SecurityGoogleCloudResourceEvidenceModel
     public string? ProjectId { get; set; }
 
     [JsonPropertyName("projectNumber")]
-    public long? ProjectNumber { get; set; }
+    public int? ProjectNumber { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityGoogleCloudResourceEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
@@ -47,11 +47,11 @@ internal class SecurityGoogleCloudResourceEvidenceModel
     public string? ResourceType { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityGoogleCloudResourceEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityGoogleCloudResourceEvidenceVerdictConstant? Verdict { get; set; }
 }

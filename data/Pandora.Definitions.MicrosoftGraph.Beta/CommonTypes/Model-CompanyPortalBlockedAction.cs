@@ -14,14 +14,14 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CompanyPortalBlockedActionModel
 {
     [JsonPropertyName("action")]
-    public CompanyPortalActionConstant? Action { get; set; }
+    public CompanyPortalBlockedActionActionConstant? Action { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public OwnerTypeConstant? OwnerType { get; set; }
+    public CompanyPortalBlockedActionOwnerTypeConstant? OwnerType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DevicePlatformTypeConstant? Platform { get; set; }
+    public CompanyPortalBlockedActionPlatformConstant? Platform { get; set; }
 }

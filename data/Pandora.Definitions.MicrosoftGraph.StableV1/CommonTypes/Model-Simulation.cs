@@ -56,7 +56,7 @@ internal class SimulationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("payloadDeliveryPlatform")]
-    public PayloadDeliveryPlatformConstant? PayloadDeliveryPlatform { get; set; }
+    public SimulationPayloadDeliveryPlatformConstant? PayloadDeliveryPlatform { get; set; }
 
     [JsonPropertyName("report")]
     public SimulationReportModel? Report { get; set; }

@@ -17,7 +17,7 @@ internal class CallRecordsNetworkInfoModel
     public string? BasicServiceSetIdentifier { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public NetworkConnectionTypeConstant? ConnectionType { get; set; }
+    public CallRecordsNetworkInfoConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("dnsSuffix")]
     public string? DnsSuffix { get; set; }
@@ -26,13 +26,13 @@ internal class CallRecordsNetworkInfoModel
     public string? IpAddress { get; set; }
 
     [JsonPropertyName("linkSpeed")]
-    public long? LinkSpeed { get; set; }
+    public int? LinkSpeed { get; set; }
 
     [JsonPropertyName("macAddress")]
     public string? MacAddress { get; set; }
 
     [JsonPropertyName("networkTransportProtocol")]
-    public NetworkTransportProtocolConstant? NetworkTransportProtocol { get; set; }
+    public CallRecordsNetworkInfoNetworkTransportProtocolConstant? NetworkTransportProtocol { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -53,10 +53,10 @@ internal class CallRecordsNetworkInfoModel
     public string? Subnet { get; set; }
 
     [JsonPropertyName("traceRouteHops")]
-    public List<TraceRouteHopModel>? TraceRouteHops { get; set; }
+    public List<CallRecordsTraceRouteHopModel>? TraceRouteHops { get; set; }
 
     [JsonPropertyName("wifiBand")]
-    public WifiBandConstant? WifiBand { get; set; }
+    public CallRecordsNetworkInfoWifiBandConstant? WifiBand { get; set; }
 
     [JsonPropertyName("wifiBatteryCharge")]
     public int? WifiBatteryCharge { get; set; }
@@ -71,7 +71,7 @@ internal class CallRecordsNetworkInfoModel
     public string? WifiMicrosoftDriverVersion { get; set; }
 
     [JsonPropertyName("wifiRadioType")]
-    public WifiRadioTypeConstant? WifiRadioType { get; set; }
+    public CallRecordsNetworkInfoWifiRadioTypeConstant? WifiRadioType { get; set; }
 
     [JsonPropertyName("wifiSignalStrength")]
     public int? WifiSignalStrength { get; set; }

@@ -23,7 +23,7 @@ internal class Windows81VpnConfigurationModel
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public WindowsVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public Windows81VpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -65,19 +65,19 @@ internal class PayloadModel
     public List<string>? PayloadTags { get; set; }
 
     [JsonPropertyName("platform")]
-    public PayloadDeliveryPlatformConstant? Platform { get; set; }
+    public PayloadPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("simulationAttackType")]
-    public SimulationAttackTypeConstant? SimulationAttackType { get; set; }
+    public PayloadSimulationAttackTypeConstant? SimulationAttackType { get; set; }
 
     [JsonPropertyName("source")]
-    public SimulationContentSourceConstant? Source { get; set; }
+    public PayloadSourceConstant? Source { get; set; }
 
     [JsonPropertyName("status")]
-    public SimulationContentStatusConstant? Status { get; set; }
+    public PayloadStatusConstant? Status { get; set; }
 
     [JsonPropertyName("technique")]
-    public SimulationAttackTechniqueConstant? Technique { get; set; }
+    public PayloadTechniqueConstant? Technique { get; set; }
 
     [JsonPropertyName("theme")]
     public PayloadThemeConstant? Theme { get; set; }

@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ThreatAssessmentRequestModel
 {
     [JsonPropertyName("category")]
-    public ThreatCategoryConstant? Category { get; set; }
+    public ThreatAssessmentRequestCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("contentType")]
-    public ThreatAssessmentContentTypeConstant? ContentType { get; set; }
+    public ThreatAssessmentRequestContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -26,7 +26,7 @@ internal class ThreatAssessmentRequestModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("expectedAssessment")]
-    public ThreatExpectedAssessmentConstant? ExpectedAssessment { get; set; }
+    public ThreatAssessmentRequestExpectedAssessmentConstant? ExpectedAssessment { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,11 +35,11 @@ internal class ThreatAssessmentRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("requestSource")]
-    public ThreatAssessmentRequestSourceConstant? RequestSource { get; set; }
+    public ThreatAssessmentRequestRequestSourceConstant? RequestSource { get; set; }
 
     [JsonPropertyName("results")]
     public List<ThreatAssessmentResultModel>? Results { get; set; }
 
     [JsonPropertyName("status")]
-    public ThreatAssessmentStatusConstant? Status { get; set; }
+    public ThreatAssessmentRequestStatusConstant? Status { get; set; }
 }

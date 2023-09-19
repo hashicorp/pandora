@@ -35,7 +35,7 @@ internal class MatchingDlpRuleModel
     public string? RuleId { get; set; }
 
     [JsonPropertyName("ruleMode")]
-    public RuleModeConstant? RuleMode { get; set; }
+    public MatchingDlpRuleRuleModeConstant? RuleMode { get; set; }
 
     [JsonPropertyName("ruleName")]
     public string? RuleName { get; set; }

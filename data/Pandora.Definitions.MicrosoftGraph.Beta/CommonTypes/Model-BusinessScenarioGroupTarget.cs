@@ -20,5 +20,5 @@ internal class BusinessScenarioGroupTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("taskTargetKind")]
-    public PlannerTaskTargetKindConstant? TaskTargetKind { get; set; }
+    public BusinessScenarioGroupTargetTaskTargetKindConstant? TaskTargetKind { get; set; }
 }

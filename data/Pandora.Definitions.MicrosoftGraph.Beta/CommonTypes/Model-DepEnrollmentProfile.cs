@@ -41,7 +41,7 @@ internal class DepEnrollmentProfileModel
     public bool? EnableSharedIPad { get; set; }
 
     [JsonPropertyName("iTunesPairingMode")]
-    public ITunesPairingModeConstant? ITunesPairingMode { get; set; }
+    public DepEnrollmentProfileITunesPairingModeConstant? ITunesPairingMode { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

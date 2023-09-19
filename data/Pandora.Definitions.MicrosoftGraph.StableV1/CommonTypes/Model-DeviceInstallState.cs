@@ -26,7 +26,7 @@ internal class DeviceInstallStateModel
     public string? Id { get; set; }
 
     [JsonPropertyName("installState")]
-    public InstallStateConstant? InstallState { get; set; }
+    public DeviceInstallStateInstallStateConstant? InstallState { get; set; }
 
     [JsonPropertyName("lastSyncDateTime")]
     public DateTime? LastSyncDateTime { get; set; }

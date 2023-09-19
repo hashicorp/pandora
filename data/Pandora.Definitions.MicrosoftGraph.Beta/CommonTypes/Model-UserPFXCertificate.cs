@@ -29,7 +29,7 @@ internal class UserPFXCertificateModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public UserPfxIntendedPurposeConstant? IntendedPurpose { get; set; }
+    public UserPFXCertificateIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("keyName")]
     public string? KeyName { get; set; }
@@ -41,7 +41,7 @@ internal class UserPFXCertificateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("paddingScheme")]
-    public UserPfxPaddingSchemeConstant? PaddingScheme { get; set; }
+    public UserPFXCertificatePaddingSchemeConstant? PaddingScheme { get; set; }
 
     [JsonPropertyName("providerName")]
     public string? ProviderName { get; set; }

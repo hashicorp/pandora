@@ -38,5 +38,5 @@ internal class OnenoteOperationModel
     public string? ResourceLocation { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public OnenoteOperationStatusConstant? Status { get; set; }
 }

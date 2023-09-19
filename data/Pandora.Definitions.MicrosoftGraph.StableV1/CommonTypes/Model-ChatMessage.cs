@@ -65,7 +65,7 @@ internal class ChatMessageModel
     public List<ChatMessageHistoryItemModel>? MessageHistory { get; set; }
 
     [JsonPropertyName("messageType")]
-    public ChatMessageTypeConstant? MessageType { get; set; }
+    public ChatMessageMessageTypeConstant? MessageType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

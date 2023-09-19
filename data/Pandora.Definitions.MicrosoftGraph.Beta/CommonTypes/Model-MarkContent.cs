@@ -17,7 +17,7 @@ internal class MarkContentModel
     public string? FontColor { get; set; }
 
     [JsonPropertyName("fontSize")]
-    public long? FontSize { get; set; }
+    public int? FontSize { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

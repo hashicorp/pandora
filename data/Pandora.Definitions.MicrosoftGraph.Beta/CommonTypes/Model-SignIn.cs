@@ -19,6 +19,9 @@ internal class SignInModel
     [JsonPropertyName("appId")]
     public string? AppId { get; set; }
 
+    [JsonPropertyName("appTokenProtectionStatus")]
+    public SignInAppTokenProtectionStatusConstant? AppTokenProtectionStatus { get; set; }
+
     [JsonPropertyName("appliedConditionalAccessPolicies")]
     public List<AppliedConditionalAccessPolicyModel>? AppliedConditionalAccessPolicies { get; set; }
 
@@ -44,7 +47,7 @@ internal class SignInModel
     public List<KeyValueModel>? AuthenticationProcessingDetails { get; set; }
 
     [JsonPropertyName("authenticationProtocol")]
-    public ProtocolTypeConstant? AuthenticationProtocol { get; set; }
+    public SignInAuthenticationProtocolConstant? AuthenticationProtocol { get; set; }
 
     [JsonPropertyName("authenticationRequirement")]
     public string? AuthenticationRequirement { get; set; }
@@ -62,10 +65,10 @@ internal class SignInModel
     public string? ClientAppUsed { get; set; }
 
     [JsonPropertyName("clientCredentialType")]
-    public ClientCredentialTypeConstant? ClientCredentialType { get; set; }
+    public SignInClientCredentialTypeConstant? ClientCredentialType { get; set; }
 
     [JsonPropertyName("conditionalAccessStatus")]
-    public ConditionalAccessStatusConstant? ConditionalAccessStatus { get; set; }
+    public SignInConditionalAccessStatusConstant? ConditionalAccessStatus { get; set; }
 
     [JsonPropertyName("correlationId")]
     public string? CorrelationId { get; set; }
@@ -74,7 +77,7 @@ internal class SignInModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("crossTenantAccessType")]
-    public SignInAccessTypeConstant? CrossTenantAccessType { get; set; }
+    public SignInCrossTenantAccessTypeConstant? CrossTenantAccessType { get; set; }
 
     [JsonPropertyName("deviceDetail")]
     public DeviceDetailModel? DeviceDetail { get; set; }
@@ -95,7 +98,7 @@ internal class SignInModel
     public string? Id { get; set; }
 
     [JsonPropertyName("incomingTokenType")]
-    public IncomingTokenTypeConstant? IncomingTokenType { get; set; }
+    public SignInIncomingTokenTypeConstant? IncomingTokenType { get; set; }
 
     [JsonPropertyName("ipAddress")]
     public string? IpAddress { get; set; }
@@ -127,6 +130,9 @@ internal class SignInModel
     [JsonPropertyName("originalRequestId")]
     public string? OriginalRequestId { get; set; }
 
+    [JsonPropertyName("originalTransferMethod")]
+    public SignInOriginalTransferMethodConstant? OriginalTransferMethod { get; set; }
+
     [JsonPropertyName("privateLinkDetails")]
     public PrivateLinkDetailsModel? PrivateLinkDetails { get; set; }
 
@@ -146,19 +152,19 @@ internal class SignInModel
     public string? ResourceTenantId { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public SignInRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskEventTypes_v2")]
     public List<string>? RiskEventTypesv2 { get; set; }
 
     [JsonPropertyName("riskLevelAggregated")]
-    public RiskLevelConstant? RiskLevelAggregated { get; set; }
+    public SignInRiskLevelAggregatedConstant? RiskLevelAggregated { get; set; }
 
     [JsonPropertyName("riskLevelDuringSignIn")]
-    public RiskLevelConstant? RiskLevelDuringSignIn { get; set; }
+    public SignInRiskLevelDuringSignInConstant? RiskLevelDuringSignIn { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public SignInRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("servicePrincipalCredentialKeyId")]
     public string? ServicePrincipalCredentialKeyId { get; set; }
@@ -182,7 +188,10 @@ internal class SignInModel
     public string? SignInIdentifier { get; set; }
 
     [JsonPropertyName("signInIdentifierType")]
-    public SignInIdentifierTypeConstant? SignInIdentifierType { get; set; }
+    public SignInSignInIdentifierTypeConstant? SignInIdentifierType { get; set; }
+
+    [JsonPropertyName("signInTokenProtectionStatus")]
+    public SignInSignInTokenProtectionStatusConstant? SignInTokenProtectionStatus { get; set; }
 
     [JsonPropertyName("status")]
     public SignInStatusModel? Status { get; set; }
@@ -191,7 +200,7 @@ internal class SignInModel
     public string? TokenIssuerName { get; set; }
 
     [JsonPropertyName("tokenIssuerType")]
-    public TokenIssuerTypeConstant? TokenIssuerType { get; set; }
+    public SignInTokenIssuerTypeConstant? TokenIssuerType { get; set; }
 
     [JsonPropertyName("uniqueTokenIdentifier")]
     public string? UniqueTokenIdentifier { get; set; }
