@@ -33,7 +33,6 @@ func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha st
 
 func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	service := NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger)
-
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 
 	service.apiVersionPackageName = normalizedApiVersion

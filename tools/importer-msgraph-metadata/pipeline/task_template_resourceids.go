@@ -53,7 +53,7 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.%[2]s.%[1]s.%[3]s.%[4]s;
 
-internal class %[5]sId : ResourceID
+internal class %[5]s : ResourceID
 {
     public string? CommonAlias => null;
     public string ID => "%[6]s";

@@ -7,6 +7,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -37,11 +38,21 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 	for _, serviceName := range serviceNames {
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
-		serviceDirectory := fmt.Sprintf("%s%s/%s", input.OutputDirectory, "Pandora.Definitions.ResourceManager", serviceName)
-		logger.Debug("recreating directory %q for Service %q", serviceDirectory, serviceName)
-		if err := dataapigenerator.RecreateDirectory(serviceDirectory, logger); err != nil {
-			fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
+
+		serviceDirectoryCSharp := fmt.Sprintf("%s%s/%s", input.OutputDirectoryCS, "Pandora.Definitions.ResourceManager", serviceName)
+		logger.Debug("recreating C# directory %q for Service %q", serviceDirectoryCSharp, serviceName)
+		if err := dataapigenerator.RecreateDirectory(serviceDirectoryCSharp, logger); err != nil {
+			fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
 		}
+
+		if featureflags.GenerateYamlDataAPI {
+			serviceDirectoryYaml := fmt.Sprintf("%s%s/%s", input.OutputDirectoryYaml, "resource-manager", serviceName)
+			logger.Debug("recreating YAML directory %q for Service %q", serviceDirectoryYaml, serviceName)
+			if err := dataapigenerator.RecreateDirectory(serviceDirectoryYaml, logger); err != nil {
+				fmt.Errorf("recreating YAML directory %q for service %q", serviceDirectoryYaml, serviceName)
+			}
+		}
+
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
@@ -140,7 +151,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	logger.Trace("Task: Generating Service Definitions..")
-	if err := task.generateServiceDefinitions(serviceName, input.OutputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, apiVersions, logger.Named("Service Definitions")); err != nil {
+	if err := task.generateServiceDefinitions(serviceName, input, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, apiVersions, logger.Named("Service Definitions")); err != nil {
 		return fmt.Errorf("generating Service Definitions for %q: %+v", serviceName, err)
 	}
 

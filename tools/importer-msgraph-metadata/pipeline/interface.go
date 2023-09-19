@@ -7,15 +7,17 @@ import (
 )
 
 type RunInput struct {
+	ProviderPrefix string
+
 	Logger hclog.Logger
 
-	ApiVersions              []string
 	CommonTypesDirectoryName string
+	ConfigFilePath           string
 	MetadataDirectory        string
 	OpenApiFilePattern       string
 	OutputDirectory          string
-	ProviderPrefix           string
-	Tags                     []string
+	Services                 []string
+	SupportedVersions        []string
 }
 
 func Run(input RunInput) error {

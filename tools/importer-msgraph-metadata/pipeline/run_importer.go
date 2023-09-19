@@ -2,18 +2,22 @@ package pipeline
 
 import (
 	"fmt"
-	"path/filepath"
-	"sort"
-	"strings"
-
 	"github.com/getkin/kin-openapi/openapi3"
+	"github.com/hashicorp/pandora/tools/sdk/config/services"
+	"path/filepath"
 )
 
 func runImporter(input RunInput, metadataGitSha string) error {
 	logger := input.Logger
-	for _, apiVersion := range input.ApiVersions {
+
+	config, err := services.LoadFromFile(input.ConfigFilePath)
+	if err != nil {
+		return fmt.Errorf("loading config: %+v", err)
+	}
+
+	for _, apiVersion := range input.SupportedVersions {
 		openApiFile := fmt.Sprintf(input.OpenApiFilePattern, apiVersion)
-		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha); err != nil {
+		if err := runImportForVersion(input, apiVersion, openApiFile, metadataGitSha, config); err != nil {
 			return err
 		}
 	}
@@ -22,7 +26,7 @@ func runImporter(input RunInput, metadataGitSha string) error {
 	return nil
 }
 
-func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha string) error {
+func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha string, config *services.Config) error {
 	input.Logger.Info(fmt.Sprintf("Loading OpenAPI3 definitions for API version %q", apiVersion))
 	spec, err := openapi3.NewLoader().LoadFromFile(filepath.Join(input.MetadataDirectory, openApiFile))
 	if err != nil {
@@ -34,45 +38,58 @@ func runImportForVersion(input RunInput, apiVersion, openApiFile, metadataGitSha
 		return err
 	}
 
-	services, err := parseTags(spec.Tags)
+	serviceTags, err := parseTags(spec.Tags)
 	if err != nil {
 		return err
 	}
 
-	serviceNames := make([]string, 0, len(services))
-	for name := range services {
-		serviceNames = append(serviceNames, name)
-	}
-	sort.Strings(serviceNames)
+	for _, service := range config.Services {
+		for _, version := range service.Available {
+			if version == apiVersion {
+				// Check that service is known
+				known := false
+				for serviceTag := range serviceTags {
+					if serviceTag == service.Directory {
+						known = true
+						break
+					}
+				}
+				if !known {
+					return fmt.Errorf("unknown service was configured for API version %s: %#v", version, service)
+				}
 
-	for _, service := range serviceNames {
-		serviceTags := services[service]
-		if len(input.Tags) > 0 {
-			skip := true
-			for _, t := range input.Tags {
-				if strings.EqualFold(service, t) {
-					skip = false
-					break
+				if len(input.Services) > 0 {
+					skip := true
+
+					for _, serviceName := range input.Services {
+						if serviceName == service.Name {
+							skip = false
+							break
+						}
+					}
+
+					if skip {
+						continue
+					}
+				}
+
+				input.Logger.Info(fmt.Sprintf("Importing service %q for API version %q", service.Name, version))
+
+				task := &pipelineTask{
+					apiVersion:               apiVersion,
+					commonTypesDirectoryName: input.CommonTypesDirectoryName,
+					files:                    newTree(),
+					logger:                   input.Logger,
+					metadataGitSha:           metadataGitSha,
+					outputDirectory:          input.OutputDirectory,
+					service:                  service.Directory,
+					spec:                     spec,
+				}
+
+				if err = task.runImportForService(serviceTags[service.Directory], models); err != nil {
+					return err
 				}
 			}
-			if skip {
-				continue
-			}
-		}
-
-		task := &pipelineTask{
-			apiVersion:               apiVersion,
-			commonTypesDirectoryName: input.CommonTypesDirectoryName,
-			files:                    newTree(),
-			logger:                   input.Logger,
-			metadataGitSha:           metadataGitSha,
-			outputDirectory:          input.OutputDirectory,
-			service:                  service,
-			spec:                     spec,
-		}
-
-		if err = task.runImportForService(serviceTags, models); err != nil {
-			return err
 		}
 	}
 

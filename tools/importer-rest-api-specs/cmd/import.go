@@ -14,10 +14,11 @@ import (
 
 var _ cli.Command = ImportCommand{}
 
-func NewImportCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefinitionsPath, outputDirectory string) func() (cli.Command, error) {
+func NewImportCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefinitionsPath, outputDirectoryCS string, outputDirectoryYaml string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ImportCommand{
-			outputDirectory:           outputDirectory,
+			outputDirectoryCS:         outputDirectoryCS,
+			outputDirectoryYaml:       outputDirectoryYaml,
 			resourceManagerConfigPath: resourceManagerConfigPath,
 			swaggerDirectory:          swaggerDirectory,
 			terraformDefinitionsPath:  terraformDefinitionsPath,
@@ -26,7 +27,8 @@ func NewImportCommand(swaggerDirectory, resourceManagerConfigPath, terraformDefi
 }
 
 type ImportCommand struct {
-	outputDirectory           string
+	outputDirectoryCS         string
+	outputDirectoryYaml       string
 	resourceManagerConfigPath string
 	swaggerDirectory          string
 	terraformDefinitionsPath  string
@@ -76,7 +78,8 @@ func (c ImportCommand) Run(args []string) int {
 		ConfigFilePath:           c.resourceManagerConfigPath,
 		DataApiEndpoint:          dataApiEndpoint,
 		Logger:                   logger,
-		OutputDirectory:          c.outputDirectory,
+		OutputDirectoryCS:        c.outputDirectoryCS,
+		OutputDirectoryYaml:      c.outputDirectoryYaml,
 		ProviderPrefix:           "azurerm",
 		Services:                 serviceNames,
 		SwaggerDirectory:         c.swaggerDirectory,

@@ -11,15 +11,19 @@ import (
 const (
 	commonTypesDirectoryName = "CommonTypes"
 	metadataDirectory        = "../../submodules/msgraph-metadata"
+	microsoftGraphConfig     = "../../config/microsoft-graph.hcl"
 	openApiFilePattern       = "transformed_%s_metadata.xml.yaml"
 	outputDirectory          = "../../data"
 )
+
+var supportedVersions = []string{"v1.0", "beta"}
 
 func main() {
 	c := cli.NewCLI("importer-msgraph-metadata", "0.1.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"import": cmd.NewImportCommand(metadataDirectory, openApiFilePattern, outputDirectory, commonTypesDirectoryName),
+		"import":    cmd.NewImportCommand(metadataDirectory, microsoftGraphConfig, openApiFilePattern, outputDirectory, commonTypesDirectoryName, supportedVersions),
+		"list-tags": cmd.NewListTagsCommand(metadataDirectory, openApiFilePattern, supportedVersions),
 	}
 
 	exitStatus, err := c.Run()

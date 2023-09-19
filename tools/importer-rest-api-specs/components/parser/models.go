@@ -386,8 +386,11 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 
 		// check that there's at least one implementation of this type - otherwise this this isn't a discriminated type
 		// but bad data we should ignore
-		implementations := d.findModelNamesWhichImplement(modelName)
-		hasAtLeastOneImplementation := len(implementations) > 0
+		implementations, err := d.findModelNamesWhichImplement(modelName)
+		if err != nil {
+			return nil, fmt.Errorf("finding models which implement %q: %+v", modelName, err)
+		}
+		hasAtLeastOneImplementation := len(*implementations) > 0
 		if !hasAtLeastOneImplementation {
 			details.TypeHintIn = nil
 		}

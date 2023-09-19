@@ -6,11 +6,11 @@ import (
 	"strings"
 )
 
-type Services map[string][]string
+type ServiceTags map[string][]string
 
-// parsetags returns a Services (map[string][]string) for the provided openapi3.Tags. Note that the resulting Services
+// parsetags returns a ServiceTags (map[string][]string) for the provided openapi3.Tags. Note that the resulting ServiceTags
 // item values are not capitalized, singularized or otherwise cleaned up.
-func parseTags(tags openapi3.Tags) (services Services, err error) {
+func parseTags(tags openapi3.Tags) (services ServiceTags, err error) {
 	services = make(map[string][]string, 0)
 	for _, tag := range tags {
 		if tag == nil {

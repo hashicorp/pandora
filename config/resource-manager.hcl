@@ -27,7 +27,7 @@ service "appconfiguration" {
 }
 service "applicationinsights" {
   name      = "ApplicationInsights"
-  available = ["2020-11-20", "2022-04-01", "2022-06-15"]
+  available = ["2020-11-20", "2022-04-01", "2022-06-15", "2023-06-01"]
 }
 service "appplatform" {
   name      = "AppPlatform"
@@ -59,7 +59,7 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2023-03-01"]
+  available = ["2023-03-01", "2023-06-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -156,7 +156,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2022-05-01", "2022-12-01", "2023-01-01", "2023-05-01"]
+  available = ["2022-04-01", "2023-05-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -180,7 +180,7 @@ service "devtestlabs" {
 }
 service "digitaltwins" {
   name      = "DigitalTwins"
-  available = ["2020-12-01", "2022-10-31", "2023-01-31"]
+  available = ["2023-01-31"]
 }
 service "dns" {
   name      = "DNS"
@@ -326,6 +326,7 @@ service "mediaservices" {
 service "migrate" {
   name      = "Migrate"
   available = ["2020-01-01", "2020-07-07"]
+  ignore    = ["2023-06-06"]
 }
 service "mixedreality" {
   name      = "MixedReality"
@@ -353,7 +354,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-02-01", "2023-04-01", "2023-05-01"]
+  available = ["2023-04-01", "2023-05-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -373,7 +374,7 @@ service "nginx" {
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
-  available = ["2017-04-01"]
+  available = ["2017-04-01", "2023-09-01"]
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
@@ -438,7 +439,7 @@ service "redhatopenshift" {
 }
 service "redis" {
   name      = "Redis"
-  available = ["2022-06-01", "2023-04-01"]
+  available = ["2022-06-01", "2023-04-01", "2023-08-01"]
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
@@ -466,7 +467,7 @@ service "search" {
 }
 service "security" {
   name      = "Security"
-  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01"]
+  available = ["2017-08-01-preview", "2019-01-01", "2019-01-01-preview", "2020-01-01", "2021-06-01", "2022-03-01", "2022-05-01", "2022-12-01-preview", "2023-01-01", "2023-05-01", "2023-11-15"]
 }
 service "securityinsights" {
   name      = "SecurityInsights"
