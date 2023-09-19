@@ -16,6 +16,9 @@ internal class DeviceHealthScriptRemediationHistoryDataModel
     [JsonPropertyName("date")]
     public DateTime? Date { get; set; }
 
+    [JsonPropertyName("detectFailedDeviceCount")]
+    public int? DetectFailedDeviceCount { get; set; }
+
     [JsonPropertyName("noIssueDeviceCount")]
     public int? NoIssueDeviceCount { get; set; }
 

@@ -1,0 +1,33 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+using System;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.Me.Beta.MeContactFolderContact;
+
+internal class Definition : ResourceDefinition
+{
+    public string Name => "MeContactFolderContact";
+
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
+    {
+        new CreateMeContactFolderByIdContactOperation(),
+        new DeleteMeContactFolderByIdContactByIdOperation(),
+        new GetMeContactFolderByIdContactByIdOperation(),
+        new GetMeContactFolderByIdContactCountOperation(),
+        new ListMeContactFolderByIdContactsOperation(),
+        new UpdateMeContactFolderByIdContactByIdOperation()
+    };
+
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+
+    };
+}

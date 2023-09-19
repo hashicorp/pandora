@@ -110,7 +110,7 @@ internal class ColumnDefinitionModel
     public ThumbnailColumnModel? Thumbnail { get; set; }
 
     [JsonPropertyName("type")]
-    public ColumnTypesConstant? Type { get; set; }
+    public ColumnDefinitionTypeConstant? Type { get; set; }
 
     [JsonPropertyName("validation")]
     public ColumnValidationModel? Validation { get; set; }

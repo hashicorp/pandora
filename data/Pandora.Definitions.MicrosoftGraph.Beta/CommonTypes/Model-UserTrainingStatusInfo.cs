@@ -26,5 +26,5 @@ internal class UserTrainingStatusInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("trainingStatus")]
-    public TrainingStatusConstant? TrainingStatus { get; set; }
+    public UserTrainingStatusInfoTrainingStatusConstant? TrainingStatus { get; set; }
 }

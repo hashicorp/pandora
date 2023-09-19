@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetApplicationHomeRealmDiscoveryPoliciesCountOperation(),
-        new GetHomeRealmDiscoveryPolicyOperation(),
-        new ListHomeRealmDiscoveryPoliciesOperation()
+        new GetApplicationByIdHomeRealmDiscoveryPolicyByIdOperation(),
+        new GetApplicationByIdHomeRealmDiscoveryPolicyCountOperation(),
+        new ListApplicationByIdHomeRealmDiscoveryPoliciesOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

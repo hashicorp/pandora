@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesDeploymentModel
 {
     [JsonPropertyName("audience")]
-    public DeploymentAudienceModel? Audience { get; set; }
+    public WindowsUpdatesDeploymentAudienceModel? Audience { get; set; }
 
     [JsonPropertyName("content")]
-    public DeployableContentModel? Content { get; set; }
+    public WindowsUpdatesDeployableContentModel? Content { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -32,8 +32,8 @@ internal class WindowsUpdatesDeploymentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("settings")]
-    public DeploymentSettingsModel? Settings { get; set; }
+    public WindowsUpdatesDeploymentSettingsModel? Settings { get; set; }
 
     [JsonPropertyName("state")]
-    public DeploymentStateModel? State { get; set; }
+    public WindowsUpdatesDeploymentStateModel? State { get; set; }
 }

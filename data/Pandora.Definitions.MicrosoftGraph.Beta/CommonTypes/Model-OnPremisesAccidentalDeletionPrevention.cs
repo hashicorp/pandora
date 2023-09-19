@@ -20,5 +20,5 @@ internal class OnPremisesAccidentalDeletionPreventionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("synchronizationPreventionType")]
-    public OnPremisesDirectorySynchronizationDeletionPreventionTypeConstant? SynchronizationPreventionType { get; set; }
+    public OnPremisesAccidentalDeletionPreventionSynchronizationPreventionTypeConstant? SynchronizationPreventionType { get; set; }
 }

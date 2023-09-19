@@ -29,5 +29,5 @@ internal class ManagedTenantsTemplateParameterModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("valueType")]
-    public ManagementParameterValueTypeConstant? ValueType { get; set; }
+    public ManagedTenantsTemplateParameterValueTypeConstant? ValueType { get; set; }
 }

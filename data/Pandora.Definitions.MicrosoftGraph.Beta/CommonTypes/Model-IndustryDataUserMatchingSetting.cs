@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IndustryDataUserMatchingSettingModel
 {
     [JsonPropertyName("matchTarget")]
-    public UserMatchTargetReferenceValueModel? MatchTarget { get; set; }
+    public IndustryDataUserMatchTargetReferenceValueModel? MatchTarget { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -23,8 +23,8 @@ internal class IndustryDataUserMatchingSettingModel
     public int? PriorityOrder { get; set; }
 
     [JsonPropertyName("roleGroup")]
-    public RoleGroupModel? RoleGroup { get; set; }
+    public IndustryDataRoleGroupModel? RoleGroup { get; set; }
 
     [JsonPropertyName("sourceIdentifier")]
-    public IdentifierTypeReferenceValueModel? SourceIdentifier { get; set; }
+    public IndustryDataIdentifierTypeReferenceValueModel? SourceIdentifier { get; set; }
 }

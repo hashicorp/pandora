@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class PublicationFacetModel
 {
+    [JsonPropertyName("checkedOutBy")]
+    public IdentitySetModel? CheckedOutBy { get; set; }
+
     [JsonPropertyName("level")]
     public string? Level { get; set; }
 

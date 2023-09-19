@@ -50,7 +50,7 @@ internal class UserExperienceAnalyticsDeviceStartupHistoryModel
     public int? ResponsiveDesktopTimeInMs { get; set; }
 
     [JsonPropertyName("restartCategory")]
-    public UserExperienceAnalyticsOperatingSystemRestartCategoryConstant? RestartCategory { get; set; }
+    public UserExperienceAnalyticsDeviceStartupHistoryRestartCategoryConstant? RestartCategory { get; set; }
 
     [JsonPropertyName("restartFaultBucket")]
     public string? RestartFaultBucket { get; set; }

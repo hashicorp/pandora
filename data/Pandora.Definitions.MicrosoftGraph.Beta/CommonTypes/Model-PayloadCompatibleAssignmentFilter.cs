@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PayloadCompatibleAssignmentFilterModel
 {
     [JsonPropertyName("assignmentFilterManagementType")]
-    public AssignmentFilterManagementTypeConstant? AssignmentFilterManagementType { get; set; }
+    public PayloadCompatibleAssignmentFilterAssignmentFilterManagementTypeConstant? AssignmentFilterManagementType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -35,13 +35,13 @@ internal class PayloadCompatibleAssignmentFilterModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("payloadType")]
-    public AssignmentFilterPayloadTypeConstant? PayloadType { get; set; }
+    public PayloadCompatibleAssignmentFilterPayloadTypeConstant? PayloadType { get; set; }
 
     [JsonPropertyName("payloads")]
     public List<PayloadByFilterModel>? Payloads { get; set; }
 
     [JsonPropertyName("platform")]
-    public DevicePlatformTypeConstant? Platform { get; set; }
+    public PayloadCompatibleAssignmentFilterPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("roleScopeTags")]
     public List<string>? RoleScopeTags { get; set; }

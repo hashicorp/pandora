@@ -26,7 +26,7 @@ internal class SecurityArticleModel
     public string? ImageUrl { get; set; }
 
     [JsonPropertyName("indicators")]
-    public List<ArticleIndicatorModel>? Indicators { get; set; }
+    public List<SecurityArticleIndicatorModel>? Indicators { get; set; }
 
     [JsonPropertyName("isFeatured")]
     public bool? IsFeatured { get; set; }

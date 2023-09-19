@@ -20,8 +20,8 @@ internal class IdleSessionSignOutModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("signOutAfterInSeconds")]
-    public long? SignOutAfterInSeconds { get; set; }
+    public int? SignOutAfterInSeconds { get; set; }
 
     [JsonPropertyName("warnAfterInSeconds")]
-    public long? WarnAfterInSeconds { get; set; }
+    public int? WarnAfterInSeconds { get; set; }
 }

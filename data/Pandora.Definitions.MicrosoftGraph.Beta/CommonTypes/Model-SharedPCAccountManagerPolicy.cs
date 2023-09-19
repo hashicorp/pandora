@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SharedPCAccountManagerPolicyModel
 {
     [JsonPropertyName("accountDeletionPolicy")]
-    public SharedPCAccountDeletionPolicyTypeConstant? AccountDeletionPolicy { get; set; }
+    public SharedPCAccountManagerPolicyAccountDeletionPolicyConstant? AccountDeletionPolicy { get; set; }
 
     [JsonPropertyName("cacheAccountsAboveDiskFreePercentage")]
     public int? CacheAccountsAboveDiskFreePercentage { get; set; }

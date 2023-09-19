@@ -35,5 +35,5 @@ internal class TodoTaskListModel
     public List<TodoTaskModel>? Tasks { get; set; }
 
     [JsonPropertyName("wellknownListName")]
-    public WellknownListNameConstant? WellknownListName { get; set; }
+    public TodoTaskListWellknownListNameConstant? WellknownListName { get; set; }
 }

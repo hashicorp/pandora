@@ -26,7 +26,7 @@ internal class SecurityMailClusterEvidenceModel
     public List<string>? DetailedRoles { get; set; }
 
     [JsonPropertyName("emailCount")]
-    public long? EmailCount { get; set; }
+    public int? EmailCount { get; set; }
 
     [JsonPropertyName("networkMessageIds")]
     public List<string>? NetworkMessageIds { get; set; }
@@ -38,13 +38,13 @@ internal class SecurityMailClusterEvidenceModel
     public string? Query { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityMailClusterEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityMailClusterEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
@@ -53,5 +53,5 @@ internal class SecurityMailClusterEvidenceModel
     public string? Urn { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityMailClusterEvidenceVerdictConstant? Verdict { get; set; }
 }

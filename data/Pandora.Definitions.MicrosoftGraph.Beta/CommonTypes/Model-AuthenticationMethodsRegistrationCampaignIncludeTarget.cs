@@ -20,7 +20,7 @@ internal class AuthenticationMethodsRegistrationCampaignIncludeTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public AuthenticationMethodsRegistrationCampaignIncludeTargetTargetTypeConstant? TargetType { get; set; }
 
     [JsonPropertyName("targetedAuthenticationMethod")]
     public string? TargetedAuthenticationMethod { get; set; }

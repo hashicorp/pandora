@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WorkPositionModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public WorkPositionAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("categories")]
     public List<string>? Categories { get; set; }

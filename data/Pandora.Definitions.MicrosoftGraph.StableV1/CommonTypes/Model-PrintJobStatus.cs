@@ -17,7 +17,7 @@ internal class PrintJobStatusModel
     public string? Description { get; set; }
 
     [JsonPropertyName("details")]
-    public List<PrintJobStateDetailConstant>? Details { get; set; }
+    public List<PrintJobStatusDetailsConstant>? Details { get; set; }
 
     [JsonPropertyName("isAcquiredByPrinter")]
     public bool? IsAcquiredByPrinter { get; set; }
@@ -26,5 +26,5 @@ internal class PrintJobStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public PrintJobProcessingStateConstant? State { get; set; }
+    public PrintJobStatusStateConstant? State { get; set; }
 }

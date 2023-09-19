@@ -17,7 +17,7 @@ internal class DeviceManagementSettingsModel
     public bool? AndroidDeviceAdministratorEnrollmentEnabled { get; set; }
 
     [JsonPropertyName("derivedCredentialProvider")]
-    public DerivedCredentialProviderTypeConstant? DerivedCredentialProvider { get; set; }
+    public DeviceManagementSettingsDerivedCredentialProviderConstant? DerivedCredentialProvider { get; set; }
 
     [JsonPropertyName("derivedCredentialUrl")]
     public string? DerivedCredentialUrl { get; set; }

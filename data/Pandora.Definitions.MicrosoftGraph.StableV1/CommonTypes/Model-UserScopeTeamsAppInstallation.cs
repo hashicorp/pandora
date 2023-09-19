@@ -16,6 +16,9 @@ internal class UserScopeTeamsAppInstallationModel
     [JsonPropertyName("chat")]
     public ChatModel? Chat { get; set; }
 
+    [JsonPropertyName("consentedPermissionSet")]
+    public TeamsAppPermissionSetModel? ConsentedPermissionSet { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

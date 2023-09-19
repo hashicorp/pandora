@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsManagedAppProtectionModel
 {
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public WindowsManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public WindowsManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public WindowsManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public WindowsManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public WindowsManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public WindowsManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("appActionIfUnableToAuthenticateUser")]
-    public ManagedAppRemediationActionConstant? AppActionIfUnableToAuthenticateUser { get; set; }
+    public WindowsManagedAppProtectionAppActionIfUnableToAuthenticateUserConstant? AppActionIfUnableToAuthenticateUser { get; set; }
 
     [JsonPropertyName("apps")]
     public List<ManagedMobileAppModel>? Apps { get; set; }
@@ -53,7 +53,7 @@ internal class WindowsManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("maximumAllowedDeviceThreatLevel")]
-    public ManagedAppDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
+    public WindowsManagedAppProtectionMaximumAllowedDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
 
     [JsonPropertyName("maximumRequiredOsVersion")]
     public string? MaximumRequiredOsVersion { get; set; }
@@ -89,7 +89,7 @@ internal class WindowsManagedAppProtectionModel
     public string? MinimumWipeSdkVersion { get; set; }
 
     [JsonPropertyName("mobileThreatDefenseRemediationAction")]
-    public ManagedAppRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
+    public WindowsManagedAppProtectionMobileThreatDefenseRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

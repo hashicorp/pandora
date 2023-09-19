@@ -23,7 +23,7 @@ internal class AudioModel
     public string? Artist { get; set; }
 
     [JsonPropertyName("bitrate")]
-    public long? Bitrate { get; set; }
+    public int? Bitrate { get; set; }
 
     [JsonPropertyName("composers")]
     public string? Composers { get; set; }
@@ -32,13 +32,13 @@ internal class AudioModel
     public string? Copyright { get; set; }
 
     [JsonPropertyName("disc")]
-    public short? Disc { get; set; }
+    public int? Disc { get; set; }
 
     [JsonPropertyName("discCount")]
-    public short? DiscCount { get; set; }
+    public int? DiscCount { get; set; }
 
     [JsonPropertyName("duration")]
-    public long? Duration { get; set; }
+    public int? Duration { get; set; }
 
     [JsonPropertyName("genre")]
     public string? Genre { get; set; }

@@ -20,7 +20,7 @@ internal class VirtualEventSessionModel
     public bool? AllowAttendeeToEnableMic { get; set; }
 
     [JsonPropertyName("allowMeetingChat")]
-    public MeetingChatModeConstant? AllowMeetingChat { get; set; }
+    public VirtualEventSessionAllowMeetingChatConstant? AllowMeetingChat { get; set; }
 
     [JsonPropertyName("allowParticipantsToChangeName")]
     public bool? AllowParticipantsToChangeName { get; set; }
@@ -35,13 +35,13 @@ internal class VirtualEventSessionModel
     public bool? AllowTranscription { get; set; }
 
     [JsonPropertyName("allowedPresenters")]
-    public OnlineMeetingPresentersConstant? AllowedPresenters { get; set; }
+    public VirtualEventSessionAllowedPresentersConstant? AllowedPresenters { get; set; }
 
     [JsonPropertyName("alternativeRecording")]
     public string? AlternativeRecording { get; set; }
 
     [JsonPropertyName("anonymizeIdentityForRoles")]
-    public List<OnlineMeetingRoleConstant>? AnonymizeIdentityForRoles { get; set; }
+    public List<VirtualEventSessionAnonymizeIdentityForRolesConstant>? AnonymizeIdentityForRoles { get; set; }
 
     [JsonPropertyName("attendanceReports")]
     public List<MeetingAttendanceReportModel>? AttendanceReports { get; set; }
@@ -59,10 +59,13 @@ internal class VirtualEventSessionModel
     public BroadcastMeetingSettingsModel? BroadcastSettings { get; set; }
 
     [JsonPropertyName("capabilities")]
-    public List<MeetingCapabilitiesConstant>? Capabilities { get; set; }
+    public List<VirtualEventSessionCapabilitiesConstant>? Capabilities { get; set; }
 
     [JsonPropertyName("chatInfo")]
     public ChatInfoModel? ChatInfo { get; set; }
+
+    [JsonPropertyName("chatRestrictions")]
+    public ChatRestrictionsModel? ChatRestrictions { get; set; }
 
     [JsonPropertyName("creationDateTime")]
     public DateTime? CreationDateTime { get; set; }
@@ -118,8 +121,11 @@ internal class VirtualEventSessionModel
     [JsonPropertyName("registration")]
     public MeetingRegistrationModel? Registration { get; set; }
 
+    [JsonPropertyName("registrations")]
+    public List<VirtualEventRegistrationModel>? Registrations { get; set; }
+
     [JsonPropertyName("shareMeetingChatHistoryDefault")]
-    public MeetingChatHistoryDefaultModeConstant? ShareMeetingChatHistoryDefault { get; set; }
+    public VirtualEventSessionShareMeetingChatHistoryDefaultConstant? ShareMeetingChatHistoryDefault { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }
@@ -132,9 +138,6 @@ internal class VirtualEventSessionModel
 
     [JsonPropertyName("videoTeleconferenceId")]
     public string? VideoTeleconferenceId { get; set; }
-
-    [JsonPropertyName("virtualAppointment")]
-    public VirtualAppointmentModel? VirtualAppointment { get; set; }
 
     [JsonPropertyName("watermarkProtection")]
     public WatermarkProtectionValuesModel? WatermarkProtection { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class InferenceClassificationOverrideModel
 {
     [JsonPropertyName("classifyAs")]
-    public InferenceClassificationTypeConstant? ClassifyAs { get; set; }
+    public InferenceClassificationOverrideClassifyAsConstant? ClassifyAs { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

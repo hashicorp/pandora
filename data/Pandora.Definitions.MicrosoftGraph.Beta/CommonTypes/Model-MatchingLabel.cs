@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MatchingLabelModel
 {
     [JsonPropertyName("applicationMode")]
-    public ApplicationModeConstant? ApplicationMode { get; set; }
+    public MatchingLabelApplicationModeConstant? ApplicationMode { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }

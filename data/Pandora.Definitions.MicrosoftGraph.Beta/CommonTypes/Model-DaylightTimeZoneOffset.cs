@@ -17,7 +17,7 @@ internal class DaylightTimeZoneOffsetModel
     public int? DayOccurrence { get; set; }
 
     [JsonPropertyName("dayOfWeek")]
-    public DayOfWeekConstant? DayOfWeek { get; set; }
+    public DaylightTimeZoneOffsetDayOfWeekConstant? DayOfWeek { get; set; }
 
     [JsonPropertyName("daylightBias")]
     public int? DaylightBias { get; set; }

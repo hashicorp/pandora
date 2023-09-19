@@ -23,5 +23,5 @@ internal class ExternalConnectorsSchemaModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("properties")]
-    public List<PropertyModel>? Properties { get; set; }
+    public List<ExternalConnectorsPropertyModel>? Properties { get; set; }
 }

@@ -89,5 +89,5 @@ internal class AospDeviceOwnerWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AospDeviceOwnerWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AospDeviceOwnerWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

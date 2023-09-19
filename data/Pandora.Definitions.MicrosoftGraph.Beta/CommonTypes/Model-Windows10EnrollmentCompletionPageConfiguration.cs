@@ -41,7 +41,7 @@ internal class Windows10EnrollmentCompletionPageConfigurationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceEnrollmentConfigurationType")]
-    public DeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
+    public Windows10EnrollmentCompletionPageConfigurationDeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
 
     [JsonPropertyName("disableUserStatusTrackingAfterFirstUser")]
     public bool? DisableUserStatusTrackingAfterFirstUser { get; set; }

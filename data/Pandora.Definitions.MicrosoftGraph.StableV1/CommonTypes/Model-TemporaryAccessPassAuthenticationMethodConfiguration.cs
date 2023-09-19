@@ -41,5 +41,5 @@ internal class TemporaryAccessPassAuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public TemporaryAccessPassAuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

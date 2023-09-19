@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class FocusActivityStatisticsModel
 {
     [JsonPropertyName("activity")]
-    public AnalyticsActivityTypeConstant? Activity { get; set; }
+    public FocusActivityStatisticsActivityConstant? Activity { get; set; }
 
     [JsonPropertyName("duration")]
     public string? Duration { get; set; }

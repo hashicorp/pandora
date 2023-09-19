@@ -38,5 +38,5 @@ internal class BrowserSharedCookieHistoryModel
     public DateTime? PublishedDateTime { get; set; }
 
     [JsonPropertyName("sourceEnvironment")]
-    public BrowserSharedCookieSourceEnvironmentConstant? SourceEnvironment { get; set; }
+    public BrowserSharedCookieHistorySourceEnvironmentConstant? SourceEnvironment { get; set; }
 }

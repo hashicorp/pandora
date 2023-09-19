@@ -17,5 +17,5 @@ internal class IdentityGovernanceCustomTaskExtensionCallbackDataModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationStatus")]
-    public CustomTaskExtensionOperationStatusConstant? OperationStatus { get; set; }
+    public IdentityGovernanceCustomTaskExtensionCallbackDataOperationStatusConstant? OperationStatus { get; set; }
 }

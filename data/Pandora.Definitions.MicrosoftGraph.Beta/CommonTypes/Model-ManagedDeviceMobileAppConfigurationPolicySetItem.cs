@@ -20,7 +20,7 @@ internal class ManagedDeviceMobileAppConfigurationPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public ManagedDeviceMobileAppConfigurationPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -41,5 +41,5 @@ internal class ManagedDeviceMobileAppConfigurationPolicySetItemModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public ManagedDeviceMobileAppConfigurationPolicySetItemStatusConstant? Status { get; set; }
 }

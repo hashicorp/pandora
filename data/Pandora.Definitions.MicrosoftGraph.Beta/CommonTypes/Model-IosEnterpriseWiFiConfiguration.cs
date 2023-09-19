@@ -17,7 +17,7 @@ internal class IosEnterpriseWiFiConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public IosEnterpriseWiFiConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectAutomatically")]
     public bool? ConnectAutomatically { get; set; }
@@ -59,10 +59,10 @@ internal class IosEnterpriseWiFiConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapFastConfiguration")]
-    public EapFastConfigurationConstant? EapFastConfiguration { get; set; }
+    public IosEnterpriseWiFiConfigurationEapFastConfigurationConstant? EapFastConfiguration { get; set; }
 
     [JsonPropertyName("eapType")]
-    public EapTypeConstant? EapType { get; set; }
+    public IosEnterpriseWiFiConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -74,7 +74,7 @@ internal class IosEnterpriseWiFiConfigurationModel
     public IosCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEapTtls")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
+    public IosEnterpriseWiFiConfigurationInnerAuthenticationProtocolForEapTtlsConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -104,7 +104,7 @@ internal class IosEnterpriseWiFiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySettings")]
-    public WiFiProxySettingConstant? ProxySettings { get; set; }
+    public IosEnterpriseWiFiConfigurationProxySettingsConstant? ProxySettings { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -134,5 +134,5 @@ internal class IosEnterpriseWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public WiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public IosEnterpriseWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

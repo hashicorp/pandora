@@ -17,7 +17,7 @@ internal class Fido2CombinationConfigurationModel
     public List<string>? AllowedAAGUIDs { get; set; }
 
     [JsonPropertyName("appliesToCombinations")]
-    public List<AuthenticationMethodModesConstant>? AppliesToCombinations { get; set; }
+    public List<Fido2CombinationConfigurationAppliesToCombinationsConstant>? AppliesToCombinations { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

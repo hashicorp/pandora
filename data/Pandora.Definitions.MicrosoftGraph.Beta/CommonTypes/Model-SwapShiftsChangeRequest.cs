@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SwapShiftsChangeRequestModel
 {
     [JsonPropertyName("assignedTo")]
-    public ScheduleChangeRequestActorConstant? AssignedTo { get; set; }
+    public SwapShiftsChangeRequestAssignedToConstant? AssignedTo { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -68,5 +68,5 @@ internal class SwapShiftsChangeRequestModel
     public string? SenderUserId { get; set; }
 
     [JsonPropertyName("state")]
-    public ScheduleChangeStateConstant? State { get; set; }
+    public SwapShiftsChangeRequestStateConstant? State { get; set; }
 }

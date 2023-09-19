@@ -20,7 +20,7 @@ internal class MeetingCapabilityModel
     public bool? AllowAnonymousUsersToStartMeeting { get; set; }
 
     [JsonPropertyName("autoAdmittedUsers")]
-    public AutoAdmittedUsersTypeConstant? AutoAdmittedUsers { get; set; }
+    public MeetingCapabilityAutoAdmittedUsersConstant? AutoAdmittedUsers { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

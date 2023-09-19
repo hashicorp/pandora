@@ -23,5 +23,5 @@ internal class ExternalConnectorsItemIdResolverModel
     public int? Priority { get; set; }
 
     [JsonPropertyName("urlMatchInfo")]
-    public UrlMatchInfoModel? UrlMatchInfo { get; set; }
+    public ExternalConnectorsUrlMatchInfoModel? UrlMatchInfo { get; set; }
 }

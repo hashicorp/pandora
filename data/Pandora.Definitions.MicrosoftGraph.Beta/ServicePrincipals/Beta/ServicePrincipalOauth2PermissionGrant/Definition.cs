@@ -13,9 +13,9 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetOauth2PermissionGrantOperation(),
-        new GetServicePrincipalOauth2PermissionGrantsCountOperation(),
-        new ListOauth2PermissionGrantsOperation()
+        new GetServicePrincipalByIdOauth2PermissionGrantByIdOperation(),
+        new GetServicePrincipalByIdOauth2PermissionGrantCountOperation(),
+        new ListServicePrincipalByIdOauth2PermissionGrantsOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

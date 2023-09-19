@@ -26,4 +26,7 @@ internal enum SimulationAttackTechniqueConstant
 
     [Description("LinkToMalwareFile")]
     @linkToMalwareFile,
+
+    [Description("OAuthConsentGrant")]
+    @oAuthConsentGrant,
 }

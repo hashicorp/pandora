@@ -53,7 +53,7 @@ internal class DeviceManagementScriptModel
     public bool? RunAs32Bit { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public DeviceManagementScriptRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("runSummary")]
     public DeviceManagementScriptRunSummaryModel? RunSummary { get; set; }

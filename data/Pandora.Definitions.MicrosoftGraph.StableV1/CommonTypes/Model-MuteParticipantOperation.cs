@@ -26,5 +26,5 @@ internal class MuteParticipantOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public MuteParticipantOperationStatusConstant? Status { get; set; }
 }

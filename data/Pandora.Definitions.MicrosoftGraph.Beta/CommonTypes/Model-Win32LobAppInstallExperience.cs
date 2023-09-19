@@ -14,11 +14,14 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Win32LobAppInstallExperienceModel
 {
     [JsonPropertyName("deviceRestartBehavior")]
-    public Win32LobAppRestartBehaviorConstant? DeviceRestartBehavior { get; set; }
+    public Win32LobAppInstallExperienceDeviceRestartBehaviorConstant? DeviceRestartBehavior { get; set; }
+
+    [JsonPropertyName("maxRunTimeInMinutes")]
+    public int? MaxRunTimeInMinutes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public Win32LobAppInstallExperienceRunAsAccountConstant? RunAsAccount { get; set; }
 }

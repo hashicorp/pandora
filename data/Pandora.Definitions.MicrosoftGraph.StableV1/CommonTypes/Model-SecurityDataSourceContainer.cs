@@ -20,7 +20,7 @@ internal class SecurityDataSourceContainerModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public SecurityDataSourceContainerHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,5 +35,5 @@ internal class SecurityDataSourceContainerModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public SecurityDataSourceContainerStatusConstant? Status { get; set; }
 }

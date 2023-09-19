@@ -26,7 +26,7 @@ internal class RemoteAssistancePartnerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("onboardingStatus")]
-    public RemoteAssistanceOnboardingStatusConstant? OnboardingStatus { get; set; }
+    public RemoteAssistancePartnerOnboardingStatusConstant? OnboardingStatus { get; set; }
 
     [JsonPropertyName("onboardingUrl")]
     public string? OnboardingUrl { get; set; }

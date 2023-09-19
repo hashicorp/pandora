@@ -48,4 +48,7 @@ internal class AccessPackageModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("resourceRoleScopes")]
+    public List<AccessPackageResourceRoleScopeModel>? ResourceRoleScopes { get; set; }
 }

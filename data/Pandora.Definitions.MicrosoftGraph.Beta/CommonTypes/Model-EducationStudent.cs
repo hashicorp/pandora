@@ -20,7 +20,7 @@ internal class EducationStudentModel
     public string? ExternalId { get; set; }
 
     [JsonPropertyName("gender")]
-    public EducationGenderConstant? Gender { get; set; }
+    public EducationStudentGenderConstant? Gender { get; set; }
 
     [JsonPropertyName("grade")]
     public string? Grade { get; set; }

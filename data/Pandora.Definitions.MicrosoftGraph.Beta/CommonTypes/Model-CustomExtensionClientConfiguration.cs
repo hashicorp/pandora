@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class CustomExtensionClientConfigurationModel
 {
+    [JsonPropertyName("maximumRetries")]
+    public int? MaximumRetries { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 

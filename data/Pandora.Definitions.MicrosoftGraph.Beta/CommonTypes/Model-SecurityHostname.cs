@@ -13,14 +13,20 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class SecurityHostnameModel
 {
+    [JsonPropertyName("childHostPairs")]
+    public List<SecurityHostPairModel>? ChildHostPairs { get; set; }
+
     [JsonPropertyName("components")]
-    public List<HostComponentModel>? Components { get; set; }
+    public List<SecurityHostComponentModel>? Components { get; set; }
 
     [JsonPropertyName("cookies")]
-    public List<HostCookieModel>? Cookies { get; set; }
+    public List<SecurityHostCookieModel>? Cookies { get; set; }
 
     [JsonPropertyName("firstSeenDateTime")]
     public DateTime? FirstSeenDateTime { get; set; }
+
+    [JsonPropertyName("hostPairs")]
+    public List<SecurityHostPairModel>? HostPairs { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -31,11 +37,14 @@ internal class SecurityHostnameModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("parentHostPairs")]
+    public List<SecurityHostPairModel>? ParentHostPairs { get; set; }
+
     [JsonPropertyName("passiveDns")]
-    public List<PassiveDnsRecordModel>? PassiveDns { get; set; }
+    public List<SecurityPassiveDnsRecordModel>? PassiveDns { get; set; }
 
     [JsonPropertyName("passiveDnsReverse")]
-    public List<PassiveDnsRecordModel>? PassiveDnsReverse { get; set; }
+    public List<SecurityPassiveDnsRecordModel>? PassiveDnsReverse { get; set; }
 
     [JsonPropertyName("registrant")]
     public string? Registrant { get; set; }
@@ -44,8 +53,17 @@ internal class SecurityHostnameModel
     public string? Registrar { get; set; }
 
     [JsonPropertyName("reputation")]
-    public HostReputationModel? Reputation { get; set; }
+    public SecurityHostReputationModel? Reputation { get; set; }
+
+    [JsonPropertyName("sslCertificates")]
+    public List<SecurityHostSslCertificateModel>? SslCertificates { get; set; }
+
+    [JsonPropertyName("subdomains")]
+    public List<SecuritySubdomainModel>? Subdomains { get; set; }
 
     [JsonPropertyName("trackers")]
-    public List<HostTrackerModel>? Trackers { get; set; }
+    public List<SecurityHostTrackerModel>? Trackers { get; set; }
+
+    [JsonPropertyName("whois")]
+    public SecurityWhoisRecordModel? Whois { get; set; }
 }

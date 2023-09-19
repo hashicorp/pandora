@@ -17,5 +17,5 @@ internal class SynchronizationJobRestartCriteriaModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("resetScope")]
-    public SynchronizationJobRestartScopeConstant? ResetScope { get; set; }
+    public SynchronizationJobRestartCriteriaResetScopeConstant? ResetScope { get; set; }
 }

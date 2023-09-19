@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AdminWindowsUpdatesModel
 {
     [JsonPropertyName("catalog")]
-    public CatalogModel? Catalog { get; set; }
+    public WindowsUpdatesCatalogModel? Catalog { get; set; }
 
     [JsonPropertyName("deploymentAudiences")]
-    public List<DeploymentAudienceModel>? DeploymentAudiences { get; set; }
+    public List<WindowsUpdatesDeploymentAudienceModel>? DeploymentAudiences { get; set; }
 
     [JsonPropertyName("deployments")]
-    public List<DeploymentModel>? Deployments { get; set; }
+    public List<WindowsUpdatesDeploymentModel>? Deployments { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,11 +29,11 @@ internal class AdminWindowsUpdatesModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("resourceConnections")]
-    public List<ResourceConnectionModel>? ResourceConnections { get; set; }
+    public List<WindowsUpdatesResourceConnectionModel>? ResourceConnections { get; set; }
 
     [JsonPropertyName("updatableAssets")]
-    public List<UpdatableAssetModel>? UpdatableAssets { get; set; }
+    public List<WindowsUpdatesUpdatableAssetModel>? UpdatableAssets { get; set; }
 
     [JsonPropertyName("updatePolicies")]
-    public List<UpdatePolicyModel>? UpdatePolicies { get; set; }
+    public List<WindowsUpdatesUpdatePolicyModel>? UpdatePolicies { get; set; }
 }

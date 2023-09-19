@@ -70,6 +70,9 @@ internal class OrgContactModel
     [JsonPropertyName("proxyAddresses")]
     public List<string>? ProxyAddresses { get; set; }
 
+    [JsonPropertyName("serviceProvisioningErrors")]
+    public List<ServiceProvisioningErrorModel>? ServiceProvisioningErrors { get; set; }
+
     [JsonPropertyName("surname")]
     public string? Surname { get; set; }
 

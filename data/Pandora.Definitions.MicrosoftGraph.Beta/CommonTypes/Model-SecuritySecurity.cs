@@ -17,7 +17,7 @@ internal class SecuritySecurityModel
     public string? Id { get; set; }
 
     [JsonPropertyName("informationProtection")]
-    public InformationProtectionModel? InformationProtection { get; set; }
+    public SecurityInformationProtectionModel? InformationProtection { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

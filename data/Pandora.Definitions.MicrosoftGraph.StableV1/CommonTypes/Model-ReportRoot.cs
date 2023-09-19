@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class ReportRootModel
 {
+    [JsonPropertyName("authenticationMethods")]
+    public AuthenticationMethodsRootModel? AuthenticationMethods { get; set; }
+
     [JsonPropertyName("dailyPrintUsageByPrinter")]
     public List<PrintUsageByPrinterModel>? DailyPrintUsageByPrinter { get; set; }
 

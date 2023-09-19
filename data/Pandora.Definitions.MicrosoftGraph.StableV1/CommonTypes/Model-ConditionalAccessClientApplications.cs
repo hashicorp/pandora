@@ -21,4 +21,7 @@ internal class ConditionalAccessClientApplicationsModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("servicePrincipalFilter")]
+    public ConditionalAccessFilterModel? ServicePrincipalFilter { get; set; }
 }

@@ -17,7 +17,7 @@ internal class StandardTimeZoneOffsetModel
     public int? DayOccurrence { get; set; }
 
     [JsonPropertyName("dayOfWeek")]
-    public DayOfWeekConstant? DayOfWeek { get; set; }
+    public StandardTimeZoneOffsetDayOfWeekConstant? DayOfWeek { get; set; }
 
     [JsonPropertyName("month")]
     public int? Month { get; set; }

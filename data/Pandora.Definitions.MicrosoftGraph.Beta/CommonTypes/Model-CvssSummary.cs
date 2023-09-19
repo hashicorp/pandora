@@ -17,7 +17,7 @@ internal class CvssSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("severity")]
-    public VulnerabilitySeverityConstant? Severity { get; set; }
+    public CvssSummarySeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("vectorString")]
     public string? VectorString { get; set; }

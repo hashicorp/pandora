@@ -17,7 +17,7 @@ internal class DeviceHealthScriptPolicyStateModel
     public List<string>? AssignmentFilterIds { get; set; }
 
     [JsonPropertyName("detectionState")]
-    public RunStateConstant? DetectionState { get; set; }
+    public DeviceHealthScriptPolicyStateDetectionStateConstant? DetectionState { get; set; }
 
     [JsonPropertyName("deviceId")]
     public string? DeviceId { get; set; }
@@ -65,7 +65,7 @@ internal class DeviceHealthScriptPolicyStateModel
     public string? RemediationScriptError { get; set; }
 
     [JsonPropertyName("remediationState")]
-    public RemediationStateConstant? RemediationState { get; set; }
+    public DeviceHealthScriptPolicyStateRemediationStateConstant? RemediationState { get; set; }
 
     [JsonPropertyName("userName")]
     public string? UserName { get; set; }

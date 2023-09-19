@@ -17,7 +17,7 @@ internal class PlayPromptOperationModel
     public string? ClientContext { get; set; }
 
     [JsonPropertyName("completionReason")]
-    public PlayPromptCompletionReasonConstant? CompletionReason { get; set; }
+    public PlayPromptOperationCompletionReasonConstant? CompletionReason { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,5 +29,5 @@ internal class PlayPromptOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public PlayPromptOperationStatusConstant? Status { get; set; }
 }

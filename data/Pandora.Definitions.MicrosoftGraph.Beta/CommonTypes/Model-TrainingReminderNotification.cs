@@ -1,0 +1,27 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using System;
+using System.Collections.Generic;
+using System.Text.Json.Serialization;
+using Pandora.Definitions.Attributes;
+using Pandora.Definitions.Attributes.Validation;
+using Pandora.Definitions.CustomTypes;
+
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+
+internal class TrainingReminderNotificationModel
+{
+    [JsonPropertyName("defaultLanguage")]
+    public string? DefaultLanguage { get; set; }
+
+    [JsonPropertyName("deliveryFrequency")]
+    public TrainingReminderNotificationDeliveryFrequencyConstant? DeliveryFrequency { get; set; }
+
+    [JsonPropertyName("endUserNotification")]
+    public EndUserNotificationModel? EndUserNotification { get; set; }
+
+    [JsonPropertyName("@odata.type")]
+    public string? ODataType { get; set; }
+}

@@ -41,7 +41,7 @@ internal class EducationUserModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("externalSource")]
-    public EducationExternalSourceConstant? ExternalSource { get; set; }
+    public EducationUserExternalSourceConstant? ExternalSource { get; set; }
 
     [JsonPropertyName("externalSourceDetail")]
     public string? ExternalSourceDetail { get; set; }
@@ -86,7 +86,7 @@ internal class EducationUserModel
     public string? PreferredLanguage { get; set; }
 
     [JsonPropertyName("primaryRole")]
-    public EducationUserRoleConstant? PrimaryRole { get; set; }
+    public EducationUserPrimaryRoleConstant? PrimaryRole { get; set; }
 
     [JsonPropertyName("provisionedPlans")]
     public List<ProvisionedPlanModel>? ProvisionedPlans { get; set; }

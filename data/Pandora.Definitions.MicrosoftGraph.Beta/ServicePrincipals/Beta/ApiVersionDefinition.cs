@@ -31,6 +31,7 @@ public partial class Definition : ApiVersionDefinition
         new ServicePrincipalOwner.Definition(),
         new ServicePrincipalSynchronization.Definition(),
         new ServicePrincipalSynchronizationJob.Definition(),
+        new ServicePrincipalSynchronizationJobBulkUpload.Definition(),
         new ServicePrincipalSynchronizationJobSchema.Definition(),
         new ServicePrincipalSynchronizationJobSchemaDirectory.Definition(),
         new ServicePrincipalSynchronizationSecret.Definition(),

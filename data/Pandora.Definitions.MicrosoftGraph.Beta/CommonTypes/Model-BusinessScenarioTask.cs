@@ -83,7 +83,7 @@ internal class BusinessScenarioTaskModel
     public string? PlanId { get; set; }
 
     [JsonPropertyName("previewType")]
-    public PlannerPreviewTypeConstant? PreviewType { get; set; }
+    public BusinessScenarioTaskPreviewTypeConstant? PreviewType { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
@@ -98,7 +98,7 @@ internal class BusinessScenarioTaskModel
     public int? ReferenceCount { get; set; }
 
     [JsonPropertyName("specifiedCompletionRequirements")]
-    public PlannerTaskCompletionRequirementsConstant? SpecifiedCompletionRequirements { get; set; }
+    public BusinessScenarioTaskSpecifiedCompletionRequirementsConstant? SpecifiedCompletionRequirements { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }

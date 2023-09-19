@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallRecordsSessionModel
 {
     [JsonPropertyName("callee")]
-    public EndpointModel? Callee { get; set; }
+    public CallRecordsEndpointModel? Callee { get; set; }
 
     [JsonPropertyName("caller")]
-    public EndpointModel? Caller { get; set; }
+    public CallRecordsEndpointModel? Caller { get; set; }
 
     [JsonPropertyName("endDateTime")]
     public DateTime? EndDateTime { get; set; }
 
     [JsonPropertyName("failureInfo")]
-    public FailureInfoModel? FailureInfo { get; set; }
+    public CallRecordsFailureInfoModel? FailureInfo { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -32,13 +32,13 @@ internal class CallRecordsSessionModel
     public bool? IsTest { get; set; }
 
     [JsonPropertyName("modalities")]
-    public List<ModalityConstant>? Modalities { get; set; }
+    public List<CallRecordsSessionModalitiesConstant>? Modalities { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("segments")]
-    public List<SegmentModel>? Segments { get; set; }
+    public List<CallRecordsSegmentModel>? Segments { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }

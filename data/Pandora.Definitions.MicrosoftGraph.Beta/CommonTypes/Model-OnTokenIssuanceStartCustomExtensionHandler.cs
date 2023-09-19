@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class OnTokenIssuanceStartCustomExtensionHandlerModel
 {
+    [JsonPropertyName("configuration")]
+    public CustomExtensionOverwriteConfigurationModel? Configuration { get; set; }
+
     [JsonPropertyName("customExtension")]
     public OnTokenIssuanceStartCustomExtensionModel? CustomExtension { get; set; }
 

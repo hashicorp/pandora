@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityConfigurationTaskModel
 {
     [JsonPropertyName("applicablePlatform")]
-    public EndpointSecurityConfigurationApplicablePlatformConstant? ApplicablePlatform { get; set; }
+    public SecurityConfigurationTaskApplicablePlatformConstant? ApplicablePlatform { get; set; }
 
     [JsonPropertyName("assignedTo")]
     public string? AssignedTo { get; set; }
 
     [JsonPropertyName("category")]
-    public DeviceAppManagementTaskCategoryConstant? Category { get; set; }
+    public SecurityConfigurationTaskCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -41,10 +41,10 @@ internal class SecurityConfigurationTaskModel
     public DateTime? DueDateTime { get; set; }
 
     [JsonPropertyName("endpointSecurityPolicy")]
-    public EndpointSecurityConfigurationTypeConstant? EndpointSecurityPolicy { get; set; }
+    public SecurityConfigurationTaskEndpointSecurityPolicyConstant? EndpointSecurityPolicy { get; set; }
 
     [JsonPropertyName("endpointSecurityPolicyProfile")]
-    public EndpointSecurityConfigurationProfileTypeConstant? EndpointSecurityPolicyProfile { get; set; }
+    public SecurityConfigurationTaskEndpointSecurityPolicyProfileConstant? EndpointSecurityPolicyProfile { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -65,8 +65,8 @@ internal class SecurityConfigurationTaskModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("priority")]
-    public DeviceAppManagementTaskPriorityConstant? Priority { get; set; }
+    public SecurityConfigurationTaskPriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceAppManagementTaskStatusConstant? Status { get; set; }
+    public SecurityConfigurationTaskStatusConstant? Status { get; set; }
 }

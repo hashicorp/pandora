@@ -17,7 +17,7 @@ internal class MacOSWiredNetworkConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public MacOSWiredNetworkConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -47,10 +47,10 @@ internal class MacOSWiredNetworkConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapFastConfiguration")]
-    public EapFastConfigurationConstant? EapFastConfiguration { get; set; }
+    public MacOSWiredNetworkConfigurationEapFastConfigurationConstant? EapFastConfiguration { get; set; }
 
     [JsonPropertyName("eapType")]
-    public EapTypeConstant? EapType { get; set; }
+    public MacOSWiredNetworkConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("enableOuterIdentityPrivacy")]
     public string? EnableOuterIdentityPrivacy { get; set; }
@@ -68,13 +68,13 @@ internal class MacOSWiredNetworkConfigurationModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("networkInterface")]
-    public WiredNetworkInterfaceConstant? NetworkInterface { get; set; }
+    public MacOSWiredNetworkConfigurationNetworkInterfaceConstant? NetworkInterface { get; set; }
 
     [JsonPropertyName("networkName")]
     public string? NetworkName { get; set; }
 
     [JsonPropertyName("nonEapAuthenticationMethodForEapTtls")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? NonEapAuthenticationMethodForEapTtls { get; set; }
+    public MacOSWiredNetworkConfigurationNonEapAuthenticationMethodForEapTtlsConstant? NonEapAuthenticationMethodForEapTtls { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -26,7 +26,7 @@ internal class WorkforceIntegrationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eligibilityFilteringEnabledEntities")]
-    public EligibilityFilteringEnabledEntitiesConstant? EligibilityFilteringEnabledEntities { get; set; }
+    public WorkforceIntegrationEligibilityFilteringEnabledEntitiesConstant? EligibilityFilteringEnabledEntities { get; set; }
 
     [JsonPropertyName("encryption")]
     public WorkforceIntegrationEncryptionModel? Encryption { get; set; }
@@ -50,7 +50,7 @@ internal class WorkforceIntegrationModel
     public WorkforceIntegrationSupportedEntitiesConstant? SupportedEntities { get; set; }
 
     [JsonPropertyName("supports")]
-    public WorkforceIntegrationSupportedEntitiesConstant? Supports { get; set; }
+    public WorkforceIntegrationSupportsConstant? Supports { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

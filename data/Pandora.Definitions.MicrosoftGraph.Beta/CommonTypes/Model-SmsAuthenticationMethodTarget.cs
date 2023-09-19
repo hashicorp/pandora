@@ -26,5 +26,5 @@ internal class SmsAuthenticationMethodTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public SmsAuthenticationMethodTargetTargetTypeConstant? TargetType { get; set; }
 }

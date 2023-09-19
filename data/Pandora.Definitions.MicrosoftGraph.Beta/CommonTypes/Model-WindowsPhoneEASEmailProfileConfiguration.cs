@@ -53,13 +53,13 @@ internal class WindowsPhoneEASEmailProfileConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("emailSyncSchedule")]
-    public EmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationEmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -95,7 +95,7 @@ internal class WindowsPhoneEASEmailProfileConfigurationModel
     public bool? SyncTasks { get; set; }
 
     [JsonPropertyName("userDomainNameSource")]
-    public DomainNameSourceConstant? UserDomainNameSource { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationUserDomainNameSourceConstant? UserDomainNameSource { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -104,10 +104,10 @@ internal class WindowsPhoneEASEmailProfileConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameAADSource")]
-    public UsernameSourceConstant? UsernameAADSource { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationUsernameAADSourceConstant? UsernameAADSource { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public UserEmailSourceConstant? UsernameSource { get; set; }
+    public WindowsPhoneEASEmailProfileConfigurationUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

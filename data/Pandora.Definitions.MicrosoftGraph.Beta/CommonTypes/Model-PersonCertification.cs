@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PersonCertificationModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public PersonCertificationAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("certificationId")]
     public string? CertificationId { get; set; }

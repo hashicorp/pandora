@@ -32,5 +32,5 @@ internal class X509CertificateAuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public X509CertificateAuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

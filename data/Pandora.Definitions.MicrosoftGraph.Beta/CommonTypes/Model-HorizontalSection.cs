@@ -17,13 +17,13 @@ internal class HorizontalSectionModel
     public List<HorizontalSectionColumnModel>? Columns { get; set; }
 
     [JsonPropertyName("emphasis")]
-    public SectionEmphasisTypeConstant? Emphasis { get; set; }
+    public HorizontalSectionEmphasisConstant? Emphasis { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("layout")]
-    public HorizontalSectionLayoutTypeConstant? Layout { get; set; }
+    public HorizontalSectionLayoutConstant? Layout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

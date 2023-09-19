@@ -38,5 +38,5 @@ internal class ServiceNowConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("serviceNowConnectionStatus")]
-    public ServiceNowConnectionStatusConstant? ServiceNowConnectionStatus { get; set; }
+    public ServiceNowConnectionServiceNowConnectionStatusConstant? ServiceNowConnectionStatus { get; set; }
 }

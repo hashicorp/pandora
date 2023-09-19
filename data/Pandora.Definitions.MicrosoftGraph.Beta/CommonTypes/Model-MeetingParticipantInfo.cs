@@ -20,7 +20,7 @@ internal class MeetingParticipantInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("role")]
-    public OnlineMeetingRoleConstant? Role { get; set; }
+    public MeetingParticipantInfoRoleConstant? Role { get; set; }
 
     [JsonPropertyName("upn")]
     public string? Upn { get; set; }

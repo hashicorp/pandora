@@ -20,5 +20,5 @@ internal class IdentityGovernanceTimeBasedAttributeTriggerModel
     public int? OffsetInDays { get; set; }
 
     [JsonPropertyName("timeBasedAttribute")]
-    public WorkflowTriggerTimeBasedAttributeConstant? TimeBasedAttribute { get; set; }
+    public IdentityGovernanceTimeBasedAttributeTriggerTimeBasedAttributeConstant? TimeBasedAttribute { get; set; }
 }

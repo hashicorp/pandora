@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CredentialUsageSummaryModel
 {
     [JsonPropertyName("authMethod")]
-    public UsageAuthMethodConstant? AuthMethod { get; set; }
+    public CredentialUsageSummaryAuthMethodConstant? AuthMethod { get; set; }
 
     [JsonPropertyName("failureActivityCount")]
-    public long? FailureActivityCount { get; set; }
+    public int? FailureActivityCount { get; set; }
 
     [JsonPropertyName("feature")]
-    public FeatureTypeConstant? Feature { get; set; }
+    public CredentialUsageSummaryFeatureConstant? Feature { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,5 +29,5 @@ internal class CredentialUsageSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("successfulActivityCount")]
-    public long? SuccessfulActivityCount { get; set; }
+    public int? SuccessfulActivityCount { get; set; }
 }

@@ -17,7 +17,7 @@ internal class AndroidManagedStoreAppAssignmentSettingsModel
     public List<string>? AndroidManagedStoreAppTrackIds { get; set; }
 
     [JsonPropertyName("autoUpdateMode")]
-    public AndroidManagedStoreAutoUpdateModeConstant? AutoUpdateMode { get; set; }
+    public AndroidManagedStoreAppAssignmentSettingsAutoUpdateModeConstant? AutoUpdateMode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

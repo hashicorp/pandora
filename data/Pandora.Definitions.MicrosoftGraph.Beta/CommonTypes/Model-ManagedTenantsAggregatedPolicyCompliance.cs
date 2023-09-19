@@ -32,13 +32,13 @@ internal class ManagedTenantsAggregatedPolicyComplianceModel
     public DateTime? LastRefreshedDateTime { get; set; }
 
     [JsonPropertyName("numberOfCompliantDevices")]
-    public long? NumberOfCompliantDevices { get; set; }
+    public int? NumberOfCompliantDevices { get; set; }
 
     [JsonPropertyName("numberOfErrorDevices")]
-    public long? NumberOfErrorDevices { get; set; }
+    public int? NumberOfErrorDevices { get; set; }
 
     [JsonPropertyName("numberOfNonCompliantDevices")]
-    public long? NumberOfNonCompliantDevices { get; set; }
+    public int? NumberOfNonCompliantDevices { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

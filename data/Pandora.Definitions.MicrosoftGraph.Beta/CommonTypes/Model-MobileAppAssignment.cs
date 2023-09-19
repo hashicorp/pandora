@@ -17,7 +17,7 @@ internal class MobileAppAssignmentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intent")]
-    public InstallIntentConstant? Intent { get; set; }
+    public MobileAppAssignmentIntentConstant? Intent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -26,7 +26,7 @@ internal class MobileAppAssignmentModel
     public MobileAppAssignmentSettingsModel? Settings { get; set; }
 
     [JsonPropertyName("source")]
-    public DeviceAndAppManagementAssignmentSourceConstant? Source { get; set; }
+    public MobileAppAssignmentSourceConstant? Source { get; set; }
 
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }

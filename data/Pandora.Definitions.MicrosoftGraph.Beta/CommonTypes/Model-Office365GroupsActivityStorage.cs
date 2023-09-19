@@ -17,7 +17,7 @@ internal class Office365GroupsActivityStorageModel
     public string? Id { get; set; }
 
     [JsonPropertyName("mailboxStorageUsedInBytes")]
-    public long? MailboxStorageUsedInBytes { get; set; }
+    public int? MailboxStorageUsedInBytes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -32,5 +32,5 @@ internal class Office365GroupsActivityStorageModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("siteStorageUsedInBytes")]
-    public long? SiteStorageUsedInBytes { get; set; }
+    public int? SiteStorageUsedInBytes { get; set; }
 }

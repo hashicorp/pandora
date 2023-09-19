@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceComplianceScriptDeviceStateModel
 {
     [JsonPropertyName("detectionState")]
-    public RunStateConstant? DetectionState { get; set; }
+    public DeviceComplianceScriptDeviceStateDetectionStateConstant? DetectionState { get; set; }
 
     [JsonPropertyName("expectedStateUpdateDateTime")]
     public DateTime? ExpectedStateUpdateDateTime { get; set; }

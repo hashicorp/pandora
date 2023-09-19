@@ -17,7 +17,7 @@ internal class ConnectorGroupModel
     public List<ApplicationModel>? Applications { get; set; }
 
     [JsonPropertyName("connectorGroupType")]
-    public ConnectorGroupTypeConstant? ConnectorGroupType { get; set; }
+    public ConnectorGroupConnectorGroupTypeConstant? ConnectorGroupType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -20,7 +20,7 @@ internal class MessageEventModel
     public string? Description { get; set; }
 
     [JsonPropertyName("eventType")]
-    public MessageEventTypeConstant? EventType { get; set; }
+    public MessageEventEventTypeConstant? EventType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

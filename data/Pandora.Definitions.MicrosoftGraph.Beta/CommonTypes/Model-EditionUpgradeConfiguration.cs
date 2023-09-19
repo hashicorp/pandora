@@ -56,7 +56,7 @@ internal class EditionUpgradeConfigurationModel
     public string? License { get; set; }
 
     [JsonPropertyName("licenseType")]
-    public EditionUpgradeLicenseTypeConstant? LicenseType { get; set; }
+    public EditionUpgradeConfigurationLicenseTypeConstant? LicenseType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -71,7 +71,7 @@ internal class EditionUpgradeConfigurationModel
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("targetEdition")]
-    public Windows10EditionTypeConstant? TargetEdition { get; set; }
+    public EditionUpgradeConfigurationTargetEditionConstant? TargetEdition { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -83,5 +83,5 @@ internal class EditionUpgradeConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("windowsSMode")]
-    public WindowsSModeConfigurationConstant? WindowsSMode { get; set; }
+    public EditionUpgradeConfigurationWindowsSModeConstant? WindowsSMode { get; set; }
 }

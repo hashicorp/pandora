@@ -14,22 +14,22 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagedTenantAlertModel
 {
     [JsonPropertyName("alertData")]
-    public AlertDataModel? AlertData { get; set; }
+    public ManagedTenantsAlertDataModel? AlertData { get; set; }
 
     [JsonPropertyName("alertDataReferenceStrings")]
-    public List<AlertDataReferenceStringModel>? AlertDataReferenceStrings { get; set; }
+    public List<ManagedTenantsAlertDataReferenceStringModel>? AlertDataReferenceStrings { get; set; }
 
     [JsonPropertyName("alertLogs")]
-    public List<ManagedTenantAlertLogModel>? AlertLogs { get; set; }
+    public List<ManagedTenantsManagedTenantAlertLogModel>? AlertLogs { get; set; }
 
     [JsonPropertyName("alertRule")]
-    public ManagedTenantAlertRuleModel? AlertRule { get; set; }
+    public ManagedTenantsManagedTenantAlertRuleModel? AlertRule { get; set; }
 
     [JsonPropertyName("alertRuleDisplayName")]
     public string? AlertRuleDisplayName { get; set; }
 
     [JsonPropertyName("apiNotifications")]
-    public List<ManagedTenantApiNotificationModel>? ApiNotifications { get; set; }
+    public List<ManagedTenantsManagedTenantApiNotificationModel>? ApiNotifications { get; set; }
 
     [JsonPropertyName("assignedToUserId")]
     public string? AssignedToUserId { get; set; }
@@ -47,7 +47,7 @@ internal class ManagedTenantsManagedTenantAlertModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("emailNotifications")]
-    public List<ManagedTenantEmailNotificationModel>? EmailNotifications { get; set; }
+    public List<ManagedTenantsManagedTenantEmailNotificationModel>? EmailNotifications { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -65,10 +65,10 @@ internal class ManagedTenantsManagedTenantAlertModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("severity")]
-    public AlertSeverityConstant? Severity { get; set; }
+    public ManagedTenantsManagedTenantAlertSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("status")]
-    public AlertStatusConstant? Status { get; set; }
+    public ManagedTenantsManagedTenantAlertStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

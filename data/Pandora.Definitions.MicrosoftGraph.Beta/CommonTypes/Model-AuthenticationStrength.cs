@@ -17,7 +17,7 @@ internal class AuthenticationStrengthModel
     public string? AuthenticationStrengthId { get; set; }
 
     [JsonPropertyName("authenticationStrengthResult")]
-    public AuthenticationStrengthResultConstant? AuthenticationStrengthResult { get; set; }
+    public AuthenticationStrengthAuthenticationStrengthResultConstant? AuthenticationStrengthResult { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

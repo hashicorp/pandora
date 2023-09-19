@@ -59,7 +59,7 @@ internal class EventModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public EventImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("instances")]
     public List<EventModel>? Instances { get; set; }
@@ -101,7 +101,7 @@ internal class EventModel
     public OnlineMeetingInfoModel? OnlineMeeting { get; set; }
 
     [JsonPropertyName("onlineMeetingProvider")]
-    public OnlineMeetingProviderTypeConstant? OnlineMeetingProvider { get; set; }
+    public EventOnlineMeetingProviderConstant? OnlineMeetingProvider { get; set; }
 
     [JsonPropertyName("onlineMeetingUrl")]
     public string? OnlineMeetingUrl { get; set; }
@@ -131,13 +131,13 @@ internal class EventModel
     public ResponseStatusModel? ResponseStatus { get; set; }
 
     [JsonPropertyName("sensitivity")]
-    public SensitivityConstant? Sensitivity { get; set; }
+    public EventSensitivityConstant? Sensitivity { get; set; }
 
     [JsonPropertyName("seriesMasterId")]
     public string? SeriesMasterId { get; set; }
 
     [JsonPropertyName("showAs")]
-    public FreeBusyStatusConstant? ShowAs { get; set; }
+    public EventShowAsConstant? ShowAs { get; set; }
 
     [JsonPropertyName("singleValueExtendedProperties")]
     public List<SingleValueLegacyExtendedPropertyModel>? SingleValueExtendedProperties { get; set; }

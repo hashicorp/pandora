@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallRecordsMediaStreamModel
 {
     [JsonPropertyName("audioCodec")]
-    public AudioCodecConstant? AudioCodec { get; set; }
+    public CallRecordsMediaStreamAudioCodecConstant? AudioCodec { get; set; }
 
     [JsonPropertyName("averageAudioNetworkJitter")]
     public string? AverageAudioNetworkJitter { get; set; }
 
     [JsonPropertyName("averageBandwidthEstimate")]
-    public long? AverageBandwidthEstimate { get; set; }
+    public int? AverageBandwidthEstimate { get; set; }
 
     [JsonPropertyName("averageFreezeDuration")]
     public string? AverageFreezeDuration { get; set; }
@@ -50,7 +50,7 @@ internal class CallRecordsMediaStreamModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("packetUtilization")]
-    public long? PacketUtilization { get; set; }
+    public int? PacketUtilization { get; set; }
 
     [JsonPropertyName("rmsFreezeDuration")]
     public string? RmsFreezeDuration { get; set; }
@@ -59,13 +59,13 @@ internal class CallRecordsMediaStreamModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("streamDirection")]
-    public MediaStreamDirectionConstant? StreamDirection { get; set; }
+    public CallRecordsMediaStreamStreamDirectionConstant? StreamDirection { get; set; }
 
     [JsonPropertyName("streamId")]
     public string? StreamId { get; set; }
 
     [JsonPropertyName("videoCodec")]
-    public VideoCodecConstant? VideoCodec { get; set; }
+    public CallRecordsMediaStreamVideoCodecConstant? VideoCodec { get; set; }
 
     [JsonPropertyName("wasMediaBypassed")]
     public bool? WasMediaBypassed { get; set; }

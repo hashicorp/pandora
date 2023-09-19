@@ -17,7 +17,7 @@ internal class DeviceHealthScriptDeviceStateModel
     public List<string>? AssignmentFilterIds { get; set; }
 
     [JsonPropertyName("detectionState")]
-    public RunStateConstant? DetectionState { get; set; }
+    public DeviceHealthScriptDeviceStateDetectionStateConstant? DetectionState { get; set; }
 
     [JsonPropertyName("expectedStateUpdateDateTime")]
     public DateTime? ExpectedStateUpdateDateTime { get; set; }
@@ -53,5 +53,5 @@ internal class DeviceHealthScriptDeviceStateModel
     public string? RemediationScriptError { get; set; }
 
     [JsonPropertyName("remediationState")]
-    public RemediationStateConstant? RemediationState { get; set; }
+    public DeviceHealthScriptDeviceStateRemediationStateConstant? RemediationState { get; set; }
 }

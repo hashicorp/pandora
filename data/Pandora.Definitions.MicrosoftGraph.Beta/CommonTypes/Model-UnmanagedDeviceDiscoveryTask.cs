@@ -17,7 +17,7 @@ internal class UnmanagedDeviceDiscoveryTaskModel
     public string? AssignedTo { get; set; }
 
     [JsonPropertyName("category")]
-    public DeviceAppManagementTaskCategoryConstant? Category { get; set; }
+    public UnmanagedDeviceDiscoveryTaskCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -44,10 +44,10 @@ internal class UnmanagedDeviceDiscoveryTaskModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("priority")]
-    public DeviceAppManagementTaskPriorityConstant? Priority { get; set; }
+    public UnmanagedDeviceDiscoveryTaskPriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceAppManagementTaskStatusConstant? Status { get; set; }
+    public UnmanagedDeviceDiscoveryTaskStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unmanagedDevices")]
     public List<UnmanagedDeviceModel>? UnmanagedDevices { get; set; }

@@ -34,20 +34,20 @@ internal class IosiPadOSWebClipModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
+
+    [JsonPropertyName("fullScreenEnabled")]
+    public bool? FullScreenEnabled { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("ignoreManifestScope")]
+    public bool? IgnoreManifestScope { get; set; }
+
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -70,6 +70,9 @@ internal class IosiPadOSWebClipModel
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
 
+    [JsonPropertyName("preComposedIconEnabled")]
+    public bool? PreComposedIconEnabled { get; set; }
+
     [JsonPropertyName("privacyInformationUrl")]
     public string? PrivacyInformationUrl { get; set; }
 
@@ -77,7 +80,7 @@ internal class IosiPadOSWebClipModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public IosiPadOSWebClipPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -91,12 +94,12 @@ internal class IosiPadOSWebClipModel
     [JsonPropertyName("supersedingAppCount")]
     public int? SupersedingAppCount { get; set; }
 
+    [JsonPropertyName("targetApplicationBundleIdentifier")]
+    public string? TargetApplicationBundleIdentifier { get; set; }
+
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
 
     [JsonPropertyName("useManagedBrowser")]
     public bool? UseManagedBrowser { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

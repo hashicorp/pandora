@@ -14,38 +14,56 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityThreatIntelligenceModel
 {
     [JsonPropertyName("articleIndicators")]
-    public List<ArticleIndicatorModel>? ArticleIndicators { get; set; }
+    public List<SecurityArticleIndicatorModel>? ArticleIndicators { get; set; }
 
     [JsonPropertyName("articles")]
-    public List<ArticleModel>? Articles { get; set; }
+    public List<SecurityArticleModel>? Articles { get; set; }
 
     [JsonPropertyName("hostComponents")]
-    public List<HostComponentModel>? HostComponents { get; set; }
+    public List<SecurityHostComponentModel>? HostComponents { get; set; }
 
     [JsonPropertyName("hostCookies")]
-    public List<HostCookieModel>? HostCookies { get; set; }
+    public List<SecurityHostCookieModel>? HostCookies { get; set; }
+
+    [JsonPropertyName("hostPairs")]
+    public List<SecurityHostPairModel>? HostPairs { get; set; }
+
+    [JsonPropertyName("hostSslCertificates")]
+    public List<SecurityHostSslCertificateModel>? HostSslCertificates { get; set; }
 
     [JsonPropertyName("hostTrackers")]
-    public List<HostTrackerModel>? HostTrackers { get; set; }
+    public List<SecurityHostTrackerModel>? HostTrackers { get; set; }
 
     [JsonPropertyName("hosts")]
-    public List<HostModel>? Hosts { get; set; }
+    public List<SecurityHostModel>? Hosts { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("intelProfiles")]
-    public List<IntelligenceProfileModel>? IntelProfiles { get; set; }
+    public List<SecurityIntelligenceProfileModel>? IntelProfiles { get; set; }
 
     [JsonPropertyName("intelligenceProfileIndicators")]
-    public List<IntelligenceProfileIndicatorModel>? IntelligenceProfileIndicators { get; set; }
+    public List<SecurityIntelligenceProfileIndicatorModel>? IntelligenceProfileIndicators { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("passiveDnsRecords")]
-    public List<PassiveDnsRecordModel>? PassiveDnsRecords { get; set; }
+    public List<SecurityPassiveDnsRecordModel>? PassiveDnsRecords { get; set; }
+
+    [JsonPropertyName("sslCertificates")]
+    public List<SecuritySslCertificateModel>? SslCertificates { get; set; }
+
+    [JsonPropertyName("subdomains")]
+    public List<SecuritySubdomainModel>? Subdomains { get; set; }
 
     [JsonPropertyName("vulnerabilities")]
-    public List<VulnerabilityModel>? Vulnerabilities { get; set; }
+    public List<SecurityVulnerabilityModel>? Vulnerabilities { get; set; }
+
+    [JsonPropertyName("whoisHistoryRecords")]
+    public List<SecurityWhoisHistoryRecordModel>? WhoisHistoryRecords { get; set; }
+
+    [JsonPropertyName("whoisRecords")]
+    public List<SecurityWhoisRecordModel>? WhoisRecords { get; set; }
 }

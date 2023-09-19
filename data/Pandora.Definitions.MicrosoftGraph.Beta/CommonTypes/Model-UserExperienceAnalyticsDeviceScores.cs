@@ -17,7 +17,7 @@ internal class UserExperienceAnalyticsDeviceScoresModel
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsDeviceScoresHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

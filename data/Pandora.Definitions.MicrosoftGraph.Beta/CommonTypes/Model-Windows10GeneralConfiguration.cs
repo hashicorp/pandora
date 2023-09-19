@@ -17,7 +17,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? AccountsBlockAddingNonMicrosoftAccountEmail { get; set; }
 
     [JsonPropertyName("activateAppsWithVoice")]
-    public EnablementConstant? ActivateAppsWithVoice { get; set; }
+    public Windows10GeneralConfigurationActivateAppsWithVoiceConstant? ActivateAppsWithVoice { get; set; }
 
     [JsonPropertyName("antiTheftModeBlocked")]
     public bool? AntiTheftModeBlocked { get; set; }
@@ -32,7 +32,7 @@ internal class Windows10GeneralConfigurationModel
     public List<string>? AppManagementPackageFamilyNamesToLaunchAfterLogOn { get; set; }
 
     [JsonPropertyName("appsAllowTrustedAppsSideloading")]
-    public StateManagementSettingConstant? AppsAllowTrustedAppsSideloading { get; set; }
+    public Windows10GeneralConfigurationAppsAllowTrustedAppsSideloadingConstant? AppsAllowTrustedAppsSideloading { get; set; }
 
     [JsonPropertyName("appsBlockWindowsStoreOriginatedApps")]
     public bool? AppsBlockWindowsStoreOriginatedApps { get; set; }
@@ -47,7 +47,7 @@ internal class Windows10GeneralConfigurationModel
     public string? AuthenticationPreferredAzureADTenantDomainName { get; set; }
 
     [JsonPropertyName("authenticationWebSignIn")]
-    public EnablementConstant? AuthenticationWebSignIn { get; set; }
+    public Windows10GeneralConfigurationAuthenticationWebSignInConstant? AuthenticationWebSignIn { get; set; }
 
     [JsonPropertyName("bluetoothAllowedServices")]
     public List<string>? BluetoothAllowedServices { get; set; }
@@ -80,7 +80,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? CellularBlockVpnWhenRoaming { get; set; }
 
     [JsonPropertyName("cellularData")]
-    public ConfigurationUsageConstant? CellularData { get; set; }
+    public Windows10GeneralConfigurationCellularDataConstant? CellularData { get; set; }
 
     [JsonPropertyName("certificatesBlockManualRootCertificateInstallation")]
     public bool? CertificatesBlockManualRootCertificateInstallation { get; set; }
@@ -113,7 +113,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? DefenderBlockOnAccessProtection { get; set; }
 
     [JsonPropertyName("defenderCloudBlockLevel")]
-    public DefenderCloudBlockLevelTypeConstant? DefenderCloudBlockLevel { get; set; }
+    public Windows10GeneralConfigurationDefenderCloudBlockLevelConstant? DefenderCloudBlockLevel { get; set; }
 
     [JsonPropertyName("defenderCloudExtendedTimeout")]
     public int? DefenderCloudExtendedTimeout { get; set; }
@@ -140,19 +140,19 @@ internal class Windows10GeneralConfigurationModel
     public List<string>? DefenderFilesAndFoldersToExclude { get; set; }
 
     [JsonPropertyName("defenderMonitorFileActivity")]
-    public DefenderMonitorFileActivityConstant? DefenderMonitorFileActivity { get; set; }
+    public Windows10GeneralConfigurationDefenderMonitorFileActivityConstant? DefenderMonitorFileActivity { get; set; }
 
     [JsonPropertyName("defenderPotentiallyUnwantedAppAction")]
-    public DefenderPotentiallyUnwantedAppActionConstant? DefenderPotentiallyUnwantedAppAction { get; set; }
+    public Windows10GeneralConfigurationDefenderPotentiallyUnwantedAppActionConstant? DefenderPotentiallyUnwantedAppAction { get; set; }
 
     [JsonPropertyName("defenderPotentiallyUnwantedAppActionSetting")]
-    public DefenderProtectionTypeConstant? DefenderPotentiallyUnwantedAppActionSetting { get; set; }
+    public Windows10GeneralConfigurationDefenderPotentiallyUnwantedAppActionSettingConstant? DefenderPotentiallyUnwantedAppActionSetting { get; set; }
 
     [JsonPropertyName("defenderProcessesToExclude")]
     public List<string>? DefenderProcessesToExclude { get; set; }
 
     [JsonPropertyName("defenderPromptForSampleSubmission")]
-    public DefenderPromptForSampleSubmissionConstant? DefenderPromptForSampleSubmission { get; set; }
+    public Windows10GeneralConfigurationDefenderPromptForSampleSubmissionConstant? DefenderPromptForSampleSubmission { get; set; }
 
     [JsonPropertyName("defenderRequireBehaviorMonitoring")]
     public bool? DefenderRequireBehaviorMonitoring { get; set; }
@@ -191,7 +191,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? DefenderScanScriptsLoadedInInternetExplorer { get; set; }
 
     [JsonPropertyName("defenderScanType")]
-    public DefenderScanTypeConstant? DefenderScanType { get; set; }
+    public Windows10GeneralConfigurationDefenderScanTypeConstant? DefenderScanType { get; set; }
 
     [JsonPropertyName("defenderScheduleScanEnableLowCpuPriority")]
     public bool? DefenderScheduleScanEnableLowCpuPriority { get; set; }
@@ -206,16 +206,16 @@ internal class Windows10GeneralConfigurationModel
     public int? DefenderSignatureUpdateIntervalInHours { get; set; }
 
     [JsonPropertyName("defenderSubmitSamplesConsentType")]
-    public DefenderSubmitSamplesConsentTypeConstant? DefenderSubmitSamplesConsentType { get; set; }
+    public Windows10GeneralConfigurationDefenderSubmitSamplesConsentTypeConstant? DefenderSubmitSamplesConsentType { get; set; }
 
     [JsonPropertyName("defenderSystemScanSchedule")]
-    public WeeklyScheduleConstant? DefenderSystemScanSchedule { get; set; }
+    public Windows10GeneralConfigurationDefenderSystemScanScheduleConstant? DefenderSystemScanSchedule { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     [JsonPropertyName("developerUnlockSetting")]
-    public StateManagementSettingConstant? DeveloperUnlockSetting { get; set; }
+    public Windows10GeneralConfigurationDeveloperUnlockSettingConstant? DeveloperUnlockSetting { get; set; }
 
     [JsonPropertyName("deviceManagementApplicabilityRuleDeviceMode")]
     public DeviceManagementApplicabilityRuleDeviceModeModel? DeviceManagementApplicabilityRuleDeviceMode { get; set; }
@@ -242,7 +242,7 @@ internal class Windows10GeneralConfigurationModel
     public List<DeviceConfigurationDeviceStatusModel>? DeviceStatuses { get; set; }
 
     [JsonPropertyName("diagnosticsDataSubmissionMode")]
-    public DiagnosticDataSubmissionModeConstant? DiagnosticsDataSubmissionMode { get; set; }
+    public Windows10GeneralConfigurationDiagnosticsDataSubmissionModeConstant? DiagnosticsDataSubmissionMode { get; set; }
 
     [JsonPropertyName("displayAppListWithGdiDPIScalingTurnedOff")]
     public List<string>? DisplayAppListWithGdiDPIScalingTurnedOff { get; set; }
@@ -332,7 +332,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? EdgeClearBrowsingDataOnExit { get; set; }
 
     [JsonPropertyName("edgeCookiePolicy")]
-    public EdgeCookiePolicyConstant? EdgeCookiePolicy { get; set; }
+    public Windows10GeneralConfigurationEdgeCookiePolicyConstant? EdgeCookiePolicy { get; set; }
 
     [JsonPropertyName("edgeDisableFirstRunPage")]
     public bool? EdgeDisableFirstRunPage { get; set; }
@@ -341,7 +341,7 @@ internal class Windows10GeneralConfigurationModel
     public string? EdgeEnterpriseModeSiteListLocation { get; set; }
 
     [JsonPropertyName("edgeFavoritesBarVisibility")]
-    public VisibilitySettingConstant? EdgeFavoritesBarVisibility { get; set; }
+    public Windows10GeneralConfigurationEdgeFavoritesBarVisibilityConstant? EdgeFavoritesBarVisibility { get; set; }
 
     [JsonPropertyName("edgeFavoritesListLocation")]
     public string? EdgeFavoritesListLocation { get; set; }
@@ -359,7 +359,7 @@ internal class Windows10GeneralConfigurationModel
     public List<string>? EdgeHomepageUrls { get; set; }
 
     [JsonPropertyName("edgeKioskModeRestriction")]
-    public EdgeKioskModeRestrictionTypeConstant? EdgeKioskModeRestriction { get; set; }
+    public Windows10GeneralConfigurationEdgeKioskModeRestrictionConstant? EdgeKioskModeRestriction { get; set; }
 
     [JsonPropertyName("edgeKioskResetAfterIdleTimeInMinutes")]
     public int? EdgeKioskResetAfterIdleTimeInMinutes { get; set; }
@@ -368,7 +368,7 @@ internal class Windows10GeneralConfigurationModel
     public string? EdgeNewTabPageURL { get; set; }
 
     [JsonPropertyName("edgeOpensWith")]
-    public EdgeOpenOptionsConstant? EdgeOpensWith { get; set; }
+    public Windows10GeneralConfigurationEdgeOpensWithConstant? EdgeOpensWith { get; set; }
 
     [JsonPropertyName("edgePreventCertificateErrorOverride")]
     public bool? EdgePreventCertificateErrorOverride { get; set; }
@@ -386,13 +386,13 @@ internal class Windows10GeneralConfigurationModel
     public bool? EdgeSendIntranetTrafficToInternetExplorer { get; set; }
 
     [JsonPropertyName("edgeShowMessageWhenOpeningInternetExplorerSites")]
-    public InternetExplorerMessageSettingConstant? EdgeShowMessageWhenOpeningInternetExplorerSites { get; set; }
+    public Windows10GeneralConfigurationEdgeShowMessageWhenOpeningInternetExplorerSitesConstant? EdgeShowMessageWhenOpeningInternetExplorerSites { get; set; }
 
     [JsonPropertyName("edgeSyncFavoritesWithInternetExplorer")]
     public bool? EdgeSyncFavoritesWithInternetExplorer { get; set; }
 
     [JsonPropertyName("edgeTelemetryForMicrosoft365Analytics")]
-    public EdgeTelemetryModeConstant? EdgeTelemetryForMicrosoft365Analytics { get; set; }
+    public Windows10GeneralConfigurationEdgeTelemetryForMicrosoft365AnalyticsConstant? EdgeTelemetryForMicrosoft365Analytics { get; set; }
 
     [JsonPropertyName("enableAutomaticRedeployment")]
     public bool? EnableAutomaticRedeployment { get; set; }
@@ -431,10 +431,10 @@ internal class Windows10GeneralConfigurationModel
     public bool? ExperienceBlockTaskSwitcher { get; set; }
 
     [JsonPropertyName("experienceDoNotSyncBrowserSettings")]
-    public BrowserSyncSettingConstant? ExperienceDoNotSyncBrowserSettings { get; set; }
+    public Windows10GeneralConfigurationExperienceDoNotSyncBrowserSettingsConstant? ExperienceDoNotSyncBrowserSettings { get; set; }
 
     [JsonPropertyName("findMyFiles")]
-    public EnablementConstant? FindMyFiles { get; set; }
+    public Windows10GeneralConfigurationFindMyFilesConstant? FindMyFiles { get; set; }
 
     [JsonPropertyName("gameDvrBlocked")]
     public bool? GameDvrBlocked { get; set; }
@@ -446,10 +446,10 @@ internal class Windows10GeneralConfigurationModel
     public string? Id { get; set; }
 
     [JsonPropertyName("inkWorkspaceAccess")]
-    public InkAccessSettingConstant? InkWorkspaceAccess { get; set; }
+    public Windows10GeneralConfigurationInkWorkspaceAccessConstant? InkWorkspaceAccess { get; set; }
 
     [JsonPropertyName("inkWorkspaceAccessState")]
-    public StateManagementSettingConstant? InkWorkspaceAccessState { get; set; }
+    public Windows10GeneralConfigurationInkWorkspaceAccessStateConstant? InkWorkspaceAccessState { get; set; }
 
     [JsonPropertyName("inkWorkspaceBlockSuggestedApps")]
     public bool? InkWorkspaceBlockSuggestedApps { get; set; }
@@ -464,7 +464,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? LocationServicesBlocked { get; set; }
 
     [JsonPropertyName("lockScreenActivateAppsWithVoice")]
-    public EnablementConstant? LockScreenActivateAppsWithVoice { get; set; }
+    public Windows10GeneralConfigurationLockScreenActivateAppsWithVoiceConstant? LockScreenActivateAppsWithVoice { get; set; }
 
     [JsonPropertyName("lockScreenAllowTimeoutConfiguration")]
     public bool? LockScreenAllowTimeoutConfiguration { get; set; }
@@ -500,7 +500,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? MicrosoftAccountBlocked { get; set; }
 
     [JsonPropertyName("microsoftAccountSignInAssistantSettings")]
-    public SignInAssistantOptionsConstant? MicrosoftAccountSignInAssistantSettings { get; set; }
+    public Windows10GeneralConfigurationMicrosoftAccountSignInAssistantSettingsConstant? MicrosoftAccountSignInAssistantSettings { get; set; }
 
     [JsonPropertyName("networkProxyApplySettingsDeviceWide")]
     public bool? NetworkProxyApplySettingsDeviceWide { get; set; }
@@ -551,7 +551,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows10GeneralConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -563,28 +563,28 @@ internal class Windows10GeneralConfigurationModel
     public string? PersonalizationLockScreenImageUrl { get; set; }
 
     [JsonPropertyName("powerButtonActionOnBattery")]
-    public PowerActionTypeConstant? PowerButtonActionOnBattery { get; set; }
+    public Windows10GeneralConfigurationPowerButtonActionOnBatteryConstant? PowerButtonActionOnBattery { get; set; }
 
     [JsonPropertyName("powerButtonActionPluggedIn")]
-    public PowerActionTypeConstant? PowerButtonActionPluggedIn { get; set; }
+    public Windows10GeneralConfigurationPowerButtonActionPluggedInConstant? PowerButtonActionPluggedIn { get; set; }
 
     [JsonPropertyName("powerHybridSleepOnBattery")]
-    public EnablementConstant? PowerHybridSleepOnBattery { get; set; }
+    public Windows10GeneralConfigurationPowerHybridSleepOnBatteryConstant? PowerHybridSleepOnBattery { get; set; }
 
     [JsonPropertyName("powerHybridSleepPluggedIn")]
-    public EnablementConstant? PowerHybridSleepPluggedIn { get; set; }
+    public Windows10GeneralConfigurationPowerHybridSleepPluggedInConstant? PowerHybridSleepPluggedIn { get; set; }
 
     [JsonPropertyName("powerLidCloseActionOnBattery")]
-    public PowerActionTypeConstant? PowerLidCloseActionOnBattery { get; set; }
+    public Windows10GeneralConfigurationPowerLidCloseActionOnBatteryConstant? PowerLidCloseActionOnBattery { get; set; }
 
     [JsonPropertyName("powerLidCloseActionPluggedIn")]
-    public PowerActionTypeConstant? PowerLidCloseActionPluggedIn { get; set; }
+    public Windows10GeneralConfigurationPowerLidCloseActionPluggedInConstant? PowerLidCloseActionPluggedIn { get; set; }
 
     [JsonPropertyName("powerSleepButtonActionOnBattery")]
-    public PowerActionTypeConstant? PowerSleepButtonActionOnBattery { get; set; }
+    public Windows10GeneralConfigurationPowerSleepButtonActionOnBatteryConstant? PowerSleepButtonActionOnBattery { get; set; }
 
     [JsonPropertyName("powerSleepButtonActionPluggedIn")]
-    public PowerActionTypeConstant? PowerSleepButtonActionPluggedIn { get; set; }
+    public Windows10GeneralConfigurationPowerSleepButtonActionPluggedInConstant? PowerSleepButtonActionPluggedIn { get; set; }
 
     [JsonPropertyName("printerBlockAddition")]
     public bool? PrinterBlockAddition { get; set; }
@@ -599,7 +599,7 @@ internal class Windows10GeneralConfigurationModel
     public List<WindowsPrivacyDataAccessControlItemModel>? PrivacyAccessControls { get; set; }
 
     [JsonPropertyName("privacyAdvertisingId")]
-    public StateManagementSettingConstant? PrivacyAdvertisingId { get; set; }
+    public Windows10GeneralConfigurationPrivacyAdvertisingIdConstant? PrivacyAdvertisingId { get; set; }
 
     [JsonPropertyName("privacyAutoAcceptPairingAndConsentPrompts")]
     public bool? PrivacyAutoAcceptPairingAndConsentPrompts { get; set; }
@@ -623,7 +623,7 @@ internal class Windows10GeneralConfigurationModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("safeSearchFilter")]
-    public SafeSearchFilterTypeConstant? SafeSearchFilter { get; set; }
+    public Windows10GeneralConfigurationSafeSearchFilterConstant? SafeSearchFilter { get; set; }
 
     [JsonPropertyName("screenCaptureBlocked")]
     public bool? ScreenCaptureBlocked { get; set; }
@@ -722,7 +722,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? SharedUserAppDataAllowed { get; set; }
 
     [JsonPropertyName("smartScreenAppInstallControl")]
-    public AppInstallControlTypeConstant? SmartScreenAppInstallControl { get; set; }
+    public Windows10GeneralConfigurationSmartScreenAppInstallControlConstant? SmartScreenAppInstallControl { get; set; }
 
     [JsonPropertyName("smartScreenBlockPromptOverride")]
     public bool? SmartScreenBlockPromptOverride { get; set; }
@@ -737,7 +737,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? StartBlockUnpinningAppsFromTaskbar { get; set; }
 
     [JsonPropertyName("startMenuAppListVisibility")]
-    public WindowsStartMenuAppListVisibilityTypeConstant? StartMenuAppListVisibility { get; set; }
+    public Windows10GeneralConfigurationStartMenuAppListVisibilityConstant? StartMenuAppListVisibility { get; set; }
 
     [JsonPropertyName("startMenuHideChangeAccountSettings")]
     public bool? StartMenuHideChangeAccountSettings { get; set; }
@@ -785,37 +785,37 @@ internal class Windows10GeneralConfigurationModel
     public string? StartMenuLayoutXml { get; set; }
 
     [JsonPropertyName("startMenuMode")]
-    public WindowsStartMenuModeTypeConstant? StartMenuMode { get; set; }
+    public Windows10GeneralConfigurationStartMenuModeConstant? StartMenuMode { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderDocuments")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderDocuments { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderDocumentsConstant? StartMenuPinnedFolderDocuments { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderDownloads")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderDownloads { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderDownloadsConstant? StartMenuPinnedFolderDownloads { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderFileExplorer")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderFileExplorer { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderFileExplorerConstant? StartMenuPinnedFolderFileExplorer { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderHomeGroup")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderHomeGroup { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderHomeGroupConstant? StartMenuPinnedFolderHomeGroup { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderMusic")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderMusic { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderMusicConstant? StartMenuPinnedFolderMusic { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderNetwork")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderNetwork { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderNetworkConstant? StartMenuPinnedFolderNetwork { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderPersonalFolder")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderPersonalFolder { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderPersonalFolderConstant? StartMenuPinnedFolderPersonalFolder { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderPictures")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderPictures { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderPicturesConstant? StartMenuPinnedFolderPictures { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderSettings")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderSettings { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderSettingsConstant? StartMenuPinnedFolderSettings { get; set; }
 
     [JsonPropertyName("startMenuPinnedFolderVideos")]
-    public VisibilitySettingConstant? StartMenuPinnedFolderVideos { get; set; }
+    public Windows10GeneralConfigurationStartMenuPinnedFolderVideosConstant? StartMenuPinnedFolderVideos { get; set; }
 
     [JsonPropertyName("storageBlockRemovableStorage")]
     public bool? StorageBlockRemovableStorage { get; set; }
@@ -899,7 +899,7 @@ internal class Windows10GeneralConfigurationModel
     public bool? WindowsSpotlightBlocked { get; set; }
 
     [JsonPropertyName("windowsSpotlightConfigureOnLockScreen")]
-    public WindowsSpotlightEnablementSettingsConstant? WindowsSpotlightConfigureOnLockScreen { get; set; }
+    public Windows10GeneralConfigurationWindowsSpotlightConfigureOnLockScreenConstant? WindowsSpotlightConfigureOnLockScreen { get; set; }
 
     [JsonPropertyName("windowsStoreBlockAutoUpdate")]
     public bool? WindowsStoreBlockAutoUpdate { get; set; }

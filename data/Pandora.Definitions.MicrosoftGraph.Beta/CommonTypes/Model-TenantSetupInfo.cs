@@ -29,7 +29,7 @@ internal class TenantSetupInfoModel
     public List<string>? RelevantRolesSettings { get; set; }
 
     [JsonPropertyName("setupStatus")]
-    public SetupStatusConstant? SetupStatus { get; set; }
+    public TenantSetupInfoSetupStatusConstant? SetupStatus { get; set; }
 
     [JsonPropertyName("skipSetup")]
     public bool? SkipSetup { get; set; }

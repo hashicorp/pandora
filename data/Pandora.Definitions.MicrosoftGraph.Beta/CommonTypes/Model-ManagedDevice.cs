@@ -41,19 +41,19 @@ internal class ManagedDeviceModel
     public bool? BootstrapTokenEscrowed { get; set; }
 
     [JsonPropertyName("chassisType")]
-    public ChassisTypeConstant? ChassisType { get; set; }
+    public ManagedDeviceChassisTypeConstant? ChassisType { get; set; }
 
     [JsonPropertyName("chromeOSDeviceInfo")]
     public List<ChromeOSDevicePropertyModel>? ChromeOSDeviceInfo { get; set; }
 
     [JsonPropertyName("cloudPcRemoteActionResults")]
-    public List<CloudPcRemoteActionResultModel>? CloudPcRemoteActionResults { get; set; }
+    public List<CloudPCRemoteActionResultModel>? CloudPCRemoteActionResults { get; set; }
 
     [JsonPropertyName("complianceGracePeriodExpirationDateTime")]
     public DateTime? ComplianceGracePeriodExpirationDateTime { get; set; }
 
     [JsonPropertyName("complianceState")]
-    public ComplianceStateConstant? ComplianceState { get; set; }
+    public ManagedDeviceComplianceStateConstant? ComplianceState { get; set; }
 
     [JsonPropertyName("configurationManagerClientEnabledFeatures")]
     public ConfigurationManagerClientEnabledFeaturesModel? ConfigurationManagerClientEnabledFeatures { get; set; }
@@ -83,7 +83,7 @@ internal class ManagedDeviceModel
     public List<DeviceConfigurationStateModel>? DeviceConfigurationStates { get; set; }
 
     [JsonPropertyName("deviceEnrollmentType")]
-    public DeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
+    public ManagedDeviceDeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
 
     [JsonPropertyName("deviceFirmwareConfigurationInterfaceManaged")]
     public bool? DeviceFirmwareConfigurationInterfaceManaged { get; set; }
@@ -98,10 +98,10 @@ internal class ManagedDeviceModel
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("deviceRegistrationState")]
-    public DeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
+    public ManagedDeviceDeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public DeviceTypeConstant? DeviceType { get; set; }
+    public ManagedDeviceDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("easActivated")]
     public bool? EasActivated { get; set; }
@@ -125,16 +125,16 @@ internal class ManagedDeviceModel
     public string? EthernetMacAddress { get; set; }
 
     [JsonPropertyName("exchangeAccessState")]
-    public DeviceManagementExchangeAccessStateConstant? ExchangeAccessState { get; set; }
+    public ManagedDeviceExchangeAccessStateConstant? ExchangeAccessState { get; set; }
 
     [JsonPropertyName("exchangeAccessStateReason")]
-    public DeviceManagementExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
+    public ManagedDeviceExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
 
     [JsonPropertyName("exchangeLastSuccessfulSyncDateTime")]
     public DateTime? ExchangeLastSuccessfulSyncDateTime { get; set; }
 
     [JsonPropertyName("freeStorageSpaceInBytes")]
-    public long? FreeStorageSpaceInBytes { get; set; }
+    public int? FreeStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("hardwareInformation")]
     public HardwareInformationModel? HardwareInformation { get; set; }
@@ -158,7 +158,7 @@ internal class ManagedDeviceModel
     public string? JailBroken { get; set; }
 
     [JsonPropertyName("joinType")]
-    public JoinTypeConstant? JoinType { get; set; }
+    public ManagedDeviceJoinTypeConstant? JoinType { get; set; }
 
     [JsonPropertyName("lastSyncDateTime")]
     public DateTime? LastSyncDateTime { get; set; }
@@ -167,7 +167,7 @@ internal class ManagedDeviceModel
     public List<DeviceLogCollectionResponseModel>? LogCollectionRequests { get; set; }
 
     [JsonPropertyName("lostModeState")]
-    public LostModeStateConstant? LostModeState { get; set; }
+    public ManagedDeviceLostModeStateConstant? LostModeState { get; set; }
 
     [JsonPropertyName("managedDeviceMobileAppConfigurationStates")]
     public List<ManagedDeviceMobileAppConfigurationStateModel>? ManagedDeviceMobileAppConfigurationStates { get; set; }
@@ -176,10 +176,10 @@ internal class ManagedDeviceModel
     public string? ManagedDeviceName { get; set; }
 
     [JsonPropertyName("managedDeviceOwnerType")]
-    public ManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
+    public ManagedDeviceManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
 
     [JsonPropertyName("managementAgent")]
-    public ManagementAgentTypeConstant? ManagementAgent { get; set; }
+    public ManagedDeviceManagementAgentConstant? ManagementAgent { get; set; }
 
     [JsonPropertyName("managementCertificateExpirationDate")]
     public DateTime? ManagementCertificateExpirationDate { get; set; }
@@ -188,7 +188,7 @@ internal class ManagedDeviceModel
     public ManagedDeviceManagementFeaturesConstant? ManagementFeatures { get; set; }
 
     [JsonPropertyName("managementState")]
-    public ManagementStateConstant? ManagementState { get; set; }
+    public ManagedDeviceManagementStateConstant? ManagementState { get; set; }
 
     [JsonPropertyName("manufacturer")]
     public string? Manufacturer { get; set; }
@@ -212,22 +212,22 @@ internal class ManagedDeviceModel
     public string? OsVersion { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public OwnerTypeConstant? OwnerType { get; set; }
+    public ManagedDeviceOwnerTypeConstant? OwnerType { get; set; }
 
     [JsonPropertyName("partnerReportedThreatState")]
-    public ManagedDevicePartnerReportedHealthStateConstant? PartnerReportedThreatState { get; set; }
+    public ManagedDevicePartnerReportedThreatStateConstant? PartnerReportedThreatState { get; set; }
 
     [JsonPropertyName("phoneNumber")]
     public string? PhoneNumber { get; set; }
 
     [JsonPropertyName("physicalMemoryInBytes")]
-    public long? PhysicalMemoryInBytes { get; set; }
+    public int? PhysicalMemoryInBytes { get; set; }
 
     [JsonPropertyName("preferMdmOverGroupPolicyAppliedDateTime")]
     public DateTime? PreferMdmOverGroupPolicyAppliedDateTime { get; set; }
 
     [JsonPropertyName("processorArchitecture")]
-    public ManagedDeviceArchitectureConstant? ProcessorArchitecture { get; set; }
+    public ManagedDeviceProcessorArchitectureConstant? ProcessorArchitecture { get; set; }
 
     [JsonPropertyName("remoteAssistanceSessionErrorDetails")]
     public string? RemoteAssistanceSessionErrorDetails { get; set; }
@@ -247,6 +247,9 @@ internal class ManagedDeviceModel
     [JsonPropertyName("securityBaselineStates")]
     public List<SecurityBaselineStateModel>? SecurityBaselineStates { get; set; }
 
+    [JsonPropertyName("securityPatchLevel")]
+    public string? SecurityPatchLevel { get; set; }
+
     [JsonPropertyName("serialNumber")]
     public string? SerialNumber { get; set; }
 
@@ -263,7 +266,7 @@ internal class ManagedDeviceModel
     public string? SubscriberCarrier { get; set; }
 
     [JsonPropertyName("totalStorageSpaceInBytes")]
-    public long? TotalStorageSpaceInBytes { get; set; }
+    public int? TotalStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("udid")]
     public string? Udid { get; set; }

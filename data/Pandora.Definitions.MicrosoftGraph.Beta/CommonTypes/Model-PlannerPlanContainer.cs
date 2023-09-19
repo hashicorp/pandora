@@ -20,7 +20,7 @@ internal class PlannerPlanContainerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public PlannerContainerTypeConstant? Type { get; set; }
+    public PlannerPlanContainerTypeConstant? Type { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

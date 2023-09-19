@@ -35,7 +35,7 @@ internal class WindowsInformationProtectionPolicyModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enforcementLevel")]
-    public WindowsInformationProtectionEnforcementLevelConstant? EnforcementLevel { get; set; }
+    public WindowsInformationProtectionPolicyEnforcementLevelConstant? EnforcementLevel { get; set; }
 
     [JsonPropertyName("enterpriseDomain")]
     public string? EnterpriseDomain { get; set; }
@@ -107,16 +107,16 @@ internal class WindowsInformationProtectionPolicyModel
     public int? PinExpirationDays { get; set; }
 
     [JsonPropertyName("pinLowercaseLetters")]
-    public WindowsInformationProtectionPinCharacterRequirementsConstant? PinLowercaseLetters { get; set; }
+    public WindowsInformationProtectionPolicyPinLowercaseLettersConstant? PinLowercaseLetters { get; set; }
 
     [JsonPropertyName("pinMinimumLength")]
     public int? PinMinimumLength { get; set; }
 
     [JsonPropertyName("pinSpecialCharacters")]
-    public WindowsInformationProtectionPinCharacterRequirementsConstant? PinSpecialCharacters { get; set; }
+    public WindowsInformationProtectionPolicyPinSpecialCharactersConstant? PinSpecialCharacters { get; set; }
 
     [JsonPropertyName("pinUppercaseLetters")]
-    public WindowsInformationProtectionPinCharacterRequirementsConstant? PinUppercaseLetters { get; set; }
+    public WindowsInformationProtectionPolicyPinUppercaseLettersConstant? PinUppercaseLetters { get; set; }
 
     [JsonPropertyName("protectedAppLockerFiles")]
     public List<WindowsInformationProtectionAppLockerFileModel>? ProtectedAppLockerFiles { get; set; }

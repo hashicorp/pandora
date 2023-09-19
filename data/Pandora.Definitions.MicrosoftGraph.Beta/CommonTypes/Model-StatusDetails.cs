@@ -17,7 +17,7 @@ internal class StatusDetailsModel
     public string? AdditionalDetails { get; set; }
 
     [JsonPropertyName("errorCategory")]
-    public ProvisioningStatusErrorCategoryConstant? ErrorCategory { get; set; }
+    public StatusDetailsErrorCategoryConstant? ErrorCategory { get; set; }
 
     [JsonPropertyName("errorCode")]
     public string? ErrorCode { get; set; }
@@ -32,5 +32,5 @@ internal class StatusDetailsModel
     public string? RecommendedAction { get; set; }
 
     [JsonPropertyName("status")]
-    public ProvisioningResultConstant? Status { get; set; }
+    public StatusDetailsStatusConstant? Status { get; set; }
 }

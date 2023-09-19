@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MicrosoftTunnelHealthThresholdModel
 {
     [JsonPropertyName("defaultHealthyThreshold")]
-    public long? DefaultHealthyThreshold { get; set; }
+    public int? DefaultHealthyThreshold { get; set; }
 
     [JsonPropertyName("defaultUnhealthyThreshold")]
-    public long? DefaultUnhealthyThreshold { get; set; }
+    public int? DefaultUnhealthyThreshold { get; set; }
 
     [JsonPropertyName("healthyThreshold")]
-    public long? HealthyThreshold { get; set; }
+    public int? HealthyThreshold { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,5 +29,5 @@ internal class MicrosoftTunnelHealthThresholdModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("unhealthyThreshold")]
-    public long? UnhealthyThreshold { get; set; }
+    public int? UnhealthyThreshold { get; set; }
 }

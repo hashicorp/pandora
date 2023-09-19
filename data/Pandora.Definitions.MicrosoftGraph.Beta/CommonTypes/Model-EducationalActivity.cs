@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EducationalActivityModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public EducationalActivityAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("completionMonthYear")]
     public DateTime? CompletionMonthYear { get; set; }

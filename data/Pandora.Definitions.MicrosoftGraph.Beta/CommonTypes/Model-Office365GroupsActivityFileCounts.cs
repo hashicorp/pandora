@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Office365GroupsActivityFileCountsModel
 {
     [JsonPropertyName("active")]
-    public long? Active { get; set; }
+    public int? Active { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -32,5 +32,5 @@ internal class Office365GroupsActivityFileCountsModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("total")]
-    public long? Total { get; set; }
+    public int? Total { get; set; }
 }

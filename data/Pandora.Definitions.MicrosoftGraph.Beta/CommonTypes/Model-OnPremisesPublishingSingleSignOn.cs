@@ -20,5 +20,5 @@ internal class OnPremisesPublishingSingleSignOnModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("singleSignOnMode")]
-    public SingleSignOnModeConstant? SingleSignOnMode { get; set; }
+    public OnPremisesPublishingSingleSignOnSingleSignOnModeConstant? SingleSignOnMode { get; set; }
 }

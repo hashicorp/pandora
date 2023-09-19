@@ -44,5 +44,5 @@ internal class ComplianceManagementPartnerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("partnerState")]
-    public DeviceManagementPartnerTenantStateConstant? PartnerState { get; set; }
+    public ComplianceManagementPartnerPartnerStateConstant? PartnerState { get; set; }
 }

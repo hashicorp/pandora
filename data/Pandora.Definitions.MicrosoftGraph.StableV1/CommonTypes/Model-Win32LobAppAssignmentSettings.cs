@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class Win32LobAppAssignmentSettingsModel
 {
     [JsonPropertyName("deliveryOptimizationPriority")]
-    public Win32LobAppDeliveryOptimizationPriorityConstant? DeliveryOptimizationPriority { get; set; }
+    public Win32LobAppAssignmentSettingsDeliveryOptimizationPriorityConstant? DeliveryOptimizationPriority { get; set; }
 
     [JsonPropertyName("installTimeSettings")]
     public MobileAppInstallTimeSettingsModel? InstallTimeSettings { get; set; }
 
     [JsonPropertyName("notifications")]
-    public Win32LobAppNotificationConstant? Notifications { get; set; }
+    public Win32LobAppAssignmentSettingsNotificationsConstant? Notifications { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

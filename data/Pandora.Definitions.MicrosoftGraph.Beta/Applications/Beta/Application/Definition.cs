@@ -13,26 +13,26 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddApplicationKeyOperation(),
-        new AddApplicationPasswordOperation(),
-        new CheckApplicationMemberGroupsOperation(),
-        new CheckApplicationMemberObjectsOperation(),
+        new AddApplicationByIdKeyOperation(),
+        new AddApplicationByIdPasswordOperation(),
+        new CheckApplicationByIdMemberGroupOperation(),
+        new CheckApplicationByIdMemberObjectOperation(),
         new CreateApplicationOperation(),
-        new DeleteApplicationOperation(),
-        new GetApplicationByIdsOperation(),
-        new GetApplicationMemberGroupsOperation(),
-        new GetApplicationMemberObjectsOperation(),
-        new GetApplicationOperation(),
-        new GetApplicationUserOwnedObjectsOperation(),
-        new GetApplicationsCountOperation(),
+        new DeleteApplicationByIdOperation(),
+        new GetApplicationByIdMemberGroupOperation(),
+        new GetApplicationByIdMemberObjectOperation(),
+        new GetApplicationByIdOperation(),
+        new GetApplicationCountOperation(),
+        new GetApplicationsByIdsOperation(),
+        new GetApplicationsUserOwnedObjectOperation(),
         new ListApplicationsOperation(),
-        new RemoveApplicationKeyOperation(),
-        new RemoveApplicationPasswordOperation(),
-        new RestoreApplicationOperation(),
-        new SetApplicationVerifiedPublisherOperation(),
-        new UnsetApplicationVerifiedPublisherOperation(),
-        new UpdateApplicationOperation(),
-        new ValidateApplicationPropertiesOperation()
+        new RemoveApplicationByIdKeyOperation(),
+        new RemoveApplicationByIdPasswordOperation(),
+        new RestoreApplicationByIdOperation(),
+        new SetApplicationByIdVerifiedPublisherOperation(),
+        new UnsetApplicationByIdVerifiedPublisherOperation(),
+        new UpdateApplicationByIdOperation(),
+        new ValidateApplicationsPropertyOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -42,17 +42,17 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddApplicationKeyRequestModel),
-        typeof(AddApplicationPasswordRequestModel),
-        typeof(CheckApplicationMemberGroupsRequestModel),
-        typeof(CheckApplicationMemberObjectsRequestModel),
-        typeof(GetApplicationByIdsRequestModel),
-        typeof(GetApplicationMemberGroupsRequestModel),
-        typeof(GetApplicationMemberObjectsRequestModel),
-        typeof(GetApplicationUserOwnedObjectsRequestModel),
-        typeof(RemoveApplicationKeyRequestModel),
-        typeof(RemoveApplicationPasswordRequestModel),
-        typeof(SetApplicationVerifiedPublisherRequestModel),
-        typeof(ValidateApplicationPropertiesRequestModel)
+        typeof(AddApplicationByIdKeyRequestModel),
+        typeof(AddApplicationByIdPasswordRequestModel),
+        typeof(CheckApplicationByIdMemberGroupRequestModel),
+        typeof(CheckApplicationByIdMemberObjectRequestModel),
+        typeof(GetApplicationByIdMemberGroupRequestModel),
+        typeof(GetApplicationByIdMemberObjectRequestModel),
+        typeof(GetApplicationsByIdsRequestModel),
+        typeof(GetApplicationsUserOwnedObjectRequestModel),
+        typeof(RemoveApplicationByIdKeyRequestModel),
+        typeof(RemoveApplicationByIdPasswordRequestModel),
+        typeof(SetApplicationByIdVerifiedPublisherRequestModel),
+        typeof(ValidateApplicationsPropertyRequestModel)
     };
 }

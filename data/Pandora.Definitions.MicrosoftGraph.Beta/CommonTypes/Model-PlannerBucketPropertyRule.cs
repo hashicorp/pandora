@@ -20,7 +20,7 @@ internal class PlannerBucketPropertyRuleModel
     public List<string>? Order { get; set; }
 
     [JsonPropertyName("ruleKind")]
-    public PlannerRuleKindConstant? RuleKind { get; set; }
+    public PlannerBucketPropertyRuleRuleKindConstant? RuleKind { get; set; }
 
     [JsonPropertyName("title")]
     public List<string>? Title { get; set; }

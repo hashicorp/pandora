@@ -20,7 +20,7 @@ internal class AzureAdJoinPolicyModel
     public List<string>? AllowedUsers { get; set; }
 
     [JsonPropertyName("appliesTo")]
-    public PolicyScopeConstant? AppliesTo { get; set; }
+    public AzureAdJoinPolicyAppliesToConstant? AppliesTo { get; set; }
 
     [JsonPropertyName("isAdminConfigurable")]
     public bool? IsAdminConfigurable { get; set; }

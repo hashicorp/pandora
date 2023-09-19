@@ -22,6 +22,15 @@ internal class CallRecordingModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("meetingId")]
+    public string? MeetingId { get; set; }
+
+    [JsonPropertyName("meetingOrganizerId")]
+    public string? MeetingOrganizerId { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("recordingContentUrl")]
+    public string? RecordingContentUrl { get; set; }
 }

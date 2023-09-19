@@ -20,5 +20,5 @@ internal class SecurityCustomActionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("properties")]
-    public List<KeyValuePairModel>? Properties { get; set; }
+    public List<SecurityKeyValuePairModel>? Properties { get; set; }
 }

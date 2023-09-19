@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class IosNotificationSettingsModel
 {
     [JsonPropertyName("alertType")]
-    public IosNotificationAlertTypeConstant? AlertType { get; set; }
+    public IosNotificationSettingsAlertTypeConstant? AlertType { get; set; }
 
     [JsonPropertyName("appName")]
     public string? AppName { get; set; }

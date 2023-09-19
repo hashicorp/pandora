@@ -16,8 +16,14 @@ internal class ManagedIdentityModel
     [JsonPropertyName("associatedResourceId")]
     public string? AssociatedResourceId { get; set; }
 
+    [JsonPropertyName("federatedTokenId")]
+    public string? FederatedTokenId { get; set; }
+
+    [JsonPropertyName("federatedTokenIssuer")]
+    public string? FederatedTokenIssuer { get; set; }
+
     [JsonPropertyName("msiType")]
-    public MsiTypeConstant? MsiType { get; set; }
+    public ManagedIdentityMsiTypeConstant? MsiType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

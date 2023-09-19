@@ -22,9 +22,18 @@ internal class CallTranscriptModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("meetingId")]
+    public string? MeetingId { get; set; }
+
+    [JsonPropertyName("meetingOrganizerId")]
+    public string? MeetingOrganizerId { get; set; }
+
     [JsonPropertyName("metadataContent")]
     public string? MetadataContent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("transcriptContentUrl")]
+    public string? TranscriptContentUrl { get; set; }
 }

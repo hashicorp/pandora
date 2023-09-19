@@ -35,7 +35,7 @@ internal class AndroidForWorkCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidForWorkCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -74,13 +74,13 @@ internal class AndroidForWorkCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidForWorkCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
 
     [JsonPropertyName("requiredPasswordComplexity")]
-    public AndroidRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
+    public AndroidForWorkCompliancePolicyRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -116,7 +116,7 @@ internal class AndroidForWorkCompliancePolicyModel
     public bool? SecurityRequireVerifyApps { get; set; }
 
     [JsonPropertyName("securityRequiredAndroidSafetyNetEvaluationType")]
-    public AndroidSafetyNetEvaluationTypeConstant? SecurityRequiredAndroidSafetyNetEvaluationType { get; set; }
+    public AndroidForWorkCompliancePolicySecurityRequiredAndroidSafetyNetEvaluationTypeConstant? SecurityRequiredAndroidSafetyNetEvaluationType { get; set; }
 
     [JsonPropertyName("storageRequireEncryption")]
     public bool? StorageRequireEncryption { get; set; }

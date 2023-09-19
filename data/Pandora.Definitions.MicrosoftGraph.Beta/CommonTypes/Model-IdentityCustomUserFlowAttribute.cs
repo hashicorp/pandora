@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityCustomUserFlowAttributeModel
 {
     [JsonPropertyName("dataType")]
-    public IdentityUserFlowAttributeDataTypeConstant? DataType { get; set; }
+    public IdentityCustomUserFlowAttributeDataTypeConstant? DataType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -29,5 +29,5 @@ internal class IdentityCustomUserFlowAttributeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userFlowAttributeType")]
-    public IdentityUserFlowAttributeTypeConstant? UserFlowAttributeType { get; set; }
+    public IdentityCustomUserFlowAttributeUserFlowAttributeTypeConstant? UserFlowAttributeType { get; set; }
 }

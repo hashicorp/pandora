@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class VerticalSectionModel
 {
     [JsonPropertyName("emphasis")]
-    public SectionEmphasisTypeConstant? Emphasis { get; set; }
+    public VerticalSectionEmphasisConstant? Emphasis { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

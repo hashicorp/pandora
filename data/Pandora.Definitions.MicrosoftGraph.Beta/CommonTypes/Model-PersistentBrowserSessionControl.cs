@@ -17,7 +17,7 @@ internal class PersistentBrowserSessionControlModel
     public bool? IsEnabled { get; set; }
 
     [JsonPropertyName("mode")]
-    public PersistentBrowserSessionModeConstant? Mode { get; set; }
+    public PersistentBrowserSessionControlModeConstant? Mode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

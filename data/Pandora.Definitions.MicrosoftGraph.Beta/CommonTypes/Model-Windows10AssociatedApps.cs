@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Windows10AssociatedAppsModel
 {
     [JsonPropertyName("appType")]
-    public Windows10AppTypeConstant? AppType { get; set; }
+    public Windows10AssociatedAppsAppTypeConstant? AppType { get; set; }
 
     [JsonPropertyName("identifier")]
     public string? Identifier { get; set; }

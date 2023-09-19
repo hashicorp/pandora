@@ -26,7 +26,7 @@ internal class DeviceConfigurationUserStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ComplianceStatusConstant? Status { get; set; }
+    public DeviceConfigurationUserStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }

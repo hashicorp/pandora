@@ -62,7 +62,7 @@ internal class AospDeviceOwnerCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidDeviceOwnerRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AospDeviceOwnerCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

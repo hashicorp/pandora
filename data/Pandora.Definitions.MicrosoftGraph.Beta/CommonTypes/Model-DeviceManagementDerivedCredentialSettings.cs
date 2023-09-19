@@ -23,10 +23,10 @@ internal class DeviceManagementDerivedCredentialSettingsModel
     public string? Id { get; set; }
 
     [JsonPropertyName("issuer")]
-    public DeviceManagementDerivedCredentialIssuerConstant? Issuer { get; set; }
+    public DeviceManagementDerivedCredentialSettingsIssuerConstant? Issuer { get; set; }
 
     [JsonPropertyName("notificationType")]
-    public DeviceManagementDerivedCredentialNotificationTypeConstant? NotificationType { get; set; }
+    public DeviceManagementDerivedCredentialSettingsNotificationTypeConstant? NotificationType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

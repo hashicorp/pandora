@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsMyRoleModel
 {
     [JsonPropertyName("assignments")]
-    public List<RoleAssignmentModel>? Assignments { get; set; }
+    public List<ManagedTenantsRoleAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -31,6 +31,9 @@ internal class UnifiedRbacResourceActionModel
     [JsonPropertyName("isAuthenticationContextSettable")]
     public bool? IsAuthenticationContextSettable { get; set; }
 
+    [JsonPropertyName("isPrivileged")]
+    public bool? IsPrivileged { get; set; }
+
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 

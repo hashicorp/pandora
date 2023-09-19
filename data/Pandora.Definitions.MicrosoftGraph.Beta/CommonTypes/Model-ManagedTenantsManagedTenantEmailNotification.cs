@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagedTenantEmailNotificationModel
 {
     [JsonPropertyName("alert")]
-    public ManagedTenantAlertModel? Alert { get; set; }
+    public ManagedTenantsManagedTenantAlertModel? Alert { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }
@@ -23,7 +23,7 @@ internal class ManagedTenantsManagedTenantEmailNotificationModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("emailAddresses")]
-    public List<EmailModel>? EmailAddresses { get; set; }
+    public List<ManagedTenantsEmailModel>? EmailAddresses { get; set; }
 
     [JsonPropertyName("emailBody")]
     public string? EmailBody { get; set; }

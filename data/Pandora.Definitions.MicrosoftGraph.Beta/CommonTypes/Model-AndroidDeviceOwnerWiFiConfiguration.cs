@@ -83,7 +83,7 @@ internal class AndroidDeviceOwnerWiFiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySettings")]
-    public WiFiProxySettingConstant? ProxySettings { get; set; }
+    public AndroidDeviceOwnerWiFiConfigurationProxySettingsConstant? ProxySettings { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -104,5 +104,5 @@ internal class AndroidDeviceOwnerWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AndroidDeviceOwnerWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AndroidDeviceOwnerWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

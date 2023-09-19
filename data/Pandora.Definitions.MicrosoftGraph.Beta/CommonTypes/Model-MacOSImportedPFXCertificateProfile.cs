@@ -17,7 +17,7 @@ internal class MacOSImportedPFXCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public MacOSImportedPFXCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -56,7 +56,7 @@ internal class MacOSImportedPFXCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public IntendedPurposeConstant? IntendedPurpose { get; set; }
+    public MacOSImportedPFXCertificateProfileIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -74,10 +74,10 @@ internal class MacOSImportedPFXCertificateProfileModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public MacOSImportedPFXCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public AppleSubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public MacOSImportedPFXCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

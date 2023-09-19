@@ -29,7 +29,7 @@ internal class GroupPolicyPresentationTextBoxModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("maxLength")]
-    public long? MaxLength { get; set; }
+    public int? MaxLength { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

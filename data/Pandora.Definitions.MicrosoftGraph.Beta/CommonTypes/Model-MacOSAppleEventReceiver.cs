@@ -23,7 +23,7 @@ internal class MacOSAppleEventReceiverModel
     public string? Identifier { get; set; }
 
     [JsonPropertyName("identifierType")]
-    public MacOSProcessIdentifierTypeConstant? IdentifierType { get; set; }
+    public MacOSAppleEventReceiverIdentifierTypeConstant? IdentifierType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

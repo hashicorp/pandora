@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MobilityManagementPolicyModel
 {
     [JsonPropertyName("appliesTo")]
-    public PolicyScopeConstant? AppliesTo { get; set; }
+    public MobilityManagementPolicyAppliesToConstant? AppliesTo { get; set; }
 
     [JsonPropertyName("complianceUrl")]
     public string? ComplianceUrl { get; set; }

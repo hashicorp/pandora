@@ -59,7 +59,7 @@ internal class IosGeneralDeviceConfigurationModel
     public List<AppListItemModel>? AppsVisibilityList { get; set; }
 
     [JsonPropertyName("appsVisibilityListType")]
-    public AppListTypeConstant? AppsVisibilityListType { get; set; }
+    public IosGeneralDeviceConfigurationAppsVisibilityListTypeConstant? AppsVisibilityListType { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
@@ -95,7 +95,7 @@ internal class IosGeneralDeviceConfigurationModel
     public bool? ClassroomAppForceUnpromptedScreenObservation { get; set; }
 
     [JsonPropertyName("compliantAppListType")]
-    public AppListTypeConstant? CompliantAppListType { get; set; }
+    public IosGeneralDeviceConfigurationCompliantAppListTypeConstant? CompliantAppListType { get; set; }
 
     [JsonPropertyName("compliantAppsList")]
     public List<AppListItemModel>? CompliantAppsList { get; set; }
@@ -302,7 +302,7 @@ internal class IosGeneralDeviceConfigurationModel
     public bool? LockScreenBlockTodayView { get; set; }
 
     [JsonPropertyName("mediaContentRatingApps")]
-    public RatingAppsTypeConstant? MediaContentRatingApps { get; set; }
+    public IosGeneralDeviceConfigurationMediaContentRatingAppsConstant? MediaContentRatingApps { get; set; }
 
     [JsonPropertyName("mediaContentRatingAustralia")]
     public MediaContentRatingAustraliaModel? MediaContentRatingAustralia { get; set; }
@@ -377,7 +377,7 @@ internal class IosGeneralDeviceConfigurationModel
     public bool? PasscodeRequired { get; set; }
 
     [JsonPropertyName("passcodeRequiredType")]
-    public RequiredPasswordTypeConstant? PasscodeRequiredType { get; set; }
+    public IosGeneralDeviceConfigurationPasscodeRequiredTypeConstant? PasscodeRequiredType { get; set; }
 
     [JsonPropertyName("passcodeSignInFailureCountBeforeWipe")]
     public int? PasscodeSignInFailureCountBeforeWipe { get; set; }
@@ -398,7 +398,7 @@ internal class IosGeneralDeviceConfigurationModel
     public bool? SafariBlocked { get; set; }
 
     [JsonPropertyName("safariCookieSettings")]
-    public WebBrowserCookieSettingsConstant? SafariCookieSettings { get; set; }
+    public IosGeneralDeviceConfigurationSafariCookieSettingsConstant? SafariCookieSettings { get; set; }
 
     [JsonPropertyName("safariManagedDomains")]
     public List<string>? SafariManagedDomains { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityPassiveDnsRecordModel
 {
     [JsonPropertyName("artifact")]
-    public ArtifactModel? Artifact { get; set; }
+    public SecurityArtifactModel? Artifact { get; set; }
 
     [JsonPropertyName("collectedDateTime")]
     public DateTime? CollectedDateTime { get; set; }
@@ -32,7 +32,7 @@ internal class SecurityPassiveDnsRecordModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parentHost")]
-    public HostModel? ParentHost { get; set; }
+    public SecurityHostModel? ParentHost { get; set; }
 
     [JsonPropertyName("recordType")]
     public string? RecordType { get; set; }

@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ConditionalAccessRuleSatisfiedModel
 {
     [JsonPropertyName("conditionalAccessCondition")]
-    public ConditionalAccessConditionsConstant? ConditionalAccessCondition { get; set; }
+    public ConditionalAccessRuleSatisfiedConditionalAccessConditionConstant? ConditionalAccessCondition { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleSatisfied")]
-    public ConditionalAccessRuleConstant? RuleSatisfied { get; set; }
+    public ConditionalAccessRuleSatisfiedRuleSatisfiedConstant? RuleSatisfied { get; set; }
 }

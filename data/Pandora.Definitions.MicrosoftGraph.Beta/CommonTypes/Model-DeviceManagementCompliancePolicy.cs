@@ -41,7 +41,7 @@ internal class DeviceManagementCompliancePolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platforms")]
-    public DeviceManagementConfigurationPlatformsConstant? Platforms { get; set; }
+    public DeviceManagementCompliancePolicyPlatformsConstant? Platforms { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -56,5 +56,5 @@ internal class DeviceManagementCompliancePolicyModel
     public List<DeviceManagementConfigurationSettingModel>? Settings { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementCompliancePolicyTechnologiesConstant? Technologies { get; set; }
 }

@@ -20,5 +20,5 @@ internal class UserRegistrationMethodCountModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userCount")]
-    public long? UserCount { get; set; }
+    public int? UserCount { get; set; }
 }

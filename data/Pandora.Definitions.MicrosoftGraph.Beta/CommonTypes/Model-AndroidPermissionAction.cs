@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AndroidPermissionActionModel
 {
     [JsonPropertyName("action")]
-    public AndroidPermissionActionTypeConstant? Action { get; set; }
+    public AndroidPermissionActionActionConstant? Action { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

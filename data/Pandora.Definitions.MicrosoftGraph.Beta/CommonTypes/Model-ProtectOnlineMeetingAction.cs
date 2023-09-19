@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ProtectOnlineMeetingActionModel
 {
     [JsonPropertyName("allowedForwarders")]
-    public OnlineMeetingForwardersConstant? AllowedForwarders { get; set; }
+    public ProtectOnlineMeetingActionAllowedForwardersConstant? AllowedForwarders { get; set; }
 
     [JsonPropertyName("allowedPresenters")]
-    public OnlineMeetingPresentersConstant? AllowedPresenters { get; set; }
+    public ProtectOnlineMeetingActionAllowedPresentersConstant? AllowedPresenters { get; set; }
 
     [JsonPropertyName("isCopyToClipboardEnabled")]
     public bool? IsCopyToClipboardEnabled { get; set; }

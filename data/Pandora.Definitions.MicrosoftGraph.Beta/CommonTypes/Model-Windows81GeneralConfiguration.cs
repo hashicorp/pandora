@@ -50,10 +50,10 @@ internal class Windows81GeneralConfigurationModel
     public string? BrowserEnterpriseModeSiteListLocation { get; set; }
 
     [JsonPropertyName("browserInternetSecurityLevel")]
-    public InternetSiteSecurityLevelConstant? BrowserInternetSecurityLevel { get; set; }
+    public Windows81GeneralConfigurationBrowserInternetSecurityLevelConstant? BrowserInternetSecurityLevel { get; set; }
 
     [JsonPropertyName("browserIntranetSecurityLevel")]
-    public SiteSecurityLevelConstant? BrowserIntranetSecurityLevel { get; set; }
+    public Windows81GeneralConfigurationBrowserIntranetSecurityLevelConstant? BrowserIntranetSecurityLevel { get; set; }
 
     [JsonPropertyName("browserLoggingReportLocation")]
     public string? BrowserLoggingReportLocation { get; set; }
@@ -71,7 +71,7 @@ internal class Windows81GeneralConfigurationModel
     public bool? BrowserRequireSmartScreen { get; set; }
 
     [JsonPropertyName("browserTrustedSitesSecurityLevel")]
-    public SiteSecurityLevelConstant? BrowserTrustedSitesSecurityLevel { get; set; }
+    public Windows81GeneralConfigurationBrowserTrustedSitesSecurityLevelConstant? BrowserTrustedSitesSecurityLevel { get; set; }
 
     [JsonPropertyName("cellularBlockDataRoaming")]
     public bool? CellularBlockDataRoaming { get; set; }
@@ -116,7 +116,7 @@ internal class Windows81GeneralConfigurationModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("minimumAutoInstallClassification")]
-    public UpdateClassificationConstant? MinimumAutoInstallClassification { get; set; }
+    public Windows81GeneralConfigurationMinimumAutoInstallClassificationConstant? MinimumAutoInstallClassification { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -140,7 +140,7 @@ internal class Windows81GeneralConfigurationModel
     public int? PasswordPreviousPasswordBlockCount { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows81GeneralConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -155,13 +155,13 @@ internal class Windows81GeneralConfigurationModel
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("updatesMinimumAutoInstallClassification")]
-    public UpdateClassificationConstant? UpdatesMinimumAutoInstallClassification { get; set; }
+    public Windows81GeneralConfigurationUpdatesMinimumAutoInstallClassificationConstant? UpdatesMinimumAutoInstallClassification { get; set; }
 
     [JsonPropertyName("updatesRequireAutomaticUpdates")]
     public bool? UpdatesRequireAutomaticUpdates { get; set; }
 
     [JsonPropertyName("userAccountControlSettings")]
-    public WindowsUserAccountControlSettingsConstant? UserAccountControlSettings { get; set; }
+    public Windows81GeneralConfigurationUserAccountControlSettingsConstant? UserAccountControlSettings { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }

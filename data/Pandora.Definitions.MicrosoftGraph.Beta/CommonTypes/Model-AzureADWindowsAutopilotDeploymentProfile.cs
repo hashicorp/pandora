@@ -29,7 +29,7 @@ internal class AzureADWindowsAutopilotDeploymentProfileModel
     public string? DeviceNameTemplate { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public WindowsAutopilotDeviceTypeConstant? DeviceType { get; set; }
+    public AzureADWindowsAutopilotDeploymentProfileDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

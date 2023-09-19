@@ -20,5 +20,5 @@ internal class AuthenticationRequirementPolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("requirementProvider")]
-    public RequirementProviderConstant? RequirementProvider { get; set; }
+    public AuthenticationRequirementPolicyRequirementProviderConstant? RequirementProvider { get; set; }
 }

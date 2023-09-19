@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class LanguageProficiencyModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public LanguageProficiencyAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -44,16 +44,16 @@ internal class LanguageProficiencyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("proficiency")]
-    public LanguageProficiencyLevelConstant? Proficiency { get; set; }
+    public LanguageProficiencyProficiencyConstant? Proficiency { get; set; }
 
     [JsonPropertyName("reading")]
-    public LanguageProficiencyLevelConstant? Reading { get; set; }
+    public LanguageProficiencyReadingConstant? Reading { get; set; }
 
     [JsonPropertyName("source")]
     public PersonDataSourcesModel? Source { get; set; }
 
     [JsonPropertyName("spoken")]
-    public LanguageProficiencyLevelConstant? Spoken { get; set; }
+    public LanguageProficiencySpokenConstant? Spoken { get; set; }
 
     [JsonPropertyName("tag")]
     public string? Tag { get; set; }
@@ -62,5 +62,5 @@ internal class LanguageProficiencyModel
     public string? ThumbnailUrl { get; set; }
 
     [JsonPropertyName("written")]
-    public LanguageProficiencyLevelConstant? Written { get; set; }
+    public LanguageProficiencyWrittenConstant? Written { get; set; }
 }

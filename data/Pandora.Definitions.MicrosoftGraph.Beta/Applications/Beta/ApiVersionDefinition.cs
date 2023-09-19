@@ -25,6 +25,7 @@ public partial class Definition : ApiVersionDefinition
         new ApplicationOwner.Definition(),
         new ApplicationSynchronization.Definition(),
         new ApplicationSynchronizationJob.Definition(),
+        new ApplicationSynchronizationJobBulkUpload.Definition(),
         new ApplicationSynchronizationJobSchema.Definition(),
         new ApplicationSynchronizationJobSchemaDirectory.Definition(),
         new ApplicationSynchronizationSecret.Definition(),

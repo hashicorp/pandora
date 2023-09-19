@@ -40,6 +40,12 @@ internal class AccessReviewScheduleSettingsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("recommendationInsightSettings")]
+    public List<AccessReviewRecommendationInsightSettingModel>? RecommendationInsightSettings { get; set; }
+
+    [JsonPropertyName("recommendationLookBackDuration")]
+    public string? RecommendationLookBackDuration { get; set; }
+
     [JsonPropertyName("recommendationsEnabled")]
     public bool? RecommendationsEnabled { get; set; }
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class TimeOffRequestModel
 {
     [JsonPropertyName("assignedTo")]
-    public ScheduleChangeRequestActorConstant? AssignedTo { get; set; }
+    public TimeOffRequestAssignedToConstant? AssignedTo { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -56,7 +56,7 @@ internal class TimeOffRequestModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("state")]
-    public ScheduleChangeStateConstant? State { get; set; }
+    public TimeOffRequestStateConstant? State { get; set; }
 
     [JsonPropertyName("timeOffReasonId")]
     public string? TimeOffReasonId { get; set; }

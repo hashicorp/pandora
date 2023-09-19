@@ -47,7 +47,7 @@ internal class PostModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public PostImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("inReplyTo")]
     public PostModel? InReplyTo { get; set; }

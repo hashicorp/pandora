@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SubjectRightsRequestDetailModel
 {
     [JsonPropertyName("excludedItemCount")]
-    public long? ExcludedItemCount { get; set; }
+    public int? ExcludedItemCount { get; set; }
 
     [JsonPropertyName("insightCounts")]
     public List<KeyValuePairModel>? InsightCounts { get; set; }
 
     [JsonPropertyName("itemCount")]
-    public long? ItemCount { get; set; }
+    public int? ItemCount { get; set; }
 
     [JsonPropertyName("itemNeedReview")]
-    public long? ItemNeedReview { get; set; }
+    public int? ItemNeedReview { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -32,8 +32,8 @@ internal class SubjectRightsRequestDetailModel
     public List<KeyValuePairModel>? ProductItemCounts { get; set; }
 
     [JsonPropertyName("signedOffItemCount")]
-    public long? SignedOffItemCount { get; set; }
+    public int? SignedOffItemCount { get; set; }
 
     [JsonPropertyName("totalItemSize")]
-    public long? TotalItemSize { get; set; }
+    public int? TotalItemSize { get; set; }
 }

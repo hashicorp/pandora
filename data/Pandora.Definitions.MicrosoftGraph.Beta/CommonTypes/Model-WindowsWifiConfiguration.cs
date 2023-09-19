@@ -65,7 +65,7 @@ internal class WindowsWifiConfigurationModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("meteredConnectionLimit")]
-    public MeteredConnectionLimitTypeConstant? MeteredConnectionLimit { get; set; }
+    public WindowsWifiConfigurationMeteredConnectionLimitConstant? MeteredConnectionLimit { get; set; }
 
     [JsonPropertyName("networkName")]
     public string? NetworkName { get; set; }
@@ -86,7 +86,7 @@ internal class WindowsWifiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySetting")]
-    public WiFiProxySettingConstant? ProxySetting { get; set; }
+    public WindowsWifiConfigurationProxySettingConstant? ProxySetting { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -107,5 +107,5 @@ internal class WindowsWifiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wifiSecurityType")]
-    public WiFiSecurityTypeConstant? WifiSecurityType { get; set; }
+    public WindowsWifiConfigurationWifiSecurityTypeConstant? WifiSecurityType { get; set; }
 }

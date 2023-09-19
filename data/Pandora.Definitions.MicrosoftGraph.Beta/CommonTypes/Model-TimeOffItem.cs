@@ -23,7 +23,7 @@ internal class TimeOffItemModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("theme")]
-    public ScheduleEntityThemeConstant? Theme { get; set; }
+    public TimeOffItemThemeConstant? Theme { get; set; }
 
     [JsonPropertyName("timeOffReasonId")]
     public string? TimeOffReasonId { get; set; }

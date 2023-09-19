@@ -62,7 +62,7 @@ internal class WindowsIdentityProtectionConfigurationModel
     public int? PinExpirationInDays { get; set; }
 
     [JsonPropertyName("pinLowercaseCharactersUsage")]
-    public ConfigurationUsageConstant? PinLowercaseCharactersUsage { get; set; }
+    public WindowsIdentityProtectionConfigurationPinLowercaseCharactersUsageConstant? PinLowercaseCharactersUsage { get; set; }
 
     [JsonPropertyName("pinMaximumLength")]
     public int? PinMaximumLength { get; set; }
@@ -77,10 +77,10 @@ internal class WindowsIdentityProtectionConfigurationModel
     public bool? PinRecoveryEnabled { get; set; }
 
     [JsonPropertyName("pinSpecialCharactersUsage")]
-    public ConfigurationUsageConstant? PinSpecialCharactersUsage { get; set; }
+    public WindowsIdentityProtectionConfigurationPinSpecialCharactersUsageConstant? PinSpecialCharactersUsage { get; set; }
 
     [JsonPropertyName("pinUppercaseCharactersUsage")]
-    public ConfigurationUsageConstant? PinUppercaseCharactersUsage { get; set; }
+    public WindowsIdentityProtectionConfigurationPinUppercaseCharactersUsageConstant? PinUppercaseCharactersUsage { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

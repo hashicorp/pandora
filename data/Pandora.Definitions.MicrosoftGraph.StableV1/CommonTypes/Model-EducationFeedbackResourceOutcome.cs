@@ -29,5 +29,5 @@ internal class EducationFeedbackResourceOutcomeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("resourceStatus")]
-    public EducationFeedbackResourceOutcomeStatusConstant? ResourceStatus { get; set; }
+    public EducationFeedbackResourceOutcomeResourceStatusConstant? ResourceStatus { get; set; }
 }

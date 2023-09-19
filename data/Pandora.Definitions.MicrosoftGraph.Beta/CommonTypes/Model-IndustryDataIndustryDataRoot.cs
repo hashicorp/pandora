@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IndustryDataIndustryDataRootModel
 {
     [JsonPropertyName("dataConnectors")]
-    public List<IndustryDataConnectorModel>? DataConnectors { get; set; }
+    public List<IndustryDataIndustryDataConnectorModel>? DataConnectors { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("inboundFlows")]
-    public List<InboundFlowModel>? InboundFlows { get; set; }
+    public List<IndustryDataInboundFlowModel>? InboundFlows { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -29,17 +29,17 @@ internal class IndustryDataIndustryDataRootModel
     public List<LongRunningOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("referenceDefinitions")]
-    public List<ReferenceDefinitionModel>? ReferenceDefinitions { get; set; }
+    public List<IndustryDataReferenceDefinitionModel>? ReferenceDefinitions { get; set; }
 
     [JsonPropertyName("roleGroups")]
-    public List<RoleGroupModel>? RoleGroups { get; set; }
+    public List<IndustryDataRoleGroupModel>? RoleGroups { get; set; }
 
     [JsonPropertyName("runs")]
-    public List<IndustryDataRunModel>? Runs { get; set; }
+    public List<IndustryDataIndustryDataRunModel>? Runs { get; set; }
 
     [JsonPropertyName("sourceSystems")]
-    public List<SourceSystemDefinitionModel>? SourceSystems { get; set; }
+    public List<IndustryDataSourceSystemDefinitionModel>? SourceSystems { get; set; }
 
     [JsonPropertyName("years")]
-    public List<YearTimePeriodDefinitionModel>? Years { get; set; }
+    public List<IndustryDataYearTimePeriodDefinitionModel>? Years { get; set; }
 }

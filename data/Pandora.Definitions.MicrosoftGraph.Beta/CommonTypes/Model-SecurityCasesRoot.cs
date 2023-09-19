@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityCasesRootModel
 {
     [JsonPropertyName("ediscoveryCases")]
-    public List<EdiscoveryCaseModel>? EdiscoveryCases { get; set; }
+    public List<SecurityEdiscoveryCaseModel>? EdiscoveryCases { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

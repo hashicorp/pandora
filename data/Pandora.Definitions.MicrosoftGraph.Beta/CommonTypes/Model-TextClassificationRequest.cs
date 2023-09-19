@@ -23,13 +23,13 @@ internal class TextClassificationRequestModel
     public string? Id { get; set; }
 
     [JsonPropertyName("matchTolerancesToInclude")]
-    public MlClassificationMatchToleranceConstant? MatchTolerancesToInclude { get; set; }
+    public TextClassificationRequestMatchTolerancesToIncludeConstant? MatchTolerancesToInclude { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("scopesToRun")]
-    public SensitiveTypeScopeConstant? ScopesToRun { get; set; }
+    public TextClassificationRequestScopesToRunConstant? ScopesToRun { get; set; }
 
     [JsonPropertyName("sensitiveTypeIds")]
     public List<string>? SensitiveTypeIds { get; set; }

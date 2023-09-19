@@ -17,7 +17,7 @@ internal class ExternalConnectorsExternalItemContentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public ExternalItemContentTypeConstant? Type { get; set; }
+    public ExternalConnectorsExternalItemContentTypeConstant? Type { get; set; }
 
     [JsonPropertyName("value")]
     public string? Value { get; set; }

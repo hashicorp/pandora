@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateLicenseDetailOperation(),
-        new DeleteLicenseDetailOperation(),
-        new GetLicenseDetailOperation(),
-        new GetServicePrincipalLicenseDetailsCountOperation(),
-        new ListLicenseDetailsOperation(),
-        new UpdateLicenseDetailOperation()
+        new CreateServicePrincipalByIdLicenseDetailOperation(),
+        new DeleteServicePrincipalByIdLicenseDetailByIdOperation(),
+        new GetServicePrincipalByIdLicenseDetailByIdOperation(),
+        new GetServicePrincipalByIdLicenseDetailCountOperation(),
+        new ListServicePrincipalByIdLicenseDetailsOperation(),
+        new UpdateServicePrincipalByIdLicenseDetailByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

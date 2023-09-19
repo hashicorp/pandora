@@ -20,7 +20,7 @@ internal class IdentityGovernanceParameterModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("valueType")]
-    public ValueTypeConstant? ValueType { get; set; }
+    public IdentityGovernanceParameterValueTypeConstant? ValueType { get; set; }
 
     [JsonPropertyName("values")]
     public List<string>? Values { get; set; }

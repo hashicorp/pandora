@@ -17,7 +17,7 @@ internal class DeviceLogCollectionResponseModel
     public string? EnrolledByUser { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public long? ErrorCode { get; set; }
+    public int? ErrorCode { get; set; }
 
     [JsonPropertyName("expirationDateTimeUTC")]
     public DateTime? ExpirationDateTimeUTC { get; set; }
@@ -41,5 +41,5 @@ internal class DeviceLogCollectionResponseModel
     public DateTime? RequestedDateTimeUTC { get; set; }
 
     [JsonPropertyName("status")]
-    public AppLogUploadStateConstant? Status { get; set; }
+    public DeviceLogCollectionResponseStatusConstant? Status { get; set; }
 }

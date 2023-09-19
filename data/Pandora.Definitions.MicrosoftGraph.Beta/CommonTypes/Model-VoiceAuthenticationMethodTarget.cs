@@ -23,5 +23,5 @@ internal class VoiceAuthenticationMethodTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public VoiceAuthenticationMethodTargetTargetTypeConstant? TargetType { get; set; }
 }

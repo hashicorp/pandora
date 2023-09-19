@@ -23,16 +23,13 @@ internal class UserExperienceAnalyticsAppHealthDeviceModelPerformanceModel
     public string? DeviceModel { get; set; }
 
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsAppHealthDeviceModelPerformanceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("meanTimeToFailureInMinutes")]
     public int? MeanTimeToFailureInMinutes { get; set; }
-
-    [JsonPropertyName("modelAppHealthStatus")]
-    public string? ModelAppHealthStatus { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

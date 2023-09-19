@@ -26,7 +26,7 @@ internal class BookingServiceModel
     public LocationModel? DefaultLocation { get; set; }
 
     [JsonPropertyName("defaultPriceType")]
-    public BookingPriceTypeConstant? DefaultPriceType { get; set; }
+    public BookingServiceDefaultPriceTypeConstant? DefaultPriceType { get; set; }
 
     [JsonPropertyName("defaultReminders")]
     public List<BookingReminderModel>? DefaultReminders { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsKioskAppBaseModel
 {
     [JsonPropertyName("appType")]
-    public WindowsKioskAppTypeConstant? AppType { get; set; }
+    public WindowsKioskAppBaseAppTypeConstant? AppType { get; set; }
 
     [JsonPropertyName("autoLaunch")]
     public bool? AutoLaunch { get; set; }
@@ -26,5 +26,5 @@ internal class WindowsKioskAppBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("startLayoutTileSize")]
-    public WindowsAppStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
+    public WindowsKioskAppBaseStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
 }

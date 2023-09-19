@@ -20,5 +20,5 @@ internal class CallRecordsFailureInfoModel
     public string? Reason { get; set; }
 
     [JsonPropertyName("stage")]
-    public FailureStageConstant? Stage { get; set; }
+    public CallRecordsFailureInfoStageConstant? Stage { get; set; }
 }

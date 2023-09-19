@@ -20,7 +20,7 @@ internal class IndustryDataAggregatedInboundStatisticsModel
     public int? Groups { get; set; }
 
     [JsonPropertyName("matchedPeopleByRole")]
-    public List<IndustryDataRunRoleCountMetricModel>? MatchedPeopleByRole { get; set; }
+    public List<IndustryDataIndustryDataRunRoleCountMetricModel>? MatchedPeopleByRole { get; set; }
 
     [JsonPropertyName("memberships")]
     public int? Memberships { get; set; }
@@ -35,7 +35,7 @@ internal class IndustryDataAggregatedInboundStatisticsModel
     public int? People { get; set; }
 
     [JsonPropertyName("unmatchedPeopleByRole")]
-    public List<IndustryDataRunRoleCountMetricModel>? UnmatchedPeopleByRole { get; set; }
+    public List<IndustryDataIndustryDataRunRoleCountMetricModel>? UnmatchedPeopleByRole { get; set; }
 
     [JsonPropertyName("warnings")]
     public int? Warnings { get; set; }

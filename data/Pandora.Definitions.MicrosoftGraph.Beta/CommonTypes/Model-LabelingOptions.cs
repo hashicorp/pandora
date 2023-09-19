@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class LabelingOptionsModel
 {
     [JsonPropertyName("assignmentMethod")]
-    public AssignmentMethodConstant? AssignmentMethod { get; set; }
+    public LabelingOptionsAssignmentMethodConstant? AssignmentMethod { get; set; }
 
     [JsonPropertyName("downgradeJustification")]
     public DowngradeJustificationModel? DowngradeJustification { get; set; }

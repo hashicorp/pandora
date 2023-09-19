@@ -17,5 +17,5 @@ internal class CallRecordsEndpointModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userAgent")]
-    public UserAgentModel? UserAgent { get; set; }
+    public CallRecordsUserAgentModel? UserAgent { get; set; }
 }

@@ -17,7 +17,7 @@ internal class AndroidForWorkEnterpriseWiFiConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidForWorkEnterpriseWiFiConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectAutomatically")]
     public bool? ConnectAutomatically { get; set; }
@@ -53,7 +53,7 @@ internal class AndroidForWorkEnterpriseWiFiConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapType")]
-    public AndroidEapTypeConstant? EapType { get; set; }
+    public AndroidForWorkEnterpriseWiFiConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -65,10 +65,10 @@ internal class AndroidForWorkEnterpriseWiFiConfigurationModel
     public AndroidForWorkCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEapTtls")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
+    public AndroidForWorkEnterpriseWiFiConfigurationInnerAuthenticationProtocolForEapTtlsConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForPeap")]
-    public NonEapAuthenticationMethodForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
+    public AndroidForWorkEnterpriseWiFiConfigurationInnerAuthenticationProtocolForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -107,5 +107,5 @@ internal class AndroidForWorkEnterpriseWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AndroidWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AndroidForWorkEnterpriseWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

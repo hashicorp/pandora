@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementRuleThresholdModel
 {
     [JsonPropertyName("aggregation")]
-    public AggregationTypeConstant? Aggregation { get; set; }
+    public DeviceManagementRuleThresholdAggregationConstant? Aggregation { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public OperatorTypeConstant? Operator { get; set; }
+    public DeviceManagementRuleThresholdOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("target")]
     public int? Target { get; set; }

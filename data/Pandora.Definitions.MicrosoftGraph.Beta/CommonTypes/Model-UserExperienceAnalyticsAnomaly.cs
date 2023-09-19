@@ -26,7 +26,7 @@ internal class UserExperienceAnalyticsAnomalyModel
     public string? AnomalyName { get; set; }
 
     [JsonPropertyName("anomalyType")]
-    public UserExperienceAnalyticsAnomalyTypeConstant? AnomalyType { get; set; }
+    public UserExperienceAnalyticsAnomalyAnomalyTypeConstant? AnomalyType { get; set; }
 
     [JsonPropertyName("assetName")]
     public string? AssetName { get; set; }

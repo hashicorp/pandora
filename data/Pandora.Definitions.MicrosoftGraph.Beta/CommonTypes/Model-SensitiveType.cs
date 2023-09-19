@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SensitiveTypeModel
 {
     [JsonPropertyName("classificationMethod")]
-    public ClassificationMethodConstant? ClassificationMethod { get; set; }
+    public SensitiveTypeClassificationMethodConstant? ClassificationMethod { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -41,7 +41,7 @@ internal class SensitiveTypeModel
     public SensitiveTypeScopeConstant? Scope { get; set; }
 
     [JsonPropertyName("sensitiveTypeSource")]
-    public SensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
+    public SensitiveTypeSensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
 
     [JsonPropertyName("state")]
     public string? State { get; set; }

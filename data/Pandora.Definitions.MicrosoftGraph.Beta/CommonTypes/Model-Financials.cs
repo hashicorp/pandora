@@ -16,6 +16,9 @@ internal class FinancialsModel
     [JsonPropertyName("companies")]
     public List<CompanyModel>? Companies { get; set; }
 
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

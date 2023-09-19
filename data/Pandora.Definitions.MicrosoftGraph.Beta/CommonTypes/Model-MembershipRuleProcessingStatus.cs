@@ -23,5 +23,5 @@ internal class MembershipRuleProcessingStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public MembershipRuleProcessingStatusDetailsConstant? Status { get; set; }
+    public MembershipRuleProcessingStatusStatusConstant? Status { get; set; }
 }

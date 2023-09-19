@@ -26,13 +26,13 @@ internal class SecurityEdiscoveryCustodianModel
     public string? Email { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public SecurityEdiscoveryCustodianHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("lastIndexOperation")]
-    public EdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
+    public SecurityEdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -44,14 +44,14 @@ internal class SecurityEdiscoveryCustodianModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("siteSources")]
-    public List<SiteSourceModel>? SiteSources { get; set; }
+    public List<SecuritySiteSourceModel>? SiteSources { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryCustodianStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unifiedGroupSources")]
-    public List<UnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
+    public List<SecurityUnifiedGroupSourceModel>? UnifiedGroupSources { get; set; }
 
     [JsonPropertyName("userSources")]
-    public List<UserSourceModel>? UserSources { get; set; }
+    public List<SecurityUserSourceModel>? UserSources { get; set; }
 }

@@ -29,7 +29,7 @@ internal class ManagedTenantsTemplateActionModel
     public string? Service { get; set; }
 
     [JsonPropertyName("settings")]
-    public List<SettingModel>? Settings { get; set; }
+    public List<ManagedTenantsSettingModel>? Settings { get; set; }
 
     [JsonPropertyName("templateActionId")]
     public string? TemplateActionId { get; set; }

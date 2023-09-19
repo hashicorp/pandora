@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class IntegerRangeModel
 {
     [JsonPropertyName("end")]
-    public long? End { get; set; }
+    public int? End { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("start")]
-    public long? Start { get; set; }
+    public int? Start { get; set; }
 }

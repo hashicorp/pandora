@@ -77,7 +77,7 @@ internal class PlannerTaskModel
     public string? PlanId { get; set; }
 
     [JsonPropertyName("previewType")]
-    public PlannerPreviewTypeConstant? PreviewType { get; set; }
+    public PlannerTaskPreviewTypeConstant? PreviewType { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }

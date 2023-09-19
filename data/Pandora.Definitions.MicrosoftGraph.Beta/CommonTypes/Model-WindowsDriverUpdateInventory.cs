@@ -17,10 +17,10 @@ internal class WindowsDriverUpdateInventoryModel
     public int? ApplicableDeviceCount { get; set; }
 
     [JsonPropertyName("approvalStatus")]
-    public DriverApprovalStatusConstant? ApprovalStatus { get; set; }
+    public WindowsDriverUpdateInventoryApprovalStatusConstant? ApprovalStatus { get; set; }
 
     [JsonPropertyName("category")]
-    public DriverCategoryConstant? Category { get; set; }
+    public WindowsDriverUpdateInventoryCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("deployDateTime")]
     public DateTime? DeployDateTime { get; set; }

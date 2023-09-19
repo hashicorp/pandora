@@ -29,13 +29,13 @@ internal class IosikEv2VpnConfigurationModel
     public List<string>? AssociatedDomains { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public IosikEv2VpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("childSecurityAssociationParameters")]
     public IosVpnSecurityAssociationParametersModel? ChildSecurityAssociationParameters { get; set; }
 
     [JsonPropertyName("clientAuthenticationType")]
-    public VpnClientAuthenticationTypeConstant? ClientAuthenticationType { get; set; }
+    public IosikEv2VpnConfigurationClientAuthenticationTypeConstant? ClientAuthenticationType { get; set; }
 
     [JsonPropertyName("cloudName")]
     public string? CloudName { get; set; }
@@ -44,7 +44,7 @@ internal class IosikEv2VpnConfigurationModel
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public AppleVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public IosikEv2VpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -56,7 +56,7 @@ internal class IosikEv2VpnConfigurationModel
     public List<KeyValuePairModel>? CustomKeyValueData { get; set; }
 
     [JsonPropertyName("deadPeerDetectionRate")]
-    public VpnDeadPeerDetectionRateConstant? DeadPeerDetectionRate { get; set; }
+    public IosikEv2VpnConfigurationDeadPeerDetectionRateConstant? DeadPeerDetectionRate { get; set; }
 
     [JsonPropertyName("derivedCredentialSettings")]
     public DeviceManagementDerivedCredentialSettingsModel? DerivedCredentialSettings { get; set; }
@@ -143,7 +143,7 @@ internal class IosikEv2VpnConfigurationModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("localIdentifier")]
-    public VpnLocalIdentifierConstant? LocalIdentifier { get; set; }
+    public IosikEv2VpnConfigurationLocalIdentifierConstant? LocalIdentifier { get; set; }
 
     [JsonPropertyName("loginGroupOrDomain")]
     public string? LoginGroupOrDomain { get; set; }
@@ -164,7 +164,7 @@ internal class IosikEv2VpnConfigurationModel
     public bool? OptInToDeviceIdSharing { get; set; }
 
     [JsonPropertyName("providerType")]
-    public VpnProviderTypeConstant? ProviderType { get; set; }
+    public IosikEv2VpnConfigurationProviderTypeConstant? ProviderType { get; set; }
 
     [JsonPropertyName("proxyServer")]
     public VpnProxyServerModel? ProxyServer { get; set; }
@@ -197,7 +197,7 @@ internal class IosikEv2VpnConfigurationModel
     public string? ServerCertificateIssuerCommonName { get; set; }
 
     [JsonPropertyName("serverCertificateType")]
-    public VpnServerCertificateTypeConstant? ServerCertificateType { get; set; }
+    public IosikEv2VpnConfigurationServerCertificateTypeConstant? ServerCertificateType { get; set; }
 
     [JsonPropertyName("sharedSecret")]
     public string? SharedSecret { get; set; }

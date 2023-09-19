@@ -32,7 +32,7 @@ internal class WindowsPhone81GeneralConfigurationModel
     public bool? CellularBlockWifiTethering { get; set; }
 
     [JsonPropertyName("compliantAppListType")]
-    public AppListTypeConstant? CompliantAppListType { get; set; }
+    public WindowsPhone81GeneralConfigurationCompliantAppListTypeConstant? CompliantAppListType { get; set; }
 
     [JsonPropertyName("compliantAppsList")]
     public List<AppListItemModel>? CompliantAppsList { get; set; }
@@ -113,7 +113,7 @@ internal class WindowsPhone81GeneralConfigurationModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public WindowsPhone81GeneralConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }

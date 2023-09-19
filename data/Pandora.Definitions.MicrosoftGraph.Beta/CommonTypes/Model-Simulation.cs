@@ -40,6 +40,9 @@ internal class SimulationModel
     [JsonPropertyName("durationInDays")]
     public int? DurationInDays { get; set; }
 
+    [JsonPropertyName("endUserNotificationSetting")]
+    public EndUserNotificationSettingModel? EndUserNotificationSetting { get; set; }
+
     [JsonPropertyName("excludedAccountTarget")]
     public AccountTargetContentModel? ExcludedAccountTarget { get; set; }
 
@@ -52,6 +55,9 @@ internal class SimulationModel
     [JsonPropertyName("isAutomated")]
     public bool? IsAutomated { get; set; }
 
+    [JsonPropertyName("landingPage")]
+    public LandingPageModel? LandingPage { get; set; }
+
     [JsonPropertyName("lastModifiedBy")]
     public EmailIdentityModel? LastModifiedBy { get; set; }
 
@@ -61,6 +67,12 @@ internal class SimulationModel
     [JsonPropertyName("launchDateTime")]
     public DateTime? LaunchDateTime { get; set; }
 
+    [JsonPropertyName("loginPage")]
+    public LoginPageModel? LoginPage { get; set; }
+
+    [JsonPropertyName("oAuthConsentAppDetail")]
+    public OAuthConsentAppDetailModel? OAuthConsentAppDetail { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
@@ -68,11 +80,14 @@ internal class SimulationModel
     public PayloadModel? Payload { get; set; }
 
     [JsonPropertyName("payloadDeliveryPlatform")]
-    public PayloadDeliveryPlatformConstant? PayloadDeliveryPlatform { get; set; }
+    public SimulationPayloadDeliveryPlatformConstant? PayloadDeliveryPlatform { get; set; }
 
     [JsonPropertyName("report")]
     public SimulationReportModel? Report { get; set; }
 
     [JsonPropertyName("status")]
     public SimulationStatusConstant? Status { get; set; }
+
+    [JsonPropertyName("trainingSetting")]
+    public TrainingSettingModel? TrainingSetting { get; set; }
 }

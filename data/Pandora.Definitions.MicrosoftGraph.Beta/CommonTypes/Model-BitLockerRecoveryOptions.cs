@@ -29,11 +29,11 @@ internal class BitLockerRecoveryOptionsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("recoveryInformationToStore")]
-    public BitLockerRecoveryInformationTypeConstant? RecoveryInformationToStore { get; set; }
+    public BitLockerRecoveryOptionsRecoveryInformationToStoreConstant? RecoveryInformationToStore { get; set; }
 
     [JsonPropertyName("recoveryKeyUsage")]
-    public ConfigurationUsageConstant? RecoveryKeyUsage { get; set; }
+    public BitLockerRecoveryOptionsRecoveryKeyUsageConstant? RecoveryKeyUsage { get; set; }
 
     [JsonPropertyName("recoveryPasswordUsage")]
-    public ConfigurationUsageConstant? RecoveryPasswordUsage { get; set; }
+    public BitLockerRecoveryOptionsRecoveryPasswordUsageConstant? RecoveryPasswordUsage { get; set; }
 }

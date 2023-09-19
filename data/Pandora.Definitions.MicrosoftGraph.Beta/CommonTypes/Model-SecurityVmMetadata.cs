@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityVmMetadataModel
 {
     [JsonPropertyName("cloudProvider")]
-    public VmCloudProviderConstant? CloudProvider { get; set; }
+    public SecurityVmMetadataCloudProviderConstant? CloudProvider { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

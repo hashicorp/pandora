@@ -17,7 +17,7 @@ internal class CountryNamedLocationModel
     public List<string>? CountriesAndRegions { get; set; }
 
     [JsonPropertyName("countryLookupMethod")]
-    public CountryLookupMethodTypeConstant? CountryLookupMethod { get; set; }
+    public CountryNamedLocationCountryLookupMethodConstant? CountryLookupMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -29,5 +29,5 @@ internal class IndustryDataYearTimePeriodDefinitionModel
     public DateTime? StartDate { get; set; }
 
     [JsonPropertyName("year")]
-    public YearReferenceValueModel? Year { get; set; }
+    public IndustryDataYearReferenceValueModel? Year { get; set; }
 }

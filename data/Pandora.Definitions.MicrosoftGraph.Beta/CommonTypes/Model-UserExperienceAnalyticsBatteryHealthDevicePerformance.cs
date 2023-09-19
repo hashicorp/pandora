@@ -16,6 +16,9 @@ internal class UserExperienceAnalyticsBatteryHealthDevicePerformanceModel
     [JsonPropertyName("batteryAgeInDays")]
     public int? BatteryAgeInDays { get; set; }
 
+    [JsonPropertyName("deviceBatteryCount")]
+    public int? DeviceBatteryCount { get; set; }
+
     [JsonPropertyName("deviceBatteryHealthScore")]
     public int? DeviceBatteryHealthScore { get; set; }
 
@@ -28,8 +31,11 @@ internal class UserExperienceAnalyticsBatteryHealthDevicePerformanceModel
     [JsonPropertyName("estimatedRuntimeInMinutes")]
     public int? EstimatedRuntimeInMinutes { get; set; }
 
+    [JsonPropertyName("fullBatteryDrainCount")]
+    public int? FullBatteryDrainCount { get; set; }
+
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsBatteryHealthDevicePerformanceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

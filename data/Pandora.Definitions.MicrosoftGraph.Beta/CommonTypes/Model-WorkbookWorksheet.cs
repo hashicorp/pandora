@@ -40,6 +40,9 @@ internal class WorkbookWorksheetModel
     [JsonPropertyName("tables")]
     public List<WorkbookTableModel>? Tables { get; set; }
 
+    [JsonPropertyName("tasks")]
+    public List<WorkbookDocumentTaskModel>? Tasks { get; set; }
+
     [JsonPropertyName("visibility")]
     public string? Visibility { get; set; }
 }

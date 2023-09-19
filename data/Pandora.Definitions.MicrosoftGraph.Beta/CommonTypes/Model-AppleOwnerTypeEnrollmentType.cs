@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AppleOwnerTypeEnrollmentTypeModel
 {
     [JsonPropertyName("enrollmentType")]
-    public AppleUserInitiatedEnrollmentTypeConstant? EnrollmentType { get; set; }
+    public AppleOwnerTypeEnrollmentTypeEnrollmentTypeConstant? EnrollmentType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public ManagedDeviceOwnerTypeConstant? OwnerType { get; set; }
+    public AppleOwnerTypeEnrollmentTypeOwnerTypeConstant? OwnerType { get; set; }
 }

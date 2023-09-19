@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CustomUpdateTimeWindowModel
 {
     [JsonPropertyName("endDay")]
-    public DayOfWeekConstant? EndDay { get; set; }
+    public CustomUpdateTimeWindowEndDayConstant? EndDay { get; set; }
 
     [JsonPropertyName("endTime")]
     public DateTime? EndTime { get; set; }
@@ -23,7 +23,7 @@ internal class CustomUpdateTimeWindowModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("startDay")]
-    public DayOfWeekConstant? StartDay { get; set; }
+    public CustomUpdateTimeWindowStartDayConstant? StartDay { get; set; }
 
     [JsonPropertyName("startTime")]
     public DateTime? StartTime { get; set; }

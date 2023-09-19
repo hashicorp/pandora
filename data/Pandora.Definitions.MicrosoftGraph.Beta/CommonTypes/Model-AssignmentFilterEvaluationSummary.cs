@@ -23,10 +23,10 @@ internal class AssignmentFilterEvaluationSummaryModel
     public DateTime? AssignmentFilterLastModifiedDateTime { get; set; }
 
     [JsonPropertyName("assignmentFilterPlatform")]
-    public DevicePlatformTypeConstant? AssignmentFilterPlatform { get; set; }
+    public AssignmentFilterEvaluationSummaryAssignmentFilterPlatformConstant? AssignmentFilterPlatform { get; set; }
 
     [JsonPropertyName("assignmentFilterType")]
-    public DeviceAndAppManagementAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
+    public AssignmentFilterEvaluationSummaryAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
 
     [JsonPropertyName("assignmentFilterTypeAndEvaluationResults")]
     public List<AssignmentFilterTypeAndEvaluationResultModel>? AssignmentFilterTypeAndEvaluationResults { get; set; }
@@ -35,7 +35,7 @@ internal class AssignmentFilterEvaluationSummaryModel
     public DateTime? EvaluationDateTime { get; set; }
 
     [JsonPropertyName("evaluationResult")]
-    public AssignmentFilterEvaluationResultConstant? EvaluationResult { get; set; }
+    public AssignmentFilterEvaluationSummaryEvaluationResultConstant? EvaluationResult { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

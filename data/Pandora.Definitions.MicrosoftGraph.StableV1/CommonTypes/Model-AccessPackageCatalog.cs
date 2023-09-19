@@ -17,10 +17,13 @@ internal class AccessPackageCatalogModel
     public List<AccessPackageModel>? AccessPackages { get; set; }
 
     [JsonPropertyName("catalogType")]
-    public AccessPackageCatalogTypeConstant? CatalogType { get; set; }
+    public AccessPackageCatalogCatalogTypeConstant? CatalogType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
+
+    [JsonPropertyName("customWorkflowExtensions")]
+    public List<CustomCalloutExtensionModel>? CustomWorkflowExtensions { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -39,6 +42,15 @@ internal class AccessPackageCatalogModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("resourceRoles")]
+    public List<AccessPackageResourceRoleModel>? ResourceRoles { get; set; }
+
+    [JsonPropertyName("resourceScopes")]
+    public List<AccessPackageResourceScopeModel>? ResourceScopes { get; set; }
+
+    [JsonPropertyName("resources")]
+    public List<AccessPackageResourceModel>? Resources { get; set; }
 
     [JsonPropertyName("state")]
     public AccessPackageCatalogStateConstant? State { get; set; }

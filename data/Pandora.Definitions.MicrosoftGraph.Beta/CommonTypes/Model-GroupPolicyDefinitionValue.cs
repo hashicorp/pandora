@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class GroupPolicyDefinitionValueModel
 {
     [JsonPropertyName("configurationType")]
-    public GroupPolicyConfigurationTypeConstant? ConfigurationType { get; set; }
+    public GroupPolicyDefinitionValueConfigurationTypeConstant? ConfigurationType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -26,8 +26,8 @@ internal class ProvisioningStepModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("provisioningStepType")]
-    public ProvisioningStepTypeConstant? ProvisioningStepType { get; set; }
+    public ProvisioningStepProvisioningStepTypeConstant? ProvisioningStepType { get; set; }
 
     [JsonPropertyName("status")]
-    public ProvisioningResultConstant? Status { get; set; }
+    public ProvisioningStepStatusConstant? Status { get; set; }
 }

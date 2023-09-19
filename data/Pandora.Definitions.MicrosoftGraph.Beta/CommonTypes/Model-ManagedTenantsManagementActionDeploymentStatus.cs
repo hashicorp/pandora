@@ -26,8 +26,8 @@ internal class ManagedTenantsManagementActionDeploymentStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ManagementActionStatusConstant? Status { get; set; }
+    public ManagedTenantsManagementActionDeploymentStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("workloadActionDeploymentStatuses")]
-    public List<WorkloadActionDeploymentStatusModel>? WorkloadActionDeploymentStatuses { get; set; }
+    public List<ManagedTenantsWorkloadActionDeploymentStatusModel>? WorkloadActionDeploymentStatuses { get; set; }
 }

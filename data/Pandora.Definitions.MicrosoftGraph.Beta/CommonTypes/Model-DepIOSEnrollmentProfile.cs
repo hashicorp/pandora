@@ -67,6 +67,9 @@ internal class DepIOSEnrollmentProfileModel
     [JsonPropertyName("enabledSkipKeys")]
     public List<string>? EnabledSkipKeys { get; set; }
 
+    [JsonPropertyName("enrollmentTimeAzureAdGroupIds")]
+    public List<string>? EnrollmentTimeAzureAdGroupIds { get; set; }
+
     [JsonPropertyName("expressLanguageScreenDisabled")]
     public bool? ExpressLanguageScreenDisabled { get; set; }
 
@@ -80,7 +83,7 @@ internal class DepIOSEnrollmentProfileModel
     public bool? IMessageAndFaceTimeScreenDisabled { get; set; }
 
     [JsonPropertyName("iTunesPairingMode")]
-    public ITunesPairingModeConstant? ITunesPairingMode { get; set; }
+    public DepIOSEnrollmentProfileITunesPairingModeConstant? ITunesPairingMode { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

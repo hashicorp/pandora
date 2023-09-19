@@ -20,7 +20,7 @@ internal class EnrollmentRestrictionsConfigurationPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public EnrollmentRestrictionsConfigurationPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -47,5 +47,5 @@ internal class EnrollmentRestrictionsConfigurationPolicySetItemModel
     public int? Priority { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public EnrollmentRestrictionsConfigurationPolicySetItemStatusConstant? Status { get; set; }
 }

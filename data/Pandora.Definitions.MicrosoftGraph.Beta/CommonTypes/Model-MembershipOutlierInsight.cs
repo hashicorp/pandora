@@ -38,8 +38,8 @@ internal class MembershipOutlierInsightModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("outlierContainerType")]
-    public OutlierContainerTypeConstant? OutlierContainerType { get; set; }
+    public MembershipOutlierInsightOutlierContainerTypeConstant? OutlierContainerType { get; set; }
 
     [JsonPropertyName("outlierMemberType")]
-    public OutlierMemberTypeConstant? OutlierMemberType { get; set; }
+    public MembershipOutlierInsightOutlierMemberTypeConstant? OutlierMemberType { get; set; }
 }

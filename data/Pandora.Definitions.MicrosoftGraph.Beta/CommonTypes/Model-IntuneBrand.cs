@@ -50,7 +50,7 @@ internal class IntuneBrandModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enrollmentAvailability")]
-    public EnrollmentAvailabilityOptionsConstant? EnrollmentAvailability { get; set; }
+    public IntuneBrandEnrollmentAvailabilityConstant? EnrollmentAvailability { get; set; }
 
     [JsonPropertyName("isFactoryResetDisabled")]
     public bool? IsFactoryResetDisabled { get; set; }

@@ -32,7 +32,7 @@ internal class PlannerTaskDetailsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("previewType")]
-    public PlannerPreviewTypeConstant? PreviewType { get; set; }
+    public PlannerTaskDetailsPreviewTypeConstant? PreviewType { get; set; }
 
     [JsonPropertyName("references")]
     public PlannerExternalReferencesModel? References { get; set; }

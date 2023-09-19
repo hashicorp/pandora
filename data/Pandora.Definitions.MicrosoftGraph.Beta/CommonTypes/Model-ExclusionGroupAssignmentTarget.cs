@@ -17,7 +17,7 @@ internal class ExclusionGroupAssignmentTargetModel
     public string? DeviceAndAppManagementAssignmentFilterId { get; set; }
 
     [JsonPropertyName("deviceAndAppManagementAssignmentFilterType")]
-    public DeviceAndAppManagementAssignmentFilterTypeConstant? DeviceAndAppManagementAssignmentFilterType { get; set; }
+    public ExclusionGroupAssignmentTargetDeviceAndAppManagementAssignmentFilterTypeConstant? DeviceAndAppManagementAssignmentFilterType { get; set; }
 
     [JsonPropertyName("groupId")]
     public string? GroupId { get; set; }

@@ -29,7 +29,7 @@ internal class SearchRequestModel
     public bool? EnableTopResults { get; set; }
 
     [JsonPropertyName("entityTypes")]
-    public List<EntityTypeConstant>? EntityTypes { get; set; }
+    public List<SearchRequestEntityTypesConstant>? EntityTypes { get; set; }
 
     [JsonPropertyName("fields")]
     public List<string>? Fields { get; set; }

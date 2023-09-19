@@ -17,7 +17,7 @@ internal class ManagedTenantsWorkloadActionModel
     public string? ActionId { get; set; }
 
     [JsonPropertyName("category")]
-    public WorkloadActionCategoryConstant? Category { get; set; }
+    public ManagedTenantsWorkloadActionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -35,5 +35,5 @@ internal class ManagedTenantsWorkloadActionModel
     public string? Service { get; set; }
 
     [JsonPropertyName("settings")]
-    public List<SettingModel>? Settings { get; set; }
+    public List<ManagedTenantsSettingModel>? Settings { get; set; }
 }

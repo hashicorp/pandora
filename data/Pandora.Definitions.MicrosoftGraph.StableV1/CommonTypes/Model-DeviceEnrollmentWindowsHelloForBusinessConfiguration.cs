@@ -26,7 +26,7 @@ internal class DeviceEnrollmentWindowsHelloForBusinessConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enhancedBiometricsState")]
-    public EnablementConstant? EnhancedBiometricsState { get; set; }
+    public DeviceEnrollmentWindowsHelloForBusinessConfigurationEnhancedBiometricsStateConstant? EnhancedBiometricsState { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -41,7 +41,7 @@ internal class DeviceEnrollmentWindowsHelloForBusinessConfigurationModel
     public int? PinExpirationInDays { get; set; }
 
     [JsonPropertyName("pinLowercaseCharactersUsage")]
-    public WindowsHelloForBusinessPinUsageConstant? PinLowercaseCharactersUsage { get; set; }
+    public DeviceEnrollmentWindowsHelloForBusinessConfigurationPinLowercaseCharactersUsageConstant? PinLowercaseCharactersUsage { get; set; }
 
     [JsonPropertyName("pinMaximumLength")]
     public int? PinMaximumLength { get; set; }
@@ -53,10 +53,10 @@ internal class DeviceEnrollmentWindowsHelloForBusinessConfigurationModel
     public int? PinPreviousBlockCount { get; set; }
 
     [JsonPropertyName("pinSpecialCharactersUsage")]
-    public WindowsHelloForBusinessPinUsageConstant? PinSpecialCharactersUsage { get; set; }
+    public DeviceEnrollmentWindowsHelloForBusinessConfigurationPinSpecialCharactersUsageConstant? PinSpecialCharactersUsage { get; set; }
 
     [JsonPropertyName("pinUppercaseCharactersUsage")]
-    public WindowsHelloForBusinessPinUsageConstant? PinUppercaseCharactersUsage { get; set; }
+    public DeviceEnrollmentWindowsHelloForBusinessConfigurationPinUppercaseCharactersUsageConstant? PinUppercaseCharactersUsage { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
@@ -68,7 +68,7 @@ internal class DeviceEnrollmentWindowsHelloForBusinessConfigurationModel
     public bool? SecurityDeviceRequired { get; set; }
 
     [JsonPropertyName("state")]
-    public EnablementConstant? State { get; set; }
+    public DeviceEnrollmentWindowsHelloForBusinessConfigurationStateConstant? State { get; set; }
 
     [JsonPropertyName("unlockWithBiometricsEnabled")]
     public bool? UnlockWithBiometricsEnabled { get; set; }

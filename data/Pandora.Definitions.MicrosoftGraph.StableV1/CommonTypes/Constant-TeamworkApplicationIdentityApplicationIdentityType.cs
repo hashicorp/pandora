@@ -1,0 +1,26 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum TeamworkApplicationIdentityApplicationIdentityTypeConstant
+{
+    [Description("AadApplication")]
+    @aadApplication,
+
+    [Description("Bot")]
+    @bot,
+
+    [Description("TenantBot")]
+    @tenantBot,
+
+    [Description("Office365Connector")]
+    @office365Connector,
+
+    [Description("OutgoingWebhook")]
+    @outgoingWebhook,
+}

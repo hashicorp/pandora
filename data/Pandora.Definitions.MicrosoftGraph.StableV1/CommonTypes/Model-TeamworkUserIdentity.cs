@@ -23,5 +23,5 @@ internal class TeamworkUserIdentityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userIdentityType")]
-    public TeamworkUserIdentityTypeConstant? UserIdentityType { get; set; }
+    public TeamworkUserIdentityUserIdentityTypeConstant? UserIdentityType { get; set; }
 }

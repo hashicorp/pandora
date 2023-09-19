@@ -17,7 +17,7 @@ internal class WebApplicationSegmentModel
     public string? AlternateUrl { get; set; }
 
     [JsonPropertyName("corsConfigurations")]
-    public List<CorsConfiguration_v2Model>? CorsConfigurations { get; set; }
+    public List<CorsConfigurationv2Model>? CorsConfigurations { get; set; }
 
     [JsonPropertyName("externalUrl")]
     public string? ExternalUrl { get; set; }

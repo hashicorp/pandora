@@ -14,23 +14,23 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CryptographySuiteModel
 {
     [JsonPropertyName("authenticationTransformConstants")]
-    public AuthenticationTransformConstantConstant? AuthenticationTransformConstants { get; set; }
+    public CryptographySuiteAuthenticationTransformConstantsConstant? AuthenticationTransformConstants { get; set; }
 
     [JsonPropertyName("cipherTransformConstants")]
-    public VpnEncryptionAlgorithmTypeConstant? CipherTransformConstants { get; set; }
+    public CryptographySuiteCipherTransformConstantsConstant? CipherTransformConstants { get; set; }
 
     [JsonPropertyName("dhGroup")]
-    public DiffieHellmanGroupConstant? DhGroup { get; set; }
+    public CryptographySuiteDhGroupConstant? DhGroup { get; set; }
 
     [JsonPropertyName("encryptionMethod")]
-    public VpnEncryptionAlgorithmTypeConstant? EncryptionMethod { get; set; }
+    public CryptographySuiteEncryptionMethodConstant? EncryptionMethod { get; set; }
 
     [JsonPropertyName("integrityCheckMethod")]
-    public VpnIntegrityAlgorithmTypeConstant? IntegrityCheckMethod { get; set; }
+    public CryptographySuiteIntegrityCheckMethodConstant? IntegrityCheckMethod { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("pfsGroup")]
-    public PerfectForwardSecrecyGroupConstant? PfsGroup { get; set; }
+    public CryptographySuitePfsGroupConstant? PfsGroup { get; set; }
 }

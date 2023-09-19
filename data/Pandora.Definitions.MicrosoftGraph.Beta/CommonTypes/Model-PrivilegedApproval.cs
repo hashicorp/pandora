@@ -17,7 +17,7 @@ internal class PrivilegedApprovalModel
     public string? ApprovalDuration { get; set; }
 
     [JsonPropertyName("approvalState")]
-    public ApprovalStateConstant? ApprovalState { get; set; }
+    public PrivilegedApprovalApprovalStateConstant? ApprovalState { get; set; }
 
     [JsonPropertyName("approvalType")]
     public string? ApprovalType { get; set; }

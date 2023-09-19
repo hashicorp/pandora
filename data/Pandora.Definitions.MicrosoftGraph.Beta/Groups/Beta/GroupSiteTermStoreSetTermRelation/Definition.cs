@@ -1,0 +1,33 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Interfaces;
+using Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+using System;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.Groups.Beta.GroupSiteTermStoreSetTermRelation;
+
+internal class Definition : ResourceDefinition
+{
+    public string Name => "GroupSiteTermStoreSetTermRelation";
+
+    public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
+    {
+        new CreateGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationOperation(),
+        new DeleteGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationByIdOperation(),
+        new GetGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationByIdOperation(),
+        new GetGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationCountOperation(),
+        new ListGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationsOperation(),
+        new UpdateGroupByIdSiteByIdTermStoreSetByIdTermByIdRelationByIdOperation()
+    };
+
+    public IEnumerable<System.Type> Constants => new List<System.Type>
+    {
+
+    };
+
+    public IEnumerable<System.Type> Models => new List<System.Type>
+    {
+
+    };
+}

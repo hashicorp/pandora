@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class TermStoreRelationModel
 {
     [JsonPropertyName("fromTerm")]
-    public TermModel? FromTerm { get; set; }
+    public TermStoreTermModel? FromTerm { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -23,11 +23,11 @@ internal class TermStoreRelationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("relationship")]
-    public RelationTypeConstant? Relationship { get; set; }
+    public TermStoreRelationRelationshipConstant? Relationship { get; set; }
 
     [JsonPropertyName("set")]
-    public SetModel? Set { get; set; }
+    public TermStoreSetModel? Set { get; set; }
 
     [JsonPropertyName("toTerm")]
-    public TermModel? ToTerm { get; set; }
+    public TermStoreTermModel? ToTerm { get; set; }
 }

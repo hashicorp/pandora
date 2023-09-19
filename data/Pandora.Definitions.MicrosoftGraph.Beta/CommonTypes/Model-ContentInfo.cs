@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ContentInfoModel
 {
     [JsonPropertyName("format")]
-    public ContentFormatConstant? Format { get; set; }
+    public ContentInfoFormatConstant? Format { get; set; }
 
     [JsonPropertyName("identifier")]
     public string? Identifier { get; set; }
@@ -26,5 +26,5 @@ internal class ContentInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ContentStateConstant? State { get; set; }
+    public ContentInfoStateConstant? State { get; set; }
 }

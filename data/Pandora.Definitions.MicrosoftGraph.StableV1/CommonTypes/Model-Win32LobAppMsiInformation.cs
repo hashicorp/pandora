@@ -17,7 +17,7 @@ internal class Win32LobAppMsiInformationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("packageType")]
-    public Win32LobAppMsiPackageTypeConstant? PackageType { get; set; }
+    public Win32LobAppMsiInformationPackageTypeConstant? PackageType { get; set; }
 
     [JsonPropertyName("productCode")]
     public string? ProductCode { get; set; }

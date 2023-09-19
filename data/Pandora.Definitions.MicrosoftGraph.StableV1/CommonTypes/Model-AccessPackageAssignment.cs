@@ -19,6 +19,9 @@ internal class AccessPackageAssignmentModel
     [JsonPropertyName("assignmentPolicy")]
     public AccessPackageAssignmentPolicyModel? AssignmentPolicy { get; set; }
 
+    [JsonPropertyName("customExtensionCalloutInstances")]
+    public List<CustomExtensionCalloutInstanceModel>? CustomExtensionCalloutInstances { get; set; }
+
     [JsonPropertyName("expiredDateTime")]
     public DateTime? ExpiredDateTime { get; set; }
 

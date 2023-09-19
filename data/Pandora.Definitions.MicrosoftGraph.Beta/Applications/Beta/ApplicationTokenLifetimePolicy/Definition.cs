@@ -13,10 +13,11 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddApplicationTokenLifetimePolicyOperation(),
-        new GetApplicationTokenLifetimePoliciesCountOperation(),
-        new ListTokenLifetimePoliciesOperation(),
-        new RemoveApplicationTokenLifetimePolicyOperation()
+        new AddApplicationByIdTokenLifetimePolicyRefOperation(),
+        new GetApplicationByIdTokenLifetimePolicyCountOperation(),
+        new ListApplicationByIdTokenLifetimePoliciesOperation(),
+        new ListApplicationByIdTokenLifetimePolicyRefsOperation(),
+        new RemoveApplicationByIdTokenLifetimePolicyByIdRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -26,6 +27,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddApplicationTokenLifetimePolicyRequestModel)
+
     };
 }

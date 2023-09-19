@@ -20,7 +20,7 @@ internal class MobileAppPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public MobileAppPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -29,7 +29,7 @@ internal class MobileAppPolicySetItemModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intent")]
-    public InstallIntentConstant? Intent { get; set; }
+    public MobileAppPolicySetItemIntentConstant? Intent { get; set; }
 
     [JsonPropertyName("itemType")]
     public string? ItemType { get; set; }
@@ -47,5 +47,5 @@ internal class MobileAppPolicySetItemModel
     public MobileAppAssignmentSettingsModel? Settings { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public MobileAppPolicySetItemStatusConstant? Status { get; set; }
 }

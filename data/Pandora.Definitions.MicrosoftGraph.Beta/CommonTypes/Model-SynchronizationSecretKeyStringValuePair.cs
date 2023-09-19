@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SynchronizationSecretKeyStringValuePairModel
 {
     [JsonPropertyName("key")]
-    public SynchronizationSecretConstant? Key { get; set; }
+    public SynchronizationSecretKeyStringValuePairKeyConstant? Key { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

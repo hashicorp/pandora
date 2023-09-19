@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CallMediaStateModel
 {
     [JsonPropertyName("audio")]
-    public MediaStateConstant? Audio { get; set; }
+    public CallMediaStateAudioConstant? Audio { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

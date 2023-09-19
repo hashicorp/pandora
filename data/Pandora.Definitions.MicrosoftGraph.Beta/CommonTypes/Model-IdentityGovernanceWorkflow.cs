@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityGovernanceWorkflowModel
 {
     [JsonPropertyName("category")]
-    public LifecycleWorkflowCategoryConstant? Category { get; set; }
+    public IdentityGovernanceWorkflowCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdBy")]
     public UserModel? CreatedBy { get; set; }
@@ -32,10 +32,10 @@ internal class IdentityGovernanceWorkflowModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("executionConditions")]
-    public WorkflowExecutionConditionsModel? ExecutionConditions { get; set; }
+    public IdentityGovernanceWorkflowExecutionConditionsModel? ExecutionConditions { get; set; }
 
     [JsonPropertyName("executionScope")]
-    public List<UserProcessingResultModel>? ExecutionScope { get; set; }
+    public List<IdentityGovernanceUserProcessingResultModel>? ExecutionScope { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -59,20 +59,20 @@ internal class IdentityGovernanceWorkflowModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("runs")]
-    public List<RunModel>? Runs { get; set; }
+    public List<IdentityGovernanceRunModel>? Runs { get; set; }
 
     [JsonPropertyName("taskReports")]
-    public List<TaskReportModel>? TaskReports { get; set; }
+    public List<IdentityGovernanceTaskReportModel>? TaskReports { get; set; }
 
     [JsonPropertyName("tasks")]
-    public List<TaskModel>? Tasks { get; set; }
+    public List<IdentityGovernanceTaskModel>? Tasks { get; set; }
 
     [JsonPropertyName("userProcessingResults")]
-    public List<UserProcessingResultModel>? UserProcessingResults { get; set; }
+    public List<IdentityGovernanceUserProcessingResultModel>? UserProcessingResults { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }
 
     [JsonPropertyName("versions")]
-    public List<WorkflowVersionModel>? Versions { get; set; }
+    public List<IdentityGovernanceWorkflowVersionModel>? Versions { get; set; }
 }

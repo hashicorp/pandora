@@ -26,13 +26,13 @@ internal class SecurityRetentionEventModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eventPropagationResults")]
-    public List<EventPropagationResultModel>? EventPropagationResults { get; set; }
+    public List<SecurityEventPropagationResultModel>? EventPropagationResults { get; set; }
 
     [JsonPropertyName("eventQueries")]
-    public List<EventQueryModel>? EventQueries { get; set; }
+    public List<SecurityEventQueryModel>? EventQueries { get; set; }
 
     [JsonPropertyName("eventStatus")]
-    public RetentionEventStatusModel? EventStatus { get; set; }
+    public SecurityRetentionEventStatusModel? EventStatus { get; set; }
 
     [JsonPropertyName("eventTriggerDateTime")]
     public DateTime? EventTriggerDateTime { get; set; }
@@ -53,5 +53,5 @@ internal class SecurityRetentionEventModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("retentionEventType")]
-    public RetentionEventTypeModel? RetentionEventType { get; set; }
+    public SecurityRetentionEventTypeModel? RetentionEventType { get; set; }
 }

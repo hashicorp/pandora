@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AuthenticationCombinationConfigurationModel
 {
     [JsonPropertyName("appliesToCombinations")]
-    public List<AuthenticationMethodModesConstant>? AppliesToCombinations { get; set; }
+    public List<AuthenticationCombinationConfigurationAppliesToCombinationsConstant>? AppliesToCombinations { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

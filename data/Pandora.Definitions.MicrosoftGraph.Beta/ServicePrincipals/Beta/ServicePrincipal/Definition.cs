@@ -13,25 +13,25 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddServicePrincipalTokenSigningCertificateOperation(),
-        new CheckServicePrincipalMemberGroupsOperation(),
-        new CheckServicePrincipalMemberObjectsOperation(),
-        new CreateServicePrincipalCreatePasswordSingleSignOnCredentialOperation(),
-        new CreateServicePrincipalDeletePasswordSingleSignOnCredentialOperation(),
+        new AddServicePrincipalByIdTokenSigningCertificateOperation(),
+        new CheckServicePrincipalByIdMemberGroupOperation(),
+        new CheckServicePrincipalByIdMemberObjectOperation(),
+        new CreateServicePrincipalByIdCreatePasswordSingleSignOnCredentialOperation(),
+        new CreateServicePrincipalByIdDeletePasswordSingleSignOnCredentialOperation(),
         new CreateServicePrincipalOperation(),
-        new CreateServicePrincipalUpdatePasswordSingleSignOnCredentialOperation(),
-        new DeleteServicePrincipalOperation(),
-        new GetServicePrincipalByIdsOperation(),
-        new GetServicePrincipalMemberGroupsOperation(),
-        new GetServicePrincipalMemberObjectsOperation(),
-        new GetServicePrincipalOperation(),
-        new GetServicePrincipalPasswordSingleSignOnCredentialsOperation(),
-        new GetServicePrincipalUserOwnedObjectsOperation(),
-        new GetServicePrincipalsCountOperation(),
+        new DeleteServicePrincipalByIdOperation(),
+        new GetServicePrincipalByIdMemberGroupOperation(),
+        new GetServicePrincipalByIdMemberObjectOperation(),
+        new GetServicePrincipalByIdOperation(),
+        new GetServicePrincipalByIdPasswordSingleSignOnCredentialOperation(),
+        new GetServicePrincipalCountOperation(),
+        new GetServicePrincipalsByIdsOperation(),
+        new GetServicePrincipalsUserOwnedObjectOperation(),
         new ListServicePrincipalsOperation(),
-        new RestoreServicePrincipalOperation(),
-        new UpdateServicePrincipalOperation(),
-        new ValidateServicePrincipalPropertiesOperation()
+        new RestoreServicePrincipalByIdOperation(),
+        new UpdateServicePrincipalByIdOperation(),
+        new UpdateServicePrincipalByIdPasswordSingleSignOnCredentialOperation(),
+        new ValidateServicePrincipalsPropertyOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -41,17 +41,17 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddServicePrincipalTokenSigningCertificateRequestModel),
-        typeof(CheckServicePrincipalMemberGroupsRequestModel),
-        typeof(CheckServicePrincipalMemberObjectsRequestModel),
-        typeof(CreateServicePrincipalCreatePasswordSingleSignOnCredentialRequestModel),
-        typeof(CreateServicePrincipalDeletePasswordSingleSignOnCredentialRequestModel),
-        typeof(CreateServicePrincipalUpdatePasswordSingleSignOnCredentialRequestModel),
-        typeof(GetServicePrincipalByIdsRequestModel),
-        typeof(GetServicePrincipalMemberGroupsRequestModel),
-        typeof(GetServicePrincipalMemberObjectsRequestModel),
-        typeof(GetServicePrincipalPasswordSingleSignOnCredentialsRequestModel),
-        typeof(GetServicePrincipalUserOwnedObjectsRequestModel),
-        typeof(ValidateServicePrincipalPropertiesRequestModel)
+        typeof(AddServicePrincipalByIdTokenSigningCertificateRequestModel),
+        typeof(CheckServicePrincipalByIdMemberGroupRequestModel),
+        typeof(CheckServicePrincipalByIdMemberObjectRequestModel),
+        typeof(CreateServicePrincipalByIdCreatePasswordSingleSignOnCredentialRequestModel),
+        typeof(CreateServicePrincipalByIdDeletePasswordSingleSignOnCredentialRequestModel),
+        typeof(GetServicePrincipalByIdMemberGroupRequestModel),
+        typeof(GetServicePrincipalByIdMemberObjectRequestModel),
+        typeof(GetServicePrincipalByIdPasswordSingleSignOnCredentialRequestModel),
+        typeof(GetServicePrincipalsByIdsRequestModel),
+        typeof(GetServicePrincipalsUserOwnedObjectRequestModel),
+        typeof(UpdateServicePrincipalByIdPasswordSingleSignOnCredentialRequestModel),
+        typeof(ValidateServicePrincipalsPropertyRequestModel)
     };
 }

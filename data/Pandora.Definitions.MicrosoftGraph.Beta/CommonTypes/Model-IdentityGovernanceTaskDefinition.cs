@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityGovernanceTaskDefinitionModel
 {
     [JsonPropertyName("category")]
-    public LifecycleTaskCategoryConstant? Category { get; set; }
+    public IdentityGovernanceTaskDefinitionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("continueOnError")]
     public bool? ContinueOnError { get; set; }
@@ -32,7 +32,7 @@ internal class IdentityGovernanceTaskDefinitionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parameters")]
-    public List<ParameterModel>? Parameters { get; set; }
+    public List<IdentityGovernanceParameterModel>? Parameters { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

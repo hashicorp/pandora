@@ -65,7 +65,7 @@ internal class WebAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public WebAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("useManagedBrowser")]
     public bool? UseManagedBrowser { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class EdgeSearchEngineModel
 {
     [JsonPropertyName("edgeSearchEngineType")]
-    public EdgeSearchEngineTypeConstant? EdgeSearchEngineType { get; set; }
+    public EdgeSearchEngineEdgeSearchEngineTypeConstant? EdgeSearchEngineType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

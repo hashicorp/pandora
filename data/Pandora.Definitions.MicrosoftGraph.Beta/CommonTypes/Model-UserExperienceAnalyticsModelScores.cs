@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserExperienceAnalyticsModelScoresModel
 {
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsModelScoresHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -26,7 +26,7 @@ internal class UserExperienceAnalyticsModelScoresModel
     public string? Model { get; set; }
 
     [JsonPropertyName("modelDeviceCount")]
-    public long? ModelDeviceCount { get; set; }
+    public int? ModelDeviceCount { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

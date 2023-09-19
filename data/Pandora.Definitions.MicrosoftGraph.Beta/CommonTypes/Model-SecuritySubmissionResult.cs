@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecuritySubmissionResultModel
 {
     [JsonPropertyName("category")]
-    public SubmissionResultCategoryConstant? Category { get; set; }
+    public SecuritySubmissionResultCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("detail")]
-    public SubmissionResultDetailConstant? Detail { get; set; }
+    public SecuritySubmissionResultDetailConstant? Detail { get; set; }
 
     [JsonPropertyName("detectedFiles")]
-    public List<SubmissionDetectedFileModel>? DetectedFiles { get; set; }
+    public List<SecuritySubmissionDetectedFileModel>? DetectedFiles { get; set; }
 
     [JsonPropertyName("detectedUrls")]
     public List<string>? DetectedUrls { get; set; }
@@ -29,5 +29,5 @@ internal class SecuritySubmissionResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userMailboxSetting")]
-    public UserMailboxSettingConstant? UserMailboxSetting { get; set; }
+    public SecuritySubmissionResultUserMailboxSettingConstant? UserMailboxSetting { get; set; }
 }

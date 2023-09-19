@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityContentLabelModel
 {
     [JsonPropertyName("assignmentMethod")]
-    public AssignmentMethodConstant? AssignmentMethod { get; set; }
+    public SecurityContentLabelAssignmentMethodConstant? AssignmentMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserRegistrationFeatureCountModel
 {
     [JsonPropertyName("feature")]
-    public AuthenticationMethodFeatureConstant? Feature { get; set; }
+    public UserRegistrationFeatureCountFeatureConstant? Feature { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userCount")]
-    public long? UserCount { get; set; }
+    public int? UserCount { get; set; }
 }

@@ -23,7 +23,7 @@ internal class ZebraFotaDeploymentSettingsModel
     public string? DeviceModel { get; set; }
 
     [JsonPropertyName("downloadRuleNetworkType")]
-    public ZebraFotaNetworkTypeConstant? DownloadRuleNetworkType { get; set; }
+    public ZebraFotaDeploymentSettingsDownloadRuleNetworkTypeConstant? DownloadRuleNetworkType { get; set; }
 
     [JsonPropertyName("downloadRuleStartDateTime")]
     public DateTime? DownloadRuleStartDateTime { get; set; }
@@ -56,11 +56,11 @@ internal class ZebraFotaDeploymentSettingsModel
     public int? ScheduleDurationInDays { get; set; }
 
     [JsonPropertyName("scheduleMode")]
-    public ZebraFotaScheduleModeConstant? ScheduleMode { get; set; }
+    public ZebraFotaDeploymentSettingsScheduleModeConstant? ScheduleMode { get; set; }
 
     [JsonPropertyName("timeZoneOffsetInMinutes")]
     public int? TimeZoneOffsetInMinutes { get; set; }
 
     [JsonPropertyName("updateType")]
-    public ZebraFotaUpdateTypeConstant? UpdateType { get; set; }
+    public ZebraFotaDeploymentSettingsUpdateTypeConstant? UpdateType { get; set; }
 }

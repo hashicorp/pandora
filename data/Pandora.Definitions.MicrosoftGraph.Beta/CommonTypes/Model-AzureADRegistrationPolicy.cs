@@ -20,7 +20,7 @@ internal class AzureADRegistrationPolicyModel
     public List<string>? AllowedUsers { get; set; }
 
     [JsonPropertyName("appliesTo")]
-    public PolicyScopeConstant? AppliesTo { get; set; }
+    public AzureADRegistrationPolicyAppliesToConstant? AppliesTo { get; set; }
 
     [JsonPropertyName("isAdminConfigurable")]
     public bool? IsAdminConfigurable { get; set; }

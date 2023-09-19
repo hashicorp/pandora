@@ -17,11 +17,11 @@ internal class CertificateConnectorHealthMetricValueModel
     public DateTime? DateTime { get; set; }
 
     [JsonPropertyName("failureCount")]
-    public long? FailureCount { get; set; }
+    public int? FailureCount { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("successCount")]
-    public long? SuccessCount { get; set; }
+    public int? SuccessCount { get; set; }
 }

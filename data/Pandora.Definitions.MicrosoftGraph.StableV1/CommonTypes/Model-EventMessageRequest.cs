@@ -68,10 +68,10 @@ internal class EventMessageRequestModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public EventMessageRequestImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("inferenceClassification")]
-    public InferenceClassificationTypeConstant? InferenceClassification { get; set; }
+    public EventMessageRequestInferenceClassificationConstant? InferenceClassification { get; set; }
 
     [JsonPropertyName("internetMessageHeaders")]
     public List<InternetMessageHeaderModel>? InternetMessageHeaders { get; set; }
@@ -107,10 +107,10 @@ internal class EventMessageRequestModel
     public LocationModel? Location { get; set; }
 
     [JsonPropertyName("meetingMessageType")]
-    public MeetingMessageTypeConstant? MeetingMessageType { get; set; }
+    public EventMessageRequestMeetingMessageTypeConstant? MeetingMessageType { get; set; }
 
     [JsonPropertyName("meetingRequestType")]
-    public MeetingRequestTypeConstant? MeetingRequestType { get; set; }
+    public EventMessageRequestMeetingRequestTypeConstant? MeetingRequestType { get; set; }
 
     [JsonPropertyName("multiValueExtendedProperties")]
     public List<MultiValueLegacyExtendedPropertyModel>? MultiValueExtendedProperties { get; set; }
@@ -161,7 +161,7 @@ internal class EventMessageRequestModel
     public List<RecipientModel>? ToRecipients { get; set; }
 
     [JsonPropertyName("type")]
-    public EventTypeConstant? Type { get; set; }
+    public EventMessageRequestTypeConstant? Type { get; set; }
 
     [JsonPropertyName("uniqueBody")]
     public ItemBodyModel? UniqueBody { get; set; }

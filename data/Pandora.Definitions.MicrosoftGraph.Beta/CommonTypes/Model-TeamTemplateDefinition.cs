@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TeamTemplateDefinitionModel
 {
     [JsonPropertyName("audience")]
-    public TeamTemplateAudienceConstant? Audience { get; set; }
+    public TeamTemplateDefinitionAudienceConstant? Audience { get; set; }
 
     [JsonPropertyName("categories")]
     public List<string>? Categories { get; set; }

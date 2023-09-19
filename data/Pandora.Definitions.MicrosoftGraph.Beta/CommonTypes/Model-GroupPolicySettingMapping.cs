@@ -41,7 +41,7 @@ internal class GroupPolicySettingMappingModel
     public string? MdmSettingUri { get; set; }
 
     [JsonPropertyName("mdmSupportedState")]
-    public MdmSupportedStateConstant? MdmSupportedState { get; set; }
+    public GroupPolicySettingMappingMdmSupportedStateConstant? MdmSupportedState { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -65,10 +65,10 @@ internal class GroupPolicySettingMappingModel
     public string? SettingName { get; set; }
 
     [JsonPropertyName("settingScope")]
-    public GroupPolicySettingScopeConstant? SettingScope { get; set; }
+    public GroupPolicySettingMappingSettingScopeConstant? SettingScope { get; set; }
 
     [JsonPropertyName("settingType")]
-    public GroupPolicySettingTypeConstant? SettingType { get; set; }
+    public GroupPolicySettingMappingSettingTypeConstant? SettingType { get; set; }
 
     [JsonPropertyName("settingValue")]
     public string? SettingValue { get; set; }

@@ -29,7 +29,7 @@ internal class TeleconferenceDeviceMediaQualityModel
     public int? ChannelIndex { get; set; }
 
     [JsonPropertyName("inboundPackets")]
-    public long? InboundPackets { get; set; }
+    public int? InboundPackets { get; set; }
 
     [JsonPropertyName("localIPAddress")]
     public string? LocalIPAddress { get; set; }
@@ -53,13 +53,13 @@ internal class TeleconferenceDeviceMediaQualityModel
     public string? MediaDuration { get; set; }
 
     [JsonPropertyName("networkLinkSpeedInBytes")]
-    public long? NetworkLinkSpeedInBytes { get; set; }
+    public int? NetworkLinkSpeedInBytes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("outboundPackets")]
-    public long? OutboundPackets { get; set; }
+    public int? OutboundPackets { get; set; }
 
     [JsonPropertyName("remoteIPAddress")]
     public string? RemoteIPAddress { get; set; }

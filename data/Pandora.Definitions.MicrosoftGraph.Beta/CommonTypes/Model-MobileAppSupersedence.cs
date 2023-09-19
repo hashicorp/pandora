@@ -23,7 +23,7 @@ internal class MobileAppSupersedenceModel
     public int? SupersededAppCount { get; set; }
 
     [JsonPropertyName("supersedenceType")]
-    public MobileAppSupersedenceTypeConstant? SupersedenceType { get; set; }
+    public MobileAppSupersedenceSupersedenceTypeConstant? SupersedenceType { get; set; }
 
     [JsonPropertyName("supersedingAppCount")]
     public int? SupersedingAppCount { get; set; }
@@ -41,5 +41,5 @@ internal class MobileAppSupersedenceModel
     public string? TargetPublisher { get; set; }
 
     [JsonPropertyName("targetType")]
-    public MobileAppRelationshipTypeConstant? TargetType { get; set; }
+    public MobileAppSupersedenceTargetTypeConstant? TargetType { get; set; }
 }

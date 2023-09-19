@@ -20,7 +20,7 @@ internal class IosEasEmailProfileConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public EasAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public IosEasEmailProfileConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("blockMovingMessagesToOtherEmailAccounts")]
     public bool? BlockMovingMessagesToOtherEmailAccounts { get; set; }
@@ -65,19 +65,19 @@ internal class IosEasEmailProfileConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public IosEasEmailProfileConfigurationDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("easServices")]
-    public EasServicesConstant? EasServices { get; set; }
+    public IosEasEmailProfileConfigurationEasServicesConstant? EasServices { get; set; }
 
     [JsonPropertyName("easServicesUserOverrideEnabled")]
     public bool? EasServicesUserOverrideEnabled { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public IosEasEmailProfileConfigurationEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("encryptionCertificateType")]
-    public EmailCertificateTypeConstant? EncryptionCertificateType { get; set; }
+    public IosEasEmailProfileConfigurationEncryptionCertificateTypeConstant? EncryptionCertificateType { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -110,7 +110,7 @@ internal class IosEasEmailProfileConfigurationModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("signingCertificateType")]
-    public EmailCertificateTypeConstant? SigningCertificateType { get; set; }
+    public IosEasEmailProfileConfigurationSigningCertificateTypeConstant? SigningCertificateType { get; set; }
 
     [JsonPropertyName("smimeEnablePerMessageSwitch")]
     public bool? SmimeEnablePerMessageSwitch { get; set; }
@@ -146,7 +146,7 @@ internal class IosEasEmailProfileConfigurationModel
     public bool? UseOAuth { get; set; }
 
     [JsonPropertyName("userDomainNameSource")]
-    public DomainNameSourceConstant? UserDomainNameSource { get; set; }
+    public IosEasEmailProfileConfigurationUserDomainNameSourceConstant? UserDomainNameSource { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -155,10 +155,10 @@ internal class IosEasEmailProfileConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameAADSource")]
-    public UsernameSourceConstant? UsernameAADSource { get; set; }
+    public IosEasEmailProfileConfigurationUsernameAADSourceConstant? UsernameAADSource { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public UserEmailSourceConstant? UsernameSource { get; set; }
+    public IosEasEmailProfileConfigurationUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsPrivacyDataAccessControlItemModel
 {
     [JsonPropertyName("accessLevel")]
-    public WindowsPrivacyDataAccessLevelConstant? AccessLevel { get; set; }
+    public WindowsPrivacyDataAccessControlItemAccessLevelConstant? AccessLevel { get; set; }
 
     [JsonPropertyName("appDisplayName")]
     public string? AppDisplayName { get; set; }
@@ -23,7 +23,7 @@ internal class WindowsPrivacyDataAccessControlItemModel
     public string? AppPackageFamilyName { get; set; }
 
     [JsonPropertyName("dataCategory")]
-    public WindowsPrivacyDataCategoryConstant? DataCategory { get; set; }
+    public WindowsPrivacyDataAccessControlItemDataCategoryConstant? DataCategory { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

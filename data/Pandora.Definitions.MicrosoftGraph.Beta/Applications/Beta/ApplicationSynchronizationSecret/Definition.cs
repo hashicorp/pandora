@@ -13,8 +13,8 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateUpdateSynchronizationSecretOperation(),
-        new GetSynchronizationSecretsCountOperation()
+        new CreateUpdateApplicationByIdSynchronizationSecretOperation(),
+        new GetApplicationByIdSynchronizationSecretCountOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

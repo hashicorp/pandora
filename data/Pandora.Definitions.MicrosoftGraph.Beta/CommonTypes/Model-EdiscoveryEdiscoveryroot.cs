@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryEdiscoveryrootModel
 {
     [JsonPropertyName("cases")]
-    public List<CaseModel>? Cases { get; set; }
+    public List<EdiscoveryCaseModel>? Cases { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

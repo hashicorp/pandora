@@ -26,7 +26,7 @@ internal class PhotoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientation")]
-    public short? Orientation { get; set; }
+    public int? Orientation { get; set; }
 
     [JsonPropertyName("takenDateTime")]
     public DateTime? TakenDateTime { get; set; }

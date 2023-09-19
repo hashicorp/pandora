@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementPortalNotificationModel
 {
     [JsonPropertyName("alertImpact")]
-    public AlertImpactModel? AlertImpact { get; set; }
+    public DeviceManagementAlertImpactModel? AlertImpact { get; set; }
 
     [JsonPropertyName("alertRecordId")]
     public string? AlertRecordId { get; set; }
@@ -26,7 +26,7 @@ internal class DeviceManagementPortalNotificationModel
     public string? AlertRuleName { get; set; }
 
     [JsonPropertyName("alertRuleTemplate")]
-    public AlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
+    public DeviceManagementPortalNotificationAlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -38,5 +38,5 @@ internal class DeviceManagementPortalNotificationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("severity")]
-    public RuleSeverityTypeConstant? Severity { get; set; }
+    public DeviceManagementPortalNotificationSeverityConstant? Severity { get; set; }
 }

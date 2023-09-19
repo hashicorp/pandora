@@ -56,7 +56,7 @@ internal class AndroidManagedStoreAppConfigurationModel
     public List<AndroidPermissionActionModel>? PermissionActions { get; set; }
 
     [JsonPropertyName("profileApplicability")]
-    public AndroidProfileApplicabilityConstant? ProfileApplicability { get; set; }
+    public AndroidManagedStoreAppConfigurationProfileApplicabilityConstant? ProfileApplicability { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

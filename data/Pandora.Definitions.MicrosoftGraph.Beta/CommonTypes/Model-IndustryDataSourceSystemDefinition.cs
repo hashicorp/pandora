@@ -23,7 +23,7 @@ internal class IndustryDataSourceSystemDefinitionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userMatchingSettings")]
-    public List<UserMatchingSettingModel>? UserMatchingSettings { get; set; }
+    public List<IndustryDataUserMatchingSettingModel>? UserMatchingSettings { get; set; }
 
     [JsonPropertyName("vendor")]
     public string? Vendor { get; set; }

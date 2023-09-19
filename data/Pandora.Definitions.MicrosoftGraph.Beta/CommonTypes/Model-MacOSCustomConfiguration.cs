@@ -20,7 +20,7 @@ internal class MacOSCustomConfigurationModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("deploymentChannel")]
-    public AppleDeploymentChannelConstant? DeploymentChannel { get; set; }
+    public MacOSCustomConfigurationDeploymentChannelConstant? DeploymentChannel { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }

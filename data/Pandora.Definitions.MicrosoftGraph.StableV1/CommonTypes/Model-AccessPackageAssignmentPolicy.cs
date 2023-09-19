@@ -17,7 +17,7 @@ internal class AccessPackageAssignmentPolicyModel
     public AccessPackageModel? AccessPackage { get; set; }
 
     [JsonPropertyName("allowedTargetScope")]
-    public AllowedTargetScopeConstant? AllowedTargetScope { get; set; }
+    public AccessPackageAssignmentPolicyAllowedTargetScopeConstant? AllowedTargetScope { get; set; }
 
     [JsonPropertyName("automaticRequestSettings")]
     public AccessPackageAutomaticRequestSettingsModel? AutomaticRequestSettings { get; set; }
@@ -27,6 +27,9 @@ internal class AccessPackageAssignmentPolicyModel
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
+
+    [JsonPropertyName("customExtensionStageSettings")]
+    public List<CustomExtensionStageSettingModel>? CustomExtensionStageSettings { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }

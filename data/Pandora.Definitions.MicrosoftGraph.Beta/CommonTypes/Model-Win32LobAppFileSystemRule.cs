@@ -26,14 +26,14 @@ internal class Win32LobAppFileSystemRuleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationType")]
-    public Win32LobAppFileSystemOperationTypeConstant? OperationType { get; set; }
+    public Win32LobAppFileSystemRuleOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppRuleOperatorConstant? Operator { get; set; }
+    public Win32LobAppFileSystemRuleOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("path")]
     public string? Path { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public Win32LobAppRuleTypeConstant? RuleType { get; set; }
+    public Win32LobAppFileSystemRuleRuleTypeConstant? RuleType { get; set; }
 }

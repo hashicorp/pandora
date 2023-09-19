@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ExternalConnectorsExternalModel
 {
     [JsonPropertyName("connections")]
-    public List<ExternalConnectionModel>? Connections { get; set; }
+    public List<ExternalConnectorsExternalConnectionModel>? Connections { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

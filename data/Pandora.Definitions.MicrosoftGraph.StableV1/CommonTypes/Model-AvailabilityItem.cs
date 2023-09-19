@@ -26,5 +26,5 @@ internal class AvailabilityItemModel
     public DateTimeTimeZoneModel? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public BookingsAvailabilityStatusConstant? Status { get; set; }
+    public AvailabilityItemStatusConstant? Status { get; set; }
 }

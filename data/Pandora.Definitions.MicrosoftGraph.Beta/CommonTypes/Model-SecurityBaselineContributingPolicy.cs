@@ -23,5 +23,5 @@ internal class SecurityBaselineContributingPolicyModel
     public string? SourceId { get; set; }
 
     [JsonPropertyName("sourceType")]
-    public SecurityBaselinePolicySourceTypeConstant? SourceType { get; set; }
+    public SecurityBaselineContributingPolicySourceTypeConstant? SourceType { get; set; }
 }

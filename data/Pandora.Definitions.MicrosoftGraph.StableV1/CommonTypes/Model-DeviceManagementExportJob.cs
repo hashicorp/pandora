@@ -20,7 +20,7 @@ internal class DeviceManagementExportJobModel
     public string? Filter { get; set; }
 
     [JsonPropertyName("format")]
-    public DeviceManagementReportFileFormatConstant? Format { get; set; }
+    public DeviceManagementExportJobFormatConstant? Format { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -44,7 +44,7 @@ internal class DeviceManagementExportJobModel
     public string? SnapshotId { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceManagementReportStatusConstant? Status { get; set; }
+    public DeviceManagementExportJobStatusConstant? Status { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

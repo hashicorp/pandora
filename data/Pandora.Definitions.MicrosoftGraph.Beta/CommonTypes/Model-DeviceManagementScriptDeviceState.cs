@@ -35,5 +35,5 @@ internal class DeviceManagementScriptDeviceStateModel
     public string? ResultMessage { get; set; }
 
     [JsonPropertyName("runState")]
-    public RunStateConstant? RunState { get; set; }
+    public DeviceManagementScriptDeviceStateRunStateConstant? RunState { get; set; }
 }

@@ -23,7 +23,7 @@ internal class WindowsAutopilotDeviceIdentityModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enrollmentState")]
-    public EnrollmentStateConstant? EnrollmentState { get; set; }
+    public WindowsAutopilotDeviceIdentityEnrollmentStateConstant? EnrollmentState { get; set; }
 
     [JsonPropertyName("groupTag")]
     public string? GroupTag { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class OnenotePatchContentCommandModel
 {
     [JsonPropertyName("action")]
-    public OnenotePatchActionTypeConstant? Action { get; set; }
+    public OnenotePatchContentCommandActionConstant? Action { get; set; }
 
     [JsonPropertyName("content")]
     public string? Content { get; set; }
@@ -23,7 +23,7 @@ internal class OnenotePatchContentCommandModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("position")]
-    public OnenotePatchInsertPositionConstant? Position { get; set; }
+    public OnenotePatchContentCommandPositionConstant? Position { get; set; }
 
     [JsonPropertyName("target")]
     public string? Target { get; set; }

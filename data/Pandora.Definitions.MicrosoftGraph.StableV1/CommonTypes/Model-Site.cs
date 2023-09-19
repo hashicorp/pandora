@@ -101,10 +101,10 @@ internal class SiteModel
     public List<SiteModel>? Sites { get; set; }
 
     [JsonPropertyName("termStore")]
-    public StoreModel? TermStore { get; set; }
+    public TermStoreStoreModel? TermStore { get; set; }
 
     [JsonPropertyName("termStores")]
-    public List<StoreModel>? TermStores { get; set; }
+    public List<TermStoreStoreModel>? TermStores { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

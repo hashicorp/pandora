@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IosVppAppRevokeLicensesActionResultModel
 {
     [JsonPropertyName("actionFailureReason")]
-    public VppTokenActionFailureReasonConstant? ActionFailureReason { get; set; }
+    public IosVppAppRevokeLicensesActionResultActionFailureReasonConstant? ActionFailureReason { get; set; }
 
     [JsonPropertyName("actionName")]
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public IosVppAppRevokeLicensesActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("failedLicensesCount")]
     public int? FailedLicensesCount { get; set; }

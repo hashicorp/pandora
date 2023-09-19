@@ -13,23 +13,26 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class EdiscoveryNoncustodialDataSourceModel
 {
+    [JsonPropertyName("applyHoldToSource")]
+    public bool? ApplyHoldToSource { get; set; }
+
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("dataSource")]
-    public DataSourceModel? DataSource { get; set; }
+    public EdiscoveryDataSourceModel? DataSource { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public EdiscoveryNoncustodialDataSourceHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("lastIndexOperation")]
-    public EdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
+    public EdiscoveryCaseIndexOperationModel? LastIndexOperation { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -41,5 +44,5 @@ internal class EdiscoveryNoncustodialDataSourceModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public EdiscoveryNoncustodialDataSourceStatusConstant? Status { get; set; }
 }

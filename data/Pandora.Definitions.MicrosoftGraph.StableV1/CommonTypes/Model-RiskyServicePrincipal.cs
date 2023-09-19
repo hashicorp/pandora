@@ -35,16 +35,16 @@ internal class RiskyServicePrincipalModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public RiskyServicePrincipalRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskLastUpdatedDateTime")]
     public DateTime? RiskLastUpdatedDateTime { get; set; }
 
     [JsonPropertyName("riskLevel")]
-    public RiskLevelConstant? RiskLevel { get; set; }
+    public RiskyServicePrincipalRiskLevelConstant? RiskLevel { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public RiskyServicePrincipalRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("servicePrincipalType")]
     public string? ServicePrincipalType { get; set; }

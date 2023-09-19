@@ -20,7 +20,7 @@ internal class DeviceManagementExchangeConnectorModel
     public string? ExchangeAlias { get; set; }
 
     [JsonPropertyName("exchangeConnectorType")]
-    public DeviceManagementExchangeConnectorTypeConstant? ExchangeConnectorType { get; set; }
+    public DeviceManagementExchangeConnectorExchangeConnectorTypeConstant? ExchangeConnectorType { get; set; }
 
     [JsonPropertyName("exchangeOrganization")]
     public string? ExchangeOrganization { get; set; }

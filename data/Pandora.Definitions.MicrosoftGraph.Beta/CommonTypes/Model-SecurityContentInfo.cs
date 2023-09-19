@@ -20,11 +20,11 @@ internal class SecurityContentInfoModel
     public string? Identifier { get; set; }
 
     [JsonPropertyName("metadata")]
-    public List<KeyValuePairModel>? Metadata { get; set; }
+    public List<SecurityKeyValuePairModel>? Metadata { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ContentStateConstant? State { get; set; }
+    public SecurityContentInfoStateConstant? State { get; set; }
 }

@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateFederatedIdentityCredentialOperation(),
-        new DeleteFederatedIdentityCredentialOperation(),
-        new GetApplicationFederatedIdentityCredentialsCountOperation(),
-        new GetFederatedIdentityCredentialOperation(),
-        new ListFederatedIdentityCredentialsOperation(),
-        new UpdateFederatedIdentityCredentialOperation()
+        new CreateApplicationByIdFederatedIdentityCredentialOperation(),
+        new DeleteApplicationByIdFederatedIdentityCredentialByIdOperation(),
+        new GetApplicationByIdFederatedIdentityCredentialByIdOperation(),
+        new GetApplicationByIdFederatedIdentityCredentialCountOperation(),
+        new ListApplicationByIdFederatedIdentityCredentialsOperation(),
+        new UpdateApplicationByIdFederatedIdentityCredentialByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

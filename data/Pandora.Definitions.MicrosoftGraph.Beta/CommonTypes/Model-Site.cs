@@ -86,7 +86,7 @@ internal class SiteModel
     public List<RichLongRunningOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("pages")]
-    public List<SitePageModel>? Pages { get; set; }
+    public List<BaseSitePageModel>? Pages { get; set; }
 
     [JsonPropertyName("parentReference")]
     public ItemReferenceModel? ParentReference { get; set; }
@@ -110,7 +110,7 @@ internal class SiteModel
     public List<SiteModel>? Sites { get; set; }
 
     [JsonPropertyName("termStore")]
-    public StoreModel? TermStore { get; set; }
+    public TermStoreStoreModel? TermStore { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

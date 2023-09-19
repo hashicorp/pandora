@@ -29,7 +29,7 @@ internal class DeviceManagementIntentDeviceStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public DeviceManagementIntentDeviceStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userName")]
     public string? UserName { get; set; }

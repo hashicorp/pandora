@@ -29,7 +29,7 @@ internal class IosUpdateDeviceStatusModel
     public string? Id { get; set; }
 
     [JsonPropertyName("installStatus")]
-    public IosUpdatesInstallStatusConstant? InstallStatus { get; set; }
+    public IosUpdateDeviceStatusInstallStatusConstant? InstallStatus { get; set; }
 
     [JsonPropertyName("lastReportedDateTime")]
     public DateTime? LastReportedDateTime { get; set; }
@@ -44,7 +44,7 @@ internal class IosUpdateDeviceStatusModel
     public int? Platform { get; set; }
 
     [JsonPropertyName("status")]
-    public ComplianceStatusConstant? Status { get; set; }
+    public IosUpdateDeviceStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userId")]
     public string? UserId { get; set; }

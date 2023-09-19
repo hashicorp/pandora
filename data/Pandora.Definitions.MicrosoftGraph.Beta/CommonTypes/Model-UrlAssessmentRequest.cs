@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UrlAssessmentRequestModel
 {
     [JsonPropertyName("category")]
-    public ThreatCategoryConstant? Category { get; set; }
+    public UrlAssessmentRequestCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("contentType")]
-    public ThreatAssessmentContentTypeConstant? ContentType { get; set; }
+    public UrlAssessmentRequestContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -26,7 +26,7 @@ internal class UrlAssessmentRequestModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("expectedAssessment")]
-    public ThreatExpectedAssessmentConstant? ExpectedAssessment { get; set; }
+    public UrlAssessmentRequestExpectedAssessmentConstant? ExpectedAssessment { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,13 +35,13 @@ internal class UrlAssessmentRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("requestSource")]
-    public ThreatAssessmentRequestSourceConstant? RequestSource { get; set; }
+    public UrlAssessmentRequestRequestSourceConstant? RequestSource { get; set; }
 
     [JsonPropertyName("results")]
     public List<ThreatAssessmentResultModel>? Results { get; set; }
 
     [JsonPropertyName("status")]
-    public ThreatAssessmentStatusConstant? Status { get; set; }
+    public UrlAssessmentRequestStatusConstant? Status { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

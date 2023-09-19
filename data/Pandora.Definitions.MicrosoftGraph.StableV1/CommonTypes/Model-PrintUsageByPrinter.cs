@@ -13,23 +13,47 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class PrintUsageByPrinterModel
 {
+    [JsonPropertyName("blackAndWhitePageCount")]
+    public int? BlackAndWhitePageCount { get; set; }
+
+    [JsonPropertyName("colorPageCount")]
+    public int? ColorPageCount { get; set; }
+
     [JsonPropertyName("completedBlackAndWhiteJobCount")]
-    public long? CompletedBlackAndWhiteJobCount { get; set; }
+    public int? CompletedBlackAndWhiteJobCount { get; set; }
 
     [JsonPropertyName("completedColorJobCount")]
-    public long? CompletedColorJobCount { get; set; }
+    public int? CompletedColorJobCount { get; set; }
+
+    [JsonPropertyName("completedJobCount")]
+    public int? CompletedJobCount { get; set; }
+
+    [JsonPropertyName("doubleSidedSheetCount")]
+    public int? DoubleSidedSheetCount { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("incompleteJobCount")]
-    public long? IncompleteJobCount { get; set; }
+    public int? IncompleteJobCount { get; set; }
+
+    [JsonPropertyName("mediaSheetCount")]
+    public int? MediaSheetCount { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("pageCount")]
+    public int? PageCount { get; set; }
+
     [JsonPropertyName("printerId")]
     public string? PrinterId { get; set; }
+
+    [JsonPropertyName("printerName")]
+    public string? PrinterName { get; set; }
+
+    [JsonPropertyName("singleSidedSheetCount")]
+    public int? SingleSidedSheetCount { get; set; }
 
     [JsonPropertyName("usageDate")]
     public DateTime? UsageDate { get; set; }

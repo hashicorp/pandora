@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ItemPhoneModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public ItemPhoneAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -50,5 +50,5 @@ internal class ItemPhoneModel
     public PersonDataSourcesModel? Source { get; set; }
 
     [JsonPropertyName("type")]
-    public PhoneTypeConstant? Type { get; set; }
+    public ItemPhoneTypeConstant? Type { get; set; }
 }

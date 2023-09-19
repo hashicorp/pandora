@@ -23,7 +23,7 @@ internal class AudioRoutingGroupModel
     public List<string>? Receivers { get; set; }
 
     [JsonPropertyName("routingMode")]
-    public RoutingModeConstant? RoutingMode { get; set; }
+    public AudioRoutingGroupRoutingModeConstant? RoutingMode { get; set; }
 
     [JsonPropertyName("sources")]
     public List<string>? Sources { get; set; }

@@ -42,4 +42,7 @@ internal class ConditionalAccessPolicyModel
 
     [JsonPropertyName("state")]
     public ConditionalAccessPolicyStateConstant? State { get; set; }
+
+    [JsonPropertyName("templateId")]
+    public string? TemplateId { get; set; }
 }

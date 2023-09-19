@@ -35,16 +35,16 @@ internal class UserExperienceAnalyticsDeviceScopeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public DeviceScopeOperatorConstant? Operator { get; set; }
+    public UserExperienceAnalyticsDeviceScopeOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("ownerId")]
     public string? OwnerId { get; set; }
 
     [JsonPropertyName("parameter")]
-    public DeviceScopeParameterConstant? Parameter { get; set; }
+    public UserExperienceAnalyticsDeviceScopeParameterConstant? Parameter { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceScopeStatusConstant? Status { get; set; }
+    public UserExperienceAnalyticsDeviceScopeStatusConstant? Status { get; set; }
 
     [JsonPropertyName("value")]
     public string? Value { get; set; }

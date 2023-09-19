@@ -23,7 +23,7 @@ internal class DeviceCompliancePolicyStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public DeviceCompliancePolicyStatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("settingCount")]
     public int? SettingCount { get; set; }
@@ -32,7 +32,7 @@ internal class DeviceCompliancePolicyStateModel
     public List<DeviceCompliancePolicySettingStateModel>? SettingStates { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public DeviceCompliancePolicyStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userId")]
     public string? UserId { get; set; }

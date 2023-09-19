@@ -26,5 +26,5 @@ internal class ManagedTenantsWorkloadStatusModel
     public DateTime? OnboardedDateTime { get; set; }
 
     [JsonPropertyName("onboardingStatus")]
-    public WorkloadOnboardingStatusConstant? OnboardingStatus { get; set; }
+    public ManagedTenantsWorkloadStatusOnboardingStatusConstant? OnboardingStatus { get; set; }
 }

@@ -20,13 +20,13 @@ internal class BrowserSiteHistoryModel
     public string? Comment { get; set; }
 
     [JsonPropertyName("compatibilityMode")]
-    public BrowserSiteCompatibilityModeConstant? CompatibilityMode { get; set; }
+    public BrowserSiteHistoryCompatibilityModeConstant? CompatibilityMode { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
     public IdentitySetModel? LastModifiedBy { get; set; }
 
     [JsonPropertyName("mergeType")]
-    public BrowserSiteMergeTypeConstant? MergeType { get; set; }
+    public BrowserSiteHistoryMergeTypeConstant? MergeType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -35,5 +35,5 @@ internal class BrowserSiteHistoryModel
     public DateTime? PublishedDateTime { get; set; }
 
     [JsonPropertyName("targetEnvironment")]
-    public BrowserSiteTargetEnvironmentConstant? TargetEnvironment { get; set; }
+    public BrowserSiteHistoryTargetEnvironmentConstant? TargetEnvironment { get; set; }
 }

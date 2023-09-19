@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PrinterDefaultsModel
 {
     [JsonPropertyName("colorMode")]
-    public PrintColorModeConstant? ColorMode { get; set; }
+    public PrinterDefaultsColorModeConstant? ColorMode { get; set; }
 
     [JsonPropertyName("contentType")]
     public string? ContentType { get; set; }
@@ -29,13 +29,13 @@ internal class PrinterDefaultsModel
     public int? Dpi { get; set; }
 
     [JsonPropertyName("duplexConfiguration")]
-    public PrintDuplexConfigurationConstant? DuplexConfiguration { get; set; }
+    public PrinterDefaultsDuplexConfigurationConstant? DuplexConfiguration { get; set; }
 
     [JsonPropertyName("duplexMode")]
-    public PrintDuplexModeConstant? DuplexMode { get; set; }
+    public PrinterDefaultsDuplexModeConstant? DuplexMode { get; set; }
 
     [JsonPropertyName("finishings")]
-    public List<PrintFinishingConstant>? Finishings { get; set; }
+    public List<PrinterDefaultsFinishingsConstant>? Finishings { get; set; }
 
     [JsonPropertyName("fitPdfToPage")]
     public bool? FitPdfToPage { get; set; }
@@ -53,13 +53,13 @@ internal class PrinterDefaultsModel
     public string? MediaType { get; set; }
 
     [JsonPropertyName("multipageLayout")]
-    public PrintMultipageLayoutConstant? MultipageLayout { get; set; }
+    public PrinterDefaultsMultipageLayoutConstant? MultipageLayout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientation")]
-    public PrintOrientationConstant? Orientation { get; set; }
+    public PrinterDefaultsOrientationConstant? Orientation { get; set; }
 
     [JsonPropertyName("outputBin")]
     public string? OutputBin { get; set; }
@@ -71,17 +71,17 @@ internal class PrinterDefaultsModel
     public bool? PdfFitToPage { get; set; }
 
     [JsonPropertyName("presentationDirection")]
-    public PrintPresentationDirectionConstant? PresentationDirection { get; set; }
+    public PrinterDefaultsPresentationDirectionConstant? PresentationDirection { get; set; }
 
     [JsonPropertyName("printColorConfiguration")]
-    public PrintColorConfigurationConstant? PrintColorConfiguration { get; set; }
+    public PrinterDefaultsPrintColorConfigurationConstant? PrintColorConfiguration { get; set; }
 
     [JsonPropertyName("printQuality")]
-    public PrintQualityConstant? PrintQuality { get; set; }
+    public PrinterDefaultsPrintQualityConstant? PrintQuality { get; set; }
 
     [JsonPropertyName("quality")]
-    public PrintQualityConstant? Quality { get; set; }
+    public PrinterDefaultsQualityConstant? Quality { get; set; }
 
     [JsonPropertyName("scaling")]
-    public PrintScalingConstant? Scaling { get; set; }
+    public PrinterDefaultsScalingConstant? Scaling { get; set; }
 }

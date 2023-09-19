@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MobileAppDependencyModel
 {
     [JsonPropertyName("dependencyType")]
-    public MobileAppDependencyTypeConstant? DependencyType { get; set; }
+    public MobileAppDependencyDependencyTypeConstant? DependencyType { get; set; }
 
     [JsonPropertyName("dependentAppCount")]
     public int? DependentAppCount { get; set; }
@@ -41,5 +41,5 @@ internal class MobileAppDependencyModel
     public string? TargetPublisher { get; set; }
 
     [JsonPropertyName("targetType")]
-    public MobileAppRelationshipTypeConstant? TargetType { get; set; }
+    public MobileAppDependencyTargetTypeConstant? TargetType { get; set; }
 }

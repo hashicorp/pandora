@@ -20,5 +20,5 @@ internal class DeviceManagementExchangeDeviceClassModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public DeviceManagementExchangeAccessRuleTypeConstant? Type { get; set; }
+    public DeviceManagementExchangeDeviceClassTypeConstant? Type { get; set; }
 }

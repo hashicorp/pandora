@@ -38,7 +38,7 @@ internal class RichLongRunningOperationModel
     public string? ResourceLocation { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public RichLongRunningOperationStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusDetail")]
     public string? StatusDetail { get; set; }

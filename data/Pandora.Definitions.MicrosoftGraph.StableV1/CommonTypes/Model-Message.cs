@@ -59,10 +59,10 @@ internal class MessageModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public MessageImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("inferenceClassification")]
-    public InferenceClassificationTypeConstant? InferenceClassification { get; set; }
+    public MessageInferenceClassificationConstant? InferenceClassification { get; set; }
 
     [JsonPropertyName("internetMessageHeaders")]
     public List<InternetMessageHeaderModel>? InternetMessageHeaders { get; set; }

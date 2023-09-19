@@ -32,7 +32,7 @@ internal class CommunicationsIdentitySetModel
     public IdentityModel? Encrypted { get; set; }
 
     [JsonPropertyName("endpointType")]
-    public EndpointTypeConstant? EndpointType { get; set; }
+    public CommunicationsIdentitySetEndpointTypeConstant? EndpointType { get; set; }
 
     [JsonPropertyName("guest")]
     public IdentityModel? Guest { get; set; }

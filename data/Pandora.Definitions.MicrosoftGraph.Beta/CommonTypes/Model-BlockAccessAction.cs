@@ -13,9 +13,6 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class BlockAccessActionModel
 {
-    [JsonPropertyName("action")]
-    public DlpActionConstant? Action { get; set; }
-
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

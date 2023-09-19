@@ -17,11 +17,11 @@ internal class CallRecordsUserFeedbackModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("rating")]
-    public UserFeedbackRatingConstant? Rating { get; set; }
+    public CallRecordsUserFeedbackRatingConstant? Rating { get; set; }
 
     [JsonPropertyName("text")]
     public string? Text { get; set; }
 
     [JsonPropertyName("tokens")]
-    public FeedbackTokenSetModel? Tokens { get; set; }
+    public CallRecordsFeedbackTokenSetModel? Tokens { get; set; }
 }

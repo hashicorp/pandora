@@ -20,7 +20,7 @@ internal class ObjectMappingModel
     public bool? Enabled { get; set; }
 
     [JsonPropertyName("flowTypes")]
-    public ObjectFlowTypesConstant? FlowTypes { get; set; }
+    public ObjectMappingFlowTypesConstant? FlowTypes { get; set; }
 
     [JsonPropertyName("metadata")]
     public List<ObjectMappingMetadataEntryModel>? Metadata { get; set; }

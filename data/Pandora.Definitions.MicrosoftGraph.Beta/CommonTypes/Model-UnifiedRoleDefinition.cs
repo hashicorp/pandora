@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UnifiedRoleDefinitionModel
 {
     [JsonPropertyName("allowedPrincipalTypes")]
-    public AllowedRolePrincipalTypesConstant? AllowedPrincipalTypes { get; set; }
+    public UnifiedRoleDefinitionAllowedPrincipalTypesConstant? AllowedPrincipalTypes { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -33,6 +33,9 @@ internal class UnifiedRoleDefinitionModel
 
     [JsonPropertyName("isEnabled")]
     public bool? IsEnabled { get; set; }
+
+    [JsonPropertyName("isPrivileged")]
+    public bool? IsPrivileged { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

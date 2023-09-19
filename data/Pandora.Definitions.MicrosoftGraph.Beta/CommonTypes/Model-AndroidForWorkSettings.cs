@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AndroidForWorkSettingsModel
 {
     [JsonPropertyName("bindStatus")]
-    public AndroidForWorkBindStatusConstant? BindStatus { get; set; }
+    public AndroidForWorkSettingsBindStatusConstant? BindStatus { get; set; }
 
     [JsonPropertyName("deviceOwnerManagementEnabled")]
     public bool? DeviceOwnerManagementEnabled { get; set; }
 
     [JsonPropertyName("enrollmentTarget")]
-    public AndroidForWorkEnrollmentTargetConstant? EnrollmentTarget { get; set; }
+    public AndroidForWorkSettingsEnrollmentTargetConstant? EnrollmentTarget { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,7 +29,7 @@ internal class AndroidForWorkSettingsModel
     public DateTime? LastAppSyncDateTime { get; set; }
 
     [JsonPropertyName("lastAppSyncStatus")]
-    public AndroidForWorkSyncStatusConstant? LastAppSyncStatus { get; set; }
+    public AndroidForWorkSettingsLastAppSyncStatusConstant? LastAppSyncStatus { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

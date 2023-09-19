@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ExternalConnectorsExternalModel
 {
     [JsonPropertyName("connections")]
-    public List<ExternalConnectionModel>? Connections { get; set; }
+    public List<ExternalConnectorsExternalConnectionModel>? Connections { get; set; }
 
     [JsonPropertyName("industryData")]
-    public IndustryDataRootModel? IndustryData { get; set; }
+    public IndustryDataIndustryDataRootModel? IndustryData { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
