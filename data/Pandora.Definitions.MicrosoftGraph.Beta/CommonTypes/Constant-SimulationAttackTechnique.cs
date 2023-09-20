@@ -1,0 +1,32 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum SimulationAttackTechniqueConstant
+{
+    [Description("Unknown")]
+    @unknown,
+
+    [Description("CredentialHarvesting")]
+    @credentialHarvesting,
+
+    [Description("AttachmentMalware")]
+    @attachmentMalware,
+
+    [Description("DriveByUrl")]
+    @driveByUrl,
+
+    [Description("LinkInAttachment")]
+    @linkInAttachment,
+
+    [Description("LinkToMalwareFile")]
+    @linkToMalwareFile,
+
+    [Description("OAuthConsentGrant")]
+    @oAuthConsentGrant,
+}
