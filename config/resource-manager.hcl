@@ -51,7 +51,7 @@ service "automation" {
 }
 service "azure-kusto" {
   name      = "Kusto"
-  available = ["2023-05-02"]
+  available = ["2023-05-02", "2023-08-15"]
 }
 service "azureactivedirectory" {
   name      = "AzureActiveDirectory"
@@ -164,7 +164,7 @@ service "datashare" {
 }
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
-  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09"]
+  available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09", "2023-09-05"]
 }
 service "deviceprovisioningservices" {
   name      = "DeviceProvisioningServices"
@@ -422,7 +422,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01", "2023-06-01"]
   ignore    = ["2023-01-01"]
 }
 service "recoveryservicesbackup" {
