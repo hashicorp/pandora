@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 service "ManagedIdentity" {
   terraform_package = "managedidentity"
 
