@@ -25,7 +25,7 @@ internal class ListKeysOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? ResponseObject() => typeof(EndpointAuthKeysModel);
 
-    public override string? UriSuffix() => "/listkeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
 }
