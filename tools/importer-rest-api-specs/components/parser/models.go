@@ -535,6 +535,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
 		}
 
+		// check for / avoid circular references,
 		// however, we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
 		if _, ok := result.Models[modelName]; !ok && parsingModel {
 			nestedResult, err := d.parseModel(modelName, *input)
