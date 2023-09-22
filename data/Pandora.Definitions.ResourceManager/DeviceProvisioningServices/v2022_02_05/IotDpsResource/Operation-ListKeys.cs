@@ -27,7 +27,7 @@ internal class ListKeysOperation : Pandora.Definitions.Operations.ListOperation
 
     public override Type NestedItemType() => typeof(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionModel);
 
-    public override string? UriSuffix() => "/listkeys";
+    public override string? UriSuffix() => "/listKeys";
 
     public override System.Net.Http.HttpMethod Method() => System.Net.Http.HttpMethod.Post;
 

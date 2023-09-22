@@ -25,7 +25,7 @@ internal class ListHostKeysSlotOperation : Pandora.Definitions.Operations.PostOp
 
     public override Type? ResponseObject() => typeof(HostKeysModel);
 
-    public override string? UriSuffix() => "/host/default/listkeys";
+    public override string? UriSuffix() => "/host/default/listKeys";
 
 
 }
