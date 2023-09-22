@@ -1861,3 +1861,30 @@ func TestParseModelWithLocation(t *testing.T) {
 		t.Fatalf("expected example.Fields['Location'] to be a Location but got %q", string(*field.CustomFieldType))
 	}
 }
+
+func TestParseModelBug2675DuplicateModel(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "models_bug_2675_duplicate_model.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+
+	example, ok := result.Resources["Example"]
+	if !ok {
+		t.Fatal("the Resource 'Example' was not found")
+	}
+
+	if len(example.Operations) != 3 {
+		t.Fatalf("expected the resource `Example` to have 3 operation but got %d", len(example.Operations))
+	}
+
+	if len(example.Models) != 7 {
+		t.Fatalf("expected the resource `Example` to have 7 models but got %d", len(example.Models))
+	}
+
+	if _, ok := example.Models["ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment"]; !ok {
+		t.Fatalf("expected the resource `Example` to have a model named `ExampleEnvironmentUpdatePropertiesCreatorRoleAssignment` but didn't get one")
+	}
+}

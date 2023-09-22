@@ -1,0 +1,205 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "host": "management.mysite.com",
+  "schemes": [
+    "https"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "security": [],
+  "securityDefinitions": {},
+  "paths": {
+    "/environments/{environmentName}": {
+      "get": {
+        "tags": [
+          "Example"
+        ],
+        "description": "Gets an example environment.",
+        "parameters": [
+          {
+            "name": "environmentName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          }
+        ],
+        "operationId": "Example_Get",
+        "responses": {
+          "200": {
+            "description": "OK. The request has succeeded.",
+            "schema": {
+              "$ref": "#/definitions/ExampleEnvironment"
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Example"
+        ],
+        "description": "Creates or updates an example environment.",
+        "parameters": [
+          {
+            "name": "environmentName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExampleEnvironment"
+            }
+          }
+        ],
+        "operationId": "Example_CreateOrUpdate",
+        "responses": {
+          "200": {
+            "description": "Succeeded",
+            "schema": {
+              "$ref": "#/definitions/ExampleEnvironment"
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "Example"
+        ],
+        "description": "Patches an example environment.",
+        "parameters": [
+          {
+            "name": "environmentName",
+            "in": "path",
+            "required": true,
+            "type": "string",
+            "x-ms-parameter-location": "method"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "description": "Updatable project environment type properties.",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/ExampleEnvironmentUpdate"
+            }
+          }
+        ],
+        "operationId": "Example_Update",
+        "responses": {
+          "200": {
+            "description": "The resource was updated.",
+            "schema": {
+              "$ref": "#/definitions/ExampleEnvironment"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ExampleEnvironment": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ExampleEnvironmentProperties"
+        },
+        "location": {
+          "type": "string"
+        }
+      }
+    },
+    "ExampleEnvironmentUpdateProperties": {
+      "type": "object",
+      "properties": {
+        "deploymentTargetId": {
+          "type": "string"
+        },
+        "creatorRoleAssignment": {
+          "type": "object",
+          "properties": {
+            "roles": {
+              "type": "object",
+              "additionalProperties": {
+                "$ref": "#/definitions/EnvironmentRole"
+              }
+            }
+          }
+        },
+        "userRoleAssignments": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/UserRoleAssignment"
+          }
+        }
+      }
+    },
+    "ExampleEnvironmentProperties": {
+      "type": "object",
+      "allOf": [
+        {
+          "$ref": "#/definitions/ExampleEnvironmentUpdateProperties"
+        }
+      ],
+      "properties": {
+        "provisioningState": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    },
+    "ExampleEnvironmentUpdate": {
+      "type": "object",
+      "properties": {
+        "properties": {
+          "x-ms-client-flatten": true,
+          "$ref": "#/definitions/ExampleEnvironmentUpdateProperties"
+        },
+        "example": {
+          "type": "string"
+        }
+      }
+    },
+    "UserRoleAssignment": {
+      "type": "object",
+      "x-ms-client-name": "userRoleAssignmentValue",
+      "properties": {
+        "roles": {
+          "type": "object",
+          "additionalProperties": {
+            "$ref": "#/definitions/EnvironmentRole"
+          }
+        }
+      }
+    },
+    "EnvironmentRole": {
+      "type": "object",
+      "properties": {
+        "roleName": {
+          "type": "string",
+          "readOnly": true
+        },
+        "description": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  },
+  "parameters": {
+  }
+}
