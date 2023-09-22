@@ -140,6 +140,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
+		"listkeys":                                "listKeys",
 		"localrulestacks":                         "localRulestacks", // (@jackofallops) - "Rulestack" is considered one word, but also casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
