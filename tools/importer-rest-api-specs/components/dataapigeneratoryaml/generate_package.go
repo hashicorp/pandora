@@ -27,9 +27,30 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		}
 	}
 
-	// TODO Generate Models
+	s.logger.Debug("Generating Models..")
+	for modelName, vals := range resource.Models {
+		s.logger.Trace(fmt.Sprintf("Generating Model %q (in %s)", modelName, resourceMetadata))
 
-	// TODO Generate Operations
+		var parent *models.ModelDetails
+		if vals.ParentTypeName != nil {
+			p, ok := resource.Models[*vals.ParentTypeName]
+			if ok {
+				parent = &p
+			}
+		}
+
+		code, err := codeForModel(resourceMetadata, modelName, vals, parent, resource.Constants, resource.Models)
+		if err != nil {
+			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, resourceMetadata, err)
+		}
+		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.yaml", modelName))
+		if code != nil {
+			if err := writeYamlToFile(fileName, code); err != nil {
+				return fmt.Errorf("writing code for model %q: %+v", modelName, err)
+			}
+		}
+	}
+
 	s.logger.Debug("Generating Operations..")
 	for operationName, operation := range resource.Operations {
 		s.logger.Trace(fmt.Sprintf("Generating Operation %q (in %s)", operationName, resourceMetadata))
@@ -54,16 +75,6 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		if err := writeYamlToFile(fileName, code); err != nil {
 			return fmt.Errorf("writing code for Resource Id %q: %+v", name, err)
 		}
-	}
-
-	s.logger.Debug("Generating Package Definition..")
-	packageDefinitionCode, err := codeForPackageDefinition(resourceName, resource)
-	if err != nil {
-		return fmt.Errorf("marshaling Package Definition: %+v", err)
-	}
-	packageDefinitionFileName := path.Join(workingDirectory, "Definition.yaml")
-	if err := writeYamlToFile(packageDefinitionFileName, packageDefinitionCode); err != nil {
-		return fmt.Errorf("writing package definition for %q: %+v", packageDefinitionFileName, err)
 	}
 
 	return nil

@@ -16,8 +16,9 @@ type Constant struct {
 }
 
 type Value struct {
-	Name        string `yaml:"Name"`
-	Description string `yaml:"Description"`
+	Key         string  `yaml:"Key"`
+	Value       string  `yaml:"Value"`
+	Description *string `yaml:"Description,omitempty"`
 }
 
 func codeForConstant(constantName string, details resourcemanager.ConstantDetails) ([]byte, error) {
@@ -31,8 +32,9 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 
 	for _, key := range sortedKeys {
 		value := Value{
-			Name:        key,
-			Description: details.Values[key],
+			Key:   key,
+			Value: details.Values[key],
+			// TODO Description isn't available in the ConstantDetails model
 		}
 
 		values = append(values, value)

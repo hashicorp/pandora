@@ -13,6 +13,7 @@ type ServiceDefinition struct {
 	ResourceProvider     string   `yaml:"ResourceProvider,omitempty"`
 	TerraformPackageName string   `yaml:"TerraformPackageName,omitempty"`
 	TerraformResources   []string `yaml:"TerraformResources,omitempty"`
+	Generate             bool     `yaml:"Generate"`
 }
 
 func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) ([]byte, error) {
@@ -45,22 +46,10 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider, t
 		ResourceProvider:     rp,
 		TerraformPackageName: terraformPackageName,
 		TerraformResources:   terraformResources,
+		Generate:             true,
 	}
 
 	data, err := yaml.Marshal(serviceDefinition)
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
-}
-
-func codeForServiceDefinitionGenerationSettings() ([]byte, error) {
-	generate := map[string]bool{
-		"Generate": true,
-	}
-
-	data, err := yaml.Marshal(&generate)
 	if err != nil {
 		return nil, err
 	}

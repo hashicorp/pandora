@@ -12,6 +12,7 @@ type VersionDefinition struct {
 	Preview    bool     `yaml:"Preview"`
 	Source     string   `yaml:"Source"`
 	Resources  []string `yaml:"Resources"`
+	Generate   bool     `yaml:"Generate"`
 }
 
 func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) ([]byte, error) {
@@ -19,6 +20,7 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 		ApiVersion: apiVersion,
 		Preview:    isPreview,
 		Source:     "ResourceManagerRestApiSpecs",
+		Generate:   true,
 	}
 
 	names := make([]string, 0)
@@ -34,19 +36,6 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 	versionDefinition.Resources = names
 
 	data, err := yaml.Marshal(&versionDefinition)
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
-}
-
-func codeForApiVersionDefinitionSetting() ([]byte, error) {
-	generate := map[string]bool{
-		"Generate": true,
-	}
-
-	data, err := yaml.Marshal(&generate)
 	if err != nil {
 		return nil, err
 	}

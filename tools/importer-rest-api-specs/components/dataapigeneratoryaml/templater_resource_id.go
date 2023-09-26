@@ -16,8 +16,8 @@ type ResourceId struct {
 }
 
 type Segment struct {
-	Type  string `yaml:"Type"`
 	Name  string `yaml:"Name"`
+	Type  string `yaml:"Type"`
 	Value string `yaml:"Value,omitempty"`
 }
 

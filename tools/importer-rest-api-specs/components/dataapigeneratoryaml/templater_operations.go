@@ -2,12 +2,11 @@ package dataapigeneratoryaml
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"sort"
 	"strings"
 
 	"github.com/go-yaml/yaml"
-	//"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -17,7 +16,7 @@ type Operation struct {
 	ExpectedStatusCodes              []int            `yaml:"ExpectedStatusCodes,omitempty"`
 	FieldContainingPaginationDetails string           `yaml:"FieldContainingPaginationDetails,omitempty"`
 	LongRunning                      bool             `yaml:"LongRunning,omitempty"`
-	OperationType                    string           `yaml:"OperationType,omitempty"`
+	HTTPMethod                       string           `yaml:"HTTPMethod,omitempty"`
 	OptionsObject                    OptionsObject    `yaml:"OptionsObject,omitempty"`
 	Options                          []Option         `yaml:"Options,omitempty"`
 	ResourceId                       string           `yaml:"ResourceId,omitempty"`
@@ -32,12 +31,12 @@ type OptionsObject struct {
 }
 
 type Option struct {
-	HeaderName  string `yaml:"HeaderName"`
-	Optional    bool   `yaml:"Optional,omitempty"`
-	QueryString string `yaml:"QueryString,omitempty"`
-	Required    bool   `yaml:"Required,omitempty"`
-	Field       string `yaml:"Field,omitempty"`
-	FieldType   string `yaml:"FieldType,omitempty"`
+	HeaderName  *string `yaml:"HeaderName,omitempty"`
+	Optional    bool    `yaml:"Optional"`
+	QueryString *string `yaml:"QueryString,omitempty"`
+	Required    bool    `yaml:"Required"`
+	Field       string  `yaml:"Field"`
+	FieldType   string  `yaml:"FieldType"`
 }
 
 type ObjectDefinition struct {
@@ -46,9 +45,6 @@ type ObjectDefinition struct {
 }
 
 func codeForOperation(operationName string, operation models.OperationDetails, resource models.AzureApiResource) ([]byte, error) {
-
-	code := make([]string, 0)
-
 	contentType := ""
 	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
 		contentType = operation.ContentType
@@ -122,8 +118,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 			fieldType := string(optionDetails.ObjectDefinition.Type)
 
 			option := Option{
-				HeaderName:  pointer.From(optionDetails.HeaderName),
-				QueryString: pointer.From(optionDetails.QueryStringName),
+				HeaderName:  optionDetails.HeaderName,
+				QueryString: optionDetails.QueryStringName,
 				Field:       optionName,
 				FieldType:   fieldType,
 			}
@@ -145,16 +141,17 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		uriSuffix = *operation.UriSuffix
 	}
 
-	operationType := strings.Title(strings.ToLower(operation.Method))
+	HTTPMethod := strings.Title(strings.ToLower(operation.Method))
 	if operation.FieldContainingPaginationDetails != nil {
-		operationType = "List"
+		HTTPMethod = "List"
+		// TODO is there a todo here?
 		// since this is a List operation we need to additionally output the HttpMethod
 		// since it's possible that these are non-standard (e.g. AppConfig 2020-06-01 ListKeys
 		// is a POST not a GET for a List operation)
-		if !strings.EqualFold(operation.Method, "GET") {
-			method := dotNetNameForHttpMethod(operation.Method)
-			code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
-		}
+		//if !strings.EqualFold(operation.Method, "GET") {
+		//	method := dotNetNameForHttpMethod(operation.Method)
+		//	code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
+		//}
 	}
 	op := Operation{
 		Name:                             operationName,
@@ -162,7 +159,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		ExpectedStatusCodes:              statusCodes,
 		FieldContainingPaginationDetails: fieldContainingPaginationDetails,
 		LongRunning:                      longRunning,
-		OperationType:                    operationType,
+		HTTPMethod:                       HTTPMethod,
 		OptionsObject:                    optionsObject,
 		Options:                          options,
 		ResourceId:                       resourceId,
@@ -207,26 +204,6 @@ func usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
 	}
 
 	return false
-}
-
-func dotnetNameForStatusCode(input int) string {
-	switch input {
-	case 200:
-		return "HttpStatusCode.OK"
-	case 201:
-		return "HttpStatusCode.Created"
-	case 202:
-		return "HttpStatusCode.Accepted"
-	case 204:
-		return "HttpStatusCode.NoContent"
-	case 301:
-		return "HttpStatusCode.Moved"
-	case 302:
-		return "HttpStatusCode.Found"
-
-	default:
-		return fmt.Sprintf("TODO: support %d", input)
-	}
 }
 
 func dotNetNameForHttpMethod(method string) string {
