@@ -93,7 +93,7 @@ service "confidentialledger" {
 }
 service "connectedvmware" {
   name      = "ConnectedVmware"
-  available = ["2022-01-10-preview"]
+  available = ["2022-01-10-preview", "2023-10-01"]
 }
 service "consumption" {
   name      = "Consumption"
@@ -114,7 +114,7 @@ service "containerservice" {
 }
 service "cosmos-db" {
   name      = "CosmosDB"
-  available = ["2021-10-15", "2022-05-15", "2022-11-15", "2023-04-15"]
+  available = ["2021-10-15", "2022-05-15", "2022-11-15", "2023-04-15", "2023-09-15"]
 }
 service "cost-management" {
   name      = "CostManagement"
@@ -208,7 +208,7 @@ service "elastic" {
 }
 service "elasticsan" {
   name      = "ElasticSan"
-  available = ["2021-11-20-preview"]
+  available = ["2021-11-20-preview", "2023-01-01"]
 }
 service "eventgrid" {
   name      = "EventGrid"
