@@ -15,6 +15,9 @@ namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_04_01
 [ValueForType("IaasVMRecoveryPoint")]
 internal class IaasVMRecoveryPointModel : RecoveryPointModel
 {
+    [JsonPropertyName("extendedLocation")]
+    public ExtendedLocationModel? ExtendedLocation { get; set; }
+
     [JsonPropertyName("isInstantIlrSessionActive")]
     public bool? IsInstantIlrSessionActive { get; set; }
 
