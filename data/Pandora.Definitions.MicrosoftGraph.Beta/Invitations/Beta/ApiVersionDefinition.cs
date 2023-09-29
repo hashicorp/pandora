@@ -17,6 +17,7 @@ public partial class Definition : ApiVersionDefinition
         new Invitation.Definition(),
         new InvitationInvitedUser.Definition(),
         new InvitationInvitedUserMailboxSetting.Definition(),
+        new InvitationInvitedUserServiceProvisioningError.Definition(),
         new InvitationInvitedUserSponsor.Definition()
     };
 }
