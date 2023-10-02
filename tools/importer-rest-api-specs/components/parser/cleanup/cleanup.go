@@ -28,6 +28,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 		",",
 		"/",
 		":",
+		";",  // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\r", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\n", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
 		"$",
 		"'",
 		".",
