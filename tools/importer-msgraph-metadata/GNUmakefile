@@ -16,10 +16,9 @@ import: build
 	# to fix design issues, which are actually issues in the API Data
 	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
-import-with-api: build
-	./importer-rest-api-specs import --data-api=http://localhost:5000
-	# note we're intentionally only using whitespace here since the others try
-	# to fix design issues, which are actually issues in the API Data
+import-all-clean: build
+	rm -r ../../data/Pandora.Definitions.MicrosoftGraph.*/[A-Z]*/
+	./importer-msgraph-metadata import
 	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 test: build
