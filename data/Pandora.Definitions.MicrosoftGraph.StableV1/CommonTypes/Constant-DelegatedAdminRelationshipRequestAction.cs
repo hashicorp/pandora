@@ -17,4 +17,7 @@ internal enum DelegatedAdminRelationshipRequestActionConstant
 
     [Description("Terminate")]
     @terminate,
+
+    [Description("Reject")]
+    @reject,
 }
