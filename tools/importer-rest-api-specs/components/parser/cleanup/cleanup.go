@@ -117,6 +117,8 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"dedicatedsqlminimaltlssettings":    "dedicatedSQLMinimalTLSSettings",
 		"default":                           "default", // handles Default
 		"deletedservices":                   "deletedServices",
+		"devboxdefinitions":                 "devBoxDefinitions",
+		"devcenters":                        "devCenters",
 		"dicomservices":                     "dicomServices",
 		"dnszones":                          "dnsZones",
 		"endpoints":                         "endpoints",   // handles Endpoints
