@@ -429,6 +429,7 @@ public partial class Definition : ApiVersionDefinition
         new MeSecurityInformationProtectionLabelPolicySetting.Definition(),
         new MeSecurityInformationProtectionSensitivityLabel.Definition(),
         new MeSecurityInformationProtectionSensitivityLabelParent.Definition(),
+        new MeServiceProvisioningError.Definition(),
         new MeSetting.Definition(),
         new MeSettingContactMergeSuggestion.Definition(),
         new MeSettingItemInsight.Definition(),

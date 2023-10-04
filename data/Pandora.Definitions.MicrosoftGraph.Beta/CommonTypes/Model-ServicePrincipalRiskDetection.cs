@@ -49,6 +49,9 @@ internal class ServicePrincipalRiskDetectionModel
     [JsonPropertyName("location")]
     public SignInLocationModel? Location { get; set; }
 
+    [JsonPropertyName("mitreTechniqueId")]
+    public string? MitreTechniqueId { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
