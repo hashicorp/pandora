@@ -164,6 +164,10 @@ service "datashare" {
   name      = "DataShare"
   available = ["2019-11-01", "2021-08-01"]
 }
+service "devcenter" {
+    name      = "DevCenter"
+    available = ["2023-04-01"]
+}
 service "desktopvirtualization" {
   name      = "DesktopVirtualization"
   available = ["2021-09-03-preview", "2022-02-10-preview", "2022-09-09"]
