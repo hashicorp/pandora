@@ -138,7 +138,7 @@ service "databricks" {
 }
 service "datadog" {
   name      = "DataDog"
-  available = ["2021-03-01", "2022-06-01"]
+  available = ["2021-03-01", "2022-06-01", "2023-01-01"]
 }
 service "datafactory" {
   name      = "DataFactory"
@@ -373,7 +373,7 @@ service "newrelic" {
 }
 service "nginx" {
   name      = "Nginx"
-  available = ["2022-08-01"]
+  available = ["2022-08-01", "2023-04-01"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
@@ -438,7 +438,7 @@ service "recoveryservicessiterecovery" {
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
-  available = ["2022-04-01", "2022-09-04", "2023-04-01"]
+  available = ["2022-04-01", "2022-09-04", "2023-04-01", "2023-09-04"]
 }
 service "redis" {
   name      = "Redis"
@@ -518,7 +518,7 @@ service "storagecache" {
 }
 service "storagemover" {
   name      = "StorageMover"
-  available = ["2023-03-01"]
+  available = ["2023-03-01", "2023-10-01"]
 }
 service "storagepool" {
   name      = "StoragePool"
