@@ -41,7 +41,7 @@ jobs:
           cd ./tools/importer-msgraph-metadata
           make tools
           make build
-          make import
+          make import-all-clean
         env:
           PANDORA_LOG: WARN
 
