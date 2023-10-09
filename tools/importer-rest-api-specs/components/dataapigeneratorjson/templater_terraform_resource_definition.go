@@ -27,7 +27,7 @@ type Method struct {
 	TimeoutInMinutes int    `json:"TimeoutInMinutes"`
 }
 
-func codeForTerraformResourceDefinition(apiVersion, apiResource, resourceLabel string, details resourcemanager.TerraformResourceDetails) ([]byte, error) {
+func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails) ([]byte, error) {
 	createMethod := Method{
 		Generate:         details.CreateMethod.Generate,
 		Name:             details.CreateMethod.MethodName,
