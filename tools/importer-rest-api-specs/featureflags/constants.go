@@ -5,5 +5,5 @@ package featureflags
 // issues are resolved - since the Swagger should define canonical names for these Enums.
 const AllowConstantsWithoutXMSEnum = true
 
-// GenerateYamlDataAPI specifies whether the Data API in YAML should be generated.
-const GenerateYamlDataAPI = false
+// GenerateJsonDataAPI specifies whether the Data API in JSON should be generated.
+const GenerateJsonDataAPI = false
