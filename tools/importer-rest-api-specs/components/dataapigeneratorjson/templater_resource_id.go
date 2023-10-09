@@ -1,24 +1,24 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ResourceId struct {
-	Name        string    `yaml:"Name"`
-	CommonAlias string    `yaml:"CommonAlias,omitempty"`
-	Id          string    `yaml:"Id"`
-	Segments    []Segment `yaml:"Segments,omitempty"`
+	Name        string    `json:"Name"`
+	CommonAlias string    `json:"CommonAlias,omitempty"`
+	Id          string    `json:"Id"`
+	Segments    []Segment `json:"Segments,omitempty"`
 }
 
 type Segment struct {
-	Name  string `yaml:"Name"`
-	Type  string `yaml:"Type"`
-	Value string `yaml:"Value,omitempty"`
+	Name  string `json:"Name"`
+	Type  string `json:"Type"`
+	Value string `json:"Value,omitempty"`
 }
 
 func codeForResourceID(resourceIdName string, resourceIdValue models.ParsedResourceId) ([]byte, error) {
@@ -43,7 +43,7 @@ func codeForResourceID(resourceIdName string, resourceIdValue models.ParsedResou
 		Segments:    segments,
 	}
 
-	data, err := yaml.Marshal(resourceId)
+	data, err := json.MarshalIndent(resourceId, "", " ")
 	if err != nil {
 		return nil, err
 	}

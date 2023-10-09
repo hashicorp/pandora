@@ -16,7 +16,7 @@ type RunInput struct {
 	JustParseData            bool
 	Logger                   hclog.Logger
 	OutputDirectoryCS        string
-	OutputDirectoryYaml      string
+	OutputDirectoryJson      string
 	ProviderPrefix           string
 	Services                 []string
 	SwaggerDirectory         string
@@ -34,7 +34,7 @@ func Run(input RunInput) error {
 		SwaggerDirectory:    input.SwaggerDirectory,
 		ConfigFilePath:      input.ConfigFilePath,
 		OutputDirectoryCS:   input.OutputDirectoryCS,
-		OutputDirectoryYaml: input.OutputDirectoryYaml,
+		OutputDirectoryJson: input.OutputDirectoryJson,
 		Logger:              input.Logger.Named("Discovery"),
 	}
 

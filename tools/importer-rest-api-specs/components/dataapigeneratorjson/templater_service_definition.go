@@ -1,19 +1,19 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type ServiceDefinition struct {
-	Name                 string   `yaml:"Name"`
-	ResourceProvider     string   `yaml:"ResourceProvider,omitempty"`
-	TerraformPackageName string   `yaml:"TerraformPackageName,omitempty"`
-	TerraformResources   []string `yaml:"TerraformResources,omitempty"`
-	Generate             bool     `yaml:"Generate"`
+	Name                 string   `json:"Name"`
+	ResourceProvider     string   `json:"ResourceProvider,omitempty"`
+	TerraformPackageName string   `json:"TerraformPackageName,omitempty"`
+	TerraformResources   []string `json:"TerraformResources,omitempty"`
+	Generate             bool     `json:"Generate"`
 }
 
 func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) ([]byte, error) {
@@ -49,7 +49,7 @@ func codeForServiceDefinition(namespace, serviceName string, resourceProvider, t
 		Generate:             true,
 	}
 
-	data, err := yaml.Marshal(serviceDefinition)
+	data, err := json.MarshalIndent(serviceDefinition, "", " ")
 	if err != nil {
 		return nil, err
 	}

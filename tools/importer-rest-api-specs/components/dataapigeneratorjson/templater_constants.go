@@ -1,24 +1,24 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type Constant struct {
-	Name   string  `yaml:"Name"`
-	Type   string  `yaml:"Type"`
-	Values []Value `yaml:"Values"`
+	Name   string  `json:"Name"`
+	Type   string  `json:"Type"`
+	Values []Value `json:"Values"`
 }
 
 type Value struct {
-	Key         string  `yaml:"Key"`
-	Value       string  `yaml:"Value"`
-	Description *string `yaml:"Description,omitempty"`
+	Key         string  `json:"Key"`
+	Value       string  `json:"Value"`
+	Description *string `json:"Description,omitempty"`
 }
 
 func codeForConstant(constantName string, details resourcemanager.ConstantDetails) ([]byte, error) {
@@ -51,7 +51,7 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 		Values: values,
 	}
 
-	data, err := yaml.Marshal(constant)
+	data, err := json.MarshalIndent(constant, "", " ")
 	if err != nil {
 		return nil, err
 	}

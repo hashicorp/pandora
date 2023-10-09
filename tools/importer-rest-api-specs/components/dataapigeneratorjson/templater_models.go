@@ -1,37 +1,36 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
 	"strings"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type Model struct {
-	Fields          []Field `yaml:"Fields"`
-	IsDiscriminator *bool   `yaml:"IsDiscriminator,omitempty"`
-	ParentModelName *string `yaml:"ParentModelName,omitempty"`
+	Fields          []Field `json:"Fields"`
+	IsDiscriminator *bool   `json:"IsDiscriminator,omitempty"`
+	ParentModelName *string `json:"ParentModelName,omitempty"`
 	// TODO rename, and should this be a slice? haven't found examples where there are multiple of these
-	ValueForType *string `yaml:"ValueForType,omitempty"`
+	ValueForType *string `json:"ValueForType,omitempty"`
 }
 
 type Field struct {
-	Name             string  `yaml:"Name"`
-	JsonName         string  `yaml:"JsonName"`
-	Required         *bool    `yaml:"Required,omitempty"`
-	Optional         *bool    `yaml:"Optional,omitempty"`
-	Type             string  `yaml:"Type"`
-	ReferenceName    *string `yaml:"ReferenceName,omitempty"`
-	MinItems         *int    `yaml:"MinItems,omitempty"`
-	MaxItems         *int    `yaml:"MaxItems,omitempty"`
-	DateFormat       *string `yaml:"DateFormat,omitempty"`
-	ProvidesTypeHint *bool   `yaml:"ProvidesTypeHint,omitempty"`
+	Name             string  `json:"Name"`
+	JsonName         string  `json:"JsonName"`
+	Required         *bool   `json:"Required,omitempty"`
+	Optional         *bool   `json:"Optional,omitempty"`
+	Type             string  `json:"Type"`
+	ReferenceName    *string `json:"ReferenceName,omitempty"`
+	MinItems         *int    `json:"MinItems,omitempty"`
+	MaxItems         *int    `json:"MaxItems,omitempty"`
+	DateFormat       *string `json:"DateFormat,omitempty"`
+	ProvidesTypeHint *bool   `json:"ProvidesTypeHint,omitempty"`
 }
-
 
 func codeForModel(metadata string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) ([]byte, error) {
 	if len(model.Fields) == 0 {
@@ -90,7 +89,7 @@ func codeForModel(metadata string, modelName string, model models.ModelDetails, 
 		DataApiModel.ValueForType = model.TypeHintValue
 	}
 
-	data, err := yaml.Marshal(DataApiModel)
+	data, err := json.MarshalIndent(DataApiModel, "", " ")
 	if err != nil {
 		return nil, err
 	}

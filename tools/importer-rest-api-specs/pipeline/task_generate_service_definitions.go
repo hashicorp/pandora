@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratoryaml"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -17,11 +17,11 @@ func (pipelineTask) generateServiceDefinitions(serviceName string, runInput RunI
 		return fmt.Errorf("generating service %q in C#: %+v", serviceName, err)
 	}
 
-	if featureflags.GenerateYamlDataAPI {
-		logger.Debug("Generating Service Definition in YAML..")
-		s := dataapigeneratoryaml.NewForService(serviceName, runInput.OutputDirectoryYaml, "resource-manager", swaggerGitSha, resourceProvider, terraformPackageName, logger)
+	if featureflags.GenerateJsonDataAPI {
+		logger.Debug("Generating Service Definition in JSON..")
+		s := dataapigeneratorjson.NewForService(serviceName, runInput.OutputDirectoryJson, "resource-manager", swaggerGitSha, resourceProvider, terraformPackageName, logger)
 		if err := s.GenerateForService(apiVersions); err != nil {
-			return fmt.Errorf("generating service %q in YAML: %+v", serviceName, err)
+			return fmt.Errorf("generating service %q in JSON: %+v", serviceName, err)
 		}
 	}
 	return nil

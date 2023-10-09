@@ -16,8 +16,8 @@ type ServiceInput struct {
 	// OutputDirectoryCS is the directory where the generated C# files should be output.
 	OutputDirectoryCS string
 
-	// OutputDirectoryYaml is the directory where the generated YAML files should be output.
-	OutputDirectoryYaml string
+	// OutputDirectoryJson is the directory where the generated JSON files should be output.
+	OutputDirectoryJson string
 
 	// ResourceProvider is the ResourceProvider associated with this Service (for example `Microsoft.Compute`)
 	// parsed from the Resource ID.
@@ -45,7 +45,7 @@ type ResourceManagerServiceInput struct {
 	ServiceName                string
 	ApiVersion                 string
 	OutputDirectoryCS          string
-	OutputDirectoryYaml        string
+	OutputDirectoryJson        string
 	ResourceProvider           *string
 	ResourceProviderToFilterTo *string
 	SwaggerDirectory           string
@@ -61,7 +61,7 @@ func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
 		ResourceProvider:           rmi.ResourceProvider,
 		ResourceProviderToFilterTo: rmi.ResourceProviderToFilterTo,
 		OutputDirectoryCS:          rmi.OutputDirectoryCS,
-		OutputDirectoryYaml:        rmi.OutputDirectoryYaml,
+		OutputDirectoryJson:        rmi.OutputDirectoryJson,
 		SwaggerDirectory:           rmi.SwaggerDirectory,
 		SwaggerFiles:               rmi.SwaggerFiles,
 		TerraformServiceDefinition: rmi.TerraformServiceDefinition,

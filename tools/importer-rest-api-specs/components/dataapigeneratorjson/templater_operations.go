@@ -1,47 +1,47 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 	"sort"
 	"strings"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type Operation struct {
-	Name                             string           `yaml:"Name"`
-	ContentType                      string           `yaml:"ContentType,omitempty"`
-	ExpectedStatusCodes              []int            `yaml:"ExpectedStatusCodes,omitempty"`
-	FieldContainingPaginationDetails string           `yaml:"FieldContainingPaginationDetails,omitempty"`
-	LongRunning                      bool             `yaml:"LongRunning,omitempty"`
-	HTTPMethod                       string           `yaml:"HTTPMethod,omitempty"`
-	OptionsObject                    OptionsObject    `yaml:"OptionsObject,omitempty"`
-	Options                          []Option         `yaml:"Options,omitempty"`
-	ResourceId                       string           `yaml:"ResourceId,omitempty"`
-	RequestObject                    ObjectDefinition `yaml:"RequestObject,omitempty"`
-	ResponseObject                   ObjectDefinition `yaml:"ResponseObject,omitempty"`
-	UriSuffix                        string           `yaml:"UriSuffix,omitempty"`
+	Name                             string           `json:"Name"`
+	ContentType                      string           `json:"ContentType,omitempty"`
+	ExpectedStatusCodes              []int            `json:"ExpectedStatusCodes,omitempty"`
+	FieldContainingPaginationDetails string           `json:"FieldContainingPaginationDetails,omitempty"`
+	LongRunning                      bool             `json:"LongRunning,omitempty"`
+	HTTPMethod                       string           `json:"HTTPMethod,omitempty"`
+	OptionsObject                    OptionsObject    `json:"OptionsObject,omitempty"`
+	Options                          []Option         `json:"Options,omitempty"`
+	ResourceId                       string           `json:"ResourceId,omitempty"`
+	RequestObject                    ObjectDefinition `json:"RequestObject,omitempty"`
+	ResponseObject                   ObjectDefinition `json:"ResponseObject,omitempty"`
+	UriSuffix                        string           `json:"UriSuffix,omitempty"`
 }
 
 type OptionsObject struct {
-	Name    string   `yaml:"Name"`
-	Options []Option `yaml:"Options"`
+	Name    string   `json:"Name"`
+	Options []Option `json:"Options"`
 }
 
 type Option struct {
-	HeaderName  *string `yaml:"HeaderName,omitempty"`
-	Optional    bool    `yaml:"Optional"`
-	QueryString *string `yaml:"QueryString,omitempty"`
-	Required    bool    `yaml:"Required"`
-	Field       string  `yaml:"Field"`
-	FieldType   string  `yaml:"FieldType"`
+	HeaderName  *string `json:"HeaderName,omitempty"`
+	Optional    bool    `json:"Optional"`
+	QueryString *string `json:"QueryString,omitempty"`
+	Required    bool    `json:"Required"`
+	Field       string  `json:"Field"`
+	FieldType   string  `json:"FieldType"`
 }
 
 type ObjectDefinition struct {
-	Name string `yaml:"Name"`
-	Type string `yaml:"Type"`
+	Name string `json:"Name,omitempty"`
+	Type string `json:"Type,omitempty"`
 }
 
 func codeForOperation(operationName string, operation models.OperationDetails, resource models.AzureApiResource) ([]byte, error) {
@@ -69,7 +69,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		longRunning = true
 	}
 
-	requestObject := ObjectDefinition{}
+	var requestObject ObjectDefinition
+	//requestObject := ObjectDefinition{}
 	if operation.RequestObject != nil {
 		requestObject.Name = pointer.From(operation.RequestObject.ReferenceName)
 		requestObject.Type = string(operation.ResponseObject.Type)
@@ -168,7 +169,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		UriSuffix:                        uriSuffix,
 	}
 
-	data, err := yaml.Marshal(op)
+	data, err := json.MarshalIndent(op, "", " ")
 	if err != nil {
 		return nil, err
 	}

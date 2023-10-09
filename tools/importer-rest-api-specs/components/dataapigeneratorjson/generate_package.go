@@ -1,4 +1,4 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
 	"fmt"
@@ -21,8 +21,8 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		if err != nil {
 			return fmt.Errorf("marshaling Constants: %+v", err)
 		}
-		fileName := path.Join(workingDirectory, fmt.Sprintf("Constant-%s.yaml", constantName))
-		if err := writeYamlToFile(fileName, code); err != nil {
+		fileName := path.Join(workingDirectory, fmt.Sprintf("Constant-%s.json", constantName))
+		if err := writeJsonToFile(fileName, code); err != nil {
 			return fmt.Errorf("generating code for %q: %+v", constantName, err)
 		}
 	}
@@ -43,9 +43,9 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		if err != nil {
 			return fmt.Errorf("generating code for model %q in %q: %+v", modelName, resourceMetadata, err)
 		}
-		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.yaml", modelName))
+		fileName := path.Join(workingDirectory, fmt.Sprintf("Model-%s.json", modelName))
 		if code != nil {
-			if err := writeYamlToFile(fileName, code); err != nil {
+			if err := writeJsonToFile(fileName, code); err != nil {
 				return fmt.Errorf("writing code for model %q: %+v", modelName, err)
 			}
 		}
@@ -58,8 +58,8 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		if err != nil {
 			return fmt.Errorf("marshaling Operation %q: %+v", operationName, err)
 		}
-		fileName := path.Join(workingDirectory, fmt.Sprintf("Operation-%s.yaml", operationName))
-		if err := writeYamlToFile(fileName, code); err != nil {
+		fileName := path.Join(workingDirectory, fmt.Sprintf("Operation-%s.json", operationName))
+		if err := writeJsonToFile(fileName, code); err != nil {
 			return fmt.Errorf("writing code for operation %q: %+v", operationName, err)
 		}
 	}
@@ -71,8 +71,8 @@ func (s Generator) generateResources(resourceName, resourceMetadata string, reso
 		if err != nil {
 			return fmt.Errorf("generating Resource ID %q in %q: %+v", name, resourceMetadata, err)
 		}
-		fileName := path.Join(workingDirectory, fmt.Sprintf("ResourceId-%s.yaml", name))
-		if err := writeYamlToFile(fileName, code); err != nil {
+		fileName := path.Join(workingDirectory, fmt.Sprintf("ResourceId-%s.json", name))
+		if err := writeJsonToFile(fileName, code); err != nil {
 			return fmt.Errorf("writing code for Resource Id %q: %+v", name, err)
 		}
 	}

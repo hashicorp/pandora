@@ -13,7 +13,7 @@ import (
 
 const (
 	outputDirectoryCS     = "../../../data/"
-	outputDirectoryYaml   = "../../../api-definitions/"
+	outputDirectoryJson   = "../../../api-definitions/"
 	swaggerDirectory      = "../../../submodules/rest-api-specs"
 	resourceManagerConfig = "../../../config/resource-manager.hcl"
 )

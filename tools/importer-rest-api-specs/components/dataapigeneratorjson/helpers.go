@@ -1,4 +1,4 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
 	"fmt"
@@ -76,7 +76,7 @@ func writeToFile(fileName, fileContents string) error {
 	return nil
 }
 
-func writeYamlToFile(fileName string, fileContents []byte) error {
+func writeJsonToFile(fileName string, fileContents []byte) error {
 	existing, err := os.Open(fileName)
 	if os.IsExist(err) {
 		return fmt.Errorf("existing file exists at %q", fileName)
