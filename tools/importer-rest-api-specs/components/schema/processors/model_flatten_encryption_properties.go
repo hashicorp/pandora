@@ -74,7 +74,7 @@ func (m modelFlattenEncryptionProperties) ProcessModel(modelName string, model r
 	newEncryptionPropertiesModel["KeyVaultKeyUri"] = keyUri
 	models[modelName] = resourcemanager.TerraformSchemaModelDefinition{Fields: newEncryptionPropertiesModel}
 
-	for _, field := range mappings.Fields {
+	for i, field := range mappings.Fields {
 		if field.Type != resourcemanager.DirectAssignmentMappingDefinitionType {
 			continue
 		}
@@ -85,12 +85,13 @@ func (m modelFlattenEncryptionProperties) ProcessModel(modelName string, model r
 
 		if field.DirectAssignment.SchemaFieldPath == "KeyUrl" {
 			field.DirectAssignment.SchemaFieldPath = "KeyVaultKeyId"
-
 		}
 
 		if field.DirectAssignment.SdkFieldPath == "KeyUrl" {
 			field.DirectAssignment.SdkFieldPath = "KeyVaultKeyId"
 		}
+
+		mappings.Fields[i] = field
 	}
 
 	for _, field := range mappings.Fields {
