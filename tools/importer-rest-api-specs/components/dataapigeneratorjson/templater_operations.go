@@ -6,7 +6,6 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -39,11 +38,6 @@ type Option struct {
 	FieldType   string  `json:"FieldType"`
 }
 
-type ObjectDefinition struct {
-	Name string `json:"Name,omitempty"`
-	Type string `json:"Type,omitempty"`
-}
-
 func codeForOperation(operationName string, operation models.OperationDetails, resource models.AzureApiResource) ([]byte, error) {
 	contentType := ""
 	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
@@ -69,11 +63,10 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		longRunning = true
 	}
 
-	var requestObject ObjectDefinition
-	//requestObject := ObjectDefinition{}
+	requestObject := ObjectDefinition{}
 	if operation.RequestObject != nil {
-		requestObject.Name = pointer.From(operation.RequestObject.ReferenceName)
-		requestObject.Type = string(operation.ResponseObject.Type)
+		requestObject.ReferenceName = operation.RequestObject.ReferenceName
+		requestObject.Type = ObjectDefinitionType(operation.ResponseObject.Type)
 
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
@@ -87,8 +80,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 
 	responseObject := ObjectDefinition{}
 	if operation.ResponseObject != nil {
-		responseObject.Name = pointer.From(operation.ResponseObject.ReferenceName)
-		responseObject.Type = string(operation.ResponseObject.Type)
+		responseObject.ReferenceName = operation.ResponseObject.ReferenceName
+		responseObject.Type = ObjectDefinitionType(operation.ResponseObject.Type)
 
 		// TODO
 		//if operation.FieldContainingPaginationDetails == nil {

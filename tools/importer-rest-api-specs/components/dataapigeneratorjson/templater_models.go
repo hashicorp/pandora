@@ -20,16 +20,21 @@ type Model struct {
 }
 
 type Field struct {
-	Name             string  `json:"Name"`
-	JsonName         string  `json:"JsonName"`
-	Required         *bool   `json:"Required,omitempty"`
-	Optional         *bool   `json:"Optional,omitempty"`
-	Type             string  `json:"Type"`
-	ReferenceName    *string `json:"ReferenceName,omitempty"`
-	MinItems         *int    `json:"MinItems,omitempty"`
-	MaxItems         *int    `json:"MaxItems,omitempty"`
-	DateFormat       *string `json:"DateFormat,omitempty"`
-	ProvidesTypeHint *bool   `json:"ProvidesTypeHint,omitempty"`
+	Name             string           `json:"Name"`
+	JsonName         string           `json:"JsonName"`
+	Required         *bool            `json:"Required,omitempty"`
+	Optional         *bool            `json:"Optional,omitempty"`
+	ObjectDefinition ObjectDefinition `json:"ObjectDefinition"`
+	MinItems         *int             `json:"MinItems,omitempty"`
+	MaxItems         *int             `json:"MaxItems,omitempty"`
+	DateFormat       *string          `json:"DateFormat,omitempty"`
+	ProvidesTypeHint *bool            `json:"ProvidesTypeHint,omitempty"`
+}
+
+type ObjectDefinition struct {
+	Type          ObjectDefinitionType `json:"Type"`
+	ReferenceName *string              `json:"ReferenceName,omitempty"`
+	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
 }
 
 func codeForModel(metadata string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) ([]byte, error) {
@@ -108,7 +113,7 @@ func codeForField(fieldName string, fieldDetails models.FieldDetails, isTypeHint
 		return nil, err
 	}
 
-	field.Type = *fieldType
+	field.ObjectDefinition.Type = ObjectDefinitionType(*fieldType)
 
 	if fieldDetails.ObjectDefinition != nil {
 		innerObjectDefinition := topLevelObjectDefinition(*fieldDetails.ObjectDefinition)
