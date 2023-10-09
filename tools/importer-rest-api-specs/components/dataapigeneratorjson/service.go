@@ -64,14 +64,14 @@ func (s Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) e
 	}
 
 	// TODO uncomment below and work through the remaining templates
-	//	if s.terraformPackageName != nil {
-	//		s.logger.Debug("Generating Terraform Definitions")
-	//
-	//		if err := s.generateTerraformDefinitions(apiVersion); err != nil {
-	//			return fmt.Errorf("generating Terraform Definitions: %+v", err)
-	//		}
-	//	} else {
-	//		s.logger.Debug("Skipping generating Terraform Definitions as service isn't defined")
-	//	}
+	if s.terraformPackageName != nil {
+		s.logger.Debug("Generating Terraform Definitions")
+
+		if err := s.generateTerraformDefinitions(apiVersion); err != nil {
+			return fmt.Errorf("generating Terraform Definitions: %+v", err)
+		}
+	} else {
+		s.logger.Debug("Skipping generating Terraform Definitions as service isn't defined")
+	}
 	return nil
 }
