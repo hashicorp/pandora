@@ -1,4 +1,4 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
 	"github.com/hashicorp/go-hclog"

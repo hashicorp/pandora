@@ -1,17 +1,18 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"sort"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type VersionDefinition struct {
-	ApiVersion string   `yaml:"ApiVersion"`
-	Preview    bool     `yaml:"Preview"`
-	Source     string   `yaml:"Source"`
-	Resources  []string `yaml:"Resources"`
+	ApiVersion string   `json:"ApiVersion"`
+	Preview    bool     `json:"Preview"`
+	Source     string   `json:"Source"`
+	Resources  []string `json:"Resources"`
+	Generate   bool     `json:"Generate"`
 }
 
 func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) ([]byte, error) {
@@ -19,6 +20,7 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 		ApiVersion: apiVersion,
 		Preview:    isPreview,
 		Source:     "ResourceManagerRestApiSpecs",
+		Generate:   true,
 	}
 
 	names := make([]string, 0)
@@ -33,20 +35,7 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 
 	versionDefinition.Resources = names
 
-	data, err := yaml.Marshal(&versionDefinition)
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
-}
-
-func codeForApiVersionDefinitionSetting() ([]byte, error) {
-	generate := map[string]bool{
-		"Generate": true,
-	}
-
-	data, err := yaml.Marshal(&generate)
+	data, err := json.MarshalIndent(&versionDefinition, "", " ")
 	if err != nil {
 		return nil, err
 	}

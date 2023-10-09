@@ -1,24 +1,24 @@
-package dataapigeneratoryaml
+package dataapigeneratorjson
 
 import (
+	"encoding/json"
 	"fmt"
 
-	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 type ResourceId struct {
-	Name        string    `yaml:"Name"`
-	CommonAlias string    `yaml:"CommonAlias,omitempty"`
-	Id          string    `yaml:"Id"`
-	Segments    []Segment `yaml:"Segments,omitempty"`
+	Name        string    `json:"Name"`
+	CommonAlias string    `json:"CommonAlias,omitempty"`
+	Id          string    `json:"Id"`
+	Segments    []Segment `json:"Segments,omitempty"`
 }
 
 type Segment struct {
-	Type  string `yaml:"Type"`
-	Name  string `yaml:"Name"`
-	Value string `yaml:"Value,omitempty"`
+	Name  string `json:"Name"`
+	Type  string `json:"Type"`
+	Value string `json:"Value,omitempty"`
 }
 
 func codeForResourceID(resourceIdName string, resourceIdValue models.ParsedResourceId) ([]byte, error) {
@@ -43,7 +43,7 @@ func codeForResourceID(resourceIdName string, resourceIdValue models.ParsedResou
 		Segments:    segments,
 	}
 
-	data, err := yaml.Marshal(resourceId)
+	data, err := json.MarshalIndent(resourceId, "", " ")
 	if err != nil {
 		return nil, err
 	}
@@ -59,8 +59,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 			}
 			return &Segment{
-				Type: "Constant",
-				Name: input.Name,
+				Type:  "Constant",
+				Name:  input.Name,
 				Value: *input.ConstantReference,
 			}, nil
 		}
@@ -77,8 +77,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
 			}
 			return &Segment{
-				Type: "ResourceProvider",
-				Name: input.Name,
+				Type:  "ResourceProvider",
+				Name:  input.Name,
 				Value: *input.FixedValue,
 			}, nil
 		}
@@ -95,8 +95,8 @@ func codeForResourceIDSegment(input resourcemanager.ResourceIdSegment) (*Segment
 				return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
 			}
 			return &Segment{
-				Type: "Static",
-				Name: input.Name,
+				Type:  "Static",
+				Name:  input.Name,
 				Value: *input.FixedValue,
 			}, nil
 		}

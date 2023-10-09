@@ -5,7 +5,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratoryaml"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -27,16 +27,16 @@ func (pipelineTask) generateApiDefinitions(input discovery.ServiceInput, data mo
 	}
 	logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q in C#", data.ServiceName, data.ApiVersion))
 
-	if featureflags.GenerateYamlDataAPI {
-		logger.Debug("Generating Data API Definition in YAML..")
-		yamlGenerator := dataapigeneratoryaml.NewForApiVersion(data.ServiceName, data.ApiVersion, input.OutputDirectoryYaml, "resource-manager", swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
+	if featureflags.GenerateJsonDataAPI {
+		logger.Debug("Generating Data API Definition in JSON..")
+		yamlGenerator := dataapigeneratorjson.NewForApiVersion(data.ServiceName, data.ApiVersion, input.OutputDirectoryJson, "resource-manager", swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
 		if err := yamlGenerator.GenerateForApiVersion(data); err != nil {
-			err = fmt.Errorf("generating YAML Data API Definitions for Service %q / API Version %q: %+v", data.ServiceName, data.ApiVersion, err)
+			err = fmt.Errorf("generating JSON Data API Definitions for Service %q / API Version %q: %+v", data.ServiceName, data.ApiVersion, err)
 			logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", data.ServiceName, data.ApiVersion))
 			logger.Error(fmt.Sprintf("     💥 Error: %+v", err))
 			return err
 		}
-		logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q in YAML", data.ServiceName, data.ApiVersion))
+		logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q in JSON", data.ServiceName, data.ApiVersion))
 	}
 
 	return nil

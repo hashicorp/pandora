@@ -45,11 +45,11 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
 		}
 
-		if featureflags.GenerateYamlDataAPI {
-			serviceDirectoryYaml := fmt.Sprintf("%s%s/%s", input.OutputDirectoryYaml, "resource-manager", serviceName)
-			logger.Debug("recreating YAML directory %q for Service %q", serviceDirectoryYaml, serviceName)
+		if featureflags.GenerateJsonDataAPI {
+			serviceDirectoryYaml := fmt.Sprintf("%s%s/%s", input.OutputDirectoryJson, "resource-manager", serviceName)
+			logger.Debug("recreating JSON directory %q for Service %q", serviceDirectoryYaml, serviceName)
 			if err := dataapigenerator.RecreateDirectory(serviceDirectoryYaml, logger); err != nil {
-				fmt.Errorf("recreating YAML directory %q for service %q", serviceDirectoryYaml, serviceName)
+				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryYaml, serviceName)
 			}
 		}
 
