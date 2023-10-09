@@ -45,6 +45,9 @@ internal enum CloudPCOnPremisesConnectionHealthCheckErrorTypeConstant
     [Description("AdJoinCheckAccountQuotaExceeded")]
     @adJoinCheckAccountQuotaExceeded,
 
+    [Description("AdJoinCheckServerNotOperational")]
+    @adJoinCheckServerNotOperational,
+
     [Description("AdJoinCheckUnknownError")]
     @adJoinCheckUnknownError,
 

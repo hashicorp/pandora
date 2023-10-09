@@ -15,13 +15,10 @@ internal class Definition : ResourceDefinition
     {
         new AddDirectoryFeatureRolloutPolicyByIdAppliesToRefOperation(),
         new CreateDirectoryFeatureRolloutPolicyByIdAppliesToOperation(),
-        new GetDirectoryFeatureRolloutPolicyByIdAppliesToByIdsOperation(),
         new GetDirectoryFeatureRolloutPolicyByIdAppliesToCountOperation(),
-        new GetDirectoryFeatureRolloutPolicyByIdAppliesToUserOwnedObjectOperation(),
         new ListDirectoryFeatureRolloutPolicyByIdAppliesToRefsOperation(),
         new ListDirectoryFeatureRolloutPolicyByIdAppliesTosOperation(),
-        new RemoveDirectoryFeatureRolloutPolicyByIdAppliesToByIdRefOperation(),
-        new ValidateDirectoryFeatureRolloutPolicyByIdAppliesToPropertyOperation()
+        new RemoveDirectoryFeatureRolloutPolicyByIdAppliesToByIdRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -31,8 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(GetDirectoryFeatureRolloutPolicyByIdAppliesToByIdsRequestModel),
-        typeof(GetDirectoryFeatureRolloutPolicyByIdAppliesToUserOwnedObjectRequestModel),
-        typeof(ValidateDirectoryFeatureRolloutPolicyByIdAppliesToPropertyRequestModel)
+
     };
 }

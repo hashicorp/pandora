@@ -13,20 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CheckMeChatByIdPermissionGrantByIdMemberGroupOperation(),
-        new CheckMeChatByIdPermissionGrantByIdMemberObjectOperation(),
         new CreateMeChatByIdPermissionGrantOperation(),
         new DeleteMeChatByIdPermissionGrantByIdOperation(),
-        new GetMeChatByIdPermissionGrantByIdMemberGroupOperation(),
-        new GetMeChatByIdPermissionGrantByIdMemberObjectOperation(),
         new GetMeChatByIdPermissionGrantByIdOperation(),
         new GetMeChatByIdPermissionGrantCountOperation(),
-        new GetMeChatByIdPermissionGrantsByIdsOperation(),
-        new GetMeChatByIdPermissionGrantsUserOwnedObjectOperation(),
         new ListMeChatByIdPermissionGrantsOperation(),
-        new RestoreMeChatByIdPermissionGrantByIdOperation(),
-        new UpdateMeChatByIdPermissionGrantByIdOperation(),
-        new ValidateMeChatByIdPermissionGrantsPropertyOperation()
+        new UpdateMeChatByIdPermissionGrantByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -36,12 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CheckMeChatByIdPermissionGrantByIdMemberGroupRequestModel),
-        typeof(CheckMeChatByIdPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetMeChatByIdPermissionGrantByIdMemberGroupRequestModel),
-        typeof(GetMeChatByIdPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetMeChatByIdPermissionGrantsByIdsRequestModel),
-        typeof(GetMeChatByIdPermissionGrantsUserOwnedObjectRequestModel),
-        typeof(ValidateMeChatByIdPermissionGrantsPropertyRequestModel)
+
     };
 }

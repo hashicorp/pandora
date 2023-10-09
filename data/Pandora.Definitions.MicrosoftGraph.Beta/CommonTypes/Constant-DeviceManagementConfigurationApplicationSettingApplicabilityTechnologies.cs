@@ -30,6 +30,9 @@ internal enum DeviceManagementConfigurationApplicationSettingApplicabilityTechno
     [Description("ExchangeOnline")]
     @exchangeOnline,
 
+    [Description("MobileApplicationManagement")]
+    @mobileApplicationManagement,
+
     [Description("LinuxMdm")]
     @linuxMdm,
 

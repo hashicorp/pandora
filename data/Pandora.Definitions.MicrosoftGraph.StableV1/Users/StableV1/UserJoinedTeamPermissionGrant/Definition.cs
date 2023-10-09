@@ -13,20 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CheckUserByIdJoinedTeamByIdPermissionGrantByIdMemberGroupOperation(),
-        new CheckUserByIdJoinedTeamByIdPermissionGrantByIdMemberObjectOperation(),
         new CreateUserByIdJoinedTeamByIdPermissionGrantOperation(),
         new DeleteUserByIdJoinedTeamByIdPermissionGrantByIdOperation(),
-        new GetUserByIdJoinedTeamByIdPermissionGrantByIdMemberGroupOperation(),
-        new GetUserByIdJoinedTeamByIdPermissionGrantByIdMemberObjectOperation(),
         new GetUserByIdJoinedTeamByIdPermissionGrantByIdOperation(),
         new GetUserByIdJoinedTeamByIdPermissionGrantCountOperation(),
-        new GetUserByIdJoinedTeamByIdPermissionGrantsAvailableExtensionPropertiesOperation(),
-        new GetUserByIdJoinedTeamByIdPermissionGrantsByIdsOperation(),
         new ListUserByIdJoinedTeamByIdPermissionGrantsOperation(),
-        new RestoreUserByIdJoinedTeamByIdPermissionGrantByIdOperation(),
-        new UpdateUserByIdJoinedTeamByIdPermissionGrantByIdOperation(),
-        new ValidateUserByIdJoinedTeamByIdPermissionGrantsPropertyOperation()
+        new UpdateUserByIdJoinedTeamByIdPermissionGrantByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -36,12 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CheckUserByIdJoinedTeamByIdPermissionGrantByIdMemberGroupRequestModel),
-        typeof(CheckUserByIdJoinedTeamByIdPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetUserByIdJoinedTeamByIdPermissionGrantByIdMemberGroupRequestModel),
-        typeof(GetUserByIdJoinedTeamByIdPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetUserByIdJoinedTeamByIdPermissionGrantsAvailableExtensionPropertiesRequestModel),
-        typeof(GetUserByIdJoinedTeamByIdPermissionGrantsByIdsRequestModel),
-        typeof(ValidateUserByIdJoinedTeamByIdPermissionGrantsPropertyRequestModel)
+
     };
 }
