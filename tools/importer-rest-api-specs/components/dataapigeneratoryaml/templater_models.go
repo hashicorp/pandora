@@ -2,10 +2,10 @@ package dataapigeneratoryaml
 
 import (
 	"fmt"
-	"github.com/go-yaml/yaml"
 	"sort"
 	"strings"
 
+	"github.com/go-yaml/yaml"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -22,8 +22,8 @@ type Model struct {
 type Field struct {
 	Name             string  `yaml:"Name"`
 	JsonName         string  `yaml:"JsonName"`
-	Required         bool    `yaml:"Required"`
-	Optional         bool    `yaml:"Optional"`
+	Required         *bool    `yaml:"Required,omitempty"`
+	Optional         *bool    `yaml:"Optional,omitempty"`
 	Type             string  `yaml:"Type"`
 	ReferenceName    *string `yaml:"ReferenceName,omitempty"`
 	MinItems         *int    `yaml:"MinItems,omitempty"`
@@ -31,6 +31,7 @@ type Field struct {
 	DateFormat       *string `yaml:"DateFormat,omitempty"`
 	ProvidesTypeHint *bool   `yaml:"ProvidesTypeHint,omitempty"`
 }
+
 
 func codeForModel(metadata string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) ([]byte, error) {
 	if len(model.Fields) == 0 {
@@ -130,9 +131,9 @@ func codeForField(fieldName string, fieldDetails models.FieldDetails, isTypeHint
 	}
 
 	if fieldDetails.Required {
-		field.Required = true
+		field.Required = pointer.To(true)
 	} else {
-		field.Optional = true
+		field.Optional = pointer.To(true)
 	}
 
 	return &field, nil
@@ -291,11 +292,11 @@ func typeNameForObjectDefinition(input *models.ObjectDefinition, constants map[s
 
 			// is this a constant or a model
 			if _, isConstant := constants[*input.ReferenceName]; isConstant {
-				val := fmt.Sprintf("%sConstant", *input.ReferenceName)
+				val := fmt.Sprintf("%s", *input.ReferenceName)
 				return &val, nil
 			}
 			if _, isModel := knownModels[*input.ReferenceName]; isModel {
-				val := fmt.Sprintf("%sModel", *input.ReferenceName)
+				val := fmt.Sprintf("%s", *input.ReferenceName)
 				return &val, nil
 			}
 
