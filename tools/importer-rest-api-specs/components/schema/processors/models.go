@@ -15,4 +15,5 @@ var ModelRules = []ModelProcessor{
 	modelRemoveStatusAndDetail{},
 	modelRenameZones{},
 	modelFlattenSkuName{},
+	modelFlattenEncryptionProperties{},
 }

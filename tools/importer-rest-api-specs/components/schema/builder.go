@@ -293,16 +293,17 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		return nil, nil
 	}
 
-	// @tombuildsstuff: this is a temporary workaround to strip out the `encryption` block for the Load Test Service
-	// the fix is tracked in https://github.com/hashicorp/pandora/issues/2608
-	// NOTE: other resources shouldn't use this approach and should instead fix the issue blocking generation - this
-	// is temporary to unblock this migration, since this has already shipped.
-	if input.SchemaModelName == "LoadTestResource" {
-		modelsUsedWithinProperties, mappings, err = applyTemporaryWorkaroundToLoadTestModelsAndMappings(*modelsUsedWithinProperties, mappings)
-		if err != nil {
-			return nil, fmt.Errorf("applying temporary workaround for Load Test: %+v", err)
-		}
-	}
+	/*
+		// @tombuildsstuff: this is a temporary workaround to strip out the `encryption` block for the Load Test Service
+		// the fix is tracked in https://github.com/hashicorp/pandora/issues/2608
+		// NOTE: other resources shouldn't use this approach and should instead fix the issue blocking generation - this
+		// is temporary to unblock this migration, since this has already shipped.
+		if input.SchemaModelName == "LoadTestResource" {
+			modelsUsedWithinProperties, mappings, err = applyTemporaryWorkaroundToLoadTestModelsAndMappings(*modelsUsedWithinProperties, mappings)
+			if err != nil {
+				return nil, fmt.Errorf("applying temporary workaround for Load Test: %+v", err)
+			}
+		}*/
 
 	return &modelParseResult{
 		mappings: *mappings,

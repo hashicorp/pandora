@@ -2,8 +2,10 @@ package processors
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"log"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ ModelProcessor = modelFlattenEncryptionProperties{}
@@ -30,18 +32,16 @@ func (m modelFlattenEncryptionProperties) ProcessModel(modelName string, model r
 	if !strings.HasSuffix(strings.ToLower(modelName), "encryptionproperties") {
 		return &models, &mappings, nil
 	}
-
 	model, ok := models[modelName]
 	if !ok {
 		return nil, nil, fmt.Errorf("the model %q was not found", modelName)
 	}
-
 	// validate that the model looks as we're expecting else we'll bail
 	if len(model.Fields) != 2 {
 		return &models, &mappings, nil
 	}
 	identityBlock, ok := model.Fields["Identity"]
-	if !ok || identityBlock.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference || identityBlock.ObjectDefinition.ReferenceName != nil {
+	if !ok || identityBlock.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeReference || identityBlock.ObjectDefinition.ReferenceName == nil {
 		return &models, &mappings, nil
 	}
 
@@ -71,9 +71,32 @@ func (m modelFlattenEncryptionProperties) ProcessModel(modelName string, model r
 
 	newEncryptionPropertiesModel := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 	newEncryptionPropertiesModel["UserAssignedIdentityId"] = userAssignedIdentity
-	newEncryptionPropertiesModel["KeyVaultKeyId"] = keyUri
-
+	newEncryptionPropertiesModel["KeyVaultKeyUri"] = keyUri
 	models[modelName] = resourcemanager.TerraformSchemaModelDefinition{Fields: newEncryptionPropertiesModel}
+
+	for _, field := range mappings.Fields {
+		if field.Type != resourcemanager.DirectAssignmentMappingDefinitionType {
+			continue
+		}
+
+		if field.DirectAssignment == nil {
+			continue
+		}
+
+		if field.DirectAssignment.SchemaFieldPath == "KeyUrl" {
+			field.DirectAssignment.SchemaFieldPath = "KeyVaultKeyId"
+
+		}
+
+		if field.DirectAssignment.SdkFieldPath == "KeyUrl" {
+			field.DirectAssignment.SdkFieldPath = "KeyVaultKeyId"
+		}
+	}
+
+	for _, field := range mappings.Fields {
+		log.Printf("\n\nField: %+v\n\n", field)
+
+	}
 
 	return &models, &mappings, nil
 }

@@ -54,7 +54,7 @@ func TestProcessModel_FlattenEncryptionPropertiesValid(t *testing.T) {
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
 						},
-						"KeyVaultKeyId": {
+						"KeyVaultKeyUri": {
 							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 								Type: resourcemanager.TerraformSchemaFieldTypeString,
 							},
