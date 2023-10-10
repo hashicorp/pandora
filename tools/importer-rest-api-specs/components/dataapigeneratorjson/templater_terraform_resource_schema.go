@@ -21,7 +21,7 @@ type SchemaField struct {
 	Computed      *bool   `json:"Computed,omitempty"`
 	ForceNew      *bool   `json:"ForceNew,omitempty"`
 	Name          string  `json:"Name"`
-	// todo figure out if I need to go all the way down or just use the top level information for nested object definitions
+	// mbfrahry todo figure out if I need to go all the way down or just use the top level information for nested object definitions
 	ObjectDefinition *SchemaFieldObjectDefinition     `json:"ObjectDefinition,omitempty"`
 	Constants        *resourcemanager.ConstantDetails `json:"Constants,omitempty"`
 }
