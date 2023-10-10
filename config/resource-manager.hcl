@@ -61,7 +61,7 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2023-03-01", "2023-06-01"]
+  available = ["2023-03-01", "2023-06-01", "2023-08-01"]
 }
 service "batch" {
   name      = "Batch"
@@ -466,11 +466,11 @@ service "resourcegraph" {
 }
 service "resources" {
   name      = "Resources"
-  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-04-01", "2023-07-01"]
+  available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-04-01", "2023-07-01", "2023-08-01"]
 }
 service "search" {
   name      = "Search"
-  available = ["2022-09-01"]
+  available = ["2022-09-01", "2023-11-01"]
 }
 service "security" {
   name      = "Security"
