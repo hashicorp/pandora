@@ -21,6 +21,12 @@ internal class EventPropertiesModel
     [JsonPropertyName("adjustmentsInBillingCurrency")]
     public AmountWithExchangeRateModel? AdjustmentsInBillingCurrency { get; set; }
 
+    [JsonPropertyName("billingAccountDisplayName")]
+    public string? BillingAccountDisplayName { get; set; }
+
+    [JsonPropertyName("billingAccountId")]
+    public string? BillingAccountId { get; set; }
+
     [JsonPropertyName("billingCurrency")]
     public string? BillingCurrency { get; set; }
 
