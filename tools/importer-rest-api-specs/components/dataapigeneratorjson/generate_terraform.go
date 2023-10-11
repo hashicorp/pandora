@@ -2,10 +2,11 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"os"
 	"path"
 	"strings"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefinition) error {
@@ -31,7 +32,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 		// TODO: generate Data Sources
 		//for name, details := range resource.Terraform.DataSources {
-		//  fileName := path.Join(generationData.workingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.cs", details.DataSourceName))
+		//  fileName := path.Join(generationData.workingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.json", details.DataSourceName))
 		//	if debug {
 		//		s.logger.Trace(fmt.Sprintf("Generating Data Source into %q", fileName))
 		//	}
@@ -40,10 +41,10 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 		for label, details := range resource.Terraform.Resources {
 			// output the Terraform Resource Definition
-			resourceFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.cs", details.ResourceName))
+			resourceFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource.json", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource into %q", resourceFileName))
 			resourcePackageName := s.packageNameForResource(resourceName)
-			resourceDefinitionCode, err := codeForTerraformResourceDefinition(label, details)
+			resourceDefinitionCode, err := codeForTerraformResourceDefinition(label, details, resource.ResourceIds)
 			if err != nil {
 				return fmt.Errorf("marshaling Terraform Resource Definition: %+v", err)
 			}
@@ -52,7 +53,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 			}
 
 			// output the Schema for this Terraform Resource
-			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.cs", details.ResourceName))
+			resourceSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema.json", details.ResourceName))
 
 			resourceSchema, ok := details.SchemaModels[details.SchemaModelName]
 			if !ok {
@@ -74,7 +75,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 					continue
 				}
 
-				nestedSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema-%s.cs", details.ResourceName, strings.TrimPrefix(modelName, details.SchemaModelName)))
+				nestedSchemaFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Schema-%s.json", details.ResourceName, strings.TrimPrefix(modelName, details.SchemaModelName)))
 				s.logger.Trace(fmt.Sprintf("Generating Model Schema into %q", nestedSchemaFileName))
 				nestedSchemaCode, err := codeForTerraformSchemaModelDefinition(model, details, resource, s.apiVersionPackageName, resourcePackageName)
 				if err != nil {
@@ -86,7 +87,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 			}
 
 			// output the Mappings for this Terraform Resource
-			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.cs", details.ResourceName))
+			resourceMappingsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Mappings.json", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource Mappings into %q", resourceMappingsFileName))
 			resourceMappingsCode, err := codeForTerraformResourceMappings(details)
 			if err != nil {
@@ -97,7 +98,7 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 			}
 
 			// output the Tests for this Terraform Resource
-			resourceTestsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Tests.cs", details.ResourceName))
+			resourceTestsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Tests.json", details.ResourceName))
 			s.logger.Trace(fmt.Sprintf("Generating Resource Tests into %q", resourceTestsFileName))
 			resourceTestsCode, err := codeForTerraformResourceTestDefinition(details)
 			if err != nil {

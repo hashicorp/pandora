@@ -2,6 +2,9 @@ package dataapigeneratorjson
 
 import (
 	"encoding/json"
+	"fmt"
+
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -27,7 +30,7 @@ type Method struct {
 	TimeoutInMinutes int    `json:"TimeoutInMinutes"`
 }
 
-func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails) ([]byte, error) {
+func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails, resourceIds map[string]models.ParsedResourceId) ([]byte, error) {
 	createMethod := Method{
 		Generate:         details.CreateMethod.Generate,
 		Name:             details.CreateMethod.MethodName,
@@ -50,9 +53,7 @@ func codeForTerraformResourceDefinition(resourceLabel string, details resourcema
 	}
 
 	resourceDefinition := ResourceDefinition{
-		DisplayName: details.DisplayName,
-		// todo figure this out
-		Id:           details.ResourceIdName,
+		DisplayName:  details.DisplayName,
 		Label:        resourceLabel,
 		Category:     details.Documentation.Category,
 		Description:  details.Documentation.Description,
@@ -66,6 +67,13 @@ func codeForTerraformResourceDefinition(resourceLabel string, details resourcema
 		ReadMethod:                   readMethod,
 		UpdateMethod:                 updateMethod,
 	}
+
+	id, ok := resourceIds[details.ResourceIdName]
+	if !ok {
+		return nil, fmt.Errorf("could not find id %s for Terraform Resource %s", details.ResourceIdName, resourceLabel)
+	}
+
+	resourceDefinition.Id = id.String()
 
 	data, err := json.MarshalIndent(resourceDefinition, "", " ")
 	if err != nil {

@@ -6,4 +6,4 @@ package featureflags
 const AllowConstantsWithoutXMSEnum = true
 
 // GenerateJsonDataAPI specifies whether the Data API in JSON should be generated.
-const GenerateJsonDataAPI = true
+const GenerateJsonDataAPI = false

@@ -63,7 +63,6 @@ func (s Generator) GenerateForApiVersion(apiVersion models.AzureApiDefinition) e
 		return fmt.Errorf("generating API Versions: %+v", err)
 	}
 
-	// TODO uncomment below and work through the remaining templates
 	if s.terraformPackageName != nil {
 		s.logger.Debug("Generating Terraform Definitions")
 

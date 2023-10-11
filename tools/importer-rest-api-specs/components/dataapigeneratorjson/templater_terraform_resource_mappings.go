@@ -6,14 +6,15 @@ import (
 )
 
 type ResourceMapping struct {
-	ResourceIdMapping             *[]ResourceIdMapping            `json:"ResourceIdMapping"`
+	ResourceIdMapping             *[]ResourceIdMapping            `json:"ResourceIdMapping,omitempty"`
 	DirectAssignmentFieldMappings *[]DirectAssignmentFieldMapping `json:"DirectAssignmentFieldMappings,omitempty"`
 	ModelToModelFieldMappings     *[]ModelToModelFieldMapping     `json:"ModelToModelFieldMappings,omitempty"`
 }
 
 type ResourceIdMapping struct {
-	MappingFunction string
-	SegmentName     string
+	SchemaFieldName    string `json:"SchemaFieldName"`
+	SegmentName        string `json:"SegmentName"`
+	ParsedFromParentID bool   `json:"ParsedFromParentID"`
 }
 
 type DirectAssignmentFieldMapping struct {
@@ -35,13 +36,9 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 	resourceIdMappings := make([]ResourceIdMapping, 0)
 	for _, item := range details.Mappings.ResourceId {
 		mapping := ResourceIdMapping{
-			SegmentName: item.SegmentName,
-		}
-
-		// mbfrahry todo check if these can be shortened to `ResourceId` and `CommonId`
-		mapping.MappingFunction = "ToResourceIdSegmentNamed"
-		if item.ParsedFromParentID {
-			mapping.MappingFunction = "ToCommonIdSegmentNamed"
+			SchemaFieldName:    item.SchemaFieldName,
+			SegmentName:        item.SegmentName,
+			ParsedFromParentID: item.ParsedFromParentID,
 		}
 
 		resourceIdMappings = append(resourceIdMappings, mapping)

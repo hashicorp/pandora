@@ -14,26 +14,15 @@ type SchemaModel struct {
 }
 
 type SchemaField struct {
-	HclName       string  `json:"HclName"`
-	Documentation *string `json:"Documentation,omitempty"`
-	Required      *bool   `json:"Required,omitempty"`
-	Optional      *bool   `json:"Optional,omitempty"`
-	Computed      *bool   `json:"Computed,omitempty"`
-	ForceNew      *bool   `json:"ForceNew,omitempty"`
-	Name          string  `json:"Name"`
-	// mbfrahry todo figure out if I need to go all the way down or just use the top level information for nested object definitions
-	ObjectDefinition *SchemaFieldObjectDefinition     `json:"ObjectDefinition,omitempty"`
-	Constants        *resourcemanager.ConstantDetails `json:"Constants,omitempty"`
-}
-
-type SchemaFieldObjectDefinition struct {
-	NestedObject *SchemaFieldObjectDefinition `json:"NestedObject,omitempty"`
-
-	// ReferenceName is the name of the Reference associated with this ObjectDefinition.
-	ReferenceName *string `json:"ReferenceName"`
-
-	// Type specifies the Type of field that this is, for example a String or a Location.
-	Type TerraformSchemaFieldType `json:"Type"`
+	HclName       string                           `json:"HclName"`
+	Type          string                           `json:"Type"`
+	Documentation *string                          `json:"Documentation,omitempty"`
+	Required      *bool                            `json:"Required,omitempty"`
+	Optional      *bool                            `json:"Optional,omitempty"`
+	Computed      *bool                            `json:"Computed,omitempty"`
+	ForceNew      *bool                            `json:"ForceNew,omitempty"`
+	Name          string                           `json:"Name"`
+	Constants     *resourcemanager.ConstantDetails `json:"Constants,omitempty"`
 }
 
 func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchemaModelDefinition, details resourcemanager.TerraformResourceDetails, resource models.AzureApiResource, apiVersionPackageName, resourcePackageName string) ([]byte, error) {
@@ -67,6 +56,7 @@ func fieldDefinitionForTerraformSchemaField(name string, input resourcemanager.T
 	schemaField := SchemaField{
 		HclName: input.HclName,
 		Name:    name,
+		Type:    string(input.ObjectDefinition.Type),
 	}
 
 	if input.Documentation.Markdown != "" {
