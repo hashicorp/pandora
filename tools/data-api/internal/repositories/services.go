@@ -1,227 +1,421 @@
 package repositories
 
 import (
+	"encoding/json"
 	"fmt"
-	"net/http"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"os"
 )
+
+type VersionDefinition struct {
+	ApiVersion string   `json:"ApiVersion"`
+	Preview    bool     `json:"Preview"`
+	Source     string   `json:"Source"`
+	Resources  []string `json:"Resources"`
+	Generate   bool     `json:"Generate"`
+}
 
 type ServicesRepository interface {
 	GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error)
-
 	GetAll(serviceType ServiceType) (*[]ServiceDetails, error)
+	// TODO
+ 	ClearCache() (error)
 }
 
 var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
-	// TODO:
-	// directory string
+	directory string
+	graphV1 *map[string]string
+	graphV2 *map[string]string
+	resourceManager *map[string][]ApiVersionDefinitions
 }
 
-func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
-	allServices, err := s.GetAll(serviceType)
-	if err != nil {
-		return nil, fmt.Errorf("parsing the list of services: %+v", err)
-	}
-	for _, service := range *allServices {
-		if service.Name == serviceName {
-			return &service, nil
-		}
-	}
+type ApiVersionDefinitions struct {
+	ApiVersion string
+	Resources []string
+}
 
-	return nil, nil
+func NewServicesRepository(directory string, serviceType ServiceType) ServicesRepository {
+	return &ServicesRepositoryImpl{
+		directory: fmt.Sprintf("%s%s", directory, serviceType),
+	}
+}
+
+func (s *ServicesRepositoryImpl) ClearCache() error {
+	// TODO This gets automatically run if a file has changed and when serve-watch is used
+	// TODO this finds the files needed and loads it
+	// TODO file watching
+	s.resourceManager = nil
+
+	return nil
 }
 
 func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDetails, error) {
-	return &[]ServiceDetails{
-		{
-			Name:                 "Compute",
-			ResourceProvider:     "Microsoft.Compute",
-			TerraformPackageName: pointer.To("compute"),
-			ApiVersions: map[string]*ServiceApiVersionDetails{
-				"2020-01-01": {
-					Name:     "2020-01-01",
-					Generate: true,
-					Resources: map[string]*ServiceApiVersionResourceDetails{
-						"VirtualMachines": {
-							Operations: map[string]ResourceOperations{
-								"Get": {
-									ContentType: "application/json",
-									ExpectedStatusCodes: []int{
-										http.StatusOK,
-									},
-									LongRunning:    false,
-									Method:         http.MethodGet,
-									RequestObject:  nil,
-									ResourceIdName: nil,
-									ResponseObject: &ObjectDefinition{
-										NestedItem: &ObjectDefinition{
-											ReferenceName: pointer.To("Panda"),
-											Type:          ReferenceObjectDefinitionType,
-										},
-										ReferenceName: pointer.To("Computa"),
-										Type:          ReferenceObjectDefinitionType,
-									},
-									FieldContainingPaginationDetails: nil,
-									Options:                          nil,
-									UriSuffix:                        nil,
-								},
-							},
-							Schema: ResourceSchema{
-								Constants: map[string]ConstantDetails{},
-								Models: map[string]ModelDetails{
-									"Computa": {
-										Fields: map[string]FieldDetails{
-											"Name": {
-												ObjectDefinition: ObjectDefinition{
-													Type: ReferenceObjectDefinitionType,
-												},
-												Required: true,
-											},
-										},
-										TypeHintIn:    nil,
-										TypeHintValue: nil,
-									},
-								},
-								ResourceIds: map[string]ResourceIdDefinition{},
-							},
-						},
-					},
-					Source: HandWrittenApiDefinitionsSource,
-				},
-			},
-			TerraformDetails: TerraformDetails{
-				Resources: map[string]TerraformResourceDetails{
-					"virtual_machine": {
-						ApiVersion: "2020-01-01",
-						CreateMethod: MethodDefinition{
-							Generate:         true,
-							MethodName:       "VirtualMachineCreateOrUpdate",
-							TimeoutInMinutes: 30,
-						},
-						DeleteMethod: MethodDefinition{
-							Generate:         true,
-							MethodName:       "VirtualMachineDelete",
-							TimeoutInMinutes: 30,
-						},
-						DisplayName: "Virtual Machine",
-						Documentation: ResourceDocumentationDefinition{
-							Description:     "Manages a Virtual Machine",
-							ExampleUsageHcl: `resource "azurerm_virtual_machine" "example" {}`,
-						},
-						Generate:             true,
-						GenerateModel:        true,
-						GenerateIdValidation: true,
-						GenerateSchema:       true,
-						Mappings: MappingDefinition{
-							Fields: []FieldMappingDefinition{
-								{
-									Type: "DirectAssignment",
-									DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
-										SchemaModelName: "model",
-										SchemaFieldPath: "name",
-										SdkModelName:    "model",
-										SdkFieldPath:    "name",
-									},
-									),
-								},
-								{
-									Type: "DirectAssignment",
-									DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
-										SchemaModelName: "model",
-										SchemaFieldPath: "resource_group",
-										SdkModelName:    "model",
-										SdkFieldPath:    "resource_group",
-									},
-									),
-								},
-							},
-							ModelToModels: []ModelToModelMappingDefinition{
-								{
-									SchemaModelName: "VirtualMachineSchema",
-									SdkModelName:    "VirtualMachineProperties",
-								},
-							},
-							ResourceId: []ResourceIdMappingDefinition{
-								{
-									SchemaFieldName:    "VirtualMachineId",
-									SegmentName:        "virtualMachineName",
-									ParsedFromParentID: true,
-								},
-								{
-									SchemaFieldName:    "ResourceGroupName",
-									SegmentName:        "resourceGroupName",
-									ParsedFromParentID: false,
-								},
-							},
-						},
-						ReadMethod: MethodDefinition{
-							Generate:         true,
-							MethodName:       "VirtualMachineGet",
-							TimeoutInMinutes: 5,
-						},
-						Resource:        "VirtualMachine",
-						ResourceIdName:  "VirtualMachineId",
-						ResourceName:    "VirtualMachine",
-						SchemaModelName: "VirtualMachineSchema",
-						SchemaModels: map[string]TerraformSchemaModelDefinition{
-							"VirtualMachineSchema": {
-								Fields: map[string]TerraformSchemaFieldDefinition{
-									"VirtualMachineId": {
-										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
-											NestedObject:  nil,
-											ReferenceName: nil,
-											Type:          StringTerraformSchemaFieldType,
-										},
-										Computed: false,
-										ForceNew: true,
-										HclName:  "virtual_machine_id",
-										Optional: false,
-										Required: true,
-										Documentation: TerraformSchemaDocumentationDefinition{
-											Markdown: "blah",
-										},
-										Validation: nil,
-									},
-									"Name": {
-										ObjectDefinition: TerraformSchemaFieldObjectDefinition{
-											NestedObject:  nil,
-											ReferenceName: nil,
-											Type:          StringTerraformSchemaFieldType,
-										},
-										Computed: false,
-										ForceNew: true,
-										HclName:  "name",
-										Optional: false,
-										Required: true,
-										Documentation: TerraformSchemaDocumentationDefinition{
-											Markdown: "blah",
-										},
-										Validation: nil,
-									},
-								},
-							},
-						},
-						Tests: TerraformResourceTestsDefinition{
-							BasicConfiguration:          "basictest",
-							RequiresImportConfiguration: "importtest",
-							CompleteConfiguration:       nil,
-							Generate:                    false,
-							OtherTests:                  nil,
-							TemplateConfiguration:       nil,
-						},
-						UpdateMethod: pointer.To(MethodDefinition{
-							Generate:         true,
-							MethodName:       "VirtualMachineCreateOrUpdate",
-							TimeoutInMinutes: 30,
-						}),
-					},
-				},
-			},
+	serviceDetails := make([]ServiceDetails, 0)
 
-			Generate: true,
-		},
-	}, nil
+	services, err := listSubDirectories(s.directory)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+	}
+
+	if services != nil {
+		for _, service := range *services {
+			serviceDetail, err := s.GetByName(service, serviceType)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
+			}
+			serviceDetails = append(serviceDetails, *serviceDetail)
+		}
+	}
+
+	return &serviceDetails, nil
+
+	//// TODO build a list of file paths to load
+	//if s.resourceManager == nil {
+	//	// populate it e.g. load and parse data frm the files
+	//	// set into resourceManager
+	//
+	//}
+
+	//return &[]ServiceDetails{
+	//	{
+	//		Name:                 "Compute",
+	//		ResourceProvider:     "Microsoft.Compute",
+	//		TerraformPackageName: pointer.To("compute"),
+	//		ApiVersions: map[string]*ServiceApiVersionDetails{
+	//			"2020-01-01": {
+	//				Name:     "2020-01-01",
+	//				Generate: true,
+	//				Resources: map[string]*ServiceApiVersionResourceDetails{
+	//					"VirtualMachines": {
+	//						Operations: map[string]ResourceOperations{
+	//							"Get": {
+	//								ContentType: "application/json",
+	//								ExpectedStatusCodes: []int{
+	//									http.StatusOK,
+	//								},
+	//								LongRunning:    false,
+	//								Method:         http.MethodGet,
+	//								RequestObject:  nil,
+	//								ResourceIdName: nil,
+	//								ResponseObject: &ObjectDefinition{
+	//									NestedItem: &ObjectDefinition{
+	//										ReferenceName: pointer.To("Panda"),
+	//										Type:          ReferenceObjectDefinitionType,
+	//									},
+	//									ReferenceName: pointer.To("Computa"),
+	//									Type:          ReferenceObjectDefinitionType,
+	//								},
+	//								FieldContainingPaginationDetails: nil,
+	//								Options:                          nil,
+	//								UriSuffix:                        nil,
+	//							},
+	//						},
+	//						Schema: ResourceSchema{
+	//							Constants: map[string]ConstantDetails{},
+	//							Models: map[string]ModelDetails{
+	//								"Computa": {
+	//									Fields: map[string]FieldDetails{
+	//										"Name": {
+	//											ObjectDefinition: ObjectDefinition{
+	//												Type: ReferenceObjectDefinitionType,
+	//											},
+	//											Required: true,
+	//										},
+	//									},
+	//									TypeHintIn:    nil,
+	//									TypeHintValue: nil,
+	//								},
+	//							},
+	//							ResourceIds: map[string]ResourceIdDefinition{},
+	//						},
+	//					},
+	//				},
+	//				Source: HandWrittenApiDefinitionsSource,
+	//			},
+	//		},
+	//		TerraformDetails: TerraformDetails{
+	//			Resources: map[string]TerraformResourceDetails{
+	//				"virtual_machine": {
+	//					ApiVersion: "2020-01-01",
+	//					CreateMethod: MethodDefinition{
+	//						Generate:         true,
+	//						MethodName:       "VirtualMachineCreateOrUpdate",
+	//						TimeoutInMinutes: 30,
+	//					},
+	//					DeleteMethod: MethodDefinition{
+	//						Generate:         true,
+	//						MethodName:       "VirtualMachineDelete",
+	//						TimeoutInMinutes: 30,
+	//					},
+	//					DisplayName: "Virtual Machine",
+	//					Documentation: ResourceDocumentationDefinition{
+	//						Description:     "Manages a Virtual Machine",
+	//						ExampleUsageHcl: `resource "azurerm_virtual_machine" "example" {}`,
+	//					},
+	//					Generate:             true,
+	//					GenerateModel:        true,
+	//					GenerateIdValidation: true,
+	//					GenerateSchema:       true,
+	//					Mappings: MappingDefinition{
+	//						Fields: []FieldMappingDefinition{
+	//							{
+	//								Type: "DirectAssignment",
+	//								DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
+	//									SchemaModelName: "model",
+	//									SchemaFieldPath: "name",
+	//									SdkModelName:    "model",
+	//									SdkFieldPath:    "name",
+	//								},
+	//								),
+	//							},
+	//							{
+	//								Type: "DirectAssignment",
+	//								DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
+	//									SchemaModelName: "model",
+	//									SchemaFieldPath: "resource_group",
+	//									SdkModelName:    "model",
+	//									SdkFieldPath:    "resource_group",
+	//								},
+	//								),
+	//							},
+	//						},
+	//						ModelToModels: []ModelToModelMappingDefinition{
+	//							{
+	//								SchemaModelName: "VirtualMachineSchema",
+	//								SdkModelName:    "VirtualMachineProperties",
+	//							},
+	//						},
+	//						ResourceId: []ResourceIdMappingDefinition{
+	//							{
+	//								SchemaFieldName:    "VirtualMachineId",
+	//								SegmentName:        "virtualMachineName",
+	//								ParsedFromParentID: true,
+	//							},
+	//							{
+	//								SchemaFieldName:    "ResourceGroupName",
+	//								SegmentName:        "resourceGroupName",
+	//								ParsedFromParentID: false,
+	//							},
+	//						},
+	//					},
+	//					ReadMethod: MethodDefinition{
+	//						Generate:         true,
+	//						MethodName:       "VirtualMachineGet",
+	//						TimeoutInMinutes: 5,
+	//					},
+	//					Resource:        "VirtualMachine",
+	//					ResourceIdName:  "VirtualMachineId",
+	//					ResourceName:    "VirtualMachine",
+	//					SchemaModelName: "VirtualMachineSchema",
+	//					SchemaModels: map[string]TerraformSchemaModelDefinition{
+	//						"VirtualMachineSchema": {
+	//							Fields: map[string]TerraformSchemaFieldDefinition{
+	//								"VirtualMachineId": {
+	//									ObjectDefinition: TerraformSchemaFieldObjectDefinition{
+	//										NestedObject:  nil,
+	//										ReferenceName: nil,
+	//										Type:          StringTerraformSchemaFieldType,
+	//									},
+	//									Computed: false,
+	//									ForceNew: true,
+	//									HclName:  "virtual_machine_id",
+	//									Optional: false,
+	//									Required: true,
+	//									Documentation: TerraformSchemaDocumentationDefinition{
+	//										Markdown: "blah",
+	//									},
+	//									Validation: nil,
+	//								},
+	//								"Name": {
+	//									ObjectDefinition: TerraformSchemaFieldObjectDefinition{
+	//										NestedObject:  nil,
+	//										ReferenceName: nil,
+	//										Type:          StringTerraformSchemaFieldType,
+	//									},
+	//									Computed: false,
+	//									ForceNew: true,
+	//									HclName:  "name",
+	//									Optional: false,
+	//									Required: true,
+	//									Documentation: TerraformSchemaDocumentationDefinition{
+	//										Markdown: "blah",
+	//									},
+	//									Validation: nil,
+	//								},
+	//							},
+	//						},
+	//					},
+	//					Tests: TerraformResourceTestsDefinition{
+	//						BasicConfiguration:          "basictest",
+	//						RequiresImportConfiguration: "importtest",
+	//						CompleteConfiguration:       nil,
+	//						Generate:                    false,
+	//						OtherTests:                  nil,
+	//						TemplateConfiguration:       nil,
+	//					},
+	//					UpdateMethod: pointer.To(MethodDefinition{
+	//						Generate:         true,
+	//						MethodName:       "VirtualMachineCreateOrUpdate",
+	//						TimeoutInMinutes: 30,
+	//					}),
+	//				},
+	//			},
+	//		},
+	//
+	//		Generate: true,
+	//	},
+	//}, nil
 }
+
+func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
+	serviceDirectory := fmt.Sprintf("%s/%s", s.directory, serviceName)
+	if _, err := os.Stat(serviceDirectory); os.IsNotExist(err) {
+		return nil, fmt.Errorf("service %s does not exist: %+v", serviceName, err)
+	}
+
+	// now we retrieve all the available versions as well as resources available in the version
+	versions, err := listSubDirectories(serviceDirectory)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving versions for %s: %+v", serviceName, err)
+	}
+
+	definitions := make([]ApiVersionDefinitions, 0)
+
+	if versions != nil {
+		for _, version := range *versions {
+			definition := ApiVersionDefinitions{}
+			definition.ApiVersion = version
+
+			versionDirectory := fmt.Sprintf("%s/%s", serviceDirectory, version)
+			resources, err := listSubDirectories(versionDirectory)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving resources for %s %s: %+v", serviceName, version, err)
+			}
+
+			if resources != nil {
+				definition.Resources = *resources
+			}
+
+			definitions = append(definitions, definition)
+		}
+	}
+
+	resourceManager := make(map[string][]ApiVersionDefinitions)
+	resourceManager[serviceName] = definitions
+	s.resourceManager = &resourceManager
+
+	serviceDetails, err := s.ProcessServiceDefinitions(serviceName)
+	if err != nil {
+		return nil, fmt.Errorf("processing service definition for %s: %+v", serviceName, err)
+	}
+
+	return serviceDetails, nil
+}
+
+func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (*ServiceDetails, error) {
+	resourceManager := pointer.From(s.resourceManager)
+
+	if s.resourceManager == nil {
+		return nil, fmt.Errorf("no data")
+	}
+
+	definitions, ok := resourceManager[serviceName]
+	if !ok {
+		return nil, fmt.Errorf("no data for %s", serviceName)
+	}
+
+	versionDefinitions := make(map[string]*ServiceApiVersionDetails, 0)
+	for _, definition := range definitions {
+		versionDefinition, err := s.ProcessVersionDefinitions(serviceName, definition.ApiVersion, definition.Resources)
+		if err != nil {
+			return nil, fmt.Errorf("processing version definition for %s: %+v", definition.ApiVersion, err)
+		}
+		versionDefinitions[definition.ApiVersion] = versionDefinition
+	}
+
+	serviceDetails := ServiceDetails{
+		Name: serviceName,
+		ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
+		ApiVersions: versionDefinitions,
+	}
+
+	return &serviceDetails, nil
+}
+
+func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, version string, resources []string) (*ServiceApiVersionDetails, error) {
+	versionDefinition := ServiceApiVersionDetails{
+		Name: version,
+		Generate: true,
+	}
+
+	resourceDetails := make(map[string]*ServiceApiVersionResourceDetails, 0)
+
+	for _, resource := range resources {
+		resourceDetail, err := s.ProcessResourceDefinitions(serviceName, version, resource)
+		if err != nil {
+			return nil, fmt.Errorf("processing resource definition for %s: %+v", resource, err)
+		}
+
+		resourceDetails[resource] = resourceDetail
+	}
+
+	versionDefinition.Resources = resourceDetails
+
+	return &versionDefinition, nil
+}
+
+func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {
+	// initialise all the structs needed
+	resourceDetails := ServiceApiVersionResourceDetails{}
+	resourceSchema := ResourceSchema{}
+	constants := make(map[string]ConstantDetails, 0)
+
+	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
+	files, err := os.ReadDir(path)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+	}
+
+	for _, file := range files {
+		if !file.IsDir() {
+			definitionType, definitionName := getDefinitionInfo(file.Name())
+			switch definitionType {
+			case "Constant":
+				constant := Constant{}
+
+				contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+				if err != nil {
+					return nil, err
+				}
+				json.Unmarshal(*contents, &constant)
+
+				values := make(map[string]string, 0)
+
+				for _, value := range constant.Values {
+					values[value.Key] = value.Value
+				}
+
+				constants[definitionName] = ConstantDetails{
+					CaseInsensitive: false,
+					Type:            ConstantType(constant.Type),
+					Values:          values,
+				}
+			case "Model":
+				// TODO
+			case "Operation":
+				// TODO
+			case "ResourceId":
+				// TODO
+			}
+		}
+	}
+	resourceSchema.Constants = constants
+	resourceDetails.Schema = resourceSchema
+
+	return &resourceDetails, nil
+}
+
+
+

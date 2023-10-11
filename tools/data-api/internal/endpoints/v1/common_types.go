@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func commonTypes(w http.ResponseWriter, r *http.Request) {
+func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	opts, ok := ctx.Value("options").(Options)
@@ -17,7 +17,7 @@ func commonTypes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	services, err := servicesRepository.GetAll(opts.ServiceType)
+	services, err := api.ServicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return

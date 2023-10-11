@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func serviceDetails(w http.ResponseWriter, r *http.Request) {
+func (api Api) serviceDetails(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	opts, ok := ctx.Value("options").(Options)

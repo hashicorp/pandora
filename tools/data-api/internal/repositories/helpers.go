@@ -1,0 +1,54 @@
+package repositories
+
+import (
+	"fmt"
+	"io"
+	"os"
+	"strings"
+)
+
+func listSubDirectories(path string) (*[]string, error) {
+	directories := make([]string, 0)
+
+	contents, err := os.ReadDir(path)
+	if err != nil {
+		return nil, fmt.Errorf("retrieving list of sub directories under %q: %+v", path, err)
+	}
+
+	for _, c := range contents {
+		if c.IsDir() {
+			directories = append(directories, c.Name())
+		}
+	}
+
+	return &directories, nil
+}
+
+func loadJson(path string) (*[]byte, error) {
+	contents, err := os.Open(path)
+	if err != nil {
+		return nil, fmt.Errorf("loading %q", path)
+	}
+
+	byteValue, err := io.ReadAll(contents)
+	if err != nil {
+		return nil, fmt.Errorf("reading contents of %q", path)
+	}
+
+	contents.Close()
+
+	return &byteValue, nil
+}
+
+
+// getDefinitionInfo transform the file names in the data api into a definition type and a name e.g.
+// Model-KeyVaultProperties.json -> type = Model, Name = KeyVaultProperties
+func getDefinitionInfo(fileName string) (string, string) {
+	splitName := strings.Split(fileName, "-")
+
+	definitionType := splitName[0]
+	definitionName := strings.Split(splitName[1], ".")[0]
+
+	return definitionType, definitionName
+
+}

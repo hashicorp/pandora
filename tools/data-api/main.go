@@ -21,6 +21,12 @@ func main() {
 				Log: logger,
 			}, nil
 		},
+		// TODO hook this up
+		"serve-watch": func() (cli.Command, error) {
+			return commands.ServeCommand{
+				Log: logger,
+			}, nil
+		},
 	}
 
 	exitStatus, err := c.Run()

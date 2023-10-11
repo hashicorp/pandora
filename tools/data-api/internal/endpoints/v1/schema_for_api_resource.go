@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
+func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)

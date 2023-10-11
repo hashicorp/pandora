@@ -24,11 +24,13 @@ func (ServeCommand) Help() string {
 func (c ServeCommand) Run(args []string) int {
 	port := 8080
 	// TODO: dynamic ports from args/env
+	// TODO: pass directory in - hardcoded below for now
+	directory := "../../api-definitions/"
 
 	c.Log.Debug(fmt.Sprintf("Launching Server on port %d", port))
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Route("/", endpoints.Router)
+	r.Route("/", endpoints.Router(directory))
 	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 	return 0
 }
