@@ -7,7 +7,6 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-
 func Router(directory string) func(chi.Router) {
 	return func(router chi.Router) {
 		router.Route("/infrastructure", infrastructure.Router)

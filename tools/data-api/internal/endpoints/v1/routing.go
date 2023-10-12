@@ -27,7 +27,7 @@ type Api struct {
 
 func Router(router chi.Router, options Options, servicesRepository repositories.ServicesRepository) {
 	api := Api{
-		ServicesRepository : servicesRepository,
+		ServicesRepository: servicesRepository,
 	}
 
 	router.Use(optionsContext(options))

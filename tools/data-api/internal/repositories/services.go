@@ -3,7 +3,6 @@ package repositories
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"os"
 )
 
@@ -19,21 +18,19 @@ type ServicesRepository interface {
 	GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error)
 	GetAll(serviceType ServiceType) (*[]ServiceDetails, error)
 	// TODO
- 	ClearCache() (error)
+	ClearCache() error
 }
 
 var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
 	directory string
-	graphV1 *map[string]string
-	graphV2 *map[string]string
-	resourceManager *map[string][]ApiVersionDefinitions
-}
+	graphV1   *map[string]string
+	graphV2   *map[string]string
 
-type ApiVersionDefinitions struct {
-	ApiVersion string
-	Resources []string
+	// resourceManager is map of Service to ServiceDetails, the ServiceDetails contain all the
+	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
+	resourceManager *map[string]ServiceDetails
 }
 
 func NewServicesRepository(directory string, serviceType ServiceType) ServicesRepository {
@@ -54,29 +51,30 @@ func (s *ServicesRepositoryImpl) ClearCache() error {
 func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDetails, error) {
 	serviceDetails := make([]ServiceDetails, 0)
 
-	services, err := listSubDirectories(s.directory)
-	if err != nil {
-		return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+	if s.resourceManager == nil {
+		services, err := listSubDirectories(s.directory)
+		if err != nil {
+			return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+		}
+
+		if services != nil {
+			for _, service := range *services {
+				// loads the service definition locations
+				serviceDetail, err := s.GetByName(service, serviceType)
+				if err != nil {
+					return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
+				}
+				serviceDetails = append(serviceDetails, *serviceDetail)
+			}
+		}
+		return &serviceDetails, nil
 	}
 
-	if services != nil {
-		for _, service := range *services {
-			serviceDetail, err := s.GetByName(service, serviceType)
-			if err != nil {
-				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
-			}
-			serviceDetails = append(serviceDetails, *serviceDetail)
-		}
+	for _, details := range *s.resourceManager {
+		serviceDetails = append(serviceDetails, details)
 	}
 
 	return &serviceDetails, nil
-
-	//// TODO build a list of file paths to load
-	//if s.resourceManager == nil {
-	//	// populate it e.g. load and parse data frm the files
-	//	// set into resourceManager
-	//
-	//}
 
 	//return &[]ServiceDetails{
 	//	{
@@ -275,78 +273,55 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 		return nil, fmt.Errorf("service %s does not exist: %+v", serviceName, err)
 	}
 
-	// now we retrieve all the available versions as well as resources available in the version
-	versions, err := listSubDirectories(serviceDirectory)
-	if err != nil {
-		return nil, fmt.Errorf("retrieving versions for %s: %+v", serviceName, err)
-	}
-
-	definitions := make([]ApiVersionDefinitions, 0)
-
-	if versions != nil {
-		for _, version := range *versions {
-			definition := ApiVersionDefinitions{}
-			definition.ApiVersion = version
-
-			versionDirectory := fmt.Sprintf("%s/%s", serviceDirectory, version)
-			resources, err := listSubDirectories(versionDirectory)
-			if err != nil {
-				return nil, fmt.Errorf("retrieving resources for %s %s: %+v", serviceName, version, err)
-			}
-
-			if resources != nil {
-				definition.Resources = *resources
-			}
-
-			definitions = append(definitions, definition)
-		}
-	}
-
-	resourceManager := make(map[string][]ApiVersionDefinitions)
-	resourceManager[serviceName] = definitions
-	s.resourceManager = &resourceManager
-
 	serviceDetails, err := s.ProcessServiceDefinitions(serviceName)
 	if err != nil {
 		return nil, fmt.Errorf("processing service definition for %s: %+v", serviceName, err)
 	}
 
+	resourceManager := make(map[string]ServiceDetails, 0)
+
+	if s.resourceManager != nil {
+		resourceManager = *s.resourceManager
+	}
+
+	resourceManager[serviceName] = *serviceDetails
+	s.resourceManager = &resourceManager
+
 	return serviceDetails, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (*ServiceDetails, error) {
-	resourceManager := pointer.From(s.resourceManager)
-
-	if s.resourceManager == nil {
-		return nil, fmt.Errorf("no data")
-	}
-
-	definitions, ok := resourceManager[serviceName]
-	if !ok {
-		return nil, fmt.Errorf("no data for %s", serviceName)
+	versions, err := listSubDirectories(fmt.Sprintf("%s/%s", s.directory, serviceName))
+	if err != nil {
+		return nil, fmt.Errorf("retrieving versions: %+v", err)
 	}
 
 	versionDefinitions := make(map[string]*ServiceApiVersionDetails, 0)
-	for _, definition := range definitions {
-		versionDefinition, err := s.ProcessVersionDefinitions(serviceName, definition.ApiVersion, definition.Resources)
-		if err != nil {
-			return nil, fmt.Errorf("processing version definition for %s: %+v", definition.ApiVersion, err)
+
+	if versions != nil {
+		for _, version := range *versions {
+			resources, err := listSubDirectories(fmt.Sprintf("%s/%s/%s", s.directory, serviceName, version))
+			if err != nil {
+				return nil, fmt.Errorf("retrieving resources for %s: %+v", version, err)
+			}
+			versionDetails, err := s.ProcessVersionDefinitions(serviceName, version, *resources)
+			if err != nil {
+				return nil, fmt.Errorf("processing version definitions for %s: %+v", version, err)
+			}
+			versionDefinitions[version] = versionDetails
 		}
-		versionDefinitions[definition.ApiVersion] = versionDefinition
 	}
 
-	serviceDetails := ServiceDetails{
-		Name: serviceName,
+	return &ServiceDetails{
+		Name:             serviceName,
 		ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
-		ApiVersions: versionDefinitions,
-	}
-
-	return &serviceDetails, nil
+		ApiVersions:      versionDefinitions,
+	}, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, version string, resources []string) (*ServiceApiVersionDetails, error) {
 	versionDefinition := ServiceApiVersionDetails{
-		Name: version,
+		Name:     version,
 		Generate: true,
 	}
 
@@ -416,6 +391,3 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 
 	return &resourceDetails, nil
 }
-
-
-

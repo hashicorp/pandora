@@ -40,7 +40,6 @@ func loadJson(path string) (*[]byte, error) {
 	return &byteValue, nil
 }
 
-
 // getDefinitionInfo transform the file names in the data api into a definition type and a name e.g.
 // Model-KeyVaultProperties.json -> type = Model, Name = KeyVaultProperties
 func getDefinitionInfo(fileName string) (string, string) {
