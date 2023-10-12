@@ -64,7 +64,7 @@ func (d directAssignmentTransformIdentitySystemAndUserAssignedMap) optionalFlatt
 	if err != nil {
 		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
 	}
-	%[3]s = %[1]s
+	%[3]s = *%[1]s
 `, outputVariableName, inputAssignment, outputAssignment)
 	}
 }
