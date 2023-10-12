@@ -1,7 +1,6 @@
 # Copyright (c) HashiCorp, Inc.
 # SPDX-License-Identifier: MPL-2.0
 
-/*
 service "DevCenter" {
   terraform_package = "devcenter"
 
@@ -25,4 +24,3 @@ service "DevCenter" {
     }
   }
 }
-*/
