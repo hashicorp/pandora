@@ -335,7 +335,7 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMap_RequiredToOptio
 	if err != nil {
 		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
 	}
-	output.Identity = identity
+	output.Identity = *identity
 `),
 		},
 	}
@@ -454,7 +454,7 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMap_OptionalToOptio
 	if err != nil {
 		return fmt.Errorf("flattening SystemAndUserAssigned Identity: %%+v", err)
 	}
-	output.Identity = identity
+	output.Identity = *identity
 `),
 		},
 	}

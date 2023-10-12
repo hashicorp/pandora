@@ -23,6 +23,7 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 		variables: testVariables{},
 
 		needsClientConfig:         true,
+		needsDevCenter:            true,
 		needsEdgeZone:             true,
 		needsNetworkInterface:     true,
 		needsPublicIP:             true,
@@ -33,6 +34,16 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 	}
 	expected := `
 data "example_client_config" "test" {}
+
+resource "example_dev_center" "test" {
+  name                = "acctestdc-${var.random_string}"
+  resource_group_name = example_resource_group.test.name
+  location            = example_resource_group.test.location
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
 
 data "example_extended_locations" "test" {
   location = var.primary_location
@@ -93,6 +104,28 @@ func TestDependenciesTemplate_NeedsClientConfig(t *testing.T) {
 	}
 	expected := `
 data "example_client_config" "test" {}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestDependenciesTemplate_NeedsDevCenter(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+		variables: testVariables{},
+
+		needsDevCenter: true,
+	}
+	expected := `
+resource "example_dev_center" "test" {
+  name                = "acctestdc-${var.random_string}"
+  resource_group_name = example_resource_group.test.name
+  location            = example_resource_group.test.location
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
 `
 	actual := builder.generateTemplateConfigForDependencies(dependencies)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
