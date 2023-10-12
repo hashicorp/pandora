@@ -13,5 +13,14 @@ service "DevCenter" {
         description = "Manages a Dev Center"
       }
     }
+
+    package "Projects" {
+      definition "dev_center_project" {
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}"
+        display_name = "Dev Center Project"
+        website_subcategory = "Dev Center Project"
+        description = "Manages a Dev Center Project"
+      }
+    }
   }
 }
