@@ -36,7 +36,7 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 data "example_client_config" "test" {}
 
 resource "example_dev_center" "test" {
-  name                = "acctestdc-${var.random_integer}"
+  name                = "acctestdc-${var.random_string}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
 
@@ -118,7 +118,7 @@ func TestDependenciesTemplate_NeedsDevCenter(t *testing.T) {
 	}
 	expected := `
 resource "example_dev_center" "test" {
-  name                = "acctestdc-${var.random_integer}"
+  name                = "acctestdc-${var.random_string}"
   resource_group_name = example_resource_group.test.name
   location            = example_resource_group.test.location
 

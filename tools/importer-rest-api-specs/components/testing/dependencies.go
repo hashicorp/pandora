@@ -50,7 +50,7 @@ func (d *testDependencies) setNeedsDevCenter() {
 	d.setNeedsResourceGroup()
 	d.needsDevCenter = true
 
-	d.variables.needsRandomInteger = true
+	d.variables.needsRandomString = true
 }
 
 func (d *testDependencies) setNeedsEdgeZones() {
