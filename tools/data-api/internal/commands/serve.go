@@ -1,8 +1,12 @@
 package commands
 
 import (
+	"flag"
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"net/http"
+	"strings"
+	"time"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
@@ -13,8 +17,22 @@ import (
 
 var _ cli.Command = ServeCommand{}
 
+func NewServeCommand(definitionsDirectory string) func() (cli.Command, error) {
+	return func() (cli.Command, error) {
+		return ServeCommand{
+			DefinitionsDirectory: definitionsDirectory,
+			Log: hclog.New(&hclog.LoggerOptions{
+				Level:  hclog.DefaultLevel,
+				Output: hclog.DefaultOutput,
+				TimeFn: time.Now,
+			}),
+		}, nil
+	}
+}
+
 type ServeCommand struct {
-	Log hclog.Logger
+	DefinitionsDirectory string
+	Log                  hclog.Logger
 }
 
 func (ServeCommand) Help() string {
@@ -22,15 +40,24 @@ func (ServeCommand) Help() string {
 }
 
 func (c ServeCommand) Run(args []string) int {
-	port := 8080
 	// TODO: dynamic ports from args/env
-	// TODO: pass directory in - hardcoded below for now
-	directory := "../../api-definitions/"
+	port := 8080
+
+	var serviceNamesRaw string
+
+	f := flag.NewFlagSet("serve", flag.ExitOnError)
+	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service names to load")
+	f.Parse(args)
+
+	var serviceNames *[]string
+	if serviceNamesRaw != "" {
+		serviceNames = pointer.To(strings.Split(serviceNamesRaw, ","))
+	}
 
 	c.Log.Debug(fmt.Sprintf("Launching Server on port %d", port))
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Route("/", endpoints.Router(directory))
+	r.Route("/", endpoints.Router(c.DefinitionsDirectory, serviceNames))
 	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 	return 0
 }

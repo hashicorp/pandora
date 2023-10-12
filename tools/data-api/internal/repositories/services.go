@@ -24,18 +24,27 @@ type ServicesRepository interface {
 var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
+	// directory is where the api definitions for all services exist - this is where the server will read from
 	directory string
-	graphV1   *map[string]string
-	graphV2   *map[string]string
 
-	// resourceManager is map of Service to ServiceDetails, the ServiceDetails contain all the
+	// graphV1 is a map of service name to string
+	graphV1 *map[string]string
+
+	// graphV2 is a map of service name to string
+	graphV2 *map[string]string
+
+	// resourceManager is map of service name to ServiceDetails, the ServiceDetails contain all the
 	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
 	resourceManager *map[string]ServiceDetails
+
+	// serviceNames is a list of services which the server will load
+	serviceNames *[]string
 }
 
-func NewServicesRepository(directory string, serviceType ServiceType) ServicesRepository {
+func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) ServicesRepository {
 	return &ServicesRepositoryImpl{
-		directory: fmt.Sprintf("%s%s", directory, serviceType),
+		directory:    fmt.Sprintf("%s%s", directory, serviceType),
+		serviceNames: serviceNames,
 	}
 }
 
@@ -52,9 +61,14 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 	serviceDetails := make([]ServiceDetails, 0)
 
 	if s.resourceManager == nil {
-		services, err := listSubDirectories(s.directory)
-		if err != nil {
-			return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+		var err error
+		services := s.serviceNames
+		if services == nil {
+			// this means we haven't passed any specific services to the serve command, so we get whatever is available in the api definitions directory
+			services, err = listSubDirectories(s.directory)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+			}
 		}
 
 		if services != nil {

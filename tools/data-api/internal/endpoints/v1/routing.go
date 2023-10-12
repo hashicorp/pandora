@@ -23,6 +23,7 @@ type Options struct {
 
 type Api struct {
 	ServicesRepository repositories.ServicesRepository
+	Services           *[]string
 }
 
 func Router(router chi.Router, options Options, servicesRepository repositories.ServicesRepository) {
