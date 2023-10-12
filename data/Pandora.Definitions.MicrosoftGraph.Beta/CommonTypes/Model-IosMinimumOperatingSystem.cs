@@ -37,6 +37,9 @@ internal class IosMinimumOperatingSystemModel
     [JsonPropertyName("v16_0")]
     public bool? V160 { get; set; }
 
+    [JsonPropertyName("v17_0")]
+    public bool? V170 { get; set; }
+
     [JsonPropertyName("v8_0")]
     public bool? V80 { get; set; }
 

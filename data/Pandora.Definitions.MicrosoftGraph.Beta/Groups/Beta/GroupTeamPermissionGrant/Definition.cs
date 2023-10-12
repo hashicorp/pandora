@@ -13,20 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CheckGroupByIdTeamPermissionGrantByIdMemberGroupOperation(),
-        new CheckGroupByIdTeamPermissionGrantByIdMemberObjectOperation(),
         new CreateGroupByIdTeamPermissionGrantOperation(),
         new DeleteGroupByIdTeamPermissionGrantByIdOperation(),
-        new GetGroupByIdTeamPermissionGrantByIdMemberGroupOperation(),
-        new GetGroupByIdTeamPermissionGrantByIdMemberObjectOperation(),
         new GetGroupByIdTeamPermissionGrantByIdOperation(),
         new GetGroupByIdTeamPermissionGrantCountOperation(),
-        new GetGroupByIdTeamPermissionGrantsByIdsOperation(),
-        new GetGroupByIdTeamPermissionGrantsUserOwnedObjectOperation(),
         new ListGroupByIdTeamPermissionGrantsOperation(),
-        new RestoreGroupByIdTeamPermissionGrantByIdOperation(),
-        new UpdateGroupByIdTeamPermissionGrantByIdOperation(),
-        new ValidateGroupByIdTeamPermissionGrantsPropertyOperation()
+        new UpdateGroupByIdTeamPermissionGrantByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -36,12 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CheckGroupByIdTeamPermissionGrantByIdMemberGroupRequestModel),
-        typeof(CheckGroupByIdTeamPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetGroupByIdTeamPermissionGrantByIdMemberGroupRequestModel),
-        typeof(GetGroupByIdTeamPermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetGroupByIdTeamPermissionGrantsByIdsRequestModel),
-        typeof(GetGroupByIdTeamPermissionGrantsUserOwnedObjectRequestModel),
-        typeof(ValidateGroupByIdTeamPermissionGrantsPropertyRequestModel)
+
     };
 }

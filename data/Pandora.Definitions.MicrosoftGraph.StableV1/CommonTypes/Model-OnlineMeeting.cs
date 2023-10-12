@@ -94,6 +94,9 @@ internal class OnlineMeetingModel
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }
 
+    [JsonPropertyName("transcripts")]
+    public List<CallTranscriptModel>? Transcripts { get; set; }
+
     [JsonPropertyName("videoTeleconferenceId")]
     public string? VideoTeleconferenceId { get; set; }
 

@@ -13,20 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CheckMePermissionGrantByIdMemberGroupOperation(),
-        new CheckMePermissionGrantByIdMemberObjectOperation(),
         new CreateMePermissionGrantOperation(),
         new DeleteMePermissionGrantByIdOperation(),
-        new GetMePermissionGrantByIdMemberGroupOperation(),
-        new GetMePermissionGrantByIdMemberObjectOperation(),
         new GetMePermissionGrantByIdOperation(),
         new GetMePermissionGrantCountOperation(),
-        new GetMePermissionGrantsByIdsOperation(),
-        new GetMePermissionGrantsUserOwnedObjectOperation(),
         new ListMePermissionGrantsOperation(),
-        new RestoreMePermissionGrantByIdOperation(),
-        new UpdateMePermissionGrantByIdOperation(),
-        new ValidateMePermissionGrantsPropertyOperation()
+        new UpdateMePermissionGrantByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -36,12 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CheckMePermissionGrantByIdMemberGroupRequestModel),
-        typeof(CheckMePermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetMePermissionGrantByIdMemberGroupRequestModel),
-        typeof(GetMePermissionGrantByIdMemberObjectRequestModel),
-        typeof(GetMePermissionGrantsByIdsRequestModel),
-        typeof(GetMePermissionGrantsUserOwnedObjectRequestModel),
-        typeof(ValidateMePermissionGrantsPropertyRequestModel)
+
     };
 }

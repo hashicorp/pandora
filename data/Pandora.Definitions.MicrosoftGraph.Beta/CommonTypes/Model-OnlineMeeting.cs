@@ -82,6 +82,9 @@ internal class OnlineMeetingModel
     [JsonPropertyName("isBroadcast")]
     public bool? IsBroadcast { get; set; }
 
+    [JsonPropertyName("isEndToEndEncryptionEnabled")]
+    public bool? IsEndToEndEncryptionEnabled { get; set; }
+
     [JsonPropertyName("isEntryExitAnnounced")]
     public bool? IsEntryExitAnnounced { get; set; }
 

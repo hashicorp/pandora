@@ -97,6 +97,9 @@ internal class SiteModel
     [JsonPropertyName("permissions")]
     public List<PermissionModel>? Permissions { get; set; }
 
+    [JsonPropertyName("recycleBin")]
+    public RecycleBinModel? RecycleBin { get; set; }
+
     [JsonPropertyName("root")]
     public RootModel? Root { get; set; }
 

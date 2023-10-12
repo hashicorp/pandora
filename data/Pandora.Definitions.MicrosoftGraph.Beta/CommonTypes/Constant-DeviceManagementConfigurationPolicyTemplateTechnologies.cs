@@ -30,6 +30,9 @@ internal enum DeviceManagementConfigurationPolicyTemplateTechnologiesConstant
     [Description("ExchangeOnline")]
     @exchangeOnline,
 
+    [Description("MobileApplicationManagement")]
+    @mobileApplicationManagement,
+
     [Description("LinuxMdm")]
     @linuxMdm,
 
