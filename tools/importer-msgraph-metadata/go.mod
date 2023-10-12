@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/importer-msgraph-metadata
 
-go 1.19
+go 1.21
 
 require (
 	github.com/davecgh/go-spew v1.1.1

@@ -1,6 +1,6 @@
 module github.com/hashicorp/pandora/tools/generator-go-sdk
 
-go 1.20
+go 1.21
 
 require (
 	github.com/hashicorp/go-azure-helpers v0.55.0
