@@ -12,11 +12,11 @@ func (fieldNameRemoveResourcePrefix) ProcessField(fieldName string, metadata Fie
 	if strings.HasPrefix(fieldName, metadata.TerraformDetails.ResourceName) {
 		updatedName := strings.Replace(fieldName, metadata.TerraformDetails.ResourceName, "", 1)
 
-		// However if the name is now just `Uri` then this field should be renamed to `ServiceUri`
-		// Whilst we COULD call this `DataPlaneUri` it's not guaranteed to be a Data Plane
-		// therefore Service likely makes more sense as a prefix.
+		// However `Uri` is not a great name for the field, and whilst `DataPlaneUri` or `ServiceUri`
+		// could make sense, this can create inconsistencies within the Service Package with different
+		// resources exposing different names for attributes - as such there we use the original name.
 		if strings.EqualFold(updatedName, "Uri") {
-			updatedName = "ServiceUri"
+			return nil, nil
 		}
 
 		return &updatedName, nil
