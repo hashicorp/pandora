@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"strings"
 )
 
 type ServicesRepository interface {
@@ -333,7 +334,6 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	versionDefinition := ServiceApiVersionDetails{
 		Name:     version,
 		Generate: true,
-		Source:   ResourceManagerRestApiSpecsApiDefinitionsSource,
 	}
 
 	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
@@ -357,6 +357,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceSchema := ResourceSchema{}
 	constants := make(map[string]ConstantDetails, 0)
 
+	// TODO rename this var so we can import path to use path.Join
 	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
 	files, err := os.ReadDir(path)
 	if err != nil {
@@ -364,38 +365,45 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	}
 
 	for _, file := range files {
-		if !file.IsDir() {
-			definitionType, definitionName := getDefinitionInfo(file.Name())
-			switch definitionType {
-			case "Constant":
-				constant := Constant{}
+		if file.IsDir() {
+			continue
+		}
 
-				contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
-				if err != nil {
-					return nil, err
-				}
-				json.Unmarshal(*contents, &constant)
+		definitionType, definitionName := getDefinitionInfo(file.Name())
+		// we lower case these so that it's compatible with other OS e.g. Windows
+		switch strings.ToLower(definitionType) {
+		case "constant":
+			var constant Constant
 
-				values := make(map[string]string, 0)
-
-				for _, value := range constant.Values {
-					values[value.Key] = value.Value
-				}
-
-				constants[definitionName] = ConstantDetails{
-					CaseInsensitive: false,
-					Type:            ConstantType(constant.Type),
-					Values:          values,
-				}
-			case "Model":
-				// TODO
-			case "Operation":
-				// TODO
-			case "ResourceId":
-				// TODO
+			// TODO use path.Join() so that this works on windows
+			contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			if err != nil {
+				return nil, err
 			}
+
+			if err := json.Unmarshal(*contents, &constant); err != nil {
+				return nil, fmt.Errorf("unmarshaling blah")
+			}
+
+			values := make(map[string]string, 0)
+
+			for _, value := range constant.Values {
+				values[value.Key] = value.Value
+			}
+
+			constants[definitionName] = ConstantDetails{
+				Type:   ConstantType(constant.Type),
+				Values: values,
+			}
+		case "model":
+			// TODO
+		case "operation":
+			// TODO
+		case "resourceid":
+			// TODO
 		}
 	}
+
 	resourceSchema.Constants = constants
 	resourceDefinition.Schema = resourceSchema
 

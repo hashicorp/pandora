@@ -30,12 +30,12 @@ func loadJson(path string) (*[]byte, error) {
 		return nil, fmt.Errorf("loading %q", path)
 	}
 
+	defer contents.Close()
+
 	byteValue, err := io.ReadAll(contents)
 	if err != nil {
 		return nil, fmt.Errorf("reading contents of %q", path)
 	}
-
-	contents.Close()
 
 	return &byteValue, nil
 }

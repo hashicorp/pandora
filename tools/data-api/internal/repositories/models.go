@@ -75,9 +75,8 @@ type OperationOptions struct {
 }
 
 type ConstantDetails struct {
-	CaseInsensitive bool
-	Type            ConstantType
-	Values          map[string]string
+	Type   ConstantType
+	Values map[string]string
 }
 
 type FieldValidationDetails struct {
