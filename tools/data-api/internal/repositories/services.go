@@ -6,18 +6,9 @@ import (
 	"os"
 )
 
-type VersionDefinition struct {
-	ApiVersion string   `json:"ApiVersion"`
-	Preview    bool     `json:"Preview"`
-	Source     string   `json:"Source"`
-	Resources  []string `json:"Resources"`
-	Generate   bool     `json:"Generate"`
-}
-
 type ServicesRepository interface {
 	GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error)
 	GetAll(serviceType ServiceType) (*[]ServiceDetails, error)
-	// TODO
 	ClearCache() error
 }
 
@@ -58,6 +49,7 @@ func (s *ServicesRepositoryImpl) ClearCache() error {
 }
 
 func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDetails, error) {
+	// GetAll calls GetByName for all the service names passed to the serve command, or for all the services available in the api definitions directory
 	serviceDetails := make([]ServiceDetails, 0)
 
 	if s.resourceManager == nil {
@@ -282,6 +274,8 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 }
 
 func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
+	// GetByName builds the ServiceDetails for a singular service by calling processing functions to build the
+	// structs for the ServiceApiVersionDetails and ServiceApiVersionResourceDetails
 	serviceDirectory := fmt.Sprintf("%s/%s", s.directory, serviceName)
 	if _, err := os.Stat(serviceDirectory); os.IsNotExist(err) {
 		return nil, fmt.Errorf("service %s does not exist: %+v", serviceName, err)
@@ -337,9 +331,10 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	versionDefinition := ServiceApiVersionDetails{
 		Name:     version,
 		Generate: true,
+		Source: ResourceManagerRestApiSpecsApiDefinitionsSource,
 	}
 
-	resourceDetails := make(map[string]*ServiceApiVersionResourceDetails, 0)
+	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
 
 	for _, resource := range resources {
 		resourceDetail, err := s.ProcessResourceDefinitions(serviceName, version, resource)
@@ -347,17 +342,16 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 			return nil, fmt.Errorf("processing resource definition for %s: %+v", resource, err)
 		}
 
-		resourceDetails[resource] = resourceDetail
+		resourceDefinitions[resource] = resourceDetail
 	}
 
-	versionDefinition.Resources = resourceDetails
+	versionDefinition.Resources = resourceDefinitions
 
 	return &versionDefinition, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {
-	// initialise all the structs needed
-	resourceDetails := ServiceApiVersionResourceDetails{}
+	resourceDefinition := ServiceApiVersionResourceDetails{}
 	resourceSchema := ResourceSchema{}
 	constants := make(map[string]ConstantDetails, 0)
 
@@ -401,7 +395,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 		}
 	}
 	resourceSchema.Constants = constants
-	resourceDetails.Schema = resourceSchema
+	resourceDefinition.Schema = resourceSchema
 
-	return &resourceDetails, nil
+	return &resourceDefinition, nil
 }

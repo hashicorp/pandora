@@ -2,12 +2,11 @@ package repositories
 
 type ApiDefinitionSourceType string
 type ConstantType string
+type DateFormat string
 type FieldValidationType string
 type ObjectDefinitionType string
 type ResourceIdSegmentType string
 type ServiceType string
-
-type DateFormat string
 
 const (
 	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"

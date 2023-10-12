@@ -3,13 +3,13 @@ package commands
 import (
 	"flag"
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"net/http"
 	"strings"
 	"time"
 
 	"github.com/go-chi/chi/v5"
 	"github.com/go-chi/chi/v5/middleware"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints"
 	"github.com/mitchellh/cli"
