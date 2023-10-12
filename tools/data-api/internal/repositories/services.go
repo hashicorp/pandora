@@ -82,6 +82,8 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 
 	return &serviceDetails, nil
 
+	// NOTE: this has been kept here for the time being to aid development since it helps to see a sample of how the incoming
+	// api definitions need to be mapped
 	//return &[]ServiceDetails{
 	//	{
 	//		Name:                 "Compute",
@@ -331,7 +333,7 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	versionDefinition := ServiceApiVersionDetails{
 		Name:     version,
 		Generate: true,
-		Source: ResourceManagerRestApiSpecsApiDefinitionsSource,
+		Source:   ResourceManagerRestApiSpecsApiDefinitionsSource,
 	}
 
 	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
