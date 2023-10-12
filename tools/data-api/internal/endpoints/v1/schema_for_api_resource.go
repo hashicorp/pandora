@@ -24,7 +24,6 @@ func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	for k, constant := range resource.Schema.Constants {
 		constants[k] = models.ConstantDetails{
-			CaseInsensitive: constant.CaseInsensitive,
 			Type:            models.ConstantType(constant.Type),
 			Values:          constant.Values,
 		}
