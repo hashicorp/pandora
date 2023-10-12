@@ -19,7 +19,8 @@ internal class ProjectPropertiesModel
     public string? Description { get; set; }
 
     [JsonPropertyName("devCenterId")]
-    public string? DevCenterId { get; set; }
+    [Required]
+    public string DevCenterId { get; set; }
 
     [JsonPropertyName("devCenterUri")]
     public string? DevCenterUri { get; set; }
