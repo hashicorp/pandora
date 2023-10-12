@@ -9,6 +9,10 @@ import (
 // marked as ReadOnly, meaning that it's surfaced as an Optional field rather than
 // being Computed.
 //
+// This also makes `DevCenterId` required for the `Projects` resource since otherwise
+// it defaults on the API side, which is likely to cause user confusion, making this
+// required makes it explicit what's being deployed.
+//
 // PR: https://github.com/Azure/azure-rest-api-specs/pull/26189
 // Additional: https://github.com/hashicorp/pandora/pull/2675#issuecomment-1759115231
 
