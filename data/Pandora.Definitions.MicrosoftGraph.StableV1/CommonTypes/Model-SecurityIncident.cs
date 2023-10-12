@@ -31,6 +31,9 @@ internal class SecurityIncidentModel
     [JsonPropertyName("customTags")]
     public List<string>? CustomTags { get; set; }
 
+    [JsonPropertyName("description")]
+    public string? Description { get; set; }
+
     [JsonPropertyName("determination")]
     public SecurityIncidentDeterminationConstant? Determination { get; set; }
 
@@ -60,6 +63,9 @@ internal class SecurityIncidentModel
 
     [JsonPropertyName("status")]
     public SecurityIncidentStatusConstant? Status { get; set; }
+
+    [JsonPropertyName("systemTags")]
+    public List<string>? SystemTags { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

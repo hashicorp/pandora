@@ -28,6 +28,9 @@ internal class X509CertificateAuthenticationMethodConfigurationModel
     [JsonPropertyName("includeTargets")]
     public List<AuthenticationMethodTargetModel>? IncludeTargets { get; set; }
 
+    [JsonPropertyName("issuerHintsConfiguration")]
+    public X509CertificateIssuerHintsConfigurationModel? IssuerHintsConfiguration { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 

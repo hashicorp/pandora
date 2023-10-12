@@ -16,8 +16,14 @@ internal class TicketInfoModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("ticketApproverIdentityId")]
+    public string? TicketApproverIdentityId { get; set; }
+
     [JsonPropertyName("ticketNumber")]
     public string? TicketNumber { get; set; }
+
+    [JsonPropertyName("ticketSubmitterIdentityId")]
+    public string? TicketSubmitterIdentityId { get; set; }
 
     [JsonPropertyName("ticketSystem")]
     public string? TicketSystem { get; set; }

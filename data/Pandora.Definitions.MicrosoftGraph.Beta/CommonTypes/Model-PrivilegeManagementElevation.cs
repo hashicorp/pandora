@@ -55,11 +55,26 @@ internal class PrivilegeManagementElevationModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("parentProcessName")]
+    public string? ParentProcessName { get; set; }
+
+    [JsonPropertyName("policyId")]
+    public string? PolicyId { get; set; }
+
+    [JsonPropertyName("policyName")]
+    public string? PolicyName { get; set; }
+
+    [JsonPropertyName("processType")]
+    public PrivilegeManagementElevationProcessTypeConstant? ProcessType { get; set; }
+
     [JsonPropertyName("productName")]
     public string? ProductName { get; set; }
 
     [JsonPropertyName("result")]
     public int? Result { get; set; }
+
+    [JsonPropertyName("ruleId")]
+    public string? RuleId { get; set; }
 
     [JsonPropertyName("upn")]
     public string? Upn { get; set; }

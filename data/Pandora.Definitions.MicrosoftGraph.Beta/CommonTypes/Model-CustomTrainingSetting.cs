@@ -23,7 +23,7 @@ internal class CustomTrainingSettingModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationInMinutes")]
-    public string? DurationInMinutes { get; set; }
+    public int? DurationInMinutes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
