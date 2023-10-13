@@ -47,7 +47,6 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 						return
 					}
 					payload.Constants[k] = models.ConstantDetails{
-						CaseInsensitive: v.CaseInsensitive,
 						Type:            models.ConstantType(v.Type),
 						Values:          v.Values,
 					}
