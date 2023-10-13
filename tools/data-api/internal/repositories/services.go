@@ -19,22 +19,17 @@ type ServicesRepositoryImpl struct {
 	// directory is where the api definitions for all services exist - this is where the server will read from
 	directory string
 
-	// graphV1 is a map of service name to string
-	graphV1 *map[string]string
-
-	// graphV2 is a map of service name to string
-	graphV2 *map[string]string
-
-	// resourceManager is map of service name to ServiceDetails, the ServiceDetails contain all the
 	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
-	resourceManager *map[string]ServiceDetails
+	services *map[string]ServiceDetails
 
-	// serviceNames is a list of services which the server will load
+	// serviceNames is a list containing the names of services which should be loaded
+	// this allows the loading/parsing of a subset of services for faster iterations during development
 	serviceNames *[]string
 }
 
 func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) ServicesRepository {
 	return &ServicesRepositoryImpl{
+		// TODO use path.Join
 		directory:    fmt.Sprintf("%s%s", directory, serviceType),
 		serviceNames: serviceNames,
 	}
@@ -44,7 +39,7 @@ func (s *ServicesRepositoryImpl) ClearCache() error {
 	// TODO This gets automatically run if a file has changed and when serve-watch is used
 	// TODO this finds the files needed and loads it
 	// TODO file watching
-	s.resourceManager = nil
+	s.services = nil
 
 	return nil
 }
@@ -53,7 +48,8 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 	// GetAll calls GetByName for all the service names passed to the serve command, or for all the services available in the api definitions directory
 	serviceDetails := make([]ServiceDetails, 0)
 
-	if s.resourceManager == nil {
+	// TODO add locking around this when reloading data/clearing cache so that it's only done once
+	if s.services == nil {
 		var err error
 		services := s.serviceNames
 		if services == nil {
@@ -77,7 +73,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		return &serviceDetails, nil
 	}
 
-	for _, details := range *s.resourceManager {
+	for _, details := range *s.services {
 		serviceDetails = append(serviceDetails, details)
 	}
 
@@ -281,7 +277,7 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 	// structs for the ServiceApiVersionDetails and ServiceApiVersionResourceDetails
 	serviceDirectory := fmt.Sprintf("%s/%s", s.directory, serviceName)
 	if _, err := os.Stat(serviceDirectory); os.IsNotExist(err) {
-		return nil, fmt.Errorf("service %s does not exist: %+v", serviceName, err)
+		return nil, fmt.Errorf("service %q does not exist: %+v", serviceName, err)
 	}
 
 	serviceDetails, err := s.ProcessServiceDefinitions(serviceName)
@@ -291,12 +287,12 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 
 	resourceManager := make(map[string]ServiceDetails, 0)
 
-	if s.resourceManager != nil {
-		resourceManager = *s.resourceManager
+	if s.services != nil {
+		resourceManager = *s.services
 	}
 
 	resourceManager[serviceName] = *serviceDetails
-	s.resourceManager = &resourceManager
+	s.services = &resourceManager
 
 	return serviceDetails, nil
 }
@@ -324,9 +320,10 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 	}
 
 	return &ServiceDetails{
-		Name:             serviceName,
-		ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
-		ApiVersions:      versionDefinitions,
+		Name: serviceName,
+		// TODO RP name needs to be stored in the api definitions
+		// ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
+		ApiVersions: versionDefinitions,
 	}, nil
 }
 
@@ -369,7 +366,10 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 			continue
 		}
 
-		definitionType, definitionName := getDefinitionInfo(file.Name())
+		definitionType, definitionName, err := getDefinitionInfo(file.Name())
+		if err != nil {
+			return nil, err
+		}
 		// we lower case these so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
 		case "constant":

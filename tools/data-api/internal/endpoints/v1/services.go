@@ -18,7 +18,7 @@ func (api Api) services(w http.ResponseWriter, r *http.Request) {
 	payload := models.ServicesDefinition{
 		Services: make(map[string]models.ServiceSummary, 0),
 	}
-	services, err := api.ServicesRepository.GetAll(opts.ServiceType)
+	services, err := api.servicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return

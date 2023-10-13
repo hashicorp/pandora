@@ -22,13 +22,12 @@ type Options struct {
 }
 
 type Api struct {
-	ServicesRepository repositories.ServicesRepository
-	Services           *[]string
+	servicesRepository repositories.ServicesRepository
 }
 
 func Router(router chi.Router, options Options, servicesRepository repositories.ServicesRepository) {
 	api := Api{
-		ServicesRepository: servicesRepository,
+		servicesRepository: servicesRepository,
 	}
 
 	router.Use(optionsContext(options))
@@ -85,7 +84,7 @@ func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
-		service, err := api.ServicesRepository.GetByName(serviceName, opts.ServiceType)
+		service, err := api.servicesRepository.GetByName(serviceName, opts.ServiceType)
 		if err != nil {
 			internalServerError(w, fmt.Errorf("retrieving service %q: %+v", serviceName, err))
 			return

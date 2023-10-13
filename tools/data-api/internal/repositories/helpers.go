@@ -42,12 +42,15 @@ func loadJson(path string) (*[]byte, error) {
 
 // getDefinitionInfo transforms the file names in the api definitions directory into a definition type and a name e.g.
 // Model-KeyVaultProperties.json -> type = Model and name = KeyVaultProperties
-func getDefinitionInfo(fileName string) (string, string) {
+func getDefinitionInfo(fileName string) (string, string, error) {
+	if !strings.HasSuffix(fileName, ".json") {
+		return "", "", fmt.Errorf("file %q has an extensions not supported by the data api", fileName)
+	}
 	splitName := strings.Split(fileName, "-")
 
 	definitionType := splitName[0]
 	definitionName := strings.Split(splitName[1], ".")[0]
 
-	return definitionType, definitionName
+	return definitionType, definitionName, nil
 
 }

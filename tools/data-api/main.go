@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"os"
 
@@ -21,9 +22,7 @@ func main() {
 		"serve": commands.NewServeCommand(definitionsDirectory),
 		// TODO hook this up
 		"serve-watch": func() (cli.Command, error) {
-			return commands.ServeCommand{
-				Log: logger,
-			}, nil
+			return nil, fmt.Errorf("TODO: implement me")
 		},
 	}
 

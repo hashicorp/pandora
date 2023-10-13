@@ -17,7 +17,7 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	services, err := api.ServicesRepository.GetAll(opts.ServiceType)
+	services, err := api.servicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return
@@ -47,8 +47,8 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 						return
 					}
 					payload.Constants[k] = models.ConstantDetails{
-						Type:            models.ConstantType(v.Type),
-						Values:          v.Values,
+						Type:   models.ConstantType(v.Type),
+						Values: v.Values,
 					}
 				}
 
