@@ -85,6 +85,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"accounts":           "accounts",
 		"alertrules":         "alertRules",
 		"alertruletemplates": "alertRuleTemplates",
+		"apikeys":            "apiKeys",
 		"apiversion":         "apiVersion",
 		"applicationgatewaywebapplicationfirewallpolicies": "applicationGatewayWebApplicationFirewallPolicies",
 		"appsettings":                       "appSettings",
