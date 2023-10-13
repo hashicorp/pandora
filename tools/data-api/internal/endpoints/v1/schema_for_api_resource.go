@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
+func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
@@ -24,9 +24,8 @@ func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	for k, constant := range resource.Schema.Constants {
 		constants[k] = models.ConstantDetails{
-			CaseInsensitive: constant.CaseInsensitive,
-			Type:            models.ConstantType(constant.Type),
-			Values:          constant.Values,
+			Type:   models.ConstantType(constant.Type),
+			Values: constant.Values,
 		}
 	}
 

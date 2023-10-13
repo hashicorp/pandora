@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func terraform(w http.ResponseWriter, r *http.Request) {
+func (api Api) terraform(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	service, ok := ctx.Value("service").(*repositories.ServiceDetails)

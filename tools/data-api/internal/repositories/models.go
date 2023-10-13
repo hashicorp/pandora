@@ -2,12 +2,11 @@ package repositories
 
 type ApiDefinitionSourceType string
 type ConstantType string
+type DateFormat string
 type FieldValidationType string
 type ObjectDefinitionType string
 type ResourceIdSegmentType string
 type ServiceType string
-
-type DateFormat string
 
 const (
 	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"
@@ -76,9 +75,8 @@ type OperationOptions struct {
 }
 
 type ConstantDetails struct {
-	CaseInsensitive bool
-	Type            ConstantType
-	Values          map[string]string
+	Type   ConstantType
+	Values map[string]string
 }
 
 type FieldValidationDetails struct {

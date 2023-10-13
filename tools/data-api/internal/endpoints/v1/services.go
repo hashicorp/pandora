@@ -5,13 +5,10 @@ import (
 	"net/http"
 
 	"github.com/go-chi/render"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-var servicesRepository = &repositories.ServicesRepositoryImpl{}
-
-func services(w http.ResponseWriter, r *http.Request) {
+func (api Api) services(w http.ResponseWriter, r *http.Request) {
 	opts, ok := r.Context().Value("options").(Options)
 	if !ok {
 		internalServerError(w, fmt.Errorf("missing options"))
@@ -21,7 +18,7 @@ func services(w http.ResponseWriter, r *http.Request) {
 	payload := models.ServicesDefinition{
 		Services: make(map[string]models.ServiceSummary, 0),
 	}
-	services, err := servicesRepository.GetAll(opts.ServiceType)
+	services, err := api.servicesRepository.GetAll(opts.ServiceType)
 	if err != nil {
 		internalServerError(w, fmt.Errorf("loading services: %+v", err))
 		return
