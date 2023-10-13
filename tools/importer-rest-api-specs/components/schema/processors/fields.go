@@ -22,6 +22,7 @@ var NamingRules = []FieldNameProcessor{
 	fieldNameRemoveResourcePrefix{},
 	fieldNameRenameBoolean{},
 	fieldNameRenameMislabelledResourceID{},
+	fieldNameMaxToMaximum{},
 }
 
 //TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
