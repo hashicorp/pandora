@@ -121,8 +121,9 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"devcenters":                        "devCenters",
 		"dicomservices":                     "dicomServices",
 		"dnszones":                          "dnsZones",
-		"endpoints":                         "endpoints",   // handles Endpoints
-		"enrichments":                       "enrichments", // handles Enrichments
+		"endpoints":                         "endpoints",           // handles Endpoints
+		"enrichments":                       "enrichments",         // handles Enrichments
+		"exportconfiguration":               "exportConfiguration", // inconsistency in ApplicationInsights (singular, not plural)
 		"fhirdestinations":                  "fhirDestinations",
 		"fhirservices":                      "fhirServices",
 		"fileservers":                       "fileServers",
