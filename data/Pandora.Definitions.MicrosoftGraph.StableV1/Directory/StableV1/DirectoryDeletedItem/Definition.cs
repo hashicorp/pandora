@@ -15,8 +15,6 @@ internal class Definition : ResourceDefinition
     {
         new CheckDirectoryDeletedItemByIdMemberGroupOperation(),
         new CheckDirectoryDeletedItemByIdMemberObjectOperation(),
-        new CreateDirectoryDeletedItemOperation(),
-        new DeleteDirectoryDeletedItemByIdOperation(),
         new GetDirectoryDeletedItemByIdMemberGroupOperation(),
         new GetDirectoryDeletedItemByIdMemberObjectOperation(),
         new GetDirectoryDeletedItemByIdOperation(),
@@ -25,7 +23,6 @@ internal class Definition : ResourceDefinition
         new GetDirectoryDeletedItemsByIdsOperation(),
         new ListDirectoryDeletedItemsOperation(),
         new RestoreDirectoryDeletedItemByIdOperation(),
-        new UpdateDirectoryDeletedItemByIdOperation(),
         new ValidateDirectoryDeletedItemsPropertyOperation()
     };
 

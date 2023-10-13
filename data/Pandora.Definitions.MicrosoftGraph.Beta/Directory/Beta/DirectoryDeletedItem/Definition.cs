@@ -15,17 +15,13 @@ internal class Definition : ResourceDefinition
     {
         new CheckDirectoryDeletedItemByIdMemberGroupOperation(),
         new CheckDirectoryDeletedItemByIdMemberObjectOperation(),
-        new CreateDirectoryDeletedItemOperation(),
-        new DeleteDirectoryDeletedItemByIdOperation(),
         new GetDirectoryDeletedItemByIdMemberGroupOperation(),
         new GetDirectoryDeletedItemByIdMemberObjectOperation(),
         new GetDirectoryDeletedItemByIdOperation(),
         new GetDirectoryDeletedItemCountOperation(),
         new GetDirectoryDeletedItemsByIdsOperation(),
-        new GetDirectoryDeletedItemsUserOwnedObjectOperation(),
         new ListDirectoryDeletedItemsOperation(),
         new RestoreDirectoryDeletedItemByIdOperation(),
-        new UpdateDirectoryDeletedItemByIdOperation(),
         new ValidateDirectoryDeletedItemsPropertyOperation()
     };
 
@@ -41,7 +37,6 @@ internal class Definition : ResourceDefinition
         typeof(GetDirectoryDeletedItemByIdMemberGroupRequestModel),
         typeof(GetDirectoryDeletedItemByIdMemberObjectRequestModel),
         typeof(GetDirectoryDeletedItemsByIdsRequestModel),
-        typeof(GetDirectoryDeletedItemsUserOwnedObjectRequestModel),
         typeof(ValidateDirectoryDeletedItemsPropertyRequestModel)
     };
 }

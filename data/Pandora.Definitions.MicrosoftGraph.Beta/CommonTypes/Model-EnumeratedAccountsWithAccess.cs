@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class EnumeratedAccountsWithAccessModel
 {
+    [JsonPropertyName("accounts")]
+    public List<AuthorizationSystemModel>? Accounts { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

@@ -28,6 +28,9 @@ internal class IdentityGovernanceModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("privilegedAccess")]
+    public PrivilegedAccessRootModel? PrivilegedAccess { get; set; }
+
     [JsonPropertyName("termsOfUse")]
     public TermsOfUseContainerModel? TermsOfUse { get; set; }
 }

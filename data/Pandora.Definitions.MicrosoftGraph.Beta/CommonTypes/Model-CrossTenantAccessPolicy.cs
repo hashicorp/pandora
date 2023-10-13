@@ -39,4 +39,7 @@ internal class CrossTenantAccessPolicyModel
 
     [JsonPropertyName("partners")]
     public List<CrossTenantAccessPolicyConfigurationPartnerModel>? Partners { get; set; }
+
+    [JsonPropertyName("templates")]
+    public PolicyTemplateModel? Templates { get; set; }
 }

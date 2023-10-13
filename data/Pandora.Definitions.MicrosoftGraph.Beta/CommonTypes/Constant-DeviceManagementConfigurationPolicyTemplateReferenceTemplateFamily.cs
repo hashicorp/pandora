@@ -50,4 +50,7 @@ internal enum DeviceManagementConfigurationPolicyTemplateReferenceTemplateFamily
 
     [Description("DeviceConfigurationPolicies")]
     @deviceConfigurationPolicies,
+
+    [Description("CompanyPortal")]
+    @companyPortal,
 }

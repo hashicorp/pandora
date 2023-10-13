@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class SecurityHostModel
 {
+    [JsonPropertyName("childHostPairs")]
+    public List<SecurityHostPairModel>? ChildHostPairs { get; set; }
+
     [JsonPropertyName("components")]
     public List<SecurityHostComponentModel>? Components { get; set; }
 
@@ -21,6 +24,9 @@ internal class SecurityHostModel
 
     [JsonPropertyName("firstSeenDateTime")]
     public DateTime? FirstSeenDateTime { get; set; }
+
+    [JsonPropertyName("hostPairs")]
+    public List<SecurityHostPairModel>? HostPairs { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -31,6 +37,9 @@ internal class SecurityHostModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("parentHostPairs")]
+    public List<SecurityHostPairModel>? ParentHostPairs { get; set; }
+
     [JsonPropertyName("passiveDns")]
     public List<SecurityPassiveDnsRecordModel>? PassiveDns { get; set; }
 
@@ -40,6 +49,15 @@ internal class SecurityHostModel
     [JsonPropertyName("reputation")]
     public SecurityHostReputationModel? Reputation { get; set; }
 
+    [JsonPropertyName("sslCertificates")]
+    public List<SecurityHostSslCertificateModel>? SslCertificates { get; set; }
+
+    [JsonPropertyName("subdomains")]
+    public List<SecuritySubdomainModel>? Subdomains { get; set; }
+
     [JsonPropertyName("trackers")]
     public List<SecurityHostTrackerModel>? Trackers { get; set; }
+
+    [JsonPropertyName("whois")]
+    public SecurityWhoisRecordModel? Whois { get; set; }
 }
