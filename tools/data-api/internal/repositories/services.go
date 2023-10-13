@@ -285,14 +285,14 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 		return nil, fmt.Errorf("processing service definition for %s: %+v", serviceName, err)
 	}
 
-	resourceManager := make(map[string]ServiceDetails, 0)
+	services := make(map[string]ServiceDetails, 0)
 
 	if s.services != nil {
-		resourceManager = *s.services
+		services = *s.services
 	}
 
-	resourceManager[serviceName] = *serviceDetails
-	s.services = &resourceManager
+	services[serviceName] = *serviceDetails
+	s.services = &services
 
 	return serviceDetails, nil
 }
