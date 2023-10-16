@@ -18,7 +18,6 @@ public partial class Definition : ApiVersionDefinition
         new Databases.Definition(),
         new FirewallRules.Definition(),
         new LocationBasedPerformanceTier.Definition(),
-        new LocationBasedRecommendedActionSessionsResult.Definition(),
         new LogFiles.Definition(),
         new PrivateEndpointConnections.Definition(),
         new PrivateLinkResources.Definition(),

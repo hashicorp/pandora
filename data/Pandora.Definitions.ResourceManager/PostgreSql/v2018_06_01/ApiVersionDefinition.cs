@@ -12,7 +12,6 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new Advisors.Definition(),
-        new LocationBasedRecommendedActionSessionsResult.Definition(),
         new PrivateEndpointConnections.Definition(),
         new PrivateLinkResources.Definition(),
         new QueryTexts.Definition(),

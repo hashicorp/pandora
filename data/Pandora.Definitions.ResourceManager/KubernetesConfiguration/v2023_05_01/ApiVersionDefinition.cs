@@ -12,11 +12,9 @@ public partial class Definition : ApiVersionDefinition
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
         new ClusterExtensions.Definition(),
-        new ExtensionOperationStatus.Definition(),
         new Extensions.Definition(),
         new Flux.Definition(),
         new FluxConfiguration.Definition(),
-        new FluxConfigurationOperationStatus.Definition(),
         new OperationsInACluster.Definition(),
         new SourceControlConfiguration.Definition(),
     };
