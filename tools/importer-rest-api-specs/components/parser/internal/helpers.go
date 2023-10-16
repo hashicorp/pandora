@@ -16,26 +16,36 @@ func OperationShouldBeIgnored(operationUri string) bool {
 
 	// LRO's shouldn't be directly exposed
 	pathsContainingLROs := map[string]struct{}{
-		"/ascoperations/":                       {},
-		"/azureasyncoperations/":                {},
-		"/backupcrroperationresults/":           {},
-		"/backupoperationresults/":              {},
-		"/backupvalidateoperationresults/":      {},
-		"/costdetailsoperationresults/":         {},
-		"/deploymentstatus/":                    {},
-		"/managedclusteroperations/":            {},
-		"/managedclusteroperationresults/":      {},
-		"/manageddatabasemoveoperationresults/": {},
-		"/operationresults/":                    {},
-		"/operationstatus/":                     {},
-		"/operationstatuses/":                   {},
-		"/operationsstatus/":                    {},
-		"/privatelinkscopeoperationstatuses/":   {},
+		"/ascoperations/":                             {},
+		"/azureasyncoperations/":                      {},
+		"/backupcrroperationresults/":                 {},
+		"/backupoperationresults/":                    {},
+		"/backupvalidateoperationresults/":            {},
+		"/costdetailsoperationresults/":               {},
+		"/deploymentstatus/":                          {},
+		"/managedclusteroperations/":                  {},
+		"/managedclusteroperationresults/":            {},
+		"/manageddatabasemoveoperationresults/":       {},
+		"/mediaservicesoperationresults/":             {},
+		"/mediaservicesoperationstatuses/":            {},
+		"/operationlocations/":                        {},
+		"/operationresults/":                          {},
+		"/operationstatus/":                           {},
+		"/operationstatuses/":                         {},
+		"/operationsstatus/":                          {},
+		"/privatelinkscopeoperationstatuses/":         {},
+		"/recommendedactionsessionsoperationresults/": {},
 
 		// we can't just use `/operations` since some APIs (e.g. API Management) expose these, so we're intentionally
 		// checking more (but not all) of the path
-		"/providers/microsoft.storagesync/locations/{locationname}/workflows/{workflowid}/operations/{operationid}": {},
-		"/providers/microsoft.storagesync/locations/{locationName}/operations/{operationid}":                        {},
+		// /providers/Microsoft.KubernetesConfiguration/extensions/{extensionName}/operations/{operationId}
+		"/providers/microsoft.dataprotection/backupvaults/{backupvaultname}/backupjobs/operations/{operationid}":           {},
+		"/providers/microsoft.kubernetesconfiguration/fluxconfigurations/{fluxconfigurationname}/operations/{operationid}": {},
+		"/providers/microsoft.kubernetesconfiguration/extensions/{extensionname}/operations/{operationid}":                 {},
+		"/providers/microsoft.sql/servers/{servername}/databases/{databasename}/operations/{operationid}":                  {},
+		"/providers/microsoft.sql/managedinstances/{managedinstancename}/operations/{operationid}":                         {},
+		"/providers/microsoft.storagesync/locations/{locationname}/workflows/{workflowid}/operations/{operationid}":        {},
+		"/providers/microsoft.storagesync/locations/{locationName}/operations/{operationid}":                               {},
 	}
 	for key := range pathsContainingLROs {
 		if strings.Contains(loweredOperationUri, key) {
