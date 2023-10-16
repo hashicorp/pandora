@@ -92,7 +92,7 @@ function runFmtImportsAndGenerate {
 function conditionallyCommitAndPushTerraformProvider {
   local workingDirectory=$1
   local sha=$2
-  local branch="auto-pr/$sha"
+  local branch="auto-pandora-pr/$sha"
 
   cd "${DIR}"
   cd "$workingDirectory"
