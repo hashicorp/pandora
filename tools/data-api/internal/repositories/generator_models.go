@@ -33,3 +33,32 @@ type Field struct {
 	DateFormat       *string          `json:"DateFormat,omitempty"`
 	ProvidesTypeHint *bool            `json:"ProvidesTypeHint,omitempty"`
 }
+
+type Operation struct {
+	Name                             string           `json:"Name"`
+	ContentType                      string           `json:"ContentType,omitempty"`
+	ExpectedStatusCodes              []int            `json:"ExpectedStatusCodes,omitempty"`
+	FieldContainingPaginationDetails string           `json:"FieldContainingPaginationDetails,omitempty"`
+	LongRunning                      bool             `json:"LongRunning,omitempty"`
+	HTTPMethod                       string           `json:"HTTPMethod,omitempty"`
+	OptionsObject                    OptionsObject    `json:"OptionsObject,omitempty"`
+	Options                          []Option         `json:"Options,omitempty"`
+	ResourceId                       string           `json:"ResourceId,omitempty"`
+	RequestObject                    ObjectDefinition `json:"RequestObject,omitempty"`
+	ResponseObject                   ObjectDefinition `json:"ResponseObject,omitempty"`
+	UriSuffix                        string           `json:"UriSuffix,omitempty"`
+}
+
+type OptionsObject struct {
+	Name    string   `json:"Name"`
+	Options []Option `json:"Options"`
+}
+
+type Option struct {
+	HeaderName  *string `json:"HeaderName,omitempty"`
+	Optional    bool    `json:"Optional"`
+	QueryString *string `json:"QueryString,omitempty"`
+	Required    bool    `json:"Required"`
+	Field       string  `json:"Field"`
+	FieldType   string  `json:"FieldType"`
+}

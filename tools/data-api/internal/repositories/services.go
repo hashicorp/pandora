@@ -356,6 +356,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceSchema := ResourceSchema{}
 	constants := make(map[string]ConstantDetails, 0)
 	models := make(map[string]ModelDetails)
+	operations := make(map[string]ResourceOperations)
 
 	// TODO rename this var so we can import path to use path.Join
 	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
@@ -446,7 +447,45 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 			}
 
 		case "operation":
-			// TODO
+			var operation Operation
+			o, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			if err != nil {
+				return nil, err
+			}
+
+			if err := json.Unmarshal(*o, &operation); err != nil {
+				return nil, fmt.Errorf("unmarshaling operation: %+v", err)
+			}
+
+			operationDetails := ResourceOperations{
+				ContentType:                      operation.ContentType,
+				ExpectedStatusCodes:              operation.ExpectedStatusCodes,
+				LongRunning:                      operation.LongRunning,
+				Method:                           operation.HTTPMethod,
+				RequestObject:                    pointer.To(operation.RequestObject),
+				ResourceIdName:                   pointer.To(operation.ResourceId),
+				ResponseObject:                   pointer.To(operation.ResponseObject),
+				FieldContainingPaginationDetails: pointer.To(operation.FieldContainingPaginationDetails),
+				UriSuffix:                        pointer.To(operation.UriSuffix),
+			}
+
+			options := make(map[string]OperationOptions)
+			for _, option := range operation.OptionsObject.Options {
+				operationOption := OperationOptions{
+					HeaderName:      option.HeaderName,
+					QueryStringName: option.QueryString,
+					Required:        option.Required,
+					// todo ObjectDefintion isn't found in the the field we're reading from
+					// ObjectDefinition: option.,
+				}
+
+				options[operation.OptionsObject.Name] = operationOption
+			}
+
+			operationDetails.Options = pointer.To(options)
+
+			operations[definitionName] = operationDetails
+
 		case "resourceid":
 			// TODO
 		}
@@ -455,6 +494,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceSchema.Constants = constants
 	resourceSchema.Models = models
 	resourceDefinition.Schema = resourceSchema
+	resourceDefinition.Operations = operations
 
 	return &resourceDefinition, nil
 }
