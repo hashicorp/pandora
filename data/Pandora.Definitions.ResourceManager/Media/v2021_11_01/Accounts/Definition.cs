@@ -14,8 +14,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new LocationsCheckNameAvailabilityOperation(),
-        new MediaServicesOperationResultsGetOperation(),
-        new MediaServicesOperationStatusesGetOperation(),
         new MediaservicesCreateOrUpdateOperation(),
         new MediaservicesDeleteOperation(),
         new MediaservicesGetOperation(),
@@ -51,14 +49,11 @@ internal class Definition : ResourceDefinition
         typeof(EdgeUsageDataCollectionPolicyModel),
         typeof(EdgeUsageDataEventHubModel),
         typeof(EntityNameAvailabilityCheckOutputModel),
-        typeof(ErrorAdditionalInfoModel),
-        typeof(ErrorDetailModel),
         typeof(KeyDeliveryModel),
         typeof(KeyVaultPropertiesModel),
         typeof(ListEdgePoliciesInputModel),
         typeof(MediaServiceModel),
         typeof(MediaServiceIdentityModel),
-        typeof(MediaServiceOperationStatusModel),
         typeof(MediaServicePropertiesModel),
         typeof(MediaServiceUpdateModel),
         typeof(PrivateEndpointModel),
