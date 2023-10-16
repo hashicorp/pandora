@@ -9,7 +9,7 @@ public class DevCenterProjectResource : TerraformResourceDefinition
     public string DisplayName => "Dev Center Project";
     public ResourceID ResourceId => new v2023_04_01.Projects.ProjectId();
     public string ResourceLabel => "dev_center_project";
-    public string ResourceCategory => "Dev Center Project";
+    public string ResourceCategory => "Dev Center";
     public string ResourceDescription => @"Manages a Dev Center Project";
     public string ResourceExampleUsage => @"resource 'azurerm_dev_center' 'example' {
   name                = 'example'
