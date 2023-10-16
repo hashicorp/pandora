@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class CloudPCPartnerAgentInstallResultModel
 {
+    [JsonPropertyName("errorMessage")]
+    public string? ErrorMessage { get; set; }
+
     [JsonPropertyName("installStatus")]
     public CloudPCPartnerAgentInstallResultInstallStatusConstant? InstallStatus { get; set; }
 

@@ -15,13 +15,10 @@ internal class Definition : ResourceDefinition
     {
         new AddPolicyFeatureRolloutPolicyByIdAppliesToRefOperation(),
         new CreatePolicyFeatureRolloutPolicyByIdAppliesToOperation(),
-        new GetPolicyFeatureRolloutPolicyByIdAppliesToByIdsOperation(),
         new GetPolicyFeatureRolloutPolicyByIdAppliesToCountOperation(),
-        new GetPolicyFeatureRolloutPolicyByIdAppliesToUserOwnedObjectOperation(),
         new ListPolicyFeatureRolloutPolicyByIdAppliesToRefsOperation(),
         new ListPolicyFeatureRolloutPolicyByIdAppliesTosOperation(),
-        new RemovePolicyFeatureRolloutPolicyByIdAppliesToByIdRefOperation(),
-        new ValidatePolicyFeatureRolloutPolicyByIdAppliesToPropertyOperation()
+        new RemovePolicyFeatureRolloutPolicyByIdAppliesToByIdRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -31,8 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(GetPolicyFeatureRolloutPolicyByIdAppliesToByIdsRequestModel),
-        typeof(GetPolicyFeatureRolloutPolicyByIdAppliesToUserOwnedObjectRequestModel),
-        typeof(ValidatePolicyFeatureRolloutPolicyByIdAppliesToPropertyRequestModel)
+
     };
 }

@@ -14,10 +14,7 @@ internal class Definition : ResourceDefinition
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new CreateUserByIdJoinedGroupEvaluateDynamicMembershipOperation(),
-        new GetUserByIdJoinedGroupsByIdsOperation(),
-        new GetUserByIdJoinedGroupsUserOwnedObjectOperation(),
-        new ListUserByIdJoinedGroupsOperation(),
-        new ValidateUserByIdJoinedGroupsPropertyOperation()
+        new ListUserByIdJoinedGroupsOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -27,9 +24,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CreateUserByIdJoinedGroupEvaluateDynamicMembershipRequestModel),
-        typeof(GetUserByIdJoinedGroupsByIdsRequestModel),
-        typeof(GetUserByIdJoinedGroupsUserOwnedObjectRequestModel),
-        typeof(ValidateUserByIdJoinedGroupsPropertyRequestModel)
+        typeof(CreateUserByIdJoinedGroupEvaluateDynamicMembershipRequestModel)
     };
 }
