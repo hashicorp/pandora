@@ -357,6 +357,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	constants := make(map[string]ConstantDetails, 0)
 	models := make(map[string]ModelDetails)
 	operations := make(map[string]ResourceOperations)
+	resourceIds := make(map[string]ResourceIdDefinition)
 
 	// TODO rename this var so we can import path to use path.Join
 	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
@@ -487,12 +488,43 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 			operations[definitionName] = operationDetails
 
 		case "resourceid":
-			// TODO
+			var resourceId ResourceId
+			rId, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			if err != nil {
+				return nil, err
+			}
+
+			if err := json.Unmarshal(*rId, &resourceId); err != nil {
+				return nil, fmt.Errorf("unmarshaling resource id: %+v", err)
+			}
+
+			resourceIdDefinition := ResourceIdDefinition{
+				CommonAlias: pointer.To(resourceId.CommonAlias),
+				Id:          resourceId.Id,
+				// todo unable to find this attribute
+				// ConstantNames: resourceId.,
+			}
+
+			segments := make([]ResourceIdSegment, 0)
+			for _, segment := range resourceId.Segments {
+				segments = append(segments, ResourceIdSegment{
+					Name: segment.Name,
+					Type: ResourceIdSegmentType(segment.Type),
+					// todo unable to find these attributes
+					//ConstantReference: segment,
+					//ExampleValue:      "",
+					//FixedValue:        nil,
+				})
+			}
+			resourceIdDefinition.Segments = segments
+
+			resourceIds[definitionName] = resourceIdDefinition
 		}
 	}
 
 	resourceSchema.Constants = constants
 	resourceSchema.Models = models
+	resourceSchema.ResourceIds = resourceIds
 	resourceDefinition.Schema = resourceSchema
 	resourceDefinition.Operations = operations
 

@@ -62,3 +62,16 @@ type Option struct {
 	Field       string  `json:"Field"`
 	FieldType   string  `json:"FieldType"`
 }
+
+type ResourceId struct {
+	Name        string    `json:"Name"`
+	CommonAlias string    `json:"CommonAlias,omitempty"`
+	Id          string    `json:"Id"`
+	Segments    []Segment `json:"Segments,omitempty"`
+}
+
+type Segment struct {
+	Name  string `json:"Name"`
+	Type  string `json:"Type"`
+	Value string `json:"Value,omitempty"`
+}
