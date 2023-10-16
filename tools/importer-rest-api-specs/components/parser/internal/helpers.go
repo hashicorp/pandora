@@ -3,9 +3,11 @@ package internal
 import "strings"
 
 func OperationShouldBeIgnored(operationUri string) bool {
+	loweredOperationUri := strings.ToLower(operationUri)
+
 	// we're not concerned with exposing the "operations" API's at this time - e.g.
 	// /providers/Microsoft.CognitiveServices/operations
-	if strings.HasPrefix(strings.ToLower(operationUri), "/providers/") {
+	if strings.HasPrefix(loweredOperationUri, "/providers/") {
 		split := strings.Split(strings.TrimPrefix(operationUri, "/"), "/")
 		if len(split) == 3 && strings.EqualFold(split[2], "operations") {
 			return true
@@ -13,54 +15,36 @@ func OperationShouldBeIgnored(operationUri string) bool {
 	}
 
 	// LRO's shouldn't be directly exposed
-	if strings.Contains(strings.ToLower(operationUri), "/ascoperations/") {
-		return true
+	pathsContainingLROs := map[string]struct{}{
+		"/ascoperations/":                       {},
+		"/azureasyncoperations/":                {},
+		"/backupcrroperationresults/":           {},
+		"/backupoperationresults/":              {},
+		"/backupvalidateoperationresults/":      {},
+		"/costdetailsoperationresults/":         {},
+		"/deploymentstatus/":                    {},
+		"/managedclusteroperations/":            {},
+		"/managedclusteroperationresults/":      {},
+		"/manageddatabasemoveoperationresults/": {},
+		"/operationresults/":                    {},
+		"/operationstatus/":                     {},
+		"/operationstatuses/":                   {},
+		"/operationsstatus/":                    {},
+		"/privatelinkscopeoperationstatuses/":   {},
+
+		// we can't just use `/operations` since some APIs (e.g. API Management) expose these, so we're intentionally
+		// checking more (but not all) of the path
+		"/providers/microsoft.storagesync/locations/{locationname}/workflows/{workflowid}/operations/{operationid}": {},
+		"/providers/microsoft.storagesync/locations/{locationName}/operations/{operationid}":                        {},
 	}
-	if strings.Contains(strings.ToLower(operationUri), "/azureasyncoperations/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/backupcrroperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/backupoperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/backupvalidateoperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/costdetailsoperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/deploymentstatus/") { // web
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/managedclusteroperations/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/managedclusteroperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/manageddatabasemoveoperationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/operationresults/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/operationstatus/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/operationstatuses/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/operationsstatus/") {
-		return true
-	}
-	if strings.Contains(strings.ToLower(operationUri), "/privatelinkscopeoperationstatuses/") {
-		return true
+	for key := range pathsContainingLROs {
+		if strings.Contains(loweredOperationUri, key) {
+			return true
+		}
 	}
 
 	// we're not concerned with the associated `trigger` operations at this time
-	if strings.Contains(strings.ToLower(operationUri), "/backuptriggervalidateoperation/") {
+	if strings.Contains(loweredOperationUri, "/backuptriggervalidateoperation/") {
 		return true
 	}
 
