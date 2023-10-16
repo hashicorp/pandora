@@ -18,7 +18,7 @@ service "DevCenter" {
       definition "dev_center_project" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/projects/{projectName}"
         display_name = "Dev Center Project"
-        website_subcategory = "Dev Center Project"
+        website_subcategory = "Dev Center"
         description = "Manages a Dev Center Project"
       }
     }
