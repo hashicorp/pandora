@@ -36,9 +36,9 @@ public class DevCenterProjectResourceSchema
 
 
     [Documentation("When specified, limits the maximum number of Dev Boxes a single user can create across all pools in the project.")]
-    [HclName("max_dev_boxes_per_user")]
+    [HclName("maximum_dev_boxes_per_user")]
     [Optional]
-    public int MaxDevBoxesPerUser { get; set; }
+    public int MaximumDevBoxesPerUser { get; set; }
 
 
     [Documentation("Specifies the name of this Dev Center Project.")]
