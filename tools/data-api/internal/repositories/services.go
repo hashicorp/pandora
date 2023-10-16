@@ -402,6 +402,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 			}
 		case "model":
 			var model Model
+			// TODO use path.Join() so that this works on windows
 			m, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
 			if err != nil {
 				return nil, err
@@ -449,6 +450,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 
 		case "operation":
 			var operation Operation
+			// TODO use path.Join() so that this works on windows
 			o, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
 			if err != nil {
 				return nil, err
@@ -489,6 +491,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 
 		case "resourceid":
 			var resourceId ResourceId
+			// TODO use path.Join() so that this works on windows
 			rId, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
 			if err != nil {
 				return nil, err
