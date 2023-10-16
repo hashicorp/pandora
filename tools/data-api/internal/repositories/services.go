@@ -5,6 +5,8 @@ import (
 	"fmt"
 	"os"
 	"strings"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 )
 
 type ServicesRepository interface {
@@ -353,6 +355,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceDefinition := ServiceApiVersionResourceDetails{}
 	resourceSchema := ResourceSchema{}
 	constants := make(map[string]ConstantDetails, 0)
+	models := make(map[string]ModelDetails)
 
 	// TODO rename this var so we can import path to use path.Join
 	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
@@ -396,7 +399,52 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 				Values: values,
 			}
 		case "model":
-			// TODO
+			var model Model
+			m, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			if err != nil {
+				return nil, err
+			}
+
+			if err := json.Unmarshal(*m, &model); err != nil {
+				return nil, fmt.Errorf("unmarshaling blah")
+			}
+
+			fieldDetails := make(map[string]FieldDetails)
+			for _, field := range model.Fields {
+				fieldDetail := FieldDetails{
+					JsonName:         field.JsonName,
+					ObjectDefinition: field.ObjectDefinition,
+					// todo unable to find these values
+					// Validation:       field,
+					// Description:      field.De,
+					// Default:          field.D,
+					// ForceNew:          field.,
+				}
+
+				if field.DateFormat != nil {
+					fieldDetail.DateFormat = pointer.To(DateFormat(*field.DateFormat))
+				}
+
+				if field.Optional != nil {
+					fieldDetail.Optional = *field.Optional
+				}
+				if field.Required != nil {
+					fieldDetail.Required = *field.Required
+				}
+
+				if field.ProvidesTypeHint != nil {
+					fieldDetail.IsTypeHint = *field.ProvidesTypeHint
+				}
+				fieldDetails[field.Name] = fieldDetail
+			}
+			models[definitionName] = ModelDetails{
+				Fields:         fieldDetails,
+				ParentTypeName: model.ParentModelName,
+				// todo unable to find these attributes
+				// TypeHintIn:     model.Typ,
+				// TypeHintValue:  nil,
+			}
+
 		case "operation":
 			// TODO
 		case "resourceid":
@@ -405,6 +453,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	}
 
 	resourceSchema.Constants = constants
+	resourceSchema.Models = models
 	resourceDefinition.Schema = resourceSchema
 
 	return &resourceDefinition, nil
