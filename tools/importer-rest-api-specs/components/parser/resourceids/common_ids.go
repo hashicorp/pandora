@@ -24,6 +24,10 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdVirtualNetwork{},
 	commonIdVPNConnection{},
 
+	// Kusto
+	commonIdKustoCluster{},
+	commonIdKustoDatabase{},
+
 	// RP Specific
 	commonIdCloudServicesIPConfiguration{},
 	commonIdCloudServicesPublicIPAddress{},
