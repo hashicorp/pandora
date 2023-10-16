@@ -272,7 +272,7 @@ service "iotcentral" {
 }
 service "keyvault" {
   name      = "KeyVault"
-  available = ["2021-10-01", "2022-11-01", "2023-02-01"]
+  available = ["2021-10-01", "2022-11-01", "2023-02-01", "2023-07-01"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
@@ -341,7 +341,7 @@ service "mixedreality" {
 }
 service "mobilenetwork" {
   name      = "MobileNetwork"
-  available = ["2022-11-01", "2023-06-01"]
+  available = ["2022-11-01", "2023-06-01", "2023-09-01"]
 }
 service "monitor" {
   name      = "Insights"
@@ -530,7 +530,7 @@ service "storagepool" {
 }
 service "storagesync" {
   name      = "StorageSync"
-  available = ["2020-03-01"]
+  available = ["2020-03-01", "2022-09-01"]
   ignore    = ["2020-09-01", "2022-06-01"]
 }
 service "streamanalytics" {
