@@ -53,6 +53,8 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			}
 		}
 
+		// TODO: we need to go through and group all of the data for this service, then pass it in below
+
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)
 		}
@@ -78,6 +80,8 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			consolidatedApiVersions[v.ApiVersion] = append(consolidatedApiVersions[v.ApiVersion], v)
 		}
 	}
+
+	// Populate all of the data for this API Version..
 	for apiVersion, api := range consolidatedApiVersions {
 		versionLogger := logger.Named(fmt.Sprintf("Importer for API Version %q", apiVersion))
 		// populate the service information based on this api version
@@ -85,7 +89,6 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			rootNamespace = api[0].RootNamespace
 		}
 		if rootNamespace != "" && rootNamespace != api[0].RootNamespace {
-			// TODO: this is possible, just requires refactoring this.
 			return fmt.Errorf("different root namespaces were found for different api versions for the same service - previously found %q but got %q", rootNamespace, api[0].RootNamespace)
 		}
 		if resourceProvider == nil && api[0].ResourceProvider != nil {
@@ -135,24 +138,22 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Example Usage for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}
 
-		versionLogger.Trace("Task: Applying Overrides from Existing Data..")
-		dataForApiVersion, err = task.applyOverridesFromExistingData(*dataForApiVersion, input.DataApiEndpoint, versionLogger)
-		if err != nil {
-			return fmt.Errorf("applying overrides for existing data for Service %q / Version %q: %+v", serviceName, apiVersion, err)
-		}
-
-		versionLogger.Trace("Task: Generating Data API Definitions..")
-		if err := task.generateApiDefinitions(api[0], *dataForApiVersion, swaggerGitSha, versionLogger); err != nil {
-			return fmt.Errorf("generating API Definitions for Service %q / Version %q: %+v", serviceName, apiVersion, err)
-		}
-
 		apiVersions = append(apiVersions, *dataForApiVersion)
-
 	}
 
-	logger.Trace("Task: Generating Service Definitions..")
-	if err := task.generateServiceDefinitions(serviceName, input, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, apiVersions, logger.Named("Service Definitions")); err != nil {
-		return fmt.Errorf("generating Service Definitions for %q: %+v", serviceName, err)
+	// Now that we have the populated data, let's go ahead and output that..
+	logger.Trace("Task: Generating Service Definitions (v1 / C#)..")
+	if err := task.generateApiDefinitionsV1(input, serviceName, apiVersions, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V1 API Definitions Generator")); err != nil {
+		return fmt.Errorf("generating the Service Definitions for V1 (C#): %+v", err)
+	}
+	logger.Trace("Task: Generating Service Definitions (v2 / JSON)..")
+	if err := task.generateApiDefinitionsV2(serviceName, apiVersions, input.OutputDirectoryJson, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V2 API Definitions Generator")); err != nil {
+		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
+	}
+
+	logger.Trace("Task: Outputting the Meta Data for this Revision..")
+	if err := task.outputMetaData(input, rootNamespace, swaggerGitSha); err != nil {
+		return fmt.Errorf("outputting the Meta Data for this Revision: %+v", err)
 	}
 
 	return nil
