@@ -9,7 +9,7 @@ import (
 )
 
 func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []models.AzureApiDefinition, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) error {
-	if !featureflags.GenerateJsonDataAPI {
+	if !featureflags.GenerateV2APIDefinitions {
 		return nil
 	}
 

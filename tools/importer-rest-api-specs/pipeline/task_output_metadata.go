@@ -13,7 +13,7 @@ func (pipelineTask) outputMetaData(input RunInput, rootNamespace, swaggerGitSha 
 		return fmt.Errorf("outputting the Revision Id: %+v", err)
 	}
 
-	if featureflags.GenerateJsonDataAPI {
+	if featureflags.GenerateV2APIDefinitions {
 		// This is named metadata since it could make sense to output additional items in the future
 		// such as the licence for this imported data etc
 		if err := dataapigeneratorjson.OutputMetaData(input.OutputDirectoryJson, swaggerGitSha); err != nil {

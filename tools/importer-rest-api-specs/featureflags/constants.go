@@ -5,5 +5,5 @@ package featureflags
 // issues are resolved - since the Swagger should define canonical names for these Enums.
 const AllowConstantsWithoutXMSEnum = true
 
-// GenerateJsonDataAPI specifies whether the Data API in JSON should be generated.
-const GenerateJsonDataAPI = false
+// GenerateV2APIDefinitions specifies whether the V2 (JSON) API Definitions should be output.
+const GenerateV2APIDefinitions = false

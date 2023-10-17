@@ -45,7 +45,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 			fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
 		}
 
-		if featureflags.GenerateJsonDataAPI {
+		if featureflags.GenerateV2APIDefinitions {
 			serviceDirectoryYaml := fmt.Sprintf("%s%s/%s", input.OutputDirectoryJson, "resource-manager", serviceName)
 			logger.Debug("recreating JSON directory %q for Service %q", serviceDirectoryYaml, serviceName)
 			if err := dataapigenerator.RecreateDirectory(serviceDirectoryYaml, logger); err != nil {
