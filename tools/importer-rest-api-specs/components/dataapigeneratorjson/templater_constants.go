@@ -6,37 +6,40 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type Constant struct {
-	Name   string  `json:"Name"`
-	Type   string  `json:"Type"` // TODO: this needs to be a Constant type
-	Values []Value `json:"Values"`
-}
-
-type Value struct {
-	Key         string  `json:"Key"`
-	Value       string  `json:"Value"`
-	Description *string `json:"Description,omitempty"`
-}
-
 func codeForConstant(constantName string, details resourcemanager.ConstantDetails) ([]byte, error) {
-	sortedKeys := make([]string, 0)
-	for key := range details.Values {
-		sortedKeys = append(sortedKeys, key)
+	mapped, err := mapConstant(constantName, details)
+	if err != nil {
+		return nil, err
 	}
-	sort.Strings(sortedKeys)
 
-	values := make([]Value, 0)
+	data, err := json.MarshalIndent(mapped, "", "\t")
+	if err != nil {
+		return nil, err
+	}
 
-	for _, key := range sortedKeys {
-		value := Value{
+	return data, nil
+}
+
+func mapConstant(constantName string, details resourcemanager.ConstantDetails) (*models.Constant, error) {
+	keys := make([]string, 0)
+	keysToValues := make(map[string]models.ConstantValue)
+	for _, key := range details.Values {
+		keys = append(keys, key)
+		keysToValues[key] = models.ConstantValue{
 			Key:   key,
 			Value: details.Values[key],
-			// TODO Description isn't available in the ConstantDetails model
+			// TODO: expose Description in the future when this is surfaced from the Parser
 		}
+	}
+	sort.Strings(keys)
 
+	values := make([]models.ConstantValue, 0)
+	for _, key := range keys {
+		value := keysToValues[key]
 		values = append(values, value)
 	}
 
@@ -45,34 +48,21 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
 
-	constant := Constant{
+	return &models.Constant{
 		Name:   constantName,
 		Type:   pointer.From(constantType),
 		Values: values,
-	}
-
-	data, err := json.MarshalIndent(constant, "", " ")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
+	}, nil
 }
 
-func mapConstantFieldType(input resourcemanager.ConstantType) (*string, error) {
-	result := func(in string) (*string, error) {
-		return pointer.To(in), nil
+func mapConstantFieldType(input resourcemanager.ConstantType) (*models.ConstantType, error) {
+	mappings := map[resourcemanager.ConstantType]models.ConstantType{
+		resourcemanager.FloatConstant:   models.FloatConstant,
+		resourcemanager.IntegerConstant: models.IntegerConstant,
+		resourcemanager.StringConstant:  models.StringConstant,
 	}
-	if input == resourcemanager.FloatConstant {
-		return result("float")
-	}
-
-	if input == resourcemanager.IntegerConstant {
-		return result("int")
-	}
-
-	if input == resourcemanager.StringConstant {
-		return result("string")
+	if v, ok := mappings[input]; ok {
+		return &v, nil
 	}
 
 	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
