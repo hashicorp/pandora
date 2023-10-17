@@ -39,10 +39,12 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
-		serviceDirectoryCSharp := fmt.Sprintf("%s%s/%s", input.OutputDirectoryCS, "Pandora.Definitions.ResourceManager", serviceName)
-		logger.Debug("recreating C# directory %q for Service %q", serviceDirectoryCSharp, serviceName)
-		if err := dataapigenerator.RecreateDirectory(serviceDirectoryCSharp, logger); err != nil {
-			fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
+		if featureflags.GenerateV1APIDefinitions {
+			serviceDirectoryCSharp := fmt.Sprintf("%s%s/%s", input.OutputDirectoryCS, "Pandora.Definitions.ResourceManager", serviceName)
+			logger.Debug("recreating C# directory %q for Service %q", serviceDirectoryCSharp, serviceName)
+			if err := dataapigenerator.RecreateDirectory(serviceDirectoryCSharp, logger); err != nil {
+				fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
+			}
 		}
 
 		if featureflags.GenerateV2APIDefinitions {
@@ -52,8 +54,6 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryYaml, serviceName)
 			}
 		}
-
-		// TODO: we need to go through and group all of the data for this service, then pass it in below
 
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
 			return fmt.Errorf("parsing data for Service %q: %+v", serviceName, err)

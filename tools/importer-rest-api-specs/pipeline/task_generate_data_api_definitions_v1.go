@@ -3,12 +3,18 @@ package pipeline
 import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (t pipelineTask) generateApiDefinitionsV1(input RunInput, serviceName string, apiVersions []models.AzureApiDefinition, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) error {
+	if !featureflags.GenerateV1APIDefinitions {
+		logger.Info("V1 API Definitions are feature-toggled off - skipping")
+		return nil
+	}
+
 	for _, apiVersion := range apiVersions {
 		versionLogger := logger.Named(fmt.Sprintf("Generator for Service %q / API Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
 

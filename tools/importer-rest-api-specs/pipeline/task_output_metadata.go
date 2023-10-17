@@ -2,15 +2,17 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 )
 
 func (pipelineTask) outputMetaData(input RunInput, rootNamespace, swaggerGitSha string) error {
-	if err := dataapigenerator.OutputRevisionId(input.OutputDirectoryCS, rootNamespace, swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Revision Id: %+v", err)
+	if featureflags.GenerateV1APIDefinitions {
+		if err := dataapigenerator.OutputRevisionId(input.OutputDirectoryCS, rootNamespace, swaggerGitSha); err != nil {
+			return fmt.Errorf("outputting the Revision Id: %+v", err)
+		}
 	}
 
 	if featureflags.GenerateV2APIDefinitions {

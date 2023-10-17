@@ -10,6 +10,7 @@ import (
 
 func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []models.AzureApiDefinition, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) error {
 	if !featureflags.GenerateV2APIDefinitions {
+		logger.Info("V2 API Definitions are feature-toggled off - skipping")
 		return nil
 	}
 
