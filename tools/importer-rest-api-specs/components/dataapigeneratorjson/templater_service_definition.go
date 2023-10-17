@@ -16,7 +16,7 @@ type ServiceDefinition struct {
 	Generate             bool     `json:"Generate"`
 }
 
-func codeForServiceDefinition(namespace, serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) ([]byte, error) {
+func codeForServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) ([]byte, error) {
 	rp := ""
 	if resourceProvider != nil {
 		rp = *resourceProvider

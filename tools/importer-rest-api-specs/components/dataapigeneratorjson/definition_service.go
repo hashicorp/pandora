@@ -11,7 +11,7 @@ func (s Generator) generateServiceDefinition(apiVersions []models.AzureApiDefini
 	serviceDefinitionFilePath := path.Join(s.workingDirectoryForService, "ServiceDefinition.json")
 	s.logger.Debug(fmt.Sprintf("Generating Service Definition into %q..", serviceDefinitionFilePath))
 
-	code, err := codeForServiceDefinition(s.namespaceForService, s.serviceName, s.resourceProvider, s.terraformPackageName, apiVersions)
+	code, err := codeForServiceDefinition(s.serviceName, s.resourceProvider, s.terraformPackageName, apiVersions)
 	if err != nil {
 		return fmt.Errorf("marshaling Service Definition: %+v", err)
 	}

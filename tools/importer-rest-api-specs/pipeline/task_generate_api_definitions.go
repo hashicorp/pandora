@@ -29,7 +29,7 @@ func (pipelineTask) generateApiDefinitions(input discovery.ServiceInput, data mo
 
 	if featureflags.GenerateJsonDataAPI {
 		logger.Debug("Generating Data API Definition in JSON..")
-		yamlGenerator := dataapigeneratorjson.NewForApiVersion(data.ServiceName, data.ApiVersion, input.OutputDirectoryJson, "resource-manager", swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
+		yamlGenerator := dataapigeneratorjson.NewForApiVersion(data.ServiceName, data.ApiVersion, input.OutputDirectoryJson, swaggerGitSha, input.ResourceProvider, terraformPackageName, logger.Named("Data API Generator"))
 		if err := yamlGenerator.GenerateForApiVersion(data); err != nil {
 			err = fmt.Errorf("generating JSON Data API Definitions for Service %q / API Version %q: %+v", data.ServiceName, data.ApiVersion, err)
 			logger.Info(fmt.Sprintf("❌ Service %q - Api Version %q", data.ServiceName, data.ApiVersion))

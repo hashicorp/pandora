@@ -16,13 +16,14 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 			containsTerraformResources = len(v.Terraform.DataSources) > 0 || len(v.Terraform.Resources) > 0
 		}
 	}
+	// TODO: we should remove any existing directory
 	if !containsTerraformResources {
 		// move along, nothing to see here.
 		return nil
 	}
 
 	if err := os.MkdirAll(s.workingDirectoryForTerraform, os.FileMode(0755)); err != nil {
-		return fmt.Errorf("generating Terraform Definition for Namespace %q: %+v", s.namespaceForTerraform, err)
+		return fmt.Errorf("creating the Terraform working directory for Service %q: %+v", s.serviceName, err)
 	}
 
 	for resourceName, resource := range apiVersion.Resources {

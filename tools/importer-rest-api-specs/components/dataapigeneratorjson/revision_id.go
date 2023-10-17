@@ -6,7 +6,7 @@ import (
 	"path"
 )
 
-func outputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
+func outputRevisionId(workingDirectory, swaggerGitSha string) error {
 	revision := map[string]string{
 		"SwaggerRevision": swaggerGitSha,
 	}
@@ -16,7 +16,7 @@ func outputRevisionId(workingDirectory, namespace, swaggerGitSha string) error {
 		return err
 	}
 
-	revisionIdFileName := path.Join(workingDirectory, namespace, "SwaggerRevision.json")
+	revisionIdFileName := path.Join(workingDirectory, "SwaggerRevision.json")
 	if err := writeJsonToFile(revisionIdFileName, data); err != nil {
 		return fmt.Errorf("writing Swagger Revision ID for %q: %+v", revisionIdFileName, err)
 	}

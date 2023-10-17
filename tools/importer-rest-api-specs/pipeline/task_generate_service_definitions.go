@@ -19,7 +19,7 @@ func (pipelineTask) generateServiceDefinitions(serviceName string, runInput RunI
 
 	if featureflags.GenerateJsonDataAPI {
 		logger.Debug("Generating Service Definition in JSON..")
-		s := dataapigeneratorjson.NewForService(serviceName, runInput.OutputDirectoryJson, "resource-manager", swaggerGitSha, resourceProvider, terraformPackageName, logger)
+		s := dataapigeneratorjson.NewForService(serviceName, runInput.OutputDirectoryJson, swaggerGitSha, resourceProvider, terraformPackageName, logger)
 		if err := s.GenerateForService(apiVersions); err != nil {
 			return fmt.Errorf("generating service %q in JSON: %+v", serviceName, err)
 		}
