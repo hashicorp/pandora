@@ -11,7 +11,7 @@ import (
 
 type Constant struct {
 	Name   string  `json:"Name"`
-	Type   string  `json:"Type"`
+	Type   string  `json:"Type"` // TODO: this needs to be a Constant type
 	Values []Value `json:"Values"`
 }
 

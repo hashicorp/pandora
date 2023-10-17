@@ -10,7 +10,7 @@ func (s Generator) generateServiceDefinitions(apiVersions []models.AzureApiDefin
 	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.serviceName))
 
 	if err := s.generateServiceDefinition(apiVersions); err != nil {
-		return fmt.Errorf("generating Service Definition for Namespace %q: %+v", s.namespaceForService, err)
+		return fmt.Errorf("generating Service Definition for Service %q: %+v", s.serviceName, err)
 	}
 
 	return nil

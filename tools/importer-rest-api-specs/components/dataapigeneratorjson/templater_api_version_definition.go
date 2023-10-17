@@ -19,7 +19,7 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 	versionDefinition := VersionDefinition{
 		ApiVersion: apiVersion,
 		Preview:    isPreview,
-		Source:     "ResourceManagerRestApiSpecs",
+		Source:     "ResourceManagerRestApiSpecs", // TODO: this needs threading through (likely needs to go into the metadata file)
 		Generate:   true,
 	}
 

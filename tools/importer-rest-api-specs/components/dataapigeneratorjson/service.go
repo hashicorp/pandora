@@ -9,20 +9,15 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+func NewForService(serviceName, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
-	serviceNamespace := strings.Title(normalisedServiceName)
-	serviceWorkingDirectory := path.Join(outputDirectory, rootNamespace, strings.Title(normalisedServiceName))
-	terraformNamespace := fmt.Sprintf("%s.Terraform", serviceNamespace)
+	serviceWorkingDirectory := path.Join(outputDirectory, strings.Title(normalisedServiceName))
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
 
 	return &Generator{
 		logger:                       logger,
-		namespaceForService:          serviceNamespace,
-		namespaceForTerraform:        terraformNamespace,
 		outputDirectory:              outputDirectory,
 		resourceProvider:             resourceProvider,
-		rootNamespace:                rootNamespace,
 		serviceName:                  serviceName,
 		swaggerGitSha:                swaggerGitSha,
 		terraformPackageName:         terraformPackageName,
@@ -31,24 +26,18 @@ func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha st
 	}
 }
 
-func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
-	service := NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger)
+func NewForApiVersion(serviceName, apiVersion, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+	service := NewForService(serviceName, outputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger)
 
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 
 	service.apiVersionPackageName = normalizedApiVersion
-	service.namespaceForApiVersion = fmt.Sprintf("%s.%s", service.namespaceForService, normalizedApiVersion)
 	service.workingDirectoryForApiVersion = path.Join(service.workingDirectoryForService, normalizedApiVersion)
 
 	return service
 }
 
 func (s Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
-	s.logger.Debug(fmt.Sprintf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha))
-	if err := outputRevisionId(s.outputDirectory, s.rootNamespace, s.swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Revision Id: %+v", err)
-	}
-
 	s.logger.Debug(fmt.Sprintf("[STAGE] Generating the Service Definitions.."))
 	if err := s.generateServiceDefinitions(apiVersions); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)

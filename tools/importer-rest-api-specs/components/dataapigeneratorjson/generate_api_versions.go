@@ -8,11 +8,11 @@ import (
 
 func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) error {
 	if err := s.generateVersionDefinition(apiVersion); err != nil {
-		return fmt.Errorf("generating Version Definition for Namespace %q: %+v", s.namespaceForApiVersion, err)
+		return fmt.Errorf("generating Version Definition for API Version %q: %+v", s.apiVersionPackageName, err)
 	}
 
 	for resourceName, resource := range apiVersion.Resources {
-		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, s.namespaceForApiVersion))
+		s.logger.Trace(fmt.Sprintf("Generating Resource %q for API Version %q", resourceName, apiVersion.ApiVersion))
 		outputDirectory := s.workingDirectoryForResource(resourceName)
 		resourceMetadata := s.resourceDetails(resourceName)
 		s.logger.Debug("%s, %s", outputDirectory, resourceMetadata)
