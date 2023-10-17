@@ -28,7 +28,7 @@ const (
 	UserAssignedIdentityListObjectDefinitionType                ObjectDefinitionType = "UserAssignedIdentityList"
 	UserAssignedIdentityMapObjectDefinitionType                 ObjectDefinitionType = "UserAssignedIdentityMap"
 	TagsObjectDefinitionType                                    ObjectDefinitionType = "Tags"
-	SystemData                                                  ObjectDefinitionType = "SystemData"
+	SystemDataObjectDefinitionType                              ObjectDefinitionType = "SystemData"
 	ZoneObjectDefinitionType                                    ObjectDefinitionType = "Zone"
 	ZonesObjectDefinitionType                                   ObjectDefinitionType = "Zones"
 )

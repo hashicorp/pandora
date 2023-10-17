@@ -15,6 +15,8 @@ func (s Generator) generateVersionDefinition(apiVersion models.AzureApiDefinitio
 		return fmt.Errorf("creating directory %q: %+v", s.workingDirectoryForApiVersion, err)
 	}
 
+	// TODO: IsPreview should be calculated in the Parser and used here
+	// this logic comes from the V1 API Definitions, but still needs correcting
 	isPreview := strings.Contains(strings.ToLower(apiVersion.ApiVersion), "preview")
 
 	// then generate the files
