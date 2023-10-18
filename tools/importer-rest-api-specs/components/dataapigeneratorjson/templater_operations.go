@@ -6,44 +6,9 @@ import (
 	"sort"
 	"strings"
 
+	operationModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
-
-type Operation struct {
-	Name                             string           `json:"Name"`
-	ContentType                      string           `json:"ContentType,omitempty"`
-	ExpectedStatusCodes              []int            `json:"ExpectedStatusCodes,omitempty"`
-	FieldContainingPaginationDetails string           `json:"FieldContainingPaginationDetails,omitempty"`
-	LongRunning                      bool             `json:"LongRunning,omitempty"`
-	HTTPMethod                       string           `json:"HTTPMethod,omitempty"`
-	OptionsObject                    OptionsObject    `json:"OptionsObject,omitempty"`
-	Options                          []Option         `json:"Options,omitempty"`
-	ResourceId                       string           `json:"ResourceId,omitempty"`
-	RequestObject                    ObjectDefinition `json:"RequestObject,omitempty"`
-	ResponseObject                   ObjectDefinition `json:"ResponseObject,omitempty"`
-	UriSuffix                        string           `json:"UriSuffix,omitempty"`
-}
-
-type ObjectDefinition struct {
-	// TODO: update to use the existing `ObjectDefinition` in models
-	Type          ObjectDefinitionType `json:"Type"`
-	ReferenceName *string              `json:"ReferenceName,omitempty"`
-	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
-}
-
-type OptionsObject struct {
-	Name    string   `json:"Name"`
-	Options []Option `json:"Options"`
-}
-
-type Option struct {
-	HeaderName  *string `json:"HeaderName,omitempty"`
-	Optional    bool    `json:"Optional"`
-	QueryString *string `json:"QueryString,omitempty"`
-	Required    bool    `json:"Required"`
-	Field       string  `json:"Field"`
-	FieldType   string  `json:"FieldType"`
-}
 
 func codeForOperation(operationName string, operation models.OperationDetails, resource models.AzureApiResource) ([]byte, error) {
 	contentType := ""
@@ -70,12 +35,10 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		longRunning = true
 	}
 
-	// TODO: refactor this to use the ObjectDefinition in `./models`
-	requestObject := ObjectDefinition{}
+	requestObject := operationModels.ObjectDefinition{}
 	if operation.RequestObject != nil {
 		requestObject.ReferenceName = operation.RequestObject.ReferenceName
-		requestObject.Type = ObjectDefinitionType(operation.RequestObject.Type)
-
+		requestObject.Type = operationModels.ObjectDefinitionType(operation.RequestObject.Type)
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't
 		// TODO what goes here?
@@ -86,10 +49,10 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		resourceId = *operation.ResourceIdName
 	}
 
-	responseObject := ObjectDefinition{}
+	responseObject := operationModels.ObjectDefinition{}
 	if operation.ResponseObject != nil {
 		responseObject.ReferenceName = operation.ResponseObject.ReferenceName
-		responseObject.Type = ObjectDefinitionType(operation.ResponseObject.Type)
+		responseObject.Type = operationModels.ObjectDefinitionType(operation.ResponseObject.Type)
 
 		// TODO
 		//if operation.FieldContainingPaginationDetails == nil {
@@ -99,8 +62,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		//}
 	}
 
-	optionsObject := OptionsObject{}
-	options := make([]Option, 0)
+	optionsObject := operationModels.OptionsObject{}
+	options := make([]operationModels.Option, 0)
 	if len(operation.Options) > 0 {
 		optionsObject.Name = operationName
 
@@ -119,7 +82,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 
 			fieldType := string(optionDetails.ObjectDefinition.Type)
 
-			option := Option{
+			option := operationModels.Option{
 				HeaderName:  optionDetails.HeaderName,
 				QueryString: optionDetails.QueryStringName,
 				Field:       optionName,
@@ -155,7 +118,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		//	code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
 		//}
 	}
-	op := Operation{
+	op := operationModels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              statusCodes,
@@ -206,29 +169,4 @@ func usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
 	}
 
 	return false
-}
-
-func dotNetNameForHttpMethod(method string) string {
-	switch strings.ToUpper(method) {
-	case "DELETE":
-		return "HttpMethod.Delete"
-
-	case "GET":
-		return "HttpMethod.Get"
-
-	case "HEAD":
-		return "HttpMethod.Head"
-
-	case "PATCH":
-		return "HttpMethod.Patch"
-
-	case "POST":
-		return "HttpMethod.Post"
-
-	case "PUT":
-		return "HttpMethod.Put"
-
-	default:
-		return fmt.Sprintf("TODO (unimplemented %q)", method)
-	}
 }
