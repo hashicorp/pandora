@@ -324,13 +324,18 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 		return nil, err
 	}
 
-	return &ServiceDetails{
+	serviceDetails := &ServiceDetails{
 		Name: serviceName,
 		// TODO RP name needs to be stored in the api definitions
 		// ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
-		ApiVersions:      versionDefinitions,
-		TerraformDetails: terraformDetails,
-	}, nil
+		ApiVersions: versionDefinitions,
+	}
+
+	if terraformDetails != nil {
+		serviceDetails.TerraformDetails = *terraformDetails
+	}
+
+	return serviceDetails, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, version string, resources []string) (*ServiceApiVersionDetails, error) {
@@ -355,12 +360,15 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	return &versionDefinition, nil
 }
 
-func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (TerraformDetails, error) {
+func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (*TerraformDetails, error) {
 	var terraformDetails TerraformDetails
 	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
 	files, err := os.ReadDir(path)
 	if err != nil {
-		return terraformDetails, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+		if strings.Contains(err.Error(), "no such file or directory") {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
 	}
 
 	for _, file := range files {
@@ -370,7 +378,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 
 		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
 		if err != nil {
-			return terraformDetails, err
+			return nil, err
 		}
 
 		// todo do we have to do the same for DataSources?
@@ -384,12 +392,12 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		switch strings.ToLower(definitionType) {
 		case "resource":
 			if err = terraformDetails.Resources[definitionName].processTerraformDefinitionResource(path, file); err != nil {
-				return terraformDetails, fmt.Errorf("")
+				return nil, fmt.Errorf("")
 			}
 		}
 	}
 
-	return terraformDetails, nil
+	return nil, nil
 }
 
 func (t TerraformResourceDetails) processTerraformDefinitionResource(path string, file os.DirEntry) error {
