@@ -61,7 +61,7 @@ func getTerraformDefinitionInfo(fileName string) (string, string, error) {
 	if !strings.HasSuffix(fileName, ".json") {
 		return "", "", fmt.Errorf("file %q has an extensions not supported by the data api", fileName)
 	}
-	splitName := strings.Split(fileName, "-")
+	splitName := strings.SplitN(fileName, "-", 2)
 
 	definitionName := splitName[0]
 	definitionType := strings.Split(splitName[1], ".")[0]

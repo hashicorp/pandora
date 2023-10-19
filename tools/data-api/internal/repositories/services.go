@@ -361,7 +361,10 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 }
 
 func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (*TerraformDetails, error) {
-	var terraformDetails TerraformDetails
+	terraformDetails := TerraformDetails{
+		Resources:   make(map[string]TerraformResourceDetails),
+		DataSources: make(map[string]TerraformDataSourceDetails),
+	}
 	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
 	files, err := os.ReadDir(path)
 	if err != nil {
@@ -387,56 +390,65 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 				ResourceName: definitionName,
 			}
 		}
+		resource := terraformDetails.Resources[definitionName]
 
 		// we lower case these so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
 		case "resource":
-			if err = terraformDetails.Resources[definitionName].processTerraformDefinitionResource(path, file); err != nil {
-				return nil, fmt.Errorf("")
+			if resource, err = processTerraformDefinitionResource(path, file, resource); err != nil {
+				return nil, err
+			}
+
+		case "resource-mappings":
+			resource.Mappings, err = processTerraformDefinitionResourceMappings(path, file)
+			if err != nil {
+				return nil, err
 			}
 		}
+
+		terraformDetails.Resources[definitionName] = resource
 	}
 
-	return nil, nil
+	return &terraformDetails, nil
 }
 
-func (t TerraformResourceDetails) processTerraformDefinitionResource(path string, file os.DirEntry) error {
+func processTerraformDefinitionResource(path string, file os.DirEntry, definition TerraformResourceDetails) (TerraformResourceDetails, error) {
 	// TODO use path.Join() so that this works on windows
 	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
 	if err != nil {
-		return err
+		return definition, err
 	}
 
 	var resourceDefinition ResourceDefinition
 
 	if err := json.Unmarshal(*contents, &resourceDefinition); err != nil {
-		return fmt.Errorf("unmarshaling Terraform Resource Definition")
+		return definition, fmt.Errorf("unmarshaling Terraform Resource Definition")
 	}
 
-	t.DisplayName = resourceDefinition.DisplayName
-	t.GenerateModel = resourceDefinition.GenerateModel
-	t.GenerateSchema = resourceDefinition.GenerateSchema
+	definition.DisplayName = resourceDefinition.DisplayName
+	definition.GenerateModel = resourceDefinition.GenerateModel
+	definition.GenerateSchema = resourceDefinition.GenerateSchema
 
-	t.CreateMethod = MethodDefinition{
+	definition.CreateMethod = MethodDefinition{
 		Generate:         resourceDefinition.CreateMethod.Generate,
 		MethodName:       resourceDefinition.CreateMethod.Name,
 		TimeoutInMinutes: resourceDefinition.CreateMethod.TimeoutInMinutes,
 	}
 
-	t.ReadMethod = MethodDefinition{
+	definition.ReadMethod = MethodDefinition{
 		Generate:         resourceDefinition.ReadMethod.Generate,
 		MethodName:       resourceDefinition.ReadMethod.Name,
 		TimeoutInMinutes: resourceDefinition.ReadMethod.TimeoutInMinutes,
 	}
 
-	t.CreateMethod = MethodDefinition{
-		Generate:         resourceDefinition.CreateMethod.Generate,
-		MethodName:       resourceDefinition.CreateMethod.Name,
-		TimeoutInMinutes: resourceDefinition.CreateMethod.TimeoutInMinutes,
+	definition.DeleteMethod = MethodDefinition{
+		Generate:         resourceDefinition.DeleteMethod.Generate,
+		MethodName:       resourceDefinition.DeleteMethod.Name,
+		TimeoutInMinutes: resourceDefinition.DeleteMethod.TimeoutInMinutes,
 	}
 
 	// todo this is optional and we should make sure that resourceDefinition.UpdateMethod exists before setting this
-	t.UpdateMethod = &MethodDefinition{
+	definition.UpdateMethod = &MethodDefinition{
 		Generate:         resourceDefinition.UpdateMethod.Generate,
 		MethodName:       resourceDefinition.UpdateMethod.Name,
 		TimeoutInMinutes: resourceDefinition.UpdateMethod.TimeoutInMinutes,
@@ -451,7 +463,73 @@ func (t TerraformResourceDetails) processTerraformDefinitionResource(path string
 	//	ResourceIdName: "",
 	// }
 
-	return nil
+	return definition, nil
+}
+
+func processTerraformDefinitionResourceMappings(path string, file os.DirEntry) (MappingDefinition, error) {
+	var mappings MappingDefinition
+	// TODO use path.Join() so that this works on windows
+	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	if err != nil {
+		return mappings, err
+	}
+
+	var resourceMapping ResourceMapping
+
+	if err := json.Unmarshal(*contents, &resourceMapping); err != nil {
+		return mappings, fmt.Errorf("unmarshaling Terraform Resource Mapping")
+	}
+
+	if resourceMapping.ResourceIdMapping != nil {
+		resourceIds := make([]ResourceIdMappingDefinition, 0)
+		for _, id := range *resourceMapping.ResourceIdMapping {
+			resourceIds = append(resourceIds, ResourceIdMappingDefinition{
+				SchemaFieldName:    id.SchemaFieldName,
+				SegmentName:        id.SegmentName,
+				ParsedFromParentID: id.ParsedFromParentID,
+			})
+		}
+
+		mappings.ResourceId = resourceIds
+	}
+
+	fields := make([]FieldMappingDefinition, 0)
+	if resourceMapping.DirectAssignmentFieldMappings != nil {
+		for _, fieldMapping := range *resourceMapping.DirectAssignmentFieldMappings {
+			fields = append(fields, FieldMappingDefinition{
+				Type: "DirectAssignment",
+				DirectAssignment: &FieldMappingDirectAssignmentDefinition{
+					SchemaModelName: fieldMapping.SchemaModelName,
+					SchemaFieldPath: fieldMapping.SchemaFieldPath,
+					SdkModelName:    fieldMapping.SdkModelName,
+					SdkFieldPath:    fieldMapping.SdkFieldPath,
+				},
+			})
+		}
+
+	}
+
+	if resourceMapping.ModelToModelFieldMappings != nil {
+		for _, modelToModelMapping := range *resourceMapping.ModelToModelFieldMappings {
+			fields = append(fields, FieldMappingDefinition{
+				Type: "ModelToModel",
+				ModelToModel: &FieldMappingModelToModelDefinition{
+					SchemaModelName: modelToModelMapping.SchemaModelName,
+					SdkModelName:    modelToModelMapping.SdkModelName,
+					SdkFieldName:    modelToModelMapping.SdkFieldName,
+				},
+			})
+		}
+	}
+
+	//todo add ManualMappings
+
+	mappings.Fields = fields
+
+	// todo we are missing ModelToModels information
+	// mappings.ModelsToModels
+
+	return mappings, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {

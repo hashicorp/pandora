@@ -36,3 +36,28 @@ type Method struct {
 	Name             string `json:"Name"`
 	TimeoutInMinutes int    `json:"TimeoutInMinutes"`
 }
+
+type ResourceMapping struct {
+	ResourceIdMapping             *[]ResourceIdMapping            `json:"ResourceIdMapping,omitempty"`
+	DirectAssignmentFieldMappings *[]DirectAssignmentFieldMapping `json:"DirectAssignmentFieldMappings,omitempty"`
+	ModelToModelFieldMappings     *[]ModelToModelFieldMapping     `json:"ModelToModelFieldMappings,omitempty"`
+}
+
+type ResourceIdMapping struct {
+	SchemaFieldName    string `json:"SchemaFieldName"`
+	SegmentName        string `json:"SegmentName"`
+	ParsedFromParentID bool   `json:"ParsedFromParentID"`
+}
+
+type DirectAssignmentFieldMapping struct {
+	SchemaModelName string `json:"SchemaModelName"`
+	SchemaFieldPath string `json:"SchemaFieldPath"`
+	SdkModelName    string `json:"SdkModelName"`
+	SdkFieldPath    string `json:"SdkFieldPath"`
+}
+
+type ModelToModelFieldMapping struct {
+	SchemaModelName string `json:"SchemaModelName"`
+	SdkModelName    string `json:"SdkModelName"`
+	SdkFieldName    string `json:"SdkFieldName"`
+}
