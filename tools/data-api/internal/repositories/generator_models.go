@@ -14,3 +14,25 @@ type Value struct {
 	Value       string  `json:"Value"`
 	Description *string `json:"Description,omitempty"`
 }
+
+type ResourceDefinition struct {
+	DisplayName                  string `json:"DisplayName"`
+	Id                           string `json:"Id"`
+	Label                        string `json:"Label"`
+	Category                     string `json:"Category"`
+	Description                  string `json:"Description"`
+	ExampleUsage                 string `json:"ExampleUsage"`
+	GenerateIDValidationFunction bool   `json:"GenerateIDValidationFunction"`
+	GenerateModel                bool   `json:"GenerateModel"`
+	GenerateSchema               bool   `json:"GenerateSchema"`
+	CreateMethod                 Method `json:"CreateMethod"`
+	DeleteMethod                 Method `json:"DeleteMethod"`
+	ReadMethod                   Method `json:"ReadMethod"`
+	UpdateMethod                 Method `json:"UpdateMethod"`
+}
+
+type Method struct {
+	Generate         bool   `json:"Generate"`
+	Name             string `json:"Name"`
+	TimeoutInMinutes int    `json:"TimeoutInMinutes"`
+}

@@ -319,11 +319,17 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 		}
 	}
 
+	terraformDetails, err := s.ProcessTerraformDefinitions(serviceName)
+	if err != nil {
+		return nil, err
+	}
+
 	return &ServiceDetails{
 		Name: serviceName,
 		// TODO RP name needs to be stored in the api definitions
 		// ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
-		ApiVersions: versionDefinitions,
+		ApiVersions:      versionDefinitions,
+		TerraformDetails: terraformDetails,
 	}, nil
 }
 
@@ -347,6 +353,97 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 	versionDefinition.Resources = resourceDefinitions
 
 	return &versionDefinition, nil
+}
+
+func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (TerraformDetails, error) {
+	var terraformDetails TerraformDetails
+	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
+	files, err := os.ReadDir(path)
+	if err != nil {
+		return terraformDetails, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
+		if err != nil {
+			return terraformDetails, err
+		}
+
+		// todo do we have to do the same for DataSources?
+		if _, ok := terraformDetails.Resources[definitionName]; !ok {
+			terraformDetails.Resources[definitionName] = TerraformResourceDetails{
+				ResourceName: definitionName,
+			}
+		}
+
+		// we lower case these so that it's compatible with other OS e.g. Windows
+		switch strings.ToLower(definitionType) {
+		case "resource":
+			if err = terraformDetails.Resources[definitionName].processTerraformDefinitionResource(path, file); err != nil {
+				return terraformDetails, fmt.Errorf("")
+			}
+		}
+	}
+
+	return terraformDetails, nil
+}
+
+func (t TerraformResourceDetails) processTerraformDefinitionResource(path string, file os.DirEntry) error {
+	// TODO use path.Join() so that this works on windows
+	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	if err != nil {
+		return err
+	}
+
+	var resourceDefinition ResourceDefinition
+
+	if err := json.Unmarshal(*contents, &resourceDefinition); err != nil {
+		return fmt.Errorf("unmarshaling Terraform Resource Definition")
+	}
+
+	t.DisplayName = resourceDefinition.DisplayName
+	t.GenerateModel = resourceDefinition.GenerateModel
+	t.GenerateSchema = resourceDefinition.GenerateSchema
+
+	t.CreateMethod = MethodDefinition{
+		Generate:         resourceDefinition.CreateMethod.Generate,
+		MethodName:       resourceDefinition.CreateMethod.Name,
+		TimeoutInMinutes: resourceDefinition.CreateMethod.TimeoutInMinutes,
+	}
+
+	t.ReadMethod = MethodDefinition{
+		Generate:         resourceDefinition.ReadMethod.Generate,
+		MethodName:       resourceDefinition.ReadMethod.Name,
+		TimeoutInMinutes: resourceDefinition.ReadMethod.TimeoutInMinutes,
+	}
+
+	t.CreateMethod = MethodDefinition{
+		Generate:         resourceDefinition.CreateMethod.Generate,
+		MethodName:       resourceDefinition.CreateMethod.Name,
+		TimeoutInMinutes: resourceDefinition.CreateMethod.TimeoutInMinutes,
+	}
+
+	// todo this is optional and we should make sure that resourceDefinition.UpdateMethod exists before setting this
+	t.UpdateMethod = &MethodDefinition{
+		Generate:         resourceDefinition.UpdateMethod.Generate,
+		MethodName:       resourceDefinition.UpdateMethod.Name,
+		TimeoutInMinutes: resourceDefinition.UpdateMethod.TimeoutInMinutes,
+	}
+
+	// todo the following are missing from the current information availabel
+	// TerraformResourceDetails{
+	//	ApiVersion:     "",
+	//	Documentation:  ResourceDocumentationDefinition{},
+	//	Generate:       false,
+	//	Resource:       "",
+	//	ResourceIdName: "",
+	// }
+
+	return nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {
