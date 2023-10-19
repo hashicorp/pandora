@@ -126,9 +126,9 @@ func (d *SwaggerDefinition) ParseResourceIds(resourceProvider *string) (*resourc
 
 func (d *SwaggerDefinition) filterResourceIdsToResourceProvider(input resourceids.ParseResult, resourceProvider string) (*resourceids.ParseResult, error) {
 	output := resourceids.ParseResult{
-		OriginalUrisToResourceIDs: input.OriginalUrisToResourceIDs,
-		NamesToResourceIDs:        map[string]models.ParsedResourceId{},
-		Constants:                 input.Constants,
+		OperationIdsToParsedResourceIds: input.OperationIdsToParsedResourceIds,
+		NamesToResourceIDs:              map[string]models.ParsedResourceId{},
+		Constants:                       input.Constants,
 	}
 
 	for name := range input.NamesToResourceIDs {

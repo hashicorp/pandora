@@ -8,15 +8,14 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
-	return generateNamesForResourceIds(input, p.logger, uriToResourceId)
+	return generateNamesForResourceIds(input, uriToResourceId)
 }
 
-func generateNamesForResourceIds(input []models.ParsedResourceId, log hclog.Logger, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
+func generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
 	// now that we have all of the Resource ID's, we then need to go through and determine Unique ID's for those
 	// we need all of them here to avoid conflicts, e.g. AuthorizationRule which can be a NamespaceAuthorizationRule
 	// or an EventHubAuthorizationRule, but is named AuthorizationRule in both

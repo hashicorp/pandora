@@ -31,11 +31,11 @@ type OperationDetails struct {
 	IsListOperation                  bool
 	LongRunning                      bool
 	Method                           string
+	OperationId                      string
 	Options                          map[string]OperationOption
 	RequestObject                    *ObjectDefinition
 	ResourceIdName                   *string
 	ResponseObject                   *ObjectDefinition
-	Uri                              string
 	UriSuffix                        *string
 }
 

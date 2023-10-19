@@ -4,15 +4,16 @@ import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
 func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []models.ParsedResourceId {
 	out := make([]models.ParsedResourceId, 0)
-	for _, v := range input {
-		if v.segments == nil {
+
+	for _, operation := range input {
+		if operation.segments == nil {
 			continue
 		}
 
 		item := models.ParsedResourceId{
 			CommonAlias: nil,
-			Constants:   v.constants,
-			Segments:    *v.segments,
+			Constants:   operation.constants,
+			Segments:    *operation.segments,
 		}
 
 		matchFound := false

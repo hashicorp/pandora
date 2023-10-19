@@ -24,7 +24,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// pull out the operations and any inlined/top-level constants/models
-	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OriginalUrisToResourceIDs, resourceProvider, result)
+	operations, nestedResult, err := d.parseOperationsWithinTag(tag, resourceIds.OperationIdsToParsedResourceIds, resourceProvider, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding operations: %+v", err)
 	}
