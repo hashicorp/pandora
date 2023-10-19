@@ -79,6 +79,12 @@ internal class MacOSPkgAppModel
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
 
+    [JsonPropertyName("postInstallScript")]
+    public MacOSAppScriptModel? PostInstallScript { get; set; }
+
+    [JsonPropertyName("preInstallScript")]
+    public MacOSAppScriptModel? PreInstallScript { get; set; }
+
     [JsonPropertyName("primaryBundleId")]
     public string? PrimaryBundleId { get; set; }
 

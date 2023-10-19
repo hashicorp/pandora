@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class ExternalConnectorsExternalModel
 {
+    [JsonPropertyName("authorizationSystems")]
+    public List<AuthorizationSystemModel>? AuthorizationSystems { get; set; }
+
     [JsonPropertyName("connections")]
     public List<ExternalConnectorsExternalConnectionModel>? Connections { get; set; }
 

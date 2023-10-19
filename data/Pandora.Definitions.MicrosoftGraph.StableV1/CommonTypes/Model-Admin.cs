@@ -19,6 +19,9 @@ internal class AdminModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("people")]
+    public PeopleAdminSettingsModel? People { get; set; }
+
     [JsonPropertyName("serviceAnnouncement")]
     public ServiceAnnouncementModel? ServiceAnnouncement { get; set; }
 

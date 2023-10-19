@@ -51,4 +51,7 @@ internal class MacOSMinimumOperatingSystemModel
 
     [JsonPropertyName("v13_0")]
     public bool? V130 { get; set; }
+
+    [JsonPropertyName("v14_0")]
+    public bool? V140 { get; set; }
 }

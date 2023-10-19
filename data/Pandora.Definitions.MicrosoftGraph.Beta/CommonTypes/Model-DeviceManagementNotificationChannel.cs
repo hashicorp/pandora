@@ -21,7 +21,4 @@ internal class DeviceManagementNotificationChannelModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
-
-    [JsonPropertyName("receivers")]
-    public List<string>? Receivers { get; set; }
 }

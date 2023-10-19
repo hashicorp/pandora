@@ -35,4 +35,7 @@ internal enum ExternalConnectorsPropertyLabelsConstant
 
     [Description("FileExtension")]
     @fileExtension,
+
+    [Description("IconUrl")]
+    @iconUrl,
 }

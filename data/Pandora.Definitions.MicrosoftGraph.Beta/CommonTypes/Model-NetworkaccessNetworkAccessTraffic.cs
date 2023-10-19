@@ -43,8 +43,17 @@ internal class NetworkaccessNetworkAccessTrafficModel
     [JsonPropertyName("deviceOperatingSystemVersion")]
     public string? DeviceOperatingSystemVersion { get; set; }
 
+    [JsonPropertyName("filteringProfileId")]
+    public string? FilteringProfileId { get; set; }
+
+    [JsonPropertyName("filteringProfileName")]
+    public string? FilteringProfileName { get; set; }
+
     [JsonPropertyName("headers")]
     public NetworkaccessHeadersModel? Headers { get; set; }
+
+    [JsonPropertyName("initiatingProcessName")]
+    public string? InitiatingProcessName { get; set; }
 
     [JsonPropertyName("networkProtocol")]
     public NetworkaccessNetworkAccessTrafficNetworkProtocolConstant? NetworkProtocol { get; set; }
@@ -55,11 +64,20 @@ internal class NetworkaccessNetworkAccessTrafficModel
     [JsonPropertyName("policyId")]
     public string? PolicyId { get; set; }
 
+    [JsonPropertyName("policyName")]
+    public string? PolicyName { get; set; }
+
     [JsonPropertyName("policyRuleId")]
     public string? PolicyRuleId { get; set; }
 
+    [JsonPropertyName("policyRuleName")]
+    public string? PolicyRuleName { get; set; }
+
     [JsonPropertyName("receivedBytes")]
     public int? ReceivedBytes { get; set; }
+
+    [JsonPropertyName("resourceTenantId")]
+    public string? ResourceTenantId { get; set; }
 
     [JsonPropertyName("sentBytes")]
     public int? SentBytes { get; set; }
