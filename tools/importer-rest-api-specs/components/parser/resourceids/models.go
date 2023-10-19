@@ -28,10 +28,6 @@ type ParseResult struct {
 	// object containing the parsed Resource ID.
 	OperationIdsToParsedResourceIds map[string]ParsedOperation
 
-	//// OriginalUrisToResourceIDs is a mapping of the original URI to a ParsedOperation object
-	//// which allows mapping the original URI to the Normalized Resource ID once processed.
-	//OriginalUrisToResourceIDs map[string]ParsedOperation
-
 	// NamesToResourceIDs is a mapping of the ResourceID Names to the Parsed Resource ID objects
 	NamesToResourceIDs map[string]models.ParsedResourceId
 

@@ -6,9 +6,8 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (p *Parser) generateNamesForResourceIds(input []models.ParsedResourceId, uriToResourceId map[string]ParsedOperation) (*map[string]models.ParsedResourceId, error) {
