@@ -131,6 +131,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
 
+						p.logger.Trace(fmt.Sprintf("Found Constant %q with values `%+v`", constant.Name, constant.Details.Values))
 						if len(constant.Details.Values) == 1 {
 							constantValue := ""
 							for _, v := range constant.Details.Values {
