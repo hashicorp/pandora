@@ -300,7 +300,7 @@ service "logz" {
 }
 service "machinelearningservices" {
   name      = "MachineLearningServices"
-  available = ["2022-05-01", "2022-10-01", "2023-04-01", "2023-04-01-preview"]
+  available = ["2022-05-01", "2022-10-01", "2023-04-01", "2023-04-01-preview", "2023-10-01"]
 }
 service "maintenance" {
   name      = "Maintenance"
