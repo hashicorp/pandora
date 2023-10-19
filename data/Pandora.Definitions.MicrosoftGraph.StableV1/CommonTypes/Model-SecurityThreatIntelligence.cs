@@ -25,6 +25,12 @@ internal class SecurityThreatIntelligenceModel
     [JsonPropertyName("hostCookies")]
     public List<SecurityHostCookieModel>? HostCookies { get; set; }
 
+    [JsonPropertyName("hostPairs")]
+    public List<SecurityHostPairModel>? HostPairs { get; set; }
+
+    [JsonPropertyName("hostSslCertificates")]
+    public List<SecurityHostSslCertificateModel>? HostSslCertificates { get; set; }
+
     [JsonPropertyName("hostTrackers")]
     public List<SecurityHostTrackerModel>? HostTrackers { get; set; }
 
@@ -46,6 +52,18 @@ internal class SecurityThreatIntelligenceModel
     [JsonPropertyName("passiveDnsRecords")]
     public List<SecurityPassiveDnsRecordModel>? PassiveDnsRecords { get; set; }
 
+    [JsonPropertyName("sslCertificates")]
+    public List<SecuritySslCertificateModel>? SslCertificates { get; set; }
+
+    [JsonPropertyName("subdomains")]
+    public List<SecuritySubdomainModel>? Subdomains { get; set; }
+
     [JsonPropertyName("vulnerabilities")]
     public List<SecurityVulnerabilityModel>? Vulnerabilities { get; set; }
+
+    [JsonPropertyName("whoisHistoryRecords")]
+    public List<SecurityWhoisHistoryRecordModel>? WhoisHistoryRecords { get; set; }
+
+    [JsonPropertyName("whoisRecords")]
+    public List<SecurityWhoisRecordModel>? WhoisRecords { get; set; }
 }

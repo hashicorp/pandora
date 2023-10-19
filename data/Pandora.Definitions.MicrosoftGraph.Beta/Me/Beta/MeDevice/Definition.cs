@@ -13,20 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CheckMeDeviceByIdMemberGroupOperation(),
-        new CheckMeDeviceByIdMemberObjectOperation(),
         new CreateMeDeviceOperation(),
         new DeleteMeDeviceByIdOperation(),
-        new GetMeDeviceByIdMemberGroupOperation(),
-        new GetMeDeviceByIdMemberObjectOperation(),
         new GetMeDeviceByIdOperation(),
         new GetMeDeviceCountOperation(),
-        new GetMeDevicesByIdsOperation(),
-        new GetMeDevicesUserOwnedObjectOperation(),
         new ListMeDevicesOperation(),
-        new RestoreMeDeviceByIdOperation(),
-        new UpdateMeDeviceByIdOperation(),
-        new ValidateMeDevicesPropertyOperation()
+        new UpdateMeDeviceByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -36,12 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CheckMeDeviceByIdMemberGroupRequestModel),
-        typeof(CheckMeDeviceByIdMemberObjectRequestModel),
-        typeof(GetMeDeviceByIdMemberGroupRequestModel),
-        typeof(GetMeDeviceByIdMemberObjectRequestModel),
-        typeof(GetMeDevicesByIdsRequestModel),
-        typeof(GetMeDevicesUserOwnedObjectRequestModel),
-        typeof(ValidateMeDevicesPropertyRequestModel)
+
     };
 }

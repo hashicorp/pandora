@@ -25,6 +25,9 @@ internal class NetworkaccessCrossTenantSummaryModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("rarelyUsedTenantCount")]
+    public int? RarelyUsedTenantCount { get; set; }
+
     [JsonPropertyName("tenantCount")]
     public int? TenantCount { get; set; }
 
