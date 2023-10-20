@@ -3,6 +3,7 @@ package repositories
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"os"
 	"strings"
 )
@@ -404,6 +405,12 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			if err != nil {
 				return nil, err
 			}
+
+		case "resource-schema":
+			resource.SchemaModels, err = processTerraformDefinitionResourceSchema(path, file)
+			if err != nil {
+				return nil, err
+			}
 		}
 
 		terraformDetails.Resources[definitionName] = resource
@@ -530,6 +537,66 @@ func processTerraformDefinitionResourceMappings(path string, file os.DirEntry) (
 	// mappings.ModelsToModels
 
 	return mappings, nil
+}
+
+func processTerraformDefinitionResourceSchema(path string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
+	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
+	// TODO use path.Join() so that this works on windows
+	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	if err != nil {
+		return schemaModelDefinition, err
+	}
+
+	var schemaModel SchemaModel
+
+	if err := json.Unmarshal(*contents, &schemaModel.Fields); err != nil {
+		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+	}
+
+	fields := make(map[string]TerraformSchemaFieldDefinition)
+	for _, field := range schemaModel.Fields {
+		fields[field.Name] = TerraformSchemaFieldDefinition{
+			ObjectDefinition: terraformSchemaFieldObjectDefinitionFromField(field.ObjectDefinition),
+			Computed:         pointer.From(field.Computed),
+			ForceNew:         pointer.From(field.ForceNew),
+			HclName:          field.HclName,
+			Optional:         pointer.From(field.Optional),
+			Required:         pointer.From(field.Required),
+
+			// todo find the following
+			// Documentation:    TerraformSchemaDocumentationDefinition{},
+			// Validation:       nil,
+		}
+	}
+
+	// todo do we take the file name and strip it of these pieces or is this information somewhere else
+	// the v1 data api has this value as `LoadTestResourceSchema` which is the filename (LoadTest-Resource-Schema.json) with the following stripped
+	modelDefinitionName := strings.Replace(strings.Replace(file.Name(), "-", "", -1), ".json", "", -1)
+
+	schemaModelDefinition[modelDefinitionName] = TerraformSchemaModelDefinition{
+		Fields: fields,
+	}
+
+	return schemaModelDefinition, nil
+}
+
+func terraformSchemaFieldObjectDefinitionFromField(input *SchemaFieldObjectDefinition) TerraformSchemaFieldObjectDefinition {
+	if input == nil {
+		return TerraformSchemaFieldObjectDefinition{}
+	}
+
+	objectDefinition := TerraformSchemaFieldObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          input.Type,
+		NestedObject:  nil,
+	}
+
+	if input.NestedObject != nil {
+		nestedObject := terraformSchemaFieldObjectDefinitionFromField(input.NestedObject)
+		objectDefinition.NestedObject = &nestedObject
+	}
+
+	return objectDefinition
 }
 
 func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {

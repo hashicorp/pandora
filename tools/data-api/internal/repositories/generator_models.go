@@ -61,3 +61,27 @@ type ModelToModelFieldMapping struct {
 	SdkModelName    string `json:"SdkModelName"`
 	SdkFieldName    string `json:"SdkFieldName"`
 }
+
+type SchemaModel struct {
+	Fields []SchemaField `json:"Fields"`
+}
+
+type SchemaField struct {
+	HclName       string  `json:"HclName"`
+	Type          string  `json:"Type"`
+	Documentation *string `json:"Documentation,omitempty"`
+	Required      *bool   `json:"Required,omitempty"`
+	Optional      *bool   `json:"Optional,omitempty"`
+	Computed      *bool   `json:"Computed,omitempty"`
+	ForceNew      *bool   `json:"ForceNew,omitempty"`
+	Name          string  `json:"Name"`
+	// todo import this
+	// Constants        *resourcemanager.ConstantDetails `json:"Constants,omitempty"`
+	ObjectDefinition *SchemaFieldObjectDefinition `json:"ObjectDefinition,omitempty"`
+}
+
+type SchemaFieldObjectDefinition struct {
+	Type          TerraformSchemaFieldType     `json:"Type"`
+	ReferenceName *string                      `json:"ReferenceName,omitempty"`
+	NestedObject  *SchemaFieldObjectDefinition `json:"NestedObject,omitempty"`
+}
