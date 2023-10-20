@@ -6,6 +6,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	operationModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -35,12 +36,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		longRunning = true
 	}
 
-	requestObject := operationModels.ObjectDefinition{}
-	if operation.RequestObject != nil {
-		requestObject.ReferenceName = operation.RequestObject.ReferenceName
-		requestObject.Type = operationModels.ObjectDefinitionType(operation.RequestObject.Type)
-	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
-		// Post and Put operations should have one but it's possible they don't
+	if operation.RequestObject == nil && (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) {
+		// Post and Put operations should have a RequestObject one but it's possible they don't
 		// TODO what goes here?
 	}
 
@@ -49,24 +46,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		resourceId = *operation.ResourceIdName
 	}
 
-	responseObject := operationModels.ObjectDefinition{}
-	if operation.ResponseObject != nil {
-		responseObject.ReferenceName = operation.ResponseObject.ReferenceName
-		responseObject.Type = operationModels.ObjectDefinitionType(operation.ResponseObject.Type)
-
-		// TODO
-		//if operation.FieldContainingPaginationDetails == nil {
-		//	code = append(code, fmt.Sprintf(`		public override Type? ResponseObject() => typeof(%[1]s);`, *responseOperationTypeName))
-		//} else {
-		//	code = append(code, fmt.Sprintf(`		public override Type NestedItemType() => typeof(%[1]s);`, *responseOperationTypeName))
-		//}
-	}
-
-	optionsObject := operationModels.OptionsObject{}
 	options := make([]operationModels.Option, 0)
 	if len(operation.Options) > 0 {
-		optionsObject.Name = operationName
-
 		sortedOptionsKeys := make([]string, 0)
 		for k := range operation.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
@@ -80,13 +61,11 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 				return nil, fmt.Errorf("missing object definition")
 			}
 
-			fieldType := string(optionDetails.ObjectDefinition.Type)
-
 			option := operationModels.Option{
 				HeaderName:  optionDetails.HeaderName,
 				QueryString: optionDetails.QueryStringName,
 				Field:       optionName,
-				FieldType:   fieldType,
+				FieldType:   operationModels.ObjectDefinitionType(optionDetails.ObjectDefinition.Type),
 			}
 
 			if !optionDetails.Required {
@@ -97,8 +76,6 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 
 			options = append(options, option)
 		}
-
-		optionsObject.Options = options
 	}
 
 	uriSuffix := ""
@@ -122,15 +99,14 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              statusCodes,
-		FieldContainingPaginationDetails: fieldContainingPaginationDetails,
+		FieldContainingPaginationDetails: pointer.To(fieldContainingPaginationDetails),
 		LongRunning:                      longRunning,
 		HTTPMethod:                       HTTPMethod,
-		OptionsObject:                    optionsObject,
 		Options:                          options,
-		ResourceId:                       resourceId,
-		RequestObject:                    requestObject,
-		ResponseObject:                   responseObject,
-		UriSuffix:                        uriSuffix,
+		ResourceId:                       pointer.To(resourceId),
+		RequestObject:                    operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.RequestObject),
+		ResponseObject:                   operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.ResponseObject),
+		UriSuffix:                        pointer.To(uriSuffix),
 	}
 
 	data, err := json.MarshalIndent(op, "", " ")

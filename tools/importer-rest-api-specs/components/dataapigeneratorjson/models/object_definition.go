@@ -1,12 +1,16 @@
 package models
 
-// NOTE: these types are intentionally undocumented atm, these'll be added in a follow-up PR
+import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+)
 
+// ObjectDefinition specifies additional information about a specific Object and any associated nested Objects
 type ObjectDefinition struct {
 	Type ObjectDefinitionType `json:"type"`
 
 	ReferenceName *string `json:"referenceName"` // NOTE: we could split this into ConstantName and ModelName in time, but not today.
 
+	// NestedItem is a nested ObjectDefinition when Type is a Dictionary or List
 	NestedItem *ObjectDefinition `json:"nestedItem,omitempty"`
 
 	// NOTE: these 3 fields were previously located against the Field but instead should be located against the Object Definition
@@ -14,6 +18,20 @@ type ObjectDefinition struct {
 	MaxItems   *int        `json:"maxItems,omitempty"`
 	MinItems   *int        `json:"minItems,omitempty"`
 	DateFormat *DateFormat `json:"dateFormat,omitempty"`
+}
+
+func ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input *models.ObjectDefinition) *ObjectDefinition {
+	if input == nil {
+		return nil
+	}
+
+	objectDefinition := ObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          ObjectDefinitionType(input.Type),
+		NestedItem:    ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input.NestedItem),
+	}
+
+	return &objectDefinition
 }
 
 type ObjectDefinitionType string
