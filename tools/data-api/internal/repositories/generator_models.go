@@ -85,3 +85,10 @@ type SchemaFieldObjectDefinition struct {
 	ReferenceName *string                      `json:"ReferenceName,omitempty"`
 	NestedObject  *SchemaFieldObjectDefinition `json:"NestedObject,omitempty"`
 }
+
+type TerraformResourceTestConfig struct {
+	Basic          string  `json:"Basic"`
+	RequiresImport string  `json:"RequiresImport"`
+	CompleteConfig *string `json:"CompleteConfig,omitempty"`
+	TemplateConfig *string `json:"TemplateConfig,omitempty"`
+}

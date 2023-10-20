@@ -411,6 +411,12 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			if err != nil {
 				return nil, err
 			}
+
+		case "resource-tests":
+			resource.Tests, err = processTerraformDefinitionResourceTests(path, file)
+			if err != nil {
+				return nil, err
+			}
 		}
 
 		terraformDetails.Resources[definitionName] = resource
@@ -547,14 +553,14 @@ func processTerraformDefinitionResourceSchema(path string, file os.DirEntry) (ma
 		return schemaModelDefinition, err
 	}
 
-	var schemaModel SchemaModel
+	var schemaModelFields []SchemaField
 
-	if err := json.Unmarshal(*contents, &schemaModel.Fields); err != nil {
+	if err := json.Unmarshal(*contents, &schemaModelFields); err != nil {
 		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
 
 	fields := make(map[string]TerraformSchemaFieldDefinition)
-	for _, field := range schemaModel.Fields {
+	for _, field := range schemaModelFields {
 		fields[field.Name] = TerraformSchemaFieldDefinition{
 			ObjectDefinition: terraformSchemaFieldObjectDefinitionFromField(field.ObjectDefinition),
 			Computed:         pointer.From(field.Computed),
@@ -578,6 +584,29 @@ func processTerraformDefinitionResourceSchema(path string, file os.DirEntry) (ma
 	}
 
 	return schemaModelDefinition, nil
+}
+
+func processTerraformDefinitionResourceTests(path string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {
+	// TODO use path.Join() so that this works on windows
+	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	if err != nil {
+		return TerraformResourceTestsDefinition{}, err
+	}
+
+	var testConfig TerraformResourceTestConfig
+	if err := json.Unmarshal(*contents, &testConfig); err != nil {
+		return TerraformResourceTestsDefinition{}, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+	}
+
+	return TerraformResourceTestsDefinition{
+		BasicConfiguration:          testConfig.Basic,
+		RequiresImportConfiguration: testConfig.RequiresImport,
+		CompleteConfiguration:       testConfig.CompleteConfig,
+		TemplateConfiguration:       testConfig.TemplateConfig,
+		// todo find Generate and OtherTests live
+		Generate:   true,
+		OtherTests: nil,
+	}, nil
 }
 
 func terraformSchemaFieldObjectDefinitionFromField(input *SchemaFieldObjectDefinition) TerraformSchemaFieldObjectDefinition {
