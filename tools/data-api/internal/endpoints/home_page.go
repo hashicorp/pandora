@@ -92,7 +92,7 @@ func routerToListOfRoutes(input []chi.Route) []string {
 			continue
 		}
 
-		output = append(output, route.Pattern)
+		output = append(output, strings.TrimSuffix(route.Pattern, "/"))
 	}
 
 	return output
