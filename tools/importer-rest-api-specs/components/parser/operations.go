@@ -17,12 +17,12 @@ import (
 )
 
 type operationsParser struct {
-	operations        []parsedOperation
-	urisToResourceIds map[string]resourceids.ParsedOperation
-	swaggerDefinition *SwaggerDefinition
+	operations                     []parsedOperation
+	operationIdsToParsedOperations map[string]resourceids.ParsedOperation
+	swaggerDefinition              *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	logger := d.logger.Named("Operations Parser")
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
@@ -32,8 +32,8 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	result.Append(found)
 
 	parser := operationsParser{
-		urisToResourceIds: urisToResourceIds,
-		swaggerDefinition: d,
+		operationIdsToParsedOperations: operationIdsToParsedOperations,
+		swaggerDefinition:              d,
 	}
 
 	// first find the operations then pull out everything we can
@@ -57,7 +57,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 		}
 
 		if existing, hasExisting := operations[operation.name]; hasExisting {
-			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.Uri, parsedOperation.Method, parsedOperation.Uri)
+			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.OperationId, parsedOperation.Method, parsedOperation.OperationId)
 		}
 
 		if parsedOperation == nil {
@@ -76,16 +76,12 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		Models:    map[string]models.ModelDetails{},
 	}
 
-	normalizedUri, err := p.normalizedUriForOperation(operation)
-	if err != nil {
-		return nil, nil, fmt.Errorf("determining the normalized uri: %+v", err)
-	}
 	contentType := p.determineContentType(operation)
 	expectedStatusCodes := p.expectedStatusCodesForOperation(operation)
 	paginationField := p.fieldContainingPaginationDetailsForOperation(operation)
 	requestObject, nestedResult, err := p.requestObjectForOperation(operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
+		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -95,7 +91,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 	isAListOperation := p.isListOperation(operation)
 	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
+		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -117,7 +113,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		}
 	}
 
-	resourceId := p.urisToResourceIds[*normalizedUri]
+	resourceId := p.operationIdsToParsedOperations[operation.operation.ID]
 	usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(resourceId.ResourceId, resourceProvider)
 	if err != nil {
 		return nil, nil, err
@@ -133,11 +129,11 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		IsListOperation:                  isAListOperation,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
+		OperationId:                      operation.operation.ID,
 		Options:                          *options,
 		RequestObject:                    requestObject,
 		ResourceIdName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
-		Uri:                              *normalizedUri,
 		UriSuffix:                        resourceId.UriSuffix,
 	}
 
@@ -394,16 +390,6 @@ func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails
 	}
 
 	return false
-}
-
-func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*string, error) {
-	for key := range p.urisToResourceIds {
-		if strings.EqualFold(key, input.uri) {
-			return &key, nil
-		}
-	}
-
-	return nil, fmt.Errorf("%q was not found in the normalized uri list", input.uri)
 }
 
 func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
