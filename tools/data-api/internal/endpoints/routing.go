@@ -37,6 +37,6 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 			serviceRepo := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
 			v1.Router(r, opts, serviceRepo)
 		})
-		router.Get("/", HomePage)
+		router.Get("/", HomePage(router))
 	}
 }
