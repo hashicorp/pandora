@@ -397,7 +397,7 @@ service "orbital" {
 }
 service "paloaltonetworks" {
   name      = "PaloAltoNetworks"
-  available = ["2022-08-29"]
+  available = ["2022-08-29", "2023-09-01"]
 }
 service "policyinsights" {
   name      = "PolicyInsights"
