@@ -401,6 +401,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			}
 
 		case "resource-mappings":
+			// todo figure out why this is in the model but it's not showing up in the api
 			resource.Mappings, err = processTerraformDefinitionResourceMappings(path, file)
 			if err != nil {
 				return nil, err
