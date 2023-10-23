@@ -22,5 +22,14 @@ service "DevCenter" {
         description = "Manages a Dev Center Project"
       }
     }
+
+    package "NetworkConnections" {
+        definition "dev_center_network_connection" {
+          id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/networkConnections/{networkConnectionName}"
+          display_name = "Dev Center Network Connection"
+          website_subcategory = "Dev Center"
+          description = "Manages a Dev Center Network Connection"
+        }
+    }
   }
 }
