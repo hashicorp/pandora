@@ -66,7 +66,7 @@ func (s Generator) generateResources(resourceName string, resource models.AzureA
 	s.logger.Debug("Generating Resource IDs..")
 	for name, id := range resource.ResourceIds {
 		s.logger.Trace(fmt.Sprintf("Generating Resource ID %q..", name))
-		code, err := codeForResourceID(name, id)
+		code, err := codeForResourceId(name, id)
 		if err != nil {
 			return fmt.Errorf("generating Resource ID %q: %+v", name, err)
 		}
