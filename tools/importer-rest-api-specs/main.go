@@ -10,7 +10,7 @@ import (
 
 const (
 	outputDirectoryCS        = "../../data/"
-	outputDirectoryJson      = "../../api-definitions/"
+	outputDirectoryJson      = "../../api-definitions/resource-manager"
 	swaggerDirectory         = "../../submodules/rest-api-specs"
 	resourceManagerConfig    = "../../config/resource-manager.hcl"
 	terraformDefinitionsPath = "../../config/resources/"
