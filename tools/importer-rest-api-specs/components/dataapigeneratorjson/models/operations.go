@@ -26,8 +26,8 @@ type Operation struct {
 	// these are querystring parameters such as 'limit' or 'forceDelete' or similar
 	Options []Option `json:"options,omitempty"`
 
-	// ResourceId specifies the optional Resource ID used for this operation
-	ResourceId *string `json:"resourceId,omitempty"`
+	// ResourceIdName specifies the name of the optional Resource ID used for this operation
+	ResourceIdName *string `json:"resourceId,omitempty"`
 
 	// RequestObject specifies the optional ObjectDefinition to be specified in the Request
 	RequestObject *ObjectDefinition `json:"requestObject,omitempty"`

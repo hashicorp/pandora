@@ -103,7 +103,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		LongRunning:                      longRunning,
 		HTTPMethod:                       HTTPMethod,
 		Options:                          options,
-		ResourceId:                       pointer.To(resourceId),
+		ResourceIdName:                   pointer.To(resourceId),
 		RequestObject:                    operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.RequestObject),
 		ResponseObject:                   operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.ResponseObject),
 		UriSuffix:                        pointer.To(uriSuffix),
