@@ -1,0 +1,20 @@
+package models
+
+// ApiVersionDefinition specifies an API Version within a Service which must contain at least one Resource
+type ApiVersionDefinition struct {
+	// ApiVersion specifies the Version Number for this API.
+	// Example: `2020-01-01-preview`.
+	ApiVersion string `json:"ApiVersion"`
+
+	// IsPreview specifies whether this is a Preview API version (otherwise it's a Stable API version).
+	IsPreview bool `json:"isPreview"`
+
+	// Source specifies where the source data for this API version came from.
+	Source ApiDefinitionsSource `json:"Source"` // TODO: move this into the MetaData file?
+
+	// Resources specifies a list of Api Resource names that exist within this API version.
+	Resources []string `json:"Resources"`
+
+	// Generate specifies whether this API Version should be generated or not.
+	Generate bool `json:"Generate"`
+}

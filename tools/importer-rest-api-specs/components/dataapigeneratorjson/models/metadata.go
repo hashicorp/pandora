@@ -11,3 +11,19 @@ type MetaData struct {
 	// the `microsoftgraph/msgraph-metadata` repository (for MS Graph) - or null (for handwritten).
 	GitRevision *string `json:"gitRevision"`
 }
+
+type ApiDefinitionsSource string
+
+const (
+	// AzureRestApiSpecsRepositoryApiDefinitionsSource specifies that the source data came from
+	// the Azure Rest API Specs repository at github.com/Azure/azure-rest-api-specs
+	AzureRestApiSpecsRepositoryApiDefinitionsSource ApiDefinitionsSource = "Azure/azure-rest-api-specs"
+
+	// MicrosoftGraphMetaDataRepositoryApiDefinitionsSource specifies that the source data came from
+	// the Microsoft Graph MetaData repository at github.com/microsoftgraph/msgraph-metadata
+	MicrosoftGraphMetaDataRepositoryApiDefinitionsSource ApiDefinitionsSource = "microsoftgraph/msgraph-metadata"
+
+	// HandWrittenApiDefinitionsSource specifies that these API definitions were written by hand and
+	// not generated from an OpenAPI/Swagger definition.
+	HandWrittenApiDefinitionsSource ApiDefinitionsSource = "handwritten"
+)
