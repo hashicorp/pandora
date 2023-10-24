@@ -24,6 +24,13 @@ type Operation struct {
 	UriSuffix                        string           `json:"UriSuffix,omitempty"`
 }
 
+type ObjectDefinition struct {
+	// TODO: update to use the existing `ObjectDefinition` in models
+	Type          ObjectDefinitionType `json:"Type"`
+	ReferenceName *string              `json:"ReferenceName,omitempty"`
+	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
+}
+
 type OptionsObject struct {
 	Name    string   `json:"Name"`
 	Options []Option `json:"Options"`
@@ -63,10 +70,11 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		longRunning = true
 	}
 
+	// TODO: refactor this to use the ObjectDefinition in `./models`
 	requestObject := ObjectDefinition{}
 	if operation.RequestObject != nil {
 		requestObject.ReferenceName = operation.RequestObject.ReferenceName
-		requestObject.Type = ObjectDefinitionType(operation.ResponseObject.Type)
+		requestObject.Type = ObjectDefinitionType(operation.RequestObject.Type)
 
 	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
 		// Post and Put operations should have one but it's possible they don't

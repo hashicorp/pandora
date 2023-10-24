@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+	"path"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
@@ -40,18 +41,18 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
 		if featureflags.GenerateV1APIDefinitions {
-			serviceDirectoryCSharp := fmt.Sprintf("%s%s/%s", input.OutputDirectoryCS, "Pandora.Definitions.ResourceManager", serviceName)
-			logger.Debug("recreating C# directory %q for Service %q", serviceDirectoryCSharp, serviceName)
-			if err := dataapigenerator.RecreateDirectory(serviceDirectoryCSharp, logger); err != nil {
-				fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryCSharp, serviceName)
+			serviceDirectoryV1 := fmt.Sprintf("%s%s/%s", input.OutputDirectoryCS, "Pandora.Definitions.ResourceManager", serviceName)
+			logger.Debug("recreating the V1 working directory at %q for Service %q", serviceDirectoryV1, serviceName)
+			if err := dataapigenerator.RecreateDirectory(serviceDirectoryV1, logger); err != nil {
+				fmt.Errorf("recreating C# directory %q for service %q", serviceDirectoryV1, serviceName)
 			}
 		}
 
 		if featureflags.GenerateV2APIDefinitions {
-			serviceDirectoryYaml := fmt.Sprintf("%s%s/%s", input.OutputDirectoryJson, "resource-manager", serviceName)
-			logger.Debug("recreating JSON directory %q for Service %q", serviceDirectoryYaml, serviceName)
-			if err := dataapigenerator.RecreateDirectory(serviceDirectoryYaml, logger); err != nil {
-				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryYaml, serviceName)
+			serviceDirectoryV2 := path.Join(input.OutputDirectoryJson, serviceName)
+			logger.Debug("recreating the V2 working directory at %q for Service %q", serviceDirectoryV2, serviceName)
+			if err := dataapigenerator.RecreateDirectory(serviceDirectoryV2, logger); err != nil {
+				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryV2, serviceName)
 			}
 		}
 

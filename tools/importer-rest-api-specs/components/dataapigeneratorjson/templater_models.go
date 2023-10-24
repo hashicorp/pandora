@@ -7,40 +7,46 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/go-hclog"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type Model struct {
-	Fields          []Field `json:"Fields"`
-	IsDiscriminator *bool   `json:"IsDiscriminator,omitempty"`
-	ParentModelName *string `json:"ParentModelName,omitempty"`
-	// TODO rename, and should this be a slice? haven't found examples where there are multiple of these
-	ValueForType *string `json:"ValueForType,omitempty"`
-}
-
-type Field struct {
-	Name             string           `json:"Name"`
-	JsonName         string           `json:"JsonName"`
-	Required         *bool            `json:"Required,omitempty"`
-	Optional         *bool            `json:"Optional,omitempty"`
-	ObjectDefinition ObjectDefinition `json:"ObjectDefinition"`
-	MinItems         *int             `json:"MinItems,omitempty"`
-	MaxItems         *int             `json:"MaxItems,omitempty"`
-	DateFormat       *string          `json:"DateFormat,omitempty"`
-	ProvidesTypeHint *bool            `json:"ProvidesTypeHint,omitempty"`
-}
-
-type ObjectDefinition struct {
-	Type          ObjectDefinitionType `json:"Type"`
-	ReferenceName *string              `json:"ReferenceName,omitempty"`
-	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
-}
-
-func codeForModel(metadata string, modelName string, model models.ModelDetails, parentModel *models.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) ([]byte, error) {
+func codeForModel(modelName string, model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails, logger hclog.Logger) ([]byte, error) {
+	// TODO: thread through logging
 	if len(model.Fields) == 0 {
-		return nil, fmt.Errorf("the model %q in namespace %q has no fields", modelName, metadata)
+		return nil, fmt.Errorf("the model %q has no fields", modelName)
 	}
+
+	fields, err := mapFieldsForModel(model, parentModel, knownConstants, knownModels, logger)
+	if err != nil {
+		return nil, fmt.Errorf("mapping fields for model %q: %+v", modelName, err)
+	}
+
+	dataApiModel := dataApiModels.Model{
+		Fields: *fields,
+	}
+
+	// NOTE: `Parent` types don't get a `TypeHintIn` or `TypeHintValue`
+	// meaning that only
+	if model.ParentTypeName != nil {
+		dataApiModel.DiscriminatedParentModelName = model.ParentTypeName
+	}
+	if model.TypeHintValue != nil {
+		dataApiModel.DiscriminatedTypeValue = model.TypeHintValue
+	}
+
+	data, err := json.MarshalIndent(dataApiModel, "", " ")
+	if err != nil {
+		return nil, err
+	}
+
+	return data, nil
+}
+
+func mapFieldsForModel(model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails, logger hclog.Logger) (*[]dataApiModels.ModelField, error) {
+	// TODO: thread through logging
 
 	// ensure consistency in the output
 	sortedFieldNames := make([]string, 0)
@@ -49,7 +55,7 @@ func codeForModel(metadata string, modelName string, model models.ModelDetails, 
 	}
 	sort.Strings(sortedFieldNames)
 
-	fields := make([]Field, 0)
+	fields := make([]dataApiModels.ModelField, 0)
 
 	for _, fieldName := range sortedFieldNames {
 		// we should skip outputting this field if it's present on the parent
@@ -71,7 +77,7 @@ func codeForModel(metadata string, modelName string, model models.ModelDetails, 
 
 		field := model.Fields[fieldName]
 		isTypeHint := model.TypeHintIn != nil && strings.EqualFold(*model.TypeHintIn, fieldName)
-		fieldCode, err := codeForField(fieldName, field, isTypeHint, knownConstants, knownModels)
+		fieldCode, err := mapField(fieldName, field, isTypeHint, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}
@@ -79,265 +85,156 @@ func codeForModel(metadata string, modelName string, model models.ModelDetails, 
 		fields = append(fields, *fieldCode)
 	}
 
-	var DataApiModel Model
+	return &fields, nil
+}
 
-	DataApiModel.Fields = fields
-
-	if model.TypeHintIn != nil {
-		DataApiModel.IsDiscriminator = pointer.To(true)
-		if model.ParentTypeName != nil {
-			DataApiModel.ParentModelName = model.ParentTypeName
-		}
-	}
-
-	if model.TypeHintValue != nil {
-		DataApiModel.ValueForType = model.TypeHintValue
-	}
-
-	data, err := json.MarshalIndent(DataApiModel, "", " ")
+func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) (*dataApiModels.ModelField, error) {
+	// TODO: thread through logging
+	objectDefinition, err := mapObjectDefinitionForField(fieldDetails, constants, knownModels)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}
 
-	return data, nil
+	return &dataApiModels.ModelField{
+		ContainsDiscriminatedTypeValue: isTypeHint,
+		JsonName:                       fieldDetails.JsonName,
+		Name:                           fieldName,
+		ObjectDefinition:               *objectDefinition,
+		// TODO: support Optional being a distinct value in-time so we can have ReadOnly fields too
+		Optional: !fieldDetails.Required,
+		Required: fieldDetails.Required,
+	}, nil
 }
 
-func codeForField(fieldName string, fieldDetails models.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) (*Field, error) {
-	var field Field
+var customFieldTypesToObjectDefinitionTypes = map[importerModels.CustomFieldType]dataApiModels.ObjectDefinitionType{
+	importerModels.CustomFieldTypeEdgeZone:                                dataApiModels.EdgeZoneObjectDefinitionType,
+	importerModels.CustomFieldTypeLocation:                                dataApiModels.LocationObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAssignedIdentity:                  dataApiModels.SystemAssignedIdentityObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       dataApiModels.SystemAndUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        dataApiModels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: dataApiModels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  dataApiModels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        dataApiModels.SystemOrUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         dataApiModels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeUserAssignedIdentityList:                dataApiModels.UserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeUserAssignedIdentityMap:                 dataApiModels.UserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeTags:                                    dataApiModels.TagsObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemData:                              dataApiModels.SystemDataObjectDefinitionType,
+	importerModels.CustomFieldTypeZone:                                    dataApiModels.ZoneObjectDefinitionType,
+	importerModels.CustomFieldTypeZones:                                   dataApiModels.ZonesObjectDefinitionType,
+}
 
-	field.Name = fieldName
-	field.JsonName = fieldDetails.JsonName
+var internalObjectDefinitionsToObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.ObjectDefinitionType{
+	importerModels.ObjectDefinitionBoolean:    dataApiModels.BooleanObjectDefinitionType,
+	importerModels.ObjectDefinitionCsv:        dataApiModels.CsvObjectDefinitionType,
+	importerModels.ObjectDefinitionDateTime:   dataApiModels.DateTimeObjectDefinitionType,
+	importerModels.ObjectDefinitionDictionary: dataApiModels.DictionaryObjectDefinitionType,
+	importerModels.ObjectDefinitionInteger:    dataApiModels.IntegerObjectDefinitionType,
+	importerModels.ObjectDefinitionFloat:      dataApiModels.FloatObjectDefinitionType,
+	importerModels.ObjectDefinitionList:       dataApiModels.ListObjectDefinitionType,
+	importerModels.ObjectDefinitionRawFile:    dataApiModels.RawFileObjectDefinitionType,
+	importerModels.ObjectDefinitionRawObject:  dataApiModels.RawObjectObjectDefinitionType,
+	importerModels.ObjectDefinitionReference:  dataApiModels.ReferenceObjectDefinitionType,
+	importerModels.ObjectDefinitionString:     dataApiModels.StringObjectDefinitionType,
+}
 
-	fieldType, err := typeNameForField(fieldDetails, constants, knownModels)
+func mapObjectDefinitionForField(details importerModels.FieldDetails, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.ObjectDefinition, error) {
+	// if it's a CustomFieldType then it can't contain another item
+	if details.CustomFieldType != nil {
+		typeVal, ok := customFieldTypesToObjectDefinitionTypes[*details.CustomFieldType]
+		if !ok {
+			return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the CustomFieldType %q", string(*details.CustomFieldType))
+		}
+		return &dataApiModels.ObjectDefinition{
+			Type:          typeVal,
+			ReferenceName: nil,
+			NestedItem:    nil,
+		}, nil
+	}
+
+	if details.ObjectDefinition == nil {
+		return nil, fmt.Errorf("internal-error: neither a CustomFieldType or an ObjectDefinition was defined for this field")
+	}
+
+	objectDefinition, err := mapObjectDefinition(details.ObjectDefinition, constants, models)
 	if err != nil {
-		return nil, err
+		return nil, fmt.Errorf("mapping the object definition: %+v", err)
 	}
 
-	field.ObjectDefinition.Type = ObjectDefinitionType(*fieldType)
-
-	if fieldDetails.ObjectDefinition != nil {
-		innerObjectDefinition := topLevelObjectDefinition(*fieldDetails.ObjectDefinition)
-		if innerObjectDefinition.Minimum != nil {
-			field.MinItems = innerObjectDefinition.Minimum
-		}
-		if innerObjectDefinition.Maximum != nil {
-			field.MaxItems = innerObjectDefinition.Maximum
-		}
-
-		if fieldDetails.ObjectDefinition.Type == models.ObjectDefinitionDateTime {
-			// TODO: support for custom date formats
-			field.DateFormat = pointer.To("RFC3339")
-		}
-	}
-
-	if isTypeHint {
-		field.ProvidesTypeHint = pointer.To(true)
-	}
-
-	if fieldDetails.Required {
-		field.Required = pointer.To(true)
-	} else {
-		field.Optional = pointer.To(true)
-	}
-
-	return &field, nil
+	return objectDefinition, nil
 }
 
-func typeNameForField(field models.FieldDetails, constants map[string]resourcemanager.ConstantDetails, models map[string]models.ModelDetails) (*string, error) {
-	if field.CustomFieldType != nil {
-		return typeNameForCustomType(*field.CustomFieldType)
+func mapObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.ObjectDefinition, error) {
+	typeVal, ok := internalObjectDefinitionsToObjectDefinitionTypes[definition.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the ObjectDefinition Type %q", string(definition.Type))
 	}
 
-	return typeNameForObjectDefinition(field.ObjectDefinition, constants, models)
+	output := dataApiModels.ObjectDefinition{
+		Type:          typeVal,
+		ReferenceName: nil,
+		NestedItem:    nil,
+	}
+
+	if definition.ReferenceName != nil {
+		output.ReferenceName = definition.ReferenceName
+	}
+
+	if definition.NestedItem != nil {
+		nestedItem, err := mapObjectDefinition(definition.NestedItem, constants, models)
+		if err != nil {
+			return nil, fmt.Errorf("mapping nested object definition: %+v", err)
+		}
+		output.NestedItem = nestedItem
+	}
+
+	if definition.Maximum != nil {
+		output.MaxItems = definition.Maximum
+	}
+	if definition.Minimum != nil {
+		output.MinItems = definition.Minimum
+	}
+	if output.Type == dataApiModels.DateTimeObjectDefinitionType {
+		// TODO: support additional types of Date Formats (#8)
+		output.DateFormat = pointer.To(dataApiModels.RFC3339DateFormat)
+	}
+
+	// finally let's do some sanity-checking to ensure the data being output looks legit
+	if err := validateObjectDefinition(output, constants, models); err != nil {
+		return nil, fmt.Errorf("validating mapped ObjectDefinition: %+v", err)
+	}
+
+	return &output, nil
 }
 
-func typeNameForCustomType(input models.CustomFieldType) (*string, error) {
-	var nilableType = func(in string) (*string, error) {
-		return &in, nil
+func validateObjectDefinition(input dataApiModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
+	requiresNestedItem := input.Type == dataApiModels.CsvObjectDefinitionType ||
+		input.Type == dataApiModels.DictionaryObjectDefinitionType ||
+		input.Type == dataApiModels.ListObjectDefinitionType
+	requiresReference := input.Type == dataApiModels.ReferenceObjectDefinitionType
+	if requiresNestedItem && input.NestedItem == nil {
+		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}
-
-	switch input {
-	case models.CustomFieldTypeEdgeZone:
-		return nilableType("CustomTypes.EdgeZone")
-
-	case models.CustomFieldTypeLocation:
-		return nilableType("CustomTypes.Location")
-
-	case models.CustomFieldTypeTags:
-		return nilableType("CustomTypes.Tags")
-
-	case models.CustomFieldTypeSystemAssignedIdentity:
-		return nilableType("CustomTypes.SystemAssignedIdentity")
-
-	case models.CustomFieldTypeSystemAndUserAssignedIdentityList:
-		return nilableType("CustomTypes.SystemAndUserAssignedIdentityList")
-
-	case models.CustomFieldTypeSystemAndUserAssignedIdentityMap:
-		return nilableType("CustomTypes.SystemAndUserAssignedIdentityMap")
-
-	case models.CustomFieldTypeLegacySystemAndUserAssignedIdentityList:
-		return nilableType("CustomTypes.LegacySystemAndUserAssignedIdentityList")
-
-	case models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:
-		return nilableType("CustomTypes.LegacySystemAndUserAssignedIdentityMap")
-
-	case models.CustomFieldTypeSystemOrUserAssignedIdentityList:
-		return nilableType("CustomTypes.SystemOrUserAssignedIdentityList")
-
-	case models.CustomFieldTypeSystemOrUserAssignedIdentityMap:
-		return nilableType("CustomTypes.SystemOrUserAssignedIdentityMap")
-
-	case models.CustomFieldTypeUserAssignedIdentityList:
-		return nilableType("CustomTypes.UserAssignedIdentityList")
-
-	case models.CustomFieldTypeUserAssignedIdentityMap:
-		return nilableType("CustomTypes.UserAssignedIdentityMap")
-
-	case models.CustomFieldTypeSystemData:
-		return nilableType("CustomTypes.SystemData")
-
-	case models.CustomFieldTypeZone:
-		return nilableType("CustomTypes.Zone")
-
-	case models.CustomFieldTypeZones:
-		return nilableType("CustomTypes.Zones")
+	if !requiresNestedItem && input.NestedItem != nil {
+		return fmt.Errorf("a Nested Object Definition must not be specified for a %q type but got %q", string(input.Type), string(input.NestedItem.Type))
 	}
-
-	return nil, fmt.Errorf("unmapped Custom Type %q", string(input))
-}
-
-func typeNameForObjectDefinition(input *models.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]models.ModelDetails) (*string, error) {
-	if input == nil {
-		return nil, fmt.Errorf("missing object definition")
-	}
-
-	var nilableValue = func(in string) (*string, error) {
-		return &in, nil
-	}
-
-	switch input.Type {
-	case models.ObjectDefinitionCsv:
-		{
-			if input.ReferenceName != nil {
-				if _, isConstant := constants[*input.ReferenceName]; isConstant {
-					return nilableValue(fmt.Sprintf("Csv%sConstant", *input.ReferenceName))
-				}
-				if _, isModel := knownModels[*input.ReferenceName]; isModel {
-					return nilableValue(fmt.Sprintf("Csv%sModel", *input.ReferenceName))
-				}
-
-				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
-			}
-
-			if input.NestedItem == nil {
-				return nil, fmt.Errorf("a Csv must have a reference or a nested item but got neither")
-			}
-
-			innerType, err := typeNameForObjectDefinition(input.NestedItem, constants, knownModels)
-			if err != nil {
-				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
-			}
-			return nilableValue(fmt.Sprintf("Csv%s", *innerType))
+	if requiresReference {
+		if input.ReferenceName == nil {
+			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
 		}
 
-	case models.ObjectDefinitionDictionary:
-		{
-			if input.ReferenceName != nil {
-				if _, isConstant := constants[*input.ReferenceName]; isConstant {
-					return nilableValue(fmt.Sprintf("Dictionary<string, %sConstant>", *input.ReferenceName))
-				}
-				if _, isModel := knownModels[*input.ReferenceName]; isModel {
-					return nilableValue(fmt.Sprintf("Dictionary<string, %sModel>", *input.ReferenceName))
-				}
-
-				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
-			}
-
-			if input.NestedItem == nil {
-				return nil, fmt.Errorf("a dictionary must have a reference or a nested item but got neither")
-			}
-
-			innerType, err := typeNameForObjectDefinition(input.NestedItem, constants, knownModels)
-			if err != nil {
-				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
-			}
-			return nilableValue(fmt.Sprintf("Dictionary<string, %s>", *innerType))
+		_, isConstant := constants[*input.ReferenceName]
+		_, isModel := models[*input.ReferenceName]
+		if !isConstant && !isModel {
+			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
 		}
-
-	case models.ObjectDefinitionList:
-		{
-			if input.ReferenceName != nil {
-				if _, isConstant := constants[*input.ReferenceName]; isConstant {
-					return nilableValue(fmt.Sprintf("List<%sConstant>", *input.ReferenceName))
-				}
-				if _, isModel := knownModels[*input.ReferenceName]; isModel {
-					return nilableValue(fmt.Sprintf("List<%sModel>", *input.ReferenceName))
-				}
-
-				return nil, fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
-			}
-
-			if input.NestedItem == nil {
-				return nil, fmt.Errorf("a list item must have a reference or a nested item but got neither")
-			}
-
-			innerType, err := typeNameForObjectDefinition(input.NestedItem, constants, knownModels)
-			if err != nil {
-				return nil, fmt.Errorf("determining inner type for object definition: %+v", err)
-			}
-			return nilableValue(fmt.Sprintf("List<%s>", *innerType))
+		if isConstant && isModel {
+			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model", *input.ReferenceName)
 		}
-
-	case models.ObjectDefinitionReference:
-		{
-			if input.ReferenceName == nil {
-				return nil, fmt.Errorf("a reference must have a reference name but didn't get one")
-			}
-
-			// is this a constant or a model
-			if _, isConstant := constants[*input.ReferenceName]; isConstant {
-				val := fmt.Sprintf("%s", *input.ReferenceName)
-				return &val, nil
-			}
-			if _, isModel := knownModels[*input.ReferenceName]; isModel {
-				val := fmt.Sprintf("%s", *input.ReferenceName)
-				return &val, nil
-			}
-
-			return nil, fmt.Errorf("the Reference %q wasn't found as a Constant or a Model", *input.ReferenceName)
-		}
-
-	case models.ObjectDefinitionBoolean:
-		return nilableValue("bool")
-
-	case models.ObjectDefinitionDateTime:
-		return nilableValue("DateTime")
-
-	case models.ObjectDefinitionFloat:
-		return nilableValue("float")
-
-	case models.ObjectDefinitionInteger:
-		return nilableValue("int")
-
-	// this is using RawFile and not `byte[]` since byte streams are also possible but aren't files
-	case models.ObjectDefinitionRawFile:
-		return nilableValue("CustomTypes.RawFile")
-
-	case models.ObjectDefinitionRawObject:
-		return nilableValue("object")
-
-	case models.ObjectDefinitionString:
-		return nilableValue("string")
+	}
+	if !requiresReference && input.ReferenceName != nil {
+		return fmt.Errorf("a Reference must not be specified for a %q type but got %q", string(input.Type), *input.ReferenceName)
 	}
 
-	return nil, fmt.Errorf("unmapped object definition value: %+v", *input)
-}
-
-// topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
-func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
-	if input.NestedItem != nil {
-		return topLevelObjectDefinition(*input.NestedItem)
-	}
-
-	return input
+	return nil
 }
