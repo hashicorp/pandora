@@ -2,6 +2,7 @@ package pipeline
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 

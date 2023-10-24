@@ -2,9 +2,10 @@ package processors
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
 	"unicode"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 )
 
 var _ FieldNameProcessor = fieldNameMaxToMaximum{}

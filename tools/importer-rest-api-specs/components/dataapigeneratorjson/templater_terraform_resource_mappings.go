@@ -2,6 +2,7 @@ package dataapigeneratorjson
 
 import (
 	"encoding/json"
+
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 

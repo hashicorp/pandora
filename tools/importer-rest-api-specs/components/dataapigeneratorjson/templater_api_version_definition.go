@@ -1,25 +1,17 @@
 package dataapigeneratorjson
 
 import (
-	"encoding/json"
 	"sort"
 
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-type VersionDefinition struct {
-	ApiVersion string   `json:"ApiVersion"`
-	Preview    bool     `json:"Preview"`
-	Source     string   `json:"Source"`
-	Resources  []string `json:"Resources"`
-	Generate   bool     `json:"Generate"`
-}
-
-func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) ([]byte, error) {
-	versionDefinition := VersionDefinition{
+func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataApiModels.ApiVersionDefinition, error) {
+	versionDefinition := dataApiModels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
-		Preview:    isPreview,
-		Source:     "ResourceManagerRestApiSpecs", // TODO: this needs threading through (likely needs to go into the metadata file)
+		IsPreview:  isPreview,
+		Source:     dataApiModels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
 		Generate:   true,
 	}
 
@@ -35,10 +27,5 @@ func codeForApiVersionDefinition(apiVersion string, isPreview bool, resources ma
 
 	versionDefinition.Resources = names
 
-	data, err := json.MarshalIndent(&versionDefinition, "", " ")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
+	return &versionDefinition, nil
 }
