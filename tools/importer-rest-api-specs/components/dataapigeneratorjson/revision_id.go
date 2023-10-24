@@ -3,9 +3,9 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"path"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 )
 
