@@ -10,6 +10,7 @@ type ObjectDefinition struct {
 	ReferenceName *string `json:"referenceName"`
 
 	// NestedItem is a nested ObjectDefinition when Type is a Dictionary or List
+	// NOTE: that it's possible to have deeply-nested ObjectDefinitions, e.g. a List of a List of a Dictionary[String (key, fixed as a string) : Integer (value)
 	NestedItem *ObjectDefinition `json:"nestedItem,omitempty"`
 
 	// NOTE: these 3 fields were previously located against the Field but instead should be located against the Object Definition
@@ -21,7 +22,7 @@ type ObjectDefinition struct {
 	// MinItems specifies the minimum number of items a CSV/Dictionary/List can have, this field is only relevant for the Terraform Schema
 	MinItems *int `json:"minItems,omitempty"`
 
-	// DateFormat specifies the format a date field should have, this field is only relevant for the Terraform Schema
+	// DateFormat specifies the format a date field should have, which allows us to generate helper methods (Get and Set) for this date format
 	DateFormat *DateFormat `json:"dateFormat,omitempty"`
 }
 
@@ -55,7 +56,8 @@ const (
 	// CsvObjectDefinitionType signifies that this field contains a CSV of simple types e.g. String, Integer, Float.
 	CsvObjectDefinitionType ObjectDefinitionType = "Csv"
 
-	// DictionaryObjectDefinitionType signifies that this field contains a Dictionary, the Dictionary's Value Type is defined as Nested Object Definition.
+	// DictionaryObjectDefinitionType signifies that this field contains a Dictionary, the
+	// Key for a Dictionary is always a String - the Value Type is defined as Nested Object Definition.
 	DictionaryObjectDefinitionType ObjectDefinitionType = "Dictionary"
 
 	// ListObjectDefinitionType signifies that this field contains a List, the List's Value Type is defined as a Nested Object Definition.

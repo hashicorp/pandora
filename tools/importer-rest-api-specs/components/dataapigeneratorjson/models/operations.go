@@ -23,8 +23,8 @@ type Operation struct {
 	HTTPMethod string `json:"httpMethod"`
 
 	// Options is a list of options which can be specified for this operation
-	// these are querystring parameters such as 'limit' or 'forceDelete' or similar
-	Options []Option `json:"options,omitempty"`
+	// which are either HTTP Headers or QueryString parameters, for example 'limit' or 'forceDelete' or similar
+	Options *[]Option `json:"options,omitempty"`
 
 	// ResourceIdName specifies the name of the optional Resource ID used for this operation
 	ResourceIdName *string `json:"resourceId,omitempty"`
@@ -36,6 +36,7 @@ type Operation struct {
 	ResponseObject *ObjectDefinition `json:"responseObject,omitempty"`
 
 	// UriSuffix specifies the suffix which should be appended to the ResourceID for this operation
+	// NOTE: that a UriSuffix can be specified instead of, as well as in addition to, a ResourceID.
 	// (e.g. `/shutdown`)
 	UriSuffix *string `json:"uriSuffix,omitempty"`
 }
@@ -46,6 +47,8 @@ type Option struct {
 	HeaderName *string `json:"headerName,omitempty"`
 
 	// Optional specifies whether this Option could be specified in the Request
+	// NOTE: this is intentionally not inferred from Required to allow retrieving HTTP Header
+	// and QueryString values in the Response in the future.
 	Optional bool `json:"optional"`
 
 	// QueryStringName is the Key which should be used for this Option in the QueryString
@@ -56,6 +59,7 @@ type Option struct {
 	Required bool `json:"required"`
 
 	// Field specifies the DisplayName of the Option (e.g. `ConstantOption`, `SecondVal`)
+	// which is valid as an identifier.
 	Field string `json:"field"`
 
 	// OptionsObjectDefinition describes the information contained within the Field

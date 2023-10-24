@@ -37,11 +37,6 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		longRunning = true
 	}
 
-	if operation.RequestObject == nil && (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) {
-		// Post and Put operations should have a RequestObject one but it's possible they don't
-		// TODO what goes here?
-	}
-
 	resourceId := ""
 	if operation.ResourceIdName != nil {
 		resourceId = *operation.ResourceIdName
@@ -123,7 +118,7 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 
 			options = append(options, option)
 		}
-		op.Options = options
+		op.Options = pointer.To(options)
 	}
 
 	data, err := json.MarshalIndent(op, "", " ")
