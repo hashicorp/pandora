@@ -30,19 +30,38 @@ type ObjectDefinition struct {
 type ObjectDefinitionType string
 
 const (
-	// BooleanObjectDefinitionType is used to signify that this type is a simple Boolean.
-	BooleanObjectDefinitionType   ObjectDefinitionType = "Boolean"
-	DateTimeObjectDefinitionType  ObjectDefinitionType = "DateTime"
-	IntegerObjectDefinitionType   ObjectDefinitionType = "Integer"
-	FloatObjectDefinitionType     ObjectDefinitionType = "Float"
-	RawFileObjectDefinitionType   ObjectDefinitionType = "RawFile"
-	RawObjectObjectDefinitionType ObjectDefinitionType = "RawObject"
-	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
-	StringObjectDefinitionType    ObjectDefinitionType = "String"
+	// BooleanObjectDefinitionType signifies that this type is a simple Boolean.
+	BooleanObjectDefinitionType ObjectDefinitionType = "Boolean"
 
-	CsvObjectDefinitionType        ObjectDefinitionType = "Csv"
+	// DateTimeObjectDefinitionType signifies that this field contains a DateTime value.
+	DateTimeObjectDefinitionType ObjectDefinitionType = "DateTime"
+
+	// IntegerObjectDefinitionType signifies that this field contains an Integer.
+	IntegerObjectDefinitionType ObjectDefinitionType = "Integer"
+
+	// FloatObjectDefinitionType signifies that this field contains a Float.
+	FloatObjectDefinitionType ObjectDefinitionType = "Float"
+
+	// RawFileObjectDefinitionType signifies that this field contains a byte value e.g. []byte.
+	RawFileObjectDefinitionType ObjectDefinitionType = "RawFile"
+
+	// RawObjectObjectDefinitionType signifies that this field contains an interface value e.g. interface{}.
+	RawObjectObjectDefinitionType ObjectDefinitionType = "RawObject"
+
+	// ReferenceObjectDefinitionType signifies that this field points to a Constant or a Model.
+	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
+
+	// StringObjectDefinitionType signifies that this field contains a String.
+	StringObjectDefinitionType ObjectDefinitionType = "String"
+
+	// CsvObjectDefinitionType signifies that this field contains a CSV of simple types e.g. String, Integer, Float
+	CsvObjectDefinitionType ObjectDefinitionType = "Csv"
+
+	// DictionaryObjectDefinitionType signifies that this field contains a Dictionary, the Dictionary's Value Type is defined as Nested Object Definition.
 	DictionaryObjectDefinitionType ObjectDefinitionType = "Dictionary"
-	ListObjectDefinitionType       ObjectDefinitionType = "List"
+
+	// ListObjectDefinitionType signifies that this field contains a List, the List's Value Type is defined as a Nested Object Definition.
+	ListObjectDefinitionType ObjectDefinitionType = "List"
 
 	EdgeZoneObjectDefinitionType                                ObjectDefinitionType = "EdgeZone"
 	LocationObjectDefinitionType                                ObjectDefinitionType = "Location"
