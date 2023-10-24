@@ -53,7 +53,7 @@ func (s Generator) generateResources(resourceName string, resource models.AzureA
 	s.logger.Debug("Generating Operations..")
 	for operationName, operation := range resource.Operations {
 		s.logger.Trace(fmt.Sprintf("Generating Operation %q..", operationName))
-		code, err := codeForOperation(operationName, operation, resource)
+		code, err := codeForOperation(operationName, operation, resource.Constants, resource.Models)
 		if err != nil {
 			return fmt.Errorf("marshaling Operation %q: %+v", operationName, err)
 		}
