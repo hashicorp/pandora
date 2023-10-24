@@ -229,7 +229,7 @@ func validateObjectDefinition(input dataApiModels.ObjectDefinition, constants ma
 			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
 		}
 		if isConstant && isModel {
-			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model")
+			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model", *input.ReferenceName)
 		}
 	}
 	if !requiresReference && input.ReferenceName != nil {
