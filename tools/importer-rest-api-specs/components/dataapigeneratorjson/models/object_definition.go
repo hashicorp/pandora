@@ -54,7 +54,7 @@ const (
 	// StringObjectDefinitionType signifies that this field contains a String.
 	StringObjectDefinitionType ObjectDefinitionType = "String"
 
-	// CsvObjectDefinitionType signifies that this field contains a CSV of simple types e.g. String, Integer, Float
+	// CsvObjectDefinitionType signifies that this field contains a CSV of simple types e.g. String, Integer, Float.
 	CsvObjectDefinitionType ObjectDefinitionType = "Csv"
 
 	// DictionaryObjectDefinitionType signifies that this field contains a Dictionary, the Dictionary's Value Type is defined as Nested Object Definition.

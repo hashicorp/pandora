@@ -58,6 +58,6 @@ type Option struct {
 	// Field specifies the DisplayName of the Option (e.g. `ConstantOption`, `SecondVal`)
 	Field string `json:"field"`
 
-	// FieldType specifies what kind of Option this is (e.g. `String`, `Bool`)
-	FieldType ObjectDefinitionType `json:"fieldType"`
+	// OptionsObjectDefinition describes the information contained within the Field
+	ObjectDefinition *OptionObjectDefinition `json:"optionsObjectDefinition"`
 }

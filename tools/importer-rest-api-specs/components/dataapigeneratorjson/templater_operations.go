@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	operationModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -46,7 +46,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		resourceId = *operation.ResourceIdName
 	}
 
-	options := make([]operationModels.Option, 0)
+	options := make([]dataApiModels.Option, 0)
 	if len(operation.Options) > 0 {
 		sortedOptionsKeys := make([]string, 0)
 		for k := range operation.Options {
@@ -61,11 +61,11 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 				return nil, fmt.Errorf("missing object definition")
 			}
 
-			option := operationModels.Option{
-				HeaderName:  optionDetails.HeaderName,
-				QueryString: optionDetails.QueryStringName,
-				Field:       optionName,
-				FieldType:   operationModels.ObjectDefinitionType(optionDetails.ObjectDefinition.Type),
+			option := dataApiModels.Option{
+				HeaderName:       optionDetails.HeaderName,
+				QueryString:      optionDetails.QueryStringName,
+				Field:            optionName,
+				ObjectDefinition: dataApiModels.OptionObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(optionDetails.ObjectDefinition),
 			}
 
 			if !optionDetails.Required {
@@ -95,7 +95,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		//	code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
 		//}
 	}
-	op := operationModels.Operation{
+	op := dataApiModels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              statusCodes,
@@ -104,8 +104,8 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		HTTPMethod:                       HTTPMethod,
 		Options:                          options,
 		ResourceIdName:                   pointer.To(resourceId),
-		RequestObject:                    operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.RequestObject),
-		ResponseObject:                   operationModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.ResponseObject),
+		RequestObject:                    dataApiModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.RequestObject),
+		ResponseObject:                   dataApiModels.ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(operation.ResponseObject),
 		UriSuffix:                        pointer.To(uriSuffix),
 	}
 
