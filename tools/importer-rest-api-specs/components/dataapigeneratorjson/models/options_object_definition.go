@@ -1,14 +1,12 @@
 package models
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-
 // OptionObjectDefinition specifies the type of values that the HTTP Operation supports and sends at Request time in either the
 // HTTP Header and/or the QueryString
 type OptionObjectDefinition struct {
 	// OptionObjectDefinitionType defines what kind of ObjectDefinition this is, such as a Reference, String or List
 	Type OptionObjectDefinitionType `json:"type"`
 
-	// ReferenceName is the name of the Constant or Model that this is a reference to
+	// ReferenceName is the name of the Constant that this is a reference to
 	ReferenceName *string `json:"referenceName"`
 
 	// NestedItem is a nested OptionObjectDefinition when Type is a List
@@ -36,20 +34,6 @@ const (
 	// ListOptionObjectDefinitionType signifies that this field contains a List, the List's Value Type is defined as a Nested Object Definition.
 	ListOptionObjectDefinitionType OptionObjectDefinitionType = "List"
 
-	// ReferenceOptionObjectDefinitionType signifies that this field points to a Constant or a Model.
+	// ReferenceOptionObjectDefinitionType signifies that this field points to a Constant.
 	ReferenceOptionObjectDefinitionType OptionObjectDefinitionType = "Reference"
 )
-
-func OptionObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input *models.ObjectDefinition) *OptionObjectDefinition {
-	if input == nil {
-		return nil
-	}
-
-	objectDefinition := OptionObjectDefinition{
-		ReferenceName: input.ReferenceName,
-		Type:          OptionObjectDefinitionType(input.Type),
-		NestedItem:    OptionObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input.NestedItem),
-	}
-
-	return &objectDefinition
-}

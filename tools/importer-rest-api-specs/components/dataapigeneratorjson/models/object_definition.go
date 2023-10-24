@@ -1,7 +1,5 @@
 package models
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-
 // ObjectDefinition specifies additional information about a specific Object and any associated nested Objects
 type ObjectDefinition struct {
 	// ObjectDefinitionType defines what kind of ObjectDefinition this is, such as a Reference, String or List
@@ -87,17 +85,3 @@ const (
 	// TODO: others in the future https://github.com/hashicorp/pandora/issues/8 e.g.
 	// RFC3339NanoDateFormat DateFormat = "RFC3339Nano"
 )
-
-func ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input *models.ObjectDefinition) *ObjectDefinition {
-	if input == nil {
-		return nil
-	}
-
-	objectDefinition := ObjectDefinition{
-		ReferenceName: input.ReferenceName,
-		Type:          ObjectDefinitionType(input.Type),
-		NestedItem:    ObjectDefinitionFromSchemaFieldFromImporterRestApiSpecs(input.NestedItem),
-	}
-
-	return &objectDefinition
-}
