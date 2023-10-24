@@ -14,6 +14,8 @@ func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []m
 		return nil
 	}
 
+	// TODO: we should recreate the folder for this service
+
 	// Generate each of the API Versions for this Service
 	for _, apiVersion := range apiVersions {
 		logger.Debug("Generating Data API Definition in JSON..")

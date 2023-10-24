@@ -6,7 +6,6 @@ import (
 
 type Generator struct {
 	apiVersionPackageName         string
-	logger                        hclog.Logger
 	outputDirectory               string
 	resourceProvider              *string
 	serviceName                   string
@@ -15,4 +14,7 @@ type Generator struct {
 	workingDirectoryForService    string
 	workingDirectoryForApiVersion string
 	workingDirectoryForTerraform  string
+
+	// TODO: pass this into methods as needed, so that we can ensure the logger is always named as required?
+	logger hclog.Logger
 }
