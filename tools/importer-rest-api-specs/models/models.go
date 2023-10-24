@@ -16,6 +16,22 @@ type AzureApiDefinition struct {
 	Resources   map[string]AzureApiResource
 }
 
+func (d AzureApiDefinition) IsPreviewVersion() bool {
+	lower := strings.ToLower(d.ApiVersion)
+	// handles preview, privatepreview and publicpreview
+	if strings.Contains(lower, "preview") {
+		return true
+	}
+	if strings.Contains(lower, "beta") {
+		return true
+	}
+	if strings.Contains(lower, "alpha") {
+		return true
+	}
+
+	return false
+}
+
 type AzureApiResource struct {
 	Constants   map[string]resourcemanager.ConstantDetails
 	Models      map[string]ModelDetails
