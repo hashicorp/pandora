@@ -12,7 +12,7 @@ func (s Generator) generateServiceDefinitions(apiVersions []models.AzureApiDefin
 	s.logger.Debug(fmt.Sprintf("Processing Service %q..", s.serviceName))
 
 	s.logger.Trace(fmt.Sprintf("Generating Service Definition Code for Service %q..", s.serviceName))
-	serviceDefinition, err := codeForServiceDefinition(s.serviceName, s.resourceProvider, s.terraformPackageName, apiVersions)
+	serviceDefinition, err := buildServiceDefinition(s.serviceName, s.resourceProvider, s.terraformPackageName, apiVersions)
 	if err != nil {
 		return fmt.Errorf("mapping Service Definition for %q: %+v", s.serviceName, err)
 	}

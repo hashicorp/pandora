@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func codeForServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataApiModels.ServiceDefinition, error) {
+func buildServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataApiModels.ServiceDefinition, error) {
 	output := dataApiModels.ServiceDefinition{
 		Name:             serviceName,
 		ResourceProvider: resourceProvider,
