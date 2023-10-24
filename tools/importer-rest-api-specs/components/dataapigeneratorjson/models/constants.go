@@ -42,14 +42,14 @@ type ConstantValue struct {
 	// an identifier.
 	//
 	// Example: `StandardA1`.
-	Key string `json:"Key"`
+	Key string `json:"key"`
 
 	// Value specifies the literal value for this Constant as defined in API.
 	//
 	// Example: `Standard_A1`.
-	Value string `json:"Value"`
+	Value string `json:"value"`
 
 	// Description is an optional description for this constant value - providing
 	// further context as required.
-	Description *string `json:"Description,omitempty"`
+	Description *string `json:"description,omitempty"`
 }
