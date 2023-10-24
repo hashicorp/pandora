@@ -24,6 +24,13 @@ type Operation struct {
 	UriSuffix                        string           `json:"UriSuffix,omitempty"`
 }
 
+type ObjectDefinition struct {
+	// TODO: update to use the existing `ObjectDefinition` in models
+	Type          ObjectDefinitionType `json:"Type"`
+	ReferenceName *string              `json:"ReferenceName,omitempty"`
+	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
+}
+
 type OptionsObject struct {
 	Name    string   `json:"Name"`
 	Options []Option `json:"Options"`
