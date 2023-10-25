@@ -2,8 +2,14 @@ package models
 
 // MetaData contains Meta Data about this
 type MetaData struct {
-	// TODO: the license information could make sense to go in here, since all items within a
-	// directory should be under the same license
+	// DataSource specifies the type of Data that this Source is related to
+	// for example `AzureResourceManager`. This allows multiple directories
+	// to be used to populate the same Data Source (for example, auto-generated
+	// and handwritten) and then coalesced together.
+	DataSource DataSource `json:"dataSource"`
+
+	// SourceInformation specifies where the data within this directory was sourced.
+	SourceInformation ApiDefinitionsSource `json:"sourceInformation"`
 
 	// GitRevision specified the Git Revision (SHA) of the Repository
 	// where this data has been sourced from.
@@ -11,6 +17,16 @@ type MetaData struct {
 	// the `microsoftgraph/msgraph-metadata` repository (for MS Graph) - or null (for handwritten).
 	GitRevision *string `json:"gitRevision"`
 }
+
+type DataSource string
+
+const (
+	// AzureResourceManagerDataSource specifies that this Data is related to Azure Resource Manager.
+	AzureResourceManagerDataSource DataSource = "AzureResourceManager"
+
+	// MicrosoftGraphDataSource specifies that this Data is for Microsoft Graph.
+	MicrosoftGraphDataSource DataSource = "MicrosoftGraph"
+)
 
 type ApiDefinitionsSource string
 

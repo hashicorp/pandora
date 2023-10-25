@@ -11,7 +11,9 @@ import (
 
 func OutputMetaData(workingDirectory, swaggerGitSha string) error {
 	metaData := dataApiModels.MetaData{
-		GitRevision: pointer.To(swaggerGitSha),
+		DataSource:        dataApiModels.AzureResourceManagerDataSource,
+		SourceInformation: dataApiModels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
+		GitRevision:       pointer.To(swaggerGitSha),
 	}
 
 	data, err := json.MarshalIndent(&metaData, "", "\t")
