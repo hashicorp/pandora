@@ -4,18 +4,12 @@ import (
 	"encoding/json"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type TerraformResourceTestConfig struct {
-	Basic          string  `json:"Basic"`
-	RequiresImport string  `json:"RequiresImport"`
-	CompleteConfig *string `json:"CompleteConfig,omitempty"`
-	TemplateConfig *string `json:"TemplateConfig,omitempty"`
-}
-
 func codeForTerraformResourceTestDefinition(details resourcemanager.TerraformResourceDetails) ([]byte, error) {
-	testConfig := TerraformResourceTestConfig{
+	testConfig := models.TerraformResourceTestConfig{
 		Basic:          prepareTerraformTestConfigForOutput(details.Tests.BasicConfiguration),
 		RequiresImport: prepareTerraformTestConfigForOutput(details.Tests.RequiresImportConfiguration),
 		CompleteConfig: conditionallyAddTestOutput(details.Tests.CompleteConfiguration),
