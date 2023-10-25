@@ -5,41 +5,19 @@ import (
 	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type SchemaModel struct {
-	Fields []SchemaField `json:"Fields"`
-}
-
-type SchemaField struct {
-	HclName          string                           `json:"HclName"`
-	Type             string                           `json:"Type"`
-	Documentation    *string                          `json:"Documentation,omitempty"`
-	Required         *bool                            `json:"Required,omitempty"`
-	Optional         *bool                            `json:"Optional,omitempty"`
-	Computed         *bool                            `json:"Computed,omitempty"`
-	ForceNew         *bool                            `json:"ForceNew,omitempty"`
-	Name             string                           `json:"Name"`
-	Constants        *resourcemanager.ConstantDetails `json:"Constants,omitempty"`
-	ObjectDefinition *SchemaFieldObjectDefinition     `json:"ObjectDefinition,omitempty"`
-}
-
-type SchemaFieldObjectDefinition struct {
-	Type          TerraformSchemaFieldType     `json:"Type"`
-	ReferenceName *string                      `json:"ReferenceName,omitempty"`
-	NestedObject  *SchemaFieldObjectDefinition `json:"NestedObject,omitempty"`
-}
-
-func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchemaModelDefinition, details resourcemanager.TerraformResourceDetails, resource models.AzureApiResource, apiVersionPackageName, resourcePackageName string) ([]byte, error) {
+func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchemaModelDefinition, details resourcemanager.TerraformResourceDetails, resource importerModels.AzureApiResource, apiVersionPackageName, resourcePackageName string) ([]byte, error) {
 	fieldList := make([]string, 0)
 	for f := range model.Fields {
 		fieldList = append(fieldList, f)
 	}
 	sort.Strings(fieldList)
 
-	schemaFields := make([]SchemaField, 0)
+	schemaFields := make([]dataApiModels.SchemaField, 0)
 	for _, fieldName := range fieldList {
 		def := model.Fields[fieldName]
 
@@ -59,11 +37,10 @@ func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchema
 	return data, nil
 }
 
-func fieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, apiVersionPackageName, resourcePackageName string) (SchemaField, error) {
-	schemaField := SchemaField{
+func fieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, apiVersionPackageName, resourcePackageName string) (dataApiModels.SchemaField, error) {
+	schemaField := dataApiModels.SchemaField{
 		HclName:          input.HclName,
 		Name:             name,
-		Type:             string(input.ObjectDefinition.Type),
 		ObjectDefinition: objectDefinitionfromSchemaField(input.ObjectDefinition),
 	}
 
@@ -111,14 +88,14 @@ func topLevelFieldObjectDefinition(input resourcemanager.TerraformSchemaFieldObj
 	return input
 }
 
-func objectDefinitionfromSchemaField(input resourcemanager.TerraformSchemaFieldObjectDefinition) *SchemaFieldObjectDefinition {
-	objectDefinition := SchemaFieldObjectDefinition{
+func objectDefinitionfromSchemaField(input resourcemanager.TerraformSchemaFieldObjectDefinition) *dataApiModels.ObjectDefinition {
+	objectDefinition := dataApiModels.ObjectDefinition{
 		ReferenceName: input.ReferenceName,
-		Type:          TerraformSchemaFieldType(input.Type),
+		Type:          dataApiModels.ObjectDefinitionType(input.Type),
 	}
 
 	if input.NestedObject != nil {
-		objectDefinition.NestedObject = objectDefinitionfromSchemaField(*input.NestedObject)
+		objectDefinition.NestedItem = objectDefinitionfromSchemaField(*input.NestedObject)
 	}
 
 	return &objectDefinition
