@@ -13,18 +13,10 @@ import (
 )
 
 func codeForOperation(operationName string, input importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
-	statusCodes := make([]int, 0)
-	if usesNonDefaultStatusCodes(input) {
-		for _, sc := range input.ExpectedStatusCodes {
-			statusCodes = append(statusCodes, sc)
-		}
-		sort.Ints(statusCodes)
-	}
-
 	output := dataApiModels.Operation{
 		Name:                             operationName,
 		ContentType:                      input.ContentType,
-		ExpectedStatusCodes:              statusCodes,
+		ExpectedStatusCodes:              input.ExpectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
 		HTTPMethod:                       strings.ToUpper(input.Method),
@@ -91,36 +83,6 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	}
 
 	return data, nil
-}
-
-func usesNonDefaultStatusCodes(operation importerModels.OperationDetails) bool {
-	defaultStatusCodes := map[string][]int{
-		"get":    {200},
-		"post":   {200, 201},
-		"put":    {200, 201},
-		"delete": {200, 201},
-		"patch":  {200, 201},
-	}
-	expected, ok := defaultStatusCodes[strings.ToLower(operation.Method)]
-	if !ok {
-		// potentially an unsupported use-case but fine for now
-		return true
-	}
-
-	if len(expected) != len(operation.ExpectedStatusCodes) {
-		return true
-	}
-
-	sort.Ints(expected)
-	sort.Ints(operation.ExpectedStatusCodes)
-	for i, ev := range expected {
-		av := operation.ExpectedStatusCodes[i]
-		if ev != av {
-			return true
-		}
-	}
-
-	return false
 }
 
 var internalObjectDefinitionsToOptionObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.OptionObjectDefinitionType{
