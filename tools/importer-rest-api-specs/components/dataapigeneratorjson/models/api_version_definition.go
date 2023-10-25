@@ -12,9 +12,6 @@ type ApiVersionDefinition struct {
 	// Generate specifies whether this API Version should be generated or not.
 	Generate bool `json:"generate"`
 
-	// Source specifies where the source data for this API version came from.
-	Source ApiDefinitionsSource `json:"source"` // TODO: move this into the MetaData file?
-
 	// Resources specifies a list of Api Resource names that exist within this API version.
 	Resources []string `json:"resources"`
 }

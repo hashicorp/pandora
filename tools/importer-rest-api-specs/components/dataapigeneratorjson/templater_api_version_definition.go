@@ -11,7 +11,6 @@ func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[
 	versionDefinition := dataApiModels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,
-		Source:     dataApiModels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
 		Generate:   true,
 	}
 

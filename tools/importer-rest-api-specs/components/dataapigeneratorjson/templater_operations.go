@@ -12,69 +12,43 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForOperation(operationName string, operation importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
-	contentType := ""
-	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
-		contentType = operation.ContentType
-	}
-
-	statusCodes := make([]int, 0)
-	if usesNonDefaultStatusCodes(operation) {
-		for _, sc := range operation.ExpectedStatusCodes {
-			statusCodes = append(statusCodes, sc)
-		}
-		sort.Ints(statusCodes)
-	}
-
-	longRunning := false
-	if operation.LongRunning {
-		// TODO: we can use the `LongRunning` operation base types too
-		longRunning = true
-	}
-
-	resourceId := ""
-	if operation.ResourceIdName != nil {
-		resourceId = *operation.ResourceIdName
-	}
-
-	uriSuffix := ""
-	if operation.UriSuffix != nil {
-		uriSuffix = *operation.UriSuffix
-	}
-
-	responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
-	}
-
-	requestObject, err := mapObjectDefinition(operation.RequestObject, knownConstants, knownModels)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
-	}
-
-	op := dataApiModels.Operation{
+func codeForOperation(operationName string, input importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
+	output := dataApiModels.Operation{
 		Name:                             operationName,
-		ContentType:                      contentType,
-		ExpectedStatusCodes:              statusCodes,
-		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
-		LongRunning:                      longRunning,
-		HTTPMethod:                       strings.ToUpper(operation.Method),
-		ResourceIdName:                   pointer.To(resourceId),
-		RequestObject:                    responseObject,
-		ResponseObject:                   requestObject,
-		UriSuffix:                        pointer.To(uriSuffix),
+		ContentType:                      input.ContentType,
+		ExpectedStatusCodes:              input.ExpectedStatusCodes,
+		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
+		LongRunning:                      input.LongRunning,
+		HTTPMethod:                       strings.ToUpper(input.Method),
+		ResourceIdName:                   input.ResourceIdName,
+		UriSuffix:                        input.UriSuffix,
 	}
 
-	if len(operation.Options) > 0 {
+	if input.RequestObject != nil {
+		requestObject, err := mapObjectDefinition(input.RequestObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the request object definition: %+v", err)
+		}
+		output.RequestObject = requestObject
+	}
+	if input.ResponseObject != nil {
+		responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
+		}
+		output.ResponseObject = responseObject
+	}
+
+	if len(input.Options) > 0 {
 		options := make([]dataApiModels.Option, 0)
 		sortedOptionsKeys := make([]string, 0)
-		for k := range operation.Options {
+		for k := range input.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
 		}
 		sort.Strings(sortedOptionsKeys)
 
 		for _, optionName := range sortedOptionsKeys {
-			optionDetails := operation.Options[optionName]
+			optionDetails := input.Options[optionName]
 
 			if optionDetails.ObjectDefinition == nil {
 				return nil, fmt.Errorf("missing object definition")
@@ -100,45 +74,15 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 
 			options = append(options, option)
 		}
-		op.Options = pointer.To(options)
+		output.Options = pointer.To(options)
 	}
 
-	data, err := json.MarshalIndent(op, "", " ")
+	data, err := json.MarshalIndent(output, "", " ")
 	if err != nil {
 		return nil, err
 	}
 
 	return data, nil
-}
-
-func usesNonDefaultStatusCodes(operation importerModels.OperationDetails) bool {
-	defaultStatusCodes := map[string][]int{
-		"get":    {200},
-		"post":   {200, 201},
-		"put":    {200, 201},
-		"delete": {200, 201},
-		"patch":  {200, 201},
-	}
-	expected, ok := defaultStatusCodes[strings.ToLower(operation.Method)]
-	if !ok {
-		// potentially an unsupported use-case but fine for now
-		return true
-	}
-
-	if len(expected) != len(operation.ExpectedStatusCodes) {
-		return true
-	}
-
-	sort.Ints(expected)
-	sort.Ints(operation.ExpectedStatusCodes)
-	for i, ev := range expected {
-		av := operation.ExpectedStatusCodes[i]
-		if ev != av {
-			return true
-		}
-	}
-
-	return false
 }
 
 var internalObjectDefinitionsToOptionObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.OptionObjectDefinitionType{

@@ -83,9 +83,6 @@ func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataApiMode
 	}
 
 	if input.Type == resourcemanager.SubscriptionIdSegment {
-		if input.FixedValue == nil {
-			return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
-		}
 		return &dataApiModels.ResourceIdSegment{
 			Type: dataApiModels.SubscriptionIdResourceIdSegmentType,
 			Name: input.Name,

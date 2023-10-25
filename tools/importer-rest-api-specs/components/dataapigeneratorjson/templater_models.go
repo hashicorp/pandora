@@ -25,6 +25,7 @@ func codeForModel(modelName string, model importerModels.ModelDetails, parentMod
 	}
 
 	dataApiModel := dataApiModels.Model{
+		Name:   modelName,
 		Fields: *fields,
 	}
 
