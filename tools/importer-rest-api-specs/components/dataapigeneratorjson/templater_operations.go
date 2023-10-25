@@ -26,11 +26,6 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		sort.Ints(statusCodes)
 	}
 
-	fieldContainingPaginationDetails := ""
-	if operation.FieldContainingPaginationDetails != nil {
-		fieldContainingPaginationDetails = *operation.FieldContainingPaginationDetails
-	}
-
 	longRunning := false
 	if operation.LongRunning {
 		// TODO: we can use the `LongRunning` operation base types too
@@ -48,17 +43,6 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 	}
 
 	HTTPMethod := strings.Title(strings.ToLower(operation.Method))
-	if operation.FieldContainingPaginationDetails != nil {
-		HTTPMethod = "List"
-		// TODO is there a todo here?
-		// since this is a List operation we need to additionally output the HttpMethod
-		// since it's possible that these are non-standard (e.g. AppConfig 2020-06-01 ListKeys
-		// is a POST not a GET for a List operation)
-		//if !strings.EqualFold(operation.Method, "GET") {
-		//	method := dotNetNameForHttpMethod(operation.Method)
-		//	code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
-		//}
-	}
 
 	responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
 	if err != nil {
@@ -74,7 +58,7 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              statusCodes,
-		FieldContainingPaginationDetails: pointer.To(fieldContainingPaginationDetails),
+		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
 		LongRunning:                      longRunning,
 		HTTPMethod:                       HTTPMethod,
 		ResourceIdName:                   pointer.To(resourceId),
