@@ -3,40 +3,16 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type ResourceMapping struct {
-	ResourceIdMapping             *[]ResourceIdMapping            `json:"ResourceIdMapping,omitempty"`
-	DirectAssignmentFieldMappings *[]DirectAssignmentFieldMapping `json:"DirectAssignmentFieldMappings,omitempty"`
-	ModelToModelFieldMappings     *[]ModelToModelFieldMapping     `json:"ModelToModelFieldMappings,omitempty"`
-}
-
-type ResourceIdMapping struct {
-	SchemaFieldName    string `json:"SchemaFieldName"`
-	SegmentName        string `json:"SegmentName"`
-	ParsedFromParentID bool   `json:"ParsedFromParentID"`
-}
-
-type DirectAssignmentFieldMapping struct {
-	SchemaModelName string `json:"SchemaModelName"`
-	SchemaFieldPath string `json:"SchemaFieldPath"`
-	SdkModelName    string `json:"SdkModelName"`
-	SdkFieldPath    string `json:"SdkFieldPath"`
-}
-
-type ModelToModelFieldMapping struct {
-	SchemaModelName string `json:"SchemaModelName"`
-	SdkModelName    string `json:"SdkModelName"`
-	SdkFieldName    string `json:"SdkFieldName"`
-}
-
 func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceDetails) ([]byte, error) {
-	resourceMapping := ResourceMapping{}
+	resourceMapping := models.ResourceMapping{}
 
-	resourceIdMappings := make([]ResourceIdMapping, 0)
+	resourceIdMappings := make([]models.ResourceIdMapping, 0)
 	for _, item := range details.Mappings.ResourceId {
-		mapping := ResourceIdMapping{
+		mapping := models.ResourceIdMapping{
 			SchemaFieldName:    item.SchemaFieldName,
 			SegmentName:        item.SegmentName,
 			ParsedFromParentID: item.ParsedFromParentID,
@@ -48,14 +24,14 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 		resourceMapping.ResourceIdMapping = &resourceIdMappings
 	}
 
-	directAssignmentFieldMappings := make([]DirectAssignmentFieldMapping, 0)
-	modelToModelAssignmentFieldMappings := make([]ModelToModelFieldMapping, 0)
+	directAssignmentFieldMappings := make([]models.DirectAssignmentMappings, 0)
+	modelToModelAssignmentFieldMappings := make([]models.ModelToModelMappings, 0)
 	for _, item := range details.Mappings.Fields {
 		switch item.Type {
 		// TODO: BooleanEquals etc
 		case resourcemanager.DirectAssignmentMappingDefinitionType:
 			{
-				directAssignmentFieldMapping := DirectAssignmentFieldMapping{
+				directAssignmentFieldMapping := models.DirectAssignmentMappings{
 					SchemaModelName: item.DirectAssignment.SchemaModelName,
 					SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 					SdkModelName:    item.DirectAssignment.SdkModelName,
@@ -65,7 +41,7 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 			}
 		case resourcemanager.ModelToModelMappingDefinitionType:
 			{
-				modelToModelAssignmentFieldMapping := ModelToModelFieldMapping{
+				modelToModelAssignmentFieldMapping := models.ModelToModelMappings{
 					SchemaModelName: item.ModelToModel.SchemaModelName,
 					SdkModelName:    item.ModelToModel.SdkModelName,
 					SdkFieldName:    item.ModelToModel.SdkFieldName,
@@ -76,11 +52,11 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 	}
 
 	if len(directAssignmentFieldMappings) > 0 {
-		resourceMapping.DirectAssignmentFieldMappings = &directAssignmentFieldMappings
+		resourceMapping.DirectAssignmentMappings = &directAssignmentFieldMappings
 	}
 
 	if len(modelToModelAssignmentFieldMappings) > 0 {
-		resourceMapping.ModelToModelFieldMappings = &modelToModelAssignmentFieldMappings
+		resourceMapping.ModelToModelMappings = &modelToModelAssignmentFieldMappings
 	}
 
 	data, err := json.MarshalIndent(resourceMapping, "", " ")
