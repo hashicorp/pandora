@@ -1,37 +1,67 @@
 package models
 
-// NOTE: these types are intentionally undocumented atm, these'll be added in a follow-up PR
-
+// ObjectDefinition specifies additional information about a specific Object and any associated nested Objects
 type ObjectDefinition struct {
+	// ObjectDefinitionType defines what kind of ObjectDefinition this is, such as a Reference, String or List
 	Type ObjectDefinitionType `json:"type"`
 
-	ReferenceName *string `json:"referenceName"` // NOTE: we could split this into ConstantName and ModelName in time, but not today.
+	// NOTE: we could split this into ConstantName and ModelName in time, but not today.
+	// ReferenceName is the name of the Constant or Model that this is a reference to
+	ReferenceName *string `json:"referenceName"`
 
+	// NestedItem is a nested ObjectDefinition when Type is a Dictionary or List
+	// NOTE: that it's possible to have deeply-nested ObjectDefinitions, e.g. a List of a List of a Dictionary[String (key, fixed as a string) : Integer (value)
 	NestedItem *ObjectDefinition `json:"nestedItem,omitempty"`
 
 	// NOTE: these 3 fields were previously located against the Field but instead should be located against the Object Definition
 	// as such we'll need to update the Data API to account for this
-	MaxItems   *int        `json:"maxItems,omitempty"`
-	MinItems   *int        `json:"minItems,omitempty"`
+
+	// MaxItems specifies the maximum number of items a CSV/Dictionary/List can have, this field is only relevant for the Terraform Schema
+	MaxItems *int `json:"maxItems,omitempty"`
+
+	// MinItems specifies the minimum number of items a CSV/Dictionary/List can have, this field is only relevant for the Terraform Schema
+	MinItems *int `json:"minItems,omitempty"`
+
+	// DateFormat specifies the format a date field should have, which allows us to generate helper methods (Get and Set) for this date format
 	DateFormat *DateFormat `json:"dateFormat,omitempty"`
 }
 
 type ObjectDefinitionType string
 
 const (
-	// BooleanObjectDefinitionType is used to signify that this type is a simple Boolean.
-	BooleanObjectDefinitionType   ObjectDefinitionType = "Boolean"
-	DateTimeObjectDefinitionType  ObjectDefinitionType = "DateTime"
-	IntegerObjectDefinitionType   ObjectDefinitionType = "Integer"
-	FloatObjectDefinitionType     ObjectDefinitionType = "Float"
-	RawFileObjectDefinitionType   ObjectDefinitionType = "RawFile"
-	RawObjectObjectDefinitionType ObjectDefinitionType = "RawObject"
-	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
-	StringObjectDefinitionType    ObjectDefinitionType = "String"
+	// BooleanObjectDefinitionType signifies that this type is a simple Boolean.
+	BooleanObjectDefinitionType ObjectDefinitionType = "Boolean"
 
-	CsvObjectDefinitionType        ObjectDefinitionType = "Csv"
+	// DateTimeObjectDefinitionType signifies that this field contains a DateTime value.
+	DateTimeObjectDefinitionType ObjectDefinitionType = "DateTime"
+
+	// IntegerObjectDefinitionType signifies that this field contains an Integer.
+	IntegerObjectDefinitionType ObjectDefinitionType = "Integer"
+
+	// FloatObjectDefinitionType signifies that this field contains a Float.
+	FloatObjectDefinitionType ObjectDefinitionType = "Float"
+
+	// RawFileObjectDefinitionType signifies that this field contains a byte value e.g. []byte.
+	RawFileObjectDefinitionType ObjectDefinitionType = "RawFile"
+
+	// RawObjectObjectDefinitionType signifies that this field contains an interface value e.g. interface{}.
+	RawObjectObjectDefinitionType ObjectDefinitionType = "RawObject"
+
+	// ReferenceObjectDefinitionType signifies that this field points to a Constant or a Model.
+	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
+
+	// StringObjectDefinitionType signifies that this field contains a String.
+	StringObjectDefinitionType ObjectDefinitionType = "String"
+
+	// CsvObjectDefinitionType signifies that this field contains a CSV of simple types e.g. String, Integer, Float.
+	CsvObjectDefinitionType ObjectDefinitionType = "Csv"
+
+	// DictionaryObjectDefinitionType signifies that this field contains a Dictionary, the
+	// Key for a Dictionary is always a String - the Value Type is defined as Nested Object Definition.
 	DictionaryObjectDefinitionType ObjectDefinitionType = "Dictionary"
-	ListObjectDefinitionType       ObjectDefinitionType = "List"
+
+	// ListObjectDefinitionType signifies that this field contains a List, the List's Value Type is defined as a Nested Object Definition.
+	ListObjectDefinitionType ObjectDefinitionType = "List"
 
 	EdgeZoneObjectDefinitionType                                ObjectDefinitionType = "EdgeZone"
 	LocationObjectDefinitionType                                ObjectDefinitionType = "Location"

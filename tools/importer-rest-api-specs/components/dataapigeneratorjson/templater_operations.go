@@ -6,46 +6,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type Operation struct {
-	Name                             string           `json:"Name"`
-	ContentType                      string           `json:"ContentType,omitempty"`
-	ExpectedStatusCodes              []int            `json:"ExpectedStatusCodes,omitempty"`
-	FieldContainingPaginationDetails string           `json:"FieldContainingPaginationDetails,omitempty"`
-	LongRunning                      bool             `json:"LongRunning,omitempty"`
-	HTTPMethod                       string           `json:"HTTPMethod,omitempty"`
-	OptionsObject                    OptionsObject    `json:"OptionsObject,omitempty"`
-	Options                          []Option         `json:"Options,omitempty"`
-	ResourceId                       string           `json:"ResourceId,omitempty"`
-	RequestObject                    ObjectDefinition `json:"RequestObject,omitempty"`
-	ResponseObject                   ObjectDefinition `json:"ResponseObject,omitempty"`
-	UriSuffix                        string           `json:"UriSuffix,omitempty"`
-}
-
-type ObjectDefinition struct {
-	// TODO: update to use the existing `ObjectDefinition` in models
-	Type          ObjectDefinitionType `json:"Type"`
-	ReferenceName *string              `json:"ReferenceName,omitempty"`
-	NestedItem    *ObjectDefinition    `json:"ObjectDefinition,omitempty"`
-}
-
-type OptionsObject struct {
-	Name    string   `json:"Name"`
-	Options []Option `json:"Options"`
-}
-
-type Option struct {
-	HeaderName  *string `json:"HeaderName,omitempty"`
-	Optional    bool    `json:"Optional"`
-	QueryString *string `json:"QueryString,omitempty"`
-	Required    bool    `json:"Required"`
-	Field       string  `json:"Field"`
-	FieldType   string  `json:"FieldType"`
-}
-
-func codeForOperation(operationName string, operation models.OperationDetails, resource models.AzureApiResource) ([]byte, error) {
+func codeForOperation(operationName string, operation importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
 	contentType := ""
 	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
 		contentType = operation.ContentType
@@ -59,26 +26,10 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		sort.Ints(statusCodes)
 	}
 
-	fieldContainingPaginationDetails := ""
-	if operation.FieldContainingPaginationDetails != nil {
-		fieldContainingPaginationDetails = *operation.FieldContainingPaginationDetails
-	}
-
 	longRunning := false
 	if operation.LongRunning {
 		// TODO: we can use the `LongRunning` operation base types too
 		longRunning = true
-	}
-
-	// TODO: refactor this to use the ObjectDefinition in `./models`
-	requestObject := ObjectDefinition{}
-	if operation.RequestObject != nil {
-		requestObject.ReferenceName = operation.RequestObject.ReferenceName
-		requestObject.Type = ObjectDefinitionType(operation.RequestObject.Type)
-
-	} else if strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT") {
-		// Post and Put operations should have one but it's possible they don't
-		// TODO what goes here?
 	}
 
 	resourceId := ""
@@ -86,24 +37,36 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 		resourceId = *operation.ResourceIdName
 	}
 
-	responseObject := ObjectDefinition{}
-	if operation.ResponseObject != nil {
-		responseObject.ReferenceName = operation.ResponseObject.ReferenceName
-		responseObject.Type = ObjectDefinitionType(operation.ResponseObject.Type)
-
-		// TODO
-		//if operation.FieldContainingPaginationDetails == nil {
-		//	code = append(code, fmt.Sprintf(`		public override Type? ResponseObject() => typeof(%[1]s);`, *responseOperationTypeName))
-		//} else {
-		//	code = append(code, fmt.Sprintf(`		public override Type NestedItemType() => typeof(%[1]s);`, *responseOperationTypeName))
-		//}
+	uriSuffix := ""
+	if operation.UriSuffix != nil {
+		uriSuffix = *operation.UriSuffix
 	}
 
-	optionsObject := OptionsObject{}
-	options := make([]Option, 0)
-	if len(operation.Options) > 0 {
-		optionsObject.Name = operationName
+	responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
+	if err != nil {
+		return nil, fmt.Errorf("mapping the object definition: %+v", err)
+	}
 
+	requestObject, err := mapObjectDefinition(operation.RequestObject, knownConstants, knownModels)
+	if err != nil {
+		return nil, fmt.Errorf("mapping the object definition: %+v", err)
+	}
+
+	op := dataApiModels.Operation{
+		Name:                             operationName,
+		ContentType:                      contentType,
+		ExpectedStatusCodes:              statusCodes,
+		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
+		LongRunning:                      longRunning,
+		HTTPMethod:                       strings.ToUpper(operation.Method),
+		ResourceIdName:                   pointer.To(resourceId),
+		RequestObject:                    responseObject,
+		ResponseObject:                   requestObject,
+		UriSuffix:                        pointer.To(uriSuffix),
+	}
+
+	if len(operation.Options) > 0 {
+		options := make([]dataApiModels.Option, 0)
 		sortedOptionsKeys := make([]string, 0)
 		for k := range operation.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
@@ -117,13 +80,16 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 				return nil, fmt.Errorf("missing object definition")
 			}
 
-			fieldType := string(optionDetails.ObjectDefinition.Type)
+			optionObjectDefinition, err := mapOptionObjectDefinition(optionDetails.ObjectDefinition, knownConstants, knownModels)
+			if err != nil {
+				return nil, fmt.Errorf("mapping the object definition: %+v", err)
+			}
 
-			option := Option{
-				HeaderName:  optionDetails.HeaderName,
-				QueryString: optionDetails.QueryStringName,
-				Field:       optionName,
-				FieldType:   fieldType,
+			option := dataApiModels.Option{
+				HeaderName:       optionDetails.HeaderName,
+				QueryString:      optionDetails.QueryStringName,
+				Field:            optionName,
+				ObjectDefinition: optionObjectDefinition,
 			}
 
 			if !optionDetails.Required {
@@ -134,40 +100,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 
 			options = append(options, option)
 		}
-
-		optionsObject.Options = options
-	}
-
-	uriSuffix := ""
-	if operation.UriSuffix != nil {
-		uriSuffix = *operation.UriSuffix
-	}
-
-	HTTPMethod := strings.Title(strings.ToLower(operation.Method))
-	if operation.FieldContainingPaginationDetails != nil {
-		HTTPMethod = "List"
-		// TODO is there a todo here?
-		// since this is a List operation we need to additionally output the HttpMethod
-		// since it's possible that these are non-standard (e.g. AppConfig 2020-06-01 ListKeys
-		// is a POST not a GET for a List operation)
-		//if !strings.EqualFold(operation.Method, "GET") {
-		//	method := dotNetNameForHttpMethod(operation.Method)
-		//	code = append(code, fmt.Sprintf(`		public override System.Net.Http.HttpMethod Method() => System.Net.Http.%s;`, method))
-		//}
-	}
-	op := Operation{
-		Name:                             operationName,
-		ContentType:                      contentType,
-		ExpectedStatusCodes:              statusCodes,
-		FieldContainingPaginationDetails: fieldContainingPaginationDetails,
-		LongRunning:                      longRunning,
-		HTTPMethod:                       HTTPMethod,
-		OptionsObject:                    optionsObject,
-		Options:                          options,
-		ResourceId:                       resourceId,
-		RequestObject:                    requestObject,
-		ResponseObject:                   responseObject,
-		UriSuffix:                        uriSuffix,
+		op.Options = pointer.To(options)
 	}
 
 	data, err := json.MarshalIndent(op, "", " ")
@@ -178,7 +111,7 @@ func codeForOperation(operationName string, operation models.OperationDetails, r
 	return data, nil
 }
 
-func usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
+func usesNonDefaultStatusCodes(operation importerModels.OperationDetails) bool {
 	defaultStatusCodes := map[string][]int{
 		"get":    {200},
 		"post":   {200, 201},
@@ -208,27 +141,74 @@ func usesNonDefaultStatusCodes(operation models.OperationDetails) bool {
 	return false
 }
 
-func dotNetNameForHttpMethod(method string) string {
-	switch strings.ToUpper(method) {
-	case "DELETE":
-		return "HttpMethod.Delete"
+var internalObjectDefinitionsToOptionObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.OptionObjectDefinitionType{
+	importerModels.ObjectDefinitionBoolean:   dataApiModels.BooleanOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionCsv:       dataApiModels.CsvOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionInteger:   dataApiModels.IntegerOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionFloat:     dataApiModels.FloatOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionList:      dataApiModels.ListOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionReference: dataApiModels.ReferenceOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionString:    dataApiModels.StringOptionObjectDefinitionType,
+}
 
-	case "GET":
-		return "HttpMethod.Get"
-
-	case "HEAD":
-		return "HttpMethod.Head"
-
-	case "PATCH":
-		return "HttpMethod.Patch"
-
-	case "POST":
-		return "HttpMethod.Post"
-
-	case "PUT":
-		return "HttpMethod.Put"
-
-	default:
-		return fmt.Sprintf("TODO (unimplemented %q)", method)
+func mapOptionObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.OptionObjectDefinition, error) {
+	typeVal, ok := internalObjectDefinitionsToOptionObjectDefinitionTypes[definition.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
 	}
+
+	output := dataApiModels.OptionObjectDefinition{
+		Type:          typeVal,
+		ReferenceName: nil,
+		NestedItem:    nil,
+	}
+
+	if definition.ReferenceName != nil {
+		output.ReferenceName = definition.ReferenceName
+	}
+
+	if definition.NestedItem != nil {
+		nestedItem, err := mapOptionObjectDefinition(definition.NestedItem, constants, models)
+		if err != nil {
+			return nil, fmt.Errorf("mapping nested option object definition: %+v", err)
+		}
+		output.NestedItem = nestedItem
+	}
+
+	// finally let's do some sanity-checking to ensure the data being output looks legit
+	if err := validateOptionObjectDefinition(output, constants, models); err != nil {
+		return nil, fmt.Errorf("validating mapped OptionObjectDefinition: %+v", err)
+	}
+
+	return &output, nil
+}
+
+func validateOptionObjectDefinition(input dataApiModels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
+	requiresNestedItem := input.Type == dataApiModels.CsvOptionObjectDefinitionType || input.Type == dataApiModels.ListOptionObjectDefinitionType
+	requiresReference := input.Type == dataApiModels.ReferenceOptionObjectDefinitionType
+	if requiresNestedItem && input.NestedItem == nil {
+		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
+	}
+	if !requiresNestedItem && input.NestedItem != nil {
+		return fmt.Errorf("a Nested Object Definition must not be specified for a %q type but got %q", string(input.Type), string(input.NestedItem.Type))
+	}
+	if requiresReference {
+		if input.ReferenceName == nil {
+			return fmt.Errorf("a Reference must be specified for a %q type but didn't get one", string(input.Type))
+		}
+
+		_, isConstant := constants[*input.ReferenceName]
+		_, isModel := models[*input.ReferenceName]
+		if !isConstant && !isModel {
+			return fmt.Errorf("reference %q was not found as a constant or a model", *input.ReferenceName)
+		}
+		if isConstant && isModel {
+			return fmt.Errorf("internal-error: %q was found as BOTH a Constant and a Model", *input.ReferenceName)
+		}
+	}
+	if !requiresReference && input.ReferenceName != nil {
+		return fmt.Errorf("a Reference must not be specified for a %q type but got %q", string(input.Type), *input.ReferenceName)
+	}
+
+	return nil
 }
