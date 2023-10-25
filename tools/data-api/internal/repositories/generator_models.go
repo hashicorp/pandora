@@ -1,67 +1,76 @@
 package repositories
 
-// NOTE: this is a copy of models from the package `dataapigeneratorjson` which is in the `importer-rest-api-specs` tool
-// these have been duplicated to ease development and will be removed once `dataapigeneratorjson` has been split out
+// NOTE: this is a copy of models from the package `dataapigeneratorjson/models`, these have been duplicated to ease development
+// and will be removed once `dataapigeneratorjson/models` has been split out
 
 type Constant struct {
-	Name   string  `json:"Name"`
-	Type   string  `json:"Type"`
-	Values []Value `json:"Values"`
+	Name   string          `json:"name"`
+	Type   string          `json:"type"`
+	Values []ConstantValue `json:"values"`
 }
 
-type Value struct {
-	Key         string  `json:"Key"`
-	Value       string  `json:"Value"`
-	Description *string `json:"Description,omitempty"`
+type ConstantValue struct {
+	Key         string  `json:"key"`
+	Value       string  `json:"value"`
+	Description *string `json:"description,omitempty"`
 }
 
 type Model struct {
-	Fields          []Field `json:"Fields"`
-	IsDiscriminator *bool   `json:"IsDiscriminator,omitempty"`
-	ParentModelName *string `json:"ParentModelName,omitempty"`
-	ValueForType    *string `json:"ValueForType,omitempty"`
+	Name                         string       `json:"name"`
+	Fields                       []ModelField `json:"fields"`
+	DiscriminatedParentModelName *string      `json:"discriminatedParentModelName,omitempty"`
+	DiscriminatedTypeValue       *string      `json:"discriminatedTypeValue,omitempty"`
 }
 
-type Field struct {
-	Name             string           `json:"Name"`
-	JsonName         string           `json:"JsonName"`
-	Required         *bool            `json:"Required,omitempty"`
-	Optional         *bool            `json:"Optional,omitempty"`
-	ObjectDefinition ObjectDefinition `json:"ObjectDefinition"`
-	MinItems         *int             `json:"MinItems,omitempty"`
-	MaxItems         *int             `json:"MaxItems,omitempty"`
-	DateFormat       *string          `json:"DateFormat,omitempty"`
-	ProvidesTypeHint *bool            `json:"ProvidesTypeHint,omitempty"`
+type ModelField struct {
+	ContainsDiscriminatedTypeValue bool                    `json:"containsDiscriminatedTypeValue"`
+	DateFormat                     *DateFormat             `json:"dateFormat,omitempty"`
+	JsonName                       string                  `json:"jsonName"`
+	Name                           string                  `json:"name"`
+	ObjectDefinition               DataApiObjectDefinition `json:"objectDefinition"`
+	Optional                       bool                    `json:"optional"`
+	Required                       bool                    `json:"required"`
+}
+
+type DataApiObjectDefinition struct {
+	Type          ObjectDefinitionType     `json:"type"`
+	ReferenceName *string                  `json:"referenceName"`
+	NestedItem    *DataApiObjectDefinition `json:"nestedItem,omitempty"`
+	MaxItems      *int                     `json:"maxItems,omitempty"`
+	MinItems      *int                     `json:"minItems,omitempty"`
+	DateFormat    *DateFormat              `json:"dateFormat,omitempty"`
 }
 
 type Operation struct {
-	Name                             string           `json:"Name"`
-	ContentType                      string           `json:"ContentType,omitempty"`
-	ExpectedStatusCodes              []int            `json:"ExpectedStatusCodes,omitempty"`
-	FieldContainingPaginationDetails string           `json:"FieldContainingPaginationDetails,omitempty"`
-	LongRunning                      bool             `json:"LongRunning,omitempty"`
-	HTTPMethod                       string           `json:"HTTPMethod,omitempty"`
-	OptionsObject                    OptionsObject    `json:"OptionsObject,omitempty"`
-	Options                          []Option         `json:"Options,omitempty"`
-	ResourceId                       string           `json:"ResourceId,omitempty"`
-	RequestObject                    ObjectDefinition `json:"RequestObject,omitempty"`
-	ResponseObject                   ObjectDefinition `json:"ResponseObject,omitempty"`
-	UriSuffix                        string           `json:"UriSuffix,omitempty"`
-}
-
-type OptionsObject struct {
-	Name    string   `json:"Name"`
-	Options []Option `json:"Options"`
+	Name                             string            `json:"name"`
+	ContentType                      string            `json:"contentType"`
+	ExpectedStatusCodes              []int             `json:"expectedStatusCodes"`
+	FieldContainingPaginationDetails *string           `json:"fieldContainingPaginationDetails,omitempty"`
+	LongRunning                      bool              `json:"longRunning"`
+	HTTPMethod                       string            `json:"httpMethod"`
+	Options                          *[]Option         `json:"options,omitempty"`
+	ResourceIdName                   *string           `json:"resourceIdName,omitempty"`
+	RequestObject                    *ObjectDefinition `json:"requestObject,omitempty"`
+	ResponseObject                   *ObjectDefinition `json:"responseObject,omitempty"`
+	UriSuffix                        *string           `json:"uriSuffix,omitempty"`
 }
 
 type Option struct {
-	HeaderName  *string `json:"HeaderName,omitempty"`
-	Optional    bool    `json:"Optional"`
-	QueryString *string `json:"QueryString,omitempty"`
-	Required    bool    `json:"Required"`
-	Field       string  `json:"Field"`
-	FieldType   string  `json:"FieldType"`
+	HeaderName       *string                        `json:"headerName,omitempty"`
+	Optional         bool                           `json:"optional"`
+	QueryString      *string                        `json:"queryString,omitempty"`
+	Required         bool                           `json:"required"`
+	Field            string                         `json:"field"`
+	ObjectDefinition *DataApiOptionObjectDefinition `json:"optionsObjectDefinition"`
 }
+
+type DataApiOptionObjectDefinition struct {
+	Type          OptionObjectDefinitionType     `json:"type"`
+	ReferenceName *string                        `json:"referenceName"`
+	NestedItem    *DataApiOptionObjectDefinition `json:"nestedItem,omitempty"`
+}
+
+type OptionObjectDefinitionType string
 
 type ResourceId struct {
 	Name        string    `json:"Name"`

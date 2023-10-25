@@ -70,8 +70,14 @@ type ObjectDefinition struct {
 type OperationOptions struct {
 	HeaderName       *string
 	QueryStringName  *string
-	ObjectDefinition *ObjectDefinition
+	ObjectDefinition *OptionObjectDefinition
 	Required         bool
+}
+
+type OptionObjectDefinition struct {
+	Type          OptionObjectDefinitionType
+	ReferenceName *string
+	NestedItem    *OptionObjectDefinition
 }
 
 type ConstantDetails struct {

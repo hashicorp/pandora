@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"path"
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
@@ -359,11 +360,11 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	operations := make(map[string]ResourceOperations)
 	resourceIds := make(map[string]ResourceIdDefinition)
 
-	// TODO rename this var so we can import path to use path.Join
-	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
-	files, err := os.ReadDir(path)
+	path.Join(s.directory, serviceName, version, resource)
+	resourcePath := path.Join(s.directory, serviceName, version, resource)
+	files, err := os.ReadDir(resourcePath)
 	if err != nil {
-		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", resourcePath, err)
 	}
 
 	for _, file := range files {
@@ -371,157 +372,43 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 			continue
 		}
 
+		definitionPath := path.Join(resourcePath, file.Name())
 		definitionType, definitionName, err := getDefinitionInfo(file.Name())
 		if err != nil {
 			return nil, err
 		}
-		// we lower case these so that it's compatible with other OS e.g. Windows
+
+		// we lower case this comparison so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
+		// Ordering here is important, all Constants need to be processed first, then all Models
 		case "constant":
-			var constant Constant
-
-			// TODO use path.Join() so that this works on windows
-			contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			constant, err := processConstant(definitionPath)
 			if err != nil {
-				return nil, err
+				return nil, fmt.Errorf("processing constant %s: %+v", definitionName, err)
 			}
 
-			if err := json.Unmarshal(*contents, &constant); err != nil {
-				return nil, fmt.Errorf("unmarshaling blah")
-			}
-
-			values := make(map[string]string, 0)
-
-			for _, value := range constant.Values {
-				values[value.Key] = value.Value
-			}
-
-			constants[definitionName] = ConstantDetails{
-				Type:   ConstantType(constant.Type),
-				Values: values,
-			}
+			constants[definitionName] = pointer.From(constant)
 		case "model":
-			var model Model
-			// TODO use path.Join() so that this works on windows
-			m, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			model, err := processModel(definitionPath)
 			if err != nil {
-				return nil, err
+				return nil, fmt.Errorf("processing model %s: %+v", definitionName, err)
 			}
 
-			if err := json.Unmarshal(*m, &model); err != nil {
-				return nil, fmt.Errorf("unmarshaling blah")
-			}
-
-			fieldDetails := make(map[string]FieldDetails)
-			for _, field := range model.Fields {
-				fieldDetail := FieldDetails{
-					JsonName:         field.JsonName,
-					ObjectDefinition: field.ObjectDefinition,
-					// todo unable to find these values
-					// Validation:       field,
-					// Description:      field.De,
-					// Default:          field.D,
-					// ForceNew:          field.,
-				}
-
-				if field.DateFormat != nil {
-					fieldDetail.DateFormat = pointer.To(DateFormat(*field.DateFormat))
-				}
-
-				if field.Optional != nil {
-					fieldDetail.Optional = *field.Optional
-				}
-				if field.Required != nil {
-					fieldDetail.Required = *field.Required
-				}
-
-				if field.ProvidesTypeHint != nil {
-					fieldDetail.IsTypeHint = *field.ProvidesTypeHint
-				}
-				fieldDetails[field.Name] = fieldDetail
-			}
-			models[definitionName] = ModelDetails{
-				Fields:         fieldDetails,
-				ParentTypeName: model.ParentModelName,
-				// todo unable to find these attributes
-				// TypeHintIn:     model.Typ,
-				// TypeHintValue:  nil,
-			}
-
+			models[definitionName] = pointer.From(model)
 		case "operation":
-			var operation Operation
-			// TODO use path.Join() so that this works on windows
-			o, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			operationDetails, err := processOperation(definitionPath)
 			if err != nil {
-				return nil, err
+				return nil, fmt.Errorf("processing operation %s: %+v", definitionName, err)
 			}
 
-			if err := json.Unmarshal(*o, &operation); err != nil {
-				return nil, fmt.Errorf("unmarshaling operation: %+v", err)
-			}
-
-			operationDetails := ResourceOperations{
-				ContentType:                      operation.ContentType,
-				ExpectedStatusCodes:              operation.ExpectedStatusCodes,
-				LongRunning:                      operation.LongRunning,
-				Method:                           operation.HTTPMethod,
-				RequestObject:                    pointer.To(operation.RequestObject),
-				ResourceIdName:                   pointer.To(operation.ResourceId),
-				ResponseObject:                   pointer.To(operation.ResponseObject),
-				FieldContainingPaginationDetails: pointer.To(operation.FieldContainingPaginationDetails),
-				UriSuffix:                        pointer.To(operation.UriSuffix),
-			}
-
-			options := make(map[string]OperationOptions)
-			for _, option := range operation.OptionsObject.Options {
-				operationOption := OperationOptions{
-					HeaderName:      option.HeaderName,
-					QueryStringName: option.QueryString,
-					Required:        option.Required,
-					// todo ObjectDefintion isn't found in the the field we're reading from
-					// ObjectDefinition: option.,
-				}
-
-				options[operation.OptionsObject.Name] = operationOption
-			}
-
-			operationDetails.Options = pointer.To(options)
-
-			operations[definitionName] = operationDetails
-
+			operations[definitionName] = pointer.From(operationDetails)
 		case "resourceid":
-			var resourceId ResourceId
-			// TODO use path.Join() so that this works on windows
-			rId, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			resourceId, err := processResourceId(definitionPath)
 			if err != nil {
-				return nil, err
+				return nil, fmt.Errorf("processing resource id %s: %+v", definitionName, err)
 			}
 
-			if err := json.Unmarshal(*rId, &resourceId); err != nil {
-				return nil, fmt.Errorf("unmarshaling resource id: %+v", err)
-			}
-
-			resourceIdDefinition := ResourceIdDefinition{
-				CommonAlias: pointer.To(resourceId.CommonAlias),
-				Id:          resourceId.Id,
-				// todo unable to find this attribute
-				// ConstantNames: resourceId.,
-			}
-
-			segments := make([]ResourceIdSegment, 0)
-			for _, segment := range resourceId.Segments {
-				segments = append(segments, ResourceIdSegment{
-					Name: segment.Name,
-					Type: ResourceIdSegmentType(segment.Type),
-					// todo unable to find these attributes
-					//ConstantReference: segment,
-					//ExampleValue:      "",
-					//FixedValue:        nil,
-				})
-			}
-			resourceIdDefinition.Segments = segments
-
-			resourceIds[definitionName] = resourceIdDefinition
+			resourceIds[definitionName] = pointer.From(resourceId)
 		}
 	}
 
@@ -532,4 +419,181 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceDefinition.Operations = operations
 
 	return &resourceDefinition, nil
+}
+
+func processConstant(path string) (*ConstantDetails, error) {
+	var constant Constant
+
+	contents, err := loadJson(fmt.Sprintf(path))
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &constant); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", path, err)
+	}
+
+	values := make(map[string]string, 0)
+
+	for _, value := range constant.Values {
+		values[value.Key] = value.Value
+	}
+
+	return &ConstantDetails{
+		Type:   ConstantType(constant.Type),
+		Values: values,
+	}, nil
+}
+
+func processModel(path string) (*ModelDetails, error) {
+	var model Model
+
+	contents, err := loadJson(path)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &model); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", path, err)
+	}
+
+	fieldDetails := make(map[string]FieldDetails)
+	for _, field := range model.Fields {
+		fieldDetail := FieldDetails{
+			DateFormat:       field.ObjectDefinition.DateFormat,
+			IsTypeHint:       false,
+			JsonName:         field.JsonName,
+			Optional : field.Optional,
+			Required: field.Required,
+			ObjectDefinition: processObjectDefinition(field.ObjectDefinition),
+			// TODO not found
+			//Default:          nil,
+			//Description:      "",
+			//ForceNew:         false,
+		}
+
+		if field.ObjectDefinition.MinItems != nil && field.ObjectDefinition.MaxItems != nil {
+			// TODO these will probably be expanded on in future
+			fieldDetail.Validation = &FieldValidationDetails{
+				Type: "Range",
+				Values: pointer.To([]interface{}{field.ObjectDefinition.MinItems, field.ObjectDefinition.MaxItems})
+			}
+		}
+	}
+
+	if model.DiscriminatedTypeValue != nil && model.DiscriminatedParentModelName != nil {
+		// TODO something with TypeHintIn here
+	}
+
+	return &ModelDetails{
+		Fields:        fieldDetails,
+		ParentTypeName: model.DiscriminatedParentModelName,
+		TypeHintValue:  model.DiscriminatedTypeValue,
+		//TypeHintIn:
+	}, nil
+}
+
+func processObjectDefinition(input DataApiObjectDefinition) ObjectDefinition {
+	output := ObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          input.Type,
+	}
+
+	if input.NestedItem != nil {
+		output.NestedItem = pointer.To(processObjectDefinition(*input.NestedItem))
+	}
+
+	return output
+}
+
+
+func processOperation(path string) (*ResourceOperations, error) {
+	var operation Operation
+
+	contents, err := loadJson(path)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &operation); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", path, err)
+	}
+
+	resourceOperations := ResourceOperations{
+		ContentType:                      operation.ContentType,
+		ExpectedStatusCodes:              operation.ExpectedStatusCodes,
+		LongRunning:                      operation.LongRunning,
+		Method:                           operation.HTTPMethod,
+		RequestObject:                    operation.RequestObject,
+		ResourceIdName:                   operation.ResourceIdName,
+		ResponseObject:                   operation.ResponseObject,
+		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
+		Options:                          nil,
+		UriSuffix:                        operation.UriSuffix,
+	}
+
+	if operation.Options != nil {
+		options := make(map[string]OperationOptions)
+		for _, option := range *operation.Options {
+			operationOptions := OperationOptions{
+				HeaderName:       option.HeaderName,
+				QueryStringName:  option.QueryString,
+				Required:         option.Required,
+			}
+			if option.ObjectDefinition != nil {
+				operationOptions.ObjectDefinition = processOptionObjectDefinition(option.ObjectDefinition)
+			}
+			options[option.Field] = operationOptions
+		}
+		resourceOperations.Options = pointer.To(options)
+	}
+
+
+	return &resourceOperations, nil
+}
+
+func processOptionObjectDefinition(input *DataApiOptionObjectDefinition) *OptionObjectDefinition {
+	output := OptionObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          input.Type,
+	}
+
+	if input.NestedItem != nil {
+		output.NestedItem = processOptionObjectDefinition(input.NestedItem)
+	}
+
+	return &output
+}
+
+func processResourceId(path string) (*ResourceIdDefinition, error) {
+	var resourceId ResourceId
+
+	contents, err := loadJson(path)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &resourceId); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", path, err)
+	}
+
+	segments := make([]ResourceIdSegment, 0)
+	for _, segment := range resourceId.Segments {
+		segments = append(segments, ResourceIdSegment{
+			Name: segment.Name,
+			Type: ResourceIdSegmentType(segment.Type),
+			// TODO unable to find these attributes
+			// ConstantReference: segment,
+			// ExampleValue:      segment,
+			// FixedValue:        nil,
+		})
+	}
+
+	return &ResourceIdDefinition{
+		CommonAlias: pointer.To(resourceId.CommonAlias),
+		Id:          resourceId.Id,
+		Segments: segments,
+		// TODO unable to find this attribute
+		// ConstantNames:
+	}, nil
 }
