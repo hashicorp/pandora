@@ -27,7 +27,7 @@ type Operation struct {
 	Options *[]Option `json:"options,omitempty"`
 
 	// ResourceIdName specifies the name of the optional Resource ID used for this operation
-	ResourceIdName *string `json:"resourceId,omitempty"`
+	ResourceIdName *string `json:"resourceIdName,omitempty"`
 
 	// RequestObject specifies the optional ObjectDefinition to be specified in the Request
 	RequestObject *ObjectDefinition `json:"requestObject,omitempty"`

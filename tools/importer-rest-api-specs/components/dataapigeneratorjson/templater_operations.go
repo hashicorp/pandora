@@ -42,8 +42,6 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		uriSuffix = *operation.UriSuffix
 	}
 
-	HTTPMethod := strings.Title(strings.ToLower(operation.Method))
-
 	responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
 	if err != nil {
 		return nil, fmt.Errorf("mapping the object definition: %+v", err)
@@ -60,7 +58,7 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		ExpectedStatusCodes:              statusCodes,
 		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
 		LongRunning:                      longRunning,
-		HTTPMethod:                       HTTPMethod,
+		HTTPMethod:                       strings.ToUpper(operation.Method),
 		ResourceIdName:                   pointer.To(resourceId),
 		RequestObject:                    responseObject,
 		ResponseObject:                   requestObject,

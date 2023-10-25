@@ -9,7 +9,7 @@ type OptionObjectDefinition struct {
 	// ReferenceName is the name of the Constant that this is a reference to
 	ReferenceName *string `json:"referenceName"`
 
-	// NestedItem is a nested OptionObjectDefinition when Type is a List
+	// NestedItem is a nested OptionObjectDefinition when Type is a CSV or a List
 	NestedItem *OptionObjectDefinition `json:"nestedItem,omitempty"`
 }
 
