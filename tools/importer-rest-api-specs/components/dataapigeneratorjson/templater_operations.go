@@ -42,16 +42,6 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		uriSuffix = *operation.UriSuffix
 	}
 
-	responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
-	}
-
-	requestObject, err := mapObjectDefinition(operation.RequestObject, knownConstants, knownModels)
-	if err != nil {
-		return nil, fmt.Errorf("mapping the object definition: %+v", err)
-	}
-
 	op := dataApiModels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
@@ -60,9 +50,22 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 		LongRunning:                      longRunning,
 		HTTPMethod:                       strings.ToUpper(operation.Method),
 		ResourceIdName:                   pointer.To(resourceId),
-		RequestObject:                    responseObject,
-		ResponseObject:                   requestObject,
 		UriSuffix:                        pointer.To(uriSuffix),
+	}
+
+	if operation.RequestObject != nil {
+		requestObject, err := mapObjectDefinition(operation.RequestObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the request object definition: %+v", err)
+		}
+		op.RequestObject = requestObject
+	}
+	if operation.ResponseObject != nil {
+		responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
+		}
+		op.ResponseObject = responseObject
 	}
 
 	if len(operation.Options) > 0 {
