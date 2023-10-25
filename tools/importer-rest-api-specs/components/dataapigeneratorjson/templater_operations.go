@@ -12,72 +12,51 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForOperation(operationName string, operation importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
-	contentType := ""
-	if !strings.Contains(strings.ToLower(operation.ContentType), "application/json") {
-		contentType = operation.ContentType
-	}
-
+func codeForOperation(operationName string, input importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
 	statusCodes := make([]int, 0)
-	if usesNonDefaultStatusCodes(operation) {
-		for _, sc := range operation.ExpectedStatusCodes {
+	if usesNonDefaultStatusCodes(input) {
+		for _, sc := range input.ExpectedStatusCodes {
 			statusCodes = append(statusCodes, sc)
 		}
 		sort.Ints(statusCodes)
 	}
 
-	longRunning := false
-	if operation.LongRunning {
-		// TODO: we can use the `LongRunning` operation base types too
-		longRunning = true
-	}
-
-	resourceId := ""
-	if operation.ResourceIdName != nil {
-		resourceId = *operation.ResourceIdName
-	}
-
-	uriSuffix := ""
-	if operation.UriSuffix != nil {
-		uriSuffix = *operation.UriSuffix
-	}
-
-	op := dataApiModels.Operation{
+	output := dataApiModels.Operation{
 		Name:                             operationName,
-		ContentType:                      contentType,
+		ContentType:                      input.ContentType,
 		ExpectedStatusCodes:              statusCodes,
-		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
-		LongRunning:                      longRunning,
-		HTTPMethod:                       strings.ToUpper(operation.Method),
-		ResourceIdName:                   pointer.To(resourceId),
-		UriSuffix:                        pointer.To(uriSuffix),
+		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
+		LongRunning:                      input.LongRunning,
+		HTTPMethod:                       strings.ToUpper(input.Method),
+		ResourceIdName:                   input.ResourceIdName,
+		UriSuffix:                        input.UriSuffix,
 	}
 
-	if operation.RequestObject != nil {
-		requestObject, err := mapObjectDefinition(operation.RequestObject, knownConstants, knownModels)
+	if input.RequestObject != nil {
+		requestObject, err := mapObjectDefinition(input.RequestObject, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the request object definition: %+v", err)
 		}
-		op.RequestObject = requestObject
+		output.RequestObject = requestObject
 	}
-	if operation.ResponseObject != nil {
-		responseObject, err := mapObjectDefinition(operation.ResponseObject, knownConstants, knownModels)
+	if input.ResponseObject != nil {
+		responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
 		}
-		op.ResponseObject = responseObject
+		output.ResponseObject = responseObject
 	}
 
-	if len(operation.Options) > 0 {
+	if len(input.Options) > 0 {
 		options := make([]dataApiModels.Option, 0)
 		sortedOptionsKeys := make([]string, 0)
-		for k := range operation.Options {
+		for k := range input.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
 		}
 		sort.Strings(sortedOptionsKeys)
 
 		for _, optionName := range sortedOptionsKeys {
-			optionDetails := operation.Options[optionName]
+			optionDetails := input.Options[optionName]
 
 			if optionDetails.ObjectDefinition == nil {
 				return nil, fmt.Errorf("missing object definition")
@@ -103,10 +82,10 @@ func codeForOperation(operationName string, operation importerModels.OperationDe
 
 			options = append(options, option)
 		}
-		op.Options = pointer.To(options)
+		output.Options = pointer.To(options)
 	}
 
-	data, err := json.MarshalIndent(op, "", " ")
+	data, err := json.MarshalIndent(output, "", " ")
 	if err != nil {
 		return nil, err
 	}
