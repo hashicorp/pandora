@@ -509,7 +509,7 @@ service "solutions" {
   available = ["2019-07-01", "2021-07-01"]
 }
 service "sql" {
-  name = "Sql"
+  name      = "Sql"
   available = ["2021-11-01", "2023-02-01-preview"]
 }
 service "sqlvirtualmachine" {
