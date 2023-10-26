@@ -14,15 +14,17 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 		}
 	}
 
-	// Remove the existing directory if it exists - whilst creating this directory all the time might seem
-	// problematic, it won't be tracked in Git if it contains no files, so this should be fine.
-	if err := recreateDirectory(s.workingDirectoryForTerraform, s.logger); err != nil {
-		return fmt.Errorf("recreating the Terraform Directory at %q: %+v", s.workingDirectoryForTerraform, err)
-	}
-
 	if !containsTerraformResources {
 		// move along, nothing to see here.
 		return nil
+	}
+
+	// Since Terraform resources are against a _Service_ not an API version - we should ensure the directory exists
+	// rather than recreating it
+	// TODO: move the Terraform generation up to the Service level, so that we can recreate this folder safely
+	// This being here is a remnant from Resources being pinned to one API version
+	if err := ensureDirectoryExists(s.workingDirectoryForTerraform, s.logger); err != nil {
+		return fmt.Errorf("ensuring the Terraform Directory at %q exists: %+v", s.workingDirectoryForTerraform, err)
 	}
 
 	for resourceName, resource := range apiVersion.Resources {
