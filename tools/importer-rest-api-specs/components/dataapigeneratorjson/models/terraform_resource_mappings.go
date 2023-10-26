@@ -1,18 +1,18 @@
 package models
 
-type ResourceMapping struct {
+type TerraformResourceMappingDefinition struct {
 	// DirectAssignmentMappings defines information for this Mapping when Type is set to DirectAssignment.
-	DirectAssignmentMappings *[]DirectAssignmentMappings `json:"directAssignmentFieldMappings,omitempty"`
+	DirectAssignmentMappings *[]TerraformDirectAssignmentMappings `json:"directAssignmentFieldMappings,omitempty"`
 
 	/// ModelToModelMappings is a list of the Model to Model Mappings
-	ModelToModelMappings *[]ModelToModelMappings `json:"modelToModelFieldMappings,omitempty"`
+	ModelToModelMappings *[]TerraformModelToModelMappings `json:"modelToModelFieldMappings,omitempty"`
 
 	// ResourceIdMapping is a list of Resource ID Mappings, defining how a top-level Schema Field
 	// gets mapped to/from a Resource ID Segment.
-	ResourceIdMapping *[]ResourceIdMapping `json:"resourceIdMapping,omitempty"`
+	ResourceIdMapping *[]TerraformResourceIdMapping `json:"resourceIdMapping,omitempty"`
 }
 
-type ResourceIdMapping struct {
+type TerraformResourceIdMapping struct {
 	// ParsedFromParentId specifies whether the field in SchemaFieldName is a parent resource.
 	ParsedFromParentId bool `json:"parsedFromParentId"`
 
@@ -25,11 +25,11 @@ type ResourceIdMapping struct {
 	SegmentName string `json:"segmentName"`
 }
 
-type DirectAssignmentMappings struct {
+type TerraformDirectAssignmentMappings struct {
 	// SchemaModelName specifies the name of the Schema Model used for this DirectAssignment Mapping.
 	SchemaModelName string `json:"schemaModelName"`
 
-	// SchemaFieldName specifies the name of the Field within the SchemaModel
+	// SchemaFieldName specifies the name of the Field within the TerraformSchemaModel
 	SchemaFieldPath string `json:"schemaFieldPath"`
 
 	// SdkModelName specifies the name of the Sdk Model used for this DirectAssignment Mapping.
@@ -39,7 +39,7 @@ type DirectAssignmentMappings struct {
 	SdkFieldPath string `json:"sdkFieldPath"`
 }
 
-type ModelToModelMappings struct {
+type TerraformModelToModelMappings struct {
 	// SchemaModelName specifies the name of the Schema Model used for this ModelToModel Mapping.
 	SchemaModelName string `json:"schemaModelName"`
 

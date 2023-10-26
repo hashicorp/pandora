@@ -8,11 +8,11 @@ import (
 )
 
 func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceDetails) ([]byte, error) {
-	resourceMapping := models.ResourceMapping{}
+	resourceMapping := models.TerraformResourceMappingDefinition{}
 
-	resourceIdMappings := make([]models.ResourceIdMapping, 0)
+	resourceIdMappings := make([]models.TerraformResourceIdMapping, 0)
 	for _, item := range details.Mappings.ResourceId {
-		mapping := models.ResourceIdMapping{
+		mapping := models.TerraformResourceIdMapping{
 			SchemaFieldName:    item.SchemaFieldName,
 			SegmentName:        item.SegmentName,
 			ParsedFromParentID: item.ParsedFromParentID,
@@ -24,14 +24,14 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 		resourceMapping.ResourceIdMapping = &resourceIdMappings
 	}
 
-	directAssignmentFieldMappings := make([]models.DirectAssignmentMappings, 0)
-	modelToModelAssignmentFieldMappings := make([]models.ModelToModelMappings, 0)
+	directAssignmentFieldMappings := make([]models.TerraformDirectAssignmentMappings, 0)
+	modelToModelAssignmentFieldMappings := make([]models.TerraformModelToModelMappings, 0)
 	for _, item := range details.Mappings.Fields {
 		switch item.Type {
 		// TODO: BooleanEquals etc
 		case resourcemanager.DirectAssignmentMappingDefinitionType:
 			{
-				directAssignmentFieldMapping := models.DirectAssignmentMappings{
+				directAssignmentFieldMapping := models.TerraformDirectAssignmentMappings{
 					SchemaModelName: item.DirectAssignment.SchemaModelName,
 					SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 					SdkModelName:    item.DirectAssignment.SdkModelName,
@@ -41,7 +41,7 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 			}
 		case resourcemanager.ModelToModelMappingDefinitionType:
 			{
-				modelToModelAssignmentFieldMapping := models.ModelToModelMappings{
+				modelToModelAssignmentFieldMapping := models.TerraformModelToModelMappings{
 					SchemaModelName: item.ModelToModel.SchemaModelName,
 					SdkModelName:    item.ModelToModel.SdkModelName,
 					SdkFieldName:    item.ModelToModel.SdkFieldName,

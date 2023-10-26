@@ -2,14 +2,14 @@ package models
 
 import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
-// SchemaModel holds information about all the fields associated with a Terraform Resource
-type SchemaModel struct {
+// TerraformSchemaModel holds information about all the fields associated with a Terraform Resource
+type TerraformSchemaModel struct {
 	// Fields describes all the fields associated with a Terraform Resource
-	Fields []SchemaField `json:"fields"`
+	Fields []TerraformSchemaField `json:"fields"`
 }
 
-// SchemaField describes information about an attribute that will be mapped into the Terraform Schema of a resource
-type SchemaField struct {
+// TerraformSchemaField describes information about an attribute that will be mapped into the Terraform Schema of a resource
+type TerraformSchemaField struct {
 	// Constants describes the specific values this attribute can be
 	Constants *resourcemanager.ConstantDetails `json:"constants,omitempty"` // TODO: this wants to get moved into the Validation object
 

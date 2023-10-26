@@ -10,28 +10,28 @@ import (
 )
 
 func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails, resourceIds map[string]importerModels.ParsedResourceId) ([]byte, error) {
-	createMethod := dataApiModels.Method{
+	createMethod := dataApiModels.TerraformMethodDefinition{
 		Generate:         details.CreateMethod.Generate,
 		Name:             details.CreateMethod.MethodName,
 		TimeoutInMinutes: details.CreateMethod.TimeoutInMinutes,
 	}
-	deleteMethod := dataApiModels.Method{
+	deleteMethod := dataApiModels.TerraformMethodDefinition{
 		Generate:         details.DeleteMethod.Generate,
 		Name:             details.DeleteMethod.MethodName,
 		TimeoutInMinutes: details.DeleteMethod.TimeoutInMinutes,
 	}
-	readMethod := dataApiModels.Method{
+	readMethod := dataApiModels.TerraformMethodDefinition{
 		Generate:         details.ReadMethod.Generate,
 		Name:             details.ReadMethod.MethodName,
 		TimeoutInMinutes: details.ReadMethod.TimeoutInMinutes,
 	}
-	updateMethod := dataApiModels.Method{
+	updateMethod := dataApiModels.TerraformMethodDefinition{
 		Generate:         details.UpdateMethod.Generate,
 		Name:             details.UpdateMethod.MethodName,
 		TimeoutInMinutes: details.UpdateMethod.TimeoutInMinutes,
 	}
 
-	resourceDefinition := dataApiModels.ResourceDefinition{
+	resourceDefinition := dataApiModels.TerraformResourceDefinition{
 		DisplayName:    details.DisplayName,
 		ResourceIdName: details.ResourceIdName,
 		Label:          resourceLabel,

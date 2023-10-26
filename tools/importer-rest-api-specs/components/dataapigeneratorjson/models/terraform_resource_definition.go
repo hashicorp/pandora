@@ -1,15 +1,15 @@
 package models
 
-// ResourceDefinition describes a Resource with information specific to Terraform
-type ResourceDefinition struct {
+// TerraformResourceDefinition describes a Resource with information specific to Terraform
+type TerraformResourceDefinition struct {
 	// Category specifies the Category under which this Resource should appear in the documentation.
 	Category string `json:"category"`
 
 	// CreateMethod defines the Create Method associated with this Resource.
-	CreateMethod Method `json:"createMethod"`
+	CreateMethod TerraformMethodDefinition `json:"createMethod"`
 
 	// DeleteMethod defines the Delete Method associated with this Resource.
-	DeleteMethod Method `json:"deleteMethod"`
+	DeleteMethod TerraformMethodDefinition `json:"deleteMethod"`
 
 	// Description is the description which should be used for this Resource.
 	Description string `json:"description"`
@@ -35,17 +35,17 @@ type ResourceDefinition struct {
 	Label string `json:"label"`
 
 	// ReadMethod defines the Read Method associated with this Resource.
-	ReadMethod Method `json:"readMethod"`
+	ReadMethod TerraformMethodDefinition `json:"readMethod"`
 
 	// ResourceIdName specifies the name of the Resource ID type used for this Resource.
 	ResourceIdName string `json:"resourceIdName"`
 
 	// UpdateMethod defines the Update Method associated with this Resource.
-	UpdateMethod *Method `json:"updateMethod,omitempty"`
+	UpdateMethod *TerraformMethodDefinition `json:"updateMethod,omitempty"`
 }
 
-type Method struct {
-	// Generate determines whether this Method is generated or not
+type TerraformMethodDefinition struct {
+	// Generate determines whether this TerraformMethodDefinition is generated or not
 	Generate bool `json:"generate"`
 
 	// Name specifies what SDK method that will be called (e.g.Delete)

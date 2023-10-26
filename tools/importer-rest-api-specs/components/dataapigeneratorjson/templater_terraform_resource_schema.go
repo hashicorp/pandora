@@ -17,7 +17,7 @@ func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchema
 	}
 	sort.Strings(fieldList)
 
-	schemaFields := make([]dataApiModels.SchemaField, 0)
+	schemaFields := make([]dataApiModels.TerraformSchemaField, 0)
 	for _, fieldName := range fieldList {
 		def := model.Fields[fieldName]
 
@@ -37,8 +37,8 @@ func codeForTerraformSchemaModelDefinition(model resourcemanager.TerraformSchema
 	return data, nil
 }
 
-func fieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, apiVersionPackageName, resourcePackageName string) (dataApiModels.SchemaField, error) {
-	schemaField := dataApiModels.SchemaField{
+func fieldDefinitionForTerraformSchemaField(name string, input resourcemanager.TerraformSchemaFieldDefinition, constants map[string]resourcemanager.ConstantDetails, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition, apiVersionPackageName, resourcePackageName string) (dataApiModels.TerraformSchemaField, error) {
+	schemaField := dataApiModels.TerraformSchemaField{
 		HclName:          input.HclName,
 		Name:             name,
 		ObjectDefinition: objectDefinitionfromSchemaField(input.ObjectDefinition),
