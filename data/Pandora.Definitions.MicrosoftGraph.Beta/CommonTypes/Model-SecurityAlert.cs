@@ -79,6 +79,9 @@ internal class SecurityAlertModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("productName")]
+    public string? ProductName { get; set; }
+
     [JsonPropertyName("providerAlertId")]
     public string? ProviderAlertId { get; set; }
 

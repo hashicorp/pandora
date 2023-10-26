@@ -38,4 +38,7 @@ internal enum SecurityAlertServiceSourceConstant
 
     [Description("MicrosoftDefenderForCloud")]
     @microsoftDefenderForCloud,
+
+    [Description("MicrosoftSentinel")]
+    @microsoftSentinel,
 }

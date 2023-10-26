@@ -43,6 +43,9 @@ internal class AuthenticationModel
     [JsonPropertyName("phoneMethods")]
     public List<PhoneAuthenticationMethodModel>? PhoneMethods { get; set; }
 
+    [JsonPropertyName("platformCredentialMethods")]
+    public List<PlatformCredentialAuthenticationMethodModel>? PlatformCredentialMethods { get; set; }
+
     [JsonPropertyName("signInPreferences")]
     public SignInPreferencesModel? SignInPreferences { get; set; }
 
