@@ -1,6 +1,10 @@
 package models
 
-type TerraformResourceMappingDefinition struct {
+// TerraformMappingDefinition defines a Mappings between a Terraform Resource and
+// the Models used within the SDK.
+// In the future this'll also be used for defining the mappings between a Terraform
+// Data Source and the Models - hence this not being specific to a Data Source.
+type TerraformMappingDefinition struct {
 	// DirectAssignmentMappings defines information for this Mapping when Type is set to DirectAssignment.
 	DirectAssignmentMappings *[]TerraformDirectAssignmentMappings `json:"directAssignmentFieldMappings,omitempty"`
 

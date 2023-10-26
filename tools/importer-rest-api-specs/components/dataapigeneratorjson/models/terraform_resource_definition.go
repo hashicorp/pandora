@@ -24,10 +24,10 @@ type TerraformResourceDefinition struct {
 	// for this Resource.
 	GenerateIdValidationFunction bool `json:"generateIdValidationFunction"`
 
-	/// GenerateModel specifies whether the Typed Model(s) should be output for this Resource.
+	// GenerateModel specifies whether the Typed Model(s) should be output for this Resource.
 	GenerateModel bool `json:"generateModel"`
 
-	/// GenerateSchema specifies whether the Schema should be generated for this Resource.
+	// GenerateSchema specifies whether the Schema should be generated for this Resource.
 	GenerateSchema bool `json:"generateSchema"`
 
 	// Label is the Terraform Resource Label which should be used for this Resource
