@@ -2,16 +2,10 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-hclog"
 	"os"
 	"path"
-	"strings"
-
-	"github.com/hashicorp/go-hclog"
 )
-
-func (s Generator) packageNameForResource(resourceName string) string {
-	return strings.Title(resourceName)
-}
 
 func (s Generator) workingDirectoryForResource(resource string) string {
 	dir := s.workingDirectoryForApiVersion
@@ -29,12 +23,6 @@ func recreateDirectory(directory string, logger hclog.Logger) error {
 	}
 	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
 	return nil
-}
-
-func normalizeApiVersion(input string) string {
-	normalized := strings.ReplaceAll(input, "-", "_")     // e.g. 2020-01-01-preview -> 2020_01_01_preview
-	normalized = strings.ReplaceAll(normalized, ".", "_") // e.g. 1.0 -> 1_0
-	return fmt.Sprintf("v%s", normalized)
 }
 
 func writeJsonToFile(fileName string, fileContents []byte) error {

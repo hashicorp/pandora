@@ -1,15 +1,12 @@
 package dataapigeneratorjson
 
 import (
-	"encoding/json"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails, resourceIds map[string]importerModels.ParsedResourceId) ([]byte, error) {
+func buildTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails) (*dataApiModels.TerraformResourceDefinition, error) {
 	createMethod := dataApiModels.TerraformMethodDefinition{
 		Generate:         details.CreateMethod.Generate,
 		Name:             details.CreateMethod.MethodName,
@@ -30,6 +27,7 @@ func codeForTerraformResourceDefinition(resourceLabel string, details resourcema
 		Name:             details.UpdateMethod.MethodName,
 		TimeoutInMinutes: details.UpdateMethod.TimeoutInMinutes,
 	}
+	//TODO: Update is optional
 
 	resourceDefinition := dataApiModels.TerraformResourceDefinition{
 		DisplayName:    details.DisplayName,
@@ -39,7 +37,7 @@ func codeForTerraformResourceDefinition(resourceLabel string, details resourcema
 		Description:    details.Documentation.Description,
 		ExampleUsage:   details.Documentation.ExampleUsageHcl,
 		// todo thread these through to the resource config
-		GenerateIDValidationFunction: true,
+		GenerateIdValidationFunction: true,
 		GenerateModel:                true,
 		GenerateSchema:               true,
 		CreateMethod:                 createMethod,
@@ -47,11 +45,5 @@ func codeForTerraformResourceDefinition(resourceLabel string, details resourcema
 		ReadMethod:                   readMethod,
 		UpdateMethod:                 pointer.To(updateMethod),
 	}
-
-	data, err := json.MarshalIndent(resourceDefinition, "", " ")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
+	return &resourceDefinition, nil
 }

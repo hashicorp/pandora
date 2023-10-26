@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func NewForService(serviceName, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+func NewForService(serviceName, outputDirectory string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceWorkingDirectory := path.Join(outputDirectory, strings.Title(normalisedServiceName))
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
@@ -19,21 +19,16 @@ func NewForService(serviceName, outputDirectory, swaggerGitSha string, resourceP
 		outputDirectory:              outputDirectory,
 		resourceProvider:             resourceProvider,
 		serviceName:                  serviceName,
-		swaggerGitSha:                swaggerGitSha,
 		terraformPackageName:         terraformPackageName,
 		workingDirectoryForService:   serviceWorkingDirectory,
 		workingDirectoryForTerraform: terraformWorkingDirectory,
 	}
 }
 
-func NewForApiVersion(serviceName, apiVersion, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
-	service := NewForService(serviceName, outputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger)
+func NewForApiVersion(serviceName, apiVersion, outputDirectory string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
+	service := NewForService(serviceName, outputDirectory, resourceProvider, terraformPackageName, logger)
 
-	normalizedApiVersion := normalizeApiVersion(apiVersion)
-
-	service.apiVersionPackageName = normalizedApiVersion
-	service.workingDirectoryForApiVersion = path.Join(service.workingDirectoryForService, normalizedApiVersion)
-
+	service.workingDirectoryForApiVersion = path.Join(service.workingDirectoryForService, apiVersion)
 	return service
 }
 

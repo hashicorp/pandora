@@ -1,37 +1,36 @@
 package dataapigeneratorjson
 
 import (
-	"encoding/json"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	"fmt"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceDetails) ([]byte, error) {
-	resourceMapping := models.TerraformResourceMappingDefinition{}
+func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataApiModels.TerraformMappingDefinition, error) {
+	output := dataApiModels.TerraformMappingDefinition{}
 
-	resourceIdMappings := make([]models.TerraformResourceIdMapping, 0)
-	for _, item := range details.Mappings.ResourceId {
-		mapping := models.TerraformResourceIdMapping{
+	resourceIdMappings := make([]dataApiModels.TerraformResourceIdMapping, 0)
+	for _, item := range input.ResourceId {
+		mapping := dataApiModels.TerraformResourceIdMapping{
 			SchemaFieldName:    item.SchemaFieldName,
 			SegmentName:        item.SegmentName,
-			ParsedFromParentID: item.ParsedFromParentID,
+			ParsedFromParentId: item.ParsedFromParentID,
 		}
 
 		resourceIdMappings = append(resourceIdMappings, mapping)
 	}
 	if len(resourceIdMappings) > 0 {
-		resourceMapping.ResourceIdMapping = &resourceIdMappings
+		output.ResourceIdMapping = &resourceIdMappings
 	}
 
-	directAssignmentFieldMappings := make([]models.TerraformDirectAssignmentMappings, 0)
-	modelToModelAssignmentFieldMappings := make([]models.TerraformModelToModelMappings, 0)
-	for _, item := range details.Mappings.Fields {
+	directAssignmentFieldMappings := make([]dataApiModels.TerraformDirectAssignmentMappings, 0)
+	modelToModelAssignmentFieldMappings := make([]dataApiModels.TerraformModelToModelMappings, 0)
+	for _, item := range input.Fields {
 		switch item.Type {
 		// TODO: BooleanEquals etc
 		case resourcemanager.DirectAssignmentMappingDefinitionType:
 			{
-				directAssignmentFieldMapping := models.TerraformDirectAssignmentMappings{
+				directAssignmentFieldMapping := dataApiModels.TerraformDirectAssignmentMappings{
 					SchemaModelName: item.DirectAssignment.SchemaModelName,
 					SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 					SdkModelName:    item.DirectAssignment.SdkModelName,
@@ -41,28 +40,27 @@ func codeForTerraformResourceMappings(details resourcemanager.TerraformResourceD
 			}
 		case resourcemanager.ModelToModelMappingDefinitionType:
 			{
-				modelToModelAssignmentFieldMapping := models.TerraformModelToModelMappings{
+				modelToModelAssignmentFieldMapping := dataApiModels.TerraformModelToModelMappings{
 					SchemaModelName: item.ModelToModel.SchemaModelName,
 					SdkModelName:    item.ModelToModel.SdkModelName,
 					SdkFieldName:    item.ModelToModel.SdkFieldName,
 				}
 				modelToModelAssignmentFieldMappings = append(modelToModelAssignmentFieldMappings, modelToModelAssignmentFieldMapping)
 			}
+
+		default:
+			{
+				return nil, fmt.Errorf("internal-error: unimplemented MappingDefinitionType %q", string(item.Type))
+			}
 		}
 	}
 
 	if len(directAssignmentFieldMappings) > 0 {
-		resourceMapping.DirectAssignmentMappings = &directAssignmentFieldMappings
+		output.DirectAssignmentMappings = &directAssignmentFieldMappings
 	}
-
 	if len(modelToModelAssignmentFieldMappings) > 0 {
-		resourceMapping.ModelToModelMappings = &modelToModelAssignmentFieldMappings
+		output.ModelToModelMappings = &modelToModelAssignmentFieldMappings
 	}
 
-	data, err := json.MarshalIndent(resourceMapping, "", " ")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
+	return &output, nil
 }

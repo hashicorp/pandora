@@ -8,7 +8,7 @@ import (
 
 func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) error {
 	if err := s.generateVersionDefinition(apiVersion); err != nil {
-		return fmt.Errorf("generating Version Definition for API Version %q: %+v", s.apiVersionPackageName, err)
+		return fmt.Errorf("generating Version Definition for API Version %q: %+v", apiVersion.ApiVersion, err)
 	}
 
 	for resourceName, resource := range apiVersion.Resources {
