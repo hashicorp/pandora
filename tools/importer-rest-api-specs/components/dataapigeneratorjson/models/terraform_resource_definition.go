@@ -2,6 +2,9 @@ package models
 
 // TerraformResourceDefinition describes a Resource with information specific to Terraform
 type TerraformResourceDefinition struct {
+	// ApiVersion specifies the version of the Api which used for this resource.
+	ApiVersion string `json:"apiVersion"`
+
 	// Category specifies the Category under which this Resource should appear in the documentation.
 	Category string `json:"category"`
 
@@ -19,6 +22,10 @@ type TerraformResourceDefinition struct {
 
 	// ExampleUsage is the Example Usage snippet for this Resource which can be used in the documentation.
 	ExampleUsage string `json:"exampleUsage"`
+
+	// Generate specifies if any part of the entire Resource should be generated.
+	// If false, this resource will not be generated in any form.
+	Generate bool
 
 	// GenerateIdValidationFunction specifies whether an ID Validation Function should be generated
 	// for this Resource.
