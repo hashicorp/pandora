@@ -81,7 +81,7 @@ service "cognitiveservices" {
 }
 service "communication" {
   name      = "Communication"
-  available = ["2023-03-31"]
+  available = ["2023-03-31", "2023-04-01"]
 }
 service "compute" {
   name      = "Compute"
