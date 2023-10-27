@@ -79,7 +79,7 @@ func fieldDefinitionForTerraformSchemaField(fieldName string, input resourcemana
 	return &output, nil
 }
 
-var internalTerraformSchemaObjectDefinitionsToTerraformSchemaObjectDefinitionTypes = map[resourcemanager.TerraformSchemaFieldType]dataApiModels.TerraformSchemaObjectDefinitionType{
+var objectDefinitionsToTerraformSchemaObjectDefinitionTypes = map[resourcemanager.TerraformSchemaFieldType]dataApiModels.TerraformSchemaObjectDefinitionType{
 	resourcemanager.TerraformSchemaFieldTypeBoolean:                       dataApiModels.BooleanTerraformSchemaObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeDateTime:                      dataApiModels.DateTimeTerraformSchemaObjectDefinitionType,
 	resourcemanager.TerraformSchemaFieldTypeDictionary:                    dataApiModels.DictionaryTerraformSchemaObjectDefinitionType,
@@ -103,7 +103,7 @@ var internalTerraformSchemaObjectDefinitionsToTerraformSchemaObjectDefinitionTyp
 }
 
 func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*dataApiModels.TerraformSchemaObjectDefinition, error) {
-	mapped, ok := internalTerraformSchemaObjectDefinitionsToTerraformSchemaObjectDefinitionTypes[input.Type]
+	mapped, ok := objectDefinitionsToTerraformSchemaObjectDefinitionTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for the Terraform Schema Field Object Definition %q", string(input.Type))
 	}
@@ -124,12 +124,12 @@ func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFie
 	return &objectDefinition, nil
 }
 
-var internalTerraformSchemaFieldValidationTypesToTerraformSchemaFieldValidationTypes = map[resourcemanager.TerraformSchemaValidationType]dataApiModels.TerraformSchemaFieldValidationType{
+var fieldValidationTypesToTerraformSchemaFieldValidationTypes = map[resourcemanager.TerraformSchemaValidationType]dataApiModels.TerraformSchemaFieldValidationType{
 	resourcemanager.TerraformSchemaValidationTypePossibleValues: dataApiModels.PossibleValuesTerraformSchemaValidationType,
 }
 
 func mapFieldValidationDefinition(input resourcemanager.TerraformSchemaValidationDefinition) (*dataApiModels.TerraformSchemaFieldValidationDefinition, error) {
-	mappedType, ok := internalTerraformSchemaFieldValidationTypesToTerraformSchemaFieldValidationTypes[input.Type]
+	mappedType, ok := fieldValidationTypesToTerraformSchemaFieldValidationTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Schema Field Validation Type %q", string(input.Type))
 	}
@@ -151,13 +151,20 @@ func mapFieldValidationDefinition(input resourcemanager.TerraformSchemaValidatio
 	return &output, nil
 }
 
-//var internalTerraformSchemaFieldValidationTypesToTerraformSchemaFieldValidationTypes = map[resourcemanager.TerraformSchemaValidationType]dataApiModels.TerraformSchemaFieldValidationType{
-//	"": dataApiModels.FloatTerraformSchemaValidationPossibleValuesType,
-//	"": dataApiModels.IntegerTerraformSchemaValidationPossibleValuesType,
-//	"": dataApiModels.StringTerraformSchemaValidationPossibleValuesType,
-//}
+var possibleValuesTypeMappings = map[resourcemanager.TerraformSchemaValidationPossibleValueType]dataApiModels.TerraformSchemaValidationPossibleValuesType{
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:    dataApiModels.FloatTerraformSchemaValidationPossibleValuesType,
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:  dataApiModels.IntegerTerraformSchemaValidationPossibleValuesType,
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeString: dataApiModels.StringTerraformSchemaValidationPossibleValuesType,
+}
 
 func mapPossibleValuesForTerraformSchemaFieldValidation(input resourcemanager.TerraformSchemaValidationPossibleValuesDefinition) (*dataApiModels.TerraformSchemaValidationPossibleValuesDefinition, error) {
-	// TODO: implement me
-	return nil, nil
+	val, ok := possibleValuesTypeMappings[input.Type]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: missing mapping for Validation PossibleValueType %q", string(input.Type))
+	}
+
+	return &dataApiModels.TerraformSchemaValidationPossibleValuesDefinition{
+		Type:   val,
+		Values: input.Values,
+	}, nil
 }
