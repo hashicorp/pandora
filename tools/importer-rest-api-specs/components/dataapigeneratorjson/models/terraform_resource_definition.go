@@ -25,7 +25,7 @@ type TerraformResourceDefinition struct {
 
 	// Generate specifies if any part of the entire Resource should be generated.
 	// If false, this resource will not be generated in any form.
-	Generate bool
+	Generate bool `json:"generate"`
 
 	// GenerateIdValidationFunction specifies whether an ID Validation Function should be generated
 	// for this Resource.
