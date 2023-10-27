@@ -2,9 +2,10 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
-	"github.com/hashicorp/go-hclog"
 	"os"
 	"path"
+
+	"github.com/hashicorp/go-hclog"
 )
 
 func (s Generator) workingDirectoryForResource(resource string) string {
