@@ -5,6 +5,7 @@ type ConstantType string
 type DateFormat string
 type FieldValidationType string
 type ObjectDefinitionType string
+type OptionObjectDefinitionType string
 type ResourceIdSegmentType string
 type ServiceType string
 

@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api/internal/repositories/models"
 )
 
 type ServicesRepository interface {
@@ -228,7 +229,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 }
 
 func processConstant(path string) (*ConstantDetails, error) {
-	var constant Constant
+	var constant models.Constant
 
 	contents, err := loadJson(fmt.Sprintf(path))
 	if err != nil {
@@ -252,7 +253,7 @@ func processConstant(path string) (*ConstantDetails, error) {
 }
 
 func processModel(path string) (*ModelDetails, error) {
-	var model Model
+	var model models.Model
 
 	contents, err := loadJson(path)
 	if err != nil {
@@ -266,7 +267,6 @@ func processModel(path string) (*ModelDetails, error) {
 	fieldDetails := make(map[string]FieldDetails)
 	for _, field := range model.Fields {
 		fieldDetail := FieldDetails{
-			DateFormat:       field.ObjectDefinition.DateFormat,
 			IsTypeHint:       false,
 			JsonName:         field.JsonName,
 			Optional:         field.Optional,
@@ -276,6 +276,10 @@ func processModel(path string) (*ModelDetails, error) {
 			//Default:          nil,
 			//Description:      "",
 			//ForceNew:         false,
+		}
+
+		if field.ObjectDefinition.DateFormat != nil {
+			fieldDetail.DateFormat = pointer.To(DateFormat(*field.ObjectDefinition.DateFormat))
 		}
 
 		if field.ObjectDefinition.MinItems != nil && field.ObjectDefinition.MaxItems != nil {
@@ -299,10 +303,10 @@ func processModel(path string) (*ModelDetails, error) {
 	}, nil
 }
 
-func processObjectDefinition(input DataApiObjectDefinition) ObjectDefinition {
+func processObjectDefinition(input models.ObjectDefinition) ObjectDefinition {
 	output := ObjectDefinition{
 		ReferenceName: input.ReferenceName,
-		Type:          input.Type,
+		Type:          ObjectDefinitionType(input.Type),
 	}
 
 	if input.NestedItem != nil {
@@ -313,7 +317,7 @@ func processObjectDefinition(input DataApiObjectDefinition) ObjectDefinition {
 }
 
 func processOperation(path string) (*ResourceOperations, error) {
-	var operation Operation
+	var operation models.Operation
 
 	contents, err := loadJson(path)
 	if err != nil {
@@ -329,9 +333,9 @@ func processOperation(path string) (*ResourceOperations, error) {
 		ExpectedStatusCodes:              operation.ExpectedStatusCodes,
 		LongRunning:                      operation.LongRunning,
 		Method:                           operation.HTTPMethod,
-		RequestObject:                    operation.RequestObject,
+		RequestObject:                    pointer.To(processObjectDefinition(*operation.RequestObject)),
 		ResourceIdName:                   operation.ResourceIdName,
-		ResponseObject:                   operation.ResponseObject,
+		ResponseObject:                   pointer.To(processObjectDefinition(*operation.RequestObject)),
 		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
 		Options:                          nil,
 		UriSuffix:                        operation.UriSuffix,
@@ -346,7 +350,7 @@ func processOperation(path string) (*ResourceOperations, error) {
 				Required:        option.Required,
 			}
 			if option.ObjectDefinition != nil {
-				operationOptions.ObjectDefinition = processOptionObjectDefinition(option.ObjectDefinition)
+				operationOptions.ObjectDefinition = processOptionObjectDefinition(*option.ObjectDefinition)
 			}
 			options[option.Field] = operationOptions
 		}
@@ -356,21 +360,21 @@ func processOperation(path string) (*ResourceOperations, error) {
 	return &resourceOperations, nil
 }
 
-func processOptionObjectDefinition(input *DataApiOptionObjectDefinition) *OptionObjectDefinition {
+func processOptionObjectDefinition(input models.OptionObjectDefinition) *OptionObjectDefinition {
 	output := OptionObjectDefinition{
 		ReferenceName: input.ReferenceName,
-		Type:          input.Type,
+		Type:          OptionObjectDefinitionType(input.Type),
 	}
 
 	if input.NestedItem != nil {
-		output.NestedItem = processOptionObjectDefinition(input.NestedItem)
+		output.NestedItem = processOptionObjectDefinition(*input.NestedItem)
 	}
 
 	return &output
 }
 
 func processResourceId(path string) (*ResourceIdDefinition, error) {
-	var resourceId ResourceId
+	var resourceId models.ResourceId
 
 	contents, err := loadJson(path)
 	if err != nil {
@@ -394,7 +398,7 @@ func processResourceId(path string) (*ResourceIdDefinition, error) {
 	}
 
 	return &ResourceIdDefinition{
-		CommonAlias: pointer.To(resourceId.CommonAlias),
+		CommonAlias: resourceId.CommonAlias,
 		Id:          resourceId.Id,
 		Segments:    segments,
 		// TODO unable to find this attribute
