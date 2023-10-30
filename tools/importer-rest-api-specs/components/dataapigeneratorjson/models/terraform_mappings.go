@@ -5,16 +5,24 @@ package models
 // In the future this'll also be used for defining the mappings between a Terraform
 // Data Source and the Models - hence this not specific to a Resource.
 type TerraformMappingDefinition struct {
-	// FieldMappings defines the mappings between Schema Fields within a Schema Model and the Sdk Fields
-	// within an SDK Model.
+	// FieldMappings defines the mappings between Fields within a TerraformSchemaModel
+	// and the Fields within an SDK Model.
+	//
+	// These allow the values to be mapped onto each other - either via (direct)
+	// assignment (e.g. `foo = bar`) or using some form of transformation process
+	// (e.g. `foo = map(bar)`).
 	FieldMappings *[]TerraformFieldMappingDefinition `json:"fieldMappings,omitempty"`
 
-	/// ModelToModelMappings is a list of the Model to Model Mappings, used to generate the Mapping
-	// functions between Schema and SDK Models.
+	// ModelToModelMappings is a list of the Model to Model Mappings
+	//
+	// These are used to generate the Mapping functions between a TerraformSchemaModel
+	// and a Model used in the SDK.
 	ModelToModelMappings *[]TerraformModelToModelMappingDefinition `json:"modelToModelMappings,omitempty"`
 
-	// ResourceIdMapping is a list of Resource ID Mappings, defining how a top-level Schema Field
-	// gets mapped to/from a Resource ID Segment.
+	// ResourceIdMapping is a list of the Resource ID Mappings
+	//
+	// These define the mappings between a field within the top-level TerraformSchemaModel
+	// for a Resource and a given Resource ID Segment name.
 	ResourceIdMapping *[]TerraformResourceIdMappingDefinition `json:"resourceIdMapping,omitempty"`
 }
 
