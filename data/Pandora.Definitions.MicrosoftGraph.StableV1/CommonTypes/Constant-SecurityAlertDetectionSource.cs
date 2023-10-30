@@ -62,4 +62,19 @@ internal enum SecurityAlertDetectionSourceConstant
 
     [Description("MicrosoftDefenderForCloud")]
     @microsoftDefenderForCloud,
+
+    [Description("NrtAlerts")]
+    @nrtAlerts,
+
+    [Description("ScheduledAlerts")]
+    @scheduledAlerts,
+
+    [Description("MicrosoftDefenderThreatIntelligenceAnalytics")]
+    @microsoftDefenderThreatIntelligenceAnalytics,
+
+    [Description("BuiltInMl")]
+    @builtInMl,
+
+    [Description("MicrosoftSentinel")]
+    @microsoftSentinel,
 }

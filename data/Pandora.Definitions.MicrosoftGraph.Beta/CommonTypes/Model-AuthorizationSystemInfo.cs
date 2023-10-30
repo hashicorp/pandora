@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class AuthorizationSystemInfoModel
 {
+    [JsonPropertyName("authorizationSystemType")]
+    public AuthorizationSystemInfoAuthorizationSystemTypeConstant? AuthorizationSystemType { get; set; }
+
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
