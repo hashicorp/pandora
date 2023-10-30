@@ -3,7 +3,7 @@ package models
 // TerraformMappingDefinition defines a Mappings between a Terraform Resource and
 // the Models used within the SDK.
 // In the future this'll also be used for defining the mappings between a Terraform
-// Data Source and the Models - hence this not being specific to a Data Source.
+// Data Source and the Models - hence this not specific to a Resource.
 type TerraformMappingDefinition struct {
 	// FieldMappings defines the mappings between Schema Fields within a Schema Model and the Sdk Fields
 	// within an SDK Model.
