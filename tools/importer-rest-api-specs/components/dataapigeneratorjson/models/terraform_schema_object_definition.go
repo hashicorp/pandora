@@ -14,9 +14,16 @@ type TerraformSchemaObjectDefinition struct {
 	Type TerraformSchemaObjectDefinitionType `json:"type"`
 }
 
-// TerraformSchemaObjectDefinitionType specifies the Type of Object that is used in the Terraform Schema
-// NOTE: these are intentionally separate to the regular (SDK) Object Definition since these have different
-// types - and are not 1:1 compatible (for example, requiring an Expand/Flatten/Transform function).
+// TerraformSchemaObjectDefinitionType specifies the Type of Object that is used in the Terraform Schema.
+//
+// Note: these types are intentionally separate from the Object Definition Types used in the (Go) SDK
+// to allow for higher fidelity - and more consistency - when outputting the Terraform Schema.
+//
+// Whilst in some cases these may be directly compatible (e.g. a String value) in others these can
+// require additional transformation - as such the Terraform Generator defines how to map to/from
+// the ObjectDefinitionType used in the Go SDK and the TerraformSchemaObjectDefinitionType used in
+// the Terraform Schema (both in the Typed Model and the Terraform Schema `Attributes` and
+// `Arguments` functions).
 type TerraformSchemaObjectDefinitionType string
 
 const (
