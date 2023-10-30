@@ -19,11 +19,11 @@ type TerraformMappingDefinition struct {
 	// and a Model used in the SDK.
 	ModelToModelMappings *[]TerraformModelToModelMappingDefinition `json:"modelToModelMappings,omitempty"`
 
-	// ResourceIdMapping is a list of the Resource ID Mappings
+	// ResourceIdMappings is a list of the Resource ID Mappings
 	//
 	// These define the mappings between a field within the top-level TerraformSchemaModel
 	// for a Resource and a given Resource ID Segment name.
-	ResourceIdMapping *[]TerraformResourceIdMappingDefinition `json:"resourceIdMapping,omitempty"`
+	ResourceIdMappings *[]TerraformResourceIdMappingDefinition `json:"resourceIdMappings,omitempty"`
 }
 
 // TerraformFieldMappingDefinition defines the Mapping between a Field in the Terraform Schema

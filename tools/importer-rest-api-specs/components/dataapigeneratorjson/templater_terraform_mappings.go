@@ -96,7 +96,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataA
 	// Finally ResourceId Mappings are between a given (root-level) Schema Field and a Resource ID Segment
 	resourceIdMappings := mapTerraformSchemaResourceIdMappings(input.ResourceId)
 	if len(resourceIdMappings) > 0 {
-		output.ResourceIdMapping = &resourceIdMappings
+		output.ResourceIdMappings = &resourceIdMappings
 	}
 
 	return &output, nil
