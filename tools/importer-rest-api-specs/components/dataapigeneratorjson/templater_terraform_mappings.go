@@ -147,7 +147,7 @@ func orderFieldMappings(input []dataApiModels.TerraformFieldMappingDefinition) (
 
 		default:
 			{
-				// the likelihood of us getting here without being caught above it low, and so would
+				// the likelihood of us getting here without being caught above is low, and so would
 				// only happen during development - whilst we could panic it's probably easiest to
 				// reuse the same error as above so both get fixed concurrently.
 				return nil, fmt.Errorf("internal-error: missing mapping implementation for %q", string(item.Type))
