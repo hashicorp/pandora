@@ -15,6 +15,5 @@ public partial class Definition : ApiVersionDefinition
         new PrivateEndpointConnections.Definition(),
         new PrivateLinkResources.Definition(),
         new RedisEnterprise.Definition(),
-        new SKU.Definition(),
     };
 }
