@@ -434,7 +434,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-01-15", "2023-02-01", "2023-04-01"]
+  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -563,7 +563,7 @@ service "vmware" {
 }
 service "voiceservices" {
   name      = "VoiceServices"
-  available = ["2023-04-03"]
+  available = ["2023-04-03", "2023-09-01"]
 }
 service "web" {
   name      = "Web"
