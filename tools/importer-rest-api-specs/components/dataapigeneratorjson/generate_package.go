@@ -8,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Generator) generateResources(resourceName string, resource models.AzureApiResource, workingDirectory string, logger hclog.Logger) error {
+func (s Generator) generateResources(resource models.AzureApiResource, workingDirectory string, logger hclog.Logger) error {
 	if err := recreateDirectory(workingDirectory, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}

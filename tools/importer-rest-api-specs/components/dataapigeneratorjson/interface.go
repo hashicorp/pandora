@@ -5,11 +5,9 @@ import (
 )
 
 type Generator struct {
-	apiVersionPackageName         string
 	outputDirectory               string
 	resourceProvider              *string
 	serviceName                   string
-	swaggerGitSha                 string
 	terraformPackageName          *string
 	workingDirectoryForService    string
 	workingDirectoryForApiVersion string

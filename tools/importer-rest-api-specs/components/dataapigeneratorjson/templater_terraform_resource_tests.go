@@ -1,48 +1,23 @@
 package dataapigeneratorjson
 
 import (
-	"encoding/json"
-	"strings"
-
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type TerraformResourceTestConfig struct {
-	Basic          string  `json:"Basic"`
-	RequiresImport string  `json:"RequiresImport"`
-	CompleteConfig *string `json:"CompleteConfig,omitempty"`
-	TemplateConfig *string `json:"TemplateConfig,omitempty"`
-}
-
-func codeForTerraformResourceTestDefinition(details resourcemanager.TerraformResourceDetails) ([]byte, error) {
-	testConfig := TerraformResourceTestConfig{
-		Basic:          prepareTerraformTestConfigForOutput(details.Tests.BasicConfiguration),
-		RequiresImport: prepareTerraformTestConfigForOutput(details.Tests.RequiresImportConfiguration),
-		CompleteConfig: conditionallyAddTestOutput(details.Tests.CompleteConfiguration),
-		TemplateConfig: conditionallyAddTestOutput(details.Tests.TemplateConfiguration),
+func mapTerraformResourceTestDefinition(input resourcemanager.TerraformResourceTestsDefinition) dataApiModels.TerraformResourceTestConfig {
+	// TODO: looking at the data more and more, these probably want to become `*.hcl` files?
+	// Perhaps `Resource-Test-{Basic|Complete}.hcl` and  `Resource-Test-{Other}{1|2|3}.hcl`?
+	testConfig := dataApiModels.TerraformResourceTestConfig{
+		BasicConfig:    input.BasicConfiguration,
+		CompleteConfig: input.CompleteConfiguration,
+		Generate:       input.Generate,
+		RequiresImport: input.RequiresImportConfiguration,
+		TemplateConfig: input.TemplateConfiguration,
 	}
-
-	data, err := json.MarshalIndent(testConfig, "", " ")
-	if err != nil {
-		return nil, err
+	if len(input.OtherTests) > 0 {
+		testConfig.OtherTests = pointer.To(input.OtherTests)
 	}
-
-	return data, nil
-}
-
-func conditionallyAddTestOutput(input *string) *string {
-	if input != nil {
-		val := prepareTerraformTestConfigForOutput(*input)
-		return &val
-	}
-
-	return nil
-}
-
-func prepareTerraformTestConfigForOutput(input string) string {
-	output := input
-	output = strings.TrimSpace(output)
-	output = strings.Replace(output, "\"", "'", -1)
-	output = strings.TrimSpace(output)
-	return output
+	return testConfig
 }

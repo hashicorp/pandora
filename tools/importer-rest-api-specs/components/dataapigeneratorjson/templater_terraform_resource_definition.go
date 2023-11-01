@@ -1,84 +1,48 @@
 package dataapigeneratorjson
 
 import (
-	"encoding/json"
-	"fmt"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-type ResourceDefinition struct {
-	DisplayName                  string `json:"DisplayName"`
-	Id                           string `json:"Id"`
-	Label                        string `json:"Label"`
-	Category                     string `json:"Category"`
-	Description                  string `json:"Description"`
-	ExampleUsage                 string `json:"ExampleUsage"`
-	GenerateIDValidationFunction bool   `json:"GenerateIDValidationFunction"`
-	GenerateModel                bool   `json:"GenerateModel"`
-	GenerateSchema               bool   `json:"GenerateSchema"`
-	CreateMethod                 Method `json:"CreateMethod"`
-	DeleteMethod                 Method `json:"DeleteMethod"`
-	ReadMethod                   Method `json:"ReadMethod"`
-	UpdateMethod                 Method `json:"UpdateMethod"`
-}
-
-type Method struct {
-	Generate         bool   `json:"Generate"`
-	Name             string `json:"Name"`
-	TimeoutInMinutes int    `json:"TimeoutInMinutes"`
-}
-
-func codeForTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails, resourceIds map[string]models.ParsedResourceId) ([]byte, error) {
-	createMethod := Method{
-		Generate:         details.CreateMethod.Generate,
-		Name:             details.CreateMethod.MethodName,
-		TimeoutInMinutes: details.CreateMethod.TimeoutInMinutes,
+func buildTerraformResourceDefinition(resourceLabel string, input resourcemanager.TerraformResourceDetails) (*dataApiModels.TerraformResourceDefinition, error) {
+	// TODO: ExampleUsage should probably go out into a file - perhaps `Resource-ExampleUsage.hcl`?
+	output := dataApiModels.TerraformResourceDefinition{
+		ApiVersion: input.ApiVersion, // NOTE: this needs to be populated elsewhere
+		Category:   input.Documentation.Category,
+		CreateMethod: dataApiModels.TerraformMethodDefinition{
+			Generate:         input.CreateMethod.Generate,
+			Name:             input.CreateMethod.MethodName,
+			TimeoutInMinutes: input.CreateMethod.TimeoutInMinutes,
+		},
+		DeleteMethod: dataApiModels.TerraformMethodDefinition{
+			Generate:         input.DeleteMethod.Generate,
+			Name:             input.DeleteMethod.MethodName,
+			TimeoutInMinutes: input.DeleteMethod.TimeoutInMinutes,
+		},
+		Description:                  input.Documentation.Description,
+		DisplayName:                  input.DisplayName,
+		ExampleUsage:                 input.Documentation.ExampleUsageHcl,
+		Generate:                     input.Generate,
+		GenerateIdValidationFunction: input.GenerateIdValidation,
+		GenerateModel:                input.GenerateModel,
+		GenerateSchema:               input.GenerateSchema,
+		Label:                        resourceLabel,
+		ReadMethod: dataApiModels.TerraformMethodDefinition{
+			Generate:         input.ReadMethod.Generate,
+			Name:             input.ReadMethod.MethodName,
+			TimeoutInMinutes: input.ReadMethod.TimeoutInMinutes,
+		},
+		ResourceIdName: input.ResourceIdName,
+		UpdateMethod:   nil,
 	}
-	deleteMethod := Method{
-		Generate:         details.DeleteMethod.Generate,
-		Name:             details.DeleteMethod.MethodName,
-		TimeoutInMinutes: details.DeleteMethod.TimeoutInMinutes,
-	}
-	readMethod := Method{
-		Generate:         details.ReadMethod.Generate,
-		Name:             details.ReadMethod.MethodName,
-		TimeoutInMinutes: details.ReadMethod.TimeoutInMinutes,
-	}
-	updateMethod := Method{
-		Generate:         details.UpdateMethod.Generate,
-		Name:             details.UpdateMethod.MethodName,
-		TimeoutInMinutes: details.UpdateMethod.TimeoutInMinutes,
+	if input.UpdateMethod != nil {
+		output.UpdateMethod = &dataApiModels.TerraformMethodDefinition{
+			Generate:         input.UpdateMethod.Generate,
+			Name:             input.UpdateMethod.MethodName,
+			TimeoutInMinutes: input.UpdateMethod.TimeoutInMinutes,
+		}
 	}
 
-	resourceDefinition := ResourceDefinition{
-		DisplayName:  details.DisplayName,
-		Label:        resourceLabel,
-		Category:     details.Documentation.Category,
-		Description:  details.Documentation.Description,
-		ExampleUsage: details.Documentation.ExampleUsageHcl,
-		// todo thread these through to the resource config
-		GenerateIDValidationFunction: true,
-		GenerateModel:                true,
-		GenerateSchema:               true,
-		CreateMethod:                 createMethod,
-		DeleteMethod:                 deleteMethod,
-		ReadMethod:                   readMethod,
-		UpdateMethod:                 updateMethod,
-	}
-
-	id, ok := resourceIds[details.ResourceIdName]
-	if !ok {
-		return nil, fmt.Errorf("could not find id %s for Terraform Resource %s", details.ResourceIdName, resourceLabel)
-	}
-
-	resourceDefinition.Id = id.String()
-
-	data, err := json.MarshalIndent(resourceDefinition, "", " ")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
+	return &output, nil
 }

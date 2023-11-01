@@ -4,14 +4,9 @@ import (
 	"fmt"
 	"os"
 	"path"
-	"strings"
 
 	"github.com/hashicorp/go-hclog"
 )
-
-func (s Generator) packageNameForResource(resourceName string) string {
-	return strings.Title(resourceName)
-}
 
 func (s Generator) workingDirectoryForResource(resource string) string {
 	dir := s.workingDirectoryForApiVersion
@@ -31,10 +26,17 @@ func recreateDirectory(directory string, logger hclog.Logger) error {
 	return nil
 }
 
-func normalizeApiVersion(input string) string {
-	normalized := strings.ReplaceAll(input, "-", "_")     // e.g. 2020-01-01-preview -> 2020_01_01_preview
-	normalized = strings.ReplaceAll(normalized, ".", "_") // e.g. 1.0 -> 1_0
-	return fmt.Sprintf("v%s", normalized)
+func ensureDirectoryExists(directory string, logger hclog.Logger) error {
+	logger.Trace(fmt.Sprintf("Ensuring the directory exists at %q..", directory))
+	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
+		if os.IsExist(err) {
+			logger.Trace(fmt.Sprintf("Directory already exists at %q", directory))
+			return nil
+		}
+		return fmt.Errorf("creating directory %q: %+v", directory, err)
+	}
+	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
+	return nil
 }
 
 func writeJsonToFile(fileName string, fileContents []byte) error {
