@@ -477,7 +477,7 @@ type TerraformResourceTestsDefinition struct {
 
 	// OtherTests is a map of key (TestName) to value (a slice of Test Configurations) which
 	// should be output as Acceptance Tests.
-	OtherTests map[string][]string `json:"otherTests"`
+	OtherTests *map[string][]string `json:"otherTests"`
 
 	// TemplateConfiguration is an optional Terraform Configuration which should be used
 	// as the Template for each of the Tests defined above, which should include any parent
