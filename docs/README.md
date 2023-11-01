@@ -34,6 +34,7 @@ Specific information on each tool can be found in the README for each tool, [for
 * [How to add a new Common ID](common-ids.md).
 * [Resource Manager: How to import a new API Version or Service into Pandora](resource-manager-service-import.md).
 * [Resource Manager: Generating a new Resource](resource-manager-generate-new-resource.md).
+* [Internals: Types of (Terraform) Mappings](internals-mappings.md)
 
 ### Resource ID's as a primary concept
 
