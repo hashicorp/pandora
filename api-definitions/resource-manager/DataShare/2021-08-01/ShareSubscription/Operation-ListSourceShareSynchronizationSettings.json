@@ -1,0 +1,16 @@
+{
+ "name": "ListSourceShareSynchronizationSettings",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ShareSubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SourceShareSynchronizationSetting"
+ },
+ "uriSuffix": "/listSourceShareSynchronizationSettings"
+}

@@ -1,0 +1,40 @@
+{
+ "name": "RecoveryPlanAutomationRunbookActionDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fabricLocation",
+   "name": "FabricLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryPlanActionLocation"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runbookId",
+   "name": "RunbookId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeout",
+   "name": "Timeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPlanActionDetails",
+ "discriminatedTypeValue": "AutomationRunbookActionDetails"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "MarketplaceAgreementsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatadogAgreementResource"
+ },
+ "uriSuffix": "/providers/Microsoft.Datadog/agreements"
+}

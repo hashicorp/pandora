@@ -1,0 +1,16 @@
+{
+ "name": "ListByWorkspace",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "WorkspaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualNetworkPeering"
+ },
+ "uriSuffix": "/virtualNetworkPeerings"
+}

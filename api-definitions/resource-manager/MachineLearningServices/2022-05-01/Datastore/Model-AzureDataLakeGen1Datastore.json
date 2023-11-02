@@ -1,0 +1,29 @@
+{
+ "name": "AzureDataLakeGen1Datastore",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceDataAccessAuthIdentity",
+   "name": "ServiceDataAccessAuthIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceDataAccessAuthIdentity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storeName",
+   "name": "StoreName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Datastore",
+ "discriminatedTypeValue": "AzureDataLakeGen1"
+}

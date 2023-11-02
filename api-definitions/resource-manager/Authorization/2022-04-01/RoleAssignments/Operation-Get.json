@@ -1,0 +1,26 @@
+{
+ "name": "Get",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "tenantId",
+   "required": false,
+   "field": "TenantId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ScopedRoleAssignmentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RoleAssignment"
+ }
+}

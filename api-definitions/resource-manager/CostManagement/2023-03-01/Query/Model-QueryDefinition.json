@@ -1,0 +1,49 @@
+{
+ "name": "QueryDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataset",
+   "name": "Dataset",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QueryDataset"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timePeriod",
+   "name": "TimePeriod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QueryTimePeriod"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeframe",
+   "name": "Timeframe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TimeframeType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExportType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,64 @@
+{
+ "name": "MonitoringInputDataBase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "columns",
+   "name": "Columns",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataContext",
+   "name": "DataContext",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "inputDataType",
+   "name": "InputDataType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputDataType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobInputType",
+   "name": "JobInputType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobInputType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "uri",
+   "name": "Uri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

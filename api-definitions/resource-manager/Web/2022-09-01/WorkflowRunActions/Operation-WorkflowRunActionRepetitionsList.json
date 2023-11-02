@@ -1,0 +1,16 @@
+{
+ "name": "WorkflowRunActionRepetitionsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ActionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkflowRunActionRepetitionDefinition"
+ },
+ "uriSuffix": "/repetitions"
+}

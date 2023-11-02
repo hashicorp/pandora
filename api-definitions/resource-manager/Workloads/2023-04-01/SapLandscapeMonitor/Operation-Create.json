@@ -1,0 +1,20 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "MonitorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SapLandscapeMonitor"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SapLandscapeMonitor"
+ },
+ "uriSuffix": "/sapLandscapeMonitor/default"
+}

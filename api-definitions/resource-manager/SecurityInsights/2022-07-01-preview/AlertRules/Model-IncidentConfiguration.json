@@ -1,0 +1,27 @@
+{
+ "name": "IncidentConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createIncident",
+   "name": "CreateIncident",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupingConfiguration",
+   "name": "GroupingConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GroupingConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

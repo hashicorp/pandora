@@ -1,0 +1,19 @@
+{
+ "name": "ClustersListUpgradableVersions",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "UpgradableVersionsDescription"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "UpgradableVersionPathResult"
+ },
+ "uriSuffix": "/listUpgradableVersions"
+}

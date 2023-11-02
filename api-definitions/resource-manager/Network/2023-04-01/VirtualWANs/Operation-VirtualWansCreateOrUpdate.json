@@ -1,0 +1,19 @@
+{
+ "name": "VirtualWansCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "VirtualWANId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualWAN"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualWAN"
+ }
+}

@@ -1,0 +1,35 @@
+{
+ "name": "TargetProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureQueries",
+   "name": "AzureQueries",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureQueryProperties"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nonAzureQueries",
+   "name": "NonAzureQueries",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NonAzureQueryProperties"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ContactProfileId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContactProfile"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContactProfile"
+ }
+}

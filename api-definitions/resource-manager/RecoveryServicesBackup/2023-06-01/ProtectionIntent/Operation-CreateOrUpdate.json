@@ -1,0 +1,18 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "BackupProtectionIntentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProtectionIntentResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProtectionIntentResource"
+ }
+}

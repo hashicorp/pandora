@@ -1,0 +1,16 @@
+{
+ "name": "ServicesList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServicesDescription"
+ },
+ "uriSuffix": "/providers/Microsoft.HealthcareApis/services"
+}

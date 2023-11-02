@@ -1,0 +1,60 @@
+{
+ "name": "DatabaseConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseType",
+   "name": "DatabaseType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SAPDatabaseType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskConfiguration",
+   "name": "DiskConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceCount",
+   "name": "InstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnetId",
+   "name": "SubnetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachineConfiguration",
+   "name": "VirtualMachineConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineConfiguration"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

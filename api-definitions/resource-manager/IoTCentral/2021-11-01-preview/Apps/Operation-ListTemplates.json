@@ -1,0 +1,16 @@
+{
+ "name": "ListTemplates",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AppTemplate"
+ },
+ "uriSuffix": "/providers/Microsoft.IoTCentral/appTemplates"
+}

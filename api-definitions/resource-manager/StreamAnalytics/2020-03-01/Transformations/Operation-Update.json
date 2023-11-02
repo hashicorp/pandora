@@ -1,0 +1,30 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "TransformationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Transformation"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Transformation"
+ }
+}

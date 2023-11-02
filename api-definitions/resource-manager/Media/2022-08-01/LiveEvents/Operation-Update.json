@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "LiveEventId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LiveEvent"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LiveEvent"
+ }
+}

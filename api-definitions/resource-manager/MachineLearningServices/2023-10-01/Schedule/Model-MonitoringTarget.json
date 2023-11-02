@@ -1,0 +1,38 @@
+{
+ "name": "MonitoringTarget",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deploymentId",
+   "name": "DeploymentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "modelId",
+   "name": "ModelId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taskType",
+   "name": "TaskType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ModelTaskType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "name": "RegenerateAccessKeyParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "key",
+   "name": "Key",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyType",
+   "name": "KeyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

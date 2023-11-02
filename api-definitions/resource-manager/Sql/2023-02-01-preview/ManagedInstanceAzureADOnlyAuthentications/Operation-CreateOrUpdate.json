@@ -1,0 +1,21 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ManagedInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceAzureADOnlyAuthentication"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceAzureADOnlyAuthentication"
+ },
+ "uriSuffix": "/azureADOnlyAuthentications/default"
+}

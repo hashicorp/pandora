@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "VolumeGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VolumeGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VolumeGroup"
+ }
+}

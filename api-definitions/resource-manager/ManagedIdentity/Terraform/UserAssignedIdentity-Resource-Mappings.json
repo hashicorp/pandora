@@ -1,0 +1,96 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "ClientId",
+				"sdkModelName": "UserAssignedIdentityProperties",
+				"sdkFieldPath": "ClientId"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "Location",
+				"sdkModelName": "Identity",
+				"sdkFieldPath": "Location"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "PrincipalId",
+				"sdkModelName": "UserAssignedIdentityProperties",
+				"sdkFieldPath": "PrincipalId"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "Identity",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "IdentityUpdate",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"schemaFieldPath": "TenantId",
+				"sdkModelName": "UserAssignedIdentityProperties",
+				"sdkFieldPath": "TenantId"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"sdkModelName": "Identity",
+				"sdkFieldName": "Properties"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "UserAssignedIdentityResource",
+				"sdkModelName": "IdentityUpdate",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "UserAssignedIdentityResource",
+			"sdkModelName": "Identity"
+		},
+		{
+			"schemaModelName": "UserAssignedIdentityResource",
+			"sdkModelName": "IdentityUpdate"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "userAssignedIdentityName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "ResourceGroupName",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

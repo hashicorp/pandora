@@ -1,0 +1,20 @@
+{
+ "name": "WhatIfAtTenantScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "DeploymentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ScopedDeploymentWhatIf"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WhatIfOperationResult"
+ },
+ "uriSuffix": "/whatIf"
+}

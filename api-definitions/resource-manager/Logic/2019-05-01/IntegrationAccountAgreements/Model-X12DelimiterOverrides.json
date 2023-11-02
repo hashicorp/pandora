@@ -1,0 +1,104 @@
+{
+ "name": "X12DelimiterOverrides",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "componentSeparator",
+   "name": "ComponentSeparator",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataElementSeparator",
+   "name": "DataElementSeparator",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messageId",
+   "name": "MessageId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocolVersion",
+   "name": "ProtocolVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replaceCharacter",
+   "name": "ReplaceCharacter",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replaceSeparatorsInPayload",
+   "name": "ReplaceSeparatorsInPayload",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "segmentTerminator",
+   "name": "SegmentTerminator",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "segmentTerminatorSuffix",
+   "name": "SegmentTerminatorSuffix",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SegmentTerminatorSuffix"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetNamespace",
+   "name": "TargetNamespace",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

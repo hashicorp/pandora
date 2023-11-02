@@ -1,0 +1,20 @@
+{
+ "name": "GremlinResourcesRetrieveContinuousBackupInformation",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "GraphId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContinuousBackupRestoreLocation"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupInformation"
+ },
+ "uriSuffix": "/retrieveContinuousBackupInformation"
+}

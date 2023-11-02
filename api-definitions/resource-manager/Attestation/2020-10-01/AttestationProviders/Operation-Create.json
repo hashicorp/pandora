@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AttestationProvidersId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AttestationServiceCreationParams"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AttestationProviders"
+ }
+}

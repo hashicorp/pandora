@@ -1,0 +1,27 @@
+{
+ "name": "MongoIndex",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "key",
+   "name": "Key",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MongoIndexKeys"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "options",
+   "name": "Options",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MongoIndexOptions"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

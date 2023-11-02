@@ -1,0 +1,38 @@
+{
+ "name": "ManagedDiskParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskEncryptionSet",
+   "name": "DiskEncryptionSet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountType",
+   "name": "StorageAccountType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountTypes"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

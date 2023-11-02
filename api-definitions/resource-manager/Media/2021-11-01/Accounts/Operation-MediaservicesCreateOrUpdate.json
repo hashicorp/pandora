@@ -1,0 +1,19 @@
+{
+ "name": "MediaservicesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "MediaServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MediaService"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MediaService"
+ }
+}

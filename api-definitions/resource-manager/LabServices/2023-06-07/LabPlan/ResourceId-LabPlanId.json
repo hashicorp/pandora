@@ -1,0 +1,43 @@
+{
+ "name": "LabPlanId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.LabServices/labPlans/{labPlanName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftLabServices",
+   "type": "ResourceProvider",
+   "value": "Microsoft.LabServices"
+  },
+  {
+   "name": "staticLabPlans",
+   "type": "Static",
+   "value": "labPlans"
+  },
+  {
+   "name": "labPlanName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListDnsServices",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PrivateCloudId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkDnsService"
+ },
+ "uriSuffix": "/workloadNetworks/default/dnsServices"
+}

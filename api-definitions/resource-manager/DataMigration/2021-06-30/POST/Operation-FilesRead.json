@@ -1,0 +1,15 @@
+{
+ "name": "FilesRead",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "FileId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FileStorageInfo"
+ },
+ "uriSuffix": "/read"
+}

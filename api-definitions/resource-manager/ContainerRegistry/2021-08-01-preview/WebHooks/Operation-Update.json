@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "WebHookId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WebhookUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Webhook"
+ }
+}

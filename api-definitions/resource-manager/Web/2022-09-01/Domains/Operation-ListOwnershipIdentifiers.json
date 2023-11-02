@@ -1,0 +1,16 @@
+{
+ "name": "ListOwnershipIdentifiers",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DomainId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DomainOwnershipIdentifier"
+ },
+ "uriSuffix": "/domainOwnershipIdentifiers"
+}

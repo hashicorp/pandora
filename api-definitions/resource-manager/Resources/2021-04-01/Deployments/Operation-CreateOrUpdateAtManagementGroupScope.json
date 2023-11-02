@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtManagementGroupScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "Providers2DeploymentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ScopedDeployment"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeploymentExtended"
+ }
+}

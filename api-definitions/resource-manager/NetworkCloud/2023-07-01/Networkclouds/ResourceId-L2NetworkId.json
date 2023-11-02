@@ -1,0 +1,43 @@
+{
+ "name": "L2NetworkId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetworkCloud/l2Networks/{l2NetworkName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftNetworkCloud",
+   "type": "ResourceProvider",
+   "value": "Microsoft.NetworkCloud"
+  },
+  {
+   "name": "staticL2Networks",
+   "type": "Static",
+   "value": "l2Networks"
+  },
+  {
+   "name": "l2NetworkName",
+   "type": "UserSpecified"
+  }
+ ]
+}

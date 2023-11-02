@@ -1,0 +1,19 @@
+{
+ "name": "GatewayRouteConfigsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "RouteConfigId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GatewayRouteConfigResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GatewayRouteConfigResource"
+ }
+}

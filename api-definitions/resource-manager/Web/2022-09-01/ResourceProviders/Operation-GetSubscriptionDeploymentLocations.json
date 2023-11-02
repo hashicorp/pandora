@@ -1,0 +1,15 @@
+{
+ "name": "GetSubscriptionDeploymentLocations",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeploymentLocations"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/deploymentLocations"
+}

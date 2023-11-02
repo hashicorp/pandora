@@ -1,0 +1,19 @@
+{
+ "name": "GetInsights",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "EntityId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EntityGetInsightsParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EntityGetInsightsResponse"
+ },
+ "uriSuffix": "/getInsights"
+}

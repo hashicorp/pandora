@@ -1,0 +1,40 @@
+{
+ "name": "RestoreTargetInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceAuthCredentials",
+   "name": "DatasourceAuthCredentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthCredentials"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceInfo",
+   "name": "DatasourceInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Datasource"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceSetInfo",
+   "name": "DatasourceSetInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatasourceSet"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RestoreTargetInfoBase",
+ "discriminatedTypeValue": "RestoreTargetInfo"
+}

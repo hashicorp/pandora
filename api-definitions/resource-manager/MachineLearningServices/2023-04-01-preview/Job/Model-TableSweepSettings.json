@@ -1,0 +1,27 @@
+{
+ "name": "TableSweepSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "earlyTermination",
+   "name": "EarlyTermination",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EarlyTerminationPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "samplingAlgorithm",
+   "name": "SamplingAlgorithm",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SamplingAlgorithmType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

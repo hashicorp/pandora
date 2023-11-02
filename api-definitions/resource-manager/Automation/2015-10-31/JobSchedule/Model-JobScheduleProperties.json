@@ -1,0 +1,64 @@
+{
+ "name": "JobScheduleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobScheduleId",
+   "name": "JobScheduleId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runOn",
+   "name": "RunOn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runbook",
+   "name": "Runbook",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunbookAssociationProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduleAssociationProperty"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "CancelMove",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ManagedInstanceDatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedDatabaseMoveDefinition"
+ },
+ "uriSuffix": "/cancelMove"
+}

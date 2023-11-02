@@ -1,0 +1,20 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VirtualMachineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachineUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachine"
+ }
+}

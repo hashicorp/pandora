@@ -1,0 +1,20 @@
+{
+ "name": "RestoreBlobRanges",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "StorageAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BlobRestoreParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BlobRestoreStatus"
+ },
+ "uriSuffix": "/restoreBlobRanges"
+}

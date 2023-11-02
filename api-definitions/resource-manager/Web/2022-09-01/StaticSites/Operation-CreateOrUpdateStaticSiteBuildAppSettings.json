@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateStaticSiteBuildAppSettings",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "BuildId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "uriSuffix": "/config/appSettings"
+}

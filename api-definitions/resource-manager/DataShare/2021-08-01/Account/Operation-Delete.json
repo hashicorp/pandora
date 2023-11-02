@@ -1,0 +1,16 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "resourceIdName": "AccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OperationResponse"
+ }
+}

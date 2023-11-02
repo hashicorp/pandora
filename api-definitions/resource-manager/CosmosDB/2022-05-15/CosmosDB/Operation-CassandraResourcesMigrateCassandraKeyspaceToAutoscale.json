@@ -1,0 +1,16 @@
+{
+ "name": "CassandraResourcesMigrateCassandraKeyspaceToAutoscale",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CassandraKeyspaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ThroughputSettingsGetResults"
+ },
+ "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
+}

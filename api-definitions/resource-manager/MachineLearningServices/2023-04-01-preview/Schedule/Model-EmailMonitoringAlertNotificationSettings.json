@@ -1,0 +1,18 @@
+{
+ "name": "EmailMonitoringAlertNotificationSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "emailNotificationSetting",
+   "name": "EmailNotificationSetting",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationSetting"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "MonitoringAlertNotificationSettingsBase",
+ "discriminatedTypeValue": "Email"
+}

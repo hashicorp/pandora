@@ -1,0 +1,28 @@
+{
+ "name": "GetAvailableStacksOnPrem",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "osTypeSelected",
+   "required": false,
+   "field": "OsTypeSelected",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProviderOsTypeSelected"
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationStackResource"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/availableStacks"
+}

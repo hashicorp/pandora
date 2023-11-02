@@ -1,0 +1,60 @@
+{
+ "name": "AgReplica",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commit",
+   "name": "Commit",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Commit"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failover",
+   "name": "Failover",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Failover"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readableSecondary",
+   "name": "ReadableSecondary",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReadableSecondary"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "role",
+   "name": "Role",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Role"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sqlVirtualMachineInstanceId",
+   "name": "SqlVirtualMachineInstanceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

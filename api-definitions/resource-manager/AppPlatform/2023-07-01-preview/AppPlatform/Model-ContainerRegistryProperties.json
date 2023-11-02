@@ -1,0 +1,27 @@
+{
+ "name": "ContainerRegistryProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerRegistryCredentials"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerRegistryProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

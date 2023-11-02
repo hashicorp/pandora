@@ -1,0 +1,18 @@
+{
+ "name": "AdminRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdminPropertiesFormat"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "BaseAdminRule",
+ "discriminatedTypeValue": "Custom"
+}

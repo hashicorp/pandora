@@ -1,0 +1,16 @@
+{
+ "name": "ListByMobileNetwork",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "MobileNetworkId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SimPolicy"
+ },
+ "uriSuffix": "/simPolicies"
+}

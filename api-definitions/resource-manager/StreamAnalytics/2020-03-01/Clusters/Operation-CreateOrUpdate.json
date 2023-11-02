@@ -1,0 +1,41 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "headerName": "If-None-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfNoneMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Cluster"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Cluster"
+ }
+}

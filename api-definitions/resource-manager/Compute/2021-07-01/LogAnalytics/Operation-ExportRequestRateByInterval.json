@@ -1,0 +1,20 @@
+{
+ "name": "ExportRequestRateByInterval",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RequestRateByIntervalInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LogAnalyticsOperationResult"
+ },
+ "uriSuffix": "/logAnalytics/apiAccess/getRequestRateByInterval"
+}

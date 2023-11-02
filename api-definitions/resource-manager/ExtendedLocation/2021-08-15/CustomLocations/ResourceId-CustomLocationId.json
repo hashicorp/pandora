@@ -1,0 +1,43 @@
+{
+ "name": "CustomLocationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ExtendedLocation/customLocations/{customLocationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftExtendedLocation",
+   "type": "ResourceProvider",
+   "value": "Microsoft.ExtendedLocation"
+  },
+  {
+   "name": "staticCustomLocations",
+   "type": "Static",
+   "value": "customLocations"
+  },
+  {
+   "name": "customLocationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

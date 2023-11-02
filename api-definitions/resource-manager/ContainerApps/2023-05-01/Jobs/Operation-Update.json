@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "JobId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "JobPatchProperties"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Job"
+ }
+}

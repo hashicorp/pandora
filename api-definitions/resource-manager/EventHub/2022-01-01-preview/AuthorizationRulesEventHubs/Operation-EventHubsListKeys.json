@@ -1,0 +1,15 @@
+{
+ "name": "EventHubsListKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "EventhubAuthorizationRuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccessKeys"
+ },
+ "uriSuffix": "/listKeys"
+}

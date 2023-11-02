@@ -1,0 +1,29 @@
+{
+ "name": "RecoveryPlanInMageAzureV2FailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointType",
+   "name": "RecoveryPointType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InMageV2RpRecoveryPointType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useMultiVmSyncPoint",
+   "name": "UseMultiVMSyncPoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
+ "discriminatedTypeValue": "InMageAzureV2"
+}

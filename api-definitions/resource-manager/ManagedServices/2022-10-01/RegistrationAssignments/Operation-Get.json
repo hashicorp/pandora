@@ -1,0 +1,26 @@
+{
+ "name": "Get",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expandRegistrationDefinition",
+   "required": false,
+   "field": "ExpandRegistrationDefinition",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ScopedRegistrationAssignmentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegistrationAssignment"
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "name": "Resize",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterResizeParameters"
+ },
+ "uriSuffix": "/roles/workernode/resize"
+}

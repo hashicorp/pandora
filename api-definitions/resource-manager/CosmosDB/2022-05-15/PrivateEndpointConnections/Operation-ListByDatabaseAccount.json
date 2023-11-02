@@ -1,0 +1,15 @@
+{
+ "name": "ListByDatabaseAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DatabaseAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnectionListResult"
+ },
+ "uriSuffix": "/privateEndpointConnections"
+}

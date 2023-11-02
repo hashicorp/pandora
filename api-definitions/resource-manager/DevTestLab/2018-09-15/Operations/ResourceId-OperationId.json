@@ -1,0 +1,43 @@
+{
+ "name": "OperationId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.DevTestLab/locations/{locationName}/operations/{operationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDevTestLab",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DevTestLab"
+  },
+  {
+   "name": "staticLocations",
+   "type": "Static",
+   "value": "locations"
+  },
+  {
+   "name": "locationName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticOperations",
+   "type": "Static",
+   "value": "operations"
+  },
+  {
+   "name": "operationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

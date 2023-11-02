@@ -1,0 +1,27 @@
+{
+ "name": "VaultRetentionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "snapshotRetentionInDays",
+   "name": "SnapshotRetentionInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vaultRetention",
+   "name": "VaultRetention",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionPolicy"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

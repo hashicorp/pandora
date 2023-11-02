@@ -1,0 +1,16 @@
+{
+ "name": "ClustersDeploy",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterDeployParameters"
+ },
+ "uriSuffix": "/deploy"
+}

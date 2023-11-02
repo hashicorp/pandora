@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ModelId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ModelContainerResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ModelContainerResource"
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "name": "ActivityEntityQuery",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActivityEntityQueriesProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "EntityQuery",
+ "discriminatedTypeValue": "Activity"
+}

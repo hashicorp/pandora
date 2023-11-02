@@ -1,0 +1,51 @@
+{
+ "name": "MyWorkbooksListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "canFetchContent",
+   "required": false,
+   "field": "CanFetchContent",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "category",
+   "required": true,
+   "field": "Category",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "CategoryType"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "tags",
+   "required": false,
+   "field": "Tags",
+   "optionsObjectDefinition": {
+    "type": "Csv",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   }
+  }
+ ],
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MyWorkbooksListResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Insights/myWorkbooks"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "DisableProtectionInputProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableProtectionReason",
+   "name": "DisableProtectionReason",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DisableProtectionReason"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationProviderInput",
+   "name": "ReplicationProviderInput",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DisableProtectionProviderSpecificInput"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

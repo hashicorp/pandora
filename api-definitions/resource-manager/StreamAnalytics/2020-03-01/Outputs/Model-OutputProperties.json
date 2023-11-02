@@ -1,0 +1,71 @@
+{
+ "name": "OutputProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasource",
+   "name": "Datasource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OutputDataSource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diagnostics",
+   "name": "Diagnostics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Diagnostics"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "etag",
+   "name": "Etag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serialization",
+   "name": "Serialization",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Serialization"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeWindow",
+   "name": "SizeWindow",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeWindow",
+   "name": "TimeWindow",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

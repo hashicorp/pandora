@@ -1,0 +1,92 @@
+{
+ "name": "MabJob",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionsInfo",
+   "name": "ActionsInfo",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "JobSupportedAction"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorDetails",
+   "name": "ErrorDetails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MabErrorInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extendedInfo",
+   "name": "ExtendedInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MabJobExtendedInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mabServerName",
+   "name": "MabServerName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mabServerType",
+   "name": "MabServerType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MabServerType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workloadType",
+   "name": "WorkloadType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkloadType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "Job",
+ "discriminatedTypeValue": "MabJob"
+}

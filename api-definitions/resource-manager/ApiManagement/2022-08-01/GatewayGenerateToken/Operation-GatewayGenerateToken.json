@@ -1,0 +1,19 @@
+{
+ "name": "GatewayGenerateToken",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "GatewayId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GatewayTokenRequestContract"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GatewayTokenContract"
+ },
+ "uriSuffix": "/generateToken"
+}

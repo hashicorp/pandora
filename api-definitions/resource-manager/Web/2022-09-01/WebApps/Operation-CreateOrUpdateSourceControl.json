@@ -1,0 +1,21 @@
+{
+ "name": "CreateOrUpdateSourceControl",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SiteSourceControl"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteSourceControl"
+ },
+ "uriSuffix": "/sourceControls/web"
+}

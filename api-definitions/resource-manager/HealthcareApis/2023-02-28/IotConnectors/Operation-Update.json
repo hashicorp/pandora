@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "IotConnectorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IotConnectorPatchResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IotConnector"
+ }
+}

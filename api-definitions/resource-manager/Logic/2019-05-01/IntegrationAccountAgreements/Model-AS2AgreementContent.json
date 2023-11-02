@@ -1,0 +1,27 @@
+{
+ "name": "AS2AgreementContent",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "receiveAgreement",
+   "name": "ReceiveAgreement",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AS2OneWayAgreement"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sendAgreement",
+   "name": "SendAgreement",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AS2OneWayAgreement"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

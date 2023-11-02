@@ -1,0 +1,31 @@
+{
+ "name": "NodeCounts",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalCount",
+   "name": "TotalCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NodeCount"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

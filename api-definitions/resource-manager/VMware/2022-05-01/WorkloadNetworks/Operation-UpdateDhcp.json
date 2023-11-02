@@ -1,0 +1,19 @@
+{
+ "name": "UpdateDhcp",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "DhcpConfigurationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkDhcp"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkDhcp"
+ }
+}

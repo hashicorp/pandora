@@ -1,0 +1,52 @@
+{
+ "name": "PrivateLinkResourceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusters/{clusterName}/privateLinkResources/{privateLinkResourceName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftHDInsight",
+   "type": "ResourceProvider",
+   "value": "Microsoft.HDInsight"
+  },
+  {
+   "name": "staticClusters",
+   "type": "Static",
+   "value": "clusters"
+  },
+  {
+   "name": "clusterName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticPrivateLinkResources",
+   "type": "Static",
+   "value": "privateLinkResources"
+  },
+  {
+   "name": "privateLinkResourceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

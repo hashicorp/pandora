@@ -1,0 +1,38 @@
+{
+ "name": "GalleryDiskImage",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostCaching",
+   "name": "HostCaching",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HostCaching"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeInGB",
+   "name": "SizeInGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "source",
+   "name": "Source",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryDiskImageSource"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

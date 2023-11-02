@@ -1,0 +1,40 @@
+{
+ "name": "ResourceCertificateAndAcsDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "globalAcsHostName",
+   "name": "GlobalAcsHostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "globalAcsNamespace",
+   "name": "GlobalAcsNamespace",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "globalAcsRPRealm",
+   "name": "GlobalAcsRPRealm",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ResourceCertificateDetails",
+ "discriminatedTypeValue": "AccessControlService"
+}

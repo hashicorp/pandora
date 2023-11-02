@@ -1,0 +1,49 @@
+{
+ "name": "LoadBalancingSettingsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalLatencyMilliseconds",
+   "name": "AdditionalLatencyMilliseconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceState",
+   "name": "ResourceState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorResourceState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sampleSize",
+   "name": "SampleSize",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "successfulSamplesRequired",
+   "name": "SuccessfulSamplesRequired",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

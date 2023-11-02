@@ -1,0 +1,16 @@
+{
+ "name": "EnableMonitoring",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMonitoringRequest"
+ },
+ "uriSuffix": "/extensions/clustermonitoring"
+}

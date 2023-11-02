@@ -1,0 +1,18 @@
+{
+ "name": "DatabaseAccountsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "DatabaseAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseAccountCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseAccountGetResults"
+ }
+}

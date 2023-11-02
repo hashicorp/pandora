@@ -1,0 +1,16 @@
+{
+ "name": "Restart",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualMachineScaleSetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachineScaleSetVMInstanceIDs"
+ },
+ "uriSuffix": "/restart"
+}

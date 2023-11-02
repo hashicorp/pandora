@@ -1,0 +1,27 @@
+{
+ "name": "AccountStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accountProvisioningState",
+   "name": "AccountProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccountProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorDetails",
+   "name": "ErrorDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ErrorModel"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

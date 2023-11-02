@@ -1,0 +1,19 @@
+{
+ "name": "CreateById",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RoleAssignmentCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RoleAssignment"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "ExtensionsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ScopedExtensionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PatchExtension"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Extension"
+ }
+}

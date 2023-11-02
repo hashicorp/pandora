@@ -1,0 +1,16 @@
+{
+ "name": "L2NetworksListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "L2Network"
+ },
+ "uriSuffix": "/providers/Microsoft.NetworkCloud/l2Networks"
+}

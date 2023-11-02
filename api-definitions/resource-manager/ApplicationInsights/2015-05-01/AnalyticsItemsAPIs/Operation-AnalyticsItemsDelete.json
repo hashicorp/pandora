@@ -1,0 +1,33 @@
+{
+ "name": "AnalyticsItemsDelete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "id",
+   "required": false,
+   "field": "Id",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "name",
+   "required": false,
+   "field": "Name",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ProviderComponentId",
+ "uriSuffix": "/item"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListAllExecutions",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ExperimentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ExperimentExecution"
+ },
+ "uriSuffix": "/executions"
+}

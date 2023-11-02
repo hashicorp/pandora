@@ -1,0 +1,52 @@
+{
+ "name": "KeyId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/keys/{keyName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDevices",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Devices"
+  },
+  {
+   "name": "staticProvisioningServices",
+   "type": "Static",
+   "value": "provisioningServices"
+  },
+  {
+   "name": "provisioningServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticKeys",
+   "type": "Static",
+   "value": "keys"
+  },
+  {
+   "name": "keyName",
+   "type": "UserSpecified"
+  }
+ ]
+}

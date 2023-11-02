@@ -1,0 +1,19 @@
+{
+ "name": "ActionGroupsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ActionGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ActionGroupResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActionGroupResource"
+ }
+}

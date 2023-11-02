@@ -1,0 +1,49 @@
+{
+ "name": "ContentKeyPolicyOption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configuration",
+   "name": "Configuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentKeyPolicyConfiguration"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyOptionId",
+   "name": "PolicyOptionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restriction",
+   "name": "Restriction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentKeyPolicyRestriction"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

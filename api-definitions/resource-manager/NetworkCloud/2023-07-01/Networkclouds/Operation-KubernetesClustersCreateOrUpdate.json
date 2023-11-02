@@ -1,0 +1,19 @@
+{
+ "name": "KubernetesClustersCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "KubernetesClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "KubernetesCluster"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KubernetesCluster"
+ }
+}

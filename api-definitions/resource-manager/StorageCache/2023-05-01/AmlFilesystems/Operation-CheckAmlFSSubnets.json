@@ -1,0 +1,15 @@
+{
+ "name": "CheckAmlFSSubnets",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AmlFilesystemSubnetInfo"
+ },
+ "uriSuffix": "/providers/Microsoft.StorageCache/checkAmlFSSubnets"
+}

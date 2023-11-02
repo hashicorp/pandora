@@ -1,0 +1,19 @@
+{
+ "name": "ApproveOrRejectPrivateEndpointConnectionSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SlotPrivateEndpointConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkConnectionApprovalRequestResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RemotePrivateEndpointConnectionARMResource"
+ }
+}

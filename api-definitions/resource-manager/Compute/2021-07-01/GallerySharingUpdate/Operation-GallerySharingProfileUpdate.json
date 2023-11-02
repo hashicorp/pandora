@@ -1,0 +1,20 @@
+{
+ "name": "GallerySharingProfileUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "GalleryId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SharingUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharingUpdate"
+ },
+ "uriSuffix": "/share"
+}

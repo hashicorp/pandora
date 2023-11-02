@@ -1,0 +1,38 @@
+{
+ "name": "IoTSecurityDeviceAlert",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alertDisplayName",
+   "name": "AlertDisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alertsCount",
+   "name": "AlertsCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reportedSeverity",
+   "name": "ReportedSeverity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportedSeverity"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

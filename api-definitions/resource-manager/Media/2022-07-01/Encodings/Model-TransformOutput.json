@@ -1,0 +1,38 @@
+{
+ "name": "TransformOutput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "onError",
+   "name": "OnError",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OnErrorType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preset",
+   "name": "Preset",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Preset"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "relativePriority",
+   "name": "RelativePriority",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Priority"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

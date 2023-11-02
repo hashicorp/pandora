@@ -1,0 +1,27 @@
+{
+ "name": "EncryptionEntitiesDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedDisk",
+   "name": "ManagedDisk",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedDiskEncryption"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedServices",
+   "name": "ManagedServices",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionV2"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

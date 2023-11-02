@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtManagementGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "Providers2PolicyDefinitionVersionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PolicyDefinitionVersion"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PolicyDefinitionVersion"
+ }
+}

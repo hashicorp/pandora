@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "IscsiTargetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IscsiTargetCreate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IscsiTarget"
+ }
+}

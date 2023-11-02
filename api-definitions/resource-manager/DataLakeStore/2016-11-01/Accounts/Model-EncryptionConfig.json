@@ -1,0 +1,27 @@
+{
+ "name": "EncryptionConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultMetaInfo",
+   "name": "KeyVaultMetaInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultMetaInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionConfigType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

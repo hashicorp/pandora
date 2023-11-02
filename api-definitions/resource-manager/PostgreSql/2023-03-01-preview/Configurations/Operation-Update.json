@@ -1,0 +1,20 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  202,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ConfigurationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationForUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Configuration"
+ }
+}

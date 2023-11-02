@@ -1,0 +1,15 @@
+{
+ "name": "VMHostPayload",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "MonitorId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VMExtensionPayload"
+ },
+ "uriSuffix": "/vmHostPayloads"
+}

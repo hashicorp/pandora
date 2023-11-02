@@ -1,0 +1,31 @@
+{
+ "name": "ServerCertificateCommonNames",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commonNames",
+   "name": "CommonNames",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServerCertificateCommonName"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "x509StoreName",
+   "name": "X509StoreName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X509StoreName"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

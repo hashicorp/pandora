@@ -1,0 +1,27 @@
+{
+ "name": "ListKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "ListKeyExpand"
+   }
+  }
+ ],
+ "resourceIdName": "StorageAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageAccountListKeysResult"
+ },
+ "uriSuffix": "/listKeys"
+}

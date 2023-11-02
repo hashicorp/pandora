@@ -1,0 +1,16 @@
+{
+ "name": "SqlResourcesMigrateSqlContainerToManualThroughput",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ContainerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ThroughputSettingsGetResults"
+ },
+ "uriSuffix": "/throughputSettings/default/migrateToManualThroughput"
+}

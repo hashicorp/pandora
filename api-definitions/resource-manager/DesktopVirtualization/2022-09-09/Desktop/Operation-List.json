@@ -1,0 +1,48 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "initialSkip",
+   "required": false,
+   "field": "InitialSkip",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "isDescending",
+   "required": false,
+   "field": "IsDescending",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "pageSize",
+   "required": false,
+   "field": "PageSize",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ApplicationGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Desktop"
+ },
+ "uriSuffix": "/desktops"
+}

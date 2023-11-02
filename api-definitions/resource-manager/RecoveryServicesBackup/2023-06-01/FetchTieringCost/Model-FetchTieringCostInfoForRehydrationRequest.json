@@ -1,0 +1,51 @@
+{
+ "name": "FetchTieringCostInfoForRehydrationRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerName",
+   "name": "ContainerName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectedItemName",
+   "name": "ProtectedItemName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rehydrationPriority",
+   "name": "RehydrationPriority",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RehydrationPriority"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "FetchTieringCostInfoRequest",
+ "discriminatedTypeValue": "FetchTieringCostInfoForRehydrationRequest"
+}

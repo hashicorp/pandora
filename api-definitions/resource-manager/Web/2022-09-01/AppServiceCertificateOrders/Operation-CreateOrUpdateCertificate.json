@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateCertificate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CertificateId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AppServiceCertificateResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AppServiceCertificateResource"
+ }
+}

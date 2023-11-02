@@ -1,0 +1,19 @@
+{
+ "name": "BuildServiceCreateOrUpdateBuild",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "BuildId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Build"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Build"
+ }
+}

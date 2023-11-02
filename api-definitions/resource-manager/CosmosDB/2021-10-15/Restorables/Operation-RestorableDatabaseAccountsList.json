@@ -1,0 +1,15 @@
+{
+ "name": "RestorableDatabaseAccountsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RestorableDatabaseAccountsListResult"
+ },
+ "uriSuffix": "/providers/Microsoft.DocumentDB/restorableDatabaseAccounts"
+}

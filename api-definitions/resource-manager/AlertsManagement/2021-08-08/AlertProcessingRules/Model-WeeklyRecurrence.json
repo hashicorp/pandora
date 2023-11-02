@@ -1,0 +1,22 @@
+{
+ "name": "WeeklyRecurrence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "daysOfWeek",
+   "name": "DaysOfWeek",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DaysOfWeek"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Recurrence",
+ "discriminatedTypeValue": "Weekly"
+}

@@ -1,0 +1,28 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "cleanupConnectionArtifacts",
+   "required": false,
+   "field": "CleanupConnectionArtifacts",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "CleanupConnectionArtifacts"
+   }
+  }
+ ],
+ "resourceIdName": "TimeSeriesDatabaseConnectionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TimeSeriesDatabaseConnection"
+ }
+}

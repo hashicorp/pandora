@@ -1,0 +1,24 @@
+{
+ "name": "Failover",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "failoverType",
+   "required": false,
+   "field": "FailoverType",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "FailoverType"
+   }
+  }
+ ],
+ "resourceIdName": "StorageAccountId",
+ "uriSuffix": "/failover"
+}

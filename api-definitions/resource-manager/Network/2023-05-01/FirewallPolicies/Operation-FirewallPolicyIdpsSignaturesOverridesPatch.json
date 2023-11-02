@@ -1,0 +1,19 @@
+{
+ "name": "FirewallPolicyIdpsSignaturesOverridesPatch",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "FirewallPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SignaturesOverrides"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SignaturesOverrides"
+ },
+ "uriSuffix": "/signatureOverrides/default"
+}

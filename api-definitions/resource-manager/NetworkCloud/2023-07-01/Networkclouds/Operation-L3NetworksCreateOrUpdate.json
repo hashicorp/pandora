@@ -1,0 +1,19 @@
+{
+ "name": "L3NetworksCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "L3NetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "L3Network"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "L3Network"
+ }
+}

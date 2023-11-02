@@ -1,0 +1,15 @@
+{
+ "name": "ListSourceControls",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SourceControl"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/sourceControls"
+}

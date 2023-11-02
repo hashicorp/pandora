@@ -1,0 +1,27 @@
+{
+ "name": "BackupShortTermRetentionPolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diffBackupIntervalInHours",
+   "name": "DiffBackupIntervalInHours",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiffBackupIntervalInHours"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionDays",
+   "name": "RetentionDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

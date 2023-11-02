@@ -1,0 +1,27 @@
+{
+ "name": "AutomationRuleAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "actionType",
+   "name": "ActionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActionType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "order",
+   "name": "Order",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

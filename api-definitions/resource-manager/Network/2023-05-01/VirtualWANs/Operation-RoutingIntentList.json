@@ -1,0 +1,16 @@
+{
+ "name": "RoutingIntentList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VirtualHubId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RoutingIntent"
+ },
+ "uriSuffix": "/routingIntent"
+}

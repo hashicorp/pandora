@@ -1,0 +1,20 @@
+{
+ "name": "ClustersCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Cluster"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Cluster"
+ }
+}

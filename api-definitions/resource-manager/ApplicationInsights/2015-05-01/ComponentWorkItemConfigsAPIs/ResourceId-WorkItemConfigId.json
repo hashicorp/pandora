@@ -1,0 +1,52 @@
+{
+ "name": "WorkItemConfigId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Insights/components/{componentName}/workItemConfigs/{workItemConfigId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Insights"
+  },
+  {
+   "name": "staticComponents",
+   "type": "Static",
+   "value": "components"
+  },
+  {
+   "name": "componentName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticWorkItemConfigs",
+   "type": "Static",
+   "value": "workItemConfigs"
+  },
+  {
+   "name": "workItemConfigId",
+   "type": "UserSpecified"
+  }
+ ]
+}

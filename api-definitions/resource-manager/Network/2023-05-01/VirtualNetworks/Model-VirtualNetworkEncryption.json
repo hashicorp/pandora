@@ -1,0 +1,27 @@
+{
+ "name": "VirtualNetworkEncryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enforcement",
+   "name": "Enforcement",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkEncryptionEnforcement"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

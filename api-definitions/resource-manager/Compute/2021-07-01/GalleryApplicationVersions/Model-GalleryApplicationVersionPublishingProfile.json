@@ -1,0 +1,121 @@
+{
+ "name": "GalleryApplicationVersionPublishingProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableHealthCheck",
+   "name": "EnableHealthCheck",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endOfLifeDate",
+   "name": "EndOfLifeDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludeFromLatest",
+   "name": "ExcludeFromLatest",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "manageActions",
+   "name": "ManageActions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserArtifactManage"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishedDate",
+   "name": "PublishedDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicaCount",
+   "name": "ReplicaCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationMode",
+   "name": "ReplicationMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "source",
+   "name": "Source",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserArtifactSource"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountType",
+   "name": "StorageAccountType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetRegions",
+   "name": "TargetRegions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TargetRegion"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "CheckConnectivity",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "NetworkWatcherId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConnectivityParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectivityInformation"
+ },
+ "uriSuffix": "/connectivityCheck"
+}

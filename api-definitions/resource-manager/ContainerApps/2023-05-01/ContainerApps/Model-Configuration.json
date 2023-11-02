@@ -1,0 +1,90 @@
+{
+ "name": "Configuration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeRevisionsMode",
+   "name": "ActiveRevisionsMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActiveRevisionsMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dapr",
+   "name": "Dapr",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Dapr"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingress",
+   "name": "Ingress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Ingress"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxInactiveRevisions",
+   "name": "MaxInactiveRevisions",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registries",
+   "name": "Registries",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RegistryCredentials"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secrets",
+   "name": "Secrets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Secret"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "service",
+   "name": "Service",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Service"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

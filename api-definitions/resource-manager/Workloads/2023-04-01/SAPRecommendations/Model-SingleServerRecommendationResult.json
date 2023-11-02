@@ -1,0 +1,18 @@
+{
+ "name": "SingleServerRecommendationResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSku",
+   "name": "VMSku",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "SAPSizingRecommendationResult",
+ "discriminatedTypeValue": "SingleServer"
+}

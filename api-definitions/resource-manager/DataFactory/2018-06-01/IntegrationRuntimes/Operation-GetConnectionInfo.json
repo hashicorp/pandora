@@ -1,0 +1,15 @@
+{
+ "name": "GetConnectionInfo",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationRuntimeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationRuntimeConnectionInfo"
+ },
+ "uriSuffix": "/getConnectionInfo"
+}

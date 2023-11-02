@@ -1,0 +1,20 @@
+{
+ "name": "ProvisionsProvisionManagedNetwork",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "WorkspaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedNetworkProvisionOptions"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedNetworkProvisionStatus"
+ },
+ "uriSuffix": "/provisionManagedNetwork"
+}

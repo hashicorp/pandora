@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VaultId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupResourceVaultConfigResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupResourceVaultConfigResource"
+ },
+ "uriSuffix": "/backupconfig/vaultconfig"
+}

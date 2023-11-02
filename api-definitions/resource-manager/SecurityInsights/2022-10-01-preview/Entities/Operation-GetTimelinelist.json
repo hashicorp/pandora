@@ -1,0 +1,19 @@
+{
+ "name": "GetTimelinelist",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "EntityId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EntityTimelineParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EntityTimelineResponse"
+ },
+ "uriSuffix": "/getTimeline"
+}

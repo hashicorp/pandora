@@ -1,0 +1,19 @@
+{
+ "name": "UpdateApplicationSettingsSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SlotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "uriSuffix": "/config/appSettings"
+}

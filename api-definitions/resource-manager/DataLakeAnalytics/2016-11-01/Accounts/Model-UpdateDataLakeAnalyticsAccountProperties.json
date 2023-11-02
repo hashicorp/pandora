@@ -1,0 +1,153 @@
+{
+ "name": "UpdateDataLakeAnalyticsAccountProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computePolicies",
+   "name": "ComputePolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UpdateComputePolicyWithAccountParameters"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataLakeStoreAccounts",
+   "name": "DataLakeStoreAccounts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UpdateDataLakeStoreWithAccountParameters"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewallAllowAzureIps",
+   "name": "FirewallAllowAzureIPs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallAllowAzureIPsState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewallRules",
+   "name": "FirewallRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UpdateFirewallRuleWithAccountParameters"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewallState",
+   "name": "FirewallState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxDegreeOfParallelism",
+   "name": "MaxDegreeOfParallelism",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxDegreeOfParallelismPerJob",
+   "name": "MaxDegreeOfParallelismPerJob",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxJobCount",
+   "name": "MaxJobCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minPriorityPerJob",
+   "name": "MinPriorityPerJob",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "newTier",
+   "name": "NewTier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TierType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queryStoreRetention",
+   "name": "QueryStoreRetention",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccounts",
+   "name": "StorageAccounts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UpdateStorageAccountWithAccountParameters"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

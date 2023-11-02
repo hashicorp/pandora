@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "RegistryId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegistryUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Registry"
+ }
+}

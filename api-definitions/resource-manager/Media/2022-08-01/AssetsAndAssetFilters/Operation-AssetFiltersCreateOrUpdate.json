@@ -1,0 +1,19 @@
+{
+ "name": "AssetFiltersCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AssetFilterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AssetFilter"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AssetFilter"
+ }
+}

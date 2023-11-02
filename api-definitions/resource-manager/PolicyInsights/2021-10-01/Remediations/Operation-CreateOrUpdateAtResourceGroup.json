@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderRemediationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Remediation"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Remediation"
+ }
+}

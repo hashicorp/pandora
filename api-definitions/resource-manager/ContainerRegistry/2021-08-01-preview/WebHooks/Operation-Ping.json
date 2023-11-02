@@ -1,0 +1,15 @@
+{
+ "name": "Ping",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "WebHookId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EventInfo"
+ },
+ "uriSuffix": "/ping"
+}

@@ -1,0 +1,35 @@
+{
+ "name": "IscsiTargetUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "luns",
+   "name": "Luns",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IscsiLun"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "staticAcls",
+   "name": "StaticAcls",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Acl"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

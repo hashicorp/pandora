@@ -1,0 +1,20 @@
+{
+ "name": "DnsDelegationsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "delegations",
+   "name": "Delegations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DnsDelegationProperties"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

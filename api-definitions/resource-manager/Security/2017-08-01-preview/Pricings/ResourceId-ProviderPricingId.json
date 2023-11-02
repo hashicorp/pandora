@@ -1,0 +1,43 @@
+{
+ "name": "ProviderPricingId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/pricings/{pricingName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticPricings",
+   "type": "Static",
+   "value": "pricings"
+  },
+  {
+   "name": "pricingName",
+   "type": "UserSpecified"
+  }
+ ]
+}

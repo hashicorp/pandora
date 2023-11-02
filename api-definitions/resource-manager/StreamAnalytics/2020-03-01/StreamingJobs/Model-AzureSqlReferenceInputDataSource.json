@@ -1,0 +1,18 @@
+{
+ "name": "AzureSqlReferenceInputDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureSqlReferenceInputDataSourceProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ReferenceInputDataSource",
+ "discriminatedTypeValue": "Microsoft.Sql/Server/Database"
+}

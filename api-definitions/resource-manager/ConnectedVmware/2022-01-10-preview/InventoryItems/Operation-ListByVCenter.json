@@ -1,0 +1,16 @@
+{
+ "name": "ListByVCenter",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VCenterId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "InventoryItem"
+ },
+ "uriSuffix": "/inventoryItems"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "UpdateScmAllowed",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CsmPublishingCredentialsPoliciesEntity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CsmPublishingCredentialsPoliciesEntity"
+ },
+ "uriSuffix": "/basicPublishingCredentialsPolicies/scm"
+}

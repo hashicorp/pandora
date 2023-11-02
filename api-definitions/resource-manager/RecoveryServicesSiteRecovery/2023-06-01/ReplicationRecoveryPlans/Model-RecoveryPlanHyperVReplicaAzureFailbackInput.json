@@ -1,0 +1,29 @@
+{
+ "name": "RecoveryPlanHyperVReplicaAzureFailbackInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSyncOption",
+   "name": "DataSyncOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataSyncStatus"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryVmCreationOption",
+   "name": "RecoveryVMCreationOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlternateLocationRecoveryOption"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
+ "discriminatedTypeValue": "HyperVReplicaAzureFailback"
+}

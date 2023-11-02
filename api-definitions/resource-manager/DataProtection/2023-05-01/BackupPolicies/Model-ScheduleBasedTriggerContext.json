@@ -1,0 +1,33 @@
+{
+ "name": "ScheduleBasedTriggerContext",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackupSchedule"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taggingCriteria",
+   "name": "TaggingCriteria",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TaggingCriteria"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "TriggerContext",
+ "discriminatedTypeValue": "ScheduleBasedTriggerContext"
+}

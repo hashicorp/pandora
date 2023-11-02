@@ -1,0 +1,20 @@
+{
+ "name": "CheckRestrictionsResultContentEvaluationResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyEvaluations",
+   "name": "PolicyEvaluations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PolicyEvaluationResult"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

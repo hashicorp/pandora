@@ -1,0 +1,16 @@
+{
+ "name": "MigrateToStv2",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiManagementServiceResource"
+ },
+ "uriSuffix": "/migrateToStv2"
+}

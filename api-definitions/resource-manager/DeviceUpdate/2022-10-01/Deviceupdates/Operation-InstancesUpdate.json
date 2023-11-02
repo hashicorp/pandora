@@ -1,0 +1,18 @@
+{
+ "name": "InstancesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "InstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TagUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Instance"
+ }
+}

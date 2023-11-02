@@ -1,0 +1,27 @@
+{
+ "name": "DatabaseTableProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "memoryOptimized",
+   "name": "MemoryOptimized",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "temporalType",
+   "name": "TemporalType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TableTemporalType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "WorkspaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkspaceUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Workspace"
+ }
+}

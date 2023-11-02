@@ -1,0 +1,15 @@
+{
+ "name": "Notify",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "NotificationChannelId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NotifyParameters"
+ },
+ "uriSuffix": "/notify"
+}

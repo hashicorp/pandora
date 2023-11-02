@@ -1,0 +1,20 @@
+{
+ "name": "TriggerRestore",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "BackupInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AzureBackupRestoreRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OperationJobExtendedInfo"
+ },
+ "uriSuffix": "/restore"
+}

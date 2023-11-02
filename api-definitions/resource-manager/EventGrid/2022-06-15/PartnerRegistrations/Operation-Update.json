@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "PartnerRegistrationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PartnerRegistrationUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PartnerRegistration"
+ }
+}

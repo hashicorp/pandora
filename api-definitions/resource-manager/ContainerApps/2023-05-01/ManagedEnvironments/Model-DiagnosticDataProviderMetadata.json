@@ -1,0 +1,31 @@
+{
+ "name": "DiagnosticDataProviderMetadata",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyBag",
+   "name": "PropertyBag",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DiagnosticDataProviderMetadataPropertyBagInlined"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerName",
+   "name": "ProviderName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

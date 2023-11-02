@@ -1,0 +1,27 @@
+{
+ "name": "AdvSecurityObjectListResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextLink",
+   "name": "NextLink",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdvSecurityObjectModel"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

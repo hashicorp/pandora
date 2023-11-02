@@ -1,0 +1,27 @@
+{
+ "name": "AmlFilesystemArchive",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filesystemPath",
+   "name": "FilesystemPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemArchiveStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SandboxCustomImageId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SandboxCustomImage"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SandboxCustomImage"
+ }
+}

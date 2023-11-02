@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ActionRuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AlertProcessingRule"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AlertProcessingRule"
+ }
+}

@@ -1,0 +1,52 @@
+{
+ "name": "ExtensionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ConnectedVMwarevSphere/virtualMachines/{virtualMachineName}/extensions/{extensionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftConnectedVMwarevSphere",
+   "type": "ResourceProvider",
+   "value": "Microsoft.ConnectedVMwarevSphere"
+  },
+  {
+   "name": "staticVirtualMachines",
+   "type": "Static",
+   "value": "virtualMachines"
+  },
+  {
+   "name": "virtualMachineName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticExtensions",
+   "type": "Static",
+   "value": "extensions"
+  },
+  {
+   "name": "extensionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

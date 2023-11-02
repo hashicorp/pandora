@@ -1,0 +1,19 @@
+{
+ "name": "UpdateBackupConfiguration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupRequest"
+ },
+ "uriSuffix": "/config/backup"
+}

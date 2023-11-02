@@ -1,0 +1,15 @@
+{
+ "name": "GetToken",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "OnlineEndpointId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EndpointAuthToken"
+ },
+ "uriSuffix": "/token"
+}

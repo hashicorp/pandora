@@ -1,0 +1,31 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "PrivateEndpointConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnection"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnection"
+ }
+}

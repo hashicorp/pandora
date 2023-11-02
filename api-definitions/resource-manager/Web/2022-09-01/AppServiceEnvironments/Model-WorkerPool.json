@@ -1,0 +1,64 @@
+{
+ "name": "WorkerPool",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeMode",
+   "name": "ComputeMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeModeOptions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceNames",
+   "name": "InstanceNames",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workerCount",
+   "name": "WorkerCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workerSize",
+   "name": "WorkerSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workerSizeId",
+   "name": "WorkerSizeId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

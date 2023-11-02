@@ -1,0 +1,49 @@
+{
+ "name": "VirtualMachineRunCommandScriptSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commandId",
+   "name": "CommandId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "script",
+   "name": "Script",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scriptUri",
+   "name": "ScriptUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scriptUriManagedIdentity",
+   "name": "ScriptUriManagedIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunCommandManagedIdentity"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

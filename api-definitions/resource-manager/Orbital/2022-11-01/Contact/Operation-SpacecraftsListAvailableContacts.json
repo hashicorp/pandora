@@ -1,0 +1,21 @@
+{
+ "name": "SpacecraftsListAvailableContacts",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SpacecraftId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContactParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AvailableContacts"
+ },
+ "uriSuffix": "/listAvailableContacts"
+}

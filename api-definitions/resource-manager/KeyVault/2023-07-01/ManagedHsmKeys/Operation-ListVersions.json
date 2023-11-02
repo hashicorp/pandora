@@ -1,0 +1,16 @@
+{
+ "name": "ListVersions",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "KeyId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedHsmKey"
+ },
+ "uriSuffix": "/versions"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "VaultId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Vault"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Vault"
+ }
+}

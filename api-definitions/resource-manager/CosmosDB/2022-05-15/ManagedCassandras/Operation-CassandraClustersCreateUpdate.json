@@ -1,0 +1,19 @@
+{
+ "name": "CassandraClustersCreateUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CassandraClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterResource"
+ }
+}

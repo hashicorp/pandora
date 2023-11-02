@@ -1,0 +1,28 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "kind",
+   "required": false,
+   "field": "Kind",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "Kind"
+   }
+  }
+ ],
+ "resourceIdName": "WorkspaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EntityQuery"
+ },
+ "uriSuffix": "/providers/Microsoft.SecurityInsights/entityQueries"
+}

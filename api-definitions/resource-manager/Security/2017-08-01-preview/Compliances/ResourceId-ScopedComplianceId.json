@@ -1,0 +1,29 @@
+{
+ "name": "ScopedComplianceId",
+ "id": "/{scope}/providers/Microsoft.Security/compliances/{complianceName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticCompliances",
+   "type": "Static",
+   "value": "compliances"
+  },
+  {
+   "name": "complianceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

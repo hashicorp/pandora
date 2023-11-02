@@ -1,0 +1,29 @@
+{
+ "name": "A2ACrossClusterMigrationEnableProtectionInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fabricObjectId",
+   "name": "FabricObjectId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryContainerId",
+   "name": "RecoveryContainerId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "EnableProtectionProviderSpecificInput",
+ "discriminatedTypeValue": "A2ACrossClusterMigration"
+}

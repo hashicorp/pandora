@@ -1,0 +1,19 @@
+{
+ "name": "ListKeyVaultKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ListKeyVaultKeysDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KeyVaultKeyCollection"
+ },
+ "uriSuffix": "/listKeyVaultKeys"
+}

@@ -1,0 +1,193 @@
+{
+ "name": "EventProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "adjustments",
+   "name": "Adjustments",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "adjustmentsInBillingCurrency",
+   "name": "AdjustmentsInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingCurrency",
+   "name": "BillingCurrency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "charges",
+   "name": "Charges",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "chargesInBillingCurrency",
+   "name": "ChargesInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "closedBalance",
+   "name": "ClosedBalance",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "closedBalanceInBillingCurrency",
+   "name": "ClosedBalanceInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creditCurrency",
+   "name": "CreditCurrency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creditExpired",
+   "name": "CreditExpired",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creditExpiredInBillingCurrency",
+   "name": "CreditExpiredInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventType",
+   "name": "EventType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoiceNumber",
+   "name": "InvoiceNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "newCredit",
+   "name": "NewCredit",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "newCreditInBillingCurrency",
+   "name": "NewCreditInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reseller",
+   "name": "Reseller",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Reseller"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "transactionDate",
+   "name": "TransactionDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "name": "PolicyAssignmentUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overrides",
+   "name": "Overrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Override"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceSelectors",
+   "name": "ResourceSelectors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ResourceSelector"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

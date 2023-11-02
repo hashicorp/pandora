@@ -1,0 +1,15 @@
+{
+ "name": "GetInstanceMsDeployStatusSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MSDeployStatus"
+ },
+ "uriSuffix": "/extensions/mSDeploy"
+}

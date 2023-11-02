@@ -1,0 +1,16 @@
+{
+ "name": "SubscribeToEvents",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "TriggerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TriggerSubscriptionOperationStatus"
+ },
+ "uriSuffix": "/subscribeToEvents"
+}

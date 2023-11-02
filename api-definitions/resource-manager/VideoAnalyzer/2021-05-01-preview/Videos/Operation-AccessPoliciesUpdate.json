@@ -1,0 +1,18 @@
+{
+ "name": "AccessPoliciesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AccessPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AccessPolicyEntity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccessPolicyEntity"
+ }
+}

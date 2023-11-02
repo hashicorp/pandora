@@ -1,0 +1,52 @@
+{
+ "name": "DomainOwnershipIdentifierId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DomainRegistration/domains/{domainName}/domainOwnershipIdentifiers/{domainOwnershipIdentifierName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDomainRegistration",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DomainRegistration"
+  },
+  {
+   "name": "staticDomains",
+   "type": "Static",
+   "value": "domains"
+  },
+  {
+   "name": "domainName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticDomainOwnershipIdentifiers",
+   "type": "Static",
+   "value": "domainOwnershipIdentifiers"
+  },
+  {
+   "name": "domainOwnershipIdentifierName",
+   "type": "UserSpecified"
+  }
+ ]
+}

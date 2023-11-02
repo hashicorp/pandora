@@ -1,0 +1,15 @@
+{
+ "name": "RecommendationMetadataList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MetadataEntity"
+ },
+ "uriSuffix": "/providers/Microsoft.Advisor/metadata"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListGateways",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PrivateCloudId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkGateway"
+ },
+ "uriSuffix": "/workloadNetworks/default/gateways"
+}

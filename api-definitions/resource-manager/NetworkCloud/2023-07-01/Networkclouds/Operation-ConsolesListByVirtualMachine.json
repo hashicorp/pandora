@@ -1,0 +1,16 @@
+{
+ "name": "ConsolesListByVirtualMachine",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VirtualMachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Console"
+ },
+ "uriSuffix": "/consoles"
+}

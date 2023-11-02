@@ -1,0 +1,37 @@
+{
+ "name": "AnalyticsItemsGet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "id",
+   "required": false,
+   "field": "Id",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "name",
+   "required": false,
+   "field": "Name",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ProviderComponentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponentAnalyticsItem"
+ },
+ "uriSuffix": "/item"
+}

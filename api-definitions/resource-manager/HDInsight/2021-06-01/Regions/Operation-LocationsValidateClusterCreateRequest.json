@@ -1,0 +1,19 @@
+{
+ "name": "LocationsValidateClusterCreateRequest",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterCreateRequestValidationParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterCreateValidationResult"
+ },
+ "uriSuffix": "/validateCreateRequest"
+}

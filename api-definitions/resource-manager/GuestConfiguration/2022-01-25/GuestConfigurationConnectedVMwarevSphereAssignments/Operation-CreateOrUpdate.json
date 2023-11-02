@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderVirtualMachineProviders2GuestConfigurationAssignmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GuestConfigurationAssignment"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GuestConfigurationAssignment"
+ }
+}

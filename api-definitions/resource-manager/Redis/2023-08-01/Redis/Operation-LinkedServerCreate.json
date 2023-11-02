@@ -1,0 +1,19 @@
+{
+ "name": "LinkedServerCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "LinkedServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RedisLinkedServerCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RedisLinkedServerWithProperties"
+ }
+}

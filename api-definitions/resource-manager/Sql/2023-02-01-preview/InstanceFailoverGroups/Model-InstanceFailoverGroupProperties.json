@@ -1,0 +1,90 @@
+{
+ "name": "InstanceFailoverGroupProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedInstancePairs",
+   "name": "ManagedInstancePairs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ManagedInstancePairInfo"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "partnerRegions",
+   "name": "PartnerRegions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PartnerRegionInfo"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readOnlyEndpoint",
+   "name": "ReadOnlyEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceFailoverGroupReadOnlyEndpoint"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readWriteEndpoint",
+   "name": "ReadWriteEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceFailoverGroupReadWriteEndpoint"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationRole",
+   "name": "ReplicationRole",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceFailoverGroupReplicationRole"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationState",
+   "name": "ReplicationState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secondaryType",
+   "name": "SecondaryType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecondaryInstanceType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

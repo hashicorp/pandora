@@ -1,0 +1,29 @@
+{
+ "name": "RecoveryPlanInMageRcmFailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointType",
+   "name": "RecoveryPointType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryPlanPointType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useMultiVmSyncPoint",
+   "name": "UseMultiVMSyncPoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
+ "discriminatedTypeValue": "InMageRcm"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateUserRolesInvitationLink",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "StaticSiteId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteUserInvitationRequestResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteUserInvitationResponseResource"
+ },
+ "uriSuffix": "/createUserInvitation"
+}

@@ -1,0 +1,52 @@
+{
+ "name": "PrivateLinkResourceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Devices/provisioningServices/{provisioningServiceName}/privateLinkResources/{groupId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDevices",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Devices"
+  },
+  {
+   "name": "staticProvisioningServices",
+   "type": "Static",
+   "value": "provisioningServices"
+  },
+  {
+   "name": "provisioningServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticPrivateLinkResources",
+   "type": "Static",
+   "value": "privateLinkResources"
+  },
+  {
+   "name": "groupId",
+   "type": "UserSpecified"
+  }
+ ]
+}

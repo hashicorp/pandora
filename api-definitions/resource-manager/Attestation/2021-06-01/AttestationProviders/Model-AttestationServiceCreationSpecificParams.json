@@ -1,0 +1,38 @@
+{
+ "name": "AttestationServiceCreationSpecificParams",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policySigningCertificates",
+   "name": "PolicySigningCertificates",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JsonWebKeySet"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccessType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tpmAttestationAuthentication",
+   "name": "TpmAttestationAuthentication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TpmAttestationAuthenticationType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

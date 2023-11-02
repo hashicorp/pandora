@@ -1,0 +1,19 @@
+{
+ "name": "ListByEnvironment",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "LocationId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "ManagedClusterCodeVersionResult"
+  }
+ },
+ "uriSuffix": "/environments/Windows/managedClusterVersions"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedDeviceSecurityGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DeviceSecurityGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeviceSecurityGroup"
+ }
+}

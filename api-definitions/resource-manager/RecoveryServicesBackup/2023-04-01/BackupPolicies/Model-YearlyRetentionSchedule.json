@@ -1,0 +1,80 @@
+{
+ "name": "YearlyRetentionSchedule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monthsOfYear",
+   "name": "MonthsOfYear",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MonthOfYear"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionDuration",
+   "name": "RetentionDuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionDuration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionScheduleDaily",
+   "name": "RetentionScheduleDaily",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DailyRetentionFormat"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionScheduleFormatType",
+   "name": "RetentionScheduleFormatType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionScheduleFormat"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionScheduleWeekly",
+   "name": "RetentionScheduleWeekly",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeeklyRetentionFormat"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionTimes",
+   "name": "RetentionTimes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "DateTime",
+     "referenceName": null,
+     "dateFormat": "RFC3339"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

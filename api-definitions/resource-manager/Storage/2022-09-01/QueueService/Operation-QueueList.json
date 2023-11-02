@@ -1,0 +1,38 @@
+{
+ "name": "QueueList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$maxpagesize",
+   "required": false,
+   "field": "Maxpagesize",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "StorageAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ListQueue"
+ },
+ "uriSuffix": "/queueServices/default/queues"
+}

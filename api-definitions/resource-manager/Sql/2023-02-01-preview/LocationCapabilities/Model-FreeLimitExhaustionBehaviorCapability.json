@@ -1,0 +1,27 @@
+{
+ "name": "FreeLimitExhaustionBehaviorCapability",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exhaustionBehaviorType",
+   "name": "ExhaustionBehaviorType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FreeLimitExhaustionBehavior"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CapabilityStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

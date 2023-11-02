@@ -1,0 +1,27 @@
+{
+ "name": "AwsCloudTrailDataConnectorProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "awsRoleArn",
+   "name": "AwsRoleArn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataTypes",
+   "name": "DataTypes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AwsCloudTrailDataConnectorDataTypes"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "DiskAccessId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DiskAccessUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DiskAccess"
+ }
+}

@@ -1,0 +1,71 @@
+{
+ "name": "GalleryProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identifier",
+   "name": "Identifier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryIdentifier"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharingProfile",
+   "name": "SharingProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SharingProfile"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharingStatus",
+   "name": "SharingStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SharingStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softDeletePolicy",
+   "name": "SoftDeletePolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SoftDeletePolicy"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

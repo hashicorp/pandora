@@ -1,0 +1,38 @@
+{
+ "name": "InboundNatRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendPort",
+   "name": "BackendPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontendPort",
+   "name": "FrontendPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "transportProtocol",
+   "name": "TransportProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TransportProtocol"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

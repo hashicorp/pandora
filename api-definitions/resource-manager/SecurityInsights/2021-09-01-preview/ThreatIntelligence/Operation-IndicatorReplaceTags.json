@@ -1,0 +1,19 @@
+{
+ "name": "IndicatorReplaceTags",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IndicatorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ThreatIntelligenceIndicatorModelForRequestBody"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ThreatIntelligenceInformation"
+ },
+ "uriSuffix": "/replaceTags"
+}

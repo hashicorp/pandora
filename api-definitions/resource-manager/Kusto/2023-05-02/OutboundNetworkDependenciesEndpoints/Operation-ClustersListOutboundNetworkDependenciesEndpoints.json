@@ -1,0 +1,16 @@
+{
+ "name": "ClustersListOutboundNetworkDependenciesEndpoints",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ClusterId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OutboundNetworkDependenciesEndpoint"
+ },
+ "uriSuffix": "/outboundNetworkDependenciesEndpoints"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CheckTrafficManagerNameAvailabilityV2",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckTrafficManagerRelativeDnsNameAvailabilityParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TrafficManagerNameAvailability"
+ },
+ "uriSuffix": "/providers/Microsoft.Network/checkTrafficManagerNameAvailabilityV2"
+}

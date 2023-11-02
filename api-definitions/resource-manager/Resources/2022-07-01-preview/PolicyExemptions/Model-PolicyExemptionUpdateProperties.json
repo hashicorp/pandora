@@ -1,0 +1,31 @@
+{
+ "name": "PolicyExemptionUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "assignmentScopeValidation",
+   "name": "AssignmentScopeValidation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssignmentScopeValidation"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceSelectors",
+   "name": "ResourceSelectors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ResourceSelector"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "name": "AlertId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataBoxEdge/dataBoxEdgeDevices/{dataBoxEdgeDeviceName}/alerts/{alertName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDataBoxEdge",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DataBoxEdge"
+  },
+  {
+   "name": "staticDataBoxEdgeDevices",
+   "type": "Static",
+   "value": "dataBoxEdgeDevices"
+  },
+  {
+   "name": "dataBoxEdgeDeviceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticAlerts",
+   "type": "Static",
+   "value": "alerts"
+  },
+  {
+   "name": "alertName",
+   "type": "UserSpecified"
+  }
+ ]
+}

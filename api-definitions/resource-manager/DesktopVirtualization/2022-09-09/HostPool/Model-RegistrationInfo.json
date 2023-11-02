@@ -1,0 +1,39 @@
+{
+ "name": "RegistrationInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expirationTime",
+   "name": "ExpirationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationTokenOperation",
+   "name": "RegistrationTokenOperation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RegistrationTokenOperation"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "token",
+   "name": "Token",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

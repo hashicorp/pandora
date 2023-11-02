@@ -1,0 +1,38 @@
+{
+ "name": "ListByReplicationProtectionContainers",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$take",
+   "required": false,
+   "field": "Take",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ReplicationProtectionContainerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProtectableItem"
+ },
+ "uriSuffix": "/replicationProtectableItems"
+}

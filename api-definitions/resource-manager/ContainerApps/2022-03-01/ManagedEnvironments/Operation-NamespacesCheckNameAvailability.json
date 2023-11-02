@@ -1,0 +1,19 @@
+{
+ "name": "NamespacesCheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ManagedEnvironmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityResponse"
+ },
+ "uriSuffix": "/checkNameAvailability"
+}

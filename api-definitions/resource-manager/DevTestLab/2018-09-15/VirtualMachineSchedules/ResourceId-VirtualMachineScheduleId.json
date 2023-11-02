@@ -1,0 +1,61 @@
+{
+ "name": "VirtualMachineScheduleId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/virtualMachines/{virtualMachineName}/schedules/{scheduleName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDevTestLab",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DevTestLab"
+  },
+  {
+   "name": "staticLabs",
+   "type": "Static",
+   "value": "labs"
+  },
+  {
+   "name": "labName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVirtualMachines",
+   "type": "Static",
+   "value": "virtualMachines"
+  },
+  {
+   "name": "virtualMachineName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSchedules",
+   "type": "Static",
+   "value": "schedules"
+  },
+  {
+   "name": "scheduleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

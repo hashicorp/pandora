@@ -1,0 +1,26 @@
+{
+ "name": "GetProperties",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountExpand"
+   }
+  }
+ ],
+ "resourceIdName": "StorageAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageAccount"
+ }
+}

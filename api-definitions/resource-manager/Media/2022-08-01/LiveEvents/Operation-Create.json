@@ -1,0 +1,31 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "autoStart",
+   "required": false,
+   "field": "AutoStart",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LiveEventId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LiveEvent"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LiveEvent"
+ }
+}

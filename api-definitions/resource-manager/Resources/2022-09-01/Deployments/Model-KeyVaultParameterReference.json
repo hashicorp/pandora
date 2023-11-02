@@ -1,0 +1,38 @@
+{
+ "name": "KeyVaultParameterReference",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVault",
+   "name": "KeyVault",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultReference"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretName",
+   "name": "SecretName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretVersion",
+   "name": "SecretVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

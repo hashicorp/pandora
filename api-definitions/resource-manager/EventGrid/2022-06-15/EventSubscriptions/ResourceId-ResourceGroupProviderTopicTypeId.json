@@ -1,0 +1,43 @@
+{
+ "name": "ResourceGroupProviderTopicTypeId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/topicTypes/{topicTypeName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftEventGrid",
+   "type": "ResourceProvider",
+   "value": "Microsoft.EventGrid"
+  },
+  {
+   "name": "staticTopicTypes",
+   "type": "Static",
+   "value": "topicTypes"
+  },
+  {
+   "name": "topicTypeName",
+   "type": "UserSpecified"
+  }
+ ]
+}

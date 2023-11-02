@@ -1,0 +1,16 @@
+{
+ "name": "VirtualMachinesPowerOff",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualMachineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachinePowerOffParameters"
+ },
+ "uriSuffix": "/powerOff"
+}

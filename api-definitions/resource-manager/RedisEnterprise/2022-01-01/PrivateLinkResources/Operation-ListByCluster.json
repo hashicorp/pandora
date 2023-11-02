@@ -1,0 +1,15 @@
+{
+ "name": "ListByCluster",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "RedisEnterpriseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkResourceListResult"
+ },
+ "uriSuffix": "/privateLinkResources"
+}

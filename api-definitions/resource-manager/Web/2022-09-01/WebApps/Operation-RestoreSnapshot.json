@@ -1,0 +1,16 @@
+{
+ "name": "RestoreSnapshot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SnapshotRestoreRequest"
+ },
+ "uriSuffix": "/restoreSnapshot"
+}

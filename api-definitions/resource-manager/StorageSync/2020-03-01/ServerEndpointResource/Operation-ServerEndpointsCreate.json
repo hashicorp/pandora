@@ -1,0 +1,19 @@
+{
+ "name": "ServerEndpointsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ServerEndpointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServerEndpointCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServerEndpoint"
+ }
+}

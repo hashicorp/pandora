@@ -1,0 +1,19 @@
+{
+ "name": "ListTokens",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ApplicationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ListTokenRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedIdentityTokenResult"
+ },
+ "uriSuffix": "/listTokens"
+}

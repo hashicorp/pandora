@@ -1,0 +1,35 @@
+{
+ "name": "SapLandscapeMonitorPropertiesGrouping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "landscape",
+   "name": "Landscape",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SapLandscapeMonitorSidMapping"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sapApplication",
+   "name": "SapApplication",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SapLandscapeMonitorSidMapping"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

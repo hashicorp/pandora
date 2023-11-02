@@ -1,0 +1,31 @@
+{
+ "name": "CapacityReservationInstanceView",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statuses",
+   "name": "Statuses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InstanceViewStatus"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "utilizationInfo",
+   "name": "UtilizationInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CapacityReservationUtilization"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

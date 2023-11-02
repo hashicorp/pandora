@@ -1,0 +1,20 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "FrontDoorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "FrontDoor"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FrontDoor"
+ }
+}

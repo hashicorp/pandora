@@ -1,0 +1,27 @@
+{
+ "name": "Trial",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableHosts",
+   "name": "AvailableHosts",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrialStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

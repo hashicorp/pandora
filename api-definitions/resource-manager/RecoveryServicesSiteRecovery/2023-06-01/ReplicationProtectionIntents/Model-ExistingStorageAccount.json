@@ -1,0 +1,18 @@
+{
+ "name": "ExistingStorageAccount",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureStorageAccountId",
+   "name": "AzureStorageAccountId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "StorageAccountCustomDetails",
+ "discriminatedTypeValue": "Existing"
+}

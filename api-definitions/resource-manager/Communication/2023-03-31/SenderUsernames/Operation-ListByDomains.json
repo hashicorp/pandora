@@ -1,0 +1,16 @@
+{
+ "name": "ListByDomains",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DomainId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SenderUsernameResource"
+ },
+ "uriSuffix": "/senderUsernames"
+}

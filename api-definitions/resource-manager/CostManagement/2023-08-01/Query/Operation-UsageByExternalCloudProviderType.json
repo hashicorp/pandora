@@ -1,0 +1,19 @@
+{
+ "name": "UsageByExternalCloudProviderType",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ExternalCloudProviderTypeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "QueryDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "QueryResult"
+ },
+ "uriSuffix": "/query"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "ClusterPropertiesEncryptionCustomerManagedKeyEncryptionKeyEncryptionKeyIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identityType",
+   "name": "IdentityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CmkIdentityType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userAssignedIdentityResourceId",
+   "name": "UserAssignedIdentityResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

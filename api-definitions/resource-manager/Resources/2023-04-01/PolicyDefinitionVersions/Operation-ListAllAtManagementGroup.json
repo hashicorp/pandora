@@ -1,0 +1,15 @@
+{
+ "name": "ListAllAtManagementGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ManagementGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PolicyDefinitionVersionListResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Authorization/listPolicyDefinitionVersions"
+}

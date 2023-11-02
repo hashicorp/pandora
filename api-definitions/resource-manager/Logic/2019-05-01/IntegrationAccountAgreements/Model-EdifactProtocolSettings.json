@@ -1,0 +1,146 @@
+{
+ "name": "EdifactProtocolSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "acknowledgementSettings",
+   "name": "AcknowledgementSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactAcknowledgementSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "edifactDelimiterOverrides",
+   "name": "EdifactDelimiterOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EdifactDelimiterOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "envelopeOverrides",
+   "name": "EnvelopeOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EdifactEnvelopeOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "envelopeSettings",
+   "name": "EnvelopeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactEnvelopeSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "framingSettings",
+   "name": "FramingSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactFramingSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messageFilter",
+   "name": "MessageFilter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactMessageFilter"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messageFilterList",
+   "name": "MessageFilterList",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EdifactMessageIdentifier"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "processingSettings",
+   "name": "ProcessingSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactProcessingSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schemaReferences",
+   "name": "SchemaReferences",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EdifactSchemaReference"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationOverrides",
+   "name": "ValidationOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EdifactValidationOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationSettings",
+   "name": "ValidationSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactValidationSettings"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

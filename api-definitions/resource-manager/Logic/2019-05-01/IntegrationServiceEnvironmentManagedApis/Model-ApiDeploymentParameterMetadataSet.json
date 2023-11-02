@@ -1,0 +1,27 @@
+{
+ "name": "ApiDeploymentParameterMetadataSet",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "packageContentLink",
+   "name": "PackageContentLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiDeploymentParameterMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "redisCacheConnectionString",
+   "name": "RedisCacheConnectionString",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiDeploymentParameterMetadata"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

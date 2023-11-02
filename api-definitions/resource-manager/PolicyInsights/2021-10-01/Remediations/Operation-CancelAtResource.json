@@ -1,0 +1,15 @@
+{
+ "name": "CancelAtResource",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ScopedRemediationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Remediation"
+ },
+ "uriSuffix": "/cancel"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ComponentsListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponent"
+ },
+ "uriSuffix": "/providers/Microsoft.Insights/components"
+}

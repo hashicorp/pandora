@@ -1,0 +1,19 @@
+{
+ "name": "ContainersExecuteCommand",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ContainerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContainerExecRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContainerExecResponse"
+ },
+ "uriSuffix": "/exec"
+}

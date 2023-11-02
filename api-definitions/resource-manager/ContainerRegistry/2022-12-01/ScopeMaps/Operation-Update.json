@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ScopeMapId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ScopeMapUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ScopeMap"
+ }
+}

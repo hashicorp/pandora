@@ -1,0 +1,31 @@
+{
+ "name": "PolicySetResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasError",
+   "name": "HasError",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyViolations",
+   "name": "PolicyViolations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PolicyViolation"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

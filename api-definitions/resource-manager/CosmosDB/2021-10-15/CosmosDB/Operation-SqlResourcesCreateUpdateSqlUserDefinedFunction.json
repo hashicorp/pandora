@@ -1,0 +1,19 @@
+{
+ "name": "SqlResourcesCreateUpdateSqlUserDefinedFunction",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "UserDefinedFunctionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SqlUserDefinedFunctionCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SqlUserDefinedFunctionGetResults"
+ }
+}

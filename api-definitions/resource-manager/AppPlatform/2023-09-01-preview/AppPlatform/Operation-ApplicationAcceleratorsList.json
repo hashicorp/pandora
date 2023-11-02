@@ -1,0 +1,16 @@
+{
+ "name": "ApplicationAcceleratorsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SpringId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationAcceleratorResource"
+ },
+ "uriSuffix": "/applicationAccelerators"
+}

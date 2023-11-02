@@ -1,0 +1,25 @@
+{
+ "name": "ReservationOrderId",
+ "id": "/providers/Microsoft.Capacity/reservationOrders/{reservationOrderId}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCapacity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Capacity"
+  },
+  {
+   "name": "staticReservationOrders",
+   "type": "Static",
+   "value": "reservationOrders"
+  },
+  {
+   "name": "reservationOrderId",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "name": "AmlFilesystemContainerStorageInterface",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "persistentVolume",
+   "name": "PersistentVolume",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "persistentVolumeClaim",
+   "name": "PersistentVolumeClaim",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageClass",
+   "name": "StorageClass",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

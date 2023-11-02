@@ -1,0 +1,16 @@
+{
+ "name": "StorageInsightConfigsListByWorkspace",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "@odata.nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "WorkspaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageInsight"
+ },
+ "uriSuffix": "/storageInsightConfigs"
+}

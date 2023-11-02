@@ -1,0 +1,16 @@
+{
+ "name": "ListRevisions",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ProviderContainerAppId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Revision"
+ },
+ "uriSuffix": "/revisions"
+}

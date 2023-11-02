@@ -1,0 +1,19 @@
+{
+ "name": "CheckSkuAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckSkuAvailabilityParameter"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SkuAvailabilityListResult"
+ },
+ "uriSuffix": "/checkSkuAvailability"
+}

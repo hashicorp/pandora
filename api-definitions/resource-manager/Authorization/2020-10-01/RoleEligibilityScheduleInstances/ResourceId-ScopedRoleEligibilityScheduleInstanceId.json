@@ -1,0 +1,29 @@
+{
+ "name": "ScopedRoleEligibilityScheduleInstanceId",
+ "id": "/{scope}/providers/Microsoft.Authorization/roleEligibilityScheduleInstances/{roleEligibilityScheduleInstanceName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticRoleEligibilityScheduleInstances",
+   "type": "Static",
+   "value": "roleEligibilityScheduleInstances"
+  },
+  {
+   "name": "roleEligibilityScheduleInstanceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

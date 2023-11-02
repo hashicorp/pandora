@@ -1,0 +1,16 @@
+{
+ "name": "ListByFactory",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "FactoryId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GlobalParameterResource"
+ },
+ "uriSuffix": "/globalParameters"
+}

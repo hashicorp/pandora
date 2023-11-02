@@ -1,0 +1,25 @@
+{
+ "name": "AssessmentMetadataId",
+ "id": "/providers/Microsoft.Security/assessmentMetadata/{assessmentMetadataName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticAssessmentMetadata",
+   "type": "Static",
+   "value": "assessmentMetadata"
+  },
+  {
+   "name": "assessmentMetadataName",
+   "type": "UserSpecified"
+  }
+ ]
+}

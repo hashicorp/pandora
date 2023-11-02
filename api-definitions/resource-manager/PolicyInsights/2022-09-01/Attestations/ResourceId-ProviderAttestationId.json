@@ -1,0 +1,43 @@
+{
+ "name": "ProviderAttestationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/attestations/{attestationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftPolicyInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.PolicyInsights"
+  },
+  {
+   "name": "staticAttestations",
+   "type": "Static",
+   "value": "attestations"
+  },
+  {
+   "name": "attestationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

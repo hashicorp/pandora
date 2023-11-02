@@ -1,0 +1,27 @@
+{
+ "name": "AssociationUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "associationType",
+   "name": "AssociationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssociationType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssociationSubnetUpdate"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

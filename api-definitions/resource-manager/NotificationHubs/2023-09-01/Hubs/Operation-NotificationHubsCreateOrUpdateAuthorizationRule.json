@@ -1,0 +1,19 @@
+{
+ "name": "NotificationHubsCreateOrUpdateAuthorizationRule",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "NotificationHubAuthorizationRuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SharedAccessAuthorizationRuleResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharedAccessAuthorizationRuleResource"
+ }
+}

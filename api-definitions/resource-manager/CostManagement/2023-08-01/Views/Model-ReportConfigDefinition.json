@@ -1,0 +1,60 @@
+{
+ "name": "ReportConfigDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSet",
+   "name": "DataSet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportConfigDataset"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeMonetaryCommitment",
+   "name": "IncludeMonetaryCommitment",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timePeriod",
+   "name": "TimePeriod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportConfigTimePeriod"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeframe",
+   "name": "Timeframe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportTimeframeType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

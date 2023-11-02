@@ -1,0 +1,27 @@
+{
+ "name": "BookmarkExpandResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metaData",
+   "name": "MetaData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpansionResultsMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BookmarkExpandResponseValue"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateVMGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "VMGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkVMGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkVMGroup"
+ }
+}

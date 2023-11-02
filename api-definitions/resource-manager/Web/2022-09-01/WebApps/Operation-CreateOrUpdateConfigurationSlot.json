@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateConfigurationSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SlotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SiteConfigResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteConfigResource"
+ },
+ "uriSuffix": "/config/web"
+}

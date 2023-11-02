@@ -1,0 +1,27 @@
+{
+ "name": "AddonProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "addonType",
+   "name": "AddonType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddonType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddonProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

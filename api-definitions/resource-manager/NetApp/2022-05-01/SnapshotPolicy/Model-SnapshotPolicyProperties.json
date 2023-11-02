@@ -1,0 +1,71 @@
+{
+ "name": "SnapshotPolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dailySchedule",
+   "name": "DailySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DailySchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hourlySchedule",
+   "name": "HourlySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HourlySchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monthlySchedule",
+   "name": "MonthlySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonthlySchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weeklySchedule",
+   "name": "WeeklySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeeklySchedule"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

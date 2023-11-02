@@ -1,0 +1,49 @@
+{
+ "name": "ScaleRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureQueue",
+   "name": "AzureQueue",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QueueScaleRule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "custom",
+   "name": "Custom",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomScaleRule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "http",
+   "name": "HTTP",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPScaleRule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

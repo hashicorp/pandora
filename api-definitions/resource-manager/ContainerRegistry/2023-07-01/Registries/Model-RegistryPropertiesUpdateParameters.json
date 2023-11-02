@@ -1,0 +1,82 @@
+{
+ "name": "RegistryPropertiesUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "adminUserEnabled",
+   "name": "AdminUserEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataEndpointEnabled",
+   "name": "DataEndpointEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkRuleBypassOptions",
+   "name": "NetworkRuleBypassOptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkRuleBypassOptions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkRuleSet",
+   "name": "NetworkRuleSet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkRuleSet"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policies",
+   "name": "Policies",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Policies"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

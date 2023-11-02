@@ -1,0 +1,40 @@
+{
+ "name": "VMwareCbtPolicyDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appConsistentFrequencyInMinutes",
+   "name": "AppConsistentFrequencyInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "crashConsistentFrequencyInMinutes",
+   "name": "CrashConsistentFrequencyInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointHistoryInMinutes",
+   "name": "RecoveryPointHistoryInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "PolicyProviderSpecificDetails",
+ "discriminatedTypeValue": "VMwareCbt"
+}

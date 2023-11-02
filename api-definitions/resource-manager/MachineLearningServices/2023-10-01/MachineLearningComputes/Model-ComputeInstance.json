@@ -1,0 +1,18 @@
+{
+ "name": "ComputeInstance",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeInstanceProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "Compute",
+ "discriminatedTypeValue": "ComputeInstance"
+}

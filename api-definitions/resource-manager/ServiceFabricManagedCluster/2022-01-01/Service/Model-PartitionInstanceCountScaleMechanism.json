@@ -1,0 +1,40 @@
+{
+ "name": "PartitionInstanceCountScaleMechanism",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxInstanceCount",
+   "name": "MaxInstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minInstanceCount",
+   "name": "MinInstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleIncrement",
+   "name": "ScaleIncrement",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ScalingMechanism",
+ "discriminatedTypeValue": "ScalePartitionInstanceCount"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "KubernetesRoleCompute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "memoryInBytes",
+   "name": "MemoryInBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "processorCount",
+   "name": "ProcessorCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmProfile",
+   "name": "VMProfile",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

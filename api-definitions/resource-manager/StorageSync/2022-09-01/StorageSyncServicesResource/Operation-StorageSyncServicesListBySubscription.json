@@ -1,0 +1,15 @@
+{
+ "name": "StorageSyncServicesListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageSyncServiceArray"
+ },
+ "uriSuffix": "/providers/Microsoft.StorageSync/storageSyncServices"
+}

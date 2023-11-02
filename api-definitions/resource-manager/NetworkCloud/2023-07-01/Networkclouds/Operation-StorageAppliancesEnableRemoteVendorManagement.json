@@ -1,0 +1,16 @@
+{
+ "name": "StorageAppliancesEnableRemoteVendorManagement",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "StorageApplianceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StorageApplianceEnableRemoteVendorManagementParameters"
+ },
+ "uriSuffix": "/enableRemoteVendorManagement"
+}

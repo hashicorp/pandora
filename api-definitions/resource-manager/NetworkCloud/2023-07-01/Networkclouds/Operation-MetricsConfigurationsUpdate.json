@@ -1,0 +1,19 @@
+{
+ "name": "MetricsConfigurationsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "MetricsConfigurationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMetricsConfigurationPatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMetricsConfiguration"
+ }
+}

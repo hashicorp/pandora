@@ -1,0 +1,16 @@
+{
+ "name": "RestoreFiles",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SnapshotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SnapshotRestoreFiles"
+ },
+ "uriSuffix": "/restoreFiles"
+}

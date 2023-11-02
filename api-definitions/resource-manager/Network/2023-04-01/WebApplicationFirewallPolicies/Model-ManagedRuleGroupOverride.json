@@ -1,0 +1,31 @@
+{
+ "name": "ManagedRuleGroupOverride",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleGroupName",
+   "name": "RuleGroupName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rules",
+   "name": "Rules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ManagedRuleOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

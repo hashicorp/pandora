@@ -1,0 +1,16 @@
+{
+ "name": "ListApplicable",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LabScheduleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Schedule"
+ },
+ "uriSuffix": "/listApplicable"
+}

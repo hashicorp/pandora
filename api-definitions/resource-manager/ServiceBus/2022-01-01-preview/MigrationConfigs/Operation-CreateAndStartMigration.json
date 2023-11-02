@@ -1,0 +1,20 @@
+{
+ "name": "CreateAndStartMigration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "NamespaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MigrationConfigProperties"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MigrationConfigProperties"
+ },
+ "uriSuffix": "/migrationConfigurations/$default"
+}

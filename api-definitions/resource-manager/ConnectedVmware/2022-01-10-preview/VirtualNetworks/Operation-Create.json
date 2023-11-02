@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "VirtualNetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualNetwork"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualNetwork"
+ }
+}

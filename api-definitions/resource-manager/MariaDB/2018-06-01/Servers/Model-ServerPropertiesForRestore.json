@@ -1,0 +1,30 @@
+{
+ "name": "ServerPropertiesForRestore",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restorePointInTime",
+   "name": "RestorePointInTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceServerId",
+   "name": "SourceServerId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ServerPropertiesForCreate",
+ "discriminatedTypeValue": "PointInTimeRestore"
+}

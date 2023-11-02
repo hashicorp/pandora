@@ -1,0 +1,19 @@
+{
+ "name": "PolicyRestrictionsCheckAtResourceGroupScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ResourceGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckRestrictionsRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckRestrictionsResult"
+ },
+ "uriSuffix": "/providers/Microsoft.PolicyInsights/checkPolicyRestrictions"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "FilesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "FileId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProjectFile"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProjectFile"
+ }
+}

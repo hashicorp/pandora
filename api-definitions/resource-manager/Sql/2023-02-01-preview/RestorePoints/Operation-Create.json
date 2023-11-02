@@ -1,0 +1,21 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CreateDatabaseRestorePointDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RestorePoint"
+ },
+ "uriSuffix": "/restorePoints"
+}

@@ -1,0 +1,40 @@
+{
+ "name": "FactoryGitHubConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientId",
+   "name": "ClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientSecret",
+   "name": "ClientSecret",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GitHubClientSecret"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostName",
+   "name": "HostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "FactoryRepoConfiguration",
+ "discriminatedTypeValue": "FactoryGitHubConfiguration"
+}

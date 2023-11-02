@@ -1,0 +1,20 @@
+{
+ "name": "PoliciesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "FrontDoorWebApplicationFirewallPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WebApplicationFirewallPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WebApplicationFirewallPolicy"
+ }
+}

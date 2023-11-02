@@ -1,0 +1,19 @@
+{
+ "name": "Lease",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "StorageContainerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LeaseContainerRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LeaseContainerResponse"
+ },
+ "uriSuffix": "/lease"
+}

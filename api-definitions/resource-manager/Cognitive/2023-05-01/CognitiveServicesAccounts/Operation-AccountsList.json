@@ -1,0 +1,16 @@
+{
+ "name": "AccountsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Account"
+ },
+ "uriSuffix": "/providers/Microsoft.CognitiveServices/accounts"
+}

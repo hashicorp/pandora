@@ -1,0 +1,27 @@
+{
+ "name": "ManagedHsmSku",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "family",
+   "name": "Family",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmSkuFamily"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmSkuName"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

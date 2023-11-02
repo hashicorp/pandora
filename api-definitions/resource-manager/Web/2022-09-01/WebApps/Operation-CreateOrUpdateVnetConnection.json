@@ -1,0 +1,18 @@
+{
+ "name": "CreateOrUpdateVnetConnection",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "VirtualNetworkConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VnetInfoResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VnetInfoResource"
+ }
+}

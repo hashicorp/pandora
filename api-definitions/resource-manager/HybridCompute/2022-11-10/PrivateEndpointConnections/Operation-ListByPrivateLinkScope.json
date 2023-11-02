@@ -1,0 +1,16 @@
+{
+ "name": "ListByPrivateLinkScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ProviderPrivateLinkScopeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnection"
+ },
+ "uriSuffix": "/privateEndpointConnections"
+}

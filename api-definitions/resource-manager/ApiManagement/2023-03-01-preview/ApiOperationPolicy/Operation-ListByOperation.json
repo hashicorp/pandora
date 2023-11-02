@@ -1,0 +1,15 @@
+{
+ "name": "ListByOperation",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "OperationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PolicyCollection"
+ },
+ "uriSuffix": "/policies"
+}

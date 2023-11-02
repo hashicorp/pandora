@@ -1,0 +1,19 @@
+{
+ "name": "ComponentCurrentBillingFeaturesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ComponentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponentBillingFeatures"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponentBillingFeatures"
+ },
+ "uriSuffix": "/currentbillingfeatures"
+}

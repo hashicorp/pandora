@@ -1,0 +1,29 @@
+{
+ "name": "TaskRunRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overrideTaskStepProperties",
+   "name": "OverrideTaskStepProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OverrideTaskStepProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taskId",
+   "name": "TaskId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "RunRequest",
+ "discriminatedTypeValue": "TaskRunRequest"
+}

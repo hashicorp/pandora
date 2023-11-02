@@ -1,0 +1,40 @@
+{
+ "name": "NfsMountEndpointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "export",
+   "name": "Export",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "host",
+   "name": "Host",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nfsVersion",
+   "name": "NfsVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NfsVersion"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "EndpointBaseProperties",
+ "discriminatedTypeValue": "NfsMount"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "RoutingPreference",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishInternetEndpoints",
+   "name": "PublishInternetEndpoints",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishMicrosoftEndpoints",
+   "name": "PublishMicrosoftEndpoints",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingChoice",
+   "name": "RoutingChoice",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingChoice"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

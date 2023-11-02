@@ -1,0 +1,49 @@
+{
+ "name": "AgentRegistration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dscMetaConfiguration",
+   "name": "DscMetaConfiguration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpoint",
+   "name": "Endpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keys",
+   "name": "Keys",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AgentRegistrationKeys"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

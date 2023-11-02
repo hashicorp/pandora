@@ -1,0 +1,15 @@
+{
+ "name": "SubscriptionAcceptOwnershipStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ProviderSubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AcceptOwnershipStatusResponse"
+ },
+ "uriSuffix": "/acceptOwnershipStatus"
+}

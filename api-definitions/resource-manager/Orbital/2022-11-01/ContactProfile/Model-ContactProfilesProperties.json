@@ -1,0 +1,101 @@
+{
+ "name": "ContactProfilesProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoTrackingConfiguration",
+   "name": "AutoTrackingConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoTrackingConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubUri",
+   "name": "EventHubUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "links",
+   "name": "Links",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ContactProfileLink"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimumElevationDegrees",
+   "name": "MinimumElevationDegrees",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimumViableContactDuration",
+   "name": "MinimumViableContactDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConfiguration",
+   "name": "NetworkConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContactProfilesPropertiesNetworkConfiguration"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "thirdPartyConfigurations",
+   "name": "ThirdPartyConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ContactProfileThirdPartyConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

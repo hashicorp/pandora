@@ -1,0 +1,19 @@
+{
+ "name": "ConsolesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ConsoleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConsolePatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Console"
+ }
+}

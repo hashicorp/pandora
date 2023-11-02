@@ -1,0 +1,38 @@
+{
+ "name": "ManagedDiskEncryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keySource",
+   "name": "KeySource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionKeySource"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedDiskEncryptionKeyVaultProperties"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rotationToLatestKeyVersionEnabled",
+   "name": "RotationToLatestKeyVersionEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "Test",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "FunctionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Function"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ResourceTestStatus"
+ },
+ "uriSuffix": "/test"
+}

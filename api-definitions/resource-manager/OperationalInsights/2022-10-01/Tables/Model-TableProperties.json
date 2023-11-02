@@ -1,0 +1,137 @@
+{
+ "name": "TableProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "archiveRetentionInDays",
+   "name": "ArchiveRetentionInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastPlanModifiedDate",
+   "name": "LastPlanModifiedDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "plan",
+   "name": "Plan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TablePlanEnum"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningStateEnum"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoredLogs",
+   "name": "RestoredLogs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoredLogs"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resultStatistics",
+   "name": "ResultStatistics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResultStatistics"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionInDays",
+   "name": "RetentionInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionInDaysAsDefault",
+   "name": "RetentionInDaysAsDefault",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schema",
+   "name": "Schema",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Schema"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "searchResults",
+   "name": "SearchResults",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SearchResults"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalRetentionInDays",
+   "name": "TotalRetentionInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalRetentionInDaysAsDefault",
+   "name": "TotalRetentionInDaysAsDefault",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

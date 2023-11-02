@@ -1,0 +1,17 @@
+{
+ "name": "ExportData",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  204,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "RediId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ExportRDBParameters"
+ },
+ "uriSuffix": "/export"
+}

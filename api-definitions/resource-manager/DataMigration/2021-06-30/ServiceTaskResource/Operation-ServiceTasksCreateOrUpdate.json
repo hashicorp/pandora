@@ -1,0 +1,19 @@
+{
+ "name": "ServiceTasksCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ServiceTaskId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProjectTask"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProjectTask"
+ }
+}

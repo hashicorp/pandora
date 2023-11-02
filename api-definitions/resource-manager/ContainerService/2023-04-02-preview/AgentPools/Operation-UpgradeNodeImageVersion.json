@@ -1,0 +1,16 @@
+{
+ "name": "UpgradeNodeImageVersion",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "AgentPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AgentPool"
+ },
+ "uriSuffix": "/upgradeNodeImageVersion"
+}

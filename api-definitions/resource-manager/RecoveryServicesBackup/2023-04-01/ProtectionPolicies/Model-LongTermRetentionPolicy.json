@@ -1,0 +1,51 @@
+{
+ "name": "LongTermRetentionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dailySchedule",
+   "name": "DailySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DailyRetentionSchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monthlySchedule",
+   "name": "MonthlySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonthlyRetentionSchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weeklySchedule",
+   "name": "WeeklySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeeklyRetentionSchedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "yearlySchedule",
+   "name": "YearlySchedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "YearlyRetentionSchedule"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RetentionPolicy",
+ "discriminatedTypeValue": "LongTermRetentionPolicy"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "SAPSupportedSku",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SAPSupportedSkusRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SAPSupportedResourceSkusResult"
+ },
+ "uriSuffix": "/sapVirtualInstanceMetadata/default/getSapSupportedSku"
+}

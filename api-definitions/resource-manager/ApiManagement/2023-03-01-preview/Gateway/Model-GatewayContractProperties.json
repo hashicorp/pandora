@@ -1,0 +1,27 @@
+{
+ "name": "GatewayContractProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "locationData",
+   "name": "LocationData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceLocationDataContract"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

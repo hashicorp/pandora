@@ -1,0 +1,27 @@
+{
+ "name": "NginxNetworkProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontEndIPConfiguration",
+   "name": "FrontEndIPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NginxFrontendIPConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkInterfaceConfiguration",
+   "name": "NetworkInterfaceConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NginxNetworkInterfaceConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

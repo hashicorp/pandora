@@ -1,0 +1,29 @@
+{
+ "name": "DatastoreInventoryItem",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capacityGB",
+   "name": "CapacityGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "freeSpaceGB",
+   "name": "FreeSpaceGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "InventoryItemProperties",
+ "discriminatedTypeValue": "Datastore"
+}

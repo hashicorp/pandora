@@ -1,0 +1,61 @@
+{
+ "name": "SourceRegionTargetRegionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DocumentDB/databaseAccounts/{databaseAccountName}/sourceRegion/{sourceRegionName}/targetRegion/{targetRegionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDocumentDB",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DocumentDB"
+  },
+  {
+   "name": "staticDatabaseAccounts",
+   "type": "Static",
+   "value": "databaseAccounts"
+  },
+  {
+   "name": "databaseAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSourceRegion",
+   "type": "Static",
+   "value": "sourceRegion"
+  },
+  {
+   "name": "sourceRegionName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticTargetRegion",
+   "type": "Static",
+   "value": "targetRegion"
+  },
+  {
+   "name": "targetRegionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

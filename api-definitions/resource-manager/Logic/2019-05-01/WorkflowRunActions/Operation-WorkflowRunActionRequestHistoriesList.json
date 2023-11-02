@@ -1,0 +1,16 @@
+{
+ "name": "WorkflowRunActionRequestHistoriesList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ActionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RequestHistory"
+ },
+ "uriSuffix": "/requestHistories"
+}

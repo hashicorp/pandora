@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ReplicationRecoveryPlanId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "UpdateRecoveryPlanInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RecoveryPlan"
+ }
+}

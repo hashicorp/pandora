@@ -1,0 +1,27 @@
+{
+ "name": "RetentionDuration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "durationType",
+   "name": "DurationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionDurationType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "Reset",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualWANP2SVPNGatewayId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "P2SVpnGateway"
+ },
+ "uriSuffix": "/reset"
+}

@@ -1,0 +1,49 @@
+{
+ "name": "CreateOrUpdateComputePolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxDegreeOfParallelismPerJob",
+   "name": "MaxDegreeOfParallelismPerJob",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minPriorityPerJob",
+   "name": "MinPriorityPerJob",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectId",
+   "name": "ObjectId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AADObjectType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

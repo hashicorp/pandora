@@ -1,0 +1,19 @@
+{
+ "name": "BmcKeySetsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "BmcKeySetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BmcKeySet"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BmcKeySet"
+ }
+}

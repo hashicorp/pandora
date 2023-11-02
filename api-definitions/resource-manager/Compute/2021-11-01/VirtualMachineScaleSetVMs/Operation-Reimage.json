@@ -1,0 +1,16 @@
+{
+ "name": "Reimage",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachineReimageParameters"
+ },
+ "uriSuffix": "/reimage"
+}

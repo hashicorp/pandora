@@ -1,0 +1,19 @@
+{
+ "name": "CassandraResourcesCreateUpdateCassandraKeyspace",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CassandraKeyspaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CassandraKeyspaceCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CassandraKeyspaceGetResults"
+ }
+}

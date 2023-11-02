@@ -1,0 +1,20 @@
+{
+ "name": "ApplyNetworkConfigurationUpdates",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApiManagementServiceApplyNetworkConfigurationParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiManagementServiceResource"
+ },
+ "uriSuffix": "/applynetworkconfigurationupdates"
+}

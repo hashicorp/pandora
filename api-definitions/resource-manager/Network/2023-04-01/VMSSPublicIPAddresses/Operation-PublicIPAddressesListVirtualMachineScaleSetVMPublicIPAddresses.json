@@ -1,0 +1,16 @@
+{
+ "name": "PublicIPAddressesListVirtualMachineScaleSetVMPublicIPAddresses",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VirtualMachineScaleSetIPConfigurationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PublicIPAddress"
+ },
+ "uriSuffix": "/publicIPAddresses"
+}

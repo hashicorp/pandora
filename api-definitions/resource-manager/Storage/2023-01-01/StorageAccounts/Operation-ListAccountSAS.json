@@ -1,0 +1,19 @@
+{
+ "name": "ListAccountSAS",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "StorageAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AccountSasParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ListAccountSasResponse"
+ },
+ "uriSuffix": "/listAccountSas"
+}

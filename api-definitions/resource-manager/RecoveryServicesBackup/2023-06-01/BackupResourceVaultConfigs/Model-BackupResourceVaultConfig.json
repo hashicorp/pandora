@@ -1,0 +1,97 @@
+{
+ "name": "BackupResourceVaultConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enhancedSecurityState",
+   "name": "EnhancedSecurityState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnhancedSecurityState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isSoftDeleteFeatureStateEditable",
+   "name": "IsSoftDeleteFeatureStateEditable",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuardOperationRequests",
+   "name": "ResourceGuardOperationRequests",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softDeleteFeatureState",
+   "name": "SoftDeleteFeatureState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SoftDeleteFeatureState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softDeleteRetentionPeriodInDays",
+   "name": "SoftDeleteRetentionPeriodInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageModelType",
+   "name": "StorageModelType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageType",
+   "name": "StorageType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageTypeState",
+   "name": "StorageTypeState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageTypeState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

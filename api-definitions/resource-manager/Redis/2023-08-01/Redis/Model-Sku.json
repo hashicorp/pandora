@@ -1,0 +1,38 @@
+{
+ "name": "Sku",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capacity",
+   "name": "Capacity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "family",
+   "name": "Family",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuFamily"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuName"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

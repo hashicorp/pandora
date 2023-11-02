@@ -1,0 +1,49 @@
+{
+ "name": "AutoMLVertical",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logVerbosity",
+   "name": "LogVerbosity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogVerbosity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetColumnName",
+   "name": "TargetColumnName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "taskType",
+   "name": "TaskType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TaskType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trainingData",
+   "name": "TrainingData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MLTableJobInput"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

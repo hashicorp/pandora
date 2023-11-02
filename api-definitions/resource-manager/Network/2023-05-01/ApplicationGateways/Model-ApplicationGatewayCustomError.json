@@ -1,0 +1,27 @@
+{
+ "name": "ApplicationGatewayCustomError",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customErrorPageUrl",
+   "name": "CustomErrorPageUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusCode",
+   "name": "StatusCode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayCustomErrorStatusCode"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

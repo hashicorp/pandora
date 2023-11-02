@@ -1,0 +1,19 @@
+{
+ "name": "BackupSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SlotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupItem"
+ },
+ "uriSuffix": "/backup"
+}

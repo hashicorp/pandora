@@ -1,0 +1,22 @@
+{
+ "name": "FacetError",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errors",
+   "name": "Errors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ErrorDetails"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Facet",
+ "discriminatedTypeValue": "FacetError"
+}

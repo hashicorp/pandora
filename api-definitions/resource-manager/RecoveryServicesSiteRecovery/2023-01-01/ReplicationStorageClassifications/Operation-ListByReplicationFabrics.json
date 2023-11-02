@@ -1,0 +1,16 @@
+{
+ "name": "ListByReplicationFabrics",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ReplicationFabricId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageClassification"
+ },
+ "uriSuffix": "/replicationStorageClassifications"
+}

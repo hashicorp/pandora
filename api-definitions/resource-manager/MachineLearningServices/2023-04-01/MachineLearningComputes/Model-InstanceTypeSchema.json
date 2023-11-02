@@ -1,0 +1,31 @@
+{
+ "name": "InstanceTypeSchema",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeSelector",
+   "name": "NodeSelector",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resources",
+   "name": "Resources",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceTypeSchemaResources"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

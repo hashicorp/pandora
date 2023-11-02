@@ -1,0 +1,16 @@
+{
+ "name": "RackSkusListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RackSku"
+ },
+ "uriSuffix": "/providers/Microsoft.NetworkCloud/rackSkus"
+}

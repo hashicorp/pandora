@@ -1,0 +1,116 @@
+{
+ "name": "OrderProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactInformation",
+   "name": "ContactInformation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContactDetails"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentStatus",
+   "name": "CurrentStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OrderStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deliveryTrackingInfo",
+   "name": "DeliveryTrackingInfo",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TrackingInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orderHistory",
+   "name": "OrderHistory",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "OrderStatus"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orderId",
+   "name": "OrderId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "returnTrackingInfo",
+   "name": "ReturnTrackingInfo",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TrackingInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serialNumber",
+   "name": "SerialNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shipmentType",
+   "name": "ShipmentType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ShipmentType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shippingAddress",
+   "name": "ShippingAddress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Address"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

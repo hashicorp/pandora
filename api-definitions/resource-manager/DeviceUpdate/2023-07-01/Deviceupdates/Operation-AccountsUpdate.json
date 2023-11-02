@@ -1,0 +1,19 @@
+{
+ "name": "AccountsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AccountUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Account"
+ }
+}

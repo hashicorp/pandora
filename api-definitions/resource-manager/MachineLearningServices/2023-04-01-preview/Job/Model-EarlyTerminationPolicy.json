@@ -1,0 +1,38 @@
+{
+ "name": "EarlyTerminationPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "delayEvaluation",
+   "name": "DelayEvaluation",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "evaluationInterval",
+   "name": "EvaluationInterval",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "policyType",
+   "name": "PolicyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EarlyTerminationPolicyType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

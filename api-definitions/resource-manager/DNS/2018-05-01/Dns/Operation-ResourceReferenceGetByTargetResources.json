@@ -1,0 +1,19 @@
+{
+ "name": "ResourceReferenceGetByTargetResources",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DnsResourceReferenceRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DnsResourceReferenceResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Network/getDnsResourceReference"
+}

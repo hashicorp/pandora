@@ -1,0 +1,171 @@
+{
+ "name": "CacheProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cacheSizeGB",
+   "name": "CacheSizeGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "directoryServicesSettings",
+   "name": "DirectoryServicesSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheDirectorySettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionSettings",
+   "name": "EncryptionSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheEncryptionSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "health",
+   "name": "Health",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheHealth"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mountAddresses",
+   "name": "MountAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkSettings",
+   "name": "NetworkSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheNetworkSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primingJobs",
+   "name": "PrimingJobs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrimingJob"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningStateType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securitySettings",
+   "name": "SecuritySettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheSecuritySettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "spaceAllocation",
+   "name": "SpaceAllocation",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StorageTargetSpaceAllocation"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeSettings",
+   "name": "UpgradeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheUpgradeSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeStatus",
+   "name": "UpgradeStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheUpgradeStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zones",
+   "name": "Zones",
+   "objectDefinition": {
+    "type": "Zones",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

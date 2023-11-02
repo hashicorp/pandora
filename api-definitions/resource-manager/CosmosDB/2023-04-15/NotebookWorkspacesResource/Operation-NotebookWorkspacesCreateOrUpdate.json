@@ -1,0 +1,19 @@
+{
+ "name": "NotebookWorkspacesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "DatabaseAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ARMProxyResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NotebookWorkspace"
+ },
+ "uriSuffix": "/notebookWorkspaces/default"
+}

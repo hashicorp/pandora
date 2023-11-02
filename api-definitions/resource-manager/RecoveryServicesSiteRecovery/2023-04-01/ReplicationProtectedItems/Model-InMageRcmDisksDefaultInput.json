@@ -1,0 +1,38 @@
+{
+ "name": "InMageRcmDisksDefaultInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskEncryptionSetId",
+   "name": "DiskEncryptionSetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskType",
+   "name": "DiskType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskAccountType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logStorageAccountId",
+   "name": "LogStorageAccountId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

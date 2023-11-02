@@ -1,0 +1,18 @@
+{
+ "name": "SASAuthTypeWorkspaceConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceConnectionSharedAccessSignature"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+ "discriminatedTypeValue": "SAS"
+}

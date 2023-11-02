@@ -1,0 +1,19 @@
+{
+ "name": "CheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "BillingAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CostAllocationRuleCheckNameAvailabilityRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CostAllocationRuleCheckNameAvailabilityResponse"
+ },
+ "uriSuffix": "/providers/Microsoft.CostManagement/costAllocationRules/checkNameAvailability"
+}

@@ -1,0 +1,51 @@
+{
+ "name": "AlertingAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aznsAction",
+   "name": "AznsAction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzNsActionGroup"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "severity",
+   "name": "Severity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertSeverity"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "throttlingInMin",
+   "name": "ThrottlingInMin",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trigger",
+   "name": "Trigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TriggerCondition"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Action",
+ "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction"
+}

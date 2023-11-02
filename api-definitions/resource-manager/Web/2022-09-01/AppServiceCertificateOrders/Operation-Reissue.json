@@ -1,0 +1,15 @@
+{
+ "name": "Reissue",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "CertificateOrderId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ReissueCertificateOrderRequest"
+ },
+ "uriSuffix": "/reissue"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "GetQueueStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AgentPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AgentPoolQueueStatus"
+ },
+ "uriSuffix": "/listQueueStatus"
+}

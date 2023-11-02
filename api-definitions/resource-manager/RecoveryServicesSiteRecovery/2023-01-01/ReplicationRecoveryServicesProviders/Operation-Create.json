@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ReplicationRecoveryServicesProviderId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AddRecoveryServicesProviderInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RecoveryServicesProvider"
+ }
+}

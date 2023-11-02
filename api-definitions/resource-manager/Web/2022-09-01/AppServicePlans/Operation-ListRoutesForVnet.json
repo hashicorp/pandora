@@ -1,0 +1,19 @@
+{
+ "name": "ListRoutesForVnet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ServerFarmVirtualNetworkConnectionId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "VnetRoute"
+  }
+ },
+ "uriSuffix": "/routes"
+}

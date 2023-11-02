@@ -1,0 +1,16 @@
+{
+ "name": "StopPrimingJob",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CacheId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrimingJobIdParameter"
+ },
+ "uriSuffix": "/stopPrimingJob"
+}

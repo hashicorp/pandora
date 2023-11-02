@@ -1,0 +1,40 @@
+{
+ "name": "WeeklyMaintenanceScheduleConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "day",
+   "name": "Day",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeekDay"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hour",
+   "name": "Hour",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "MaintenanceScheduleConfiguration",
+ "discriminatedTypeValue": "Weekly"
+}

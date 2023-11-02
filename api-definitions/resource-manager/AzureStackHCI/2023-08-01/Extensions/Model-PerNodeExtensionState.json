@@ -1,0 +1,60 @@
+{
+ "name": "PerNodeExtensionState",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extension",
+   "name": "Extension",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceView",
+   "name": "InstanceView",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExtensionInstanceView"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NodeExtensionState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "typeHandlerVersion",
+   "name": "TypeHandlerVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

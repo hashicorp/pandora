@@ -1,0 +1,16 @@
+{
+ "name": "ListByShareSubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ShareSubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Trigger"
+ },
+ "uriSuffix": "/triggers"
+}

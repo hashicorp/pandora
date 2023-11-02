@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SchemaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationAccountSchema"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationAccountSchema"
+ }
+}

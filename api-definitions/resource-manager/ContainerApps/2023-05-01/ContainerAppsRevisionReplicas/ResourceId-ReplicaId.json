@@ -1,0 +1,61 @@
+{
+ "name": "ReplicaId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.App/containerApps/{containerAppName}/revisions/{revisionName}/replicas/{replicaName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftApp",
+   "type": "ResourceProvider",
+   "value": "Microsoft.App"
+  },
+  {
+   "name": "staticContainerApps",
+   "type": "Static",
+   "value": "containerApps"
+  },
+  {
+   "name": "containerAppName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticRevisions",
+   "type": "Static",
+   "value": "revisions"
+  },
+  {
+   "name": "revisionName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticReplicas",
+   "type": "Static",
+   "value": "replicas"
+  },
+  {
+   "name": "replicaName",
+   "type": "UserSpecified"
+  }
+ ]
+}

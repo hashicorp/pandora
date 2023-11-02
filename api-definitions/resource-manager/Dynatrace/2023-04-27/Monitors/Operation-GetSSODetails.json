@@ -1,0 +1,19 @@
+{
+ "name": "GetSSODetails",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "MonitorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SSODetailsRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SSODetailsResponse"
+ },
+ "uriSuffix": "/getSSODetails"
+}

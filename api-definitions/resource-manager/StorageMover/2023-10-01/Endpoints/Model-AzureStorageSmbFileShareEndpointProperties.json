@@ -1,0 +1,29 @@
+{
+ "name": "AzureStorageSmbFileShareEndpointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fileShareName",
+   "name": "FileShareName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountResourceId",
+   "name": "StorageAccountResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "EndpointBaseProperties",
+ "discriminatedTypeValue": "AzureStorageSmbFileShare"
+}

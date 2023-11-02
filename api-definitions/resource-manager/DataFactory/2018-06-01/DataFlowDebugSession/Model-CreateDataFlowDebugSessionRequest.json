@@ -1,0 +1,49 @@
+{
+ "name": "CreateDataFlowDebugSessionRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeType",
+   "name": "ComputeType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "coreCount",
+   "name": "CoreCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "integrationRuntime",
+   "name": "IntegrationRuntime",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IntegrationRuntimeDebugResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeToLive",
+   "name": "TimeToLive",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

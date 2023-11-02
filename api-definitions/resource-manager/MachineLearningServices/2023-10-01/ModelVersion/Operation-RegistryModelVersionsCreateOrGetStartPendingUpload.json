@@ -1,0 +1,19 @@
+{
+ "name": "RegistryModelVersionsCreateOrGetStartPendingUpload",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RegistryModelVersionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PendingUploadRequestDto"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PendingUploadResponseDto"
+ },
+ "uriSuffix": "/startPendingUpload"
+}

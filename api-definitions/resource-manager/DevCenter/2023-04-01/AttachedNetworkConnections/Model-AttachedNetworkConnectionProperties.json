@@ -1,0 +1,60 @@
+{
+ "name": "AttachedNetworkConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainJoinType",
+   "name": "DomainJoinType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DomainJoinType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthCheckStatus",
+   "name": "HealthCheckStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HealthCheckStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConnectionId",
+   "name": "NetworkConnectionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConnectionLocation",
+   "name": "NetworkConnectionLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

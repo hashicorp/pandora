@@ -1,0 +1,27 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "@nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "Cache-Control",
+   "optional": true,
+   "required": false,
+   "field": "CacheControl",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagementGroupInfo"
+ },
+ "uriSuffix": "/providers/Microsoft.Management/managementGroups"
+}

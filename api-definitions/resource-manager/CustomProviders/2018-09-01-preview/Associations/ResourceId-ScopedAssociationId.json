@@ -1,0 +1,29 @@
+{
+ "name": "ScopedAssociationId",
+ "id": "/{scope}/providers/Microsoft.CustomProviders/associations/{associationName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCustomProviders",
+   "type": "ResourceProvider",
+   "value": "Microsoft.CustomProviders"
+  },
+  {
+   "name": "staticAssociations",
+   "type": "Static",
+   "value": "associations"
+  },
+  {
+   "name": "associationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

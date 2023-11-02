@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "EmailServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TaggedResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EmailServiceResource"
+ }
+}

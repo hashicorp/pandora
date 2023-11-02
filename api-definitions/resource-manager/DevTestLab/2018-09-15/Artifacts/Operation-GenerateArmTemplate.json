@@ -1,0 +1,19 @@
+{
+ "name": "GenerateArmTemplate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ArtifactId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GenerateArmTemplateRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ArmTemplateInfo"
+ },
+ "uriSuffix": "/generateArmTemplate"
+}

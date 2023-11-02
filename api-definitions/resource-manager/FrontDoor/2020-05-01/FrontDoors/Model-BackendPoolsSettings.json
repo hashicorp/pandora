@@ -1,0 +1,27 @@
+{
+ "name": "BackendPoolsSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enforceCertificateNameCheck",
+   "name": "EnforceCertificateNameCheck",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnforceCertificateNameCheckEnabledState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sendRecvTimeoutSeconds",
+   "name": "SendRecvTimeoutSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "DigitalTwinsEndpointDelete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "resourceIdName": "EndpointId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DigitalTwinsEndpointResource"
+ }
+}

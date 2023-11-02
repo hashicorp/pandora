@@ -1,0 +1,62 @@
+{
+ "name": "TextTrack",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fileName",
+   "name": "FileName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hlsSettings",
+   "name": "HlsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HlsSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "languageCode",
+   "name": "LanguageCode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "playerVisibility",
+   "name": "PlayerVisibility",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Visibility"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TrackBase",
+ "discriminatedTypeValue": "#Microsoft.Media.TextTrack"
+}

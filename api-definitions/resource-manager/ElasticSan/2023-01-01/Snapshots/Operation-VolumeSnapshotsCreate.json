@@ -1,0 +1,19 @@
+{
+ "name": "VolumeSnapshotsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SnapshotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Snapshot"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Snapshot"
+ }
+}

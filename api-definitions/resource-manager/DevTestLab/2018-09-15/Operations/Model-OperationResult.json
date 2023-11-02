@@ -1,0 +1,38 @@
+{
+ "name": "OperationResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperationError"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusCode",
+   "name": "StatusCode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPStatusCode"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

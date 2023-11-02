@@ -1,0 +1,17 @@
+{
+ "name": "ImportData",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204,
+  202,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "RediId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ImportRDBParameters"
+ },
+ "uriSuffix": "/import"
+}

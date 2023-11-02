@@ -1,0 +1,104 @@
+{
+ "name": "ClusterUpgradePolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deltaHealthPolicy",
+   "name": "DeltaHealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterUpgradeDeltaHealthPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forceRestart",
+   "name": "ForceRestart",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthCheckRetryTimeout",
+   "name": "HealthCheckRetryTimeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthCheckStableDuration",
+   "name": "HealthCheckStableDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthCheckWaitDuration",
+   "name": "HealthCheckWaitDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthPolicy",
+   "name": "HealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterHealthPolicy"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeDomainTimeout",
+   "name": "UpgradeDomainTimeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeReplicaSetCheckTimeout",
+   "name": "UpgradeReplicaSetCheckTimeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeTimeout",
+   "name": "UpgradeTimeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

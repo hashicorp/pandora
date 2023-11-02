@@ -1,0 +1,16 @@
+{
+ "name": "Publish",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "DataVersionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DestinationAsset"
+ },
+ "uriSuffix": "/publish"
+}

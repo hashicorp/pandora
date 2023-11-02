@@ -1,0 +1,18 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "NodeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DscNodeUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DscNode"
+ }
+}

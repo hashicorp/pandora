@@ -1,0 +1,16 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TdeCertificate"
+ },
+ "uriSuffix": "/tdeCertificates"
+}

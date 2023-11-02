@@ -1,0 +1,16 @@
+{
+ "name": "AvailableEndpointServicesList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "LocationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EndpointServiceResult"
+ },
+ "uriSuffix": "/virtualNetworkAvailableEndpointServices"
+}

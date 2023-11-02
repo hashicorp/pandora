@@ -1,0 +1,38 @@
+{
+ "name": "PolicyInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyId",
+   "name": "PolicyId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyParameters",
+   "name": "PolicyParameters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyParameters"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyVersion",
+   "name": "PolicyVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "RegistriesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "RegistryId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegistryTrackedResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegistryTrackedResource"
+ }
+}

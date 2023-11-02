@@ -1,0 +1,27 @@
+{
+ "name": "TokenKey",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kid",
+   "name": "Kid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "@type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "name": "ContainerServiceLinuxProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "adminUsername",
+   "name": "AdminUsername",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ssh",
+   "name": "Ssh",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerServiceSshConfiguration"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

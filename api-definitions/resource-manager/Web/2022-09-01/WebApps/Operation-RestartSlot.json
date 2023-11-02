@@ -1,0 +1,33 @@
+{
+ "name": "RestartSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "softRestart",
+   "required": false,
+   "field": "SoftRestart",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "synchronous",
+   "required": false,
+   "field": "Synchronous",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SlotId",
+ "uriSuffix": "/restart"
+}

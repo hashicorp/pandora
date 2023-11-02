@@ -1,0 +1,16 @@
+{
+ "name": "LtrBackupOperationsListByServer",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "FlexibleServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LtrServerBackupOperation"
+ },
+ "uriSuffix": "/ltrBackupOperations"
+}

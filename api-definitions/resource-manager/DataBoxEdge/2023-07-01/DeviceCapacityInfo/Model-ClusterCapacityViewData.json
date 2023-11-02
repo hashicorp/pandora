@@ -1,0 +1,61 @@
+{
+ "name": "ClusterCapacityViewData",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fqdn",
+   "name": "Fqdn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gpuCapacity",
+   "name": "GpuCapacity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterGpuCapacity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastRefreshedTime",
+   "name": "LastRefreshedTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "memoryCapacity",
+   "name": "MemoryCapacity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterMemoryCapacity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalProvisionedNonHpnCores",
+   "name": "TotalProvisionedNonHpnCores",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

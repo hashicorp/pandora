@@ -1,0 +1,16 @@
+{
+ "name": "Stop",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ManagedInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstance"
+ },
+ "uriSuffix": "/stop"
+}

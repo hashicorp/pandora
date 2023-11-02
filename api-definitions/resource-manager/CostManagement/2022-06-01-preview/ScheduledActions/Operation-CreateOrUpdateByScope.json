@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateByScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedScheduledActionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ScheduledAction"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ScheduledAction"
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "name": "PolicyAssignmentArtifact",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyAssignmentArtifactProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Artifact",
+ "discriminatedTypeValue": "policyAssignment"
+}

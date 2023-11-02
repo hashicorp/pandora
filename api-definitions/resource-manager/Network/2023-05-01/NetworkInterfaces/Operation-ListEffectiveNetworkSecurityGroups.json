@@ -1,0 +1,16 @@
+{
+ "name": "ListEffectiveNetworkSecurityGroups",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "NetworkInterfaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EffectiveNetworkSecurityGroupListResult"
+ },
+ "uriSuffix": "/effectiveNetworkSecurityGroups"
+}

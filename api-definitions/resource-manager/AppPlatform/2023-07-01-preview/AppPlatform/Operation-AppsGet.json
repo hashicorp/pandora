@@ -1,0 +1,26 @@
+{
+ "name": "AppsGet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "syncStatus",
+   "required": false,
+   "field": "SyncStatus",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AppId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AppResource"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "name": "SAPDiskConfigurationsResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "volumeConfigurations",
+   "name": "VolumeConfigurations",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SAPDiskConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

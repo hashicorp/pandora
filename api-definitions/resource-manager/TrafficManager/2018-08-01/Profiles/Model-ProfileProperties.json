@@ -1,0 +1,101 @@
+{
+ "name": "ProfileProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedEndpointRecordTypes",
+   "name": "AllowedEndpointRecordTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AllowedEndpointRecordType"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsConfig",
+   "name": "DnsConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DnsConfig"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpoints",
+   "name": "Endpoints",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Endpoint"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxReturn",
+   "name": "MaxReturn",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitorConfig",
+   "name": "MonitorConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitorConfig"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "profileStatus",
+   "name": "ProfileStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProfileStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trafficRoutingMethod",
+   "name": "TrafficRoutingMethod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrafficRoutingMethod"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trafficViewEnrollmentStatus",
+   "name": "TrafficViewEnrollmentStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrafficViewEnrollmentStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

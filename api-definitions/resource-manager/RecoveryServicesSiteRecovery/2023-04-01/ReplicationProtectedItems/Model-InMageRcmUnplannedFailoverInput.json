@@ -1,0 +1,29 @@
+{
+ "name": "InMageRcmUnplannedFailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "performShutdown",
+   "name": "PerformShutdown",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "UnplannedFailoverProviderSpecificInput",
+ "discriminatedTypeValue": "InMageRcm"
+}

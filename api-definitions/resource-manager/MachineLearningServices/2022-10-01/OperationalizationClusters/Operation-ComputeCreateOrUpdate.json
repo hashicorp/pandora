@@ -1,0 +1,19 @@
+{
+ "name": "ComputeCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ComputeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ComputeResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ComputeResource"
+ }
+}

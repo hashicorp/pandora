@@ -1,0 +1,16 @@
+{
+ "name": "ListTriggeredWebJobHistorySlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotTriggeredWebJobId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TriggeredJobHistory"
+ },
+ "uriSuffix": "/history"
+}

@@ -1,0 +1,18 @@
+{
+ "name": "ManagedComputeIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "LegacySystemAndUserAssignedIdentityMap",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "MonitorComputeIdentityBase",
+ "discriminatedTypeValue": "ManagedIdentity"
+}

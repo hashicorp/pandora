@@ -1,0 +1,178 @@
+{
+ "name": "ApplicationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationDefinitionId",
+   "name": "ApplicationDefinitionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifacts",
+   "name": "Artifacts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationArtifact"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizations",
+   "name": "Authorizations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationAuthorization"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingDetails",
+   "name": "BillingDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationBillingDetailsDefinition"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdBy",
+   "name": "CreatedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationClientDetails"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customerSupport",
+   "name": "CustomerSupport",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationPackageContact"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jitAccessPolicy",
+   "name": "JitAccessPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationJitAccessPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedResourceGroupId",
+   "name": "ManagedResourceGroupId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managementMode",
+   "name": "ManagementMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationManagementMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outputs",
+   "name": "Outputs",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publisherTenantId",
+   "name": "PublisherTenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportUrls",
+   "name": "SupportUrls",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationPackageSupportUrls"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "updatedBy",
+   "name": "UpdatedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationClientDetails"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

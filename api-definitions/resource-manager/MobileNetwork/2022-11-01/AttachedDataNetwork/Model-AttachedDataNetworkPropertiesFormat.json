@@ -1,0 +1,85 @@
+{
+ "name": "AttachedDataNetworkPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsAddresses",
+   "name": "DnsAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "naptConfiguration",
+   "name": "NaptConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NaptConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userEquipmentAddressPoolPrefix",
+   "name": "UserEquipmentAddressPoolPrefix",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null,
+     "minItems": 1
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userEquipmentStaticAddressPoolPrefix",
+   "name": "UserEquipmentStaticAddressPoolPrefix",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null,
+     "minItems": 1
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userPlaneDataInterface",
+   "name": "UserPlaneDataInterface",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InterfaceProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

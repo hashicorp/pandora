@@ -1,0 +1,16 @@
+{
+ "name": "ListByPacketCoreControlPlane",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PacketCoreControlPlaneId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PacketCoreDataPlane"
+ },
+ "uriSuffix": "/packetCoreDataPlanes"
+}

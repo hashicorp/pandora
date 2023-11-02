@@ -1,0 +1,19 @@
+{
+ "name": "Get",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupStatusRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupStatusResponse"
+ },
+ "uriSuffix": "/backupStatus"
+}

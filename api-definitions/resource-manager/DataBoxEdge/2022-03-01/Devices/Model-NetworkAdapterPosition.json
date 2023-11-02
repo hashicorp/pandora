@@ -1,0 +1,27 @@
+{
+ "name": "NetworkAdapterPosition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkGroup",
+   "name": "NetworkGroup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkGroup"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

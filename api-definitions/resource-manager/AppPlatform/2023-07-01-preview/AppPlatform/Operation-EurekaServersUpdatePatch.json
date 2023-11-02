@@ -1,0 +1,20 @@
+{
+ "name": "EurekaServersUpdatePatch",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SpringId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EurekaServerResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EurekaServerResource"
+ },
+ "uriSuffix": "/eurekaServers/default"
+}

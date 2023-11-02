@@ -1,0 +1,61 @@
+{
+ "name": "ActionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Logic/workflows/{workflowName}/runs/{runName}/actions/{actionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftLogic",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Logic"
+  },
+  {
+   "name": "staticWorkflows",
+   "type": "Static",
+   "value": "workflows"
+  },
+  {
+   "name": "workflowName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticRuns",
+   "type": "Static",
+   "value": "runs"
+  },
+  {
+   "name": "runName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticActions",
+   "type": "Static",
+   "value": "actions"
+  },
+  {
+   "name": "actionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

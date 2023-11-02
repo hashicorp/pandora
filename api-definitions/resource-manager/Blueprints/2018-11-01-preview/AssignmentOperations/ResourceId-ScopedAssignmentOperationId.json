@@ -1,0 +1,38 @@
+{
+ "name": "ScopedAssignmentOperationId",
+ "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprintAssignments/{blueprintAssignmentName}/assignmentOperations/{assignmentOperationName}",
+ "segments": [
+  {
+   "name": "resourceScope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBlueprint",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Blueprint"
+  },
+  {
+   "name": "staticBlueprintAssignments",
+   "type": "Static",
+   "value": "blueprintAssignments"
+  },
+  {
+   "name": "blueprintAssignmentName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticAssignmentOperations",
+   "type": "Static",
+   "value": "assignmentOperations"
+  },
+  {
+   "name": "assignmentOperationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

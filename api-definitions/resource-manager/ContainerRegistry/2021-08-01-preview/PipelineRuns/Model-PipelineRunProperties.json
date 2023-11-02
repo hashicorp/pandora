@@ -1,0 +1,49 @@
+{
+ "name": "PipelineRunProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forceUpdateTag",
+   "name": "ForceUpdateTag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "request",
+   "name": "Request",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PipelineRunRequest"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "response",
+   "name": "Response",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PipelineRunResponse"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

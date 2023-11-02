@@ -1,0 +1,49 @@
+{
+ "name": "VirtualMachineUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hardwareProfile",
+   "name": "HardwareProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HardwareProfile"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkProfile",
+   "name": "NetworkProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkProfileUpdate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osProfile",
+   "name": "OsProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsProfileUpdate"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageProfile",
+   "name": "StorageProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageProfileUpdate"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

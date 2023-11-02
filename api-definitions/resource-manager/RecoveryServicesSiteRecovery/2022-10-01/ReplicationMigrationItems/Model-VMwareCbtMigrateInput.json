@@ -1,0 +1,18 @@
+{
+ "name": "VMwareCbtMigrateInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "performShutdown",
+   "name": "PerformShutdown",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "MigrateProviderSpecificInput",
+ "discriminatedTypeValue": "VMwareCbt"
+}

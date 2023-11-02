@@ -1,0 +1,19 @@
+{
+ "name": "ListActiveConnectivityConfigurations",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "NetworkManagerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ActiveConfigurationParameter"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActiveConnectivityConfigurationsListResult"
+ },
+ "uriSuffix": "/listActiveConnectivityConfigurations"
+}

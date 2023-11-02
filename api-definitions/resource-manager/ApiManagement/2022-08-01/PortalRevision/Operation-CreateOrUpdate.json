@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "PortalRevisionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PortalRevisionContract"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PortalRevisionContract"
+ }
+}

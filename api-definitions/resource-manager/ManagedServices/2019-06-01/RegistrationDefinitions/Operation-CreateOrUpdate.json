@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedRegistrationDefinitionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegistrationDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegistrationDefinition"
+ }
+}

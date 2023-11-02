@@ -1,0 +1,29 @@
+{
+ "name": "PackageInputPathVersion",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceName",
+   "name": "ResourceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceVersion",
+   "name": "ResourceVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "PackageInputPathBase",
+ "discriminatedTypeValue": "PathVersion"
+}

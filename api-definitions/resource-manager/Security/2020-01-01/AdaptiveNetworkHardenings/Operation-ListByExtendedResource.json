@@ -1,0 +1,16 @@
+{
+ "name": "ListByExtendedResource",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ScopeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AdaptiveNetworkHardening"
+ },
+ "uriSuffix": "/providers/Microsoft.Security/adaptiveNetworkHardenings"
+}

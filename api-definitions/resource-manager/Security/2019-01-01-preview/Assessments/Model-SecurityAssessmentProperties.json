@@ -1,0 +1,64 @@
+{
+ "name": "SecurityAssessmentProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalData",
+   "name": "AdditionalData",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "links",
+   "name": "Links",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssessmentLinks"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceDetails",
+   "name": "ResourceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceDetails"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssessmentStatus"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "name": "ClientEncryptionKeyResource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionAlgorithm",
+   "name": "EncryptionAlgorithm",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyWrapMetadata",
+   "name": "KeyWrapMetadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyWrapMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "wrappedDataEncryptionKey",
+   "name": "WrappedDataEncryptionKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

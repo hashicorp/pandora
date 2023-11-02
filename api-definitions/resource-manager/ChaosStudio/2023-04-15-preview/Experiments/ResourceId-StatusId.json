@@ -1,0 +1,52 @@
+{
+ "name": "StatusId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}/statuses/{statusId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftChaos",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Chaos"
+  },
+  {
+   "name": "staticExperiments",
+   "type": "Static",
+   "value": "experiments"
+  },
+  {
+   "name": "experimentName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticStatuses",
+   "type": "Static",
+   "value": "statuses"
+  },
+  {
+   "name": "statusId",
+   "type": "UserSpecified"
+  }
+ ]
+}

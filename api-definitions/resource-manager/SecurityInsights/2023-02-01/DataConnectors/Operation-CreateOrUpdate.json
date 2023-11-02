@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "DataConnectorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataConnector"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataConnector"
+ }
+}

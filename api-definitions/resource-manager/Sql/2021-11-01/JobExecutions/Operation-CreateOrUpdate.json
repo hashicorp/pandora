@@ -1,0 +1,16 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  201,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ExecutionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "JobExecution"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "name": "BatchUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "FlexibleServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationListForBatchUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationListResult"
+ },
+ "uriSuffix": "/updateConfigurations"
+}

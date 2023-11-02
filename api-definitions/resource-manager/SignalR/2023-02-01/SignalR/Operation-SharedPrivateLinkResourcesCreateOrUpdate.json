@@ -1,0 +1,19 @@
+{
+ "name": "SharedPrivateLinkResourcesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SharedPrivateLinkResourceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SharedPrivateLinkResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharedPrivateLinkResource"
+ }
+}

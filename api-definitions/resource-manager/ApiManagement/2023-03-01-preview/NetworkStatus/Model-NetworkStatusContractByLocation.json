@@ -1,0 +1,27 @@
+{
+ "name": "NetworkStatusContractByLocation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkStatus",
+   "name": "NetworkStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkStatusContract"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

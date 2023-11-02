@@ -1,0 +1,49 @@
+{
+ "name": "AutomationTriggeringRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expectedValue",
+   "name": "ExpectedValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Operator"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyJPath",
+   "name": "PropertyJPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyType",
+   "name": "PropertyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PropertyType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

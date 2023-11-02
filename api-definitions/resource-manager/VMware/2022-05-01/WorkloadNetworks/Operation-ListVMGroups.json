@@ -1,0 +1,16 @@
+{
+ "name": "ListVMGroups",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PrivateCloudId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkVMGroup"
+ },
+ "uriSuffix": "/workloadNetworks/default/vmGroups"
+}

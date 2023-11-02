@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateConfiguration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SiteConfigResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteConfigResource"
+ },
+ "uriSuffix": "/config/web"
+}

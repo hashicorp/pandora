@@ -1,0 +1,29 @@
+{
+ "name": "TieringCostRehydrationInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rehydrationSizeInBytes",
+   "name": "RehydrationSizeInBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retailRehydrationCostPerGBPerMonth",
+   "name": "RetailRehydrationCostPerGBPerMonth",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "TieringCostInfo",
+ "discriminatedTypeValue": "TieringCostRehydrationInfo"
+}

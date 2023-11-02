@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CapacityReservationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CapacityReservationUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CapacityReservation"
+ }
+}

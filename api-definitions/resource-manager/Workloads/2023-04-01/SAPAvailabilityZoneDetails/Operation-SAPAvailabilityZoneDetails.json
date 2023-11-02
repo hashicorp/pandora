@@ -1,0 +1,19 @@
+{
+ "name": "SAPAvailabilityZoneDetails",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SAPAvailabilityZoneDetailsRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SAPAvailabilityZoneDetailsResult"
+ },
+ "uriSuffix": "/sapVirtualInstanceMetadata/default/getAvailabilityZoneDetails"
+}

@@ -1,0 +1,20 @@
+{
+ "name": "OrchestratorVersionProfileProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orchestrators",
+   "name": "Orchestrators",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "OrchestratorVersionProfile"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

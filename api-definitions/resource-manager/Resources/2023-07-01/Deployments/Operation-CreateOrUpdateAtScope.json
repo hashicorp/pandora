@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedDeploymentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Deployment"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeploymentExtended"
+ }
+}

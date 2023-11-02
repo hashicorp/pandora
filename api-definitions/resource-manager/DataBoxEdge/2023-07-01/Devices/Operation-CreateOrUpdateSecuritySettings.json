@@ -1,0 +1,16 @@
+{
+ "name": "CreateOrUpdateSecuritySettings",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "DataBoxEdgeDeviceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SecuritySettings"
+ },
+ "uriSuffix": "/securitySettings/default/update"
+}

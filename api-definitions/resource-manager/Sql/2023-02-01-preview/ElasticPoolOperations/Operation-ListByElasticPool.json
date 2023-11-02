@@ -1,0 +1,16 @@
+{
+ "name": "ListByElasticPool",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ElasticPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ElasticPoolOperation"
+ },
+ "uriSuffix": "/operations"
+}

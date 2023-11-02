@@ -1,0 +1,42 @@
+{
+ "name": "IntegrationServiceEnvironmentSubnetNetworkHealth",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkDependencyHealthState",
+   "name": "NetworkDependencyHealthState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IntegrationServiceEnvironmentNetworkEndPointAccessibilityState"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundNetworkDependencies",
+   "name": "OutboundNetworkDependencies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IntegrationServiceEnvironmentNetworkDependency"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundNetworkHealth",
+   "name": "OutboundNetworkHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IntegrationServiceEnvironmentNetworkDependencyHealth"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "name": "SingleServerConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customResourceNames",
+   "name": "CustomResourceNames",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SingleServerCustomResourceNames"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseType",
+   "name": "DatabaseType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SAPDatabaseType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dbDiskConfiguration",
+   "name": "DbDiskConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConfiguration",
+   "name": "NetworkConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnetId",
+   "name": "SubnetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachineConfiguration",
+   "name": "VirtualMachineConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineConfiguration"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "InfrastructureConfiguration",
+ "discriminatedTypeValue": "SingleServer"
+}

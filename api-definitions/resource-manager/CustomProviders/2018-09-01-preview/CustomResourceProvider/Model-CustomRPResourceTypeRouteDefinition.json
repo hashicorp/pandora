@@ -1,0 +1,38 @@
+{
+ "name": "CustomRPResourceTypeRouteDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpoint",
+   "name": "Endpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingType",
+   "name": "RoutingType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceTypeRouting"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

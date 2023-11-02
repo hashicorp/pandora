@@ -1,0 +1,27 @@
+{
+ "name": "StopOnDisconnectConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gracePeriodMinutes",
+   "name": "GracePeriodMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StopOnDisconnectEnableStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

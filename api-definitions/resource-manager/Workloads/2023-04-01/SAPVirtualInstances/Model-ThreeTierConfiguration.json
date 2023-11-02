@@ -1,0 +1,84 @@
+{
+ "name": "ThreeTierConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationServer",
+   "name": "ApplicationServer",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationServerConfiguration"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "centralServer",
+   "name": "CentralServer",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CentralServerConfiguration"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customResourceNames",
+   "name": "CustomResourceNames",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ThreeTierCustomResourceNames"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseServer",
+   "name": "DatabaseServer",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatabaseConfiguration"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "highAvailabilityConfig",
+   "name": "HighAvailabilityConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HighAvailabilityConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConfiguration",
+   "name": "NetworkConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageConfiguration",
+   "name": "StorageConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "InfrastructureConfiguration",
+ "discriminatedTypeValue": "ThreeTier"
+}

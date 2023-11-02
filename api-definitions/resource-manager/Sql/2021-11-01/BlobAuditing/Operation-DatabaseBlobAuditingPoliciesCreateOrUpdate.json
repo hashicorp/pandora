@@ -1,0 +1,20 @@
+{
+ "name": "DatabaseBlobAuditingPoliciesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseBlobAuditingPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseBlobAuditingPolicy"
+ },
+ "uriSuffix": "/auditingSettings/default"
+}

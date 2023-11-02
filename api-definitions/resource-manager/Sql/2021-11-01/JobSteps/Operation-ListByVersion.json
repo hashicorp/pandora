@@ -1,0 +1,16 @@
+{
+ "name": "ListByVersion",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VersionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "JobStep"
+ },
+ "uriSuffix": "/steps"
+}

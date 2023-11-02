@@ -1,0 +1,86 @@
+{
+ "name": "SecurityAssessmentPropertiesResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalData",
+   "name": "AdditionalData",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "links",
+   "name": "Links",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssessmentLinks"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metadata",
+   "name": "Metadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityAssessmentMetadataProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "partnersData",
+   "name": "PartnersData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityAssessmentPartnerData"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceDetails",
+   "name": "ResourceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceDetails"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssessmentStatusResponse"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

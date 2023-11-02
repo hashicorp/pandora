@@ -1,0 +1,19 @@
+{
+ "name": "CheckMhsmNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckMhsmNameAvailabilityParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckMhsmNameAvailabilityResult"
+ },
+ "uriSuffix": "/providers/Microsoft.KeyVault/checkMhsmNameAvailability"
+}

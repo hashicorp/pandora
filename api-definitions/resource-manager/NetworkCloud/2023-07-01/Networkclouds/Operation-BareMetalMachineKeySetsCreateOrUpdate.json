@@ -1,0 +1,19 @@
+{
+ "name": "BareMetalMachineKeySetsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "BareMetalMachineKeySetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BareMetalMachineKeySet"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BareMetalMachineKeySet"
+ }
+}

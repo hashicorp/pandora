@@ -1,0 +1,43 @@
+{
+ "name": "PrivateLinkForAzureAdId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AADIAM/privateLinkForAzureAd/{privateLinkForAzureAdName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAADIAM",
+   "type": "ResourceProvider",
+   "value": "Microsoft.AADIAM"
+  },
+  {
+   "name": "staticPrivateLinkForAzureAd",
+   "type": "Static",
+   "value": "privateLinkForAzureAd"
+  },
+  {
+   "name": "privateLinkForAzureAdName",
+   "type": "UserSpecified"
+  }
+ ]
+}

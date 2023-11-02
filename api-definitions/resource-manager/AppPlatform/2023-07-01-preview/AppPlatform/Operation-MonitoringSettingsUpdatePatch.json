@@ -1,0 +1,20 @@
+{
+ "name": "MonitoringSettingsUpdatePatch",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SpringId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MonitoringSettingResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MonitoringSettingResource"
+ },
+ "uriSuffix": "/monitoringSettings/default"
+}

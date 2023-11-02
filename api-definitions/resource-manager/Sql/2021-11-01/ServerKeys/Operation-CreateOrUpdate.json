@@ -1,0 +1,20 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  201,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "KeyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServerKey"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServerKey"
+ }
+}

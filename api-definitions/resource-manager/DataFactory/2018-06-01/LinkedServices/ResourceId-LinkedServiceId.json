@@ -1,0 +1,52 @@
+{
+ "name": "LinkedServiceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/linkedServices/{linkedServiceName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDataFactory",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DataFactory"
+  },
+  {
+   "name": "staticFactories",
+   "type": "Static",
+   "value": "factories"
+  },
+  {
+   "name": "factoryName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticLinkedServices",
+   "type": "Static",
+   "value": "linkedServices"
+  },
+  {
+   "name": "linkedServiceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -1,0 +1,71 @@
+{
+ "name": "UpdateDownloadProgress",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "downloadPhase",
+   "name": "DownloadPhase",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DownloadPhase"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "numberOfUpdatesDownloaded",
+   "name": "NumberOfUpdatesDownloaded",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "numberOfUpdatesToDownload",
+   "name": "NumberOfUpdatesToDownload",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "percentComplete",
+   "name": "PercentComplete",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalBytesDownloaded",
+   "name": "TotalBytesDownloaded",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalBytesToDownload",
+   "name": "TotalBytesToDownload",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

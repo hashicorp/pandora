@@ -1,0 +1,31 @@
+{
+ "name": "EventTypeInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inlineEventTypes",
+   "name": "InlineEventTypes",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InlineEventProperties"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventDefinitionKind"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "name": "MarketplaceAgreementsCancel",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "PlanId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OldAgreementTerms"
+ },
+ "uriSuffix": "/cancel"
+}

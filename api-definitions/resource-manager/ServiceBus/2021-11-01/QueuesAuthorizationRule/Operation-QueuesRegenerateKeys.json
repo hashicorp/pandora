@@ -1,0 +1,19 @@
+{
+ "name": "QueuesRegenerateKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "QueueAuthorizationRuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateAccessKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccessKeys"
+ },
+ "uriSuffix": "/regenerateKeys"
+}

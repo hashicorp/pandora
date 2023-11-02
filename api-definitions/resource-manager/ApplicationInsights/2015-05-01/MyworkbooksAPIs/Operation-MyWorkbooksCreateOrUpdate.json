@@ -1,0 +1,19 @@
+{
+ "name": "MyWorkbooksCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "MyWorkbookId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MyWorkbook"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MyWorkbook"
+ }
+}

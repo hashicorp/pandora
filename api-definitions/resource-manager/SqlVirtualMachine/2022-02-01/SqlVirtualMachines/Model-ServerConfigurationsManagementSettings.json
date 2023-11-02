@@ -1,0 +1,60 @@
+{
+ "name": "ServerConfigurationsManagementSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalFeaturesServerConfigurations",
+   "name": "AdditionalFeaturesServerConfigurations",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdditionalFeaturesServerConfigurations"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sqlConnectivityUpdateSettings",
+   "name": "SqlConnectivityUpdateSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlConnectivityUpdateSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sqlInstanceSettings",
+   "name": "SqlInstanceSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SQLInstanceSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sqlStorageUpdateSettings",
+   "name": "SqlStorageUpdateSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlStorageUpdateSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sqlWorkloadTypeUpdateSettings",
+   "name": "SqlWorkloadTypeUpdateSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlWorkloadTypeUpdateSettings"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

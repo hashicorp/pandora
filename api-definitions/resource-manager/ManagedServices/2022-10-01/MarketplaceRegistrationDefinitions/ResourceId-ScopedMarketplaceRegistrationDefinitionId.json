@@ -1,0 +1,29 @@
+{
+ "name": "ScopedMarketplaceRegistrationDefinitionId",
+ "id": "/{scope}/providers/Microsoft.ManagedServices/marketplaceRegistrationDefinitions/{marketplaceIdentifier}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagedServices",
+   "type": "ResourceProvider",
+   "value": "Microsoft.ManagedServices"
+  },
+  {
+   "name": "staticMarketplaceRegistrationDefinitions",
+   "type": "Static",
+   "value": "marketplaceRegistrationDefinitions"
+  },
+  {
+   "name": "marketplaceIdentifier",
+   "type": "UserSpecified"
+  }
+ ]
+}

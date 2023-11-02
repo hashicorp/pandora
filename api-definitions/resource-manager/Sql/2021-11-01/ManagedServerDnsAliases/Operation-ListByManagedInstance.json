@@ -1,0 +1,16 @@
+{
+ "name": "ListByManagedInstance",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ManagedInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedServerDnsAlias"
+ },
+ "uriSuffix": "/dnsAliases"
+}

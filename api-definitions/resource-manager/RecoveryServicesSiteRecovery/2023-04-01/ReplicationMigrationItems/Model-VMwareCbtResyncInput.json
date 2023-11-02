@@ -1,0 +1,18 @@
+{
+ "name": "VMwareCbtResyncInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skipCbtReset",
+   "name": "SkipCbtReset",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ResyncProviderSpecificInput",
+ "discriminatedTypeValue": "VMwareCbt"
+}

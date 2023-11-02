@@ -1,0 +1,16 @@
+{
+ "name": "ListByGalleryImage",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "GalleryImageId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GalleryImageVersion"
+ },
+ "uriSuffix": "/versions"
+}

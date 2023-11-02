@@ -1,0 +1,16 @@
+{
+ "name": "ListEnabledResourceTypes",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "CustomLocationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EnabledResourceType"
+ },
+ "uriSuffix": "/enabledResourceTypes"
+}

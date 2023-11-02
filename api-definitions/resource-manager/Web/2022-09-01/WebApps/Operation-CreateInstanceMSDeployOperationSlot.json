@@ -1,0 +1,19 @@
+{
+ "name": "CreateInstanceMSDeployOperationSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SlotInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MSDeploy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MSDeployStatus"
+ },
+ "uriSuffix": "/extensions/mSDeploy"
+}

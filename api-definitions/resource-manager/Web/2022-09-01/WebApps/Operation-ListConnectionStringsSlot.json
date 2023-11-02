@@ -1,0 +1,15 @@
+{
+ "name": "ListConnectionStringsSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SlotId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionStringDictionary"
+ },
+ "uriSuffix": "/config/connectionStrings/list"
+}

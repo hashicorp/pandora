@@ -1,0 +1,38 @@
+{
+ "name": "ServerPrivateEndpointConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpoint",
+   "name": "PrivateEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceConnectionState",
+   "name": "PrivateLinkServiceConnectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerPrivateLinkServiceConnectionStateProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

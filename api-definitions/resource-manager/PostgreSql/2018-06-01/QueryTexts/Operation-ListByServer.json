@@ -1,0 +1,32 @@
+{
+ "name": "ListByServer",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "queryIds",
+   "required": true,
+   "field": "QueryIds",
+   "optionsObjectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   }
+  }
+ ],
+ "resourceIdName": "ServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "QueryText"
+ },
+ "uriSuffix": "/queryTexts"
+}

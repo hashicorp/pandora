@@ -1,0 +1,31 @@
+{
+ "name": "RegisterUserProvidedFunctionAppWithStaticSiteBuild",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "isForced",
+   "required": false,
+   "field": "IsForced",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BuildUserProvidedFunctionAppId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteUserProvidedFunctionAppARMResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteUserProvidedFunctionAppARMResource"
+ }
+}

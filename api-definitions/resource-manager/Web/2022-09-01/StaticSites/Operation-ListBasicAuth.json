@@ -1,0 +1,16 @@
+{
+ "name": "ListBasicAuth",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "StaticSiteId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteBasicAuthPropertiesARMResource"
+ },
+ "uriSuffix": "/basicAuth"
+}

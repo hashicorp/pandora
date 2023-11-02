@@ -1,0 +1,19 @@
+{
+ "name": "ServiceCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServiceResourceCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServiceResource"
+ }
+}

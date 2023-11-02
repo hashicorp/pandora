@@ -1,0 +1,38 @@
+{
+ "name": "EstimatedVMPrice",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osType",
+   "name": "OsType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VMPriceOSType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retailPrice",
+   "name": "RetailPrice",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmTier",
+   "name": "VMTier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VMTier"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

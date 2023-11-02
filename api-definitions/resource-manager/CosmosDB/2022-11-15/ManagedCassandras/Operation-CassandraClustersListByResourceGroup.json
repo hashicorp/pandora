@@ -1,0 +1,15 @@
+{
+ "name": "CassandraClustersListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ListClusters"
+ },
+ "uriSuffix": "/providers/Microsoft.DocumentDB/cassandraClusters"
+}

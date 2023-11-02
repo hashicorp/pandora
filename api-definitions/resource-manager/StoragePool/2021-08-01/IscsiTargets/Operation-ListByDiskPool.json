@@ -1,0 +1,16 @@
+{
+ "name": "ListByDiskPool",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DiskPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IscsiTarget"
+ },
+ "uriSuffix": "/iscsiTargets"
+}

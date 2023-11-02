@@ -1,0 +1,19 @@
+{
+ "name": "DomainTopicEventSubscriptionsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "TopicEventSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EventSubscription"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EventSubscription"
+ }
+}

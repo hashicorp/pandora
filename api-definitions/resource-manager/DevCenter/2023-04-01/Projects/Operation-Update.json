@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ProjectId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProjectUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Project"
+ }
+}

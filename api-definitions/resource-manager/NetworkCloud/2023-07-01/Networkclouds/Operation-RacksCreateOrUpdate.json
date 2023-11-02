@@ -1,0 +1,19 @@
+{
+ "name": "RacksCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "RackId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Rack"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Rack"
+ }
+}

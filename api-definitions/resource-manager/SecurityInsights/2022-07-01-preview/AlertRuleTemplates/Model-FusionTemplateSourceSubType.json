@@ -1,0 +1,38 @@
+{
+ "name": "FusionTemplateSourceSubType",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "severityFilter",
+   "name": "SeverityFilter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FusionTemplateSubTypeSeverityFilter"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceSubTypeDisplayName",
+   "name": "SourceSubTypeDisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceSubTypeName",
+   "name": "SourceSubTypeName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

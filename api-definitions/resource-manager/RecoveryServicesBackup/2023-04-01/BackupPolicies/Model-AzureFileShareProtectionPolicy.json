@@ -1,0 +1,51 @@
+{
+ "name": "AzureFileShareProtectionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionPolicy",
+   "name": "RetentionPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedulePolicy",
+   "name": "SchedulePolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SchedulePolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZone",
+   "name": "TimeZone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workLoadType",
+   "name": "WorkLoadType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkloadType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ProtectionPolicy",
+ "discriminatedTypeValue": "AzureStorage"
+}

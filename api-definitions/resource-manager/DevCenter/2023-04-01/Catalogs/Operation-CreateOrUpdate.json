@@ -1,0 +1,18 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CatalogId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Catalog"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Catalog"
+ }
+}

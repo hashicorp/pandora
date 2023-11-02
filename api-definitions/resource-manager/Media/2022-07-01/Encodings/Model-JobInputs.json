@@ -1,0 +1,22 @@
+{
+ "name": "JobInputs",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputs",
+   "name": "Inputs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "JobInput"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "JobInput",
+ "discriminatedTypeValue": "#Microsoft.Media.JobInputs"
+}

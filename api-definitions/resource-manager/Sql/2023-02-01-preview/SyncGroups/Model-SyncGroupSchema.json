@@ -1,0 +1,31 @@
+{
+ "name": "SyncGroupSchema",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "masterSyncMemberName",
+   "name": "MasterSyncMemberName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tables",
+   "name": "Tables",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SyncGroupSchemaTable"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

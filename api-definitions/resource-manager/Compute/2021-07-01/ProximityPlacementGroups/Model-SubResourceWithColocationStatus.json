@@ -1,0 +1,27 @@
+{
+ "name": "SubResourceWithColocationStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "colocationStatus",
+   "name": "ColocationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceViewStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

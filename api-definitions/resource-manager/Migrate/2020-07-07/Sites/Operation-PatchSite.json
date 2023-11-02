@@ -1,0 +1,19 @@
+{
+ "name": "PatchSite",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VMwareSiteId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VMwareSite"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VMwareSite"
+ }
+}

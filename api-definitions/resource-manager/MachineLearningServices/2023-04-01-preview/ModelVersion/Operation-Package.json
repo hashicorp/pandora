@@ -1,0 +1,20 @@
+{
+ "name": "Package",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ModelVersionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PackageRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PackageResponse"
+ },
+ "uriSuffix": "/package"
+}

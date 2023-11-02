@@ -1,0 +1,29 @@
+{
+ "name": "ScopedRoleAssignmentScheduleId",
+ "id": "/{scope}/providers/Microsoft.Authorization/roleAssignmentSchedules/{roleAssignmentScheduleName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticRoleAssignmentSchedules",
+   "type": "Static",
+   "value": "roleAssignmentSchedules"
+  },
+  {
+   "name": "roleAssignmentScheduleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

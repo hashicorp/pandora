@@ -1,0 +1,24 @@
+{
+ "name": "ResourceGroupId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "UserSpecified"
+  }
+ ]
+}

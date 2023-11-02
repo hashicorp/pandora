@@ -1,0 +1,16 @@
+{
+ "name": "ApiManagementSkusList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiManagementSku"
+ },
+ "uriSuffix": "/providers/Microsoft.ApiManagement/skus"
+}

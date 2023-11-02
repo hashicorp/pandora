@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CacheRuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CacheRuleUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CacheRule"
+ }
+}

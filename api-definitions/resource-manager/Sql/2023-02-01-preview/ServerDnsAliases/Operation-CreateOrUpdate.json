@@ -1,0 +1,16 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "DnsAliasId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServerDnsAlias"
+ }
+}

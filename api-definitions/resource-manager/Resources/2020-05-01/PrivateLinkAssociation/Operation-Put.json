@@ -1,0 +1,19 @@
+{
+ "name": "Put",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "PrivateLinkAssociationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkAssociationObject"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkAssociation"
+ }
+}

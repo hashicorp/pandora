@@ -1,0 +1,19 @@
+{
+ "name": "UpdateSitePushSettingsSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SlotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PushSettings"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PushSettings"
+ },
+ "uriSuffix": "/config/pushsettings"
+}

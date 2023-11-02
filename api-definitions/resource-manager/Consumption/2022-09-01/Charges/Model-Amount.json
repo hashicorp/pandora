@@ -1,0 +1,27 @@
+{
+ "name": "Amount",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currency",
+   "name": "Currency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

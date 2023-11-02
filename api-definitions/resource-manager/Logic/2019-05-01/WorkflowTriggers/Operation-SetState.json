@@ -1,0 +1,15 @@
+{
+ "name": "SetState",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "TriggerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SetTriggerStateActionDefinition"
+ },
+ "uriSuffix": "/setState"
+}

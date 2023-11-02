@@ -1,0 +1,157 @@
+{
+ "name": "X12ProtocolSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "acknowledgementSettings",
+   "name": "AcknowledgementSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12AcknowledgementSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "envelopeOverrides",
+   "name": "EnvelopeOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "X12EnvelopeOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "envelopeSettings",
+   "name": "EnvelopeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12EnvelopeSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "framingSettings",
+   "name": "FramingSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12FramingSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messageFilter",
+   "name": "MessageFilter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12MessageFilter"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messageFilterList",
+   "name": "MessageFilterList",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "X12MessageIdentifier"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "processingSettings",
+   "name": "ProcessingSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12ProcessingSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schemaReferences",
+   "name": "SchemaReferences",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "X12SchemaReference"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securitySettings",
+   "name": "SecuritySettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12SecuritySettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationOverrides",
+   "name": "ValidationOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "X12ValidationOverride"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationSettings",
+   "name": "ValidationSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X12ValidationSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "x12DelimiterOverrides",
+   "name": "X12DelimiterOverrides",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "X12DelimiterOverrides"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

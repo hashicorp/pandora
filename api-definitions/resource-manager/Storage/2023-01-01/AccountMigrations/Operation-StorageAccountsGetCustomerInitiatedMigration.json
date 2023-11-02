@@ -1,0 +1,15 @@
+{
+ "name": "StorageAccountsGetCustomerInitiatedMigration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "StorageAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageAccountMigration"
+ },
+ "uriSuffix": "/accountMigrations/default"
+}

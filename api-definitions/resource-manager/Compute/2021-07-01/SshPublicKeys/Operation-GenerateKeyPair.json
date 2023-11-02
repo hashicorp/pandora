@@ -1,0 +1,15 @@
+{
+ "name": "GenerateKeyPair",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SshPublicKeyId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SshPublicKeyGenerateKeyPairResult"
+ },
+ "uriSuffix": "/generateKeyPair"
+}

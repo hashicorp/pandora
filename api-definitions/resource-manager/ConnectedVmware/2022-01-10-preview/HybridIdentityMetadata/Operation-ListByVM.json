@@ -1,0 +1,16 @@
+{
+ "name": "ListByVM",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VirtualMachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HybridIdentityMetadata"
+ },
+ "uriSuffix": "/hybridIdentityMetadata"
+}

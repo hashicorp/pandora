@@ -1,0 +1,15 @@
+{
+ "name": "GremlinResourcesGetGremlinDatabaseThroughput",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "GremlinDatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ThroughputSettingsGetResults"
+ },
+ "uriSuffix": "/throughputSettings/default"
+}

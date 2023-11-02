@@ -1,0 +1,27 @@
+{
+ "name": "QueryInboundNatRulePortMappingRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddress",
+   "name": "IPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfiguration",
+   "name": "IPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

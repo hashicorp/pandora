@@ -1,0 +1,27 @@
+{
+ "name": "ApplicableScheduleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labVmsShutdown",
+   "name": "LabVMsShutdown",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Schedule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labVmsStartup",
+   "name": "LabVMsStartup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Schedule"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

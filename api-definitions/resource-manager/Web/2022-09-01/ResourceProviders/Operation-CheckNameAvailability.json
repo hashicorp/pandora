@@ -1,0 +1,19 @@
+{
+ "name": "CheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ResourceNameAvailabilityRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ResourceNameAvailability"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/checknameavailability"
+}

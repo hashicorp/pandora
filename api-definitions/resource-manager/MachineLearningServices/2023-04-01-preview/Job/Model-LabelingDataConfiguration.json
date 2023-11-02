@@ -1,0 +1,27 @@
+{
+ "name": "LabelingDataConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataId",
+   "name": "DataId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "incrementalDataRefresh",
+   "name": "IncrementalDataRefresh",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IncrementalDataRefresh"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

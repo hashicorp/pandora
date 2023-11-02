@@ -1,0 +1,30 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "FunctionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Function"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Function"
+ }
+}

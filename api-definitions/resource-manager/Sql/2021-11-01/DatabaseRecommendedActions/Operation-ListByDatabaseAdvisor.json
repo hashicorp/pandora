@@ -1,0 +1,19 @@
+{
+ "name": "ListByDatabaseAdvisor",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DatabaseAdvisorId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "RecommendedAction"
+  }
+ },
+ "uriSuffix": "/recommendedActions"
+}

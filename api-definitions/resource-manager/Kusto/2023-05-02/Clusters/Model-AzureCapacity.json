@@ -1,0 +1,49 @@
+{
+ "name": "AzureCapacity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "default",
+   "name": "Default",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maximum",
+   "name": "Maximum",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimum",
+   "name": "Minimum",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleType",
+   "name": "ScaleType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureScaleType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

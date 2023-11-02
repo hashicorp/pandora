@@ -1,0 +1,20 @@
+{
+ "name": "TriggeredJobHistoryProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runs",
+   "name": "Runs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TriggeredJobRun"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

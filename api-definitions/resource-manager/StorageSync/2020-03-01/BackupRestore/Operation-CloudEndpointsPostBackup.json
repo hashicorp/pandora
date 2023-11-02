@@ -1,0 +1,20 @@
+{
+ "name": "CloudEndpointsPostBackup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CloudEndpointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PostBackupResponse"
+ },
+ "uriSuffix": "/postbackup"
+}

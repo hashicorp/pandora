@@ -1,0 +1,27 @@
+{
+ "name": "VaultPropertiesRedundancySettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "crossRegionRestore",
+   "name": "CrossRegionRestore",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CrossRegionRestore"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "standardTierStorageRedundancy",
+   "name": "StandardTierStorageRedundancy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StandardTierStorageRedundancy"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

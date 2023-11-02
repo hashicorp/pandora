@@ -1,0 +1,19 @@
+{
+ "name": "AccountsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "NetAppAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NetAppAccount"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NetAppAccount"
+ }
+}

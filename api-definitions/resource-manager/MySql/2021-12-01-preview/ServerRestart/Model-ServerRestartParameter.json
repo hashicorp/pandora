@@ -1,0 +1,27 @@
+{
+ "name": "ServerRestartParameter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxFailoverSeconds",
+   "name": "MaxFailoverSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restartWithFailover",
+   "name": "RestartWithFailover",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnableStatusEnum"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

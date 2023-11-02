@@ -1,0 +1,15 @@
+{
+ "name": "ListSharedAccessKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "TopicId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TopicSharedAccessKeys"
+ },
+ "uriSuffix": "/listKeys"
+}

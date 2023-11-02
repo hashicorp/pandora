@@ -1,0 +1,19 @@
+{
+ "name": "SampleInput",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SampleInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SampleInputResult"
+ },
+ "uriSuffix": "/sampleInput"
+}

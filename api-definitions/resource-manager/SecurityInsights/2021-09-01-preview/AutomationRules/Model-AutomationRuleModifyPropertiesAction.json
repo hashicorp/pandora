@@ -1,0 +1,18 @@
+{
+ "name": "AutomationRuleModifyPropertiesAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionConfiguration",
+   "name": "ActionConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomationRuleModifyPropertiesActionActionConfiguration"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "AutomationRuleAction",
+ "discriminatedTypeValue": "ModifyProperties"
+}

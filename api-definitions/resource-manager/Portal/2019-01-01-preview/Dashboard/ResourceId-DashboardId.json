@@ -1,0 +1,43 @@
+{
+ "name": "DashboardId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Portal/dashboards/{dashboardName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftPortal",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Portal"
+  },
+  {
+   "name": "staticDashboards",
+   "type": "Static",
+   "value": "dashboards"
+  },
+  {
+   "name": "dashboardName",
+   "type": "UserSpecified"
+  }
+ ]
+}

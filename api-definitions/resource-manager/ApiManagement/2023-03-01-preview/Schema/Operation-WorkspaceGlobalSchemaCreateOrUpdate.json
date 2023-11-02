@@ -1,0 +1,32 @@
+{
+ "name": "WorkspaceGlobalSchemaCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "WorkspaceSchemaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GlobalSchemaContract"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GlobalSchemaContract"
+ }
+}

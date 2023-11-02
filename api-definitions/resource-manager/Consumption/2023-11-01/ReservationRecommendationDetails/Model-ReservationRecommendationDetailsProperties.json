@@ -1,0 +1,71 @@
+{
+ "name": "ReservationRecommendationDetailsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currency",
+   "name": "Currency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resource",
+   "name": "Resource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReservationRecommendationDetailsResourceProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGroup",
+   "name": "ResourceGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "savings",
+   "name": "Savings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReservationRecommendationDetailsSavingsProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scope",
+   "name": "Scope",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usage",
+   "name": "Usage",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReservationRecommendationDetailsUsageProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

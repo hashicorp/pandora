@@ -1,0 +1,32 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "callerRole",
+   "required": false,
+   "field": "CallerRole",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "CallerRole"
+   }
+  }
+ ],
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Database"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Database"
+ }
+}

@@ -1,0 +1,38 @@
+{
+ "name": "AvailableContacts",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groundStationName",
+   "name": "GroundStationName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContactInstanceProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "spacecraft",
+   "name": "Spacecraft",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceReference"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

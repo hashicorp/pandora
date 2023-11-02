@@ -1,0 +1,27 @@
+{
+ "name": "HTTPLogsConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureBlobStorage",
+   "name": "AzureBlobStorage",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureBlobStorageHTTPLogsConfig"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fileSystem",
+   "name": "FileSystem",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FileSystemHTTPLogsConfig"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

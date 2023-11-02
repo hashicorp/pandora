@@ -1,0 +1,28 @@
+{
+ "name": "SkusListByOffer",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "OfferId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Sku"
+ },
+ "uriSuffix": "/skus"
+}

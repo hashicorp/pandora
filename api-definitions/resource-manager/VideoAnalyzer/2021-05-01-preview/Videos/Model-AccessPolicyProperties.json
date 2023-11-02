@@ -1,0 +1,27 @@
+{
+ "name": "AccessPolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authentication",
+   "name": "Authentication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthenticationBase"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "role",
+   "name": "Role",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessPolicyRole"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

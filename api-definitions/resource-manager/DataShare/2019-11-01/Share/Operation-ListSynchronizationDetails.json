@@ -1,0 +1,42 @@
+{
+ "name": "ListSynchronizationDetails",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$orderby",
+   "required": false,
+   "field": "Orderby",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ShareId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ShareSynchronization"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SynchronizationDetails"
+ },
+ "uriSuffix": "/listSynchronizationDetails"
+}

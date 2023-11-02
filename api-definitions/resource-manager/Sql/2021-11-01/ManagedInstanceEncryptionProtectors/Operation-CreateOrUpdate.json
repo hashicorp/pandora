@@ -1,0 +1,20 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ManagedInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceEncryptionProtector"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceEncryptionProtector"
+ },
+ "uriSuffix": "/encryptionProtector/current"
+}

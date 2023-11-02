@@ -1,0 +1,38 @@
+{
+ "name": "TieringPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "durationType",
+   "name": "DurationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionDurationType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tieringMode",
+   "name": "TieringMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TieringMode"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

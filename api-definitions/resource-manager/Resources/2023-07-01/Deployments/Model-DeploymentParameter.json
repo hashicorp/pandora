@@ -1,0 +1,27 @@
+{
+ "name": "DeploymentParameter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reference",
+   "name": "Reference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultParameterReference"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "name": "ProjectProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationTime",
+   "name": "CreationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databasesInfo",
+   "name": "DatabasesInfo",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DatabaseInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProjectProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceConnectionInfo",
+   "name": "SourceConnectionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourcePlatform",
+   "name": "SourcePlatform",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProjectSourcePlatform"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetConnectionInfo",
+   "name": "TargetConnectionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetPlatform",
+   "name": "TargetPlatform",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProjectTargetPlatform"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

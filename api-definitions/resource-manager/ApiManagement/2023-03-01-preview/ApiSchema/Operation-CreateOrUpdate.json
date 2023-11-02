@@ -1,0 +1,32 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  201,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ApiSchemaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SchemaContract"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SchemaContract"
+ }
+}

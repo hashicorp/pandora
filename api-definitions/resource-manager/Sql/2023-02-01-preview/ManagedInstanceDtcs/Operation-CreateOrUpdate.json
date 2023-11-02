@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ManagedInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceDtc"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedInstanceDtc"
+ },
+ "uriSuffix": "/dtc/current"
+}
