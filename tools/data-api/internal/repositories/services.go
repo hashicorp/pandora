@@ -565,7 +565,21 @@ func mapObjectDefinitionType(input models.ObjectDefinitionType) (*ObjectDefiniti
 		models.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
 		models.ListObjectDefinitionType:       ListObjectDefinitionType,
 
-		// TODO in a separate PR - add the more specific ObjectDefinition Types e.g. EdgeZone, Location, Tags etc.
+		models.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
+		models.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
+		models.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
+		models.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
+		models.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
+		models.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
+		models.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+		models.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+		models.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
+		models.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
+		models.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
+		models.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
+		models.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
+		models.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
+		models.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

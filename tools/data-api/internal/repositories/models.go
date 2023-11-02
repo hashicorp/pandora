@@ -38,6 +38,22 @@ const (
 	ListOptionObjectDefinitionType      OptionObjectDefinitionType = "List"
 	ReferenceOptionObjectDefinitionType OptionObjectDefinitionType = "Reference"
 
+	EdgeZoneObjectDefinitionType                                ObjectDefinitionType = "EdgeZone"
+	LocationObjectDefinitionType                                ObjectDefinitionType = "Location"
+	TagsObjectDefinitionType                                    ObjectDefinitionType = "Tags"
+	SystemAssignedIdentityObjectDefinitionType                  ObjectDefinitionType = "SystemAssignedIdentity"
+	SystemAndUserAssignedIdentityListObjectDefinitionType       ObjectDefinitionType = "SystemAndUserAssignedIdentityList"
+	SystemAndUserAssignedIdentityMapObjectDefinitionType        ObjectDefinitionType = "SystemAndUserAssignedIdentityMap"
+	LegacySystemAndUserAssignedIdentityListObjectDefinitionType ObjectDefinitionType = "LegacySystemAndUserAssignedIdentityList"
+	LegacySystemAndUserAssignedIdentityMapObjectDefinitionType  ObjectDefinitionType = "LegacySystemAndUserAssignedIdentityMap"
+	SystemOrUserAssignedIdentityListObjectDefinitionType        ObjectDefinitionType = "SystemOrUserAssignedIdentityList"
+	SystemOrUserAssignedIdentityMapObjectDefinitionType         ObjectDefinitionType = "SystemOrUserAssignedIdentityMap"
+	UserAssignedIdentityListObjectDefinitionType                ObjectDefinitionType = "UserAssignedIdentityList"
+	UserAssignedIdentityMapObjectDefinitionType                 ObjectDefinitionType = "UserAssignedIdentityMap"
+	SystemDataObjectDefinitionType                              ObjectDefinitionType = "SystemData"
+	ZoneObjectDefinitionType                                    ObjectDefinitionType = "Zone"
+	ZonesObjectDefinitionType                                   ObjectDefinitionType = "Zones"
+
 	RangeFieldValidationType FieldValidationType = "Range"
 
 	FloatConstant   ConstantType = "Float"
