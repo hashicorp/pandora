@@ -37,7 +37,6 @@ internal class Definition : ResourceDefinition
         typeof(ServiceLoadMetricDescriptionModel),
         typeof(ServicePlacementPolicyDescriptionModel),
         typeof(ServiceResourceModel),
-        typeof(ServiceResourceListModel),
         typeof(ServiceResourcePropertiesModel),
         typeof(ServiceResourceUpdateModel),
         typeof(ServiceResourceUpdatePropertiesModel),
