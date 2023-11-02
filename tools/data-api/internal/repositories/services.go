@@ -458,6 +458,9 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		}
 
 		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
+		if err != nil {
+			return nil, err
+		}
 		// todo do we have to do the same for DataSources?
 		if _, ok := terraformDetails.Resources[definitionName]; !ok {
 			terraformDetails.Resources[definitionName] = TerraformResourceDetails{
