@@ -9,4 +9,4 @@ const AllowConstantsWithoutXMSEnum = true
 const GenerateV1APIDefinitions = true
 
 // GenerateV2APIDefinitions specifies whether the V2 (JSON) API Definitions should be output.
-const GenerateV2APIDefinitions = false
+const GenerateV2APIDefinitions = true
