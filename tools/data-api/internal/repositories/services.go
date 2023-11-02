@@ -31,10 +31,22 @@ type ServicesRepositoryImpl struct {
 	serviceNames *[]string
 }
 
+type ApiDefinition struct {
+	// The name of the ApiDefinition, it forms part of the name of the JSON files that contain the definitions which are
+	// loaded into the Data API
+	name string
+
+	// The type of definition e.g. Constant, Model, Operation, ResourceId
+	definitionType string
+}
+
 func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) ServicesRepository {
+	// TODO we should implement some validation in here ensure that there aren't multiple API definitions for a Service
+	// e.g. definitions for `Containers` under `handwritten` and under `resource-manager`
+	// we probably want to save a map of map[ServiceName]FilePath for each serviceType to reduce the overhead of
+	// iterating through the directories multiple times.
 	return &ServicesRepositoryImpl{
-		// TODO use path.Join
-		directory:    fmt.Sprintf("%s%s", directory, serviceType),
+		directory:    path.Join(directory, string(serviceType)),
 		serviceNames: serviceNames,
 	}
 }
@@ -176,61 +188,254 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	resourceDefinition := ServiceApiVersionResourceDetails{}
 	resourceSchema := ResourceSchema{}
 	constants := make(map[string]ConstantDetails, 0)
+	apiModels := make(map[string]ModelDetails)
+	operations := make(map[string]ResourceOperations)
+	resourceIds := make(map[string]ResourceIdDefinition)
 
-	// TODO rename this var so we can import path to use path.Join
-	path := fmt.Sprintf("%s/%s/%s/%s", s.directory, serviceName, version, resource)
-	files, err := os.ReadDir(path)
+	resourcePath := path.Join(s.directory, serviceName, version, resource)
+	files, err := os.ReadDir(resourcePath)
 	if err != nil {
-		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", resourcePath, err)
 	}
+
+	// The order in which we load the API definitions is important since:
+	// * Models can contain Constants
+	// * Resource IDs can contain Constants
+	// * Operations can reference Constants, Models and Resource IDs
+	// ReadDir returns the list of files in the order stored on the file system which is alphabetical
+	// We reorder the array such that Operation definitions get processed after Resource ID definitions
+
+	definitionFiles := make([]ApiDefinition, 0)
+	operationDefinitionFiles := make([]ApiDefinition, 0)
 
 	for _, file := range files {
 		if file.IsDir() {
 			continue
 		}
-
 		definitionType, definitionName, err := getDefinitionInfo(file.Name())
 		if err != nil {
 			return nil, err
 		}
-		// we lower case these so that it's compatible with other OS e.g. Windows
-		switch strings.ToLower(definitionType) {
+
+		definition := ApiDefinition{
+			name:           definitionName,
+			definitionType: definitionType,
+		}
+
+		if strings.EqualFold(strings.ToLower(definitionType), "operation") {
+			operationDefinitionFiles = append(operationDefinitionFiles, definition)
+			continue
+		}
+
+		definitionFiles = append(definitionFiles, definition)
+	}
+
+	definitionFiles = append(definitionFiles, operationDefinitionFiles...)
+
+	for _, file := range definitionFiles {
+		definitionPath := path.Join(resourcePath, fmt.Sprintf("%s-%s", file.definitionType, file.name))
+		if err != nil {
+			return nil, err
+		}
+
+		// we lower case this comparison so that it's compatible with other OS e.g. Windows
+		switch strings.ToLower(file.definitionType) {
+		// Ordering here is important, all Constants need to be processed first, then all Models
 		case "constant":
-			var constant Constant
-
-			// TODO use path.Join() so that this works on windows
-			contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+			constant, err := parseConstantFromFilePath(definitionPath)
 			if err != nil {
-				return nil, err
+				return nil, fmt.Errorf("processing constant %s: %+v", file.name, err)
 			}
 
-			if err := json.Unmarshal(*contents, &constant); err != nil {
-				return nil, fmt.Errorf("unmarshaling blah")
-			}
-
-			values := make(map[string]string, 0)
-
-			for _, value := range constant.Values {
-				values[value.Key] = value.Value
-			}
-
-			constants[definitionName] = ConstantDetails{
-				Type:   ConstantType(constant.Type),
-				Values: values,
-			}
+			constants[file.name] = pointer.From(constant)
 		case "model":
-			// TODO
-		case "operation":
-			// TODO
+			model, err := parseModelFromFilePath(definitionPath, constants)
+			if err != nil {
+				return nil, fmt.Errorf("processing model %s: %+v", file.name, err)
+			}
+
+			apiModels[file.name] = pointer.From(model)
 		case "resourceid":
-			// TODO
+			resourceId, err := parseResourceIdFromFilePath(definitionPath, constants)
+			if err != nil {
+				return nil, fmt.Errorf("processing resource id %s: %+v", file.name, err)
+			}
+
+			resourceIds[file.name] = pointer.From(resourceId)
+		case "operation":
+			operationDetails, err := parseOperationFromFilePath(definitionPath)
+			if err != nil {
+				return nil, fmt.Errorf("processing operation %s: %+v", file.name, err)
+			}
+
+			operations[file.name] = pointer.From(operationDetails)
 		}
 	}
 
 	resourceSchema.Constants = constants
+	resourceSchema.Models = apiModels
+	resourceSchema.ResourceIds = resourceIds
 	resourceDefinition.Schema = resourceSchema
+	resourceDefinition.Operations = operations
 
 	return &resourceDefinition, nil
+}
+
+func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
+	var constant models.Constant
+
+	contents, err := loadJson(fmt.Sprintf(filePath))
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &constant); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", filePath, err)
+	}
+
+	values := make(map[string]string, 0)
+
+	for _, value := range constant.Values {
+		values[value.Key] = value.Value
+	}
+
+	constantType, err := mapConstantFieldType(constant.Type)
+	if err != nil {
+		return nil, err
+	}
+
+	return &ConstantDetails{
+		Type:   pointer.From(constantType),
+		Values: values,
+	}, nil
+}
+
+func parseModelFromFilePath(filePath string, constants map[string]ConstantDetails) (*ModelDetails, error) {
+	var model models.Model
+
+	contents, err := loadJson(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &model); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", filePath, err)
+	}
+
+	typeHintIn := ""
+	fieldDetails := make(map[string]FieldDetails)
+	for _, field := range model.Fields {
+		fieldDetail := FieldDetails{
+			IsTypeHint: field.ContainsDiscriminatedTypeValue,
+			JsonName:   field.JsonName,
+			Optional:   field.Optional,
+			Required:   field.Required,
+			// TODO remove Default attribute throughout the models since this isn't used at the moment
+			//Default:          nil,
+			// TODO exposed when other #3238 is merged
+			//Description:      "",
+			//ForceNew:         false,
+		}
+
+		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)
+		if err != nil {
+			return nil, err
+		}
+		fieldDetail.ObjectDefinition = pointer.From(objectDefinition)
+
+		if field.ContainsDiscriminatedTypeValue {
+			if model.DiscriminatedTypeValue == nil || model.DiscriminatedParentModelName == nil {
+				return nil, fmt.Errorf("missing discriminated type value and parent model name for field %q which is a type hint ", field.Name)
+			}
+			if typeHintIn != "" {
+				return nil, fmt.Errorf("a type hint field already exists for this model: existing: %q, new: %q", typeHintIn, field.Name)
+			}
+			typeHintIn = field.Name
+		}
+
+		if field.ObjectDefinition.DateFormat != nil {
+			dateFormat, err := mapDateFormatType(*field.ObjectDefinition.DateFormat)
+			if err != nil {
+				return nil, err
+			}
+			fieldDetail.DateFormat = dateFormat
+		}
+
+		if field.ObjectDefinition.MinItems != nil && field.ObjectDefinition.MaxItems != nil {
+			// TODO these will probably be expanded on in future
+			fieldDetail.Validation = &FieldValidationDetails{
+				Type:   RangeFieldValidationType,
+				Values: pointer.To([]interface{}{field.ObjectDefinition.MinItems, field.ObjectDefinition.MaxItems}),
+			}
+		}
+	}
+
+	return &ModelDetails{
+		Fields:         fieldDetails,
+		ParentTypeName: model.DiscriminatedParentModelName,
+		TypeHintValue:  model.DiscriminatedTypeValue,
+		TypeHintIn:     pointer.To(typeHintIn),
+	}, nil
+}
+
+func parseOperationFromFilePath(filePath string) (*ResourceOperations, error) {
+	var operation models.Operation
+
+	contents, err := loadJson(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &operation); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", filePath, err)
+	}
+
+	resourceOperations := ResourceOperations{
+		ContentType:                      operation.ContentType,
+		ExpectedStatusCodes:              operation.ExpectedStatusCodes,
+		LongRunning:                      operation.LongRunning,
+		Method:                           operation.HTTPMethod,
+		ResourceIdName:                   operation.ResourceIdName,
+		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
+		Options:                          nil,
+		UriSuffix:                        operation.UriSuffix,
+	}
+
+	requestObject, err := mapObjectDefinition(operation.RequestObject)
+	if err != nil {
+		return nil, fmt.Errorf("processing Request Object: %+v", err)
+	}
+	resourceOperations.RequestObject = requestObject
+
+	responseObject, err := mapObjectDefinition(operation.ResponseObject)
+	if err != nil {
+		return nil, fmt.Errorf("processing Response Object: %+v", err)
+	}
+	resourceOperations.ResponseObject = responseObject
+
+	if operation.Options != nil {
+		options := make(map[string]OperationOptions)
+		for _, option := range *operation.Options {
+			operationOptions := OperationOptions{
+				HeaderName:      option.HeaderName,
+				QueryStringName: option.QueryString,
+				Required:        option.Required,
+				// TODO thread Optional through so this can be exposed through the API
+				// Optional: option.Optional
+			}
+			if option.ObjectDefinition != nil {
+				optionObjectDefinition, err := mapOptionObjectDefinition(option.ObjectDefinition)
+				if err != nil {
+					return nil, err
+				}
+				operationOptions.ObjectDefinition = optionObjectDefinition
+			}
+			options[option.Field] = operationOptions
+		}
+		resourceOperations.Options = pointer.To(options)
+	}
+
+	return &resourceOperations, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (*TerraformDetails, error) {
@@ -253,10 +458,6 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		}
 
 		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
-		if err != nil {
-			return nil, err
-		}
-
 		// todo do we have to do the same for DataSources?
 		if _, ok := terraformDetails.Resources[definitionName]; !ok {
 			terraformDetails.Resources[definitionName] = TerraformResourceDetails{
@@ -518,4 +719,198 @@ func terraformSchemaFieldObjectDefinitionFromField(input models.TerraformSchemaO
 	}
 
 	return objectDefinition
+}
+
+func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantDetails) (*ResourceIdDefinition, error) {
+	var resourceId models.ResourceId
+
+	contents, err := loadJson(filePath)
+	if err != nil {
+		return nil, err
+	}
+
+	if err := json.Unmarshal(*contents, &resourceId); err != nil {
+		return nil, fmt.Errorf("unmarshaling %q: %+v", filePath, err)
+	}
+
+	segments := make([]ResourceIdSegment, 0)
+	constantNames := make([]string, 0)
+	for _, segment := range resourceId.Segments {
+		segmentType, err := mapResourceIdSegmentType(segment.Type)
+		if err != nil {
+			return nil, err
+		}
+
+		s := ResourceIdSegment{
+			ConstantReference: segment.ConstantName,
+			FixedValue:        segment.Value,
+			Name:              segment.Name,
+			Type:              pointer.From(segmentType),
+		}
+
+		switch *segmentType {
+		case ConstantResourceIdSegmentType:
+			if s.ConstantReference != nil {
+				if _, ok := constants[pointer.From(s.ConstantReference)]; ok {
+					constantNames = append(constantNames, pointer.From(s.ConstantReference))
+					continue
+				}
+			}
+			return nil, fmt.Errorf("no constant definition found for constant segment reference %q", s.ConstantReference)
+		case ResourceGroupResourceIdSegmentType:
+			s.ExampleValue = "example-resource-group"
+		case ResourceProviderResourceIdSegmentType:
+			continue
+		case ScopeResourceIdSegmentType:
+			s.ExampleValue = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group"
+		case StaticResourceIdSegmentType:
+			s.ExampleValue = pointer.From(segment.Value)
+		case SubscriptionIdResourceIdSegmentType:
+			s.ExampleValue = "12345678-1234-9876-4563-123456789012"
+		case UserSpecifiedResourceIdSegmentType:
+			s.ExampleValue = strings.TrimSuffix(segment.Name, "Name") + "Value"
+		default:
+			return nil, fmt.Errorf("unimplemented segment type %q for example value", *segmentType)
+		}
+		segments = append(segments, s)
+
+	}
+
+	return &ResourceIdDefinition{
+		CommonAlias: resourceId.CommonAlias,
+		Id:          resourceId.Id,
+		Segments:    segments,
+		// TODO This might want to be it's own Data API endpoint where ConstantNames is a unique and ordered map
+		// however this might already be supported under the `commonTypes` endpoint, keeping this here until clarified
+		ConstantNames: constantNames,
+	}, nil
+}
+
+func mapObjectDefinition(input *models.ObjectDefinition) (*ObjectDefinition, error) {
+	if input == nil {
+		return nil, nil
+	}
+
+	objectDefinitionType, err := mapObjectDefinitionType(input.Type)
+	if err != nil {
+		return nil, err
+	}
+
+	output := ObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          pointer.From(objectDefinitionType),
+	}
+
+	if input.NestedItem != nil {
+		nestedItem, err := mapObjectDefinition(input.NestedItem)
+		if err != nil {
+			return nil, fmt.Errorf("mapping Nested Item for Object Definition: %+v", err)
+		}
+		output.NestedItem = nestedItem
+	}
+
+	return &output, nil
+}
+
+func mapOptionObjectDefinition(input *models.OptionObjectDefinition) (*OptionObjectDefinition, error) {
+	optionObjectType, err := mapOptionObjectDefinitionType(input.Type)
+	if err != nil {
+		return nil, err
+	}
+
+	output := OptionObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          pointer.From(optionObjectType),
+	}
+
+	if input.NestedItem != nil {
+		nestedItem, err := mapOptionObjectDefinition(input.NestedItem)
+		if err != nil {
+			return nil, fmt.Errorf("mapping Nested Item for Option Object Definition: %+v", err)
+		}
+		output.NestedItem = nestedItem
+	}
+
+	return &output, nil
+}
+
+func mapDateFormatType(input models.DateFormat) (*DateFormat, error) {
+	mappings := map[models.DateFormat]DateFormat{
+		models.RFC3339DateFormat: RFC3339DateFormat,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Date Format Type %q", string(input))
+}
+
+func mapObjectDefinitionType(input models.ObjectDefinitionType) (*ObjectDefinitionType, error) {
+	mappings := map[models.ObjectDefinitionType]ObjectDefinitionType{
+		models.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
+		models.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
+		models.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
+		models.FloatObjectDefinitionType:      FloatObjectDefinitionType,
+		models.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
+		models.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
+		models.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
+		models.StringObjectDefinitionType:     StringObjectDefinitionType,
+		models.CsvObjectDefinitionType:        CsvObjectDefinitionType,
+		models.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
+		models.ListObjectDefinitionType:       ListObjectDefinitionType,
+
+		// TODO in a separate PR - add the more specific ObjectDefinition Types e.g. EdgeZone, Location, Tags etc.
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Object Definition Type %q", string(input))
+}
+
+func mapOptionObjectDefinitionType(input models.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
+	mappings := map[models.OptionObjectDefinitionType]OptionObjectDefinitionType{
+		models.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
+		models.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
+		models.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
+		models.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
+		models.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
+		models.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
+		models.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Options Object Definition Type %q", string(input))
+}
+
+func mapConstantFieldType(input models.ConstantType) (*ConstantType, error) {
+	mappings := map[models.ConstantType]ConstantType{
+		models.FloatConstant:   FloatConstant,
+		models.IntegerConstant: IntegerConstant,
+		models.StringConstant:  StringConstant,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
+}
+
+func mapResourceIdSegmentType(input models.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
+	mappings := map[models.ResourceIdSegmentType]ResourceIdSegmentType{
+		models.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
+		models.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
+		models.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
+		models.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
+		models.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
+		models.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
+		models.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Resource Id Segment Type %q", string(input))
 }

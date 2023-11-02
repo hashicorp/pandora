@@ -23,7 +23,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(ErrorAdditionalInfoModel),
         typeof(ErrorDetailModel),
-        typeof(ErrorResponseModel),
         typeof(OperationStatusModel),
     };
 }
