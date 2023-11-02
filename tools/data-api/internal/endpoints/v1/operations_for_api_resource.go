@@ -28,10 +28,10 @@ func (api Api) operationsForApiResource(w http.ResponseWriter, r *http.Request) 
 		if details.Options != nil {
 			for k, option := range *details.Options {
 				options[k] = models.ApiOperationOption{
-					HeaderName:       option.HeaderName,
-					QueryStringName:  option.QueryStringName,
-					ObjectDefinition: pointer.From(mapObjectDefinition(option.ObjectDefinition)),
-					Required:         option.Required,
+					HeaderName:      option.HeaderName,
+					QueryStringName: option.QueryStringName,
+					//ObjectDefinition: pointer.From(mapObjectDefinition(option.ObjectDefinition)),
+					Required: option.Required,
 				}
 			}
 		}
