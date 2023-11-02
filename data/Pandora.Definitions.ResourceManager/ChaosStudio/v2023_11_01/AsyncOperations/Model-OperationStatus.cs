@@ -19,7 +19,7 @@ internal class OperationStatusModel
     public string? EndTime { get; set; }
 
     [JsonPropertyName("error")]
-    public ErrorResponseModel? Error { get; set; }
+    public ErrorDetailModel? Error { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

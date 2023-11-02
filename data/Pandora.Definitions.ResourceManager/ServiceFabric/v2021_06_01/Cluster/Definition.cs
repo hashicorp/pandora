@@ -48,7 +48,6 @@ internal class Definition : ResourceDefinition
         typeof(ClientCertificateThumbprintModel),
         typeof(ClusterModel),
         typeof(ClusterHealthPolicyModel),
-        typeof(ClusterListResultModel),
         typeof(ClusterPropertiesModel),
         typeof(ClusterPropertiesUpdateParametersModel),
         typeof(ClusterUpdateParametersModel),

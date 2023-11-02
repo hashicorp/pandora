@@ -12,11 +12,13 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ServiceFabric.v2021_06_01.Cluster;
 
-internal class ListByResourceGroupOperation : Pandora.Definitions.Operations.GetOperation
+internal class ListByResourceGroupOperation : Pandora.Definitions.Operations.ListOperation
 {
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ClusterListResultModel);
+    public override Type NestedItemType() => typeof(ClusterModel);
 
     public override string? UriSuffix() => "/providers/Microsoft.ServiceFabric/clusters";
 

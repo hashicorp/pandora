@@ -21,6 +21,9 @@ internal class WorkspaceModel
     [JsonPropertyName("identity")]
     public CustomTypes.LegacySystemAndUserAssignedIdentityMap? Identity { get; set; }
 
+    [JsonPropertyName("kind")]
+    public string? Kind { get; set; }
+
     [JsonPropertyName("location")]
     public CustomTypes.Location? Location { get; set; }
 
