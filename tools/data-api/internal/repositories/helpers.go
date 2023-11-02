@@ -27,14 +27,14 @@ func listSubDirectories(path string) (*[]string, error) {
 func loadJson(path string) (*[]byte, error) {
 	contents, err := os.Open(path)
 	if err != nil {
-		return nil, fmt.Errorf("loading %q", path)
+		return nil, fmt.Errorf("loading %q: %+v", path, err)
 	}
 
 	defer contents.Close()
 
 	byteValue, err := io.ReadAll(contents)
 	if err != nil {
-		return nil, fmt.Errorf("reading contents of %q", path)
+		return nil, fmt.Errorf("reading contents of %q: %+v", path, err)
 	}
 
 	return &byteValue, nil
@@ -49,7 +49,7 @@ func getDefinitionInfo(fileName string) (string, string, error) {
 	splitName := strings.Split(fileName, "-")
 
 	definitionType := splitName[0]
-	definitionName := strings.Split(splitName[1], ".")[0]
+	definitionName := splitName[1]
 
 	return definitionType, definitionName, nil
 
