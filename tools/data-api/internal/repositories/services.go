@@ -143,12 +143,23 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 		}
 	}
 
-	return &ServiceDetails{
+	terraformDetails, err := s.ProcessTerraformDefinitions(serviceName)
+	if err != nil {
+		return nil, err
+	}
+
+	serviceDetails := &ServiceDetails{
 		Name: serviceName,
 		// TODO RP name needs to be stored in the api definitions
 		// ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
 		ApiVersions: versionDefinitions,
-	}, nil
+	}
+
+	if terraformDetails != nil {
+		serviceDetails.TerraformDetails = *terraformDetails
+	}
+
+	return serviceDetails, nil
 }
 
 func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, version string, resources []string) (*ServiceApiVersionDetails, error) {
@@ -425,6 +436,292 @@ func parseOperationFromFilePath(filePath string) (*ResourceOperations, error) {
 	}
 
 	return &resourceOperations, nil
+}
+
+func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string) (*TerraformDetails, error) {
+	terraformDetails := TerraformDetails{
+		Resources:   make(map[string]TerraformResourceDetails),
+		DataSources: make(map[string]TerraformDataSourceDetails),
+	}
+	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
+	files, err := os.ReadDir(path)
+	if err != nil {
+		if strings.Contains(err.Error(), "no such file or directory") {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+	}
+
+	for _, file := range files {
+		if file.IsDir() {
+			continue
+		}
+
+		definitionName, definitionType, err := getTerraformDefinitionInfo(file.Name())
+		if err != nil {
+			return nil, err
+		}
+		// todo do we have to do the same for DataSources?
+		if _, ok := terraformDetails.Resources[definitionName]; !ok {
+			terraformDetails.Resources[definitionName] = TerraformResourceDetails{
+				ResourceName: definitionName,
+			}
+		}
+		resource := terraformDetails.Resources[definitionName]
+
+		// we lower case these so that it's compatible with other OS e.g. Windows
+		switch strings.ToLower(definitionType) {
+		case "resource":
+			if resource, err = parseTerraformDefinitionResourceFromFilePath(path, file, resource); err != nil {
+				return nil, err
+			}
+
+		case "resource-mappings":
+			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(path, file)
+			if err != nil {
+				return nil, err
+			}
+
+		case "resource-schema":
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(path, file)
+			if err != nil {
+				return nil, err
+			}
+
+		case "resource-tests":
+			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(path, file)
+			if err != nil {
+				return nil, err
+			}
+		}
+
+		terraformDetails.Resources[definitionName] = resource
+	}
+
+	return &terraformDetails, nil
+}
+
+func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.DirEntry, definition TerraformResourceDetails) (TerraformResourceDetails, error) {
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
+	if err != nil {
+		return definition, err
+	}
+
+	var resourceDefinition models.TerraformResourceDefinition
+
+	if err := json.Unmarshal(*contents, &resourceDefinition); err != nil {
+		return definition, fmt.Errorf("unmarshaling Terraform Resource Definition")
+	}
+
+	definition.DisplayName = resourceDefinition.DisplayName
+	definition.GenerateModel = resourceDefinition.GenerateModel
+	definition.GenerateIdValidation = resourceDefinition.GenerateIdValidationFunction
+	definition.GenerateSchema = resourceDefinition.GenerateSchema
+	definition.ApiVersion = resourceDefinition.ApiVersion
+	definition.Generate = resourceDefinition.Generate
+	definition.ResourceIdName = resourceDefinition.ResourceIdName
+
+	definition.CreateMethod = MethodDefinition{
+		Generate:         resourceDefinition.CreateMethod.Generate,
+		MethodName:       resourceDefinition.CreateMethod.Name,
+		TimeoutInMinutes: resourceDefinition.CreateMethod.TimeoutInMinutes,
+	}
+
+	definition.ReadMethod = MethodDefinition{
+		Generate:         resourceDefinition.ReadMethod.Generate,
+		MethodName:       resourceDefinition.ReadMethod.Name,
+		TimeoutInMinutes: resourceDefinition.ReadMethod.TimeoutInMinutes,
+	}
+
+	definition.DeleteMethod = MethodDefinition{
+		Generate:         resourceDefinition.DeleteMethod.Generate,
+		MethodName:       resourceDefinition.DeleteMethod.Name,
+		TimeoutInMinutes: resourceDefinition.DeleteMethod.TimeoutInMinutes,
+	}
+
+	if resourceDefinition.UpdateMethod != nil {
+		definition.UpdateMethod = &MethodDefinition{
+			Generate:         resourceDefinition.UpdateMethod.Generate,
+			MethodName:       resourceDefinition.UpdateMethod.Name,
+			TimeoutInMinutes: resourceDefinition.UpdateMethod.TimeoutInMinutes,
+		}
+	}
+
+	// todo the following are missing from the current information available
+	// TerraformResourceDetails{
+	//	Documentation:  ResourceDocumentationDefinition{},
+	//	Resource:       "",
+	// }
+
+	return definition, nil
+}
+
+func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, file os.DirEntry) (MappingDefinition, error) {
+	var mappings MappingDefinition
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
+	if err != nil {
+		return mappings, err
+	}
+
+	var resourceMapping models.TerraformMappingDefinition
+
+	if err := json.Unmarshal(*contents, &resourceMapping); err != nil {
+		return mappings, fmt.Errorf("unmarshaling Terraform Resource Mapping")
+	}
+
+	if resourceMapping.ResourceIdMappings != nil {
+		resourceIds := make([]ResourceIdMappingDefinition, 0)
+		for _, id := range *resourceMapping.ResourceIdMappings {
+			resourceIds = append(resourceIds, ResourceIdMappingDefinition{
+				SchemaFieldName:    id.SchemaFieldName,
+				SegmentName:        id.SegmentName,
+				ParsedFromParentID: id.ParsedFromParentId,
+			})
+		}
+
+		mappings.ResourceId = resourceIds
+	}
+
+	if resourceMapping.FieldMappings != nil {
+		fields := make([]FieldMappingDefinition, 0)
+		for _, fieldMapping := range *resourceMapping.FieldMappings {
+			field := FieldMappingDefinition{
+				Type: MappingDefinitionType(fieldMapping.Type),
+			}
+
+			if fieldMapping.DirectAssignment != nil {
+				field.DirectAssignment = &FieldMappingDirectAssignmentDefinition{
+					SchemaModelName: fieldMapping.DirectAssignment.SchemaModelName,
+					SchemaFieldPath: fieldMapping.DirectAssignment.SchemaFieldPath,
+					SdkModelName:    fieldMapping.DirectAssignment.SdkModelName,
+					SdkFieldPath:    fieldMapping.DirectAssignment.SdkFieldPath,
+				}
+			}
+
+			if fieldMapping.ModelToModel != nil {
+				field.ModelToModel = &FieldMappingModelToModelDefinition{
+					SchemaModelName: fieldMapping.ModelToModel.SchemaModelName,
+					SdkModelName:    fieldMapping.ModelToModel.SdkModelName,
+					SdkFieldName:    fieldMapping.ModelToModel.SdkFieldName,
+				}
+			}
+
+			if fieldMapping.Manual != nil {
+				field.Manual = &FieldManualMappingDefinition{
+					MethodName: fieldMapping.Manual.MethodName,
+				}
+			}
+
+			fields = append(fields, field)
+		}
+		mappings.Fields = fields
+	}
+
+	if resourceMapping.ModelToModelMappings != nil {
+		modelToModels := make([]ModelToModelMappingDefinition, 0)
+		for _, modelToModelMapping := range *resourceMapping.ModelToModelMappings {
+			modelToModels = append(modelToModels, ModelToModelMappingDefinition{
+				SchemaModelName: modelToModelMapping.SchemaModelName,
+				SdkModelName:    modelToModelMapping.SdkModelName,
+			})
+		}
+	}
+
+	return mappings, nil
+}
+
+func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
+	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
+	if err != nil {
+		return schemaModelDefinition, err
+	}
+
+	var schemaModel models.TerraformSchemaModel
+
+	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
+		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+	}
+
+	fields := make(map[string]TerraformSchemaFieldDefinition)
+	for _, field := range schemaModel.Fields {
+		fieldDefinition := TerraformSchemaFieldDefinition{
+			ObjectDefinition: terraformSchemaFieldObjectDefinitionFromField(field.ObjectDefinition),
+			Computed:         pointer.From(field.Computed),
+			ForceNew:         pointer.From(field.ForceNew),
+			HclName:          field.HclName,
+			Optional:         pointer.From(field.Optional),
+			Required:         pointer.From(field.Required),
+		}
+
+		if field.Validation != nil {
+			fieldDefinition.Validation = &TerraformSchemaValidationDefinition{
+				Type: TerraformSchemaValidationType(field.Validation.Type),
+			}
+
+			if field.Validation.PossibleValues != nil {
+				fieldDefinition.Validation.PossibleValues = &TerraformSchemaValidationPossibleValuesDefinition{
+					Type:   fieldDefinition.Validation.PossibleValues.Type,
+					Values: fieldDefinition.Validation.PossibleValues.Values,
+				}
+			}
+		}
+
+		if field.Documentation != nil {
+			fieldDefinition.Documentation = TerraformSchemaDocumentationDefinition{
+				Markdown: field.Documentation.Markdown,
+			}
+		}
+
+		fields[field.Name] = fieldDefinition
+	}
+
+	// todo do we take the file name and strip it of these pieces or is this information somewhere else
+	// the v1 data api has this value as `LoadTestResourceSchema` which is the filename (LoadTest-Resource-Schema.json) with the following stripped
+	modelDefinitionName := strings.Replace(strings.Replace(file.Name(), "-", "", -1), ".json", "", -1)
+
+	schemaModelDefinition[modelDefinitionName] = TerraformSchemaModelDefinition{
+		Fields: fields,
+	}
+
+	return schemaModelDefinition, nil
+}
+
+func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
+	if err != nil {
+		return TerraformResourceTestsDefinition{}, err
+	}
+
+	var testConfig models.TerraformResourceTestConfig
+	if err := json.Unmarshal(*contents, &testConfig); err != nil {
+		return TerraformResourceTestsDefinition{}, fmt.Errorf("unmarshaling Terraform Resource Tests %+v", err)
+	}
+
+	testDefinition := TerraformResourceTestsDefinition{
+		BasicConfiguration:          testConfig.BasicConfig,
+		RequiresImportConfiguration: testConfig.RequiresImport,
+		CompleteConfiguration:       testConfig.CompleteConfig,
+		TemplateConfiguration:       testConfig.TemplateConfig,
+		Generate:                    testConfig.Generate,
+		OtherTests:                  testConfig.OtherTests,
+	}
+
+	return testDefinition, nil
+}
+
+func terraformSchemaFieldObjectDefinitionFromField(input models.TerraformSchemaObjectDefinition) TerraformSchemaFieldObjectDefinition {
+	objectDefinition := TerraformSchemaFieldObjectDefinition{
+		ReferenceName: input.ReferenceName,
+		Type:          TerraformSchemaFieldType(input.Type),
+	}
+
+	if input.NestedItem != nil {
+		nestedObject := terraformSchemaFieldObjectDefinitionFromField(*input.NestedItem)
+		objectDefinition.NestedObject = &nestedObject
+	}
+
+	return objectDefinition
 }
 
 func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantDetails) (*ResourceIdDefinition, error) {

@@ -54,3 +54,18 @@ func getDefinitionInfo(fileName string) (string, string, error) {
 	return definitionType, definitionName, nil
 
 }
+
+// getTerraformDefinitionInfo transforms the file names in the api definitions directory into a name and aTerraform Definition type  e.g.
+// LoadTest-Resource.json -> name = LoadTest and type = Resource
+func getTerraformDefinitionInfo(fileName string) (string, string, error) {
+	if !strings.HasSuffix(fileName, ".json") {
+		return "", "", fmt.Errorf("file %q has an extensions not supported by the data api", fileName)
+	}
+	splitName := strings.SplitN(fileName, "-", 2)
+
+	definitionName := splitName[0]
+	definitionType := strings.Split(splitName[1], ".")[0]
+
+	return definitionName, definitionType, nil
+
+}
