@@ -3,10 +3,11 @@ package repositories
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"os"
+	"path"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories/models"
 )
 
@@ -81,198 +82,6 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 	}
 
 	return &serviceDetails, nil
-
-	// NOTE: this has been kept here for the time being to aid development since it helps to see a sample of how the incoming
-	// api definitions need to be mapped
-	//return &[]ServiceDetails{
-	//	{
-	//		Name:                 "Compute",
-	//		ResourceProvider:     "Microsoft.Compute",
-	//		TerraformPackageName: pointer.To("compute"),
-	//		ApiVersions: map[string]*ServiceApiVersionDetails{
-	//			"2020-01-01": {
-	//				Name:     "2020-01-01",
-	//				Generate: true,
-	//				Resources: map[string]*ServiceApiVersionResourceDetails{
-	//					"VirtualMachines": {
-	//						Operations: map[string]ResourceOperations{
-	//							"Get": {
-	//								ContentType: "application/json",
-	//								ExpectedStatusCodes: []int{
-	//									http.StatusOK,
-	//								},
-	//								LongRunning:    false,
-	//								Method:         http.MethodGet,
-	//								RequestObject:  nil,
-	//								ResourceIdName: nil,
-	//								ResponseObject: &ObjectDefinition{
-	//									NestedItem: &ObjectDefinition{
-	//										ReferenceName: pointer.To("Panda"),
-	//										Type:          ReferenceObjectDefinitionType,
-	//									},
-	//									ReferenceName: pointer.To("Computa"),
-	//									Type:          ReferenceObjectDefinitionType,
-	//								},
-	//								FieldContainingPaginationDetails: nil,
-	//								Options:                          nil,
-	//								UriSuffix:                        nil,
-	//							},
-	//						},
-	//						Schema: ResourceSchema{
-	//							Constants: map[string]ConstantDetails{},
-	//							Models: map[string]ModelDetails{
-	//								"Computa": {
-	//									Fields: map[string]FieldDetails{
-	//										"Name": {
-	//											ObjectDefinition: ObjectDefinition{
-	//												Type: ReferenceObjectDefinitionType,
-	//											},
-	//											Required: true,
-	//										},
-	//									},
-	//									TypeHintIn:    nil,
-	//									TypeHintValue: nil,
-	//								},
-	//							},
-	//							ResourceIds: map[string]ResourceIdDefinition{},
-	//						},
-	//					},
-	//				},
-	//				Source: HandWrittenApiDefinitionsSource,
-	//			},
-	//		},
-	//		TerraformDetails: TerraformDetails{
-	//			Resources: map[string]TerraformResourceDetails{
-	//				"virtual_machine": {
-	//					ApiVersion: "2020-01-01",
-	//					CreateMethod: MethodDefinition{
-	//						Generate:         true,
-	//						MethodName:       "VirtualMachineCreateOrUpdate",
-	//						TimeoutInMinutes: 30,
-	//					},
-	//					DeleteMethod: MethodDefinition{
-	//						Generate:         true,
-	//						MethodName:       "VirtualMachineDelete",
-	//						TimeoutInMinutes: 30,
-	//					},
-	//					DisplayName: "Virtual Machine",
-	//					Documentation: ResourceDocumentationDefinition{
-	//						Description:     "Manages a Virtual Machine",
-	//						ExampleUsageHcl: `resource "azurerm_virtual_machine" "example" {}`,
-	//					},
-	//					Generate:             true,
-	//					GenerateModel:        true,
-	//					GenerateIdValidation: true,
-	//					GenerateSchema:       true,
-	//					Mappings: MappingDefinition{
-	//						Fields: []FieldMappingDefinition{
-	//							{
-	//								Type: "DirectAssignment",
-	//								DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
-	//									SchemaModelName: "model",
-	//									SchemaFieldPath: "name",
-	//									SdkModelName:    "model",
-	//									SdkFieldPath:    "name",
-	//								},
-	//								),
-	//							},
-	//							{
-	//								Type: "DirectAssignment",
-	//								DirectAssignment: pointer.To(FieldMappingDirectAssignmentDefinition{
-	//									SchemaModelName: "model",
-	//									SchemaFieldPath: "resource_group",
-	//									SdkModelName:    "model",
-	//									SdkFieldPath:    "resource_group",
-	//								},
-	//								),
-	//							},
-	//						},
-	//						ModelToModels: []ModelToModelMappingDefinition{
-	//							{
-	//								SchemaModelName: "VirtualMachineSchema",
-	//								SdkModelName:    "VirtualMachineProperties",
-	//							},
-	//						},
-	//						ResourceId: []ResourceIdMappingDefinition{
-	//							{
-	//								SchemaFieldName:    "VirtualMachineId",
-	//								SegmentName:        "virtualMachineName",
-	//								ParsedFromParentID: true,
-	//							},
-	//							{
-	//								SchemaFieldName:    "ResourceGroupName",
-	//								SegmentName:        "resourceGroupName",
-	//								ParsedFromParentID: false,
-	//							},
-	//						},
-	//					},
-	//					ReadMethod: MethodDefinition{
-	//						Generate:         true,
-	//						MethodName:       "VirtualMachineGet",
-	//						TimeoutInMinutes: 5,
-	//					},
-	//					Resource:        "VirtualMachine",
-	//					ResourceIdName:  "VirtualMachineId",
-	//					ResourceName:    "VirtualMachine",
-	//					SchemaModelName: "VirtualMachineSchema",
-	//					SchemaModels: map[string]TerraformSchemaModelDefinition{
-	//						"VirtualMachineSchema": {
-	//							Fields: map[string]TerraformSchemaFieldDefinition{
-	//								"VirtualMachineId": {
-	//									ObjectDefinition: TerraformSchemaFieldObjectDefinition{
-	//										NestedObject:  nil,
-	//										ReferenceName: nil,
-	//										Type:          StringTerraformSchemaFieldType,
-	//									},
-	//									Computed: false,
-	//									ForceNew: true,
-	//									HclName:  "virtual_machine_id",
-	//									Optional: false,
-	//									Required: true,
-	//									Documentation: TerraformSchemaDocumentationDefinition{
-	//										Markdown: "blah",
-	//									},
-	//									Validation: nil,
-	//								},
-	//								"Name": {
-	//									ObjectDefinition: TerraformSchemaFieldObjectDefinition{
-	//										NestedObject:  nil,
-	//										ReferenceName: nil,
-	//										Type:          StringTerraformSchemaFieldType,
-	//									},
-	//									Computed: false,
-	//									ForceNew: true,
-	//									HclName:  "name",
-	//									Optional: false,
-	//									Required: true,
-	//									Documentation: TerraformSchemaDocumentationDefinition{
-	//										Markdown: "blah",
-	//									},
-	//									Validation: nil,
-	//								},
-	//							},
-	//						},
-	//					},
-	//					Tests: TerraformResourceTestsDefinition{
-	//						BasicConfiguration:          "basictest",
-	//						RequiresImportConfiguration: "importtest",
-	//						CompleteConfiguration:       nil,
-	//						Generate:                    false,
-	//						OtherTests:                  nil,
-	//						TemplateConfiguration:       nil,
-	//					},
-	//					UpdateMethod: pointer.To(MethodDefinition{
-	//						Generate:         true,
-	//						MethodName:       "VirtualMachineCreateOrUpdate",
-	//						TimeoutInMinutes: 30,
-	//					}),
-	//				},
-	//			},
-	//		},
-	//
-	//		Generate: true,
-	//	},
-	//}, nil
 }
 
 func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
@@ -459,25 +268,24 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		// we lower case these so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
 		case "resource":
-			if resource, err = processTerraformDefinitionResource(path, file, resource); err != nil {
+			if resource, err = parseTerraformDefinitionResourceFromFilePath(path, file, resource); err != nil {
 				return nil, err
 			}
 
 		case "resource-mappings":
-			// todo figure out why this is in the model but it's not showing up in the api
-			resource.Mappings, err = processTerraformDefinitionResourceMappings(path, file)
+			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(path, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = processTerraformDefinitionResourceSchema(path, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(path, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-tests":
-			resource.Tests, err = processTerraformDefinitionResourceTests(path, file)
+			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(path, file)
 			if err != nil {
 				return nil, err
 			}
@@ -489,9 +297,8 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 	return &terraformDetails, nil
 }
 
-func processTerraformDefinitionResource(path string, file os.DirEntry, definition TerraformResourceDetails) (TerraformResourceDetails, error) {
-	// TODO use path.Join() so that this works on windows
-	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.DirEntry, definition TerraformResourceDetails) (TerraformResourceDetails, error) {
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
 		return definition, err
 	}
@@ -545,10 +352,9 @@ func processTerraformDefinitionResource(path string, file os.DirEntry, definitio
 	return definition, nil
 }
 
-func processTerraformDefinitionResourceMappings(path string, file os.DirEntry) (MappingDefinition, error) {
+func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, file os.DirEntry) (MappingDefinition, error) {
 	var mappings MappingDefinition
-	// TODO use path.Join() so that this works on windows
-	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
 		return mappings, err
 	}
@@ -620,10 +426,9 @@ func processTerraformDefinitionResourceMappings(path string, file os.DirEntry) (
 	return mappings, nil
 }
 
-func processTerraformDefinitionResourceSchema(path string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
+func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
 	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
-	// TODO use path.Join() so that this works on windows
-	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
 		return schemaModelDefinition, err
 	}
@@ -678,9 +483,8 @@ func processTerraformDefinitionResourceSchema(path string, file os.DirEntry) (ma
 	return schemaModelDefinition, nil
 }
 
-func processTerraformDefinitionResourceTests(path string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {
-	// TODO use path.Join() so that this works on windows
-	contents, err := loadJson(fmt.Sprintf("%s/%s", path, file.Name()))
+func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {
+	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
 		return TerraformResourceTestsDefinition{}, err
 	}

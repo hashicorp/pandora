@@ -86,3 +86,67 @@ func mapValidation(input *repositories.TerraformSchemaValidationDefinition) *mod
 
 	return &output
 }
+
+func mapMappings(input repositories.MappingDefinition) models.MappingDefinition {
+	var output models.MappingDefinition
+
+	fieldMappings := make([]models.FieldMappingDefinition, 0)
+	for _, field := range input.Fields {
+		fieldMapping := models.FieldMappingDefinition{
+			Type: models.MappingDefinitionType(field.Type),
+		}
+
+		if field.DirectAssignment != nil {
+			fieldMapping.DirectAssignment = &models.FieldMappingDirectAssignmentDefinition{
+				SchemaModelName: field.DirectAssignment.SchemaModelName,
+				SchemaFieldPath: field.DirectAssignment.SchemaFieldPath,
+				SdkModelName:    field.DirectAssignment.SdkModelName,
+				SdkFieldPath:    field.DirectAssignment.SdkFieldPath,
+			}
+		}
+
+		if field.ModelToModel != nil {
+			fieldMapping.ModelToModel = &models.FieldMappingModelToModelDefinition{
+				SchemaModelName: field.ModelToModel.SchemaModelName,
+				SdkModelName:    field.ModelToModel.SdkModelName,
+				SdkFieldName:    field.ModelToModel.SdkFieldName,
+			}
+		}
+
+		if field.Manual != nil {
+			fieldMapping.Manual = &models.FieldManualMappingDefinition{
+				MethodName: field.Manual.MethodName,
+			}
+		}
+
+		fieldMappings = append(fieldMappings, fieldMapping)
+	}
+	output.Fields = fieldMappings
+
+	if input.ResourceId != nil {
+		resourceIds := make([]models.ResourceIdMappingDefinition, 0)
+		for _, id := range input.ResourceId {
+			resourceIds = append(resourceIds, models.ResourceIdMappingDefinition{
+				SchemaFieldName:    id.SchemaFieldName,
+				SegmentName:        id.SegmentName,
+				ParsedFromParentID: id.ParsedFromParentID,
+			})
+		}
+
+		output.ResourceId = resourceIds
+	}
+
+	if input.ModelToModels != nil {
+		modelToModels := make([]models.ModelToModelMappingDefinition, 0)
+		for _, modelToModelMapping := range input.ModelToModels {
+			modelToModels = append(modelToModels, models.ModelToModelMappingDefinition{
+				SchemaModelName: modelToModelMapping.SchemaModelName,
+				SdkModelName:    modelToModelMapping.SdkModelName,
+			})
+		}
+
+		output.ModelToModels = modelToModels
+	}
+
+	return output
+}

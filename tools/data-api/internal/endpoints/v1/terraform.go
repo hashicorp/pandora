@@ -54,11 +54,7 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 			GenerateModel:        resource.GenerateModel,
 			GenerateIdValidation: resource.GenerateIdValidation,
 			GenerateSchema:       resource.GenerateSchema,
-			Mappings: models.MappingDefinition{
-				Fields:        nil,
-				ModelToModels: nil,
-				ResourceId:    nil,
-			},
+			Mappings:             mapMappings(resource.Mappings),
 			ReadMethod: models.MethodDefinition{
 				Generate:         resource.ReadMethod.Generate,
 				MethodName:       resource.ReadMethod.MethodName,
