@@ -168,7 +168,7 @@ func DetermineDependencies(field, providerPrefix string, dependencies *testDepen
 	dependencyMapping := map[string]dependencyDefinition{
 		"application_insights_id":       {dependencies.setNeedsApplicationInsights, fmt.Sprintf("%s_application_insights.test.id", providerPrefix)},
 		"dev_center_id":                 {dependencies.setNeedsDevCenter, fmt.Sprintf("azurerm_dev_center.test.id")},
-		"gallery_resource_id":           {dependencies.setNeedsSharedImageGallery, fmt.Sprintf("%s_shared_image_gallery.test.id", providerPrefix)},
+		"shared_gallery_id":             {dependencies.setNeedsSharedImageGallery, fmt.Sprintf("%s_shared_image_gallery.test.id", providerPrefix)},
 		"key_vault_id":                  {dependencies.setNeedsKeyVault, fmt.Sprintf("%s_key_vault.test.id", providerPrefix)},
 		"key_vault_access_policy_id":    {dependencies.setNeedsKeyVaultAccessPolicy, fmt.Sprintf("%s_key_vault_access_policy.test.id", providerPrefix)},
 		"key_vault_key_id":              {dependencies.setNeedsKeyVaultKey, fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)},
