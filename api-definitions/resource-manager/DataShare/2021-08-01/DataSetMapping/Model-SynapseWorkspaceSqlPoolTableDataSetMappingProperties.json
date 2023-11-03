@@ -1,0 +1,49 @@
+{
+ "name": "SynapseWorkspaceSqlPoolTableDataSetMappingProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSetId",
+   "name": "DataSetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSetMappingStatus",
+   "name": "DataSetMappingStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataSetMappingStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "synapseWorkspaceSqlPoolTableResourceId",
+   "name": "SynapseWorkspaceSqlPoolTableResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

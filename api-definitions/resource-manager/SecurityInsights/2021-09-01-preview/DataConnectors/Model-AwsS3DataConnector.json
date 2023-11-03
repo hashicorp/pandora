@@ -1,0 +1,18 @@
+{
+ "name": "AwsS3DataConnector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AwsS3DataConnectorProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnector",
+ "discriminatedTypeValue": "AmazonWebServicesS3"
+}

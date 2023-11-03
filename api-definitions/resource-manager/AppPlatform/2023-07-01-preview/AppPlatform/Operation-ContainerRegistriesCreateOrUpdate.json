@@ -1,0 +1,19 @@
+{
+ "name": "ContainerRegistriesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ContainerRegistryId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContainerRegistryResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContainerRegistryResource"
+ }
+}

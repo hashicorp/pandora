@@ -1,0 +1,38 @@
+{
+ "name": "DataDiskProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attachNewDataDiskOptions",
+   "name": "AttachNewDataDiskOptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AttachNewDataDiskOptions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "existingLabDiskId",
+   "name": "ExistingLabDiskId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostCaching",
+   "name": "HostCaching",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HostCachingOptions"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

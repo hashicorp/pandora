@@ -1,0 +1,60 @@
+{
+ "name": "Encryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionIdentity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keySource",
+   "name": "KeySource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeySource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyvaultproperties",
+   "name": "Keyvaultproperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requireInfrastructureEncryption",
+   "name": "RequireInfrastructureEncryption",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "services",
+   "name": "Services",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionServices"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

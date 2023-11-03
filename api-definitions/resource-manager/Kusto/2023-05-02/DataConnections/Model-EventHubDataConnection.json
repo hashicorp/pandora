@@ -1,0 +1,18 @@
+{
+ "name": "EventHubDataConnection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventHubConnectionProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnection",
+ "discriminatedTypeValue": "EventHub"
+}

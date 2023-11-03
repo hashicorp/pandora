@@ -1,0 +1,53 @@
+{
+ "name": "ConfigDataProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "digests",
+   "name": "Digests",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DigestConfig"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Duration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclude",
+   "name": "Exclude",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lowCpuThreshold",
+   "name": "LowCPUThreshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CPUThreshold"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

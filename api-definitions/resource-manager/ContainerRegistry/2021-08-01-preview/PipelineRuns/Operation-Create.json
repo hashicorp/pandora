@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "PipelineRunId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PipelineRun"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PipelineRun"
+ }
+}

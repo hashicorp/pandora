@@ -1,0 +1,33 @@
+{
+ "name": "FirewallPolicyNatRuleCollection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyNatRuleCollectionAction"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rules",
+   "name": "Rules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FirewallPolicyRule"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "FirewallPolicyRuleCollection",
+ "discriminatedTypeValue": "FirewallPolicyNatRuleCollection"
+}

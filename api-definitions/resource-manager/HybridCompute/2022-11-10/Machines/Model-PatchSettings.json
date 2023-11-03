@@ -1,0 +1,27 @@
+{
+ "name": "PatchSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "assessmentMode",
+   "name": "AssessmentMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssessmentModeTypes"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "patchMode",
+   "name": "PatchMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PatchModeTypes"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "ComputeUpdateCustomServices",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ComputeId",
+ "requestObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "CustomService"
+  }
+ },
+ "uriSuffix": "/customServices"
+}

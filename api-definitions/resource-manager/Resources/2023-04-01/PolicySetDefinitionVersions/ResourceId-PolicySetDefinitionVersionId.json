@@ -1,0 +1,34 @@
+{
+ "name": "PolicySetDefinitionVersionId",
+ "id": "/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}/versions/{versionName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPolicySetDefinitions",
+   "type": "Static",
+   "value": "policySetDefinitions"
+  },
+  {
+   "name": "policySetDefinitionName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVersions",
+   "type": "Static",
+   "value": "versions"
+  },
+  {
+   "name": "versionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

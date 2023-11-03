@@ -1,0 +1,19 @@
+{
+ "name": "ProjectsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProjectId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Project"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Project"
+ }
+}

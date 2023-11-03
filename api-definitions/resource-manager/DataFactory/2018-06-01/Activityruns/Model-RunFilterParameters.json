@@ -1,0 +1,70 @@
+{
+ "name": "RunFilterParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "continuationToken",
+   "name": "ContinuationToken",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filters",
+   "name": "Filters",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RunQueryFilter"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdatedAfter",
+   "name": "LastUpdatedAfter",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdatedBefore",
+   "name": "LastUpdatedBefore",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orderBy",
+   "name": "OrderBy",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RunQueryOrderBy"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

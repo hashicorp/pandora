@@ -1,0 +1,18 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterCreateParametersExtended"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Cluster"
+ }
+}

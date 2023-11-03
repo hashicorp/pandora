@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "KubeEnvironmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "KubeEnvironmentPatchResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KubeEnvironment"
+ }
+}

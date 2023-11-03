@@ -1,0 +1,16 @@
+{
+ "name": "ListProcessThreadsSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotProcessId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProcessThreadInfo"
+ },
+ "uriSuffix": "/threads"
+}

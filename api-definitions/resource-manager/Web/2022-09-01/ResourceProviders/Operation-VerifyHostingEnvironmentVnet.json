@@ -1,0 +1,19 @@
+{
+ "name": "VerifyHostingEnvironmentVnet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VnetParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VnetValidationFailureDetails"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/verifyHostingEnvironmentVnet"
+}

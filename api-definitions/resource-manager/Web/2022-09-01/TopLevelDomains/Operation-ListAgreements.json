@@ -1,0 +1,20 @@
+{
+ "name": "ListAgreements",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "TopLevelDomainId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TopLevelDomainAgreementOption"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TldLegalAgreement"
+ },
+ "uriSuffix": "/listAgreements"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "Destination",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metaData",
+   "name": "MetaData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DestinationMetaData"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Type"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

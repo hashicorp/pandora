@@ -1,0 +1,16 @@
+{
+ "name": "ListInSubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateCloud"
+ },
+ "uriSuffix": "/providers/Microsoft.AVS/privateClouds"
+}

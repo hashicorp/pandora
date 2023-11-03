@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ApplicationInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "UpdateSAPApplicationInstanceRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SAPApplicationServerInstance"
+ }
+}

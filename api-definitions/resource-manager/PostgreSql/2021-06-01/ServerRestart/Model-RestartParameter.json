@@ -1,0 +1,27 @@
+{
+ "name": "RestartParameter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failoverMode",
+   "name": "FailoverMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FailoverMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restartWithFailover",
+   "name": "RestartWithFailover",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

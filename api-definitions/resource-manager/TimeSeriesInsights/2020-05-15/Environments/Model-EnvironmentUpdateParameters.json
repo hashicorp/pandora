@@ -1,0 +1,27 @@
+{
+ "name": "EnvironmentUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnvironmentKind"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tags",
+   "name": "Tags",
+   "objectDefinition": {
+    "type": "Tags",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

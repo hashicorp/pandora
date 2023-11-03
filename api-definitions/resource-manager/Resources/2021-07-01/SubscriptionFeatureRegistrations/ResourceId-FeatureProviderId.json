@@ -1,0 +1,34 @@
+{
+ "name": "FeatureProviderId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Features/featureProviders/{featureProviderName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftFeatures",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Features"
+  },
+  {
+   "name": "staticFeatureProviders",
+   "type": "Static",
+   "value": "featureProviders"
+  },
+  {
+   "name": "featureProviderName",
+   "type": "UserSpecified"
+  }
+ ]
+}

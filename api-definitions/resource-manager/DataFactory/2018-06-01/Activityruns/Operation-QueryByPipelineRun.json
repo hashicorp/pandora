@@ -1,0 +1,19 @@
+{
+ "name": "QueryByPipelineRun",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "PipelineRunId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RunFilterParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActivityRunsQueryResponse"
+ },
+ "uriSuffix": "/queryActivityruns"
+}

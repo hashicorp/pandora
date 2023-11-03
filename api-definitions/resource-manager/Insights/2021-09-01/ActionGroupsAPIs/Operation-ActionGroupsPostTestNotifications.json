@@ -1,0 +1,20 @@
+{
+ "name": "ActionGroupsPostTestNotifications",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NotificationRequestBody"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TestNotificationDetailsResponse"
+ },
+ "uriSuffix": "/providers/Microsoft.Insights/createNotifications"
+}

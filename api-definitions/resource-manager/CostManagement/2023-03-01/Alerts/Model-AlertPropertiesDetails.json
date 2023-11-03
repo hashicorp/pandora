@@ -1,0 +1,271 @@
+{
+ "name": "AlertPropertiesDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "amount",
+   "name": "Amount",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "companyName",
+   "name": "CompanyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactEmails",
+   "name": "ContactEmails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactGroups",
+   "name": "ContactGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactRoles",
+   "name": "ContactRoles",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentSpend",
+   "name": "CurrentSpend",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "departmentName",
+   "name": "DepartmentName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enrollmentEndDate",
+   "name": "EnrollmentEndDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enrollmentNumber",
+   "name": "EnrollmentNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enrollmentStartDate",
+   "name": "EnrollmentStartDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoicingThreshold",
+   "name": "InvoicingThreshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "meterFilter",
+   "name": "MeterFilter",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertOperator"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overridingAlert",
+   "name": "OverridingAlert",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "periodStartDate",
+   "name": "PeriodStartDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceFilter",
+   "name": "ResourceFilter",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGroupFilter",
+   "name": "ResourceGroupFilter",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tagFilter",
+   "name": "TagFilter",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeGrainType",
+   "name": "TimeGrainType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertTimeGrainType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "triggeredBy",
+   "name": "TriggeredBy",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unit",
+   "name": "Unit",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

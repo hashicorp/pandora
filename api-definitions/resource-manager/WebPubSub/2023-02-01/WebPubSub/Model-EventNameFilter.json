@@ -1,0 +1,33 @@
+{
+ "name": "EventNameFilter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "systemEvents",
+   "name": "SystemEvents",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userEventPattern",
+   "name": "UserEventPattern",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "EventListenerFilter",
+ "discriminatedTypeValue": "EventName"
+}

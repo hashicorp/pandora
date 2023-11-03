@@ -1,0 +1,61 @@
+{
+ "name": "ClusterCreateValidationResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aaddsResourcesDetails",
+   "name": "AaddsResourcesDetails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AaddsResourceDetails"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "estimatedCreationDuration",
+   "name": "EstimatedCreationDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationErrors",
+   "name": "ValidationErrors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ValidationErrorInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationWarnings",
+   "name": "ValidationWarnings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ValidationErrorInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

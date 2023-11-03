@@ -1,0 +1,19 @@
+{
+ "name": "AddPrincipals",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabasePrincipalListRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabasePrincipalListResult"
+ },
+ "uriSuffix": "/addPrincipals"
+}

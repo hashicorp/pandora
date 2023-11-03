@@ -1,0 +1,60 @@
+{
+ "name": "EncryptionDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionEnabled",
+   "name": "EncryptionEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kekUrl",
+   "name": "KekUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kekVaultId",
+   "name": "KekVaultId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretKeyUrl",
+   "name": "SecretKeyUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretKeyVaultId",
+   "name": "SecretKeyVaultId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

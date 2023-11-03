@@ -1,0 +1,49 @@
+{
+ "name": "EntityQueryItem",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EntityQueryKind"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

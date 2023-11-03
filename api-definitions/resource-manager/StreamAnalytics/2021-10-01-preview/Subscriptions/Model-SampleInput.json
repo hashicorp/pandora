@@ -1,0 +1,49 @@
+{
+ "name": "SampleInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "compatibilityLevel",
+   "name": "CompatibilityLevel",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataLocale",
+   "name": "DataLocale",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventsUri",
+   "name": "EventsUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Input"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

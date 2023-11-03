@@ -1,0 +1,19 @@
+{
+ "name": "ConfigurationPolicyGroupsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ConfigurationPolicyGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VpnServerConfigurationPolicyGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VpnServerConfigurationPolicyGroup"
+ }
+}

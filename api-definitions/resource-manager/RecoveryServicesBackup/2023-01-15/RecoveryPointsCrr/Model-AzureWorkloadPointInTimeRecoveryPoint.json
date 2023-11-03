@@ -1,0 +1,86 @@
+{
+ "name": "AzureWorkloadPointInTimeRecoveryPoint",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointMoveReadinessInfo",
+   "name": "RecoveryPointMoveReadinessInfo",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RecoveryPointMoveReadinessInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointProperties",
+   "name": "RecoveryPointProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryPointProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointTierDetails",
+   "name": "RecoveryPointTierDetails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RecoveryPointTierInformation"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointTimeInUTC",
+   "name": "RecoveryPointTimeInUTC",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeRanges",
+   "name": "TimeRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PointInTimeRange"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestorePointType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPoint",
+ "discriminatedTypeValue": "AzureWorkloadPointInTimeRecoveryPoint"
+}

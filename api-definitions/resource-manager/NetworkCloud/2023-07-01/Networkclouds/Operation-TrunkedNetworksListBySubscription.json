@@ -1,0 +1,16 @@
+{
+ "name": "TrunkedNetworksListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TrunkedNetwork"
+ },
+ "uriSuffix": "/providers/Microsoft.NetworkCloud/trunkedNetworks"
+}

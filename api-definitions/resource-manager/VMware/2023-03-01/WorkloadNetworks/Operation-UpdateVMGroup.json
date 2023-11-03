@@ -1,0 +1,19 @@
+{
+ "name": "UpdateVMGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VMGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkVMGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkVMGroup"
+ }
+}

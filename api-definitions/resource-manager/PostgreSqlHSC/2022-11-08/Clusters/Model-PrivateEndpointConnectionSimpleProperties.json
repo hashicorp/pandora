@@ -1,0 +1,42 @@
+{
+ "name": "PrivateEndpointConnectionSimpleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupIds",
+   "name": "GroupIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpoint",
+   "name": "PrivateEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceConnectionState",
+   "name": "PrivateLinkServiceConnectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkServiceConnectionState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

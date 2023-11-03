@@ -1,0 +1,15 @@
+{
+ "name": "StartPrimingJob",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CacheId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrimingJob"
+ },
+ "uriSuffix": "/startPrimingJob"
+}

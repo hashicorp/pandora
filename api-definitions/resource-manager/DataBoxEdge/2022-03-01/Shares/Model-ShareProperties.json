@@ -1,0 +1,127 @@
+{
+ "name": "ShareProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accessProtocol",
+   "name": "AccessProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ShareAccessProtocol"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureContainerInfo",
+   "name": "AzureContainerInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureContainerInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientAccessRights",
+   "name": "ClientAccessRights",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ClientAccessRight"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataPolicy",
+   "name": "DataPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringStatus",
+   "name": "MonitoringStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringStatus"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "refreshDetails",
+   "name": "RefreshDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RefreshDetails"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareMappings",
+   "name": "ShareMappings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MountPointMap"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareStatus",
+   "name": "ShareStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ShareStatus"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userAccessRights",
+   "name": "UserAccessRights",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UserAccessRight"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,77 @@
+{
+ "name": "AzureFileShareRestoreRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "copyOptions",
+   "name": "CopyOptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CopyOptions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryType",
+   "name": "RecoveryType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreFileSpecs",
+   "name": "RestoreFileSpecs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RestoreFileSpecs"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreRequestType",
+   "name": "RestoreRequestType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoreRequestType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDetails",
+   "name": "TargetDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TargetAFSRestoreInfo"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RestoreRequest",
+ "discriminatedTypeValue": "AzureFileShareRestoreRequest"
+}

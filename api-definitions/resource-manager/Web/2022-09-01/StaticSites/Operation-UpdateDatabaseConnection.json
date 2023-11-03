@@ -1,0 +1,18 @@
+{
+ "name": "UpdateDatabaseConnection",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "DatabaseConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseConnectionPatchRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseConnection"
+ }
+}

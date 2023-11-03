@@ -1,0 +1,19 @@
+{
+ "name": "CreateLinkedIntegrationRuntime",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationRuntimeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CreateLinkedIntegrationRuntimeRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationRuntimeStatusResponse"
+ },
+ "uriSuffix": "/linkedIntegrationRuntime"
+}

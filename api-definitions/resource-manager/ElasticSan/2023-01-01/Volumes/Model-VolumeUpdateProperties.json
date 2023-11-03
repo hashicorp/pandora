@@ -1,0 +1,27 @@
+{
+ "name": "VolumeUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedBy",
+   "name": "ManagedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedByInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeGiB",
+   "name": "SizeGiB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

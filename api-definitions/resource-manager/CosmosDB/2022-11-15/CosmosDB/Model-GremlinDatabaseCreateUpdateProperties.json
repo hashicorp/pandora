@@ -1,0 +1,27 @@
+{
+ "name": "GremlinDatabaseCreateUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "options",
+   "name": "Options",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreateUpdateOptions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resource",
+   "name": "Resource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GremlinDatabaseResource"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

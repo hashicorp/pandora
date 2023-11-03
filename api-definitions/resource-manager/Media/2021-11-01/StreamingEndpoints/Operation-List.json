@@ -1,0 +1,16 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "@odata.nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "MediaServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StreamingEndpoint"
+ },
+ "uriSuffix": "/streamingEndpoints"
+}

@@ -1,0 +1,105 @@
+{
+ "name": "FeaturesetJob",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdDate",
+   "name": "CreatedDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "experimentId",
+   "name": "ExperimentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "featureWindow",
+   "name": "FeatureWindow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FeatureWindow"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobId",
+   "name": "JobId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tags",
+   "name": "Tags",
+   "objectDefinition": {
+    "type": "Tags",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FeaturestoreJobType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

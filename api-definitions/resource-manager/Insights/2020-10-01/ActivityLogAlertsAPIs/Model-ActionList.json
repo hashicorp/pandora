@@ -1,0 +1,20 @@
+{
+ "name": "ActionList",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionGroups",
+   "name": "ActionGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ActionGroup"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,46 @@
+{
+ "name": "ContainerConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerImageNames",
+   "name": "ContainerImageNames",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerRegistries",
+   "name": "ContainerRegistries",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ContainerRegistry"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

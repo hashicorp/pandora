@@ -1,0 +1,16 @@
+{
+ "name": "ListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FrontDoor"
+ },
+ "uriSuffix": "/providers/Microsoft.Network/frontDoors"
+}

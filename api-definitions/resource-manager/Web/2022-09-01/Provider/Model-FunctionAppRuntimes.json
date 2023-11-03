@@ -1,0 +1,27 @@
+{
+ "name": "FunctionAppRuntimes",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linuxRuntimeSettings",
+   "name": "LinuxRuntimeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionAppRuntimeSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowsRuntimeSettings",
+   "name": "WindowsRuntimeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionAppRuntimeSettings"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "name": "Facet",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expression",
+   "name": "Expression",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "resultType",
+   "name": "ResultType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

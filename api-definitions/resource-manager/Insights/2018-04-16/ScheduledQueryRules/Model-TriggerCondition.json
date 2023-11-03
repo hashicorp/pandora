@@ -1,0 +1,38 @@
+{
+ "name": "TriggerCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricTrigger",
+   "name": "MetricTrigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogMetricTrigger"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "thresholdOperator",
+   "name": "ThresholdOperator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConditionalOperator"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

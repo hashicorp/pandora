@@ -1,0 +1,185 @@
+{
+ "name": "DomainServiceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configDiagnostics",
+   "name": "ConfigDiagnostics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConfigDiagnostics"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deploymentId",
+   "name": "DeploymentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainConfigurationType",
+   "name": "DomainConfigurationType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainName",
+   "name": "DomainName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainSecuritySettings",
+   "name": "DomainSecuritySettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DomainSecuritySettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filteredSync",
+   "name": "FilteredSync",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FilteredSync"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ldapsSettings",
+   "name": "LdapsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LdapsSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationProperties",
+   "name": "MigrationProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrationProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationSettings",
+   "name": "NotificationSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicaSets",
+   "name": "ReplicaSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ReplicaSet"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceForestSettings",
+   "name": "ResourceForestSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceForestSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "syncOwner",
+   "name": "SyncOwner",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

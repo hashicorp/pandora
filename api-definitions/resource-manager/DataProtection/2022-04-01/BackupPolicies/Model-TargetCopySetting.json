@@ -1,0 +1,27 @@
+{
+ "name": "TargetCopySetting",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "copyAfter",
+   "name": "CopyAfter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CopyOption"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataStore",
+   "name": "DataStore",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataStoreInfoBase"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

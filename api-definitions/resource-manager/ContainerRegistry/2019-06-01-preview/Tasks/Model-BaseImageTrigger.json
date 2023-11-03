@@ -1,0 +1,60 @@
+{
+ "name": "BaseImageTrigger",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baseImageTriggerType",
+   "name": "BaseImageTriggerType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BaseImageTriggerType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TriggerStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "updateTriggerEndpoint",
+   "name": "UpdateTriggerEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "updateTriggerPayloadType",
+   "name": "UpdateTriggerPayloadType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UpdateTriggerPayloadType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

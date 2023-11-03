@@ -1,0 +1,27 @@
+{
+ "name": "TlsCertificateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CertificateType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

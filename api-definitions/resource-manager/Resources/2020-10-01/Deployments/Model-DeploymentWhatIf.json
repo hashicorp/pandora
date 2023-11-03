@@ -1,0 +1,27 @@
+{
+ "name": "DeploymentWhatIf",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DeploymentWhatIfProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

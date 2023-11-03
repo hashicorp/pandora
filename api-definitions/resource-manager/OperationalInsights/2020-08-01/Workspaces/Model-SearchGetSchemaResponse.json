@@ -1,0 +1,31 @@
+{
+ "name": "SearchGetSchemaResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metadata",
+   "name": "Metadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SearchMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SearchSchemaValue"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

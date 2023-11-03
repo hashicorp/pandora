@@ -1,0 +1,16 @@
+{
+ "name": "ListBySite",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AppServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ResourceHealthMetadata"
+ },
+ "uriSuffix": "/resourceHealthMetadata"
+}

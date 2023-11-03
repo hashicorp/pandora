@@ -1,0 +1,31 @@
+{
+ "name": "WindowsFirewallLogsDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "streams",
+   "name": "Streams",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

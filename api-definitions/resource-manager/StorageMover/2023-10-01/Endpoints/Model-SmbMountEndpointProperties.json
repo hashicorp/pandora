@@ -1,0 +1,40 @@
+{
+ "name": "SmbMountEndpointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureKeyVaultSmbCredentials"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "host",
+   "name": "Host",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareName",
+   "name": "ShareName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "EndpointBaseProperties",
+ "discriminatedTypeValue": "SmbMount"
+}

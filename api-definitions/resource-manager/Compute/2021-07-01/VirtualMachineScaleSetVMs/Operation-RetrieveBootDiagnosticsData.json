@@ -1,0 +1,27 @@
+{
+ "name": "RetrieveBootDiagnosticsData",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "sasUriExpirationTimeInMinutes",
+   "required": false,
+   "field": "SasUriExpirationTimeInMinutes",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RetrieveBootDiagnosticsDataResult"
+ },
+ "uriSuffix": "/retrieveBootDiagnosticsData"
+}

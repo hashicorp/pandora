@@ -1,0 +1,40 @@
+{
+ "name": "DiscoveryConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appLocation",
+   "name": "AppLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "centralServerVmId",
+   "name": "CentralServerVMId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedRgStorageAccountName",
+   "name": "ManagedRgStorageAccountName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "SAPConfiguration",
+ "discriminatedTypeValue": "Discovery"
+}

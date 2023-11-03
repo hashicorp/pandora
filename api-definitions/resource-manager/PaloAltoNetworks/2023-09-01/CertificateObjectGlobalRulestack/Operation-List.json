@@ -1,0 +1,16 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "GlobalRulestackId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CertificateObjectGlobalRulestackResource"
+ },
+ "uriSuffix": "/certificates"
+}

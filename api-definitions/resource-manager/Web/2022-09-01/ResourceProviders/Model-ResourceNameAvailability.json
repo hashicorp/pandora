@@ -1,0 +1,38 @@
+{
+ "name": "ResourceNameAvailability",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "message",
+   "name": "Message",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nameAvailable",
+   "name": "NameAvailable",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reason",
+   "name": "Reason",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InAvailabilityReasonType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

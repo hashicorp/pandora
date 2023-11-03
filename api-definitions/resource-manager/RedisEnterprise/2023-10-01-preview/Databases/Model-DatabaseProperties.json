@@ -1,0 +1,108 @@
+{
+ "name": "DatabaseProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientProtocol",
+   "name": "ClientProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Protocol"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusteringPolicy",
+   "name": "ClusteringPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusteringPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "evictionPolicy",
+   "name": "EvictionPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EvictionPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "geoReplication",
+   "name": "GeoReplication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatabasePropertiesGeoReplication"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "modules",
+   "name": "Modules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Module"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "persistence",
+   "name": "Persistence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Persistence"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceState",
+   "name": "ResourceState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

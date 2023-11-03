@@ -1,0 +1,16 @@
+{
+ "name": "GetLinkedBackendsForBuild",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "BuildId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteLinkedBackendARMResource"
+ },
+ "uriSuffix": "/linkedBackends"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Trigger",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ProtectedItemId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupRequestResource"
+ },
+ "uriSuffix": "/backup"
+}

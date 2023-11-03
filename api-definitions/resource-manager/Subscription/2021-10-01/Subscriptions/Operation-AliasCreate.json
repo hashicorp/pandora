@@ -1,0 +1,19 @@
+{
+ "name": "AliasCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "AliasId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PutAliasRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SubscriptionAliasResponse"
+ }
+}

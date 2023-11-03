@@ -1,0 +1,28 @@
+{
+ "name": "ListWebApps",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "propertiesToInclude",
+   "required": false,
+   "field": "PropertiesToInclude",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AppServiceEnvironmentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Site"
+ },
+ "uriSuffix": "/sites"
+}

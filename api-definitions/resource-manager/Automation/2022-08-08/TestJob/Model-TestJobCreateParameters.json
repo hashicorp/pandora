@@ -1,0 +1,31 @@
+{
+ "name": "TestJobCreateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runOn",
+   "name": "RunOn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

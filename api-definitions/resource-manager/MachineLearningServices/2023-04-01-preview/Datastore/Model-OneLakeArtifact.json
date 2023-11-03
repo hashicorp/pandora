@@ -1,0 +1,27 @@
+{
+ "name": "OneLakeArtifact",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactName",
+   "name": "ArtifactName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "artifactType",
+   "name": "ArtifactType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OneLakeArtifactType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

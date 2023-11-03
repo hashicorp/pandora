@@ -1,0 +1,19 @@
+{
+ "name": "ListPrivateEndpointConnections",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ProvisioningServiceId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "PrivateEndpointConnection"
+  }
+ },
+ "uriSuffix": "/privateEndpointConnections"
+}

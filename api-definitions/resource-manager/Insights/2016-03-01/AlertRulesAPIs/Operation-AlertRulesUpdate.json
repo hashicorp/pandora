@@ -1,0 +1,19 @@
+{
+ "name": "AlertRulesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AlertRuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AlertRuleResourcePatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AlertRuleResource"
+ }
+}

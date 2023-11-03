@@ -1,0 +1,21 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  202,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "FlexibleServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AzureADAdministrator"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AzureADAdministrator"
+ },
+ "uriSuffix": "/administrators/ActiveDirectory"
+}

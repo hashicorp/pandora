@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MapsKeySpecification"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MapsAccountKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

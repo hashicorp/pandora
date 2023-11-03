@@ -1,0 +1,19 @@
+{
+ "name": "GatewayCustomDomainsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "GatewayDomainId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GatewayCustomDomainResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GatewayCustomDomainResource"
+ }
+}

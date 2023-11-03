@@ -1,0 +1,40 @@
+{
+ "name": "AutomationActionEventHub",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionString",
+   "name": "ConnectionString",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubResourceId",
+   "name": "EventHubResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sasPolicyName",
+   "name": "SasPolicyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "AutomationAction",
+ "discriminatedTypeValue": "EventHub"
+}

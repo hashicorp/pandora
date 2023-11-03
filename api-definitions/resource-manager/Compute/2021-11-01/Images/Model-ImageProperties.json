@@ -1,0 +1,49 @@
+{
+ "name": "ImageProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVGeneration",
+   "name": "HyperVGeneration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HyperVGenerationTypes"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceVirtualMachine",
+   "name": "SourceVirtualMachine",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageProfile",
+   "name": "StorageProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageStorageProfile"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

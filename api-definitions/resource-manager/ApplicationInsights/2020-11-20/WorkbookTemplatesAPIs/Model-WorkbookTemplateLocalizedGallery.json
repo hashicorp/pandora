@@ -1,0 +1,31 @@
+{
+ "name": "WorkbookTemplateLocalizedGallery",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "galleries",
+   "name": "Galleries",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "WorkbookTemplateGallery"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "templateData",
+   "name": "TemplateData",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

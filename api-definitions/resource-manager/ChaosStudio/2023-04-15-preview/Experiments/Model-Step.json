@@ -1,0 +1,32 @@
+{
+ "name": "Step",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "branches",
+   "name": "Branches",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Branch",
+     "minItems": 1
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

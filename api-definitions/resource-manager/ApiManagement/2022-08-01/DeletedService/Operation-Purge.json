@@ -1,0 +1,16 @@
+{
+ "name": "Purge",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "resourceIdName": "DeletedServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeletedServiceContract"
+ }
+}

@@ -1,0 +1,14 @@
+{
+ "name": "GetPublicIP",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PublicIPId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkPublicIP"
+ }
+}

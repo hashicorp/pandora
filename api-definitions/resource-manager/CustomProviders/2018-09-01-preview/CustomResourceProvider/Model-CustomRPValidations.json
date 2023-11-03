@@ -1,0 +1,27 @@
+{
+ "name": "CustomRPValidations",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "specification",
+   "name": "Specification",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationType",
+   "name": "ValidationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidationType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,141 @@
+{
+ "name": "WorkspaceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdDate",
+   "name": "CreatedDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customerId",
+   "name": "CustomerId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forceCmkForQuery",
+   "name": "ForceCmkForQuery",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "modifiedDate",
+   "name": "ModifiedDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkScopedResources",
+   "name": "PrivateLinkScopedResources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateLinkScopedResource"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceEntityStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccessForIngestion",
+   "name": "PublicNetworkAccessForIngestion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccessType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccessForQuery",
+   "name": "PublicNetworkAccessForQuery",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccessType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionInDays",
+   "name": "RetentionInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceSku"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspaceCapping",
+   "name": "WorkspaceCapping",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceCapping"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

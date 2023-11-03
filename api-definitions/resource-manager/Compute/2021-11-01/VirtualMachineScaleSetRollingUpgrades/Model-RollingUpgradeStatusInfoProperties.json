@@ -1,0 +1,49 @@
+{
+ "name": "RollingUpgradeStatusInfoProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiError"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policy",
+   "name": "Policy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingUpgradePolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "progress",
+   "name": "Progress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingUpgradeProgressInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runningStatus",
+   "name": "RunningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingUpgradeRunningStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

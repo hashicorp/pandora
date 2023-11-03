@@ -1,0 +1,27 @@
+{
+ "name": "Webhook",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventType",
+   "name": "EventType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "webhookType",
+   "name": "WebhookType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebhookType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

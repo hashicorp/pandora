@@ -1,0 +1,15 @@
+{
+ "name": "GetInstanceProcessDump",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "InstanceProcessId",
+ "responseObject": {
+  "type": "RawFile",
+  "referenceName": null
+ },
+ "uriSuffix": "/dump"
+}

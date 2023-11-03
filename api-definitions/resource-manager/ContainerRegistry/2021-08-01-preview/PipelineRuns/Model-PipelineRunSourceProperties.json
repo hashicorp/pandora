@@ -1,0 +1,27 @@
+{
+ "name": "PipelineRunSourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PipelineRunSourceType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

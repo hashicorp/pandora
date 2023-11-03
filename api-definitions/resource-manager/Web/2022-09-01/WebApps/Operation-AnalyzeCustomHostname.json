@@ -1,0 +1,27 @@
+{
+ "name": "AnalyzeCustomHostname",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "hostName",
+   "required": false,
+   "field": "HostName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AppServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomHostnameAnalysisResult"
+ },
+ "uriSuffix": "/analyzeCustomHostname"
+}

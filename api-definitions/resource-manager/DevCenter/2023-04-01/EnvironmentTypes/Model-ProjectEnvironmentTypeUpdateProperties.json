@@ -1,0 +1,53 @@
+{
+ "name": "ProjectEnvironmentTypeUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creatorRoleAssignment",
+   "name": "CreatorRoleAssignment",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deploymentTargetId",
+   "name": "DeploymentTargetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnvironmentTypeEnableStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userRoleAssignments",
+   "name": "UserRoleAssignments",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UserRoleAssignment"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

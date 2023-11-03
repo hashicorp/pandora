@@ -1,0 +1,49 @@
+{
+ "name": "ComputeStartStopSchedule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputePowerAction"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStatus",
+   "name": "ProvisioningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduleBase"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

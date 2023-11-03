@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedInformationProtectionPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "InformationProtectionPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "InformationProtectionPolicy"
+ }
+}

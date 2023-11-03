@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ArtifactSourceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ArtifactSource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ArtifactSource"
+ }
+}

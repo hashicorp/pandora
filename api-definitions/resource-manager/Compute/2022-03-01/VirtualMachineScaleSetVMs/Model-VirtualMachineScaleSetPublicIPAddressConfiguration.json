@@ -1,0 +1,38 @@
+{
+ "name": "VirtualMachineScaleSetPublicIPAddressConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetPublicIPAddressConfigurationProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicIPAddressSku"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

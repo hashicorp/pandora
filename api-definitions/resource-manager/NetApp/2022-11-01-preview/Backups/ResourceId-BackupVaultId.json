@@ -1,0 +1,52 @@
+{
+ "name": "BackupVaultId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.NetApp/netAppAccounts/{netAppAccountName}/backupVaults/{backupVaultName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftNetApp",
+   "type": "ResourceProvider",
+   "value": "Microsoft.NetApp"
+  },
+  {
+   "name": "staticNetAppAccounts",
+   "type": "Static",
+   "value": "netAppAccounts"
+  },
+  {
+   "name": "netAppAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticBackupVaults",
+   "type": "Static",
+   "value": "backupVaults"
+  },
+  {
+   "name": "backupVaultName",
+   "type": "UserSpecified"
+  }
+ ]
+}

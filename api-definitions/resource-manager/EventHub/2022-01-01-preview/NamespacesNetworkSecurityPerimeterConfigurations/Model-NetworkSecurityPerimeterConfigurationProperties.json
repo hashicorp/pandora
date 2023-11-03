@@ -1,0 +1,64 @@
+{
+ "name": "NetworkSecurityPerimeterConfigurationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkSecurityPerimeter",
+   "name": "NetworkSecurityPerimeter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityPerimeter"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "profile",
+   "name": "Profile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesProfile"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningIssues",
+   "name": "ProvisioningIssues",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ProvisioningIssue"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityPerimeterConfigurationProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceAssociation",
+   "name": "ResourceAssociation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityPerimeterConfigurationPropertiesResourceAssociation"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

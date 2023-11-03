@@ -1,0 +1,31 @@
+{
+ "name": "IngestionPolicyPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingestionSources",
+   "name": "IngestionSources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IngestionSourcesPropertiesFormat"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingestionType",
+   "name": "IngestionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IngestionType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

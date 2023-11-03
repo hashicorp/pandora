@@ -1,0 +1,62 @@
+{
+ "name": "AzureStorageContainer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "acquireStorageAccountLock",
+   "name": "AcquireStorageAccountLock",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AcquireStorageAccountLock"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectedItemCount",
+   "name": "ProtectedItemCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGroup",
+   "name": "ResourceGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountVersion",
+   "name": "StorageAccountVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ProtectionContainer",
+ "discriminatedTypeValue": "StorageContainer"
+}

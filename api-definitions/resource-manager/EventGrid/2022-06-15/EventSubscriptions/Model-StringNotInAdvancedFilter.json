@@ -1,0 +1,22 @@
+{
+ "name": "StringNotInAdvancedFilter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "values",
+   "name": "Values",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "AdvancedFilter",
+ "discriminatedTypeValue": "StringNotIn"
+}

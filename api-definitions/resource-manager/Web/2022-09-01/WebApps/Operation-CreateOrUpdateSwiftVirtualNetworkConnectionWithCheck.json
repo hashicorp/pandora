@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateSwiftVirtualNetworkConnectionWithCheck",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SwiftVirtualNetwork"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SwiftVirtualNetwork"
+ },
+ "uriSuffix": "/networkConfig/virtualNetwork"
+}

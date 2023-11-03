@@ -1,0 +1,15 @@
+{
+ "name": "GetLogs",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DeploymentScriptId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ScriptLogsList"
+ },
+ "uriSuffix": "/logs"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "UserAssignedIdentitiesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "UserAssignedIdentityId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Identity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Identity"
+ }
+}

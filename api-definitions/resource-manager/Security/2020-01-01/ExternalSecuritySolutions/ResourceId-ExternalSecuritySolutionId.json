@@ -1,0 +1,52 @@
+{
+ "name": "ExternalSecuritySolutionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/locations/{locationName}/externalSecuritySolutions/{externalSecuritySolutionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticLocations",
+   "type": "Static",
+   "value": "locations"
+  },
+  {
+   "name": "locationName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticExternalSecuritySolutions",
+   "type": "Static",
+   "value": "externalSecuritySolutions"
+  },
+  {
+   "name": "externalSecuritySolutionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

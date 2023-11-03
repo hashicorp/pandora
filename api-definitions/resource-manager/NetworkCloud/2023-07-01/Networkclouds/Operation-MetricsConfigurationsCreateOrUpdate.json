@@ -1,0 +1,19 @@
+{
+ "name": "MetricsConfigurationsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "MetricsConfigurationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMetricsConfiguration"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMetricsConfiguration"
+ }
+}

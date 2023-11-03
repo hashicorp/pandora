@@ -1,0 +1,15 @@
+{
+ "name": "ComputeUpdateIdleShutdownSetting",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ComputeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IdleShutdownSetting"
+ },
+ "uriSuffix": "/updateIdleShutdownSetting"
+}

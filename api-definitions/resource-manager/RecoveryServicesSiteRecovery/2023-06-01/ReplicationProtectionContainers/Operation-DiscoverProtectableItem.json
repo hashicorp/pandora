@@ -1,0 +1,20 @@
+{
+ "name": "DiscoverProtectableItem",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ReplicationProtectionContainerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DiscoverProtectableItemRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProtectionContainer"
+ },
+ "uriSuffix": "/discoverProtectableItem"
+}

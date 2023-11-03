@@ -1,0 +1,114 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "Description",
+				"sdkModelName": "ProjectProperties",
+				"sdkFieldPath": "Description"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "DevCenterId",
+				"sdkModelName": "ProjectProperties",
+				"sdkFieldPath": "DevCenterId"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "DevCenterUri",
+				"sdkModelName": "ProjectProperties",
+				"sdkFieldPath": "DevCenterUri"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "Location",
+				"sdkModelName": "Project",
+				"sdkFieldPath": "Location"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "MaximumDevBoxesPerUser",
+				"sdkModelName": "ProjectProperties",
+				"sdkFieldPath": "MaxDevBoxesPerUser"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "MaximumDevBoxesPerUser",
+				"sdkModelName": "ProjectUpdateProperties",
+				"sdkFieldPath": "MaxDevBoxesPerUser"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "Project",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterProjectResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "ProjectUpdate",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "DevCenterProjectResource",
+				"sdkModelName": "Project",
+				"sdkFieldName": "Properties"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "DevCenterProjectResource",
+				"sdkModelName": "ProjectUpdate",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "DevCenterProjectResource",
+			"sdkModelName": "Project"
+		},
+		{
+			"schemaModelName": "DevCenterProjectResource",
+			"sdkModelName": "ProjectUpdate"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "projectName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "ResourceGroupName",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

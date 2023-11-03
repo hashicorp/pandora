@@ -1,0 +1,15 @@
+{
+ "name": "Restore",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ShareId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DeletedShare"
+ },
+ "uriSuffix": "/restore"
+}

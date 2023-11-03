@@ -1,0 +1,15 @@
+{
+ "name": "SettingsGet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServerDevOpsAuditingSettings"
+ },
+ "uriSuffix": "/devOpsAuditingSettings/default"
+}

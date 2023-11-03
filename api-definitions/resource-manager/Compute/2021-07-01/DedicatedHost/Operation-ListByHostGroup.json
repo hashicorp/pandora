@@ -1,0 +1,16 @@
+{
+ "name": "ListByHostGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "HostGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DedicatedHost"
+ },
+ "uriSuffix": "/hosts"
+}

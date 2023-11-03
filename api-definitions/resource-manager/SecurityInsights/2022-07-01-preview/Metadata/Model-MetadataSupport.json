@@ -1,0 +1,49 @@
+{
+ "name": "MetadataSupport",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "email",
+   "name": "Email",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "link",
+   "name": "Link",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tier",
+   "name": "Tier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SupportTier"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

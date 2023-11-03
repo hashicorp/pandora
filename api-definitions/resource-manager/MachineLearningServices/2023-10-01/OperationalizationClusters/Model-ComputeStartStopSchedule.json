@@ -1,0 +1,93 @@
+{
+ "name": "ComputeStartStopSchedule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputePowerAction"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cron",
+   "name": "Cron",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Cron"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStatus",
+   "name": "ProvisioningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recurrence",
+   "name": "Recurrence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Recurrence"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduleBase"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduleStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "triggerType",
+   "name": "TriggerType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeTriggerType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

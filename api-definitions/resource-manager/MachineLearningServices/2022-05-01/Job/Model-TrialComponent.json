@@ -1,0 +1,75 @@
+{
+ "name": "TrialComponent",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "codeId",
+   "name": "CodeId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "command",
+   "name": "Command",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "distribution",
+   "name": "Distribution",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DistributionConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentId",
+   "name": "EnvironmentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentVariables",
+   "name": "EnvironmentVariables",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resources",
+   "name": "Resources",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

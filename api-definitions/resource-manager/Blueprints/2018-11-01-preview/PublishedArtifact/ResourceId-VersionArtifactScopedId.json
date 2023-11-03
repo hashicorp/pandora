@@ -1,0 +1,47 @@
+{
+ "name": "VersionArtifactScopedId",
+ "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}/artifacts/{artifactName}",
+ "segments": [
+  {
+   "name": "resourceScope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBlueprint",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Blueprint"
+  },
+  {
+   "name": "staticBlueprints",
+   "type": "Static",
+   "value": "blueprints"
+  },
+  {
+   "name": "blueprintName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVersions",
+   "type": "Static",
+   "value": "versions"
+  },
+  {
+   "name": "versionId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticArtifacts",
+   "type": "Static",
+   "value": "artifacts"
+  },
+  {
+   "name": "artifactName",
+   "type": "UserSpecified"
+  }
+ ]
+}

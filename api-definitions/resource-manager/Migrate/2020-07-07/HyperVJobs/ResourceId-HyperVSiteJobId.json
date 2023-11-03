@@ -1,0 +1,53 @@
+{
+ "name": "HyperVSiteJobId",
+ "commonAlias": "HyperVSiteJob",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/hyperVSites/{hyperVSiteName}/jobs/{jobName}",
+ "segments": [
+  {
+   "name": "subscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "resourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "providers",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "resourceProvider",
+   "type": "ResourceProvider",
+   "value": "Microsoft.OffAzure"
+  },
+  {
+   "name": "hyperVSites",
+   "type": "Static",
+   "value": "hyperVSites"
+  },
+  {
+   "name": "hyperVSiteName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "jobs",
+   "type": "Static",
+   "value": "jobs"
+  },
+  {
+   "name": "jobName",
+   "type": "UserSpecified"
+  }
+ ]
+}

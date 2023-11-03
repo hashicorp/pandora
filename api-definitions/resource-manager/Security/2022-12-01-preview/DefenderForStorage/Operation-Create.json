@@ -1,0 +1,20 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DefenderForStorageSetting"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DefenderForStorageSetting"
+ },
+ "uriSuffix": "/providers/Microsoft.Security/defenderForStorageSettings/current"
+}

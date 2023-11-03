@@ -1,0 +1,38 @@
+{
+ "name": "BlobReferenceForConsumptionDto",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobUri",
+   "name": "BlobUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credential",
+   "name": "Credential",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PendingUploadCredentialDto"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountArmId",
+   "name": "StorageAccountArmId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

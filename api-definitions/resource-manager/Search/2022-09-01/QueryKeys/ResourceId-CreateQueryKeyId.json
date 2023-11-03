@@ -1,0 +1,52 @@
+{
+ "name": "CreateQueryKeyId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}/createQueryKey/{createQueryKeyName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSearch",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Search"
+  },
+  {
+   "name": "staticSearchServices",
+   "type": "Static",
+   "value": "searchServices"
+  },
+  {
+   "name": "searchServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticCreateQueryKey",
+   "type": "Static",
+   "value": "createQueryKey"
+  },
+  {
+   "name": "createQueryKeyName",
+   "type": "UserSpecified"
+  }
+ ]
+}

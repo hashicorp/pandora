@@ -1,0 +1,42 @@
+{
+ "name": "FunctionConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "binding",
+   "name": "Binding",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionBinding"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputs",
+   "name": "Inputs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FunctionInput"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "output",
+   "name": "Output",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionOutput"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

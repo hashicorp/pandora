@@ -1,0 +1,16 @@
+{
+ "name": "ListByRule",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DataCollectionRuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataCollectionRuleAssociationProxyOnlyResource"
+ },
+ "uriSuffix": "/associations"
+}

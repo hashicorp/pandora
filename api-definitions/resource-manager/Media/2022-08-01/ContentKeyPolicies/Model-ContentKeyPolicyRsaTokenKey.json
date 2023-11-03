@@ -1,0 +1,29 @@
+{
+ "name": "ContentKeyPolicyRsaTokenKey",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exponent",
+   "name": "Exponent",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "modulus",
+   "name": "Modulus",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
+ "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey"
+}

@@ -1,0 +1,28 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "sharedTo",
+   "required": false,
+   "field": "SharedTo",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "SharedToValues"
+   }
+  }
+ ],
+ "resourceIdName": "SharedGalleryId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharedGalleryImage"
+ },
+ "uriSuffix": "/images"
+}

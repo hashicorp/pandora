@@ -1,0 +1,49 @@
+{
+ "name": "FacetRequestOptions",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sortBy",
+   "name": "SortBy",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sortOrder",
+   "name": "SortOrder",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FacetSortOrder"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "$top",
+   "name": "Top",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

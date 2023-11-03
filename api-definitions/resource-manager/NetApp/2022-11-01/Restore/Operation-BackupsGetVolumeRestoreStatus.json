@@ -1,0 +1,15 @@
+{
+ "name": "BackupsGetVolumeRestoreStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VolumeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RestoreStatus"
+ },
+ "uriSuffix": "/restoreStatus"
+}

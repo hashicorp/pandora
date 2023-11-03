@@ -1,0 +1,20 @@
+{
+ "name": "WorkItemConfigurationsListResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "WorkItemConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

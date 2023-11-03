@@ -1,0 +1,16 @@
+{
+ "name": "ListByCapacityReservationGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "CapacityReservationGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CapacityReservation"
+ },
+ "uriSuffix": "/capacityReservations"
+}

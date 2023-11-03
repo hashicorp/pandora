@@ -1,0 +1,19 @@
+{
+ "name": "ActivityLogAlertsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ActivityLogAlertId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ActivityLogAlertResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActivityLogAlertResource"
+ }
+}

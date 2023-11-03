@@ -1,0 +1,16 @@
+{
+ "name": "CreateIdentity",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ArcSettingId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ArcIdentityResponse"
+ },
+ "uriSuffix": "/createArcIdentity"
+}

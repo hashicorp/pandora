@@ -1,0 +1,16 @@
+{
+ "name": "Disable",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ManagedInstanceDatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedLedgerDigestUploads"
+ },
+ "uriSuffix": "/ledgerDigestUploads/current/disable"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "MapperPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recurrence",
+   "name": "Recurrence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MapperPolicyRecurrence"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

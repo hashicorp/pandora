@@ -1,0 +1,24 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204,
+  202,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "DnsZoneId"
+}

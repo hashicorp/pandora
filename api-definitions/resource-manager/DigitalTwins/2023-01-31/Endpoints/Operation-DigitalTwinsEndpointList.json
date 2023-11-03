@@ -1,0 +1,16 @@
+{
+ "name": "DigitalTwinsEndpointList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DigitalTwinsInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DigitalTwinsEndpointResource"
+ },
+ "uriSuffix": "/endpoints"
+}

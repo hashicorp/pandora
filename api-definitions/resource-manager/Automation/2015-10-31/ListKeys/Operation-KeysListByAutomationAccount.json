@@ -1,0 +1,15 @@
+{
+ "name": "KeysListByAutomationAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AutomationAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KeyListResult"
+ },
+ "uriSuffix": "/listKeys"
+}

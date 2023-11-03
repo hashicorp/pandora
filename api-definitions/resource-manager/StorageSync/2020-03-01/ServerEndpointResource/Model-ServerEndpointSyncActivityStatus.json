@@ -1,0 +1,83 @@
+{
+ "name": "ServerEndpointSyncActivityStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appliedBytes",
+   "name": "AppliedBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appliedItemCount",
+   "name": "AppliedItemCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "perItemErrorCount",
+   "name": "PerItemErrorCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "syncMode",
+   "name": "SyncMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timestamp",
+   "name": "Timestamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalBytes",
+   "name": "TotalBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalItemCount",
+   "name": "TotalItemCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,32 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "PolicyFragmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PolicyFragmentContract"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PolicyFragmentContract"
+ }
+}

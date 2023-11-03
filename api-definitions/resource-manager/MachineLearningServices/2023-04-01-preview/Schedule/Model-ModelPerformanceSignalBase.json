@@ -1,0 +1,51 @@
+{
+ "name": "ModelPerformanceSignalBase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baselineData",
+   "name": "BaselineData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSegment",
+   "name": "DataSegment",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringDataSegment"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricThreshold",
+   "name": "MetricThreshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ModelPerformanceMetricThresholdBase"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetData",
+   "name": "TargetData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "MonitoringSignalBase",
+ "discriminatedTypeValue": "ModelPerformance"
+}

@@ -1,0 +1,87 @@
+{
+ "name": "RestorePointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "consistencyMode",
+   "name": "ConsistencyMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConsistencyModeTypes"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludeDisks",
+   "name": "ExcludeDisks",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApiEntityReference"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceView",
+   "name": "InstanceView",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestorePointInstanceView"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceMetadata",
+   "name": "SourceMetadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestorePointSourceMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceRestorePoint",
+   "name": "SourceRestorePoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiEntityReference"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeCreated",
+   "name": "TimeCreated",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

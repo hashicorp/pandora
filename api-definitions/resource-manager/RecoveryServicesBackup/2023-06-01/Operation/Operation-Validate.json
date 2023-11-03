@@ -1,0 +1,19 @@
+{
+ "name": "Validate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "VaultId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ValidateOperationRequestResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ValidateOperationsResponse"
+ },
+ "uriSuffix": "/backupValidateOperation"
+}

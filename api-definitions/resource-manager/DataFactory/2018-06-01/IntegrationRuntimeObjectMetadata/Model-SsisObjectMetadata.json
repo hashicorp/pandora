@@ -1,0 +1,49 @@
+{
+ "name": "SsisObjectMetadata",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SsisObjectMetadataType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

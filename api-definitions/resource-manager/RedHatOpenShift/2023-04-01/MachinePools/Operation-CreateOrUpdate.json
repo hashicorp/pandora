@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "MachinePoolId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MachinePool"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MachinePool"
+ }
+}

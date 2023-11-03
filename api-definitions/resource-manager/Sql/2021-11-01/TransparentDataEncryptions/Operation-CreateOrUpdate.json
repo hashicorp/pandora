@@ -1,0 +1,21 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  202,
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LogicalDatabaseTransparentDataEncryption"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LogicalDatabaseTransparentDataEncryption"
+ },
+ "uriSuffix": "/transparentDataEncryption/current"
+}

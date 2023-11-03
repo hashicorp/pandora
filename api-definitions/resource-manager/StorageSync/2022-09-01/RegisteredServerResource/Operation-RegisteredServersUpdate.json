@@ -1,0 +1,19 @@
+{
+ "name": "RegisteredServersUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "RegisteredServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegisteredServerUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegisteredServer"
+ }
+}

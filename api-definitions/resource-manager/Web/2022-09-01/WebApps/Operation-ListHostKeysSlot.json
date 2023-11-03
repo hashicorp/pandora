@@ -1,0 +1,15 @@
+{
+ "name": "ListHostKeysSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SlotId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HostKeys"
+ },
+ "uriSuffix": "/host/default/listKeys"
+}

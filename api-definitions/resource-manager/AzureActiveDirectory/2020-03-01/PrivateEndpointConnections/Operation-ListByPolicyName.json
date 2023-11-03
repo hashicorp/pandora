@@ -1,0 +1,16 @@
+{
+ "name": "ListByPolicyName",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "PrivateLinkForAzureAdId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnection"
+ },
+ "uriSuffix": "/privateEndpointConnections"
+}

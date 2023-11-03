@@ -1,0 +1,16 @@
+{
+ "name": "UnderVolumeMigrateBackups",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VolumeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupsMigrationRequest"
+ },
+ "uriSuffix": "/migrateBackups"
+}

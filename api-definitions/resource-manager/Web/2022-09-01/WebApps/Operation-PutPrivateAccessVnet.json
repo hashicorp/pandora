@@ -1,0 +1,19 @@
+{
+ "name": "PutPrivateAccessVnet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateAccess"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateAccess"
+ },
+ "uriSuffix": "/privateAccess/virtualNetworks"
+}

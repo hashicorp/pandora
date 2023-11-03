@@ -1,0 +1,20 @@
+{
+ "name": "RenewCertificate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ReplicationFabricId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RenewCertificateInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Fabric"
+ },
+ "uriSuffix": "/renewCertificate"
+}

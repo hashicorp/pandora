@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtResource",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedAttestationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Attestation"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Attestation"
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ManagedInstanceRestorableDroppedDatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedBackupShortTermRetentionPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedBackupShortTermRetentionPolicy"
+ },
+ "uriSuffix": "/backupShortTermRetentionPolicies/default"
+}

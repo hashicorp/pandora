@@ -1,0 +1,15 @@
+{
+ "name": "ListByAlertRule",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AlertRuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IncidentListResult"
+ },
+ "uriSuffix": "/incidents"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "InfrastructureConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appResourceGroup",
+   "name": "AppResourceGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "deploymentType",
+   "name": "DeploymentType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SAPDeploymentType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

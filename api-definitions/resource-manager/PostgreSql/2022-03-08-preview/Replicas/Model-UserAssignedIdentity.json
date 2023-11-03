@@ -1,0 +1,31 @@
+{
+ "name": "UserAssignedIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userAssignedIdentities",
+   "name": "UserAssignedIdentities",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UserIdentity"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

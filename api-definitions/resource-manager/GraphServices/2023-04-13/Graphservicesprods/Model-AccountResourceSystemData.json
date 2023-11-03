@@ -1,0 +1,51 @@
+{
+ "name": "AccountResourceSystemData",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdAt",
+   "name": "CreatedAt",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdByType",
+   "name": "CreatedByType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreatedByType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedAt",
+   "name": "LastModifiedAt",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedByType",
+   "name": "LastModifiedByType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreatedByType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "name": "BastionHostIPConfigurationPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIPAllocationMethod",
+   "name": "PrivateIPAllocationMethod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAllocationMethod"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPAddress",
+   "name": "PublicIPAddress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "name": "VolumePropertiesDataProtection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backup",
+   "name": "Backup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VolumeBackupProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replication",
+   "name": "Replication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationObject"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "snapshot",
+   "name": "Snapshot",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VolumeSnapshotProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

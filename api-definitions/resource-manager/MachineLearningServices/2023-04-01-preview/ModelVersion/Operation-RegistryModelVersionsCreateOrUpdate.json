@@ -1,0 +1,19 @@
+{
+ "name": "RegistryModelVersionsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "RegistryModelVersionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ModelVersionResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ModelVersionResource"
+ }
+}

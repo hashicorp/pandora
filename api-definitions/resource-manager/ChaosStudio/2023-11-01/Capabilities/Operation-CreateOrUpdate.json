@@ -1,0 +1,18 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedCapabilityId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Capability"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Capability"
+ }
+}

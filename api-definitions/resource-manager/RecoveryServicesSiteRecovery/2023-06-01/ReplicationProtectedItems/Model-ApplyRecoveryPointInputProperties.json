@@ -1,0 +1,27 @@
+{
+ "name": "ApplyRecoveryPointInputProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerSpecificDetails",
+   "name": "ProviderSpecificDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplyRecoveryPointProviderSpecificInput"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

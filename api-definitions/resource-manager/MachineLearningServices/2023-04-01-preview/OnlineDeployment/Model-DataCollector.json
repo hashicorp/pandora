@@ -1,0 +1,42 @@
+{
+ "name": "DataCollector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "collections",
+   "name": "Collections",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Collection"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requestLogging",
+   "name": "RequestLogging",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RequestLogging"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rollingRate",
+   "name": "RollingRate",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingRateType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

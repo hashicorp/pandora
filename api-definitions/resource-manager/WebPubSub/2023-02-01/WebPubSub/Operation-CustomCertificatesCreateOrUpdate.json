@@ -1,0 +1,19 @@
+{
+ "name": "CustomCertificatesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CustomCertificateId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CustomCertificate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomCertificate"
+ }
+}

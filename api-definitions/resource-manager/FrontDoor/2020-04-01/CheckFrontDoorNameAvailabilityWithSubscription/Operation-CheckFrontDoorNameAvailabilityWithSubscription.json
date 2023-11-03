@@ -1,0 +1,19 @@
+{
+ "name": "CheckFrontDoorNameAvailabilityWithSubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityOutput"
+ },
+ "uriSuffix": "/providers/Microsoft.Network/checkFrontDoorNameAvailability"
+}

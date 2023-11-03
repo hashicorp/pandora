@@ -1,0 +1,27 @@
+{
+ "name": "LoggingProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "auditLogStatus",
+   "name": "AuditLogStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuditLogStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logLevel",
+   "name": "LogLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogLevel"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

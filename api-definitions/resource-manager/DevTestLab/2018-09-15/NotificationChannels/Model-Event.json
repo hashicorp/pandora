@@ -1,0 +1,16 @@
+{
+ "name": "Event",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventName",
+   "name": "EventName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationChannelEventType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

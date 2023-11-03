@@ -1,0 +1,29 @@
+{
+ "name": "ThrottlingPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricId",
+   "name": "MetricId",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MetricId"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rateLimitThreshold",
+   "name": "RateLimitThreshold",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ApplicationGroupPolicy",
+ "discriminatedTypeValue": "ThrottlingPolicy"
+}

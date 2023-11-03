@@ -1,0 +1,19 @@
+{
+ "name": "ListVnetConnectionsSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "VnetInfoResource"
+  }
+ },
+ "uriSuffix": "/virtualNetworkConnections"
+}

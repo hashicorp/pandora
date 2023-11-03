@@ -1,0 +1,108 @@
+{
+ "name": "FirewallResourceUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "associatedRulestack",
+   "name": "AssociatedRulestack",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RulestackDetails"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsSettings",
+   "name": "DnsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DNSSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontEndSettings",
+   "name": "FrontEndSettings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FrontendSetting"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isPanoramaManaged",
+   "name": "IsPanoramaManaged",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BooleanEnum"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "marketplaceDetails",
+   "name": "MarketplaceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MarketplaceDetails"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkProfile",
+   "name": "NetworkProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkProfile"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "panEtag",
+   "name": "PanEtag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "panoramaConfig",
+   "name": "PanoramaConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PanoramaConfig"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "planData",
+   "name": "PlanData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlanData"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

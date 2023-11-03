@@ -1,0 +1,16 @@
+{
+ "name": "ServicesEnableApmGlobally",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SpringId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApmReference"
+ },
+ "uriSuffix": "/enableApmGlobally"
+}

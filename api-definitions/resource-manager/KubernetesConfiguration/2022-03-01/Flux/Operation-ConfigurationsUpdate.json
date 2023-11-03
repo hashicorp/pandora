@@ -1,0 +1,19 @@
+{
+ "name": "ConfigurationsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ScopedFluxConfigurationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "FluxConfigurationPatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FluxConfiguration"
+ }
+}

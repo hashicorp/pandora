@@ -1,0 +1,15 @@
+{
+ "name": "GetMonitoringStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ClusterId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterMonitoringResponse"
+ },
+ "uriSuffix": "/extensions/clustermonitoring"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ProjectsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Project"
+ },
+ "uriSuffix": "/projects"
+}

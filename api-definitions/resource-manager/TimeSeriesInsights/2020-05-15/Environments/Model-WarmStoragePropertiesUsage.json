@@ -1,0 +1,27 @@
+{
+ "name": "WarmStoragePropertiesUsage",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WarmStoragePropertiesState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "stateDetails",
+   "name": "StateDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WarmStoragePropertiesUsageStateDetails"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

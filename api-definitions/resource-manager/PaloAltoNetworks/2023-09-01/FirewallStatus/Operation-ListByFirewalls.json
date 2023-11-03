@@ -1,0 +1,16 @@
+{
+ "name": "ListByFirewalls",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "FirewallId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FirewallStatusResource"
+ },
+ "uriSuffix": "/statuses"
+}

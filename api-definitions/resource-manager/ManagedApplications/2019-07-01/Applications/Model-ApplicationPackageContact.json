@@ -1,0 +1,38 @@
+{
+ "name": "ApplicationPackageContact",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactName",
+   "name": "ContactName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "email",
+   "name": "Email",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "phone",
+   "name": "Phone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

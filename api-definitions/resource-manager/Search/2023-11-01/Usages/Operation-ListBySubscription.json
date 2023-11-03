@@ -1,0 +1,28 @@
+{
+ "name": "ListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "x-ms-client-request-id",
+   "optional": true,
+   "required": false,
+   "field": "XMsClientRequestId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LocationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "QuotaUsageResult"
+ },
+ "uriSuffix": "/usages"
+}

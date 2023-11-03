@@ -1,0 +1,19 @@
+{
+ "name": "UpdateExtendedInformation",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "DataBoxEdgeDeviceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataBoxEdgeDeviceExtendedInfoPatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataBoxEdgeDeviceExtendedInfo"
+ },
+ "uriSuffix": "/updateExtendedInformation"
+}

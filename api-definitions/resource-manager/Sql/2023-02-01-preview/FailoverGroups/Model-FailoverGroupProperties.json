@@ -1,0 +1,79 @@
+{
+ "name": "FailoverGroupProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databases",
+   "name": "Databases",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "partnerServers",
+   "name": "PartnerServers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PartnerInfo"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readOnlyEndpoint",
+   "name": "ReadOnlyEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FailoverGroupReadOnlyEndpoint"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readWriteEndpoint",
+   "name": "ReadWriteEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FailoverGroupReadWriteEndpoint"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationRole",
+   "name": "ReplicationRole",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FailoverGroupReplicationRole"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationState",
+   "name": "ReplicationState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

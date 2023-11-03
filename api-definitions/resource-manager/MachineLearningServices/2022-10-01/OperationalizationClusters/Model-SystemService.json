@@ -1,0 +1,38 @@
+{
+ "name": "SystemService",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIpAddress",
+   "name": "PublicIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "systemServiceType",
+   "name": "SystemServiceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

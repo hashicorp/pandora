@@ -1,0 +1,27 @@
+{
+ "name": "VirtualNetworkRuleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnetId",
+   "name": "SubnetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkRuleState",
+   "name": "VirtualNetworkRuleState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkRuleState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

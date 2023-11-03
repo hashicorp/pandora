@@ -1,0 +1,35 @@
+{
+ "name": "IncidentEntitiesResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "entities",
+   "name": "Entities",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Entity"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metaData",
+   "name": "MetaData",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IncidentEntitiesResultsMetadata"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

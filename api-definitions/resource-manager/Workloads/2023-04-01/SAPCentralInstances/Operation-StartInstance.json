@@ -1,0 +1,16 @@
+{
+ "name": "StartInstance",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CentralInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OperationStatusResult"
+ },
+ "uriSuffix": "/start"
+}

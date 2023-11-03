@@ -1,0 +1,49 @@
+{
+ "name": "VnetConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipOfTrustSubnetForUdr",
+   "name": "IPOfTrustSubnetForUdr",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAddress"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trustSubnet",
+   "name": "TrustSubnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAddressSpace"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unTrustSubnet",
+   "name": "UnTrustSubnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAddressSpace"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vnet",
+   "name": "Vnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAddressSpace"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

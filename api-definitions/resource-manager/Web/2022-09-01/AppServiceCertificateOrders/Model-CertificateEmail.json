@@ -1,0 +1,28 @@
+{
+ "name": "CertificateEmail",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "emailId",
+   "name": "EmailId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeStamp",
+   "name": "TimeStamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

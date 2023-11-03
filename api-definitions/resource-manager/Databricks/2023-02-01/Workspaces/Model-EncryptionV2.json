@@ -1,0 +1,27 @@
+{
+ "name": "EncryptionV2",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keySource",
+   "name": "KeySource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionKeySource"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionV2KeyVaultProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "name": "Archive",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AmlFilesystemId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AmlFilesystemArchiveInfo"
+ },
+ "uriSuffix": "/archive"
+}

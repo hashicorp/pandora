@@ -1,0 +1,60 @@
+{
+ "name": "DataMapperMapping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attributeMappingInfo",
+   "name": "AttributeMappingInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MapperAttributeMappings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceConnectionReference",
+   "name": "SourceConnectionReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MapperConnectionReference"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDenormalizeInfo",
+   "name": "SourceDenormalizeInfo",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceEntityName",
+   "name": "SourceEntityName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetEntityName",
+   "name": "TargetEntityName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

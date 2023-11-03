@@ -1,0 +1,15 @@
+{
+ "name": "GetSiteUsage",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "VMwareSiteId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VMwareSiteUsage"
+ },
+ "uriSuffix": "/summary"
+}

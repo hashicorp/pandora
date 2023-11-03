@@ -1,0 +1,29 @@
+{
+ "name": "DataImport",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "assetName",
+   "name": "AssetName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "source",
+   "name": "Source",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataImportSource"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataVersionBase",
+ "discriminatedTypeValue": "uri_folder"
+}

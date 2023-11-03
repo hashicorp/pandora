@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RediId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RedisRegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RedisAccessKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

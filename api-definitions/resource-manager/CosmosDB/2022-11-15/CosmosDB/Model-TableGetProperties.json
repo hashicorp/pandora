@@ -1,0 +1,27 @@
+{
+ "name": "TableGetProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "options",
+   "name": "Options",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OptionsResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resource",
+   "name": "Resource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TableGetPropertiesResource"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

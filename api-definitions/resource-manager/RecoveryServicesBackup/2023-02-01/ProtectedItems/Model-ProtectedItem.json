@@ -1,0 +1,209 @@
+{
+ "name": "ProtectedItem",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupManagementType",
+   "name": "BackupManagementType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackupManagementType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupSetName",
+   "name": "BackupSetName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerName",
+   "name": "ContainerName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createMode",
+   "name": "CreateMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreateMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deferredDeleteTimeInUTC",
+   "name": "DeferredDeleteTimeInUTC",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deferredDeleteTimeRemaining",
+   "name": "DeferredDeleteTimeRemaining",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isArchiveEnabled",
+   "name": "IsArchiveEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isDeferredDeleteScheduleUpcoming",
+   "name": "IsDeferredDeleteScheduleUpcoming",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isRehydrate",
+   "name": "IsRehydrate",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isScheduledForDeferredDelete",
+   "name": "IsScheduledForDeferredDelete",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastRecoveryPoint",
+   "name": "LastRecoveryPoint",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyId",
+   "name": "PolicyId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyName",
+   "name": "PolicyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "protectedItemType",
+   "name": "ProtectedItemType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuardOperationRequests",
+   "name": "ResourceGuardOperationRequests",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softDeleteRetentionPeriodInDays",
+   "name": "SoftDeleteRetentionPeriodInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workloadType",
+   "name": "WorkloadType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataSourceType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

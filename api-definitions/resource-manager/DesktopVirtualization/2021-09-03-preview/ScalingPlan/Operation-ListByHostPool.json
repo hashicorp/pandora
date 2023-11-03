@@ -1,0 +1,16 @@
+{
+ "name": "ListByHostPool",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "HostPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ScalingPlan"
+ },
+ "uriSuffix": "/scalingPlans"
+}

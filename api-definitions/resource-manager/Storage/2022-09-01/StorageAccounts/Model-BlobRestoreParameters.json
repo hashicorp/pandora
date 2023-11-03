@@ -1,0 +1,32 @@
+{
+ "name": "BlobRestoreParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobRanges",
+   "name": "BlobRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BlobRestoreRange"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeToRestore",
+   "name": "TimeToRestore",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

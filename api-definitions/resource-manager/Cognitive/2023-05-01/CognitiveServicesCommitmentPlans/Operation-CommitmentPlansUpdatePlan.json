@@ -1,0 +1,19 @@
+{
+ "name": "CommitmentPlansUpdatePlan",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CommitmentPlanId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PatchResourceTagsAndSku"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CommitmentPlan"
+ }
+}

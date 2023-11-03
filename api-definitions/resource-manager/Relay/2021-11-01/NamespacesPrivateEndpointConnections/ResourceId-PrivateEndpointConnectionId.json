@@ -1,0 +1,52 @@
+{
+ "name": "PrivateEndpointConnectionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Relay/namespaces/{namespaceName}/privateEndpointConnections/{privateEndpointConnectionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftRelay",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Relay"
+  },
+  {
+   "name": "staticNamespaces",
+   "type": "Static",
+   "value": "namespaces"
+  },
+  {
+   "name": "namespaceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticPrivateEndpointConnections",
+   "type": "Static",
+   "value": "privateEndpointConnections"
+  },
+  {
+   "name": "privateEndpointConnectionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

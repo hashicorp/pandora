@@ -1,0 +1,39 @@
+{
+ "name": "CloudEndpointChangeEnumerationStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activity",
+   "name": "Activity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CloudEndpointChangeEnumerationActivity"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastEnumerationStatus",
+   "name": "LastEnumerationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CloudEndpointLastChangeEnumerationStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdatedTimestamp",
+   "name": "LastUpdatedTimestamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

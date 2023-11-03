@@ -1,0 +1,38 @@
+{
+ "name": "OrchestratorProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isPreview",
+   "name": "IsPreview",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orchestratorType",
+   "name": "OrchestratorType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orchestratorVersion",
+   "name": "OrchestratorVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

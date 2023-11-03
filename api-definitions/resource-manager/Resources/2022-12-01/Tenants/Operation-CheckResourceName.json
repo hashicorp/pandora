@@ -1,0 +1,18 @@
+{
+ "name": "CheckResourceName",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ResourceName"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckResourceNameResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Resources/checkResourceName"
+}

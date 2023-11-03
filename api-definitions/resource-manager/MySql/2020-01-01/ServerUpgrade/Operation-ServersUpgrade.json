@@ -1,0 +1,16 @@
+{
+ "name": "ServersUpgrade",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServerUpgradeParameters"
+ },
+ "uriSuffix": "/upgrade"
+}

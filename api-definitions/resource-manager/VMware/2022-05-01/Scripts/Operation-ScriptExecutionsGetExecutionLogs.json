@@ -1,0 +1,23 @@
+{
+ "name": "ScriptExecutionsGetExecutionLogs",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ScriptExecutionId",
+ "requestObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "ScriptOutputStreamType"
+  }
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ScriptExecution"
+ },
+ "uriSuffix": "/getExecutionLogs"
+}

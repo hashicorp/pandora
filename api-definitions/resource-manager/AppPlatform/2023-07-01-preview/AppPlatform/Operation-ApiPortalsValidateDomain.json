@@ -1,0 +1,19 @@
+{
+ "name": "ApiPortalsValidateDomain",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ApiPortalId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CustomDomainValidatePayload"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomDomainValidateResult"
+ },
+ "uriSuffix": "/validateDomain"
+}

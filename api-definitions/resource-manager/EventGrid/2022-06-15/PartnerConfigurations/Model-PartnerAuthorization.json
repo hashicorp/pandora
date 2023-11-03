@@ -1,0 +1,31 @@
+{
+ "name": "PartnerAuthorization",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizedPartnersList",
+   "name": "AuthorizedPartnersList",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Partner"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultMaximumExpirationTimeInDays",
+   "name": "DefaultMaximumExpirationTimeInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

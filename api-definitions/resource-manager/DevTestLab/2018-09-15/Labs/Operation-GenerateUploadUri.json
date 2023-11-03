@@ -1,0 +1,19 @@
+{
+ "name": "GenerateUploadUri",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LabId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GenerateUploadUriParameter"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GenerateUploadUriResponse"
+ },
+ "uriSuffix": "/generateUploadUri"
+}

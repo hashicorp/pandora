@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "AttachedDataNetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AttachedDataNetwork"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AttachedDataNetwork"
+ }
+}

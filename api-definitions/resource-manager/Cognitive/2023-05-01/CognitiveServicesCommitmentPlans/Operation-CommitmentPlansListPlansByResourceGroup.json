@@ -1,0 +1,16 @@
+{
+ "name": "CommitmentPlansListPlansByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CommitmentPlan"
+ },
+ "uriSuffix": "/providers/Microsoft.CognitiveServices/commitmentPlans"
+}

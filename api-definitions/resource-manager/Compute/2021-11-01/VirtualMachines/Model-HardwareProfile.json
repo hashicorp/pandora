@@ -1,0 +1,27 @@
+{
+ "name": "HardwareProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSize",
+   "name": "VMSize",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineSizeTypes"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSizeProperties",
+   "name": "VMSizeProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VMSizeProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

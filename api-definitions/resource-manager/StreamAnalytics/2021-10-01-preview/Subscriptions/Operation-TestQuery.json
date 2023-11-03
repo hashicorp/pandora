@@ -1,0 +1,20 @@
+{
+ "name": "TestQuery",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TestQuery"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "QueryTestingResult"
+ },
+ "uriSuffix": "/testQuery"
+}

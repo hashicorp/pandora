@@ -1,0 +1,19 @@
+{
+ "name": "UpdateAseNetworkingConfiguration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceEnvironmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AseV3NetworkingConfiguration"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AseV3NetworkingConfiguration"
+ },
+ "uriSuffix": "/configurations/networking"
+}

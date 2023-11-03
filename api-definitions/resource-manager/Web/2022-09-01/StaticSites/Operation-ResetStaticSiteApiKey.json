@@ -1,0 +1,15 @@
+{
+ "name": "ResetStaticSiteApiKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "StaticSiteId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteResetPropertiesARMResource"
+ },
+ "uriSuffix": "/resetapikey"
+}

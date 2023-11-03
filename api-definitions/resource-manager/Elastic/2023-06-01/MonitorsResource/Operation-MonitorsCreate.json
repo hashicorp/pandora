@@ -1,0 +1,19 @@
+{
+ "name": "MonitorsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "MonitorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ElasticMonitorResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ElasticMonitorResource"
+ }
+}

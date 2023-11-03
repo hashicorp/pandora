@@ -1,0 +1,27 @@
+{
+ "name": "L2NetworkAttachmentConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkId",
+   "name": "NetworkId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pluginType",
+   "name": "PluginType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesPluginType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

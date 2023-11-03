@@ -1,0 +1,38 @@
+{
+ "name": "AzureBackupFindRestorableTimeRangesRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDataStoreType",
+   "name": "SourceDataStoreType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoreSourceDataStoreType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

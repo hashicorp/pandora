@@ -1,0 +1,20 @@
+{
+ "name": "ListAvailableProviders",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "NetworkWatcherId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AvailableProvidersListParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AvailableProvidersList"
+ },
+ "uriSuffix": "/availableProvidersList"
+}

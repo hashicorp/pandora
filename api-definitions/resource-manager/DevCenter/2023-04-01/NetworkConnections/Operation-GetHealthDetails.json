@@ -1,0 +1,15 @@
+{
+ "name": "GetHealthDetails",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "NetworkConnectionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HealthCheckStatusDetails"
+ },
+ "uriSuffix": "/healthChecks/latest"
+}

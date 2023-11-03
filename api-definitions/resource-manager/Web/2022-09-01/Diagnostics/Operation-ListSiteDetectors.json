@@ -1,0 +1,16 @@
+{
+ "name": "ListSiteDetectors",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DiagnosticId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DetectorDefinitionResource"
+ },
+ "uriSuffix": "/detectors"
+}

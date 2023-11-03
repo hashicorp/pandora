@@ -1,0 +1,16 @@
+{
+ "name": "DdosProtectionStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "PublicIPAddressId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PublicIPDdosProtectionStatusResult"
+ },
+ "uriSuffix": "/ddosProtectionStatus"
+}

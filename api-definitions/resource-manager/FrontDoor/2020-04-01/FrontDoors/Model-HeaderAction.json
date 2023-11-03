@@ -1,0 +1,38 @@
+{
+ "name": "HeaderAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "headerActionType",
+   "name": "HeaderActionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HeaderActionType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "headerName",
+   "name": "HeaderName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

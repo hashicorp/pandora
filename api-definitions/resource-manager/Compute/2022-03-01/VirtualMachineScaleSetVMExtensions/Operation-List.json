@@ -1,0 +1,27 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "VirtualMachineScaleSetVirtualMachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachineScaleSetVMExtensionsListResult"
+ },
+ "uriSuffix": "/extensions"
+}

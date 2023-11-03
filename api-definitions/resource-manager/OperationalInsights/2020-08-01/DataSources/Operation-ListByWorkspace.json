@@ -1,0 +1,28 @@
+{
+ "name": "ListByWorkspace",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "$filter",
+   "required": true,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "WorkspaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataSource"
+ },
+ "uriSuffix": "/dataSources"
+}

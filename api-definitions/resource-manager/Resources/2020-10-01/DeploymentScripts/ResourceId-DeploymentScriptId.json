@@ -1,0 +1,43 @@
+{
+ "name": "DeploymentScriptId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Resources/deploymentScripts/{deploymentScriptName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftResources",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Resources"
+  },
+  {
+   "name": "staticDeploymentScripts",
+   "type": "Static",
+   "value": "deploymentScripts"
+  },
+  {
+   "name": "deploymentScriptName",
+   "type": "UserSpecified"
+  }
+ ]
+}

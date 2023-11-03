@@ -1,0 +1,16 @@
+{
+ "name": "GetAllJobsInSite",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VMwareSiteId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VMwareJob"
+ },
+ "uriSuffix": "/jobs"
+}

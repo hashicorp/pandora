@@ -1,0 +1,29 @@
+{
+ "name": "RangeBasedItemLevelRestoreCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxMatchingValue",
+   "name": "MaxMatchingValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minMatchingValue",
+   "name": "MinMatchingValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ItemLevelRestoreCriteria",
+ "discriminatedTypeValue": "RangeBasedItemLevelRestoreCriteria"
+}

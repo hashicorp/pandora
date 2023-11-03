@@ -1,0 +1,51 @@
+{
+ "name": "ThresholdRuleCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConditionOperator"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeAggregation",
+   "name": "TimeAggregation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TimeAggregationOperator"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowSize",
+   "name": "WindowSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RuleCondition",
+ "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.ThresholdRuleCondition"
+}

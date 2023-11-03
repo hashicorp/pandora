@@ -1,0 +1,19 @@
+{
+ "name": "BuildServiceAgentPoolUpdatePut",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "AgentPoolId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BuildServiceAgentPoolResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BuildServiceAgentPoolResource"
+ }
+}

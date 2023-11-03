@@ -1,0 +1,40 @@
+{
+ "name": "ManualActionTaskDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instructions",
+   "name": "Instructions",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "observation",
+   "name": "Observation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TaskTypeDetails",
+ "discriminatedTypeValue": "ManualActionTaskDetails"
+}

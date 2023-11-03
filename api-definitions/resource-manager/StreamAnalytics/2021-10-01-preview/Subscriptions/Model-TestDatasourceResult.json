@@ -1,0 +1,27 @@
+{
+ "name": "TestDatasourceResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ErrorError"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TestDatasourceResultStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

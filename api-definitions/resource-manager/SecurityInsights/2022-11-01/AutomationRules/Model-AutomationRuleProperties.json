@@ -1,0 +1,100 @@
+{
+ "name": "AutomationRuleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actions",
+   "name": "Actions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AutomationRuleAction",
+     "maxItems": 20
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdBy",
+   "name": "CreatedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClientInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdTimeUtc",
+   "name": "CreatedTimeUtc",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedBy",
+   "name": "LastModifiedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClientInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedTimeUtc",
+   "name": "LastModifiedTimeUtc",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "order",
+   "name": "Order",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "triggeringLogic",
+   "name": "TriggeringLogic",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomationRuleTriggeringLogic"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "SqlResourcesCreateUpdateSqlContainer",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ContainerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SqlContainerCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SqlContainerGetResults"
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListStorageContainers",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "StorageAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageContainer"
+ },
+ "uriSuffix": "/containers"
+}

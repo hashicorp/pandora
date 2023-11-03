@@ -1,0 +1,77 @@
+{
+ "name": "AzureWorkloadSAPHanaRestoreRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyBag",
+   "name": "PropertyBag",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryMode",
+   "name": "RecoveryMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryType",
+   "name": "RecoveryType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetInfo",
+   "name": "TargetInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TargetRestoreInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetVirtualMachineId",
+   "name": "TargetVirtualMachineId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RestoreRequest",
+ "discriminatedTypeValue": "AzureWorkloadSAPHanaRestoreRequest"
+}

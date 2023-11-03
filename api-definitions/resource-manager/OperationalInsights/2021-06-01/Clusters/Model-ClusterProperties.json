@@ -1,0 +1,119 @@
+{
+ "name": "ClusterProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "associatedWorkspaces",
+   "name": "AssociatedWorkspaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AssociatedWorkspace"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingType",
+   "name": "BillingType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BillingType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capacityReservationProperties",
+   "name": "CapacityReservationProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CapacityReservationProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterId",
+   "name": "ClusterId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdDate",
+   "name": "CreatedDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isAvailabilityZonesEnabled",
+   "name": "IsAvailabilityZonesEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isDoubleEncryptionEnabled",
+   "name": "IsDoubleEncryptionEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedDate",
+   "name": "LastModifiedDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterEntityStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

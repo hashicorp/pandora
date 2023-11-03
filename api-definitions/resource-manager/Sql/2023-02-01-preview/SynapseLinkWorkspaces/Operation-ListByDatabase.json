@@ -1,0 +1,16 @@
+{
+ "name": "ListByDatabase",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SynapseLinkWorkspace"
+ },
+ "uriSuffix": "/linkWorkspaces"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "ClusterManagersCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ClusterManagerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterManager"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterManager"
+ }
+}

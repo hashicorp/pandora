@@ -1,0 +1,46 @@
+{
+ "name": "TriggerProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baseImageTrigger",
+   "name": "BaseImageTrigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BaseImageTrigger"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceTriggers",
+   "name": "SourceTriggers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SourceTrigger"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timerTriggers",
+   "name": "TimerTriggers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TimerTrigger"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

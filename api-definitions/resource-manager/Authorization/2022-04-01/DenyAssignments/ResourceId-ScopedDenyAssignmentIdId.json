@@ -1,0 +1,29 @@
+{
+ "name": "ScopedDenyAssignmentIdId",
+ "id": "/{scope}/providers/Microsoft.Authorization/denyAssignments/{denyAssignmentId}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticDenyAssignments",
+   "type": "Static",
+   "value": "denyAssignments"
+  },
+  {
+   "name": "denyAssignmentId",
+   "type": "Scope"
+  }
+ ]
+}

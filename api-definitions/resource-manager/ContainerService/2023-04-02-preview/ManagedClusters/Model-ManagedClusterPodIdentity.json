@@ -1,0 +1,71 @@
+{
+ "name": "ManagedClusterPodIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bindingSelector",
+   "name": "BindingSelector",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserAssignedIdentity"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "namespace",
+   "name": "Namespace",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningInfo",
+   "name": "ProvisioningInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterPodIdentityProvisioningInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterPodIdentityProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "ExportConfigurationsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ComponentId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "ApplicationInsightsComponentExportConfiguration"
+  }
+ },
+ "uriSuffix": "/exportConfiguration"
+}

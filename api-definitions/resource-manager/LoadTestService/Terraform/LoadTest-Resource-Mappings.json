@@ -1,0 +1,93 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "DataPlaneURI",
+				"sdkModelName": "LoadTestProperties",
+				"sdkFieldPath": "DataPlaneURI"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Description",
+				"sdkModelName": "LoadTestProperties",
+				"sdkFieldPath": "Description"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Identity",
+				"sdkModelName": "LoadTestResource",
+				"sdkFieldPath": "Identity"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Identity",
+				"sdkModelName": "LoadTestResourcePatchRequestBody",
+				"sdkFieldPath": "Identity"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Location",
+				"sdkModelName": "LoadTestResource",
+				"sdkFieldPath": "Location"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "LoadTestResource",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "LoadTestResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "LoadTestResourcePatchRequestBody",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "LoadTestResource",
+				"sdkModelName": "LoadTestResource",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "LoadTestResource",
+			"sdkModelName": "LoadTestResource"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "loadTestName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "ResourceGroupName",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

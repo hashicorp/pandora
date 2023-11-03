@@ -1,0 +1,16 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  201,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "OutboundFirewallRuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OutboundFirewallRule"
+ }
+}

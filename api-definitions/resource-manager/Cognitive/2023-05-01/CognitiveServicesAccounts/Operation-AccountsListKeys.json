@@ -1,0 +1,15 @@
+{
+ "name": "AccountsListKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiKeys"
+ },
+ "uriSuffix": "/listKeys"
+}

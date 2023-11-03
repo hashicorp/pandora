@@ -1,0 +1,19 @@
+{
+ "name": "AccountsRegenerateKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

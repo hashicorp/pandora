@@ -1,0 +1,16 @@
+{
+ "name": "Retarget",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ScheduleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RetargetScheduleProperties"
+ },
+ "uriSuffix": "/retarget"
+}

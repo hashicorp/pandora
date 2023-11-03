@@ -1,0 +1,15 @@
+{
+ "name": "RestrictMovement",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualMachineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualMachineRestrictMovement"
+ },
+ "uriSuffix": "/restrictMovement"
+}

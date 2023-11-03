@@ -1,0 +1,50 @@
+{
+ "name": "DeploymentLocations",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostingEnvironmentDeploymentInfos",
+   "name": "HostingEnvironmentDeploymentInfos",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HostingEnvironmentDeploymentInfo"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostingEnvironments",
+   "name": "HostingEnvironments",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AppServiceEnvironment"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "locations",
+   "name": "Locations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "GeoRegion"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

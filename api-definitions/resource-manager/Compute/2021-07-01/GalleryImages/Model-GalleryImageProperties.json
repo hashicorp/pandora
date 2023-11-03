@@ -1,0 +1,164 @@
+{
+ "name": "GalleryImageProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disallowed",
+   "name": "Disallowed",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Disallowed"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endOfLifeDate",
+   "name": "EndOfLifeDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eula",
+   "name": "Eula",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "GalleryImageFeature"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVGeneration",
+   "name": "HyperVGeneration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HyperVGeneration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identifier",
+   "name": "Identifier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryImageIdentifier"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osState",
+   "name": "OsState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperatingSystemStateTypes"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osType",
+   "name": "OsType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperatingSystemTypes"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privacyStatementUri",
+   "name": "PrivacyStatementUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "purchasePlan",
+   "name": "PurchasePlan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImagePurchasePlan"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recommended",
+   "name": "Recommended",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecommendedMachineConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "releaseNoteUri",
+   "name": "ReleaseNoteUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

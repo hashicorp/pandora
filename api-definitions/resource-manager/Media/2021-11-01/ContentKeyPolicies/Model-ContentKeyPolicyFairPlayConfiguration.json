@@ -1,0 +1,73 @@
+{
+ "name": "ContentKeyPolicyFairPlayConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ask",
+   "name": "Ask",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fairPlayPfx",
+   "name": "FairPlayPfx",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fairPlayPfxPassword",
+   "name": "FairPlayPfxPassword",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "offlineRentalConfiguration",
+   "name": "OfflineRentalConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentKeyPolicyFairPlayOfflineRentalConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rentalAndLeaseKeyType",
+   "name": "RentalAndLeaseKeyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentKeyPolicyFairPlayRentalAndLeaseKeyType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rentalDuration",
+   "name": "RentalDuration",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ContentKeyPolicyConfiguration",
+ "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyFairPlayConfiguration"
+}

@@ -1,0 +1,29 @@
+{
+ "name": "AzureResource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceProperties",
+   "name": "ResourceProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureResourcePropertiesBase"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TargetServiceBase",
+ "discriminatedTypeValue": "AzureResource"
+}

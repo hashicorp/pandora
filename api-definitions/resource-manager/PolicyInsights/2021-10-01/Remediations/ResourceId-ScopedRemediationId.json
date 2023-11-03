@@ -1,0 +1,29 @@
+{
+ "name": "ScopedRemediationId",
+ "id": "/{resourceId}/providers/Microsoft.PolicyInsights/remediations/{remediationName}",
+ "segments": [
+  {
+   "name": "resourceId",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftPolicyInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.PolicyInsights"
+  },
+  {
+   "name": "staticRemediations",
+   "type": "Static",
+   "value": "remediations"
+  },
+  {
+   "name": "remediationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

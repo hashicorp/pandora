@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VirtualClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualClusterUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualCluster"
+ }
+}

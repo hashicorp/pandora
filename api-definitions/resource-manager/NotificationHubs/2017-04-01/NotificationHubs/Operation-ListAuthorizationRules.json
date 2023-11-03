@@ -1,0 +1,16 @@
+{
+ "name": "ListAuthorizationRules",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "NotificationHubId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharedAccessAuthorizationRuleResource"
+ },
+ "uriSuffix": "/authorizationRules"
+}

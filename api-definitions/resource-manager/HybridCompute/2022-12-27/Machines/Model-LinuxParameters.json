@@ -1,0 +1,50 @@
+{
+ "name": "LinuxParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "classificationsToInclude",
+   "name": "ClassificationsToInclude",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VMGuestPatchClassificationLinux"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "packageNameMasksToExclude",
+   "name": "PackageNameMasksToExclude",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "packageNameMasksToInclude",
+   "name": "PackageNameMasksToInclude",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

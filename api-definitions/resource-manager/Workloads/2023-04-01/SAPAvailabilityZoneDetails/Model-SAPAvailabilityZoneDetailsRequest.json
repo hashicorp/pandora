@@ -1,0 +1,38 @@
+{
+ "name": "SAPAvailabilityZoneDetailsRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appLocation",
+   "name": "AppLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseType",
+   "name": "DatabaseType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SAPDatabaseType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sapProduct",
+   "name": "SapProduct",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SAPProductType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

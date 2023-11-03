@@ -1,0 +1,38 @@
+{
+ "name": "Model",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "model",
+   "name": "Model",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccountModel"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skuName",
+   "name": "SkuName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

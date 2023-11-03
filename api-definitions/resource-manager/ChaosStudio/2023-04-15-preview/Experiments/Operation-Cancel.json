@@ -1,0 +1,15 @@
+{
+ "name": "Cancel",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ExperimentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ExperimentCancelOperationResult"
+ },
+ "uriSuffix": "/cancel"
+}

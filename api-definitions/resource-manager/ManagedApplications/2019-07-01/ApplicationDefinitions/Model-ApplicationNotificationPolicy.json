@@ -1,0 +1,20 @@
+{
+ "name": "ApplicationNotificationPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationEndpoints",
+   "name": "NotificationEndpoints",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationNotificationEndpoint"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

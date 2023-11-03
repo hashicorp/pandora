@@ -1,0 +1,18 @@
+{
+ "name": "ScheduledSynchronizationSetting",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduledSynchronizationSettingProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "SynchronizationSetting",
+ "discriminatedTypeValue": "ScheduleBased"
+}

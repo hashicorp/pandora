@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SignalRId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SignalRKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

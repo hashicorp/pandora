@@ -1,0 +1,19 @@
+{
+ "name": "Validate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ResourceGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ValidateRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ValidateResponse"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/validate"
+}

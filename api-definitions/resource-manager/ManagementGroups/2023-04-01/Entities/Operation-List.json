@@ -1,0 +1,97 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "headerName": "Cache-Control",
+   "optional": true,
+   "required": false,
+   "field": "CacheControl",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "groupName",
+   "required": false,
+   "field": "GroupName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$search",
+   "required": false,
+   "field": "Search",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "EntitySearchType"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$select",
+   "required": false,
+   "field": "Select",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$skip",
+   "required": false,
+   "field": "Skip",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$top",
+   "required": false,
+   "field": "Top",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$view",
+   "required": false,
+   "field": "View",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "EntityViewParameterType"
+   }
+  }
+ ],
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EntityInfo"
+ },
+ "uriSuffix": "/providers/Microsoft.Management/getEntities"
+}

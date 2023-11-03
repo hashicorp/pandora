@@ -1,0 +1,38 @@
+{
+ "name": "RelativeMonthlySchedule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dayOfWeek",
+   "name": "DayOfWeek",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeekDay"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "intervalMonths",
+   "name": "IntervalMonths",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weekIndex",
+   "name": "WeekIndex",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Type"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

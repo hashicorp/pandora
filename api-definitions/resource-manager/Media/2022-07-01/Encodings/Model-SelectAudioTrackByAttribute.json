@@ -1,0 +1,51 @@
+{
+ "name": "SelectAudioTrackByAttribute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attribute",
+   "name": "Attribute",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrackAttribute"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "channelMapping",
+   "name": "ChannelMapping",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ChannelMapping"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AttributeFilter"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filterValue",
+   "name": "FilterValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TrackDescriptor",
+ "discriminatedTypeValue": "#Microsoft.Media.SelectAudioTrackByAttribute"
+}

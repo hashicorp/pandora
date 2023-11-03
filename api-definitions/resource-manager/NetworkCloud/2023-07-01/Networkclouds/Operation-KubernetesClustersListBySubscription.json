@@ -1,0 +1,16 @@
+{
+ "name": "KubernetesClustersListBySubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KubernetesCluster"
+ },
+ "uriSuffix": "/providers/Microsoft.NetworkCloud/kubernetesClusters"
+}

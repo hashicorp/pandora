@@ -1,0 +1,73 @@
+{
+ "name": "Ray",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dashboardPort",
+   "name": "DashboardPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "headNodeAdditionalArgs",
+   "name": "HeadNodeAdditionalArgs",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeDashboard",
+   "name": "IncludeDashboard",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workerNodeAdditionalArgs",
+   "name": "WorkerNodeAdditionalArgs",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DistributionConfiguration",
+ "discriminatedTypeValue": "Ray"
+}

@@ -1,0 +1,31 @@
+{
+ "name": "FieldRestrictions",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "field",
+   "name": "Field",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restrictions",
+   "name": "Restrictions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FieldRestriction"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

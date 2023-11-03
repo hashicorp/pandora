@@ -1,0 +1,38 @@
+{
+ "name": "ScaleSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxNodeCount",
+   "name": "MaxNodeCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minNodeCount",
+   "name": "MinNodeCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeIdleTimeBeforeScaleDown",
+   "name": "NodeIdleTimeBeforeScaleDown",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

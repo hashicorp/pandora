@@ -1,0 +1,19 @@
+{
+ "name": "DevToolPortalsCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "DevToolPortalId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DevToolPortalResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DevToolPortalResource"
+ }
+}

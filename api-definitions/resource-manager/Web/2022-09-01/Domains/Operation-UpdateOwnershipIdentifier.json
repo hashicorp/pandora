@@ -1,0 +1,18 @@
+{
+ "name": "UpdateOwnershipIdentifier",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "DomainOwnershipIdentifierId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DomainOwnershipIdentifier"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DomainOwnershipIdentifier"
+ }
+}

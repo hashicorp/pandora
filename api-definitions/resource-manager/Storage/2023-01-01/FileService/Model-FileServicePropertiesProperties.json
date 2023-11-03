@@ -1,0 +1,38 @@
+{
+ "name": "FileServicePropertiesProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cors",
+   "name": "Cors",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CorsRules"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocolSettings",
+   "name": "ProtocolSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProtocolSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareDeleteRetentionPolicy",
+   "name": "ShareDeleteRetentionPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DeleteRetentionPolicy"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ApplicationDefinitionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationDefinition"
+ }
+}

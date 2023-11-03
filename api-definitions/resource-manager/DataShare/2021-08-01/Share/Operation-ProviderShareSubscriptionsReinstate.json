@@ -1,0 +1,19 @@
+{
+ "name": "ProviderShareSubscriptionsReinstate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ProviderShareSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProviderShareSubscription"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProviderShareSubscription"
+ },
+ "uriSuffix": "/reinstate"
+}

@@ -1,0 +1,49 @@
+{
+ "name": "DbServerMetadata",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerSku"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageMb",
+   "name": "StorageMb",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

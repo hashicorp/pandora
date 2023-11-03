@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ContentKeyPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ContentKeyPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContentKeyPolicy"
+ }
+}

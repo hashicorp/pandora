@@ -1,0 +1,27 @@
+{
+ "name": "CreateComputePolicyWithAccountParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreateOrUpdateComputePolicyProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

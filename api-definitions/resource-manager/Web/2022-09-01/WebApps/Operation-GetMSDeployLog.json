@@ -1,0 +1,15 @@
+{
+ "name": "GetMSDeployLog",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AppServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MSDeployLog"
+ },
+ "uriSuffix": "/extensions/mSDeploy/log"
+}

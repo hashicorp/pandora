@@ -1,0 +1,15 @@
+{
+ "name": "WorkspaceNotificationRecipientUserListByNotification",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "NotificationNotificationId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RecipientUserCollection"
+ },
+ "uriSuffix": "/recipientUsers"
+}

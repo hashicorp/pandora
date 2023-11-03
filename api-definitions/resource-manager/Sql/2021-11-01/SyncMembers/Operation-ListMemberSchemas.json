@@ -1,0 +1,16 @@
+{
+ "name": "ListMemberSchemas",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SyncMemberId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SyncFullSchemaProperties"
+ },
+ "uriSuffix": "/schemas"
+}

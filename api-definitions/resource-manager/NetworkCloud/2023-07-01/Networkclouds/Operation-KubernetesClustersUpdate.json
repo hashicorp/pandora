@@ -1,0 +1,19 @@
+{
+ "name": "KubernetesClustersUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "KubernetesClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "KubernetesClusterPatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "KubernetesCluster"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "UtcClipTime",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "time",
+   "name": "Time",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ClipTime",
+ "discriminatedTypeValue": "#Microsoft.Media.UtcClipTime"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "FrontendEndpointsEnableHTTPS",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "FrontendEndpointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CustomHTTPSConfiguration"
+ },
+ "uriSuffix": "/enableHttps"
+}

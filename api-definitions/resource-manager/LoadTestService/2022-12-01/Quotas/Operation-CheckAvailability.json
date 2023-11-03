@@ -1,0 +1,19 @@
+{
+ "name": "CheckAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "QuotaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "QuotaBucketRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckQuotaAvailabilityResponse"
+ },
+ "uriSuffix": "/checkAvailability"
+}

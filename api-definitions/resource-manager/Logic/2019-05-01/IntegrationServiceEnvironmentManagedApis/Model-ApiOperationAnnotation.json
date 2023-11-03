@@ -1,0 +1,38 @@
+{
+ "name": "ApiOperationAnnotation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "family",
+   "name": "Family",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "revision",
+   "name": "Revision",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StatusAnnotation"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "name": "TestLineProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "phoneNumber",
+   "name": "PhoneNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "purpose",
+   "name": "Purpose",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TestLinePurpose"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

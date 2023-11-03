@@ -1,0 +1,29 @@
+{
+ "name": "RandomSamplingAlgorithm",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rule",
+   "name": "Rule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RandomSamplingAlgorithmRule"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "seed",
+   "name": "Seed",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "SamplingAlgorithm",
+ "discriminatedTypeValue": "Random"
+}

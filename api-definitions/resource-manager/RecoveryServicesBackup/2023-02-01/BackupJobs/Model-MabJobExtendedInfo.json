@@ -1,0 +1,46 @@
+{
+ "name": "MabJobExtendedInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dynamicErrorMessage",
+   "name": "DynamicErrorMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyBag",
+   "name": "PropertyBag",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tasksList",
+   "name": "TasksList",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MabJobTaskDetails"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

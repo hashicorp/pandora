@@ -1,0 +1,27 @@
+{
+ "name": "GetImmutabilityPolicy",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "StorageContainerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ImmutabilityPolicy"
+ },
+ "uriSuffix": "/immutabilityPolicies/default"
+}

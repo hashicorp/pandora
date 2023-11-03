@@ -1,0 +1,38 @@
+{
+ "name": "PortRange",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "portEnd",
+   "name": "PortEnd",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "portStart",
+   "name": "PortStart",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Protocol"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

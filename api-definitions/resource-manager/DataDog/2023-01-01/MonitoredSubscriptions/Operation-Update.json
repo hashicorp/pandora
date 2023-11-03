@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "MonitoredSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MonitoredSubscriptionProperties"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MonitoredSubscriptionProperties"
+ }
+}

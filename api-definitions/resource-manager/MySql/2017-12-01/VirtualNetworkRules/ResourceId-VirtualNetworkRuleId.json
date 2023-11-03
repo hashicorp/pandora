@@ -1,0 +1,52 @@
+{
+ "name": "VirtualNetworkRuleId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DBforMySQL/servers/{serverName}/virtualNetworkRules/{virtualNetworkRuleName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDBforMySQL",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DBforMySQL"
+  },
+  {
+   "name": "staticServers",
+   "type": "Static",
+   "value": "servers"
+  },
+  {
+   "name": "serverName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVirtualNetworkRules",
+   "type": "Static",
+   "value": "virtualNetworkRules"
+  },
+  {
+   "name": "virtualNetworkRuleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

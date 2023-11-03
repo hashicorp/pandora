@@ -1,0 +1,33 @@
+{
+	"apiVersion": "",
+	"category": "Authorization",
+	"createMethod": {
+		"generate": true,
+		"name": "UserAssignedIdentitiesCreateOrUpdate",
+		"timeoutInMinutes": 30
+	},
+	"deleteMethod": {
+		"generate": true,
+		"name": "UserAssignedIdentitiesDelete",
+		"timeoutInMinutes": 30
+	},
+	"description": "Manages a User Assigned Identity",
+	"displayName": "User Assigned Identity",
+	"exampleUsage": "\nresource \"azurerm_resource_group\" \"example\" {\n  name     = \"example-resources\"\n  location = \"West Europe\"\n}\nresource \"azurerm_user_assigned_identity\" \"example\" {\n  location            = azurerm_resource_group.example.location\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n}\n",
+	"generate": true,
+	"generateIdValidationFunction": true,
+	"generateModel": false,
+	"generateSchema": true,
+	"label": "user_assigned_identity",
+	"readMethod": {
+		"generate": true,
+		"name": "UserAssignedIdentitiesGet",
+		"timeoutInMinutes": 5
+	},
+	"resourceIdName": "UserAssignedIdentityId",
+	"updateMethod": {
+		"generate": true,
+		"name": "UserAssignedIdentitiesUpdate",
+		"timeoutInMinutes": 30
+	}
+}

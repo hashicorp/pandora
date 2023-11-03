@@ -1,0 +1,18 @@
+{
+ "name": "OfficeATPCheckRequirements",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataConnectorTenantId"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnectorsCheckRequirements",
+ "discriminatedTypeValue": "OfficeATP"
+}

@@ -1,0 +1,71 @@
+{
+ "name": "SecurityContextDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowPrivilegeEscalation",
+   "name": "AllowPrivilegeEscalation",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capabilities",
+   "name": "Capabilities",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityContextCapabilitiesDefinition"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privileged",
+   "name": "Privileged",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runAsGroup",
+   "name": "RunAsGroup",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runAsUser",
+   "name": "RunAsUser",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "seccompProfile",
+   "name": "SeccompProfile",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

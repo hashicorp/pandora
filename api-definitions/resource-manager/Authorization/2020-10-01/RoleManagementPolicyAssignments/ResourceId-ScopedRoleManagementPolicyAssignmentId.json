@@ -1,0 +1,29 @@
+{
+ "name": "ScopedRoleManagementPolicyAssignmentId",
+ "id": "/{scope}/providers/Microsoft.Authorization/roleManagementPolicyAssignments/{roleManagementPolicyAssignmentName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticRoleManagementPolicyAssignments",
+   "type": "Static",
+   "value": "roleManagementPolicyAssignments"
+  },
+  {
+   "name": "roleManagementPolicyAssignmentName",
+   "type": "UserSpecified"
+  }
+ ]
+}

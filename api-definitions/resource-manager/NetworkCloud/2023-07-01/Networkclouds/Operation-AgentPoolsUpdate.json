@@ -1,0 +1,19 @@
+{
+ "name": "AgentPoolsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AgentPoolId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AgentPoolPatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AgentPool"
+ }
+}

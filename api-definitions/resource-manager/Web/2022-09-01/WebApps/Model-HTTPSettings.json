@@ -1,0 +1,38 @@
+{
+ "name": "HTTPSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forwardProxy",
+   "name": "ForwardProxy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForwardProxy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requireHttps",
+   "name": "RequireHTTPS",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routes",
+   "name": "Routes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPSettingsRoutes"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

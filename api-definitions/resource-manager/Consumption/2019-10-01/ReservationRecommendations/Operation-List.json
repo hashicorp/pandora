@@ -1,0 +1,29 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ScopeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ReservationRecommendation"
+ },
+ "uriSuffix": "/providers/Microsoft.Consumption/reservationRecommendations"
+}

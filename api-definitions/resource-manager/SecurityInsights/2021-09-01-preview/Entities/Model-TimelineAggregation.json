@@ -1,0 +1,27 @@
+{
+ "name": "TimelineAggregation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EntityTimelineKind"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

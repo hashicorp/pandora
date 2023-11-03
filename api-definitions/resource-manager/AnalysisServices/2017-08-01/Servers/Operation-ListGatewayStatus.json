@@ -1,0 +1,15 @@
+{
+ "name": "ListGatewayStatus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GatewayListStatusLive"
+ },
+ "uriSuffix": "/listGatewayStatus"
+}

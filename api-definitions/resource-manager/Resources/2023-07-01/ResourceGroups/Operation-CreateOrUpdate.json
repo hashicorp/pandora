@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ResourceGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ResourceGroup"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ResourceGroup"
+ }
+}

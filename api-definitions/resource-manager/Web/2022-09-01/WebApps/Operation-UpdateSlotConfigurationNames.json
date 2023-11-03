@@ -1,0 +1,19 @@
+{
+ "name": "UpdateSlotConfigurationNames",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SlotConfigNamesResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SlotConfigNamesResource"
+ },
+ "uriSuffix": "/config/slotConfigNames"
+}

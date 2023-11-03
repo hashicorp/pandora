@@ -1,0 +1,15 @@
+{
+ "name": "LogTrackingEvents",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TrackingEventsDefinition"
+ },
+ "uriSuffix": "/logTrackingEvents"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "CreationSupportedList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "datadogOrganizationId",
+   "required": true,
+   "field": "DatadogOrganizationId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CreateResourceSupportedResponseList"
+ },
+ "uriSuffix": "/providers/Microsoft.Datadog/subscriptionStatuses"
+}

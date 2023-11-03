@@ -1,0 +1,68 @@
+{
+ "name": "Get",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204,
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "lookBackPeriod",
+   "required": true,
+   "field": "LookBackPeriod",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "LookBackPeriod"
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "product",
+   "required": true,
+   "field": "Product",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "region",
+   "required": true,
+   "field": "Region",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "scope",
+   "required": true,
+   "field": "Scope",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "Scope"
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "term",
+   "required": true,
+   "field": "Term",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "Term"
+   }
+  }
+ ],
+ "resourceIdName": "ScopeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ReservationRecommendationDetailsModel"
+ },
+ "uriSuffix": "/providers/Microsoft.Consumption/reservationRecommendationDetails"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204,
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "resourceIdName": "ServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApiManagementServiceResource"
+ }
+}

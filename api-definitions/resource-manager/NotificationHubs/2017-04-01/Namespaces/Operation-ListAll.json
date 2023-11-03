@@ -1,0 +1,16 @@
+{
+ "name": "ListAll",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NamespaceResource"
+ },
+ "uriSuffix": "/providers/Microsoft.NotificationHubs/namespaces"
+}

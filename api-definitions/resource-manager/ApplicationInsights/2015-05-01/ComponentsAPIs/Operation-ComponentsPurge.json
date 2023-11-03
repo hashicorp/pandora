@@ -1,0 +1,19 @@
+{
+ "name": "ComponentsPurge",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ComponentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ComponentPurgeBody"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ComponentPurgeResponse"
+ },
+ "uriSuffix": "/purge"
+}

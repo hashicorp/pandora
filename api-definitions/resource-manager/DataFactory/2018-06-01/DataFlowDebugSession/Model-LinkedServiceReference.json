@@ -1,0 +1,33 @@
+{
+ "name": "LinkedServiceReference",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "referenceName",
+   "name": "ReferenceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Reference",
+ "discriminatedTypeValue": "LinkedServiceReference"
+}

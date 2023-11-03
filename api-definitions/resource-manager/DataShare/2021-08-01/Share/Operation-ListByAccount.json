@@ -1,0 +1,38 @@
+{
+ "name": "ListByAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$orderby",
+   "required": false,
+   "field": "Orderby",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Share"
+ },
+ "uriSuffix": "/shares"
+}

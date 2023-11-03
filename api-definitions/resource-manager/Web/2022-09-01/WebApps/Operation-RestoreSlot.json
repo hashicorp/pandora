@@ -1,0 +1,16 @@
+{
+ "name": "RestoreSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SlotBackupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RestoreRequest"
+ },
+ "uriSuffix": "/restore"
+}

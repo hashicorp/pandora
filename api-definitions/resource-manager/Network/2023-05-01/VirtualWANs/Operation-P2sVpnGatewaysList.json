@@ -1,0 +1,16 @@
+{
+ "name": "P2sVpnGatewaysList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "P2SVpnGateway"
+ },
+ "uriSuffix": "/providers/Microsoft.Network/p2sVpnGateways"
+}

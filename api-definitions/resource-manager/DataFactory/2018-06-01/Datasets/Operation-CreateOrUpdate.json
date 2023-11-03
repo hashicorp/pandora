@@ -1,0 +1,30 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "If-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "DatasetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatasetResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatasetResource"
+ }
+}

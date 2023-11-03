@@ -1,0 +1,27 @@
+{
+ "name": "ListCustomHostNameAnalysis",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "customHostname",
+   "required": false,
+   "field": "CustomHostname",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ContainerAppId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomHostnameAnalysisResult"
+ },
+ "uriSuffix": "/listCustomHostNameAnalysis"
+}

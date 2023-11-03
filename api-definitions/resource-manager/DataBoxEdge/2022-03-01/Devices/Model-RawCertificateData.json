@@ -1,0 +1,27 @@
+{
+ "name": "RawCertificateData",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authenticationType",
+   "name": "AuthenticationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthenticationType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "certificate",
+   "name": "Certificate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

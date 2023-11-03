@@ -1,0 +1,39 @@
+{
+ "name": "RecommendedActionStateInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionInitiatedBy",
+   "name": "ActionInitiatedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecommendedActionInitiatedBy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentValue",
+   "name": "CurrentValue",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecommendedActionCurrentState"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModified",
+   "name": "LastModified",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

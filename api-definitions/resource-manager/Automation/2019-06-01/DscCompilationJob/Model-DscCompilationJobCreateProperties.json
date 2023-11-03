@@ -1,0 +1,42 @@
+{
+ "name": "DscCompilationJobCreateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configuration",
+   "name": "Configuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DscConfigurationAssociationProperty"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "incrementNodeConfigurationBuild",
+   "name": "IncrementNodeConfigurationBuild",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "name": "OrganizationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingSource",
+   "name": "BillingSource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BillingSource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "organizationId",
+   "name": "OrganizationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "organizationName",
+   "name": "OrganizationName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

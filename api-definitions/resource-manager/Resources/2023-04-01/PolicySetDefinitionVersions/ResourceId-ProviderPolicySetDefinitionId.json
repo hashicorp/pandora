@@ -1,0 +1,34 @@
+{
+ "name": "ProviderPolicySetDefinitionId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/policySetDefinitions/{policySetDefinitionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPolicySetDefinitions",
+   "type": "Static",
+   "value": "policySetDefinitions"
+  },
+  {
+   "name": "policySetDefinitionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

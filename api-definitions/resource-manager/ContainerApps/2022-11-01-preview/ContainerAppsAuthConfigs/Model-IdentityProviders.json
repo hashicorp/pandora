@@ -1,0 +1,97 @@
+{
+ "name": "IdentityProviders",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "apple",
+   "name": "Apple",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Apple"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureActiveDirectory",
+   "name": "AzureActiveDirectory",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureActiveDirectory"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureStaticWebApps",
+   "name": "AzureStaticWebApps",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureStaticWebApps"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customOpenIdConnectProviders",
+   "name": "CustomOpenIdConnectProviders",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "CustomOpenIdConnectProvider"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "facebook",
+   "name": "Facebook",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Facebook"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gitHub",
+   "name": "GitHub",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GitHub"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "google",
+   "name": "Google",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Google"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "twitter",
+   "name": "Twitter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Twitter"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

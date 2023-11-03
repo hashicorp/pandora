@@ -1,0 +1,15 @@
+{
+ "name": "ListKeysForKeyName",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "KeyId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SharedAccessSignatureAuthorizationRuleAccessRightsDescription"
+ },
+ "uriSuffix": "/listKeys"
+}

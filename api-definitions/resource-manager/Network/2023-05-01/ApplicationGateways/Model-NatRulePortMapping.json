@@ -1,0 +1,38 @@
+{
+ "name": "NatRulePortMapping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendPort",
+   "name": "BackendPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontendPort",
+   "name": "FrontendPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inboundNatRuleName",
+   "name": "InboundNatRuleName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

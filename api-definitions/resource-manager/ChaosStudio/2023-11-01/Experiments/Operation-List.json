@@ -1,0 +1,38 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "continuationToken",
+   "required": false,
+   "field": "ContinuationToken",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "running",
+   "required": false,
+   "field": "Running",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Experiment"
+ },
+ "uriSuffix": "/providers/Microsoft.Chaos/experiments"
+}

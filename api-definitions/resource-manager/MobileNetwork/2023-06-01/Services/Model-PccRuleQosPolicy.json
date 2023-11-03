@@ -1,0 +1,71 @@
+{
+ "name": "PccRuleQosPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocationAndRetentionPriorityLevel",
+   "name": "AllocationAndRetentionPriorityLevel",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "5qi",
+   "name": "Fiveqi",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "guaranteedBitRate",
+   "name": "GuaranteedBitRate",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Ambr"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maximumBitRate",
+   "name": "MaximumBitRate",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Ambr"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preemptionCapability",
+   "name": "PreemptionCapability",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PreemptionCapability"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preemptionVulnerability",
+   "name": "PreemptionVulnerability",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PreemptionVulnerability"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,40 @@
+{
+ "name": "AzureBackupRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupParameters",
+   "name": "BackupParameters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackupParameters"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataStore",
+   "name": "DataStore",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataStoreInfoBase"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trigger",
+   "name": "Trigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TriggerContext"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "BasePolicyRule",
+ "discriminatedTypeValue": "AzureBackupRule"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "TrunkedNetworksCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "TrunkedNetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TrunkedNetwork"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TrunkedNetwork"
+ }
+}

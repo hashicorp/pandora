@@ -1,0 +1,42 @@
+{
+ "name": "ManagedClusterAddonProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "config",
+   "name": "Config",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserAssignedIdentity"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

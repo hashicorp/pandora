@@ -1,0 +1,24 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "forceToPurge",
+   "required": false,
+   "field": "ForceToPurge",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "WorkspaceId"
+}

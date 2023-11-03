@@ -1,0 +1,50 @@
+{
+ "name": "AutoStorageProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authenticationMode",
+   "name": "AuthenticationMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoStorageAuthenticationMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastKeySync",
+   "name": "LastKeySync",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeIdentityReference",
+   "name": "NodeIdentityReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeNodeIdentityReference"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountId",
+   "name": "StorageAccountId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

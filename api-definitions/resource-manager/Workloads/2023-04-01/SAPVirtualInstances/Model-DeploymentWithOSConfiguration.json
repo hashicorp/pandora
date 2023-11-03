@@ -1,0 +1,51 @@
+{
+ "name": "DeploymentWithOSConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appLocation",
+   "name": "AppLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "infrastructureConfiguration",
+   "name": "InfrastructureConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InfrastructureConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osSapConfiguration",
+   "name": "OsSapConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsSapConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softwareConfiguration",
+   "name": "SoftwareConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SoftwareConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "SAPConfiguration",
+ "discriminatedTypeValue": "DeploymentWithOSConfig"
+}

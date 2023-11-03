@@ -1,0 +1,93 @@
+{
+ "name": "MonitorProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "elasticProperties",
+   "name": "ElasticProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ElasticProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "generateApiKey",
+   "name": "GenerateApiKey",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "liftrResourceCategory",
+   "name": "LiftrResourceCategory",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LiftrResourceCategories"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "liftrResourcePreference",
+   "name": "LiftrResourcePreference",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringStatus",
+   "name": "MonitoringStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userInfo",
+   "name": "UserInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

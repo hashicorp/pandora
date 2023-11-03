@@ -1,0 +1,20 @@
+{
+ "name": "Expand",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "HostPoolId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MSIXImageURI"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ExpandMsixImage"
+ },
+ "uriSuffix": "/expandMsixImage"
+}

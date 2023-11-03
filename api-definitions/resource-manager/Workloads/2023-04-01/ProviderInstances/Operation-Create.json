@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProviderInstance"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProviderInstance"
+ }
+}

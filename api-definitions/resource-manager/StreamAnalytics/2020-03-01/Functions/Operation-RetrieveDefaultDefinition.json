@@ -1,0 +1,19 @@
+{
+ "name": "RetrieveDefaultDefinition",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "FunctionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "FunctionRetrieveDefaultDefinitionParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Function"
+ },
+ "uriSuffix": "/retrieveDefaultDefinition"
+}

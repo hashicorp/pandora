@@ -1,0 +1,27 @@
+{
+ "name": "TrustPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrustPolicyType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

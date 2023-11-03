@@ -1,0 +1,15 @@
+{
+ "name": "ListSharedAccessKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "PartnerNamespaceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PartnerNamespaceSharedAccessKeys"
+ },
+ "uriSuffix": "/listKeys"
+}

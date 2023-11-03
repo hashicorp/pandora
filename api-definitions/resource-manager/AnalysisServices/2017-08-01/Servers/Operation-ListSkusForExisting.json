@@ -1,0 +1,15 @@
+{
+ "name": "ListSkusForExisting",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SkuEnumerationForExistingResourceResult"
+ },
+ "uriSuffix": "/skus"
+}

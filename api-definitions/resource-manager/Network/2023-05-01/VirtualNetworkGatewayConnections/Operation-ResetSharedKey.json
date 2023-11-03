@@ -1,0 +1,20 @@
+{
+ "name": "ResetSharedKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionResetSharedKey"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionResetSharedKey"
+ },
+ "uriSuffix": "/sharedkey/reset"
+}

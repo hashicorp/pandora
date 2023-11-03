@@ -1,0 +1,27 @@
+{
+ "name": "KeyVaultKeyReference",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyUrl",
+   "name": "KeyUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceVault",
+   "name": "SourceVault",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

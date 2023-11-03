@@ -1,0 +1,16 @@
+{
+ "name": "MHSMRegionsListByResource",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ManagedHSMId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MHSMGeoReplicatedRegion"
+ },
+ "uriSuffix": "/regions"
+}

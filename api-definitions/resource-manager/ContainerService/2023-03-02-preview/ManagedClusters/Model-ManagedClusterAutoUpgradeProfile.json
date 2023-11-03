@@ -1,0 +1,27 @@
+{
+ "name": "ManagedClusterAutoUpgradeProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeOSUpgradeChannel",
+   "name": "NodeOSUpgradeChannel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NodeOSUpgradeChannel"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeChannel",
+   "name": "UpgradeChannel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UpgradeChannel"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

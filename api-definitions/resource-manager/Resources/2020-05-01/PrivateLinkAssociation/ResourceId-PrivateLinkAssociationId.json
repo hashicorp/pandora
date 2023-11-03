@@ -1,0 +1,44 @@
+{
+ "name": "PrivateLinkAssociationId",
+ "id": "/providers/Microsoft.Management/managementGroups/{groupId}/providers/Microsoft.Authorization/privateLinkAssociations/{plaId}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Management"
+  },
+  {
+   "name": "staticManagementGroups",
+   "type": "Static",
+   "value": "managementGroups"
+  },
+  {
+   "name": "groupId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProviders2",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPrivateLinkAssociations",
+   "type": "Static",
+   "value": "privateLinkAssociations"
+  },
+  {
+   "name": "plaId",
+   "type": "UserSpecified"
+  }
+ ]
+}

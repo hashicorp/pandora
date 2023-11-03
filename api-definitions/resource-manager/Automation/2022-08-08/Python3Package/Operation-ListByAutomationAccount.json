@@ -1,0 +1,16 @@
+{
+ "name": "ListByAutomationAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AutomationAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Module"
+ },
+ "uriSuffix": "/python3Packages"
+}

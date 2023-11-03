@@ -1,0 +1,27 @@
+{
+ "name": "CompositePath",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "order",
+   "name": "Order",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CompositePathSortOrder"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

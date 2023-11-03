@@ -1,0 +1,23 @@
+{
+ "name": "Refresh",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BackupFabricId",
+ "uriSuffix": "/refreshContainers"
+}

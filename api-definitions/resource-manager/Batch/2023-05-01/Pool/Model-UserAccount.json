@@ -1,0 +1,60 @@
+{
+ "name": "UserAccount",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "elevationLevel",
+   "name": "ElevationLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ElevationLevel"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linuxUserConfiguration",
+   "name": "LinuxUserConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxUserConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "password",
+   "name": "Password",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowsUserConfiguration",
+   "name": "WindowsUserConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WindowsUserConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

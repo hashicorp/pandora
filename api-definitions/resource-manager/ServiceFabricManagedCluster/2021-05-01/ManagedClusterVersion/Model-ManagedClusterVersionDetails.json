@@ -1,0 +1,38 @@
+{
+ "name": "ManagedClusterVersionDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterCodeVersion",
+   "name": "ClusterCodeVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osType",
+   "name": "OsType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportExpiryUtc",
+   "name": "SupportExpiryUtc",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "VpnLinkConnectionsListByVpnConnection",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VPNConnectionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VpnSiteLinkConnection"
+ },
+ "uriSuffix": "/vpnLinkConnections"
+}

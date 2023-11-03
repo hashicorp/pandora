@@ -1,0 +1,35 @@
+{
+ "name": "MetadataCategories",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domains",
+   "name": "Domains",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "verticals",
+   "name": "Verticals",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

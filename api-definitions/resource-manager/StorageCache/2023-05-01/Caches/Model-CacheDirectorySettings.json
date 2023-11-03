@@ -1,0 +1,27 @@
+{
+ "name": "CacheDirectorySettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeDirectory",
+   "name": "ActiveDirectory",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheActiveDirectorySettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usernameDownload",
+   "name": "UsernameDownload",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheUsernameDownloadSettings"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

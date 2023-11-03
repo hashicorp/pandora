@@ -1,0 +1,53 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesClusterTrustedAccessRoleBindingResource",
+				"schemaFieldPath": "Roles",
+				"sdkModelName": "TrustedAccessRoleBindingProperties",
+				"sdkFieldPath": "Roles"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesClusterTrustedAccessRoleBindingResource",
+				"schemaFieldPath": "SourceResourceId",
+				"sdkModelName": "TrustedAccessRoleBindingProperties",
+				"sdkFieldPath": "SourceResourceId"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "KubernetesClusterTrustedAccessRoleBindingResource",
+				"sdkModelName": "TrustedAccessRoleBinding",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "KubernetesClusterTrustedAccessRoleBindingResource",
+			"sdkModelName": "TrustedAccessRoleBinding"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": true,
+			"schemaFieldName": "KubernetesClusterId",
+			"segmentName": "managedClusterName"
+		},
+		{
+			"parsedFromParentId": true,
+			"schemaFieldName": "KubernetesClusterId",
+			"segmentName": "managedClusterName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "trustedAccessRoleBindingName"
+		}
+	]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "SubscriptionList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GuestConfigurationAssignmentList"
+ },
+ "uriSuffix": "/providers/Microsoft.GuestConfiguration/guestConfigurationAssignments"
+}

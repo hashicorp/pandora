@@ -1,0 +1,94 @@
+{
+ "name": "NetworkProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressNatIp",
+   "name": "EgressNatIP",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPAddress"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableEgressNat",
+   "name": "EnableEgressNat",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EgressNat"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkType",
+   "name": "NetworkType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIps",
+   "name": "PublicIPs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPAddress"
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trustedRanges",
+   "name": "TrustedRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vnetConfiguration",
+   "name": "VnetConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VnetConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vwanConfiguration",
+   "name": "VwanConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VwanConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

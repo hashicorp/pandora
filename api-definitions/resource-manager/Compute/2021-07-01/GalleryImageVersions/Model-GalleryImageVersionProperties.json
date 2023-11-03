@@ -1,0 +1,49 @@
+{
+ "name": "GalleryImageVersionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishingProfile",
+   "name": "PublishingProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryArtifactPublishingProfileBase"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationStatus",
+   "name": "ReplicationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageProfile",
+   "name": "StorageProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersionStorageProfile"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

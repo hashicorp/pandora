@@ -1,0 +1,19 @@
+{
+ "name": "CassandraClustersInvokeCommand",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CassandraClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CommandPostBody"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CommandOutput"
+ },
+ "uriSuffix": "/invokeCommand"
+}

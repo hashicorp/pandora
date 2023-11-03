@@ -1,0 +1,19 @@
+{
+ "name": "ListContentCallbackUrl",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "MapId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GetCallbackUrlParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkflowTriggerCallbackUrl"
+ },
+ "uriSuffix": "/listContentCallbackUrl"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "ConfigurationGet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ClusterId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterQuotaConfigurationProperties"
+ },
+ "uriSuffix": "/quotaConfiguration/default"
+}

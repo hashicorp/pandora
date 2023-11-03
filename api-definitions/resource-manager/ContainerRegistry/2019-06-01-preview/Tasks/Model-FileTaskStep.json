@@ -1,0 +1,44 @@
+{
+ "name": "FileTaskStep",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taskFilePath",
+   "name": "TaskFilePath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "values",
+   "name": "Values",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SetValue"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "valuesFilePath",
+   "name": "ValuesFilePath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TaskStepProperties",
+ "discriminatedTypeValue": "FileTask"
+}

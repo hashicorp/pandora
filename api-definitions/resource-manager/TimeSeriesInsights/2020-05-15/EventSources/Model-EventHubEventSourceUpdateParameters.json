@@ -1,0 +1,18 @@
+{
+ "name": "EventHubEventSourceUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventHubEventSourceMutableProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "EventSourceUpdateParameters",
+ "discriminatedTypeValue": "Microsoft.EventHub"
+}

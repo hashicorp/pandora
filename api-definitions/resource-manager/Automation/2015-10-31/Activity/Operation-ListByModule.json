@@ -1,0 +1,16 @@
+{
+ "name": "ListByModule",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ModuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Activity"
+ },
+ "uriSuffix": "/activities"
+}

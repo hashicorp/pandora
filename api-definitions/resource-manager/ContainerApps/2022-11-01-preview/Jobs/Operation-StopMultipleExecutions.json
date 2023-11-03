@@ -1,0 +1,20 @@
+{
+ "name": "StopMultipleExecutions",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "JobId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "JobExecutionNamesCollection"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContainerAppJobExecutions"
+ },
+ "uriSuffix": "/stop"
+}

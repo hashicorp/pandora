@@ -1,0 +1,38 @@
+{
+ "name": "PolicyAssignmentProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policy",
+   "name": "Policy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyAssignmentPropertiesPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roleDefinition",
+   "name": "RoleDefinition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyAssignmentPropertiesRoleDefinition"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scope",
+   "name": "Scope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyAssignmentPropertiesScope"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

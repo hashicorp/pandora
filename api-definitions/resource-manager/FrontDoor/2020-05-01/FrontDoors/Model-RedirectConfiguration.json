@@ -1,0 +1,73 @@
+{
+ "name": "RedirectConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customFragment",
+   "name": "CustomFragment",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customHost",
+   "name": "CustomHost",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customPath",
+   "name": "CustomPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customQueryString",
+   "name": "CustomQueryString",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "redirectProtocol",
+   "name": "RedirectProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorRedirectProtocol"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "redirectType",
+   "name": "RedirectType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorRedirectType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "RouteConfiguration",
+ "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorRedirectConfiguration"
+}

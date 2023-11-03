@@ -1,0 +1,35 @@
+{
+ "name": "CostAllocationRuleDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResources",
+   "name": "SourceResources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SourceCostAllocationResource"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResources",
+   "name": "TargetResources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TargetCostAllocationResource"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

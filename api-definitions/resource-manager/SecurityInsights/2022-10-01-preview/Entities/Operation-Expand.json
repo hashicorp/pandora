@@ -1,0 +1,19 @@
+{
+ "name": "Expand",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "EntityId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EntityExpandParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EntityExpandResponse"
+ },
+ "uriSuffix": "/expand"
+}

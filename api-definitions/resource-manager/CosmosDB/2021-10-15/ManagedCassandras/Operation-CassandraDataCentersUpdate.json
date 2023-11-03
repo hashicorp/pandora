@@ -1,0 +1,19 @@
+{
+ "name": "CassandraDataCentersUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "DataCenterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataCenterResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataCenterResource"
+ }
+}

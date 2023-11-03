@@ -1,0 +1,20 @@
+{
+ "name": "ConfigServersValidate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SpringId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigServerSettings"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConfigServerSettingsValidateResult"
+ },
+ "uriSuffix": "/configServers/validate"
+}

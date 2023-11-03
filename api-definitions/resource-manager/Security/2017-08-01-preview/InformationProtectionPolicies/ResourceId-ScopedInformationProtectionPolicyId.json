@@ -1,0 +1,30 @@
+{
+ "name": "ScopedInformationProtectionPolicyId",
+ "id": "/{scope}/providers/Microsoft.Security/informationProtectionPolicies/{informationProtectionPolicyName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticInformationProtectionPolicies",
+   "type": "Static",
+   "value": "informationProtectionPolicies"
+  },
+  {
+   "name": "informationProtectionPolicyName",
+   "type": "Constant",
+   "value": "InformationProtectionPolicyName"
+  }
+ ]
+}

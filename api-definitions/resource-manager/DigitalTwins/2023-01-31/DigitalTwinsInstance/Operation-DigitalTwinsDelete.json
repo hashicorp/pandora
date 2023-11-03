@@ -1,0 +1,16 @@
+{
+ "name": "DigitalTwinsDelete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "resourceIdName": "DigitalTwinsInstanceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DigitalTwinsDescription"
+ }
+}

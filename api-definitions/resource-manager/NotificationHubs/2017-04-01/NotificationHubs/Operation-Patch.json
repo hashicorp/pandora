@@ -1,0 +1,18 @@
+{
+ "name": "Patch",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "NotificationHubId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NotificationHubPatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NotificationHubResource"
+ }
+}

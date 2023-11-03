@@ -1,0 +1,49 @@
+{
+ "name": "RoutingConfigurationNfv",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "associatedRouteTable",
+   "name": "AssociatedRouteTable",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingConfigurationNfvSubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inboundRouteMap",
+   "name": "InboundRouteMap",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingConfigurationNfvSubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundRouteMap",
+   "name": "OutboundRouteMap",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingConfigurationNfvSubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propagatedRouteTables",
+   "name": "PropagatedRouteTables",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PropagatedRouteTableNfv"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,35 @@
+{
+ "name": "InsightQueryItemPropertiesTableQuery",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "columnsDefinitions",
+   "name": "ColumnsDefinitions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InsightQueryItemPropertiesTableQueryColumnsDefinitionsInlined"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queriesDefinitions",
+   "name": "QueriesDefinitions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InsightQueryItemPropertiesTableQueryQueriesDefinitionsInlined"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "name": "SkusList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "NodeTypeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NodeTypeAvailableSku"
+ },
+ "uriSuffix": "/skus"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "VideosCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "VideoId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VideoEntity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VideoEntity"
+ }
+}

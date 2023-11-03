@@ -1,0 +1,52 @@
+{
+ "name": "CentralInstanceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Workloads/sapVirtualInstances/{sapVirtualInstanceName}/centralInstances/{centralInstanceName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftWorkloads",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Workloads"
+  },
+  {
+   "name": "staticSapVirtualInstances",
+   "type": "Static",
+   "value": "sapVirtualInstances"
+  },
+  {
+   "name": "sapVirtualInstanceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticCentralInstances",
+   "type": "Static",
+   "value": "centralInstances"
+  },
+  {
+   "name": "centralInstanceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

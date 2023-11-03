@@ -1,0 +1,20 @@
+{
+ "name": "ExportLabels",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LabelingJobId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ExportSummary"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ExportSummary"
+ },
+ "uriSuffix": "/exportLabels"
+}

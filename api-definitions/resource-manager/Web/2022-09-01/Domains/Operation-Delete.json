@@ -1,0 +1,23 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "forceHardDeleteDomain",
+   "required": false,
+   "field": "ForceHardDeleteDomain",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "DomainId"
+}

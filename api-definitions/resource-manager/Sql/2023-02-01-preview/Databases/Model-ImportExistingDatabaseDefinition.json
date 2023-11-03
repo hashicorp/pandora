@@ -1,0 +1,82 @@
+{
+ "name": "ImportExistingDatabaseDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLogin",
+   "name": "AdministratorLogin",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLoginPassword",
+   "name": "AdministratorLoginPassword",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authenticationType",
+   "name": "AuthenticationType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkIsolation",
+   "name": "NetworkIsolation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkIsolationSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageKey",
+   "name": "StorageKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageKeyType",
+   "name": "StorageKeyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageKeyType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageUri",
+   "name": "StorageUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

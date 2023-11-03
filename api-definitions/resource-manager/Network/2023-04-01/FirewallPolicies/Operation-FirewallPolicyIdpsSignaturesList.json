@@ -1,0 +1,19 @@
+{
+ "name": "FirewallPolicyIdpsSignaturesList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "FirewallPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IDPSQueryObject"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "QueryResults"
+ },
+ "uriSuffix": "/listIdpsSignatures"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListByTrafficController",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "TrafficControllerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Frontend"
+ },
+ "uriSuffix": "/frontends"
+}

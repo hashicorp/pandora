@@ -1,0 +1,29 @@
+{
+ "name": "HTTPGetAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheme",
+   "name": "Scheme",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPSchemeType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ProbeAction",
+ "discriminatedTypeValue": "HTTPGetAction"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "FunctionAppMinorVersion",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayText",
+   "name": "DisplayText",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "stackSettings",
+   "name": "StackSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionAppRuntimes"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

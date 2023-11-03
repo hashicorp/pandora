@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtSubscriptionScope",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderDeploymentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Deployment"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeploymentExtended"
+ }
+}

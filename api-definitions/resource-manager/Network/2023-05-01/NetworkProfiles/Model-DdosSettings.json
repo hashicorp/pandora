@@ -1,0 +1,27 @@
+{
+ "name": "DdosSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ddosProtectionPlan",
+   "name": "DdosProtectionPlan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectionMode",
+   "name": "ProtectionMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DdosSettingsProtectionMode"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

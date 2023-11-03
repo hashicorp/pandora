@@ -1,0 +1,27 @@
+{
+ "name": "DiagnosticsDataApiResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "renderingProperties",
+   "name": "RenderingProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiagnosticRendering"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "table",
+   "name": "Table",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiagnosticDataTableResponseObject"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

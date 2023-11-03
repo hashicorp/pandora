@@ -1,0 +1,49 @@
+{
+ "name": "EventSourceCreateOrUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "kind",
+   "name": "Kind",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventSourceKind"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localTimestamp",
+   "name": "LocalTimestamp",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LocalTimestamp"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tags",
+   "name": "Tags",
+   "objectDefinition": {
+    "type": "Tags",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

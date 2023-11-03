@@ -1,0 +1,16 @@
+{
+ "name": "GetInSubscription",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupVaultResource"
+ },
+ "uriSuffix": "/providers/Microsoft.DataProtection/backupVaults"
+}

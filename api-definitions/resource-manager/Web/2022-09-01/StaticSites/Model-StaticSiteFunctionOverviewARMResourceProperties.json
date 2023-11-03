@@ -1,0 +1,27 @@
+{
+ "name": "StaticSiteFunctionOverviewARMResourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "functionName",
+   "name": "FunctionName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "triggerType",
+   "name": "TriggerType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TriggerTypes"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

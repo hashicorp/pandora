@@ -1,0 +1,31 @@
+{
+ "name": "EntityEdges",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalData",
+   "name": "AdditionalData",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetEntityId",
+   "name": "TargetEntityId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

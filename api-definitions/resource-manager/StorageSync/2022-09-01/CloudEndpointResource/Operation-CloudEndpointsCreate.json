@@ -1,0 +1,19 @@
+{
+ "name": "CloudEndpointsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CloudEndpointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CloudEndpointCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CloudEndpoint"
+ }
+}

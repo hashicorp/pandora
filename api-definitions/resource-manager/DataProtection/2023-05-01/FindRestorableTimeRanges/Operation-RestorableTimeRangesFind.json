@@ -1,0 +1,19 @@
+{
+ "name": "RestorableTimeRangesFind",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "BackupInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AzureBackupFindRestorableTimeRangesRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AzureBackupFindRestorableTimeRangesResponseResource"
+ },
+ "uriSuffix": "/findRestorableTimeRanges"
+}

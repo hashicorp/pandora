@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "WorkspaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Workspace"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Workspace"
+ }
+}

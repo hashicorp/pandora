@@ -1,0 +1,19 @@
+{
+ "name": "Register",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionProviderId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProviderRegistrationRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Provider"
+ },
+ "uriSuffix": "/register"
+}

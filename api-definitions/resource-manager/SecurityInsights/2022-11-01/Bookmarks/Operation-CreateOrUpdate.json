@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "BookmarkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Bookmark"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Bookmark"
+ }
+}

@@ -1,0 +1,49 @@
+{
+ "name": "IoTDeviceInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authentication",
+   "name": "Authentication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Authentication"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deviceId",
+   "name": "DeviceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ioTHostHub",
+   "name": "IoTHostHub",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ioTHostHubId",
+   "name": "IoTHostHubId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

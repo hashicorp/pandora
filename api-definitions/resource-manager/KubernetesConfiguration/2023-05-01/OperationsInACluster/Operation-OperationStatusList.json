@@ -1,0 +1,16 @@
+{
+ "name": "OperationStatusList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ScopeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "OperationStatusResult"
+ },
+ "uriSuffix": "/providers/Microsoft.KubernetesConfiguration/operations"
+}

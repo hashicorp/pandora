@@ -1,0 +1,23 @@
+{
+ "name": "UnlinkBackendFromBuild",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "isCleaningAuthConfig",
+   "required": false,
+   "field": "IsCleaningAuthConfig",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BuildLinkedBackendId"
+}

@@ -1,0 +1,49 @@
+{
+ "name": "VirtualMachineScaleSetSkuCapacity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultCapacity",
+   "name": "DefaultCapacity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maximum",
+   "name": "Maximum",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimum",
+   "name": "Minimum",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleType",
+   "name": "ScaleType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetSkuScaleType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

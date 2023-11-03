@@ -1,0 +1,20 @@
+{
+ "name": "SAPSupportedResourceSkusResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedSkus",
+   "name": "SupportedSkus",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SAPSupportedSku"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

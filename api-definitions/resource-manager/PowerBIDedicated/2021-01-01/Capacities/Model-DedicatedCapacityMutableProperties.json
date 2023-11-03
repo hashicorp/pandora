@@ -1,0 +1,49 @@
+{
+ "name": "DedicatedCapacityMutableProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administration",
+   "name": "Administration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DedicatedCapacityAdministrators"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "friendlyName",
+   "name": "FriendlyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Mode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

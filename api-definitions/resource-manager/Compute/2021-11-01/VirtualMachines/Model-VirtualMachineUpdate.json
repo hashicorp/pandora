@@ -1,0 +1,60 @@
+{
+ "name": "VirtualMachineUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "SystemAndUserAssignedIdentityMap",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "plan",
+   "name": "Plan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Plan"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tags",
+   "name": "Tags",
+   "objectDefinition": {
+    "type": "Tags",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zones",
+   "name": "Zones",
+   "objectDefinition": {
+    "type": "Zones",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

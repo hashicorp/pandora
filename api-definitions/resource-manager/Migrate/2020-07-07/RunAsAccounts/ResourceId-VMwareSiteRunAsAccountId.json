@@ -1,0 +1,53 @@
+{
+ "name": "VMwareSiteRunAsAccountId",
+ "commonAlias": "VMwareSiteRunAsAccount",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OffAzure/vmwareSites/{vmwareSiteName}/runAsAccounts/{runAsAccountName}",
+ "segments": [
+  {
+   "name": "subscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "resourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "providers",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "resourceProvider",
+   "type": "ResourceProvider",
+   "value": "Microsoft.OffAzure"
+  },
+  {
+   "name": "vmwareSites",
+   "type": "Static",
+   "value": "vmwareSites"
+  },
+  {
+   "name": "vmwareSiteName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "runAsAccounts",
+   "type": "Static",
+   "value": "runAsAccounts"
+  },
+  {
+   "name": "runAsAccountName",
+   "type": "UserSpecified"
+  }
+ ]
+}

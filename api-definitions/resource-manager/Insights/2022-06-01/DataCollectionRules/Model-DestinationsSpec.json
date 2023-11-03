@@ -1,0 +1,121 @@
+{
+ "name": "DestinationsSpec",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureMonitorMetrics",
+   "name": "AzureMonitorMetrics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureMonitorMetricsDestination"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubs",
+   "name": "EventHubs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EventHubDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubsDirect",
+   "name": "EventHubsDirect",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EventHubDirectDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logAnalytics",
+   "name": "LogAnalytics",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "LogAnalyticsDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringAccounts",
+   "name": "MonitoringAccounts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MonitoringAccountDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccounts",
+   "name": "StorageAccounts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StorageBlobDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageBlobsDirect",
+   "name": "StorageBlobsDirect",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StorageBlobDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageTablesDirect",
+   "name": "StorageTablesDirect",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StorageTableDestination"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

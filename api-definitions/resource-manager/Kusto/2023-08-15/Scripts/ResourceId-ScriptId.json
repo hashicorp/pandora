@@ -1,0 +1,61 @@
+{
+ "name": "ScriptId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kusto/clusters/{clusterName}/databases/{databaseName}/scripts/{scriptName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftKusto",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Kusto"
+  },
+  {
+   "name": "staticClusters",
+   "type": "Static",
+   "value": "clusters"
+  },
+  {
+   "name": "clusterName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticDatabases",
+   "type": "Static",
+   "value": "databases"
+  },
+  {
+   "name": "databaseName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticScripts",
+   "type": "Static",
+   "value": "scripts"
+  },
+  {
+   "name": "scriptName",
+   "type": "UserSpecified"
+  }
+ ]
+}

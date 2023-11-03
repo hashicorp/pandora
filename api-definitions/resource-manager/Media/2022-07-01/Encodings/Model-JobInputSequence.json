@@ -1,0 +1,22 @@
+{
+ "name": "JobInputSequence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputs",
+   "name": "Inputs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "JobInputClip"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "JobInput",
+ "discriminatedTypeValue": "#Microsoft.Media.JobInputSequence"
+}

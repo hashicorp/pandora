@@ -1,0 +1,16 @@
+{
+ "name": "ListByFactory",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ManagedVirtualNetworkId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedPrivateEndpointResource"
+ },
+ "uriSuffix": "/managedPrivateEndpoints"
+}

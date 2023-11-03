@@ -1,0 +1,23 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "forceDelete",
+   "required": false,
+   "field": "ForceDelete",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "VolumeId"
+}

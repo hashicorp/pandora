@@ -1,0 +1,15 @@
+{
+ "name": "RemoteRenderingAccountsListKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RemoteRenderingAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccountKeys"
+ },
+ "uriSuffix": "/listKeys"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "ListHybridConnectionKeys",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "HybridConnectionNamespaceRelayId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HybridConnectionKey"
+ },
+ "uriSuffix": "/listKeys"
+}

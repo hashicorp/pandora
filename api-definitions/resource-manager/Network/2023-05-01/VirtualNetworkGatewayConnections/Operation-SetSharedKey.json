@@ -1,0 +1,20 @@
+{
+ "name": "SetSharedKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionSharedKey"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionSharedKey"
+ },
+ "uriSuffix": "/sharedkey"
+}

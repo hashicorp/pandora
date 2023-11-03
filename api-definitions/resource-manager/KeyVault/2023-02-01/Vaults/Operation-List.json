@@ -1,0 +1,38 @@
+{
+ "name": "List",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "$filter",
+   "required": true,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "VaultListFilterTypes"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$top",
+   "required": false,
+   "field": "Top",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Resource"
+ },
+ "uriSuffix": "/resources"
+}

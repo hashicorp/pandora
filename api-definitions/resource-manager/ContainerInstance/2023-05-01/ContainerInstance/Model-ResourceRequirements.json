@@ -1,0 +1,27 @@
+{
+ "name": "ResourceRequirements",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limits",
+   "name": "Limits",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceLimits"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requests",
+   "name": "Requests",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceRequests"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

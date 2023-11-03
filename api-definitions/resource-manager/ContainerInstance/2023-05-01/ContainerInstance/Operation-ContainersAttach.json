@@ -1,0 +1,15 @@
+{
+ "name": "ContainersAttach",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ContainerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ContainerAttachResponse"
+ },
+ "uriSuffix": "/attach"
+}

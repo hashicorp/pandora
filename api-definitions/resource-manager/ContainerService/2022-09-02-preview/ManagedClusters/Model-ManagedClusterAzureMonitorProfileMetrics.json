@@ -1,0 +1,27 @@
+{
+ "name": "ManagedClusterAzureMonitorProfileMetrics",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kubeStateMetrics",
+   "name": "KubeStateMetrics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterAzureMonitorProfileKubeStateMetrics"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,15 @@
+{
+ "name": "GetDeviceCapacityInfo",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "DataBoxEdgeDeviceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DeviceCapacityInfo"
+ },
+ "uriSuffix": "/deviceCapacityInfo/default"
+}

@@ -1,0 +1,31 @@
+{
+ "name": "ActivityDependency",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activity",
+   "name": "Activity",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dependencyConditions",
+   "name": "DependencyConditions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DependencyCondition"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

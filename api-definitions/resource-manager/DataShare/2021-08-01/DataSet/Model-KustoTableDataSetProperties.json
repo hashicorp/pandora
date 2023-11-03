@@ -1,0 +1,60 @@
+{
+ "name": "KustoTableDataSetProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSetId",
+   "name": "DataSetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kustoDatabaseResourceId",
+   "name": "KustoDatabaseResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tableLevelSharingProperties",
+   "name": "TableLevelSharingProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TableLevelSharingProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

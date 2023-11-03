@@ -1,0 +1,40 @@
+{
+ "name": "HyperVReplicaAzureFailbackProviderInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSyncOption",
+   "name": "DataSyncOption",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerIdForAlternateRecovery",
+   "name": "ProviderIdForAlternateRecovery",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryVmCreationOption",
+   "name": "RecoveryVMCreationOption",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
+ "discriminatedTypeValue": "HyperVReplicaAzureFailback"
+}

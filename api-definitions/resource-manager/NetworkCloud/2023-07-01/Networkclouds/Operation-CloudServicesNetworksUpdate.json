@@ -1,0 +1,19 @@
+{
+ "name": "CloudServicesNetworksUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CloudServicesNetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CloudServicesNetworkPatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CloudServicesNetwork"
+ }
+}

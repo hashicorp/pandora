@@ -1,0 +1,79 @@
+{
+ "name": "EventSubscriptionFilter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "advancedFilters",
+   "name": "AdvancedFilters",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AdvancedFilter"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableAdvancedFilteringOnArrays",
+   "name": "EnableAdvancedFilteringOnArrays",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includedEventTypes",
+   "name": "IncludedEventTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isSubjectCaseSensitive",
+   "name": "IsSubjectCaseSensitive",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subjectBeginsWith",
+   "name": "SubjectBeginsWith",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subjectEndsWith",
+   "name": "SubjectEndsWith",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

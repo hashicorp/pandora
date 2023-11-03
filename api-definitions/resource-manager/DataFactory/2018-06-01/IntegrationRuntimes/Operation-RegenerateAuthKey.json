@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateAuthKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationRuntimeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationRuntimeRegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationRuntimeAuthKeys"
+ },
+ "uriSuffix": "/regenerateAuthKey"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "CloudEdgeManagementRoleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "edgeProfile",
+   "name": "EdgeProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdgeProfile"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localManagementStatus",
+   "name": "LocalManagementStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roleStatus",
+   "name": "RoleStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleStatus"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

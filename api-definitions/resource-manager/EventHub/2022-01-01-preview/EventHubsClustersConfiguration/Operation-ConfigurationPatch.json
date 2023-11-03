@@ -1,0 +1,21 @@
+{
+ "name": "ConfigurationPatch",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  201,
+  202,
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ClusterQuotaConfigurationProperties"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ClusterQuotaConfigurationProperties"
+ },
+ "uriSuffix": "/quotaConfiguration/default"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "CustomizedAcceleratorsList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ApplicationAcceleratorId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomizedAcceleratorResource"
+ },
+ "uriSuffix": "/customizedAccelerators"
+}

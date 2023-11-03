@@ -1,0 +1,19 @@
+{
+ "name": "CassandraResourcesCreateUpdateCassandraTable",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CassandraKeyspaceTableId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CassandraTableCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CassandraTableGetResults"
+ }
+}

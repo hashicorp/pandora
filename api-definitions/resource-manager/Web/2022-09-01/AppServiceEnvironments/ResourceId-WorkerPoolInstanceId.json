@@ -1,0 +1,61 @@
+{
+ "name": "WorkerPoolInstanceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/hostingEnvironments/{hostingEnvironmentName}/workerPools/{workerPoolName}/instances/{instanceName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftWeb",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Web"
+  },
+  {
+   "name": "staticHostingEnvironments",
+   "type": "Static",
+   "value": "hostingEnvironments"
+  },
+  {
+   "name": "hostingEnvironmentName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticWorkerPools",
+   "type": "Static",
+   "value": "workerPools"
+  },
+  {
+   "name": "workerPoolName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticInstances",
+   "type": "Static",
+   "value": "instances"
+  },
+  {
+   "name": "instanceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

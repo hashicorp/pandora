@@ -1,0 +1,67 @@
+{
+ "name": "PredictiveMetricGet",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "aggregation",
+   "required": true,
+   "field": "Aggregation",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "interval",
+   "required": true,
+   "field": "Interval",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "metricName",
+   "required": true,
+   "field": "MetricName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "metricNamespace",
+   "required": true,
+   "field": "MetricNamespace",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "timespan",
+   "required": true,
+   "field": "Timespan",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AutoScaleSettingId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PredictiveResponse"
+ },
+ "uriSuffix": "/predictiveMetrics"
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListPremierAddOnOffers",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PremierAddOnOffer"
+ },
+ "uriSuffix": "/providers/Microsoft.Web/premieraddonoffers"
+}

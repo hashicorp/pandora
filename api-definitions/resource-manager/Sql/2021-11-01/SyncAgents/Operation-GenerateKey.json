@@ -1,0 +1,15 @@
+{
+ "name": "GenerateKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SyncAgentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SyncAgentKeyProperties"
+ },
+ "uriSuffix": "/generateKey"
+}

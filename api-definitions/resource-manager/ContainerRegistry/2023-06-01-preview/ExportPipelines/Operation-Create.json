@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ExportPipelineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ExportPipeline"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ExportPipeline"
+ }
+}

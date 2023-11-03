@@ -1,0 +1,29 @@
+{
+ "name": "HyperVReplicaAzureApplyRecoveryPointInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryKekCertificatePfx",
+   "name": "PrimaryKekCertificatePfx",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secondaryKekCertificatePfx",
+   "name": "SecondaryKekCertificatePfx",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ApplyRecoveryPointProviderSpecificInput",
+ "discriminatedTypeValue": "HyperVReplicaAzure"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "TaskRunId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TaskRun"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TaskRun"
+ }
+}

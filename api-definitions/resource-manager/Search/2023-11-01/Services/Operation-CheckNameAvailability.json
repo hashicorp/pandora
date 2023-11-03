@@ -1,0 +1,31 @@
+{
+ "name": "CheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "headerName": "x-ms-client-request-id",
+   "optional": true,
+   "required": false,
+   "field": "XMsClientRequestId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityOutput"
+ },
+ "uriSuffix": "/providers/Microsoft.Search/checkNameAvailability"
+}

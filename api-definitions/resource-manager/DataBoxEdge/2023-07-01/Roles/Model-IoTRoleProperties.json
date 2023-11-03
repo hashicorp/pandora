@@ -1,0 +1,97 @@
+{
+ "name": "IoTRoleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeResource",
+   "name": "ComputeResource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeResource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostPlatform",
+   "name": "HostPlatform",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlatformType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostPlatformType",
+   "name": "HostPlatformType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HostPlatformType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ioTDeviceDetails",
+   "name": "IoTDeviceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IoTDeviceInfo"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ioTEdgeAgentInfo",
+   "name": "IoTEdgeAgentInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IoTEdgeAgentInfo"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ioTEdgeDeviceDetails",
+   "name": "IoTEdgeDeviceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IoTDeviceInfo"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roleStatus",
+   "name": "RoleStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleStatus"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareMappings",
+   "name": "ShareMappings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MountPointMap"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

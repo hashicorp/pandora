@@ -1,0 +1,16 @@
+{
+ "name": "ListVhds",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LabId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LabVhd"
+ },
+ "uriSuffix": "/listVhds"
+}

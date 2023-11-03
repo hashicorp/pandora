@@ -1,0 +1,44 @@
+{
+ "name": "Providers2DiagnosticSettingId",
+ "id": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Insights/diagnosticSettings/{diagnosticSettingName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Management"
+  },
+  {
+   "name": "staticManagementGroups",
+   "type": "Static",
+   "value": "managementGroups"
+  },
+  {
+   "name": "managementGroupId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProviders2",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Insights"
+  },
+  {
+   "name": "staticDiagnosticSettings",
+   "type": "Static",
+   "value": "diagnosticSettings"
+  },
+  {
+   "name": "diagnosticSettingName",
+   "type": "UserSpecified"
+  }
+ ]
+}

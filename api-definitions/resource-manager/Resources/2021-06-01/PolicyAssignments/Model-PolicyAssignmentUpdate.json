@@ -1,0 +1,27 @@
+{
+ "name": "PolicyAssignmentUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "SystemOrUserAssignedIdentityMap",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

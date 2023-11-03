@@ -1,0 +1,19 @@
+{
+ "name": "BareMetalMachinesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "BareMetalMachineId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BareMetalMachine"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BareMetalMachine"
+ }
+}

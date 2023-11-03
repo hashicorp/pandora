@@ -1,0 +1,27 @@
+{
+ "name": "DscNodeUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeId",
+   "name": "NodeId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DscNodeUpdateParametersProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

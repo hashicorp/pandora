@@ -1,0 +1,19 @@
+{
+ "name": "CheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ClusterId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SandboxCustomImagesCheckNameRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameResult"
+ },
+ "uriSuffix": "/sandboxCustomImagesCheckNameAvailability"
+}

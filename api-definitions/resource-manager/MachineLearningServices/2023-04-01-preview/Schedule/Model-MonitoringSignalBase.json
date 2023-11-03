@@ -1,0 +1,38 @@
+{
+ "name": "MonitoringSignalBase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lookbackPeriod",
+   "name": "LookbackPeriod",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringNotificationMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "signalType",
+   "name": "SignalType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringSignalType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,18 @@
+{
+ "name": "CertificatesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CertificateId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CertificatePatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Certificate"
+ }
+}

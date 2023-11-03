@@ -1,0 +1,19 @@
+{
+ "name": "IndicatorCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "IndicatorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ThreatIntelligenceIndicatorModel"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ThreatIntelligenceInformation"
+ }
+}

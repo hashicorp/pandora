@@ -1,0 +1,52 @@
+{
+ "name": "CapacityReservationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/capacityReservationGroups/{capacityReservationGroupName}/capacityReservations/{capacityReservationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCompute",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Compute"
+  },
+  {
+   "name": "staticCapacityReservationGroups",
+   "type": "Static",
+   "value": "capacityReservationGroups"
+  },
+  {
+   "name": "capacityReservationGroupName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticCapacityReservations",
+   "type": "Static",
+   "value": "capacityReservations"
+  },
+  {
+   "name": "capacityReservationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

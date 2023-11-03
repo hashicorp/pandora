@@ -1,0 +1,16 @@
+{
+ "name": "UnderAccountMigrateBackups",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "NetAppAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupsMigrationRequest"
+ },
+ "uriSuffix": "/migrateBackups"
+}

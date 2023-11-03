@@ -1,0 +1,27 @@
+{
+ "name": "QueryAggregation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "function",
+   "name": "Function",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FunctionType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

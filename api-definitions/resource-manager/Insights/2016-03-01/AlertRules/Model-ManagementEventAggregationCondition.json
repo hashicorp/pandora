@@ -1,0 +1,38 @@
+{
+ "name": "ManagementEventAggregationCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConditionOperator"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowSize",
+   "name": "WindowSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

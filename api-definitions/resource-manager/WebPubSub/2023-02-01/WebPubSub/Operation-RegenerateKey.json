@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "WebPubSubId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WebPubSubKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

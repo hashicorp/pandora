@@ -1,0 +1,91 @@
+{
+ "name": "SimPolicyPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultSlice",
+   "name": "DefaultSlice",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SliceResourceId"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationTimer",
+   "name": "RegistrationTimer",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rfspIndex",
+   "name": "RfspIndex",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "siteProvisioningState",
+   "name": "SiteProvisioningState",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SiteProvisioningState"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sliceConfigurations",
+   "name": "SliceConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SliceConfiguration",
+     "minItems": 1
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ueAmbr",
+   "name": "UeAmbr",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Ambr"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

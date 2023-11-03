@@ -1,0 +1,19 @@
+{
+ "name": "ForceReboot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RediId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RedisRebootParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RedisForceRebootResponse"
+ },
+ "uriSuffix": "/forceReboot"
+}

@@ -1,0 +1,23 @@
+{
+ "name": "AnnotationsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ComponentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Annotation"
+ },
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "Annotation"
+  }
+ },
+ "uriSuffix": "/annotations"
+}

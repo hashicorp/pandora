@@ -1,0 +1,19 @@
+{
+ "name": "ServicesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataMigrationService"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataMigrationService"
+ }
+}

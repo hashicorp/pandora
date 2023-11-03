@@ -1,0 +1,27 @@
+{
+ "name": "SoftwareUpdateConfigurationTasks",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "postTask",
+   "name": "PostTask",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TaskProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preTask",
+   "name": "PreTask",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TaskProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

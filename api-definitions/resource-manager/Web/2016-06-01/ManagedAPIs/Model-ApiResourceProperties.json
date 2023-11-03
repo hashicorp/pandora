@@ -1,0 +1,138 @@
+{
+ "name": "ApiResourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "apiDefinitionUrl",
+   "name": "ApiDefinitionUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "apiDefinitions",
+   "name": "ApiDefinitions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiResourceDefinitions"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendService",
+   "name": "BackendService",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiResourceBackendService"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capabilities",
+   "name": "Capabilities",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionParameters",
+   "name": "ConnectionParameters",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectionParameter"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "generalInformation",
+   "name": "GeneralInformation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiResourceGeneralInformation"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metadata",
+   "name": "Metadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiResourceMetadata"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policies",
+   "name": "Policies",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiResourcePolicies"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runtimeUrls",
+   "name": "RuntimeUrls",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "swagger",
+   "name": "Swagger",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

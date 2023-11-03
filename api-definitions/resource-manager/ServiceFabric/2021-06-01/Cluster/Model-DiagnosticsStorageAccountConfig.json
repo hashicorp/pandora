@@ -1,0 +1,71 @@
+{
+ "name": "DiagnosticsStorageAccountConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobEndpoint",
+   "name": "BlobEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectedAccountKeyName",
+   "name": "ProtectedAccountKeyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectedAccountKeyName2",
+   "name": "ProtectedAccountKeyName2",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queueEndpoint",
+   "name": "QueueEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountName",
+   "name": "StorageAccountName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tableEndpoint",
+   "name": "TableEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

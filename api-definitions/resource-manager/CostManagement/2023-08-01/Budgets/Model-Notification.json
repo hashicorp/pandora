@@ -1,0 +1,120 @@
+{
+ "name": "Notification",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactEmails",
+   "name": "ContactEmails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null,
+     "maxItems": 50,
+     "minItems": 0
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactGroups",
+   "name": "ContactGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null,
+     "maxItems": 50,
+     "minItems": 0
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contactRoles",
+   "name": "ContactRoles",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frequency",
+   "name": "Frequency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Frequency"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "locale",
+   "name": "Locale",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CultureCode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BudgetNotificationOperatorType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "thresholdType",
+   "name": "ThresholdType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ThresholdType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

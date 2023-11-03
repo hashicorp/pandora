@@ -1,0 +1,29 @@
+{
+ "name": "SelectAudioTrackById",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "channelMapping",
+   "name": "ChannelMapping",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ChannelMapping"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trackId",
+   "name": "TrackId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "TrackDescriptor",
+ "discriminatedTypeValue": "#Microsoft.Media.SelectAudioTrackById"
+}

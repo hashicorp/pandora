@@ -1,0 +1,88 @@
+{
+ "name": "AzureIaaSVMProtectionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instantRPDetails",
+   "name": "InstantRPDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstantRPAdditionalDetails"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instantRpRetentionRangeInDays",
+   "name": "InstantRpRetentionRangeInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyType",
+   "name": "PolicyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IAASVMPolicyType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionPolicy",
+   "name": "RetentionPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedulePolicy",
+   "name": "SchedulePolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SchedulePolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tieringPolicy",
+   "name": "TieringPolicy",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TieringPolicy"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZone",
+   "name": "TimeZone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ProtectionPolicy",
+ "discriminatedTypeValue": "AzureIaasVM"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SystemTopicId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SystemTopicUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SystemTopic"
+ }
+}

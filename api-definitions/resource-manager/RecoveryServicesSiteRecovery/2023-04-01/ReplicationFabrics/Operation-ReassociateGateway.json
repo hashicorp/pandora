@@ -1,0 +1,20 @@
+{
+ "name": "ReassociateGateway",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ReplicationFabricId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "FailoverProcessServerRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Fabric"
+ },
+ "uriSuffix": "/reassociateGateway"
+}

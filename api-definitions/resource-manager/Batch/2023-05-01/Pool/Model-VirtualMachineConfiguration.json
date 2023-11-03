@@ -1,0 +1,123 @@
+{
+ "name": "VirtualMachineConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerConfiguration",
+   "name": "ContainerConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataDisks",
+   "name": "DataDisks",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataDisk"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskEncryptionConfiguration",
+   "name": "DiskEncryptionConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskEncryptionConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extensions",
+   "name": "Extensions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VmExtension"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageReference",
+   "name": "ImageReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageReference"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "licenseType",
+   "name": "LicenseType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodeAgentSkuId",
+   "name": "NodeAgentSkuId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nodePlacementConfiguration",
+   "name": "NodePlacementConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NodePlacementConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osDisk",
+   "name": "OsDisk",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OSDisk"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowsConfiguration",
+   "name": "WindowsConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WindowsConfiguration"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

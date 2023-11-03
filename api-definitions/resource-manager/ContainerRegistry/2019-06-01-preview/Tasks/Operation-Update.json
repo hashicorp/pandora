@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "TaskId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TaskUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Task"
+ }
+}

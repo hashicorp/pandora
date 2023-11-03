@@ -1,0 +1,60 @@
+{
+ "name": "ManagedGrafanaPropertiesUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "apiKey",
+   "name": "ApiKey",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiKey"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deterministicOutboundIP",
+   "name": "DeterministicOutboundIP",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DeterministicOutboundIP"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "grafanaIntegrations",
+   "name": "GrafanaIntegrations",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GrafanaIntegrations"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zoneRedundancy",
+   "name": "ZoneRedundancy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ZoneRedundancy"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

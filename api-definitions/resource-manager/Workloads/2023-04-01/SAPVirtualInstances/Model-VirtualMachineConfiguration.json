@@ -1,0 +1,38 @@
+{
+ "name": "VirtualMachineConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageReference",
+   "name": "ImageReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageReference"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osProfile",
+   "name": "OsProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OSProfile"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSize",
+   "name": "VMSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

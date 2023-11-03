@@ -1,0 +1,15 @@
+{
+ "name": "ListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AlertRuleResourceCollection"
+ },
+ "uriSuffix": "/providers/Microsoft.Insights/alertRules"
+}

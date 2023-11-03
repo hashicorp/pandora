@@ -1,0 +1,27 @@
+{
+ "name": "AgentPoolPatchProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeSettings",
+   "name": "UpgradeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AgentPoolUpgradeSettings"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

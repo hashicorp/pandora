@@ -1,0 +1,19 @@
+{
+ "name": "ListHosts",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ClusterId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "HostInfo"
+  }
+ },
+ "uriSuffix": "/listHosts"
+}

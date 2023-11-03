@@ -1,0 +1,60 @@
+{
+ "name": "WebTestPropertiesValidationRules",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ContentValidation",
+   "name": "ContentValidation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebTestPropertiesValidationRulesContentValidation"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ExpectedHttpStatusCode",
+   "name": "ExpectedHTTPStatusCode",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "IgnoreHttpStatusCode",
+   "name": "IgnoreHTTPStatusCode",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "SSLCertRemainingLifetimeCheck",
+   "name": "SSLCertRemainingLifetimeCheck",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "SSLCheck",
+   "name": "SSLCheck",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

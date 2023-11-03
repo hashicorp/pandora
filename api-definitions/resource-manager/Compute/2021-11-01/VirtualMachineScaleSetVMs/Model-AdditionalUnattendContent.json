@@ -1,0 +1,49 @@
+{
+ "name": "AdditionalUnattendContent",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "componentName",
+   "name": "ComponentName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComponentNames"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "content",
+   "name": "Content",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "passName",
+   "name": "PassName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PassNames"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "settingName",
+   "name": "SettingName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SettingNames"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

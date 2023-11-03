@@ -1,0 +1,93 @@
+{
+ "name": "NfsAccessRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "access",
+   "name": "Access",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NfsAccessRuleAccess"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "anonymousGID",
+   "name": "AnonymousGID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "anonymousUID",
+   "name": "AnonymousUID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rootSquash",
+   "name": "RootSquash",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scope",
+   "name": "Scope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NfsAccessRuleScope"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "submountAccess",
+   "name": "SubmountAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "suid",
+   "name": "Suid",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

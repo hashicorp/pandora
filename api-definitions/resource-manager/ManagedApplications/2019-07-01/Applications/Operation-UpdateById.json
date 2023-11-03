@@ -1,0 +1,19 @@
+{
+ "name": "UpdateById",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ApplicationIdId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationPatchable"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationPatchable"
+ }
+}

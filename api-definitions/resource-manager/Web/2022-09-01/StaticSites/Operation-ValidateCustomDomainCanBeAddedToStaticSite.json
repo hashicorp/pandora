@@ -1,0 +1,16 @@
+{
+ "name": "ValidateCustomDomainCanBeAddedToStaticSite",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "CustomDomainId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteCustomDomainRequestPropertiesARMResource"
+ },
+ "uriSuffix": "/validate"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "DatabaseInviteFollower",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseInviteFollowerRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseInviteFollowerResult"
+ },
+ "uriSuffix": "/inviteFollower"
+}

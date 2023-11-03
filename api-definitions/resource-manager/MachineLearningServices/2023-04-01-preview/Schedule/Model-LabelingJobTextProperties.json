@@ -1,0 +1,18 @@
+{
+ "name": "LabelingJobTextProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "annotationType",
+   "name": "AnnotationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TextAnnotationType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "LabelingJobMediaProperties",
+ "discriminatedTypeValue": "Text"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtResourceGroupLevel",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderLockId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagementLockObject"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagementLockObject"
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "name": "BuildServiceListBuilds",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "BuildServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Build"
+ },
+ "uriSuffix": "/builds"
+}

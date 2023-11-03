@@ -1,0 +1,64 @@
+{
+ "name": "BlobInventoryPolicyDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filters",
+   "name": "Filters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlobInventoryPolicyFilter"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "format",
+   "name": "Format",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Format"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ObjectType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Schedule"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schemaFields",
+   "name": "SchemaFields",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "ListSlotDifferencesFromProduction",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CsmSlotEntity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SlotDifference"
+ },
+ "uriSuffix": "/slotsdiffs"
+}

@@ -1,0 +1,29 @@
+{
+ "name": "KubernetesStorageClassRestoreCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioner",
+   "name": "Provisioner",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectedStorageClassName",
+   "name": "SelectedStorageClassName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ItemLevelRestoreCriteria",
+ "discriminatedTypeValue": "KubernetesStorageClassRestoreCriteria"
+}

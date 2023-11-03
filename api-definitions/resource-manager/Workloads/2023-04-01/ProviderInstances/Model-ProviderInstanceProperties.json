@@ -1,0 +1,38 @@
+{
+ "name": "ProviderInstanceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errors",
+   "name": "Errors",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Error"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerSettings",
+   "name": "ProviderSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProviderSpecificProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkloadMonitorProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

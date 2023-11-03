@@ -1,0 +1,27 @@
+{
+ "name": "SecurityProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "openAccess",
+   "name": "OpenAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnableState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationCode",
+   "name": "RegistrationCode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

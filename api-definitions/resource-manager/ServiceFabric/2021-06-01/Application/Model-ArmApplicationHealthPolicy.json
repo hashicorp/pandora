@@ -1,0 +1,53 @@
+{
+ "name": "ArmApplicationHealthPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "considerWarningAsError",
+   "name": "ConsiderWarningAsError",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultServiceTypeHealthPolicy",
+   "name": "DefaultServiceTypeHealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ArmServiceTypeHealthPolicy"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxPercentUnhealthyDeployedApplications",
+   "name": "MaxPercentUnhealthyDeployedApplications",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceTypeHealthPolicyMap",
+   "name": "ServiceTypeHealthPolicyMap",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ArmServiceTypeHealthPolicy"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

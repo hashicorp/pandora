@@ -1,0 +1,71 @@
+{
+ "name": "AgentUpgrade",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "correlationId",
+   "name": "CorrelationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "desiredVersion",
+   "name": "DesiredVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableAutomaticUpgrade",
+   "name": "EnableAutomaticUpgrade",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastAttemptMessage",
+   "name": "LastAttemptMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastAttemptStatus",
+   "name": "LastAttemptStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LastAttemptStatusEnum"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastAttemptTimestamp",
+   "name": "LastAttemptTimestamp",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

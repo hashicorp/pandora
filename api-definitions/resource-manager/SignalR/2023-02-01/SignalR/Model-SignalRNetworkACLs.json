@@ -1,0 +1,42 @@
+{
+ "name": "SignalRNetworkACLs",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultAction",
+   "name": "DefaultAction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ACLAction"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpoints",
+   "name": "PrivateEndpoints",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateEndpointACL"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetwork",
+   "name": "PublicNetwork",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkACL"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "name": "ServerPropertiesForDefaultCreate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLogin",
+   "name": "AdministratorLogin",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLoginPassword",
+   "name": "AdministratorLoginPassword",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "ServerPropertiesForCreate",
+ "discriminatedTypeValue": "Default"
+}

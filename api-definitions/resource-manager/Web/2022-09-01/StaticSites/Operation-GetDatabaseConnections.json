@@ -1,0 +1,16 @@
+{
+ "name": "GetDatabaseConnections",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "StaticSiteId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabaseConnection"
+ },
+ "uriSuffix": "/databaseConnections"
+}

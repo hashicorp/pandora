@@ -1,0 +1,42 @@
+{
+ "name": "EnabledResourceTypeProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterExtensionId",
+   "name": "ClusterExtensionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extensionType",
+   "name": "ExtensionType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "typesMetadata",
+   "name": "TypesMetadata",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EnabledResourceTypePropertiesTypesMetadataInlined"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

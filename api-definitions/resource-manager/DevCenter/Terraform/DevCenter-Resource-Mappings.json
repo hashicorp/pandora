@@ -1,0 +1,66 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterResource",
+				"schemaFieldPath": "DevCenterUri",
+				"sdkModelName": "DevCenterProperties",
+				"sdkFieldPath": "DevCenterUri"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterResource",
+				"schemaFieldPath": "Identity",
+				"sdkModelName": "DevCenter",
+				"sdkFieldPath": "Identity"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterResource",
+				"schemaFieldPath": "Location",
+				"sdkModelName": "DevCenter",
+				"sdkFieldPath": "Location"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "DevCenterResource",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "DevCenter",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "DevCenterResource",
+				"sdkModelName": "DevCenter",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "DevCenterResource",
+			"sdkModelName": "DevCenter"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "devCenterName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "ResourceGroupName",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

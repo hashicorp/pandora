@@ -1,0 +1,38 @@
+{
+ "name": "RegistrationAssignmentProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationDefinition",
+   "name": "RegistrationDefinition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RegistrationAssignmentPropertiesRegistrationDefinition"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationDefinitionId",
+   "name": "RegistrationDefinitionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

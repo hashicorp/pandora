@@ -1,0 +1,27 @@
+{
+ "name": "ServiceCorrelation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheme",
+   "name": "Scheme",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceCorrelationScheme"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceName",
+   "name": "ServiceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,49 @@
+{
+ "name": "AadSolutionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectivityState",
+   "name": "ConnectivityState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AadConnectivityState"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deviceType",
+   "name": "DeviceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deviceVendor",
+   "name": "DeviceVendor",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspace",
+   "name": "Workspace",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectedWorkspace"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

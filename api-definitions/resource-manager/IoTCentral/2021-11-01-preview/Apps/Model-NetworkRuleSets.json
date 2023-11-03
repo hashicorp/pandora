@@ -1,0 +1,53 @@
+{
+ "name": "NetworkRuleSets",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applyToDevices",
+   "name": "ApplyToDevices",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applyToIoTCentral",
+   "name": "ApplyToIoTCentral",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultAction",
+   "name": "DefaultAction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkAction"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipRules",
+   "name": "IPRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkRuleSetIPRule"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

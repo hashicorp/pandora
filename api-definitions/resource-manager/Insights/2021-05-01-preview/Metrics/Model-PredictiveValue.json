@@ -1,0 +1,28 @@
+{
+ "name": "PredictiveValue",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeStamp",
+   "name": "TimeStamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

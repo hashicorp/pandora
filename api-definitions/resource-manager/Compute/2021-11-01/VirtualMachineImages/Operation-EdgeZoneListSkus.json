@@ -1,0 +1,19 @@
+{
+ "name": "EdgeZoneListSkus",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "VMImageOfferId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "VirtualMachineImageResource"
+  }
+ },
+ "uriSuffix": "/skus"
+}

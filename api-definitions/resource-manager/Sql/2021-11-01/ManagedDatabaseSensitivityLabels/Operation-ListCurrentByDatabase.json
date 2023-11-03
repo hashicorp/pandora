@@ -1,0 +1,38 @@
+{
+ "name": "ListCurrentByDatabase",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$count",
+   "required": false,
+   "field": "Count",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ManagedInstanceDatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SensitivityLabel"
+ },
+ "uriSuffix": "/currentSensitivityLabels"
+}

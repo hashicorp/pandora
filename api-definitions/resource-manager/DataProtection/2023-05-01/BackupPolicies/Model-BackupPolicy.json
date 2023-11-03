@@ -1,0 +1,22 @@
+{
+ "name": "BackupPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyRules",
+   "name": "PolicyRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BasePolicyRule"
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "BaseBackupPolicy",
+ "discriminatedTypeValue": "BackupPolicy"
+}

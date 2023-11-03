@@ -1,0 +1,19 @@
+{
+ "name": "ListProvisioningToken",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "EdgeModuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ListProvisioningTokenInput"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EdgeModuleProvisioningToken"
+ },
+ "uriSuffix": "/listProvisioningToken"
+}

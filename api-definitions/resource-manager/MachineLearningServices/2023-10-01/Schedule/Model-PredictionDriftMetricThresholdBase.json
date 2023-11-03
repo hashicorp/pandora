@@ -1,0 +1,27 @@
+{
+ "name": "PredictionDriftMetricThresholdBase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "dataType",
+   "name": "DataType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringFeatureDataType"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringThreshold"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

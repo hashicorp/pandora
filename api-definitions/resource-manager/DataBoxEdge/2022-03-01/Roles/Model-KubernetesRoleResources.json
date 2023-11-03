@@ -1,0 +1,38 @@
+{
+ "name": "KubernetesRoleResources",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "compute",
+   "name": "Compute",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesRoleCompute"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "network",
+   "name": "Network",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesRoleNetwork"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storage",
+   "name": "Storage",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesRoleStorage"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

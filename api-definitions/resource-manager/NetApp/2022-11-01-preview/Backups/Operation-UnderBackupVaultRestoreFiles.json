@@ -1,0 +1,16 @@
+{
+ "name": "UnderBackupVaultRestoreFiles",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  202,
+  204
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "BackupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupRestoreFiles"
+ },
+ "uriSuffix": "/restoreFiles"
+}

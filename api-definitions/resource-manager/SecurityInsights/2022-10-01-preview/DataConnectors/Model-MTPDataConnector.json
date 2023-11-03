@@ -1,0 +1,18 @@
+{
+ "name": "MTPDataConnector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MTPDataConnectorProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnector",
+ "discriminatedTypeValue": "MicrosoftThreatProtection"
+}

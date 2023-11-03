@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateStaticSite",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "StaticSiteId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteARMResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteARMResource"
+ }
+}

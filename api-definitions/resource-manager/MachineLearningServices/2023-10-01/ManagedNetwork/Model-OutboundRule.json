@@ -1,0 +1,38 @@
+{
+ "name": "OutboundRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "category",
+   "name": "Category",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RuleCategory"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RuleStatus"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RuleType"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,62 @@
+{
+ "name": "NewProtectionProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "appConsistentFrequencyInMinutes",
+   "name": "AppConsistentFrequencyInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "crashConsistentFrequencyInMinutes",
+   "name": "CrashConsistentFrequencyInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "multiVmSyncStatus",
+   "name": "MultiVMSyncStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SetMultiVMSyncStatus"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyName",
+   "name": "PolicyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointHistory",
+   "name": "RecoveryPointHistory",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "ProtectionProfileCustomDetails",
+ "discriminatedTypeValue": "New"
+}

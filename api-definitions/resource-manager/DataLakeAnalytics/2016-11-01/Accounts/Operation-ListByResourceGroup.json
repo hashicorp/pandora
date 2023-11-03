@@ -1,0 +1,78 @@
+{
+ "name": "ListByResourceGroup",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$count",
+   "required": false,
+   "field": "Count",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$orderby",
+   "required": false,
+   "field": "Orderby",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$select",
+   "required": false,
+   "field": "Select",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$skip",
+   "required": false,
+   "field": "Skip",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$top",
+   "required": false,
+   "field": "Top",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ResourceGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataLakeAnalyticsAccountBasic"
+ },
+ "uriSuffix": "/providers/Microsoft.DataLakeAnalytics/accounts"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "WorkItemConfigurationsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ComponentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkItemCreateConfiguration"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkItemConfiguration"
+ },
+ "uriSuffix": "/workItemConfigs"
+}

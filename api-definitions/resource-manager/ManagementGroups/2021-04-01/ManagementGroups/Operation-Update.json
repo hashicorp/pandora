@@ -1,0 +1,30 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "headerName": "Cache-Control",
+   "optional": true,
+   "required": false,
+   "field": "CacheControl",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ManagementGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PatchManagementGroupRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagementGroup"
+ }
+}

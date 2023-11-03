@@ -1,0 +1,19 @@
+{
+ "name": "AccessPoliciesCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AccessPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AccessPolicyEntity"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccessPolicyEntity"
+ }
+}

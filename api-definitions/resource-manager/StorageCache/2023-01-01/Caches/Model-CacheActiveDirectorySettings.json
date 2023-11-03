@@ -1,0 +1,82 @@
+{
+ "name": "CacheActiveDirectorySettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cacheNetBiosName",
+   "name": "CacheNetBiosName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheActiveDirectorySettingsCredentials"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainJoined",
+   "name": "DomainJoined",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DomainJoinedType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainName",
+   "name": "DomainName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainNetBiosName",
+   "name": "DomainNetBiosName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryDnsIpAddress",
+   "name": "PrimaryDnsIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secondaryDnsIpAddress",
+   "name": "SecondaryDnsIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

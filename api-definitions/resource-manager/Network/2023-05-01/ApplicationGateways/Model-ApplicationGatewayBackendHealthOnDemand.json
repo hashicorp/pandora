@@ -1,0 +1,27 @@
+{
+ "name": "ApplicationGatewayBackendHealthOnDemand",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendAddressPool",
+   "name": "BackendAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendAddressPool"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendHealthHttpSettings",
+   "name": "BackendHealthHTTPSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendHealthHTTPSettings"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

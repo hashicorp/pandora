@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CentralInstanceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "UpdateSAPCentralInstanceRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SAPCentralServerInstance"
+ }
+}

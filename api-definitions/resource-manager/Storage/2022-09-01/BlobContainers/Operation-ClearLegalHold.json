@@ -1,0 +1,19 @@
+{
+ "name": "ClearLegalHold",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "StorageContainerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LegalHold"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LegalHold"
+ },
+ "uriSuffix": "/clearLegalHold"
+}

@@ -1,0 +1,15 @@
+{
+ "name": "GetPrivateAccessSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateAccess"
+ },
+ "uriSuffix": "/privateAccess/virtualNetworks"
+}

@@ -1,0 +1,27 @@
+{
+ "name": "FacetRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expression",
+   "name": "Expression",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "options",
+   "name": "Options",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FacetRequestOptions"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

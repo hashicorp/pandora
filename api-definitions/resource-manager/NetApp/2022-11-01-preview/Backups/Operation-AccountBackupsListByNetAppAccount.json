@@ -1,0 +1,27 @@
+{
+ "name": "AccountBackupsListByNetAppAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "includeOnlyBackupsFromDeletedVolumes",
+   "required": false,
+   "field": "IncludeOnlyBackupsFromDeletedVolumes",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "NetAppAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupsList"
+ },
+ "uriSuffix": "/accountBackups"
+}

@@ -1,0 +1,40 @@
+{
+ "name": "UniformInt64RangePartitionScheme",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "highKey",
+   "name": "HighKey",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lowKey",
+   "name": "LowKey",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "Partition",
+ "discriminatedTypeValue": "UniformInt64Range"
+}

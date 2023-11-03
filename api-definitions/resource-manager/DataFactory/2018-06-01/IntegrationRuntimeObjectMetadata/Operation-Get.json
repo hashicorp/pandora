@@ -1,0 +1,19 @@
+{
+ "name": "Get",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationRuntimeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GetSsisObjectMetadataRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SsisObjectMetadataListResponse"
+ },
+ "uriSuffix": "/getObjectMetadata"
+}

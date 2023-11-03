@@ -1,0 +1,30 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "force",
+   "required": false,
+   "field": "Force",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SessionHostId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SessionHostPatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SessionHost"
+ }
+}

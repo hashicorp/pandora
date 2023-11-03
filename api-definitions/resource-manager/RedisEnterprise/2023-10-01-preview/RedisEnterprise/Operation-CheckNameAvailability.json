@@ -1,0 +1,15 @@
+{
+ "name": "CheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckNameAvailabilityParameters"
+ },
+ "uriSuffix": "/providers/Microsoft.Cache/checkNameAvailability"
+}

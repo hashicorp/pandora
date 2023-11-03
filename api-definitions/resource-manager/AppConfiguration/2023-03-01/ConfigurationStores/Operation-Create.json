@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ConfigurationStoreId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationStore"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationStore"
+ }
+}

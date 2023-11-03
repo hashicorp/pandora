@@ -1,0 +1,71 @@
+{
+ "name": "StorageAccountProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobEndpoint",
+   "name": "BlobEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerCount",
+   "name": "ContainerCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataPolicy",
+   "name": "DataPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataPolicy"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountCredentialId",
+   "name": "StorageAccountCredentialId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountStatus",
+   "name": "StorageAccountStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

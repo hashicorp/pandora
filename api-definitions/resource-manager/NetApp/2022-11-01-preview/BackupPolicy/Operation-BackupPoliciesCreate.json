@@ -1,0 +1,20 @@
+{
+ "name": "BackupPoliciesCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "BackupPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BackupPolicy"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BackupPolicy"
+ }
+}

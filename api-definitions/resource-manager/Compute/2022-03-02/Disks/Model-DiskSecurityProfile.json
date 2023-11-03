@@ -1,0 +1,27 @@
+{
+ "name": "DiskSecurityProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secureVMDiskEncryptionSetId",
+   "name": "SecureVMDiskEncryptionSetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securityType",
+   "name": "SecurityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskSecurityTypes"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,27 @@
+{
+ "name": "RuleCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSource",
+   "name": "DataSource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RuleDataSource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "odata.type",
+   "name": "OdataType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,28 @@
+{
+ "name": "ListByDataBoxEdgeDevice",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "DataBoxEdgeDeviceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "User"
+ },
+ "uriSuffix": "/users"
+}

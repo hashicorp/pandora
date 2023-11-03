@@ -1,0 +1,18 @@
+{
+ "name": "ActionGroupsUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ActionGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ActionGroupPatchBody"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActionGroupResource"
+ }
+}

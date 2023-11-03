@@ -1,0 +1,33 @@
+{
+	"apiVersion": "",
+	"category": "Container",
+	"createMethod": {
+		"generate": true,
+		"name": "CreateOrUpdate",
+		"timeoutInMinutes": 30
+	},
+	"deleteMethod": {
+		"generate": true,
+		"name": "Delete",
+		"timeoutInMinutes": 30
+	},
+	"description": "Manages a Kubernetes Fleet Manager\n\n~\u003e **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`\n",
+	"displayName": "Kubernetes Fleet Manager",
+	"exampleUsage": "\nresource \"azurerm_resource_group\" \"example\" {\n  name     = \"example-resources\"\n  location = \"West Europe\"\n}\nresource \"azurerm_kubernetes_fleet_manager\" \"example\" {\n  location            = azurerm_resource_group.example.location\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n}\n",
+	"generate": true,
+	"generateIdValidationFunction": true,
+	"generateModel": false,
+	"generateSchema": true,
+	"label": "kubernetes_fleet_manager",
+	"readMethod": {
+		"generate": true,
+		"name": "Get",
+		"timeoutInMinutes": 5
+	},
+	"resourceIdName": "FleetId",
+	"updateMethod": {
+		"generate": true,
+		"name": "CreateOrUpdate",
+		"timeoutInMinutes": 30
+	}
+}

@@ -1,0 +1,16 @@
+{
+ "name": "ListAuthorizationRules",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "HybridConnectionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AuthorizationRule"
+ },
+ "uriSuffix": "/authorizationRules"
+}

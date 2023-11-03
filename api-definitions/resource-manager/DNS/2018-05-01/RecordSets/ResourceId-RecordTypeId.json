@@ -1,0 +1,52 @@
+{
+ "name": "RecordTypeId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/dnsZones/{dnsZoneName}/{recordType}/{relativeRecordSetName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftNetwork",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Network"
+  },
+  {
+   "name": "staticDnsZones",
+   "type": "Static",
+   "value": "dnsZones"
+  },
+  {
+   "name": "dnsZoneName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "recordType",
+   "type": "Constant",
+   "value": "RecordType"
+  },
+  {
+   "name": "relativeRecordSetName",
+   "type": "UserSpecified"
+  }
+ ]
+}

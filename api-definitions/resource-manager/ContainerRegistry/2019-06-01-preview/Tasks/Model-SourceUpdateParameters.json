@@ -1,0 +1,49 @@
+{
+ "name": "SourceUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "branch",
+   "name": "Branch",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "repositoryUrl",
+   "name": "RepositoryUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceControlAuthProperties",
+   "name": "SourceControlAuthProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthInfoUpdateParameters"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceControlType",
+   "name": "SourceControlType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SourceControlType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

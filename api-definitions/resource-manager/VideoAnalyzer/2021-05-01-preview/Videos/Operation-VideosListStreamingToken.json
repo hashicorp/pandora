@@ -1,0 +1,15 @@
+{
+ "name": "VideosListStreamingToken",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "VideoId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VideoStreamingToken"
+ },
+ "uriSuffix": "/listStreamingToken"
+}

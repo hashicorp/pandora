@@ -1,0 +1,16 @@
+{
+ "name": "DeploymentsDisableRemoteDebugging",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "DeploymentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RemoteDebugging"
+ },
+ "uriSuffix": "/disableRemoteDebugging"
+}

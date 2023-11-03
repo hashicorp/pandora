@@ -1,0 +1,16 @@
+{
+ "name": "ServicesListSupportedApmTypes",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SpringId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SupportedApmType"
+ },
+ "uriSuffix": "/supportedApmTypes"
+}

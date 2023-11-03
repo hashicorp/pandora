@@ -1,0 +1,38 @@
+{
+ "name": "EncryptionProperty",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityForCmk"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionKeyVaultProperties"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionStatus"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

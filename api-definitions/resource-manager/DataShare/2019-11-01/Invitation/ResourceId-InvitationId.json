@@ -1,0 +1,61 @@
+{
+ "name": "InvitationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataShare/accounts/{accountName}/shares/{shareName}/invitations/{invitationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDataShare",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DataShare"
+  },
+  {
+   "name": "staticAccounts",
+   "type": "Static",
+   "value": "accounts"
+  },
+  {
+   "name": "accountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticShares",
+   "type": "Static",
+   "value": "shares"
+  },
+  {
+   "name": "shareName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticInvitations",
+   "type": "Static",
+   "value": "invitations"
+  },
+  {
+   "name": "invitationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

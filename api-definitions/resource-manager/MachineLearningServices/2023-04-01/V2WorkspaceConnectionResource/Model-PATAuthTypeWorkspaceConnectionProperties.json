@@ -1,0 +1,18 @@
+{
+ "name": "PATAuthTypeWorkspaceConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceConnectionPersonalAccessToken"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+ "discriminatedTypeValue": "PAT"
+}

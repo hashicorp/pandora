@@ -1,0 +1,125 @@
+{
+ "name": "DataNetworkConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalAllowedSessionTypes",
+   "name": "AdditionalAllowedSessionTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PduSessionType",
+     "maxItems": 1
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocationAndRetentionPriorityLevel",
+   "name": "AllocationAndRetentionPriorityLevel",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedServices",
+   "name": "AllowedServices",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServiceResourceId",
+     "minItems": 1
+    }
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataNetwork",
+   "name": "DataNetwork",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataNetworkResourceId"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultSessionType",
+   "name": "DefaultSessionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PduSessionType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "5qi",
+   "name": "Fiveqi",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maximumNumberOfBufferedPackets",
+   "name": "MaximumNumberOfBufferedPackets",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preemptionCapability",
+   "name": "PreemptionCapability",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PreemptionCapability"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "preemptionVulnerability",
+   "name": "PreemptionVulnerability",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PreemptionVulnerability"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionAmbr",
+   "name": "SessionAmbr",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Ambr"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

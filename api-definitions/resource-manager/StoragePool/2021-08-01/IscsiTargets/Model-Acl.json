@@ -1,0 +1,31 @@
+{
+ "name": "Acl",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "initiatorIqn",
+   "name": "InitiatorIqn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mappedLuns",
+   "name": "MappedLuns",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

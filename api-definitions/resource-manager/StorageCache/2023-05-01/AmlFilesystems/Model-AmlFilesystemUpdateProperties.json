@@ -1,0 +1,27 @@
+{
+ "name": "AmlFilesystemUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionSettings",
+   "name": "EncryptionSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemEncryptionSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maintenanceWindow",
+   "name": "MaintenanceWindow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemUpdatePropertiesMaintenanceWindow"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

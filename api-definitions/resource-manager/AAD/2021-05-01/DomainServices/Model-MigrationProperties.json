@@ -1,0 +1,38 @@
+{
+ "name": "MigrationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationProgress",
+   "name": "MigrationProgress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrationProgress"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "oldSubnetId",
+   "name": "OldSubnetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "oldVnetSiteId",
+   "name": "OldVnetSiteId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

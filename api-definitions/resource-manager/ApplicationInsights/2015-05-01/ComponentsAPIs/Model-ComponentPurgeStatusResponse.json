@@ -1,0 +1,16 @@
+{
+ "name": "ComponentPurgeStatusResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PurgeState"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

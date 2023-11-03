@@ -1,0 +1,27 @@
+{
+ "name": "FusionSubTypeSeverityFiltersItem",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "severity",
+   "name": "Severity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertSeverity"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

@@ -1,0 +1,38 @@
+{
+ "name": "KeyVaultContractProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identityClientId",
+   "name": "IdentityClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastStatus",
+   "name": "LastStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultLastAccessStatusContractProperties"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretIdentifier",
+   "name": "SecretIdentifier",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

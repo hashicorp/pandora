@@ -1,0 +1,15 @@
+{
+ "name": "GetHybridConnectionPlanLimit",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AppServicePlanId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HybridConnectionLimits"
+ },
+ "uriSuffix": "/hybridConnectionPlanLimits/limit"
+}

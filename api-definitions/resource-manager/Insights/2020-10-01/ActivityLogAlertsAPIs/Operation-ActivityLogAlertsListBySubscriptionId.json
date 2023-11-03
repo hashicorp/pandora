@@ -1,0 +1,16 @@
+{
+ "name": "ActivityLogAlertsListBySubscriptionId",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ActivityLogAlertResource"
+ },
+ "uriSuffix": "/providers/Microsoft.Insights/activityLogAlerts"
+}

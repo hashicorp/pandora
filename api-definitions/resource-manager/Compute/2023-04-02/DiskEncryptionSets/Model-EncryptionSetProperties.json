@@ -1,0 +1,98 @@
+{
+ "name": "EncryptionSetProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeKey",
+   "name": "ActiveKey",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyForDiskEncryptionSet"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoKeyRotationError",
+   "name": "AutoKeyRotationError",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiError"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionType",
+   "name": "EncryptionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskEncryptionSetType"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "federatedClientId",
+   "name": "FederatedClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastKeyRotationTimestamp",
+   "name": "LastKeyRotationTimestamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "previousKeys",
+   "name": "PreviousKeys",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "KeyForDiskEncryptionSet"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rotationToLatestKeyVersionEnabled",
+   "name": "RotationToLatestKeyVersionEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

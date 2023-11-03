@@ -1,0 +1,27 @@
+{
+ "name": "TestQuery",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diagnostics",
+   "name": "Diagnostics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TestQueryDiagnostics"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "streamingJob",
+   "name": "StreamingJob",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StreamingJob"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

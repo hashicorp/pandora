@@ -1,0 +1,20 @@
+{
+ "name": "VaultList",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Vault"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

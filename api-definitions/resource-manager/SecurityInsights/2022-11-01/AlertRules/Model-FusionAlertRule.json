@@ -1,0 +1,18 @@
+{
+ "name": "FusionAlertRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FusionAlertRuleProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "AlertRule",
+ "discriminatedTypeValue": "Fusion"
+}

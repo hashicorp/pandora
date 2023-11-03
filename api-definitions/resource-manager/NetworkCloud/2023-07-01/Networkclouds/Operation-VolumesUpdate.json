@@ -1,0 +1,18 @@
+{
+ "name": "VolumesUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VolumeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VolumePatchParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Volume"
+ }
+}

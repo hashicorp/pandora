@@ -1,0 +1,18 @@
+{
+ "name": "MCASDataConnector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MCASDataConnectorProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnector",
+ "discriminatedTypeValue": "MicrosoftCloudAppSecurity"
+}

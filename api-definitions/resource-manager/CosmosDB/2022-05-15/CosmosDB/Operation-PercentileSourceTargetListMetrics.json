@@ -1,0 +1,27 @@
+{
+ "name": "PercentileSourceTargetListMetrics",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "$filter",
+   "required": true,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SourceRegionTargetRegionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PercentileMetricListResult"
+ },
+ "uriSuffix": "/percentile/metrics"
+}

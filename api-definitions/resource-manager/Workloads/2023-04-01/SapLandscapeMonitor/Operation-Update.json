@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "MonitorId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SapLandscapeMonitor"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SapLandscapeMonitor"
+ },
+ "uriSuffix": "/sapLandscapeMonitor/default"
+}

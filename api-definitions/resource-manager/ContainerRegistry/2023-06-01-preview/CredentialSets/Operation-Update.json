@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "CredentialSetId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CredentialSetUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CredentialSet"
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "name": "UpdateAseCustomDnsSuffixConfiguration",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceEnvironmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CustomDnsSuffixConfiguration"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CustomDnsSuffixConfiguration"
+ },
+ "uriSuffix": "/configurations/customdnssuffix"
+}

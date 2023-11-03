@@ -1,0 +1,19 @@
+{
+ "name": "RegistriesCheckNameAvailability",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegistryNameCheckRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegistryNameStatus"
+ },
+ "uriSuffix": "/providers/Microsoft.ContainerRegistry/checkNameAvailability"
+}

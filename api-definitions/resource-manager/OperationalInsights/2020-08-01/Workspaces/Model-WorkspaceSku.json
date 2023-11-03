@@ -1,0 +1,49 @@
+{
+ "name": "WorkspaceSku",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capacityReservationLevel",
+   "name": "CapacityReservationLevel",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastSkuUpdate",
+   "name": "LastSkuUpdate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxCapacityReservationLevel",
+   "name": "MaxCapacityReservationLevel",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceSkuNameEnum"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

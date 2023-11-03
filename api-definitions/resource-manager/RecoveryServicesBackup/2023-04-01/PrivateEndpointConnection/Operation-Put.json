@@ -1,0 +1,19 @@
+{
+ "name": "Put",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "PrivateEndpointConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnectionResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnectionResource"
+ }
+}

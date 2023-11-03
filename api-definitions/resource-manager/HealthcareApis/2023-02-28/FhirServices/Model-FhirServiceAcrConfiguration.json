@@ -1,0 +1,35 @@
+{
+ "name": "FhirServiceAcrConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loginServers",
+   "name": "LoginServers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ociArtifacts",
+   "name": "OciArtifacts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServiceOciArtifactEntry"
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

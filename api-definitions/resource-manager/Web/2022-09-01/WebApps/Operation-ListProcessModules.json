@@ -1,0 +1,16 @@
+{
+ "name": "ListProcessModules",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ProcessId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProcessModuleInfo"
+ },
+ "uriSuffix": "/modules"
+}

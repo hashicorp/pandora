@@ -1,0 +1,19 @@
+{
+ "name": "ListSas",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AccountSasParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MapsAccountSasToken"
+ },
+ "uriSuffix": "/listSas"
+}

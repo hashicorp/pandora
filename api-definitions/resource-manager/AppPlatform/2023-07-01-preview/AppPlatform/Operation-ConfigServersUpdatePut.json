@@ -1,0 +1,20 @@
+{
+ "name": "ConfigServersUpdatePut",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SpringId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigServerResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConfigServerResource"
+ },
+ "uriSuffix": "/configServers/default"
+}

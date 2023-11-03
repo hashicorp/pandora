@@ -1,0 +1,16 @@
+{
+ "name": "ListDomainOwnershipIdentifiersSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Identifier"
+ },
+ "uriSuffix": "/domainOwnershipIdentifiers"
+}

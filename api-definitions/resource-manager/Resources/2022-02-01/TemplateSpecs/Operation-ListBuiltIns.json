@@ -1,0 +1,27 @@
+{
+ "name": "ListBuiltIns",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "TemplateSpecExpandKind"
+   }
+  }
+ ],
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TemplateSpec"
+ },
+ "uriSuffix": "/providers/Microsoft.Resources/builtInTemplateSpecs"
+}

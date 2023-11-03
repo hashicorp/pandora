@@ -1,0 +1,38 @@
+{
+ "name": "ManagedRuleExclusion",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchVariable",
+   "name": "MatchVariable",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedRuleExclusionMatchVariable"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selector",
+   "name": "Selector",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectorMatchOperator",
+   "name": "SelectorMatchOperator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedRuleExclusionSelectorMatchOperator"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

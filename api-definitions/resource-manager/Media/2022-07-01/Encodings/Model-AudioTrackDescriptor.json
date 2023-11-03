@@ -1,0 +1,18 @@
+{
+ "name": "AudioTrackDescriptor",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "channelMapping",
+   "name": "ChannelMapping",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ChannelMapping"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "TrackDescriptor",
+ "discriminatedTypeValue": "#Microsoft.Media.AudioTrackDescriptor"
+}

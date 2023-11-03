@@ -1,0 +1,15 @@
+{
+ "name": "SqlResourcesListSqlContainers",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SqlDatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SqlContainerListResult"
+ },
+ "uriSuffix": "/containers"
+}

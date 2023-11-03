@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ReplicaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Replica"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Replica"
+ }
+}

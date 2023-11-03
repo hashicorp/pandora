@@ -1,0 +1,38 @@
+{
+ "name": "LinuxPatchSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "assessmentMode",
+   "name": "AssessmentMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxPatchAssessmentMode"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "automaticByPlatformSettings",
+   "name": "AutomaticByPlatformSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxVMGuestPatchAutomaticByPlatformSettings"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "patchMode",
+   "name": "PatchMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxVMGuestPatchMode"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

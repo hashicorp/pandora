@@ -1,0 +1,48 @@
+{
+ "name": "ListByBatchAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "maxresults",
+   "required": false,
+   "field": "Maxresults",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$select",
+   "required": false,
+   "field": "Select",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BatchAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Certificate"
+ },
+ "uriSuffix": "/certificates"
+}

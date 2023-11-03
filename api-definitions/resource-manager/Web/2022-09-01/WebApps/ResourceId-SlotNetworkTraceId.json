@@ -1,0 +1,61 @@
+{
+ "name": "SlotNetworkTraceId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/sites/{siteName}/slots/{slotName}/networkTrace/{operationId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftWeb",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Web"
+  },
+  {
+   "name": "staticSites",
+   "type": "Static",
+   "value": "sites"
+  },
+  {
+   "name": "siteName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSlots",
+   "type": "Static",
+   "value": "slots"
+  },
+  {
+   "name": "slotName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticNetworkTrace",
+   "type": "Static",
+   "value": "networkTrace"
+  },
+  {
+   "name": "operationId",
+   "type": "UserSpecified"
+  }
+ ]
+}

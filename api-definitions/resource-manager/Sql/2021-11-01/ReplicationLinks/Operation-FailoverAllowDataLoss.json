@@ -1,0 +1,16 @@
+{
+ "name": "FailoverAllowDataLoss",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ReplicationLinkId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ReplicationLink"
+ },
+ "uriSuffix": "/forceFailoverAllowDataLoss"
+}

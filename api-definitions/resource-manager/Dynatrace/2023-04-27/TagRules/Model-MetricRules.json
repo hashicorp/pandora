@@ -1,0 +1,31 @@
+{
+ "name": "MetricRules",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filteringTags",
+   "name": "FilteringTags",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FilteringTag"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sendingMetrics",
+   "name": "SendingMetrics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SendingMetricsStatus"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

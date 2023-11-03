@@ -1,0 +1,19 @@
+{
+ "name": "UpdateSlot",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SlotId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SitePatchResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Site"
+ }
+}

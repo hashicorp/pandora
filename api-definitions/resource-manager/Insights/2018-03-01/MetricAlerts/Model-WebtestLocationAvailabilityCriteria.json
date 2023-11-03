@@ -1,0 +1,40 @@
+{
+ "name": "WebtestLocationAvailabilityCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "componentId",
+   "name": "ComponentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failedLocationCount",
+   "name": "FailedLocationCount",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "webTestId",
+   "name": "WebTestId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "MetricAlertCriteria",
+ "discriminatedTypeValue": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria"
+}

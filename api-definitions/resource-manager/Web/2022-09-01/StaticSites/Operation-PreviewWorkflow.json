@@ -1,0 +1,19 @@
+{
+ "name": "PreviewWorkflow",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ProviderLocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSitesWorkflowPreviewRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSitesWorkflowPreview"
+ },
+ "uriSuffix": "/previewStaticSiteWorkflowFile"
+}

@@ -1,0 +1,38 @@
+{
+ "name": "ServiceResourceCreateUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceCount",
+   "name": "InstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceSize",
+   "name": "InstanceSize",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceSize"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceType",
+   "name": "ServiceType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceType"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

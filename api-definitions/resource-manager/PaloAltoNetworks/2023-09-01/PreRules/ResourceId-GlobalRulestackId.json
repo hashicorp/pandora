@@ -1,0 +1,25 @@
+{
+ "name": "GlobalRulestackId",
+ "id": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticPaloAltoNetworksCloudngfw",
+   "type": "ResourceProvider",
+   "value": "PaloAltoNetworks.Cloudngfw"
+  },
+  {
+   "name": "staticGlobalRulestacks",
+   "type": "Static",
+   "value": "globalRulestacks"
+  },
+  {
+   "name": "globalRulestackName",
+   "type": "UserSpecified"
+  }
+ ]
+}

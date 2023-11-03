@@ -1,0 +1,21 @@
+{
+ "name": "BackendCircuitBreaker",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rules",
+   "name": "Rules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "CircuitBreakerRule",
+     "maxItems": 15
+    }
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

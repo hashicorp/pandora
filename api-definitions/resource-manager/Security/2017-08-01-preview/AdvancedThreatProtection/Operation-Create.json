@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AdvancedThreatProtectionSetting"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AdvancedThreatProtectionSetting"
+ },
+ "uriSuffix": "/providers/Microsoft.Security/advancedThreatProtectionSettings/current"
+}

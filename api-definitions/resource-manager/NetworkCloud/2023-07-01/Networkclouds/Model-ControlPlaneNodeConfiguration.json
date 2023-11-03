@@ -1,0 +1,49 @@
+{
+ "name": "ControlPlaneNodeConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorConfiguration",
+   "name": "AdministratorConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdministratorConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availabilityZones",
+   "name": "AvailabilityZones",
+   "objectDefinition": {
+    "type": "Zones",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSkuName",
+   "name": "VMSkuName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

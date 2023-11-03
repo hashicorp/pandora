@@ -1,0 +1,42 @@
+{
+ "name": "Encryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keySource",
+   "name": "KeySource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeySource"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "KeyVaultProperties"
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requireInfrastructureEncryption",
+   "name": "RequireInfrastructureEncryption",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

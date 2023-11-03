@@ -1,0 +1,29 @@
+{
+ "name": "ScopedDataCollectionRuleAssociationId",
+ "id": "/{resourceUri}/providers/Microsoft.Insights/dataCollectionRuleAssociations/{dataCollectionRuleAssociationName}",
+ "segments": [
+  {
+   "name": "resourceUri",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Insights"
+  },
+  {
+   "name": "staticDataCollectionRuleAssociations",
+   "type": "Static",
+   "value": "dataCollectionRuleAssociations"
+  },
+  {
+   "name": "dataCollectionRuleAssociationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

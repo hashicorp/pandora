@@ -1,0 +1,19 @@
+{
+ "name": "GremlinResourcesCreateUpdateGremlinGraph",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "GraphId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GremlinGraphCreateUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "GremlinGraphGetResults"
+ }
+}

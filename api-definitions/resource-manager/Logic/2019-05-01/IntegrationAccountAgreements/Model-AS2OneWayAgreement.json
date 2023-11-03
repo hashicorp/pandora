@@ -1,0 +1,38 @@
+{
+ "name": "AS2OneWayAgreement",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocolSettings",
+   "name": "ProtocolSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AS2ProtocolSettings"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "receiverBusinessIdentity",
+   "name": "ReceiverBusinessIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BusinessIdentity"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "senderBusinessIdentity",
+   "name": "SenderBusinessIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BusinessIdentity"
+   },
+   "optional": false,
+   "required": true
+  }
+ ]
+}

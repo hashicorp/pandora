@@ -1,0 +1,123 @@
+{
+ "name": "AdditionalLocation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableGateway",
+   "name": "DisableGateway",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayRegionalUrl",
+   "name": "GatewayRegionalUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "platformVersion",
+   "name": "PlatformVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlatformVersion"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIPAddresses",
+   "name": "PrivateIPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIpAddressId",
+   "name": "PublicIPAddressId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPAddresses",
+   "name": "PublicIPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiManagementServiceSkuProperties"
+   },
+   "optional": false,
+   "required": true
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkConfiguration",
+   "name": "VirtualNetworkConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkConfiguration"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zones",
+   "name": "Zones",
+   "objectDefinition": {
+    "type": "Zones",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

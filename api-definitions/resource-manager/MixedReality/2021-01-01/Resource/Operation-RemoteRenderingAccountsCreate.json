@@ -1,0 +1,19 @@
+{
+ "name": "RemoteRenderingAccountsCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "RemoteRenderingAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RemoteRenderingAccount"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RemoteRenderingAccount"
+ }
+}

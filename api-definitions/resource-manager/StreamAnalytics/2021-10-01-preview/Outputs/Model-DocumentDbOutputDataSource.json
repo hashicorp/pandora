@@ -1,0 +1,18 @@
+{
+ "name": "DocumentDbOutputDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DocumentDbOutputDataSourceProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "OutputDataSource",
+ "discriminatedTypeValue": "Microsoft.Storage/DocumentDB"
+}

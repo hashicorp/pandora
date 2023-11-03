@@ -1,0 +1,16 @@
+{
+ "name": "ListByRestorableDroppedDatabase",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ManagedInstanceRestorableDroppedDatabaseId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedBackupShortTermRetentionPolicy"
+ },
+ "uriSuffix": "/backupShortTermRetentionPolicies"
+}

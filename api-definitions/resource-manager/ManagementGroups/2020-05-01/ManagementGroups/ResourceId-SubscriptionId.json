@@ -1,0 +1,34 @@
+{
+ "name": "SubscriptionId",
+ "id": "/providers/Microsoft.Management/managementGroups/{groupId}/subscriptions/{subscriptionId}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Management"
+  },
+  {
+   "name": "staticManagementGroups",
+   "type": "Static",
+   "value": "managementGroups"
+  },
+  {
+   "name": "groupId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  }
+ ]
+}

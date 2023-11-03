@@ -1,0 +1,24 @@
+{
+ "name": "Delete",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  204,
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "forceDelete",
+   "required": false,
+   "field": "ForceDelete",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ScopedExtensionId"
+}

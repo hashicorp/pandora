@@ -1,0 +1,19 @@
+{
+ "name": "DigitalTwinsEndpointCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "EndpointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DigitalTwinsEndpointResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DigitalTwinsEndpointResource"
+ }
+}

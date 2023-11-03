@@ -1,0 +1,18 @@
+{
+ "name": "VirtualMachine",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineSchemaProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "Compute",
+ "discriminatedTypeValue": "VirtualMachine"
+}

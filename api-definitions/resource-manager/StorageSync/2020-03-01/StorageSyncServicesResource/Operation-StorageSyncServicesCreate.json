@@ -1,0 +1,19 @@
+{
+ "name": "StorageSyncServicesCreate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "StorageSyncServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StorageSyncServiceCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageSyncService"
+ }
+}

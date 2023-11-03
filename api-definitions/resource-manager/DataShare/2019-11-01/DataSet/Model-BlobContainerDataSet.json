@@ -1,0 +1,18 @@
+{
+ "name": "BlobContainerDataSet",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlobContainerProperties"
+   },
+   "optional": false,
+   "required": true
+  }
+ ],
+ "discriminatedParentModelName": "DataSet",
+ "discriminatedTypeValue": "Container"
+}

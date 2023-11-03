@@ -1,0 +1,18 @@
+{
+ "name": "Office365ProjectDataConnector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Office365ProjectDataConnectorProperties"
+   },
+   "optional": true,
+   "required": false
+  }
+ ],
+ "discriminatedParentModelName": "DataConnector",
+ "discriminatedTypeValue": "Office365Project"
+}
