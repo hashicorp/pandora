@@ -22,5 +22,14 @@ service "DevCenter" {
         description = "Manages a Dev Center Project"
       }
     }
+
+    package "Galleries" {
+      definition "dev_center_gallery" {
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevCenter/devCenters/{devCenterName}/galleries/{galleryName}"
+        display_name = "Dev Center Gallery"
+        website_subcategory = "Dev Center"
+        description = "Manages a Dev Center Gallery"
+      }
+    }
   }
 }

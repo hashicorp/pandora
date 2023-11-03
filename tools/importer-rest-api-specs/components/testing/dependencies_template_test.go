@@ -28,6 +28,7 @@ func TestDependenciesTemplate_EverythingEnabled(t *testing.T) {
 		needsNetworkInterface:     true,
 		needsPublicIP:             true,
 		needsResourceGroup:        true,
+		needsSharedImageGallery:   true,
 		needsSubnet:               true,
 		needsUserAssignedIdentity: true,
 		needsVirtualNetwork:       true,
@@ -71,6 +72,12 @@ resource "example_public_ip" "test" {
 resource "example_resource_group" "test" {
   name     = "acctestrg-${var.random_integer}"
   location = var.primary_location
+}
+
+resource "example_shared_image_gallery" "test" {
+  name                = "acctestsig${var.random_string}"
+  location            = example_resource_group.test.location
+  resource_group_name = example_resource_group.test.name
 }
 
 resource "example_subnet" "test" {
@@ -277,6 +284,23 @@ func TestDependenciesTemplate_NeedsResourceGroup(t *testing.T) {
 resource "example_resource_group" "test" {
   name     = "acctestrg-${var.random_integer}"
   location = var.primary_location
+}
+`
+	actual := builder.generateTemplateConfigForDependencies(dependencies)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestDependenciesTemplate_NeedsSharedImageGallery(t *testing.T) {
+	builder := NewTestBuilder("example", "resource", resourcemanager.TerraformResourceDetails{})
+	dependencies := testDependencies{
+
+		needsSharedImageGallery: true,
+	}
+	expected := `
+resource "example_shared_image_gallery" "test" {
+  name                = "acctestsig${var.random_string}"
+  location            = example_resource_group.test.location
+  resource_group_name = example_resource_group.test.name
 }
 `
 	actual := builder.generateTemplateConfigForDependencies(dependencies)

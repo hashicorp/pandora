@@ -216,6 +216,16 @@ resource "%[1]s_resource_group" "test" {
 `, tb.providerPrefix))
 	}
 
+	if dependencies.needsSharedImageGallery {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_shared_image_gallery" "test" {
+  name                = "acctestsig${var.random_string}"
+  location            = %[1]s_resource_group.test.location
+  resource_group_name = %[1]s_resource_group.test.name
+}
+`, tb.providerPrefix))
+	}
+
 	if dependencies.needsStorageAccount {
 		components = append(components, fmt.Sprintf(`
 resource "%[1]s_storage_account" "test" {
