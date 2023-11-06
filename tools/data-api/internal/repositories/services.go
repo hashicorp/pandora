@@ -276,9 +276,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 		}
 	}
 
-	// We perform some validation on the parsed data for models - since we need a complete list of all constants and models
-	// we do the validation here
-
+	// We perform some validation on the parsed data for models here, since we can only do this after we have a complete list of constants and models
 	if err := validateModels(apiModels, constants); err != nil {
 		return nil, fmt.Errorf("validating models: %+v", err)
 	}
