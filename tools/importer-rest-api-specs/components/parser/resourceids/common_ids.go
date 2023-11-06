@@ -55,6 +55,13 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultKeyVersion{},
 	commonIdKeyVaultPrivateEndpointConnection{},
 
+	// SQL
+	commonIdSqlDatabase{},
+	commonIdSqlElasticPool{},
+	commonIdSqlManagedInstance{},
+	commonIdSqlManagedInstanceDatabase{},
+	commonIdSqlServer{},
+
 	// Storage
 	commonIdStorageAccount{},
 	commonIdStorageContainer{},
