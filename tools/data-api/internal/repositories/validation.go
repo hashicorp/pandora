@@ -28,10 +28,6 @@ func validateObjectDefinition(input ObjectDefinition, constants map[string]Const
 		}
 	}
 
-	//if !requiresNestedItem && input.NestedItem != nil {
-	//	return fmt.Errorf("a Nested Object Definition must not be specified for a %q type but got %q", string(input.Type), string(input.NestedItem.Type))
-	//}
-
 	if requiresNestedItem && input.NestedItem == nil {
 		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}

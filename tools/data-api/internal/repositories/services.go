@@ -353,9 +353,9 @@ func parseModelFromFilePath(filePath string, constants map[string]ConstantDetail
 		fieldDetail.ObjectDefinition = pointer.From(objectDefinition)
 
 		if field.ContainsDiscriminatedTypeValue {
-			//if model.DiscriminatedTypeValue == nil || model.DiscriminatedParentModelName == nil {
-			//	return nil, fmt.Errorf("missing discriminated type value and parent model name for field %q which is a type hint ", field.Name)
-			//}
+			if model.DiscriminatedTypeValue == nil || model.DiscriminatedParentModelName == nil {
+				return nil, fmt.Errorf("missing discriminated type value and parent model name for field %q which is a type hint ", field.Name)
+			}
 			if typeHintIn != "" {
 				return nil, fmt.Errorf("a type hint field already exists for this model: existing: %q, new: %q", typeHintIn, field.Name)
 			}
