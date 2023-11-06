@@ -66,6 +66,9 @@ var commonIdTypes = []commonIdMatcher{
 
 	// Parent IDs
 	commonIdKubernetesCluster{},
+
+	// Shared Image Gallery
+	commonIdSharedImageGallery{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {
