@@ -20,14 +20,11 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 			Name:             input.DeleteMethod.MethodName,
 			TimeoutInMinutes: input.DeleteMethod.TimeoutInMinutes,
 		},
-		Description:                  input.Documentation.Description,
-		DisplayName:                  input.DisplayName,
-		ExampleUsage:                 input.Documentation.ExampleUsageHcl,
-		Generate:                     input.Generate,
-		GenerateIdValidationFunction: input.GenerateIdValidation,
-		GenerateModel:                input.GenerateModel,
-		GenerateSchema:               input.GenerateSchema,
-		Label:                        resourceLabel,
+		Description:  input.Documentation.Description,
+		DisplayName:  input.DisplayName,
+		ExampleUsage: input.Documentation.ExampleUsageHcl,
+		Generate:     input.Generate,
+		Label:        resourceLabel,
 		ReadMethod: dataApiModels.TerraformMethodDefinition{
 			Generate:         input.ReadMethod.Generate,
 			Name:             input.ReadMethod.MethodName,
@@ -35,6 +32,11 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 		},
 		ResourceIdName: input.ResourceIdName,
 		UpdateMethod:   nil,
+
+		// todo these are hardcoded to true in the C# generation. Does that hold true here?
+		GenerateIdValidationFunction: true,
+		GenerateModel:                true,
+		GenerateSchema:               true,
 	}
 	if input.UpdateMethod != nil {
 		output.UpdateMethod = &dataApiModels.TerraformMethodDefinition{
