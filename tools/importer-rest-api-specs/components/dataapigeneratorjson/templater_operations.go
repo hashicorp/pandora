@@ -13,10 +13,12 @@ import (
 )
 
 func codeForOperation(operationName string, input importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
+	expectedStatusCodes := input.ExpectedStatusCodes
+	sort.Ints(expectedStatusCodes)
 	output := dataApiModels.Operation{
 		Name:                             operationName,
 		ContentType:                      input.ContentType,
-		ExpectedStatusCodes:              input.ExpectedStatusCodes,
+		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
 		HTTPMethod:                       strings.ToUpper(input.Method),
