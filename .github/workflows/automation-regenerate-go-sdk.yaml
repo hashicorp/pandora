@@ -7,6 +7,7 @@ on:
     paths:
       - 'data/**'
       - 'tools/generator-go-sdk/**'
+    workflow_dispatch: # for manual invocations
 
 concurrency:
   group: 'regengosdk-${{ github.head_ref }}'
