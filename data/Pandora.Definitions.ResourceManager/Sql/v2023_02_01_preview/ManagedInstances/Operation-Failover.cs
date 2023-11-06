@@ -24,7 +24,7 @@ internal class FailoverOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type? OptionsObject() => typeof(FailoverOperation.FailoverOptions);
 

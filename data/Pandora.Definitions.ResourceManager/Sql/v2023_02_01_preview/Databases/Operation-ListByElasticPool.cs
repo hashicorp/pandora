@@ -16,7 +16,7 @@ internal class ListByElasticPoolOperation : Pandora.Definitions.Operations.ListO
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ElasticPoolId();
+    public override ResourceID? ResourceId() => new SqlElasticPoolId();
 
     public override Type NestedItemType() => typeof(DatabaseModel);
 

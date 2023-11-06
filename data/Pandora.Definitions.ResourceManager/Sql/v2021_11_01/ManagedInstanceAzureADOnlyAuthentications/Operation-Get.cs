@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2021_11_01.ManagedInstanceAzu
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type? ResponseObject() => typeof(ManagedInstanceAzureADOnlyAuthenticationModel);
 

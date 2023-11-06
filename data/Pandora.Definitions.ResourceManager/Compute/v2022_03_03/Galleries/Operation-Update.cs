@@ -23,7 +23,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(GalleryUpdateModel);
 
-    public override ResourceID? ResourceId() => new GalleryId();
+    public override ResourceID? ResourceId() => new SharedImageGalleryId();
 
     public override Type? ResponseObject() => typeof(GalleryModel);
 

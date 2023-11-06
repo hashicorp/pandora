@@ -16,7 +16,7 @@ internal class DatabaseBlobAuditingPoliciesListByDatabaseOperation : Pandora.Def
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override Type NestedItemType() => typeof(DatabaseBlobAuditingPolicyModel);
 

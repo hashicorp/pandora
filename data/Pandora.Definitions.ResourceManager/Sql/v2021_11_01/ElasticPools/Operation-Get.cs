@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2021_11_01.ElasticPools;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ElasticPoolId();
+    public override ResourceID? ResourceId() => new SqlElasticPoolId();
 
     public override Type? ResponseObject() => typeof(ElasticPoolModel);
 

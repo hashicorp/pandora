@@ -16,7 +16,7 @@ internal class ListRecommendedByDatabaseOperation : Pandora.Definitions.Operatio
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override Type NestedItemType() => typeof(SensitivityLabelModel);
 

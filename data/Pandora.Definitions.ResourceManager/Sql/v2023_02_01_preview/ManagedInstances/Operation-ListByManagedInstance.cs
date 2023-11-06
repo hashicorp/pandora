@@ -16,7 +16,7 @@ internal class ListByManagedInstanceOperation : Pandora.Definitions.Operations.L
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type NestedItemType() => typeof(TopQueriesModel);
 

@@ -24,7 +24,7 @@ internal class DatabaseEncryptionProtectorsRevalidateOperation : Pandora.Definit
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override string? UriSuffix() => "/encryptionProtector/current/revalidate";
 

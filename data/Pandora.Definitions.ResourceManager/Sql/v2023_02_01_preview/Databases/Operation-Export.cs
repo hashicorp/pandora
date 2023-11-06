@@ -24,7 +24,7 @@ internal class ExportOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ExportDatabaseDefinitionModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override Type? ResponseObject() => typeof(ImportExportOperationResultModel);
 

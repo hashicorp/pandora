@@ -24,7 +24,7 @@ internal class DisableOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override Type? ResponseObject() => typeof(ManagedLedgerDigestUploadsModel);
 

@@ -16,7 +16,7 @@ internal class ExtendedDatabaseBlobAuditingPoliciesCreateOrUpdateOperation : Pan
 {
     public override Type? RequestObject() => typeof(ExtendedDatabaseBlobAuditingPolicyModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override Type? ResponseObject() => typeof(ExtendedDatabaseBlobAuditingPolicyModel);
 

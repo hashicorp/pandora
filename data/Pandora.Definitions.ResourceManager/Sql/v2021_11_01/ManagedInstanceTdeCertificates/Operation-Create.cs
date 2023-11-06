@@ -24,7 +24,7 @@ internal class CreateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(TdeCertificateModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override string? UriSuffix() => "/tdeCertificates";
 

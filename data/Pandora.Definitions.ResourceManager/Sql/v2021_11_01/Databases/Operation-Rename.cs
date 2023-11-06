@@ -21,7 +21,7 @@ internal class RenameOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ResourceMoveDefinitionModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override string? UriSuffix() => "/move";
 

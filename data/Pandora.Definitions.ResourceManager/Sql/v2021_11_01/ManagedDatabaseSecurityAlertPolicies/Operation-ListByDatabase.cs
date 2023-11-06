@@ -16,7 +16,7 @@ internal class ListByDatabaseOperation : Pandora.Definitions.Operations.ListOper
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override Type NestedItemType() => typeof(ManagedDatabaseSecurityAlertPolicyModel);
 

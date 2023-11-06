@@ -21,7 +21,7 @@ internal class RecommendedSensitivityLabelsUpdateOperation : Pandora.Definitions
 
     public override Type? RequestObject() => typeof(RecommendedSensitivityLabelUpdateListModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override string? UriSuffix() => "/recommendedSensitivityLabels";
 
