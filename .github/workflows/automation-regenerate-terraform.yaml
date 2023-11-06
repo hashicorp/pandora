@@ -7,7 +7,7 @@ on:
     paths:
       - 'data/**'
       - 'tools/generator-terraform/**'
-    workflow_dispatch: # for manual invocations
+  workflow_dispatch: # for manual invocations
 
 concurrency:
   group: 'regenterraform-${{ github.head_ref }}'

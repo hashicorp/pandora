@@ -9,7 +9,7 @@ on:
       - 'submodules/msgraph-metadata'
       - 'submodules/rest-api-specs'
       - 'tools/version-bumper/**'
-    workflow_dispatch: # for manual invocations
+  workflow_dispatch: # for manual invocations
 
 jobs:
   run-version-bumper:
