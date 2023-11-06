@@ -24,7 +24,7 @@ internal class CancelMoveOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override Type? RequestObject() => typeof(ManagedDatabaseMoveDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override string? UriSuffix() => "/cancelMove";
 

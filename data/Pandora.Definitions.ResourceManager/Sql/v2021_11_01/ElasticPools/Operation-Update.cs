@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ElasticPoolUpdateModel);
 
-    public override ResourceID? ResourceId() => new ElasticPoolId();
+    public override ResourceID? ResourceId() => new SqlElasticPoolId();
 
     public override Type? ResponseObject() => typeof(ElasticPoolModel);
 

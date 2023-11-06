@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2021_11_01.Servers;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new SqlServerId();
 
     public override Type? ResponseObject() => typeof(ServerModel);
 

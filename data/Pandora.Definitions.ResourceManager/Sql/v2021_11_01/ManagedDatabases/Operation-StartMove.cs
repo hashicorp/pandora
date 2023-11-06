@@ -24,7 +24,7 @@ internal class StartMoveOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ManagedDatabaseStartMoveDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override string? UriSuffix() => "/startMove";
 

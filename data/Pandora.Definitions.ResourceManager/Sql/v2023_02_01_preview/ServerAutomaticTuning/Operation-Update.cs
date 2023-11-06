@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ServerAutomaticTuningModel);
 
-    public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new SqlServerId();
 
     public override Type? ResponseObject() => typeof(ServerAutomaticTuningModel);
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2023_02_01_preview.BlobAuditi
 
 internal class DatabaseBlobAuditingPoliciesGetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override Type? ResponseObject() => typeof(DatabaseBlobAuditingPolicyModel);
 

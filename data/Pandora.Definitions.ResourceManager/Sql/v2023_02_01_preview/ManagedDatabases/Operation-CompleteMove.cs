@@ -24,7 +24,7 @@ internal class CompleteMoveOperation : Pandora.Definitions.Operations.PostOperat
 
     public override Type? RequestObject() => typeof(ManagedDatabaseMoveDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override string? UriSuffix() => "/completeMove";
 

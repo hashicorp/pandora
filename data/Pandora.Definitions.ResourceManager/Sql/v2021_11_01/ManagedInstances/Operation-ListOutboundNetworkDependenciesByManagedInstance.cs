@@ -16,7 +16,7 @@ internal class ListOutboundNetworkDependenciesByManagedInstanceOperation : Pando
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type NestedItemType() => typeof(OutboundEnvironmentEndpointModel);
 

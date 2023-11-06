@@ -24,7 +24,7 @@ internal class CompleteRestoreOperation : Pandora.Definitions.Operations.PostOpe
 
     public override Type? RequestObject() => typeof(CompleteDatabaseRestoreDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override string? UriSuffix() => "/completeRestore";
 

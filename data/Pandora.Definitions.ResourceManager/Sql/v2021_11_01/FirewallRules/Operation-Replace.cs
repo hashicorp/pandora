@@ -22,7 +22,7 @@ internal class ReplaceOperation : Pandora.Definitions.Operations.PutOperation
 
     public override Type? RequestObject() => typeof(FirewallRuleListModel);
 
-    public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new SqlServerId();
 
     public override Type? ResponseObject() => typeof(FirewallRuleModel);
 

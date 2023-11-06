@@ -24,7 +24,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(ManagedLedgerDigestUploadsModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override Type? ResponseObject() => typeof(ManagedLedgerDigestUploadsModel);
 

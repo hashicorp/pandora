@@ -16,7 +16,7 @@ internal class ServerBlobAuditingPoliciesListByServerOperation : Pandora.Definit
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new SqlServerId();
 
     public override Type NestedItemType() => typeof(ServerBlobAuditingPolicyModel);
 

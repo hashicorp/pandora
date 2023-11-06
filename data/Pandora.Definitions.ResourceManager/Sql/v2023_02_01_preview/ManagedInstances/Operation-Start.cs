@@ -24,7 +24,7 @@ internal class StartOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type? ResponseObject() => typeof(ManagedInstanceModel);
 

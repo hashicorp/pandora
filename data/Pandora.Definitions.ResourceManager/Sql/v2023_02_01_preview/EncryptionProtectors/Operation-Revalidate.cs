@@ -24,7 +24,7 @@ internal class RevalidateOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ServerId();
+    public override ResourceID? ResourceId() => new SqlServerId();
 
     public override string? UriSuffix() => "/encryptionProtector/current/revalidate";
 

@@ -24,7 +24,7 @@ internal class FailoverOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ElasticPoolId();
+    public override ResourceID? ResourceId() => new SqlElasticPoolId();
 
     public override string? UriSuffix() => "/failover";
 

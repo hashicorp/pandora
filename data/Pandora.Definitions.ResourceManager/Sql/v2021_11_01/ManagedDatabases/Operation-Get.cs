@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2021_11_01.ManagedDatabases;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override Type? ResponseObject() => typeof(ManagedDatabaseModel);
 

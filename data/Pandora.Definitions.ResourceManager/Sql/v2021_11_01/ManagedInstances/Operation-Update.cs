@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ManagedInstanceUpdateModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
     public override Type? ResponseObject() => typeof(ManagedInstanceModel);
 

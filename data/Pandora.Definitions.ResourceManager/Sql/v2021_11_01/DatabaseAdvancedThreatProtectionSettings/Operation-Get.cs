@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Sql.v2021_11_01.DatabaseAdvancedTh
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new SqlDatabaseId();
 
     public override Type? ResponseObject() => typeof(DatabaseAdvancedThreatProtectionModel);
 

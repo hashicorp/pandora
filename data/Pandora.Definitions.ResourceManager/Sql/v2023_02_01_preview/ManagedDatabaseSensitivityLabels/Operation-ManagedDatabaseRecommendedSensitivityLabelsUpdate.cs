@@ -21,7 +21,7 @@ internal class ManagedDatabaseRecommendedSensitivityLabelsUpdateOperation : Pand
 
     public override Type? RequestObject() => typeof(RecommendedSensitivityLabelUpdateListModel);
 
-    public override ResourceID? ResourceId() => new ManagedInstanceDatabaseId();
+    public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
     public override string? UriSuffix() => "/recommendedSensitivityLabels";
 
