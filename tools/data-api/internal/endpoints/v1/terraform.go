@@ -31,8 +31,8 @@ func (api Api) terraform(w http.ResponseWriter, r *http.Request) {
 func mapTerraformResources(input map[string]repositories.TerraformResourceDetails) map[string]models.TerraformResourceDetails {
 	output := make(map[string]models.TerraformResourceDetails, 0)
 
-	for name, resource := range input {
-		output[name] = models.TerraformResourceDetails{
+	for _, resource := range input {
+		output[resource.Label] = models.TerraformResourceDetails{
 			ApiVersion: resource.ApiVersion,
 			CreateMethod: models.MethodDefinition{
 				Generate:         resource.CreateMethod.Generate,

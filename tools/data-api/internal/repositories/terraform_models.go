@@ -29,6 +29,7 @@ type TerraformResourceDetails struct {
 	GenerateModel        bool
 	GenerateIdValidation bool
 	GenerateSchema       bool
+	Label                string
 	Mappings             MappingDefinition
 	ReadMethod           MethodDefinition
 	Resource             string
