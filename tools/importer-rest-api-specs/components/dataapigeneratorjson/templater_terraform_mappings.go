@@ -88,6 +88,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataA
 	if len(*outputFieldMappings) > 0 {
 		output.FieldMappings = outputFieldMappings
 	}
+
 	modelToModelMappings = uniqueAndSortModelToModelMappings(modelToModelMappings)
 	if len(modelToModelMappings) > 0 {
 		output.ModelToModelMappings = &modelToModelMappings
