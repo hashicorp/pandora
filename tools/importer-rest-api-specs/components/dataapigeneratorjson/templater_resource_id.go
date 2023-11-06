@@ -39,9 +39,9 @@ func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataApiMode
 			return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 		}
 		return &dataApiModels.ResourceIdSegment{
-			Name:  input.Name,
-			Type:  dataApiModels.ConstantResourceIdSegmentType,
-			Value: input.ConstantReference,
+			Name:         input.Name,
+			Type:         dataApiModels.ConstantResourceIdSegmentType,
+			ConstantName: input.ConstantReference,
 		}, nil
 	}
 
