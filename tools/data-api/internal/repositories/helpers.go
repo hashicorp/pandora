@@ -46,7 +46,7 @@ func getDefinitionInfo(fileName string) (string, string, error) {
 	if !strings.HasSuffix(fileName, ".json") {
 		return "", "", fmt.Errorf("file %q has an extensions not supported by the data api", fileName)
 	}
-	splitName := strings.Split(fileName, "-")
+	splitName := strings.Split(strings.TrimSuffix(fileName, ".json"), "-")
 
 	definitionType := splitName[0]
 	definitionName := splitName[1]
