@@ -277,6 +277,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	}
 
 	// We perform some validation on the parsed data for models here, since we can only do this after we have a complete list of constants and models
+	// validation is done on the object definitions as well as models that are discriminated parent types or implement a discriminated type
 	if err := validateModels(apiModels, constants); err != nil {
 		return nil, fmt.Errorf("validating models: %+v", err)
 	}
@@ -337,18 +338,15 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 		return nil, fmt.Errorf("unmarshaling %q: %+v", filePath, err)
 	}
 
-	typeHintIn := ""
 	fieldDetails := make(map[string]FieldDetails)
 	for _, field := range model.Fields {
 		fieldDetail := FieldDetails{
-			IsTypeHint: field.ContainsDiscriminatedTypeValue,
-			JsonName:   field.JsonName,
-			Optional:   field.Optional,
-			Required:   field.Required,
-			// TODO remove Default attribute throughout the models since this isn't used at the moment
-			//Default:          nil,
-			// TODO exposed when other #3238 is merged
-			//Description:      "",
+			IsTypeHint:  field.ContainsDiscriminatedTypeValue,
+			JsonName:    field.JsonName,
+			Optional:    field.Optional,
+			Required:    field.Required,
+			Description: field.Description,
+			// TODO this field is still missing - where is this information taken from?
 			//ForceNew:         false,
 		}
 
@@ -357,16 +355,6 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 			return nil, err
 		}
 		fieldDetail.ObjectDefinition = pointer.From(objectDefinition)
-
-		if field.ContainsDiscriminatedTypeValue {
-			if model.DiscriminatedTypeValue == nil || model.DiscriminatedParentModelName == nil {
-				return nil, fmt.Errorf("missing discriminated type value and parent model name for field %q which is a type hint ", field.Name)
-			}
-			if typeHintIn != "" {
-				return nil, fmt.Errorf("a type hint field already exists for this model: existing: %q, new: %q", typeHintIn, field.Name)
-			}
-			typeHintIn = field.Name
-		}
 
 		if field.ObjectDefinition.DateFormat != nil {
 			dateFormat, err := mapDateFormatType(*field.ObjectDefinition.DateFormat)
@@ -388,7 +376,7 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 		Fields:         fieldDetails,
 		ParentTypeName: model.DiscriminatedParentModelName,
 		TypeHintValue:  model.DiscriminatedTypeValue,
-		TypeHintIn:     pointer.To(typeHintIn),
+		TypeHintIn:     model.TypeHintIn,
 	}, nil
 }
 

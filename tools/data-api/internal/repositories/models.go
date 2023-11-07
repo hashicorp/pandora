@@ -141,7 +141,6 @@ type FieldValidationDetails struct {
 }
 
 type FieldDetails struct {
-	Default          *interface{}
 	DateFormat       *DateFormat
 	ForceNew         bool
 	IsTypeHint       bool
