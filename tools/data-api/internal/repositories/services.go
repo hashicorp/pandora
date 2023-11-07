@@ -38,6 +38,9 @@ type ApiDefinition struct {
 
 	// The type of definition e.g. Constant, Model, Operation, ResourceId
 	definitionType string
+
+	// The complete file name as stored on disk
+	fileName string
 }
 
 func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) ServicesRepository {
@@ -187,7 +190,7 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, version string, resource string) (*ServiceApiVersionResourceDetails, error) {
 	resourceDefinition := ServiceApiVersionResourceDetails{}
 	resourceSchema := ResourceSchema{}
-	constants := make(map[string]ConstantDetails, 0)
+	constants := make(map[string]ConstantDetails)
 	apiModels := make(map[string]ModelDetails)
 	operations := make(map[string]ResourceOperations)
 	resourceIds := make(map[string]ResourceIdDefinition)
@@ -220,6 +223,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 		definition := ApiDefinition{
 			name:           definitionName,
 			definitionType: definitionType,
+			fileName:       file.Name(),
 		}
 
 		if strings.EqualFold(strings.ToLower(definitionType), "operation") {
@@ -232,44 +236,55 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 
 	definitionFiles = append(definitionFiles, operationDefinitionFiles...)
 
-	for _, file := range definitionFiles {
-		definitionPath := path.Join(resourcePath, fmt.Sprintf("%s-%s", file.definitionType, file.name))
+	for _, definition := range definitionFiles {
+		definitionPath := path.Join(resourcePath, definition.fileName)
 		if err != nil {
 			return nil, err
 		}
 
 		// we lower case this comparison so that it's compatible with other OS e.g. Windows
-		switch strings.ToLower(file.definitionType) {
+		switch strings.ToLower(definition.definitionType) {
 		// Ordering here is important, all Constants need to be processed first, then all Models
 		case "constant":
 			constant, err := parseConstantFromFilePath(definitionPath)
 			if err != nil {
-				return nil, fmt.Errorf("processing constant %s: %+v", file.name, err)
+				return nil, fmt.Errorf("processing constant %s: %+v", definition.fileName, err)
 			}
 
-			constants[file.name] = pointer.From(constant)
+			constants[definition.name] = pointer.From(constant)
 		case "model":
-			model, err := parseModelFromFilePath(definitionPath, constants)
+			model, err := parseModelFromFilePath(definitionPath)
 			if err != nil {
-				return nil, fmt.Errorf("processing model %s: %+v", file.name, err)
+				return nil, fmt.Errorf("processing model %s: %+v", definition.fileName, err)
 			}
 
-			apiModels[file.name] = pointer.From(model)
+			apiModels[definition.name] = pointer.From(model)
 		case "resourceid":
 			resourceId, err := parseResourceIdFromFilePath(definitionPath, constants)
 			if err != nil {
-				return nil, fmt.Errorf("processing resource id %s: %+v", file.name, err)
+				return nil, fmt.Errorf("processing resource id %s: %+v", definition.fileName, err)
 			}
 
-			resourceIds[file.name] = pointer.From(resourceId)
+			resourceIds[definition.name] = pointer.From(resourceId)
 		case "operation":
-			operationDetails, err := parseOperationFromFilePath(definitionPath)
+			operationDetails, err := parseOperationFromFilePath(definitionPath, constants, apiModels, resourceIds)
 			if err != nil {
-				return nil, fmt.Errorf("processing operation %s: %+v", file.name, err)
+				return nil, fmt.Errorf("processing operation %s: %+v", definition.fileName, err)
 			}
 
-			operations[file.name] = pointer.From(operationDetails)
+			operations[definition.name] = pointer.From(operationDetails)
 		}
+	}
+
+	// We perform some validation on the parsed data for models here, since we can only do this after we have a complete list of constants and models
+	if err := validateModels(apiModels, constants); err != nil {
+		return nil, fmt.Errorf("validating models: %+v", err)
+	}
+
+	// The validation for the request and response objects of operations could be done as we're loading and parsing the files above, but it's done separately
+	// here to reduce unnecessary code duplication
+	if err := validateOperations(operations, apiModels, constants); err != nil {
+		return nil, fmt.Errorf("validating operations: %+v", err)
 	}
 
 	resourceSchema.Constants = constants
@@ -310,7 +325,7 @@ func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
 	}, nil
 }
 
-func parseModelFromFilePath(filePath string, constants map[string]ConstantDetails) (*ModelDetails, error) {
+func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 	var model models.Model
 
 	contents, err := loadJson(filePath)
@@ -362,7 +377,6 @@ func parseModelFromFilePath(filePath string, constants map[string]ConstantDetail
 		}
 
 		if field.ObjectDefinition.MinItems != nil && field.ObjectDefinition.MaxItems != nil {
-			// TODO these will probably be expanded on in future
 			fieldDetail.Validation = &FieldValidationDetails{
 				Type:   RangeFieldValidationType,
 				Values: pointer.To([]interface{}{field.ObjectDefinition.MinItems, field.ObjectDefinition.MaxItems}),
@@ -378,7 +392,7 @@ func parseModelFromFilePath(filePath string, constants map[string]ConstantDetail
 	}, nil
 }
 
-func parseOperationFromFilePath(filePath string) (*ResourceOperations, error) {
+func parseOperationFromFilePath(filePath string, constants map[string]ConstantDetails, apiModels map[string]ModelDetails, resourceIds map[string]ResourceIdDefinition) (*ResourceOperations, error) {
 	var operation models.Operation
 
 	contents, err := loadJson(filePath)
@@ -395,10 +409,16 @@ func parseOperationFromFilePath(filePath string) (*ResourceOperations, error) {
 		ExpectedStatusCodes:              operation.ExpectedStatusCodes,
 		LongRunning:                      operation.LongRunning,
 		Method:                           operation.HTTPMethod,
-		ResourceIdName:                   operation.ResourceIdName,
 		FieldContainingPaginationDetails: operation.FieldContainingPaginationDetails,
 		Options:                          nil,
 		UriSuffix:                        operation.UriSuffix,
+	}
+
+	if resourceIdName := operation.ResourceIdName; resourceIdName != nil {
+		if _, ok := resourceIds[*resourceIdName]; !ok {
+			return nil, fmt.Errorf("resource id %q for operation not found", *resourceIdName)
+		}
+		resourceOperations.ResourceIdName = resourceIdName
 	}
 
 	requestObject, err := mapObjectDefinition(operation.RequestObject)
@@ -424,7 +444,7 @@ func parseOperationFromFilePath(filePath string) (*ResourceOperations, error) {
 				// Optional: option.Optional
 			}
 			if option.ObjectDefinition != nil {
-				optionObjectDefinition, err := mapOptionObjectDefinition(option.ObjectDefinition)
+				optionObjectDefinition, err := mapOptionObjectDefinition(option.ObjectDefinition, constants, apiModels)
 				if err != nil {
 					return nil, err
 				}
@@ -443,13 +463,14 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		Resources:   make(map[string]TerraformResourceDetails),
 		DataSources: make(map[string]TerraformDataSourceDetails),
 	}
-	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
-	files, err := os.ReadDir(path)
+
+	terraformDefinitionsPath := path.Join(s.directory, serviceName, "Terraform")
+	files, err := os.ReadDir(terraformDefinitionsPath)
 	if err != nil {
 		if strings.Contains(err.Error(), "no such file or directory") {
 			return nil, nil
 		}
-		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", terraformDefinitionsPath, err)
 	}
 
 	for _, file := range files {
@@ -461,7 +482,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		if err != nil {
 			return nil, err
 		}
-		// todo do we have to do the same for DataSources?
+		// todo do we have to do the same for DataSources
 		if _, ok := terraformDetails.Resources[definitionName]; !ok {
 			terraformDetails.Resources[definitionName] = TerraformResourceDetails{
 				ResourceName: definitionName,
@@ -472,24 +493,24 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		// we lower case these so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
 		case "resource":
-			if resource, err = parseTerraformDefinitionResourceFromFilePath(path, file, resource); err != nil {
+			if resource, err = parseTerraformDefinitionResourceFromFilePath(terraformDefinitionsPath, file, resource); err != nil {
 				return nil, err
 			}
 
 		case "resource-mappings":
-			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(path, file)
+			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(path, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-tests":
-			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(path, file)
+			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
@@ -754,12 +775,13 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 		switch *segmentType {
 		case ConstantResourceIdSegmentType:
 			if s.ConstantReference != nil {
-				if _, ok := constants[pointer.From(s.ConstantReference)]; ok {
-					constantNames = append(constantNames, pointer.From(s.ConstantReference))
+				if _, ok := constants[*s.ConstantReference]; ok {
+					constantNames = append(constantNames, *s.ConstantReference)
 					continue
 				}
+				return nil, fmt.Errorf("no constant definition found for constant segment reference %q", *s.ConstantReference)
 			}
-			return nil, fmt.Errorf("no constant definition found for constant segment reference %q", s.ConstantReference)
+			return nil, fmt.Errorf("constant segment has no constant reference")
 		case ResourceGroupResourceIdSegmentType:
 			s.ExampleValue = "example-resource-group"
 		case ResourceProviderResourceIdSegmentType:
@@ -815,7 +837,7 @@ func mapObjectDefinition(input *models.ObjectDefinition) (*ObjectDefinition, err
 	return &output, nil
 }
 
-func mapOptionObjectDefinition(input *models.OptionObjectDefinition) (*OptionObjectDefinition, error) {
+func mapOptionObjectDefinition(input *models.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
 	optionObjectType, err := mapOptionObjectDefinitionType(input.Type)
 	if err != nil {
 		return nil, err
@@ -827,11 +849,15 @@ func mapOptionObjectDefinition(input *models.OptionObjectDefinition) (*OptionObj
 	}
 
 	if input.NestedItem != nil {
-		nestedItem, err := mapOptionObjectDefinition(input.NestedItem)
+		nestedItem, err := mapOptionObjectDefinition(input.NestedItem, constants, apiModels)
 		if err != nil {
 			return nil, fmt.Errorf("mapping Nested Item for Option Object Definition: %+v", err)
 		}
 		output.NestedItem = nestedItem
+	}
+
+	if err := validateOptionObjectDefinition(output, constants, apiModels); err != nil {
+		return nil, fmt.Errorf("validating mapped Option Object Definition: %+v", err)
 	}
 
 	return &output, nil
