@@ -133,6 +133,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				Generate:             true,
 				GenerateSchema:       true,
 				GenerateIdValidation: true,
+				GenerateModel:        true,
 				ReadMethod:           *getMethod,
 				Resource:             apiResourceName,
 				ResourceIdName:       resourceIdName,
