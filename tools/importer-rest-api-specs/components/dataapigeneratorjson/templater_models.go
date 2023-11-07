@@ -38,6 +38,10 @@ func codeForModel(modelName string, model importerModels.ModelDetails, parentMod
 		dataApiModel.DiscriminatedTypeValue = model.TypeHintValue
 	}
 
+	if model.TypeHintIn != nil {
+		dataApiModel.TypeHintIn = model.TypeHintIn
+	}
+
 	data, err := json.MarshalIndent(dataApiModel, "", " ")
 	if err != nil {
 		return nil, err
@@ -102,8 +106,9 @@ func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isType
 		Name:                           fieldName,
 		ObjectDefinition:               *objectDefinition,
 		// TODO: support Optional being a distinct value in-time so we can have ReadOnly fields too
-		Optional: !fieldDetails.Required,
-		Required: fieldDetails.Required,
+		Optional:    !fieldDetails.Required,
+		Required:    fieldDetails.Required,
+		Description: fieldDetails.Description,
 	}, nil
 }
 

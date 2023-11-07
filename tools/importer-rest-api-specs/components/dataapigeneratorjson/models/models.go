@@ -15,8 +15,11 @@ type Model struct {
 	// DiscriminatedParentModelName contains the name of the Parent Model that this Model would implement
 	DiscriminatedParentModelName *string `json:"discriminatedParentModelName,omitempty"`
 
-	// TODO DiscriminatedTypeValue - what's this
+	// DiscriminatedTypeValue contains the name of the model that implements a discriminated type
 	DiscriminatedTypeValue *string `json:"discriminatedTypeValue,omitempty"`
+
+	// TypeHintIn specifies the field which gives the type hint for the model that implements a discriminated type
+	TypeHintIn *string `json:"typeHintIn,omitempty"`
 }
 
 // ModelField describes the fields within a Model
@@ -43,4 +46,7 @@ type ModelField struct {
 	// Required specifies that this field is Required - since a field can either be
 	// Required or Optional, but not both.
 	Required bool `json:"required"`
+
+	// Description contains the description for this field
+	Description string `json:"description"`
 }
