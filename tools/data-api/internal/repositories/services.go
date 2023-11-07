@@ -626,6 +626,7 @@ func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, f
 				SdkModelName:    modelToModelMapping.SdkModelName,
 			})
 		}
+		mappings.ModelToModels = modelToModels
 	}
 
 	return mappings, nil
