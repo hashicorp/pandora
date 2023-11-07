@@ -80,6 +80,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 		}
 
 		if services != nil {
+			servicesMap := make(map[string]ServiceDetails)
 			for _, service := range *services {
 				// loads the service definition locations
 				serviceDetail, err := s.GetByName(service, serviceType)
@@ -87,7 +88,9 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 					return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
 				}
 				serviceDetails = append(serviceDetails, *serviceDetail)
+				servicesMap[serviceDetail.Name] = *serviceDetail
 			}
+			s.services = &servicesMap
 		}
 		return &serviceDetails, nil
 	}
@@ -112,14 +115,10 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 		return nil, fmt.Errorf("processing service definition for %s: %+v", serviceName, err)
 	}
 
-	services := make(map[string]ServiceDetails, 0)
-
 	if s.services != nil {
-		services = *s.services
+		services := *s.services
+		services[serviceName] = *serviceDetails
 	}
-
-	services[serviceName] = *serviceDetails
-	s.services = &services
 
 	return serviceDetails, nil
 }
