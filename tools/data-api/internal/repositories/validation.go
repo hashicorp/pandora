@@ -13,6 +13,22 @@ func validateModels(input map[string]ModelDetails, constants map[string]Constant
 	return nil
 }
 
+func validateOperations(input map[string]ResourceOperations, apiModels map[string]ModelDetails, constants map[string]ConstantDetails) error {
+	for operationName, operationDetail := range input {
+		if operationDetail.RequestObject != nil {
+			if err := validateObjectDefinition(*operationDetail.RequestObject, constants, apiModels); err != nil {
+				return fmt.Errorf("validating operation request object %q: %+v", operationName, err)
+			}
+		}
+		if operationDetail.ResponseObject != nil {
+			if err := validateObjectDefinition(*operationDetail.ResponseObject, constants, apiModels); err != nil {
+				return fmt.Errorf("validating operation response object %q: %+v", operationName, err)
+			}
+		}
+	}
+	return nil
+}
+
 func validateObjectDefinition(input ObjectDefinition, constants map[string]ConstantDetails, models map[string]ModelDetails) error {
 	requiresNestedItem := input.Type == CsvObjectDefinitionType ||
 		input.Type == DictionaryObjectDefinitionType ||

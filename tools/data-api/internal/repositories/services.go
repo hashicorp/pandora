@@ -253,7 +253,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 
 			constants[definition.name] = pointer.From(constant)
 		case "model":
-			model, err := parseModelFromFilePath(definitionPath, constants, apiModels)
+			model, err := parseModelFromFilePath(definitionPath)
 			if err != nil {
 				return nil, fmt.Errorf("processing model %s: %+v", definition.fileName, err)
 			}
@@ -279,6 +279,12 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	// We perform some validation on the parsed data for models here, since we can only do this after we have a complete list of constants and models
 	if err := validateModels(apiModels, constants); err != nil {
 		return nil, fmt.Errorf("validating models: %+v", err)
+	}
+
+	// The validation for the request and response objects of operations could be done as we're loading and parsing the files above, but it's done separately
+	// here to reduce unnecessary code duplication
+	if err := validateOperations(operations, apiModels, constants); err != nil {
+		return nil, fmt.Errorf("validating operations: %+v", err)
 	}
 
 	resourceSchema.Constants = constants
@@ -319,7 +325,7 @@ func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
 	}, nil
 }
 
-func parseModelFromFilePath(filePath string, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*ModelDetails, error) {
+func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 	var model models.Model
 
 	contents, err := loadJson(filePath)
@@ -346,7 +352,7 @@ func parseModelFromFilePath(filePath string, constants map[string]ConstantDetail
 			//ForceNew:         false,
 		}
 
-		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition, constants, apiModels)
+		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)
 		if err != nil {
 			return nil, err
 		}
@@ -415,13 +421,13 @@ func parseOperationFromFilePath(filePath string, constants map[string]ConstantDe
 		resourceOperations.ResourceIdName = resourceIdName
 	}
 
-	requestObject, err := mapObjectDefinition(operation.RequestObject, constants, apiModels)
+	requestObject, err := mapObjectDefinition(operation.RequestObject)
 	if err != nil {
 		return nil, fmt.Errorf("processing Request Object: %+v", err)
 	}
 	resourceOperations.RequestObject = requestObject
 
-	responseObject, err := mapObjectDefinition(operation.ResponseObject, constants, apiModels)
+	responseObject, err := mapObjectDefinition(operation.ResponseObject)
 	if err != nil {
 		return nil, fmt.Errorf("processing Response Object: %+v", err)
 	}
@@ -457,13 +463,14 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		Resources:   make(map[string]TerraformResourceDetails),
 		DataSources: make(map[string]TerraformDataSourceDetails),
 	}
-	path := fmt.Sprintf("%s/%s/Terraform", s.directory, serviceName)
-	files, err := os.ReadDir(path)
+
+	terraformDefinitionsPath := path.Join(s.directory, serviceName, "Terraform")
+	files, err := os.ReadDir(terraformDefinitionsPath)
 	if err != nil {
 		if strings.Contains(err.Error(), "no such file or directory") {
 			return nil, nil
 		}
-		return nil, fmt.Errorf("retrieving definitions under %s: %+v", path, err)
+		return nil, fmt.Errorf("retrieving definitions under %s: %+v", terraformDefinitionsPath, err)
 	}
 
 	for _, file := range files {
@@ -486,24 +493,24 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		// we lower case these so that it's compatible with other OS e.g. Windows
 		switch strings.ToLower(definitionType) {
 		case "resource":
-			if resource, err = parseTerraformDefinitionResourceFromFilePath(path, file, resource); err != nil {
+			if resource, err = parseTerraformDefinitionResourceFromFilePath(terraformDefinitionsPath, file, resource); err != nil {
 				return nil, err
 			}
 
 		case "resource-mappings":
-			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(path, file)
+			resource.Mappings, err = parseTerraformDefinitionResourceMappingsFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(path, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
 
 		case "resource-tests":
-			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(path, file)
+			resource.Tests, err = parseTerraformDefinitionResourceTestsFromFilePath(terraformDefinitionsPath, file)
 			if err != nil {
 				return nil, err
 			}
@@ -804,7 +811,7 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 	}, nil
 }
 
-func mapObjectDefinition(input *models.ObjectDefinition, constants map[string]ConstantDetails, models map[string]ModelDetails) (*ObjectDefinition, error) {
+func mapObjectDefinition(input *models.ObjectDefinition) (*ObjectDefinition, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -820,7 +827,7 @@ func mapObjectDefinition(input *models.ObjectDefinition, constants map[string]Co
 	}
 
 	if input.NestedItem != nil {
-		nestedItem, err := mapObjectDefinition(input.NestedItem, constants, models)
+		nestedItem, err := mapObjectDefinition(input.NestedItem)
 		if err != nil {
 			return nil, fmt.Errorf("mapping Nested Item for Object Definition: %+v", err)
 		}
