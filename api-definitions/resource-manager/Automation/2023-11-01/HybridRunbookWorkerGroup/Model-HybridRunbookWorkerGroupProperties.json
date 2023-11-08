@@ -1,0 +1,27 @@
+{
+ "name": "HybridRunbookWorkerGroupProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credential",
+   "name": "Credential",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunAsCredentialAssociationProperty"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupType",
+   "name": "GroupType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GroupTypeEnum"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

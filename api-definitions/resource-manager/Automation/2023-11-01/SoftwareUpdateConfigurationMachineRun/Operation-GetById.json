@@ -1,0 +1,26 @@
+{
+ "name": "GetById",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "clientRequestId",
+   "optional": true,
+   "required": false,
+   "field": "ClientRequestId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SoftwareUpdateConfigurationMachineRunId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SoftwareUpdateConfigurationMachineRun"
+ }
+}
