@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator's login name of a servers in server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Availability Zone information of the server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CitusVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Citus version of server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If high availability is enabled or not for the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If public IP is requested or not for a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ServerHaState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A state of a server group that is visible to user for HA feature."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "PostgreSQLVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PostgreSQL version of server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "ServerRole"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role of server in the server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "ServerEdition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The edition of a server (default: GeneralPurpose)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standby Availability Zone information of the server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "ServerState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A state of a server that is visible to user."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage of a server in MB (max: 2097152 = 2TiB)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The vCores count of a server (max: 64)."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary KEK certificate PFX."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "HyperVReplicaAzureRpRecoveryPointType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The secondary KEK certificate PFX."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

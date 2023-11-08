@@ -10,7 +10,8 @@
     "referenceName": "AgentProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The machine configuration of the run agent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dedicated agent pool for the task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Credentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The parameters that describes a set of credentials that will be used when this run is invoked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The template that describes the repository and tag information for run log artifact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "PlatformUpdateParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The platform properties against which the run has to happen."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "TaskStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "TaskStepUpdateParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties for updating a task step."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Run timeout in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "TriggerUpdateParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties for updating trigger properties."
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A records visible for this hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Alternate CName records visible for this hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Alternate TXT records visible for this hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "CName records visible for this hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict on the Container App's managed environment level custom domain; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the conflicting Container App on the Managed Environment if it's within the same subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     "referenceName": "CustomHostnameAnalysisResultCustomDomainVerificationFailureInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Raw failure information if DNS verification fails."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": "DnsVerificationTestResult"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DNS verification test result."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if there is a conflict on the Container App's managed environment; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Host name that was analyzed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if hostname is already verified; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +162,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TXT records visible for this hostname."
   }
  ]
 }

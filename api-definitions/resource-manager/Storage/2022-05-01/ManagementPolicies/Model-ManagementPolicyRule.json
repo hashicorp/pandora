@@ -10,7 +10,8 @@
     "referenceName": "ManagementPolicyDefinition"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "An object that defines the Lifecycle rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Rule is enabled if set to true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A rule name can contain any combination of alpha numeric characters. Rule name is case-sensitive. It must be unique within a policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "RuleType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The valid value is Lifecycle"
   }
  ]
 }

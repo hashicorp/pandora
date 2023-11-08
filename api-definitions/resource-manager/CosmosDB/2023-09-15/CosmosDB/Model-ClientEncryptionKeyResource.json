@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Encryption algorithm that will be used along with this client encryption key to encrypt/decrypt data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the ClientEncryptionKey"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "KeyWrapMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata for the wrapping provider that can be used to unwrap the wrapped client encryption key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Wrapped (encrypted) form of the key represented as a byte array."
   }
  ]
 }

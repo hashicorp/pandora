@@ -10,7 +10,8 @@
     "referenceName": "RoutingConfigurationNfvSubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id RouteTable associated with this RoutingConfiguration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RoutingConfigurationNfvSubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the RouteMap associated with this RoutingConfiguration for inbound learned routes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "RoutingConfigurationNfvSubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the RouteMap associated with this RoutingConfiguration for outbound advertised routes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PropagatedRouteTableNfv"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of RouteTables to advertise the routes to."
   }
  ]
 }

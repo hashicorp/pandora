@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of azure resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "AzureResourcePropertiesBase"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The azure resource connection related properties."
   }
  ],
  "discriminatedParentModelName": "TargetServiceBase",
- "discriminatedTypeValue": "AzureResource"
+ "discriminatedTypeValue": "AzureResource",
+ "typeHintIn": "Type"
 }

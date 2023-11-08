@@ -10,9 +10,11 @@
     "referenceName": "NotificationSetting"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration for notification."
   }
  ],
  "discriminatedParentModelName": "MonitoringAlertNotificationSettingsBase",
- "discriminatedTypeValue": "Email"
+ "discriminatedTypeValue": "Email",
+ "typeHintIn": "AlertNotificationType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "RecoveryPlanActionLocation"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The runbook ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The runbook timeout."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanActionDetails",
- "discriminatedTypeValue": "AutomationRunbookActionDetails"
+ "discriminatedTypeValue": "AutomationRunbookActionDetails",
+ "typeHintIn": "InstanceType"
 }

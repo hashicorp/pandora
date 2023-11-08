@@ -10,7 +10,8 @@
     "referenceName": "RuleManagementEventClaimsDataSource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the claims."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the event name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the event source."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the operation that should be checked for. If no name is provided, any operation will match."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the resource group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the resource provider name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the operation that should be checked for. If no status is provided, any status will match."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,9 +106,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the substatus."
   }
  ],
  "discriminatedParentModelName": "RuleDataSource",
- "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource"
+ "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleManagementEventDataSource",
+ "typeHintIn": "OdataType"
 }

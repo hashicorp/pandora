@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets additional details specific to this recommended action."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "RecommendedActionErrorInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the error details if and why this recommended action is put to error state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the estimated impact info for this recommended action e.g., Estimated CPU gain, Estimated Disk Space change"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time taken for applying this recommended action on user resource. e.g., time taken for index creation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "RecommendedActionInitiatedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets if approval for applying this recommended action was given by user/system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time when this recommended action was approved for execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -86,7 +92,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time when system started applying this recommended action on the user resource. e.g., index creation start time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -97,7 +104,8 @@
     "referenceName": "RecommendedActionImplementationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the implementation details of this recommended action for user to apply it manually."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets if this recommended action was suggested some time ago but user chose to ignore this and system added a new recommended action again."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets if this recommended action is actionable by user"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets if changes applied by this recommended action can be reverted by user"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +153,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets time when this recommended action was last refreshed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +169,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the linked objects, if any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +185,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the observed/actual impact info for this recommended action e.g., Actual CPU gain, Actual Disk Space change"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +197,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the reason for recommending this action. e.g., DuplicateIndex"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -194,7 +209,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time taken for reverting changes of this recommended action on user resource. e.g., time taken for dropping the created index."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +221,8 @@
     "referenceName": "RecommendedActionInitiatedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets if approval for reverting this recommended action was given by user/system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -217,7 +234,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time when this recommended action was approved for revert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +247,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time when system started reverting changes of this recommended action on user resource. e.g., time when index drop is executed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +259,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the impact of this recommended action. Possible values are 1 - Low impact, 2 - Medium Impact and 3 - High Impact"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +271,8 @@
     "referenceName": "RecommendedActionStateInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets the info of the current state the recommended action is in."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -266,7 +287,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time series info of metrics for this recommended action e.g., CPU consumption time series"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -278,7 +300,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the time since when this recommended action is valid."
   }
  ]
 }

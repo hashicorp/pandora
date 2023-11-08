@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Base64 encoded value of the template/definition file content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Base64 encoded value of the parameters/values file content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,9 +38,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of overridable values that can be passed when running a task."
   }
  ],
  "discriminatedParentModelName": "TaskStepUpdateParameters",
- "discriminatedTypeValue": "EncodedTask"
+ "discriminatedTypeValue": "EncodedTask",
+ "typeHintIn": "Type"
 }

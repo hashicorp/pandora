@@ -10,9 +10,11 @@
     "referenceName": "KubernetesRoleProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties specific to Kubernetes role."
   }
  ],
  "discriminatedParentModelName": "Role",
- "discriminatedTypeValue": "Kubernetes"
+ "discriminatedTypeValue": "Kubernetes",
+ "typeHintIn": "Kind"
 }

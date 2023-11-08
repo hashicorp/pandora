@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description for the input."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "JobInputType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of job."
   }
- ]
+ ],
+ "typeHintIn": "JobInputType"
 }

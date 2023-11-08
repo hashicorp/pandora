@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end time for the metric (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The metric values for the specified time window and timestep."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": "MetricName"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name information for the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start time for the metric (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time grain to be used to summarize the metric values."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "referenceName": "UnitType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unit of the metric."
   }
  ]
 }

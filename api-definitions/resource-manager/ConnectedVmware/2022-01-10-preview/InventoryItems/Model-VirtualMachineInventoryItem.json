@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the folder path of the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "InventoryItemDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Host inventory resource details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the nic ip addresses."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the instance uuid of the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets os name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "OsType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the type of the os."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the power state of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "InventoryItemDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ResourcePool inventory resource details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the SMBIOS UUID of the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the current running status of VMware Tools running in the guest operating system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the current version of VMware Tools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,9 +146,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the current version status of VMware Tools installed in the guest operating system."
   }
  ],
  "discriminatedParentModelName": "InventoryItemProperties",
- "discriminatedTypeValue": "VirtualMachine"
+ "discriminatedTypeValue": "VirtualMachine",
+ "typeHintIn": "InventoryType"
 }

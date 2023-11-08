@@ -10,7 +10,8 @@
     "referenceName": "ContactDetails"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The contact details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "OrderStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current status of the order."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tracking information for the package delivered to the customer whether it has an original or a replacement device."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of status changes in the order."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "It specify the order resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tracking information for the package returned from the customer whether it has an original or a replacement device."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Serial number of the device."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": "ShipmentType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ShipmentType of the order"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": "Address"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The shipping address."
   }
  ]
 }

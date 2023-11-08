@@ -10,7 +10,8 @@
     "referenceName": "CriterionType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the type of threshold criteria"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of dimension conditions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Namespace of the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the criteria."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allows creating an alert rule on a custom metric that isn't yet emitted, by causing the metric validation to be skipped."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,9 @@
     "referenceName": "AggregationTypeEnum"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the criteria time aggregation types."
   }
- ]
+ ],
+ "typeHintIn": "CriterionType"
 }

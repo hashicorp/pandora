@@ -10,7 +10,8 @@
     "referenceName": "Gen1EnvironmentMutableProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of the Gen1 environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "Sku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The sku of the environment."
   }
  ],
  "discriminatedParentModelName": "EnvironmentUpdateParameters",
- "discriminatedTypeValue": "Gen1"
+ "discriminatedTypeValue": "Gen1",
+ "typeHintIn": "Kind"
 }

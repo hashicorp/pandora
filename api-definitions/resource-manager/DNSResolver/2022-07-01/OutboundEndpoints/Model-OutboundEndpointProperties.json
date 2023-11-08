@@ -10,7 +10,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current provisioning state of the outbound endpoint. This is a read-only property and any attempt to set this value will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resourceGuid property of the outbound endpoint resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SubResource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to the subnet used for the outbound endpoint."
   }
  ]
 }

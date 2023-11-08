@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The affected object properties like source server, source cloud, target server, target cloud etc. based on the workflow object details."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -25,7 +26,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets the type of job details (see JobDetailsTypes enum for possible values)."
   }
- ]
+ ],
+ "typeHintIn": "InstanceType"
 }

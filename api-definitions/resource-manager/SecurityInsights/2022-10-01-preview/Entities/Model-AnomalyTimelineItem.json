@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The anomaly azure resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The anomaly description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The anomaly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The anomaly end time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The intent of the anomaly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The anomaly product name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reasons that cause the anomaly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The anomaly start time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The techniques of the anomaly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +129,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The anomaly generated time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,9 +141,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the anomaly vendor."
   }
  ],
  "discriminatedParentModelName": "EntityTimelineItem",
- "discriminatedTypeValue": "Anomaly"
+ "discriminatedTypeValue": "Anomaly",
+ "typeHintIn": "Kind"
 }

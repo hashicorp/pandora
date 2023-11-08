@@ -10,7 +10,8 @@
     "referenceName": "ComputeResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource allocation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PlatformType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Host OS supported by the IoT role."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "HostPlatformType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Platform where the Iot runtime is hosted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IoTDeviceInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "IoT device metadata to which data box edge device needs to be connected."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "IoTEdgeAgentInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Iot edge agent details to download the agent and bootstrap iot runtime."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "IoTDeviceInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "IoT edge device to which the IoT role needs to be configured."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "RoleStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Role status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mount points of shares in role(s)."
   }
  ]
 }

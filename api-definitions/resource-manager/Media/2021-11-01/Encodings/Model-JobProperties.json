@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Customer provided key, value pairs that will be returned in Job and JobOutput state events."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC date and time when the customer has created the Job, in 'YYYY-MM-DDThh:mm:ssZ' format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional customer supplied description of the Job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC date and time at which this Job finished processing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "referenceName": "JobInput"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The inputs for the Job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +77,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC date and time when the customer has last updated the Job, in 'YYYY-MM-DDThh:mm:ssZ' format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +93,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The outputs for the Job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +105,8 @@
     "referenceName": "Priority"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Priority with which the job should be processed. Higher priority jobs are processed before lower priority jobs. If not set, the default is normal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC date and time at which this Job began processing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": "JobState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the job."
   }
  ]
 }

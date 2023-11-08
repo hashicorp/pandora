@@ -10,9 +10,11 @@
     "referenceName": "AzureFunctionEventSubscriptionDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Function Properties of the event subscription destination."
   }
  ],
  "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "AzureFunction"
+ "discriminatedTypeValue": "AzureFunction",
+ "typeHintIn": "EndpointType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Id of the recovery point to be recovered"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RehydrationPriority"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Priority to be used for rehydration. Values High or Standard"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Retention duration in ISO 8601 format i.e P10D ."
   }
  ]
 }

@@ -10,9 +10,11 @@
     "referenceName": "StorageBlobDeadLetterDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties of the Storage Blob based deadletter destination"
   }
  ],
  "discriminatedParentModelName": "DeadLetterDestination",
- "discriminatedTypeValue": "StorageBlob"
+ "discriminatedTypeValue": "StorageBlob",
+ "typeHintIn": "EndpointType"
 }

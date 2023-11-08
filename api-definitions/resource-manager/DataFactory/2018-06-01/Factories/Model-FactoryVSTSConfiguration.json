@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "VSTS project name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VSTS tenant id."
   }
  ],
  "discriminatedParentModelName": "FactoryRepoConfiguration",
- "discriminatedTypeValue": "FactoryVSTSConfiguration"
+ "discriminatedTypeValue": "FactoryVSTSConfiguration",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The app consistent snapshot frequency (in minutes)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The crash consistent snapshot frequency (in minutes)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SetMultiVMSyncStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A value indicating whether multi-VM sync has to be enabled. Value should be 'Enabled' or 'Disabled'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration in minutes until which the recovery points need to be stored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point threshold in minutes."
   }
  ],
  "discriminatedParentModelName": "PolicyProviderSpecificInput",
- "discriminatedTypeValue": "InMageAzureV2"
+ "discriminatedTypeValue": "InMageAzureV2",
+ "typeHintIn": "InstanceType"
 }

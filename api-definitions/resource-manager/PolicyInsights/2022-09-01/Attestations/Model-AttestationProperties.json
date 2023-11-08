@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the evidence was assessed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Comments describing why this attestation was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "ComplianceState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The compliance state that should be set on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The evidence supporting the compliance state set in this attestation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the compliance state should expire."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +77,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the compliance state was last changed in this attestation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +89,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional metadata for this attestation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,7 +101,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The person responsible for setting the state of the resource. This value is typically an Azure Active Directory object ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -105,7 +113,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource ID of the policy assignment that the attestation is setting the state for."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -116,7 +125,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy definition reference ID from a policy set definition that the attestation is setting the state for. If the policy assignment assigns a policy set definition the attestation can choose a definition within the set definition with this property or omit this and set the state for the entire set definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +137,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the attestation."
   }
  ]
 }

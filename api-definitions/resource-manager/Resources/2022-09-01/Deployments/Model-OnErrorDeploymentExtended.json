@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deployment to be used on error case."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the provisioning for the on error deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "OnErrorDeploymentType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deployment on error behavior type. Possible values are LastSuccessful and SpecificDeployment."
   }
  ]
 }

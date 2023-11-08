@@ -10,7 +10,8 @@
     "referenceName": "DnsResolverState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current provisioning state of the DNS resolver. This is a read-only property and any attempt to set this value will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resourceGuid property of the DNS resolver resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "SubResource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to the virtual network. This cannot be changed after creation."
   }
  ]
 }

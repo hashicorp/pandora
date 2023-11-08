@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set of days of the week on which this schedule is active."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "SessionHostLoadBalancingAlgorithm"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing algorithm for off-peak period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "Time"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Starting time for off-peak period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "SessionHostLoadBalancingAlgorithm"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing algorithm for peak period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "Time"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Starting time for peak period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Capacity threshold for ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Should users be logged off forcefully from hosts."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "SessionHostLoadBalancingAlgorithm"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing algorithm for ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimum host percentage for ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Notification message for users during ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "Time"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Starting time for ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "StopHostsWhen"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies when to stop hosts during ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of minutes to wait to stop hosts during ramp down period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Capacity threshold for ramp up period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "referenceName": "SessionHostLoadBalancingAlgorithm"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing algorithm for ramp up period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimum host percentage for ramp up period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": "Time"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Starting time for ramp up period."
   }
  ]
 }

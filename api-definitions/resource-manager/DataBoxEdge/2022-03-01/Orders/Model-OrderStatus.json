@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dictionary to hold generic information which is not stored\r\nby the already existing properties"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Comments related to this status change."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "OrderState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Status of the order as per the allowed status types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "TrackingInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tracking information related to the state in the ordering flow"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time of status update."
   }
  ]
 }

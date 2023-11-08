@@ -10,7 +10,8 @@
     "referenceName": "IdentityType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of managed identity used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user identity ARM resource id if the managed identity type is 'UserAssigned'."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of balance adjustment. The property is not available for ConsumptionCommitment lots."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AmountWithExchangeRate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of balance adjustment in billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The billing currency of the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the billing profile for which the event happened. The property is only available for billing account of type MicrosoftCustomerAgreement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID that uniquely identifies the billing profile for which the event happened. The property is only available for billing account of type MicrosoftCustomerAgreement. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Amount of canceled credit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of charges for events of type SettleCharges and PendingEligibleCharges. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "AmountWithExchangeRate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of charges for events of type SettleCharges and PendingEligibleCharges in billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The balance after the event. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "AmountWithExchangeRate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The balance in billing currency after the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The credit currency of the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of expired credit or commitment for NewCredit or SettleCharges event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "AmountWithExchangeRate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of expired credit or commitment for NewCredit or SettleCharges event in billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The eTag for the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": "EventType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the type of the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number which uniquely identifies the invoice on which the event was billed. This will be empty for unbilled events."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID that uniquely identifies the lot for which the event happened."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the source of the lot for which the event happened. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +238,8 @@
     "referenceName": "Amount"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of new credit or commitment for NewCredit or SettleCharges event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +250,8 @@
     "referenceName": "AmountWithExchangeRate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of new credit or commitment for NewCredit or SettleCharges event in billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -241,7 +262,8 @@
     "referenceName": "Reseller"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reseller of the event."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -253,7 +275,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The date of the event."
   }
  ]
 }

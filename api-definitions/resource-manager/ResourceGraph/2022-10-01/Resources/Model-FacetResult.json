@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Number of records returned in the facet response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A JObject array or Table containing the desired facets. Only present if the facet is valid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Number of total records in the facet results."
   }
  ],
  "discriminatedParentModelName": "Facet",
- "discriminatedTypeValue": "FacetResult"
+ "discriminatedTypeValue": "FacetResult",
+ "typeHintIn": "ResultType"
 }

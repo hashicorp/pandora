@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the asset for data import job to create"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "DataImportSource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source data of the asset to import from"
   }
  ],
  "discriminatedParentModelName": "DataVersionBase",
- "discriminatedTypeValue": "uri_folder"
+ "discriminatedTypeValue": "uri_folder",
+ "typeHintIn": "DataType"
 }

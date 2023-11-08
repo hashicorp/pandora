@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The field/property in the event based on which you want to filter."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "AdvancedFilterOperatorType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The operator type used for filtering, e.g., NumberIn, StringContains, BoolEquals and others."
   }
- ]
+ ],
+ "typeHintIn": "OperatorType"
 }

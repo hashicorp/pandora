@@ -10,7 +10,8 @@
     "referenceName": "AutoStorageAuthenticationMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The authentication mode which the Batch service will use to manage the auto-storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ComputeNodeIdentityReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The identity referenced here must be assigned to pools which have compute nodes that need access to auto-storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the storage account to be used for auto-storage account."
   }
  ]
 }

@@ -10,9 +10,11 @@
     "referenceName": "TargetDetails"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Destination of RestoreAsFiles operation, when destination is not a datasource"
   }
  ],
  "discriminatedParentModelName": "RestoreTargetInfoBase",
- "discriminatedTypeValue": "RestoreFilesTargetInfo"
+ "discriminatedTypeValue": "RestoreFilesTargetInfo",
+ "typeHintIn": "ObjectType"
 }

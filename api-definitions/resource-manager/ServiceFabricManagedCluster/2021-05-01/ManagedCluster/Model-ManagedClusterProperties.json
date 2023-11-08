@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of add-on features to enable on the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VM admin user password."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "VM admin user name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Setting this to true enables RDP access to the VM. The default NSG rule opens RDP port to internet which can be overridden with custom Network Security Rules. The default value for this setting is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ApplicationTypeVersionsCleanupPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy used to clean up unused versions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "AzureActiveDirectory"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The AAD authentication settings of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port used for client connections to the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Client certificates that are allowed to manage the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of thumbprints of the cluster certificates."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Service Fabric runtime version of the cluster. This property is required when **clusterUpgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](./ClusterVersion.md). To get the list of available version for existing clusters use **availableClusterVersions**."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A service generated unique identifier for the cluster resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "ClusterState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "ClusterUpgradeCadence"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **clusterUpgradeMode** is set to 'Automatic'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": "ClusterUpgradeMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The cluster dns name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Setting this to true enables automatic OS upgrade for the node types that are created using any platform OS image with version 'latest'. The default value for this setting is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of custom fabric settings to configure the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name associated with the public load balancer of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port used for HTTP connections to the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IPv4 address associated with the public load balancer of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -250,7 +270,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing rules that are applied to the public load balancer of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -265,7 +286,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom Network Security Rules that are applied to the virtual network of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -276,7 +298,8 @@
     "referenceName": "ManagedResourceProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the managed cluster resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +310,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the cluster has zone resiliency."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "AzureVMWorkloadProtectedItemExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information for this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the DB represented by this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health details of different KPIs"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ErrorDetail"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error details in last backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "LastBackupStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last backup operation status. Possible values: Healthy, Unhealthy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of the last backup operation on this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of the nodes in case of distributed container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parent name of the DB such as Instance or Availability Group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parent type of protected item, example: for a DB, standalone server or distributed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data ID of the protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "referenceName": "ProtectedItemHealthStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health status of the backup item, evaluated based on last heartbeat received"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     "referenceName": "ProtectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup state of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup status of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,9 +175,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Host/Cluster Name for instance or AG"
   }
  ],
  "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "AzureVmWorkloadSAPHanaDatabase"
+ "discriminatedTypeValue": "AzureVmWorkloadSAPHanaDatabase",
+ "typeHintIn": "ProtectedItemType"
 }

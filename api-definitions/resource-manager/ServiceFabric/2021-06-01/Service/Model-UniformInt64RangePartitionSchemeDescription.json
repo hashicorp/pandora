@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of partitions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "String indicating the upper bound of the partition key range that\nshould be split between the partition ‘count’\n"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "String indicating the lower bound of the partition key range that\nshould be split between the partition ‘count’\n"
   }
  ],
  "discriminatedParentModelName": "PartitionSchemeDescription",
- "discriminatedTypeValue": "UniformInt64Range"
+ "discriminatedTypeValue": "UniformInt64Range",
+ "typeHintIn": "PartitionScheme"
 }

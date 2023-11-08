@@ -10,7 +10,8 @@
     "referenceName": "AvailabilityZoneType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the availability zone the pool's primary replica is pinned to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of secondary replicas associated with the elastic pool that are used to provide high availability. Applicable only to Hyperscale elastic pools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ElasticPoolLicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The license type to apply for this elastic pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maintenance configuration id assigned to the elastic pool. This configuration defines the period when the maintenance updates will will occur."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage limit for the database elastic pool in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimal capacity that serverless pool will not shrink below, if not paused"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ElasticPoolPerDatabaseSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The per database settings for the elastic pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "AlwaysEncryptedEnclaveType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of enclave requested on the elastic pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not this elastic pool is zone redundant, which means the replicas of this elastic pool will be spread across multiple availability zones."
   }
  ]
 }

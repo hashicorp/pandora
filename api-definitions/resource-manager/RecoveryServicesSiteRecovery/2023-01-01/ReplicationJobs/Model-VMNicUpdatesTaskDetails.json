@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Nic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Nic Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual machine Id."
   }
  ],
  "discriminatedParentModelName": "TaskTypeDetails",
- "discriminatedTypeValue": "VmNicUpdatesTaskDetails"
+ "discriminatedTypeValue": "VmNicUpdatesTaskDetails",
+ "typeHintIn": "InstanceType"
 }

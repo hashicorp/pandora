@@ -1,0 +1,16 @@
+{
+ "name": "GrafanaList",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedGrafana"
+ },
+ "uriSuffix": "/providers/Microsoft.Dashboard/grafana"
+}

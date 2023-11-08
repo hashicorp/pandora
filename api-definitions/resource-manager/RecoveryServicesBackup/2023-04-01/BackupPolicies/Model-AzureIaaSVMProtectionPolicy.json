@@ -10,7 +10,8 @@
     "referenceName": "InstantRPAdditionalDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Instant RP retention policy range in days"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "IAASVMPolicyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "RetentionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention policy with the details on backup copy retention ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "SchedulePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup schedule specified as part of backup policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tiering policy to automatically move RPs to another tier\r\nKey is Target Tier, defined in RecoveryPointTierType enum.\r\nTiering policy specifies the criteria to move RP to the target tier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,9 +86,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\"."
   }
  ],
  "discriminatedParentModelName": "ProtectionPolicy",
- "discriminatedTypeValue": "AzureIaasVM"
+ "discriminatedTypeValue": "AzureIaasVM",
+ "typeHintIn": "BackupManagementType"
 }

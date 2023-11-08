@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Size of the resource: VM size(A/D series etc) in case of IaasVM"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SKUs (Premium/Managed etc) in case of IaasVM"
   }
  ],
  "discriminatedParentModelName": "FeatureSupportRequest",
- "discriminatedTypeValue": "AzureVMResourceBackup"
+ "discriminatedTypeValue": "AzureVMResourceBackup",
+ "typeHintIn": "FeatureType"
 }

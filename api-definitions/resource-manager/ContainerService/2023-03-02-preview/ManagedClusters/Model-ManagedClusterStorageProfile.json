@@ -10,7 +10,8 @@
     "referenceName": "ManagedClusterStorageProfileBlobCSIDriver"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "AzureBlob CSI Driver settings for the storage profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedClusterStorageProfileDiskCSIDriver"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "AzureDisk CSI Driver settings for the storage profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ManagedClusterStorageProfileFileCSIDriver"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "AzureFile CSI Driver settings for the storage profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ManagedClusterStorageProfileSnapshotController"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Snapshot Controller settings for the storage profile."
   }
  ]
 }

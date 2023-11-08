@@ -1,0 +1,139 @@
+{
+ "name": "ModuleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activityCount",
+   "name": "ActivityCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the activity count of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contentLink",
+   "name": "ContentLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentLink"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the contentLink of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationTime",
+   "name": "CreationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the creation time."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the description."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ModuleErrorInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the error info of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isComposite",
+   "name": "IsComposite",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets type of module, if its composite or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isGlobal",
+   "name": "IsGlobal",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the isGlobal flag of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModifiedTime",
+   "name": "LastModifiedTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the last modified time."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ModuleProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the provisioning state of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeInBytes",
+   "name": "SizeInBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the size in bytes of the module."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets the version of the module."
+  }
+ ]
+}

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "BlobUri of the exported jobs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The sas token to access blob."
   }
  ],
  "discriminatedParentModelName": "JobDetails",
- "discriminatedTypeValue": "ExportJobDetails"
+ "discriminatedTypeValue": "ExportJobDetails",
+ "typeHintIn": "InstanceType"
 }

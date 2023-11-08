@@ -10,9 +10,11 @@
     "referenceName": "DeltaSerializationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with the Delta Lake serialization type. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "Serialization",
- "discriminatedTypeValue": "Delta"
+ "discriminatedTypeValue": "Delta",
+ "typeHintIn": "Type"
 }

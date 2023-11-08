@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input resource name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input resource version."
   }
  ],
  "discriminatedParentModelName": "PackageInputPathBase",
- "discriminatedTypeValue": "PathVersion"
+ "discriminatedTypeValue": "PathVersion",
+ "typeHintIn": "InputPathType"
 }

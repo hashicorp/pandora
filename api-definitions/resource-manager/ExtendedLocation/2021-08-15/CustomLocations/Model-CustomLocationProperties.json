@@ -10,7 +10,8 @@
     "referenceName": "CustomLocationPropertiesAuthentication"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is optional input that contains the authentication that should be used to generate the namespace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contains the reference to the add-on that contains charts to deploy CRDs and operators."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name for the Custom Locations location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connected Cluster or AKS Cluster. The Custom Locations RP will perform a checkAccess API for listAdminCredentials permissions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "HostType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of host the Custom Locations is referencing (Kubernetes, etc...)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Kubernetes namespace that will be created on the specified cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning State for the Custom Location."
   }
  ]
 }

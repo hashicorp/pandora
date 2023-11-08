@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup retention days for the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The earliest restore point time (ISO8601 format) for server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "GeoRedundantBackupEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether Geo-Redundant backup is enabled on the server."
   }
  ]
 }

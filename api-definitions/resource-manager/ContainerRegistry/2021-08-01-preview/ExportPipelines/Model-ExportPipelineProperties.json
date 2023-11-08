@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of all options configured for the pipeline."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the pipeline at the time the operation was called."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ExportPipelineTargetProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target properties of the export pipeline."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Usage data collection frequency in ISO 8601 duration format e.g. PT10M , PT5H."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Usage data reporting frequency in ISO 8601 duration format e.g. PT10M , PT5H."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EdgeUsageDataEventHub"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details of Event Hub where the usage will be reported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum time for which the functionality of the device will not be hampered for not reporting the usage data."
   }
  ]
 }

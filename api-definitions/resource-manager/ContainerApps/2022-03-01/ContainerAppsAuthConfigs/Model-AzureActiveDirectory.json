@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003efalse\u003c/code\u003e if the Azure Active Directory provider should not be enabled despite the set registration; otherwise, \u003ccode\u003etrue\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets a value indicating whether the Azure AD configuration was auto-provisioned using 1st party tooling.\nThis is an internal flag primarily intended to support the Azure Management Portal. Users should not\nread or write to this property."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AzureActiveDirectoryLogin"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the Azure Active Directory login flow."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "AzureActiveDirectoryRegistration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the Azure Active Directory app registration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "AzureActiveDirectoryValidation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the Azure Active Directory token validation flow."
   }
  ]
 }

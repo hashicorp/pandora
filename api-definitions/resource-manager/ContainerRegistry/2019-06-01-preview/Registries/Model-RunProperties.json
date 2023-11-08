@@ -10,7 +10,8 @@
     "referenceName": "AgentProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The machine configuration of the run agent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dedicated agent pool for the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the run was scheduled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of custom registries that were logged in during this run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the run finished."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "referenceName": "ImageUpdateTrigger"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The image update trigger that caused the run. This is applicable if the task has base image trigger configured."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -82,7 +88,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value that indicates whether archiving is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,7 +101,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last updated time for the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -105,7 +113,8 @@
     "referenceName": "ImageDescriptor"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The image description for the log artifact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +129,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of all images that were generated from the run. This is applicable if the run generates base image dependencies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +141,8 @@
     "referenceName": "PlatformProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The platform properties against which the run will happen."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +153,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of a run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +165,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The error message received from backend systems after the run is scheduled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +177,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique identifier for the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +189,8 @@
     "referenceName": "RunType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +201,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The scope of the credentials that were used to login to the source registry during this run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +213,8 @@
     "referenceName": "SourceTriggerDescriptor"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source trigger that caused the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -209,7 +226,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the run started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -220,7 +238,8 @@
     "referenceName": "RunStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -231,7 +250,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The task against which run was scheduled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -242,7 +262,8 @@
     "referenceName": "TimerTriggerDescriptor"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timer trigger that caused the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -253,7 +274,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The update trigger token passed for the Run."
   }
  ]
 }

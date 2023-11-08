@@ -10,7 +10,8 @@
     "referenceName": "RecurrenceType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The schedule recurrence."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ExportRecurrencePeriod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has start and end date of the recurrence. The start date must be in future. If present, the end date must be greater than start date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "StatusType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the export's schedule. If 'Inactive', the export's schedule is paused."
   }
  ]
 }

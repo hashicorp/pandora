@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Location of the backend (IP address or FQDN)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "BackendEnabledState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP TCP port number. Must be between 1 and 65535."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTPS TCP port number. Must be between 1 and 65535."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "PrivateEndpointStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Approval status for the connection to the Private Link"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A custom message to be included in the approval request to connect to the Private Link"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The location of the Private Link resource. Required only if 'privateLinkResourceId' is populated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Resource Id of the Private Link resource. Populating this optional field indicates that this backend is 'Private'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Weight of this endpoint for load balancing purposes."
   }
  ]
 }

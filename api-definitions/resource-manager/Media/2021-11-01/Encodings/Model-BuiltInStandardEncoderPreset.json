@@ -10,7 +10,8 @@
     "referenceName": "PresetConfigurations"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional configuration settings for encoder. Configurations is only supported for ContentAwareEncoding and H265ContentAwareEncoding BuiltInStandardEncoderPreset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "EncoderNamedPreset"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The built-in preset to be used for encoding videos."
   }
  ],
  "discriminatedParentModelName": "Preset",
- "discriminatedTypeValue": "#Microsoft.Media.BuiltInStandardEncoderPreset"
+ "discriminatedTypeValue": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+ "typeHintIn": "OdataType"
 }

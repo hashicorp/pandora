@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time that the job execution was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +24,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start time of the current attempt."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,7 +36,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of times the job execution has been attempted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -46,7 +49,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time that the job execution completed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -57,7 +61,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique identifier of the job execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -68,7 +73,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The job version number."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -79,7 +85,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last status or error message."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -90,7 +97,8 @@
     "referenceName": "JobExecutionLifecycle"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The detailed state of the job execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -101,7 +109,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM provisioning state of the job execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time that the job execution started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The job step id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The job step name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": "JobExecutionTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target that this execution is executed on."
   }
  ]
 }

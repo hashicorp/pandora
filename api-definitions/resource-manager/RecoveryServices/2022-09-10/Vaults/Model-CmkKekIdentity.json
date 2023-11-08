@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicate that system assigned identity should be used. Mutually exclusive with 'userAssignedIdentity' field"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user assigned identity to be used to grant permissions in case the type of identity used is UserAssigned"
   }
  ]
 }

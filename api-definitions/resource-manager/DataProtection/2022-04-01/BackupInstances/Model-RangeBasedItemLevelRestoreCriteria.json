@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "maximum value for range prefix match"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "minimum value for range prefix match"
   }
  ],
  "discriminatedParentModelName": "ItemLevelRestoreCriteria",
- "discriminatedTypeValue": "RangeBasedItemLevelRestoreCriteria"
+ "discriminatedTypeValue": "RangeBasedItemLevelRestoreCriteria",
+ "typeHintIn": "ObjectType"
 }

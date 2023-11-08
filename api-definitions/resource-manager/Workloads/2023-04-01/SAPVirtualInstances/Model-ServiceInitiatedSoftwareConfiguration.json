@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The URL to the SAP Build of Materials(BOM) file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "HighAvailabilitySoftwareConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The SAP bits storage account id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The FQDN to set for the SAP system during install."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The software version to install."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,9 +70,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The SSH private key."
   }
  ],
  "discriminatedParentModelName": "SoftwareConfiguration",
- "discriminatedTypeValue": "ServiceInitiated"
+ "discriminatedTypeValue": "ServiceInitiated",
+ "typeHintIn": "SoftwareInstallationType"
 }

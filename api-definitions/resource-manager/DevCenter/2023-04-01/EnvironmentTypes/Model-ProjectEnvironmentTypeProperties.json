@@ -10,7 +10,8 @@
     "referenceName": "ProjectEnvironmentTypeUpdatePropertiesCreatorRoleAssignment"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role definition assigned to the environment creator on backing resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Id of a subscription that the environment type will be mapped to. The environment's resources will be deployed into this subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "EnvironmentTypeEnableStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Defines whether this Environment Type can be used in this Project."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Role Assignments created on environment backing resources. This is a mapping from a user object ID to an object of role definition IDs."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "DefaultAction"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default Action for Network Rule Set"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of IpRules"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "PublicNetworkAccessFlag"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This determines if traffic is allowed over public network. By default it is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value that indicates whether Trusted Service Access is Enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List VirtualNetwork Rules"
   }
  ]
 }

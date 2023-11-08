@@ -1,0 +1,105 @@
+{
+ "name": "ManagedPrivateEndpointModelProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionState",
+   "name": "ConnectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedPrivateEndpointConnectionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupIds",
+   "name": "GroupIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The group Ids of the managed private endpoint."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkResourceId",
+   "name": "PrivateLinkResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ARM resource ID of the resource for which the managed private endpoint is pointing to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkResourceRegion",
+   "name": "PrivateLinkResourceRegion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The region of the resource to which the managed private endpoint is pointing to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServicePrivateIP",
+   "name": "PrivateLinkServicePrivateIP",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The private IP of private endpoint after approval. This property is empty before connection is approved."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceUrl",
+   "name": "PrivateLinkServiceUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The URL of the data store behind the private link service. It would be the URL in the Grafana data source configuration page without the protocol and port."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Provisioning state of the resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requestMessage",
+   "name": "RequestMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "User input request message of the managed private endpoint."
+  }
+ ]
+}

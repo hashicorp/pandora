@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of header actions to apply from the request from AFD to the origin."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of header actions to apply from the response from AFD to the client."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "RouteConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Override the route configuration."
   }
  ]
 }

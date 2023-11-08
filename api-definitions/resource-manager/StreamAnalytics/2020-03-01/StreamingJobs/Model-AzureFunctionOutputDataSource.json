@@ -10,9 +10,11 @@
     "referenceName": "AzureFunctionOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a Azure Function output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.AzureFunction"
+ "discriminatedTypeValue": "Microsoft.AzureFunction",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "AzureWorkloadContainerExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional details of a workload container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time stamp when this container was updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "OperationType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Re-Do Operation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the virtual machine represented by this Azure Workload Container"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,9 +59,11 @@
     "referenceName": "WorkloadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workload type for which registration was sent."
   }
  ],
  "discriminatedParentModelName": "ProtectionContainer",
- "discriminatedTypeValue": "SQLAGWorkLoadContainer"
+ "discriminatedTypeValue": "SQLAGWorkLoadContainer",
+ "typeHintIn": "ContainerType"
 }

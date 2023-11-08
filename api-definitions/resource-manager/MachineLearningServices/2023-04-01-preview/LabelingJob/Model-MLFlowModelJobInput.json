@@ -10,7 +10,8 @@
     "referenceName": "InputDeliveryMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input Asset Delivery Mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Input Asset URI."
   }
  ],
  "discriminatedParentModelName": "JobInput",
- "discriminatedTypeValue": "mlflow_model"
+ "discriminatedTypeValue": "mlflow_model",
+ "typeHintIn": "JobInputType"
 }

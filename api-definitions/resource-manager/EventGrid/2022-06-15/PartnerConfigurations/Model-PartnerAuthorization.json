@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of authorized partners."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time used to validate the authorization expiration time for each authorized partner. If DefaultMaximumExpirationTimeInDays is\r\nnot specified, the default is 7 days. Otherwise, allowed values are between 1 and 365 days."
   }
  ]
 }

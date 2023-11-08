@@ -1,0 +1,43 @@
+{
+ "name": "SubscriptionTerm",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endDate",
+   "name": "EndDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The date and time in UTC of when the billing term ends."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startDate",
+   "name": "StartDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The date and time in UTC of when the billing term starts."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "termUnit",
+   "name": "TermUnit",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The unit of the billing term."
+  }
+ ]
+}

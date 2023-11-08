@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target Event Hub connection string (it will not be included in any response)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target Event Hub Azure Resource ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target Event Hub SAS policy name."
   }
  ],
  "discriminatedParentModelName": "AutomationAction",
- "discriminatedTypeValue": "EventHub"
+ "discriminatedTypeValue": "EventHub",
+ "typeHintIn": "ActionType"
 }

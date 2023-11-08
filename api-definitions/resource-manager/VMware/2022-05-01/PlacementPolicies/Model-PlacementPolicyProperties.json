@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of the placement policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PlacementPolicyProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PlacementPolicyState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether the placement policy is enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -43,7 +46,9 @@
     "referenceName": "PlacementPolicyType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "placement policy type"
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

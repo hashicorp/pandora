@@ -10,7 +10,8 @@
     "referenceName": "AmlFilesystemContainerStorageInterface"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Container Storage Interface information for the AML file system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of Lustre running in the AML file system"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IPv4 address used by clients to mount the AML file system's Lustre Management Service (MGS)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recommended command to mount the AML file system"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Job Activity Id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the Backup Instance"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the Backup Instance"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "ARM ID of the DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Location of the DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "User Friendly Name of the DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data Source Set Name of the DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Total run time of the job. ISO 8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "EndTime of the job(in UTC)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A List, detailing the errors related to the job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +159,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -158,7 +171,8 @@
     "referenceName": "JobExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended Information about the job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +183,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicated that whether the job is adhoc(true) or scheduled(false)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +195,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "It indicates the type of Job i.e. Backup:full/log/diff ;Restore:ALR/OLR; Tiering:Backup/Archive ; Management:ConfigureProtection/UnConfigure"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +207,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "It indicates the type of Job i.e. Backup/Restore/Tiering/Management"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +219,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +231,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +243,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicated whether progress is enabled for the job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +255,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Url which contains job's progress"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +267,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Priority to be used for rehydration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +279,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "It indicates the sub type of operation i.e. in case of Restore it can be ALR/OLR"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -268,7 +291,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +303,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Resource Group Name of the Datasource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -290,7 +315,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "SubscriptionId corresponding to the DataSource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -302,7 +328,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "StartTime of the job(in UTC)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -313,7 +340,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Status of the job like InProgress/Success/Failed/Cancelled/SuccessWithWarning"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -324,7 +352,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Subscription Id of the corresponding backup vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -339,7 +368,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of supported actions"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -350,7 +380,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the vault"
   }
  ]
 }

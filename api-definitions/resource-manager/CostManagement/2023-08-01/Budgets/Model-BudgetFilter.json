@@ -15,7 +15,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The logical \"AND\" expression. Must have at least 2 items.\n\n Supported for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     "referenceName": "BudgetComparisonExpression"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has comparison expression for a dimension.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\nSupported dimension names for **CategoryType: ReservationUtilization** \n- ReservationId\n- ReservedResourceType"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": "BudgetComparisonExpression"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has comparison expression for a tag.\n\n Supported for CategoryType(s): Cost."
   }
  ]
 }

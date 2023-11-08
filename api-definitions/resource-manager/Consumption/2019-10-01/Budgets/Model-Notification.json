@@ -16,7 +16,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Email addresses to send the budget notification to when the threshold is exceeded. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +34,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Action groups to send the budget notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id. Only supported at Subscription or Resource Group scopes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contact roles to send the budget notification to when the threshold is exceeded."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The notification is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     "referenceName": "CultureCode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Language in which the recipient will receive the notification"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     "referenceName": "OperatorType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The comparison operator."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Threshold value associated with a notification. Notification is sent when the cost exceeded the threshold. It is always percent and has to be between 0 and 1000."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": "ThresholdType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of threshold"
   }
  ]
 }

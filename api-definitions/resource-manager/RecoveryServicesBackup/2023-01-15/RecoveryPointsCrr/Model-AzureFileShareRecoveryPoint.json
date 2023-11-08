@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contains Url to the snapshot of fileshare, if applicable"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RecoveryPointProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of Recovery Point"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contains recovery point size"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time at which this backup copy was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,9 +59,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the backup copy. Specifies whether it is a crash consistent backup or app consistent."
   }
  ],
  "discriminatedParentModelName": "RecoveryPoint",
- "discriminatedTypeValue": "AzureFileShareRecoveryPoint"
+ "discriminatedTypeValue": "AzureFileShareRecoveryPoint",
+ "typeHintIn": "ObjectType"
 }

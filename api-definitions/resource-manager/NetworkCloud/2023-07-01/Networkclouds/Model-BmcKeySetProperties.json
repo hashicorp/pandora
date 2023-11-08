@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The object ID of Azure Active Directory group that all users in the list must be in for access to be granted. Users that are not in the group will not have access."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BmcKeySetDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The more detailed status of the key set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The date and time after which the users in this key set will be removed from the baseboard management controllers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time this key set was validated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": "BmcKeySetPrivilegeLevel"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The access level allowed for the users in this key set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": "BmcKeySetProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the baseboard management controller key set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The unique list of permitted users."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status evaluation of each user."
   }
  ]
 }

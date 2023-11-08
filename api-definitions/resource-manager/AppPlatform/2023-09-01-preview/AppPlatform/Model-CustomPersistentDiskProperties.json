@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If set to true, it will create and mount a dedicated directory for every individual app instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "These are the mount options for a persistent disk."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The mount path of the persistent disk."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the persistent disk is a readOnly one."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -58,7 +62,9 @@
     "referenceName": "Type"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the underlying resource to mount as a persistent disk."
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

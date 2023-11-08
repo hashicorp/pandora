@@ -10,7 +10,8 @@
     "referenceName": "UpdateOperationStage"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current stage of the update operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "UpdateDownloadProgress"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The download progress."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Local share/remote container relative path to the error manifest file of the refresh."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If only subfolders need to be refreshed, then the subfolder path inside the share or container. (The path is empty if there are no subfolders.)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "UpdateInstallProgress"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The install progress."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "JobType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the entity that was refreshed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Total number of errors encountered during the refresh process."
   }
  ]
 }

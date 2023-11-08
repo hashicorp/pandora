@@ -10,7 +10,8 @@
     "referenceName": "SAPDatabaseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The database type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DiskConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the disk configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of database VMs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The subnet id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "VirtualMachineConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the virtual machine configuration."
   }
  ]
 }

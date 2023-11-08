@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the data should be kept in cache for fast queries in TimeSpan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the database is followed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "KeyVaultProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "KeyVault properties for the database encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioned state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the data should be kept before it stops being accessible to queries in TimeSpan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "DatabaseStatistics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The statistics of the database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "SuspensionDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The database suspension details. If the database is suspended, this object contains information related to the database's suspension state."
   }
  ]
 }

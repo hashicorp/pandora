@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the administrator to which the ssh public keys will be added into the authorized keys."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster availability zone containing this virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the bare metal machine the virtual machine has landed to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "VirtualMachineBootMethod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Selects the boot method for the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "NetworkAttachment"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The cloud service network that provides platform-level services for the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the cluster the virtual machine is created for."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of CPU cores in the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "VirtualMachineDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The more detailed status of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "VirtualMachineIsolateEmulatorThread"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field Deprecated, the value will be ignored if provided. The indicator of whether one of the specified CPU cores is isolated to run the emulator thread for this virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The memory size of the virtual machine in GB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of network attachments to the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Base64 encoded cloud-init network data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The scheduling hints for the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": "VirtualMachinePowerState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The power state of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "referenceName": "VirtualMachineProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of ssh public keys. Each key will be added to the virtual machine using the cloud-init ssh_authorized_keys mechanism for the adminUsername."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -209,7 +226,8 @@
     "referenceName": "StorageProfile"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The storage profile that specifies size and other parameters about the disks related to the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -220,7 +238,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Base64 encoded cloud-init user data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -231,7 +250,8 @@
     "referenceName": "VirtualMachineDeviceModelType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the device model to use."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -242,7 +262,8 @@
     "referenceName": "ImageRepositoryCredentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The credentials used to login to the image repository that has access to the specified image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -253,7 +274,8 @@
     "referenceName": "VirtualMachineVirtioInterfaceType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field Deprecated, use virtualizationModel instead. The type of the virtio interface."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -264,7 +286,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The virtual machine image that is currently provisioned to the OS disk, using the full url and tag notation used to pull the image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +302,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource IDs of volumes that are attached to the virtual machine."
   }
  ]
 }

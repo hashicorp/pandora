@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets a list of job properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the hybrid worker group that the scheduled job should run on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "RunbookAssociationProperty"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the runbook."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ScheduleAssociationProperty"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the schedule."
   }
  ]
 }

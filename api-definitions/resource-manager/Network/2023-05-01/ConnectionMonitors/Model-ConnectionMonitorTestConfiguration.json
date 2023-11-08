@@ -10,7 +10,8 @@
     "referenceName": "ConnectionMonitorHTTPConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The parameters used to perform test evaluation over HTTP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ConnectionMonitorIcmpConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The parameters used to perform test evaluation over ICMP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the connection monitor test configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PreferredIPVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The preferred IP version to use in test evaluation. The connection monitor may choose to use a different version depending on other parameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ConnectionMonitorTestConfigurationProtocol"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The protocol to use in test evaluation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ConnectionMonitorSuccessThreshold"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The threshold for declaring a test successful."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ConnectionMonitorTcpConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The parameters used to perform test evaluation over TCP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The frequency of test evaluation, in seconds."
   }
  ]
 }

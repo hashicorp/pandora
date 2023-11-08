@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean to determine if the vnet configuration needs to be overwritten."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the change data capture."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ChangeDataCaptureFolder"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The folder that this CDC is in. If not specified, CDC will appear at the root level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "MapperPolicy"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of sources connections that can be used as sources in the CDC."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the CDC as to if it is running or stopped."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of target connections that can be used as sources in the CDC."
   }
  ]
 }

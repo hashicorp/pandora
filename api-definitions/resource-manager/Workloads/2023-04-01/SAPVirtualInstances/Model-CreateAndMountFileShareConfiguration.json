@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of transport file share resource group. This should be pre created by the customer. The app rg is used in case of missing input."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of file share storage account name . A custom name is used in case of missing input."
   }
  ],
  "discriminatedParentModelName": "FileShareConfiguration",
- "discriminatedTypeValue": "CreateAndMount"
+ "discriminatedTypeValue": "CreateAndMount",
+ "typeHintIn": "ConfigurationType"
 }

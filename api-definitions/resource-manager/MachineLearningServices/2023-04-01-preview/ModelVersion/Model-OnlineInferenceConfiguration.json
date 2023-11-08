@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional configurations"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Entry script or command to invoke."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "Route"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The route to check the liveness of the inference server container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "Route"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The route to check the readiness of the inference server container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "Route"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port to send the scoring requests to, within the inference server container."
   }
  ]
 }

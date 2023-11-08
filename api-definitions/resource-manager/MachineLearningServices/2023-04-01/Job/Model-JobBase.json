@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource ID of the component resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource ID of the compute resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset description text."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the experiment the job belongs to. If not set, the job is placed in the \"Default\" experiment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "IdentityConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identity configuration. If set, this should be one of AmlToken, ManagedIdentity, UserIdentity or null.\r\nDefaults to AmlToken if null."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Is the asset archived?"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -87,7 +94,8 @@
     "referenceName": "JobType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset property dictionary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of JobEndpoints.\r\nFor local jobs, a job endpoint will have an endpoint value of FileStreamObject."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": "JobStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tag dictionary. Tags can be added, removed, and updated."
   }
- ]
+ ],
+ "typeHintIn": "JobType"
 }

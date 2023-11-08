@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Diagnostics messages. E.g. message indicating some partitions from the input have no data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ErrorError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error definition properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A SAS URL to download the sampled input data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp for the last event in the data. It is in DateTime format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "SampleInputResultStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the sample input request."
   }
  ]
 }

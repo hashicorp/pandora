@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The flag to indicate whether to allow public access when behind VNet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM id of the application insights associated with this workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of lean workspaces associated with Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of container registries used by Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM id of the container registry associated with this workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of this workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Url for the discovery service to identify regional endpoints for machine learning experimentation services"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A flag to determine if workspace has data isolation enabled. The flag can only be set at the creation phase, it can't be updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "EncryptionProperty"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption settings of Azure ML workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of existing workspaces used by Hub to perform convert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "FeatureStoreSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Settings for feature store type workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The friendly name for this workspace. This name in mutable"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The flag to signal HBI data in the workspace and reduce diagnostic data collected by the service"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id of Hub used for lean workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The compute name for image build"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM id of the key vault associated with this workspace. This cannot be changed once the workspace has been created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of key vaults used by Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": "ManagedNetworkSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI associated with this workspace that machine learning flow must point at to set up tracking."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     "referenceName": "NotebookResourceInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The notebook info of Azure ML workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +266,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user assigned identity resource id that represents the workspace identity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -261,7 +282,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of private endpoint connections in the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -272,7 +294,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Count of private connections in the workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -283,7 +306,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current deployment state of workspace resource. The provisioningState is to indicate states for resource provisioning."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -294,7 +318,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether requests from Public Network are allowed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -305,7 +330,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp when the soft deleted workspace is going to be purged"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -316,7 +342,8 @@
     "referenceName": "ServiceManagedResourcesSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The service managed resource settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -327,7 +354,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the managed resource group created by workspace RP in customer subscription if the workspace is CMK workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -342,7 +370,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of shared private link resources in this workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -353,7 +382,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention time in days after workspace get soft deleted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -364,7 +394,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp when the workspace was soft deleted"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -375,7 +406,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM id of the storage account associated with this workspace. This cannot be changed once the workspace has been created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -390,7 +422,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ": A list of storage accounts used by Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -401,7 +434,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the storage associated with the workspace has hierarchical namespace(HNS) enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -412,7 +446,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The auth mode used for accessing the system datastores of the workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -423,7 +458,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tenant id associated with this workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -434,7 +470,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enabling v1_legacy_mode may prevent you from using features provided by the v2 API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -445,7 +482,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The immutable id associated with this workspace."
   }
  ]
 }

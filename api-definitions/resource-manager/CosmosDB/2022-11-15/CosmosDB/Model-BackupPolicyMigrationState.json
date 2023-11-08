@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time at which the backup policy migration started (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": "BackupPolicyMigrationStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the status of migration between backup policy types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "BackupPolicyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the target backup policy type of the backup policy migration."
   }
  ]
 }

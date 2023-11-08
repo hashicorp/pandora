@@ -10,7 +10,8 @@
     "referenceName": "PrivateEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource of private endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PrivateLinkServiceConnectionState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A collection of information about the state of the connection between service consumer and provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning status of the private endpoint connection."
   }
  ]
 }

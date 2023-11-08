@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioner of the storage class"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Selected storage class name"
   }
  ],
  "discriminatedParentModelName": "ItemLevelRestoreCriteria",
- "discriminatedTypeValue": "KubernetesStorageClassRestoreCriteria"
+ "discriminatedTypeValue": "KubernetesStorageClassRestoreCriteria",
+ "typeHintIn": "ObjectType"
 }

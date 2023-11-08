@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The desired number of allocated SNAT ports per VM. Allowed values are in the range of 0 to 64000 (inclusive). The default value is 0 which results in Azure dynamically allocating ports."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BackendPoolType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the managed inbound Load Balancer BackendPool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The effective outbound IP resources of the cluster load balancer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable multiple standard load balancers per AKS cluster or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 30 minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ManagedClusterLoadBalancerProfileManagedOutboundIPs"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired managed outbound IPs for the cluster load balancer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired outbound IP Prefix resources for the cluster load balancer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPs"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired outbound IP resources for the cluster load balancer."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ActiveActive flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AdminState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configures this gateway to accept traffic from remote Virtual WAN networks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "VirtualNetworkGatewayAutoScaleConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Autoscale configuration for virutal network gateway"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "BgpSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual network gateway's BGP speaker settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "AddressSpace"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "disableIPSecReplayProtection flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether BGP is enabled for this virtual network gateway or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "EnableBgpRouteTranslationForNat flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether dns forwarding is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether private IP needs to be enabled on this gateway for connections or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": "VirtualNetworkGatewayType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of this virtual network gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP configurations for virtual network gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IP address allocated by the gateway to which dns requests can be sent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -194,7 +210,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "NatRules for virtual network gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -216,7 +234,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource GUID property of the virtual network gateway resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +246,8 @@
     "referenceName": "VirtualNetworkGatewaySku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -238,7 +258,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -253,7 +274,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -264,7 +286,8 @@
     "referenceName": "VpnClientConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -275,7 +298,8 @@
     "referenceName": "VpnGatewayGeneration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -286,7 +310,8 @@
     "referenceName": "VpnType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of this virtual network gateway."
   }
  ]
 }

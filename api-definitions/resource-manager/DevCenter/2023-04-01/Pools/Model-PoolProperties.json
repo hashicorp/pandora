@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of a Dev Box definition in parent Project of this Pool"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "HealthStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Overall health status of the Pool. Indicates whether or not the Pool is available to create Dev Boxes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details on the Pool health status to help diagnose issues. This is only populated when the pool status indicates the pool is in a non-healthy state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "LicenseType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the license type indicating the caller has already acquired licenses for the Dev Boxes that will be created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "LocalAdminStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicates whether owners of Dev Boxes in this pool are added as local administrators on the Dev Box."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of a Network Connection in parent Project of this Pool"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "StopOnDisconnectConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Stop on disconnect configuration settings for Dev Boxes created in this pool."
   }
  ]
 }

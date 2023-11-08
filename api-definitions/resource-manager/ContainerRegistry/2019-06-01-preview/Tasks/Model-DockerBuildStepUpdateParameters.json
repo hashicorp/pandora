@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of override arguments to be used when executing this build step."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Docker file path relative to the source context."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified image names including the repository and tag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value of this property indicates whether the image built should be pushed to the registry or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value of this property indicates whether the image cache is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,9 +78,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the target build stage for the docker build."
   }
  ],
  "discriminatedParentModelName": "TaskStepUpdateParameters",
- "discriminatedTypeValue": "Docker"
+ "discriminatedTypeValue": "Docker",
+ "typeHintIn": "Type"
 }

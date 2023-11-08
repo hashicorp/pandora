@@ -10,7 +10,8 @@
     "referenceName": "Rectangle"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An optional rectangular window used to crop the overlay image or video."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The opacity of the overlay. This is a value in the range [0 - 1.0]. Default is 1.0 which mean the overlay is opaque."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "Rectangle"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The location in the input video where the overlay is applied."
   }
  ],
  "discriminatedParentModelName": "Overlay",
- "discriminatedTypeValue": "#Microsoft.Media.VideoOverlay"
+ "discriminatedTypeValue": "#Microsoft.Media.VideoOverlay",
+ "typeHintIn": "OdataType"
 }

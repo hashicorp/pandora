@@ -10,7 +10,8 @@
     "referenceName": "ServerAdministrators"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A collection of AS server administrators"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SAS container URI to the backup container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "GatewayDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The gateway details configured for the AS server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IPv4FirewallSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The firewall settings for the AS server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ManagedMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed mode of the server (0 = not managed, 1 = managed)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current deployment state of Analysis Services resource. The provisioningState is to indicate states for resource provisioning."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ConnectionMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "How the read-write server's participation in the query pool is controlled.\u003cbr/\u003eIt can have the following values: \u003cul\u003e\u003cli\u003ereadOnly - indicates that the read-write server is intended not to participate in query operations\u003c/li\u003e\u003cli\u003eall - indicates that the read-write server can participate in query operations\u003c/li\u003e\u003c/ul\u003eSpecifying readOnly when capacity is 1 results in error."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The full name of the Analysis Services resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "ServerMonitorMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The server monitor mode for AS server"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "ResourceSku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SKU of the Analysis Services resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "State"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of Analysis Services resource. The state is to indicate more states outside of resource provisioning."
   }
  ]
 }

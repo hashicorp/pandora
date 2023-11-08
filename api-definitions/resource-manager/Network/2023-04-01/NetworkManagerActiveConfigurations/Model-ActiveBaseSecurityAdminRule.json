@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deployment time string."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of the security admin configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource ID."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -44,7 +47,8 @@
     "referenceName": "EffectiveAdminRuleKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Whether the rule is custom or default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deployment region."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Groups for rule collection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of the rule collection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,9 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Effective configuration groups."
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

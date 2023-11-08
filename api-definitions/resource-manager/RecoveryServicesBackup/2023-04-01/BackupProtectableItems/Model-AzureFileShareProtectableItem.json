@@ -10,7 +10,8 @@
     "referenceName": "AzureFileShareType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "File Share type XSync or XSMB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Full Fabric ID of container to which this protectable item belongs. For example, ARM ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of container to which this protectable item belongs."
   }
  ],
  "discriminatedParentModelName": "WorkloadProtectableItem",
- "discriminatedTypeValue": "AzureFileShare"
+ "discriminatedTypeValue": "AzureFileShare",
+ "typeHintIn": "ProtectableItemType"
 }

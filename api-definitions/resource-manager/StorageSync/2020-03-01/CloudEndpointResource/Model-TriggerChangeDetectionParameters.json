@@ -10,7 +10,8 @@
     "referenceName": "ChangeDetectionMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Change Detection Mode. Applies to a directory specified in directoryPath parameter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Relative path to a directory Azure File share for which change detection is to be performed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of relative paths on the Azure File share to be included in the change detection. Can be files and directories."
   }
  ]
 }

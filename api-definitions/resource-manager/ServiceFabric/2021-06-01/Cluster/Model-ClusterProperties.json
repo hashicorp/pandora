@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of add-on features to enable in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ApplicationTypeVersionsCleanupPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy used to clean up unused versions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Service Fabric runtime versions available for this cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "AzureActiveDirectory"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The AAD authentication settings of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "CertificateDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The certificate to use for securing the cluster. The certificate provided will be used for node to node security within the cluster, SSL certificate for cluster management endpoint and default admin client."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "ServerCertificateCommonNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of client certificates referenced by common name that are allowed to manage the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of client certificates referenced by thumbprint that are allowed to manage the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Resource Provider endpoint. A system service in the cluster connects to this  endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A service generated unique identifier for the cluster resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +158,8 @@
     "referenceName": "ClusterState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -158,7 +170,8 @@
     "referenceName": "DiagnosticsStorageAccountConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account information for storing Service Fabric diagnostic logs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +182,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the event store service is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -184,7 +198,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of custom fabric settings to configure the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +210,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if infrastructure service manager is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -206,7 +222,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The http management endpoint of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -221,7 +238,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of node types in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -236,7 +254,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates a list of notification channels for cluster events."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -247,7 +266,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the cluster resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -258,7 +278,8 @@
     "referenceName": "ReliabilityLevel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -269,7 +290,8 @@
     "referenceName": "CertificateDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The server certificate used by reverse proxy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -280,7 +302,8 @@
     "referenceName": "ServerCertificateCommonNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -291,7 +314,8 @@
     "referenceName": "SfZonalUpgradeMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -302,7 +326,8 @@
     "referenceName": "ClusterUpgradePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy to use when upgrading the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -313,7 +338,8 @@
     "referenceName": "UpgradeMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -325,7 +351,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the end date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -337,7 +364,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the start date and time to pause automatic runtime version upgrades on the cluster for an specific period of time on the cluster (UTC)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -348,7 +376,8 @@
     "referenceName": "ClusterUpgradeCadence"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -359,7 +388,8 @@
     "referenceName": "VMSSZonalUpgradeMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -370,7 +400,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The VM image VMSS has been configured with. Generic names such as Windows or Linux can be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -381,7 +412,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Boolean to pause automatic runtime version upgrades to the cluster."
   }
  ]
 }

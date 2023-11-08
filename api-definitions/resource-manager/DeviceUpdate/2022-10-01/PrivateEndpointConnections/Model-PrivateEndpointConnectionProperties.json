@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of group IDs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "PrivateEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource of private end point."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "PrivateLinkServiceConnectionState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A collection of information about the state of the connection between service consumer and provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "PrivateEndpointConnectionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the private endpoint connection resource."
   }
  ]
 }

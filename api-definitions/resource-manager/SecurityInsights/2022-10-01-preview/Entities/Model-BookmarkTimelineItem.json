@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The bookmark azure resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "UserInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The bookmark display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The bookmark end time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The bookmark event time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of labels relevant to this bookmark"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -82,7 +88,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The notes of the bookmark"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,9 +101,11 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The bookmark start time."
   }
  ],
  "discriminatedParentModelName": "EntityTimelineItem",
- "discriminatedTypeValue": "Bookmark"
+ "discriminatedTypeValue": "Bookmark",
+ "typeHintIn": "Kind"
 }

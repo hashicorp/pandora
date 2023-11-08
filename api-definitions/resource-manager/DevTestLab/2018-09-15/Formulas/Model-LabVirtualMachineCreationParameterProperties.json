@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether another user can take ownership of the virtual machine"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The artifacts to be installed on the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "BulkCreationParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of virtual machine instances to create."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The custom image identifier of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "New or existing data disks to attach to the virtual machine after creation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the virtual machine is to be created without a public IP address."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the environment that contains this virtual machine, if any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The expiration date for VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "referenceName": "GalleryImageReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Microsoft Azure Marketplace image reference of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether this virtual machine uses an SSH key for authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -141,7 +152,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lab subnet name of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -152,7 +164,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lab virtual network identifier of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +176,8 @@
     "referenceName": "NetworkInterfaceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network interface properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -174,7 +188,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The notes of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -185,7 +200,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object identifier of the owner of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +212,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user principal name of the virtual machine owner."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +224,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The password of the virtual machine administrator."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +236,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the plan associated with the virtual machine image"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -233,7 +252,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Machine schedules to be created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -244,7 +264,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -255,7 +276,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SSH key of the virtual machine administrator."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -266,7 +288,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage type to use for virtual machine (i.e. Standard, Premium)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -277,7 +300,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user name of the virtual machine."
   }
  ]
 }

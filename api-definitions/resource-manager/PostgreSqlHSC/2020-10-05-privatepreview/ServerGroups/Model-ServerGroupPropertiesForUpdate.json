@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The password of the administrator login."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Availability Zone information of the server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The backup retention days for server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "CitusVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Citus version of server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If shards on coordinator is enabled or not for the server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "MaintenanceWindow"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maintenance window of a server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "PostgreSQLVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PostgreSQL version of server group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of server role groups."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -104,7 +112,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standby Availability Zone information of the server group."
   }
  ]
 }

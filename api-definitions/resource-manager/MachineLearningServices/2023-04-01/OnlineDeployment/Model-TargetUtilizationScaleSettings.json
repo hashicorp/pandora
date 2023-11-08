@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum number of instances that the deployment can scale to. The quota will be reserved for max_instances."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The minimum number of instances to always be present."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The polling interval in ISO 8691 format. Only supports duration with precision as low as Seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target CPU usage for the autoscaler."
   }
  ],
  "discriminatedParentModelName": "OnlineScaleSettings",
- "discriminatedTypeValue": "TargetUtilization"
+ "discriminatedTypeValue": "TargetUtilization",
+ "typeHintIn": "ScaleType"
 }

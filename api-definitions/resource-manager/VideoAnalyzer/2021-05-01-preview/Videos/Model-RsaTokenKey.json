@@ -10,7 +10,8 @@
     "referenceName": "AccessPolicyRsaAlgo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "RSA algorithm to be used: RS256, RS384 or RS512."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "RSA public key exponent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "RSA public key modulus."
   }
  ],
  "discriminatedParentModelName": "TokenKey",
- "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.RsaTokenKey"
+ "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.RsaTokenKey",
+ "typeHintIn": "Type"
 }

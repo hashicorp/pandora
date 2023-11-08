@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RestoreTargetInfoBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the restore target information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SourceDataStoreType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the type of the source data store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified Azure Resource Manager ID of the datasource which is being recovered."
   }
- ]
+ ],
+ "typeHintIn": "ObjectType"
 }

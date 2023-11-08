@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of default security rules of the network security group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of effective security rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "NetworkInterfaceAssociation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network interface and it's custom security rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "SubnetAssociation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subnet and it's custom security rules."
   }
  ]
 }

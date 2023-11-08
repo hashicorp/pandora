@@ -10,7 +10,8 @@
     "referenceName": "TIDataConnectorDataTypes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The available data types for the connector."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tenant id to connect to, and get the data from."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lookback period for the feed to be imported."
   }
  ]
 }

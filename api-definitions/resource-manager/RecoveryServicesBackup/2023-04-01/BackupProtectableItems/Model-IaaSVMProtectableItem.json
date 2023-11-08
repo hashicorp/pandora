@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource group name of Recovery Services Vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified ARM ID of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the container represents a Classic or an Azure Resource Manager VM."
   }
  ],
  "discriminatedParentModelName": "WorkloadProtectableItem",
- "discriminatedTypeValue": "IaaSVMProtectableItem"
+ "discriminatedTypeValue": "IaaSVMProtectableItem",
+ "typeHintIn": "ProtectableItemType"
 }

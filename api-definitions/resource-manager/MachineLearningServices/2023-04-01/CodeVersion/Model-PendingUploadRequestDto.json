@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If PendingUploadId = null then random guid will be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PendingUploadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TemporaryBlobReference is the only supported type"
   }
  ]
 }

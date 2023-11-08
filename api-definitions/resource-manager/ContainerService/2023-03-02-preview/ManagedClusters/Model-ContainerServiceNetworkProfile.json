@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An IP address assigned to the Kubernetes DNS service. It must be within the Kubernetes service address range specified in serviceCidr."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A CIDR notation IP range assigned to the Docker bridge network. It must not overlap with any Subnet IP ranges or the Kubernetes service address range."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP families are used to determine single-stack or dual-stack clusters. For single-stack, the expected value is IPv4. For dual-stack, the expected values are IPv4 and IPv6."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ContainerServiceNetworkProfileKubeProxyConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Holds configuration customizations for kube-proxy. Any values not defined will use the kube-proxy defaulting behavior. See https://v\u003cversion\u003e.docs.kubernetes.io/docs/reference/command-line-tools-reference/kube-proxy/ where \u003cversion\u003e is represented by a \u003cmajor version\u003e-\u003cminor version\u003e string. Kubernetes version 1.23 would be '1-23'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ManagedClusterLoadBalancerProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Profile of the cluster load balancer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "LoadBalancerSku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default is 'standard'. See [Azure Load Balancer SKUs](https://docs.microsoft.com/azure/load-balancer/skus) for more information about the differences between load balancer SKUs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ManagedClusterNATGatewayProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Profile of the cluster NAT gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "NetworkDataplane"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network dataplane used in the Kubernetes cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "NetworkMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This cannot be specified if networkPlugin is anything other than 'azure'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "NetworkPlugin"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network plugin used for building the Kubernetes network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "NetworkPluginMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network plugin mode used for building the Kubernetes network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "NetworkPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network policy used for building the Kubernetes network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": "OutboundType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This can only be set at cluster creation time and cannot be changed later. For more information see [egress outbound type](https://docs.microsoft.com/azure/aks/egress-outboundtype)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A CIDR notation IP range from which to assign pod IPs when kubenet is used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A CIDR notation IP range from which to assign service cluster IPs. It must not overlap with any Subnet IP ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "One IPv4 CIDR is expected for single-stack networking. Two CIDRs, one for each IP family (IPv4/IPv6), is expected for dual-stack networking. They must not overlap with any Subnet IP ranges."
   }
  ]
 }

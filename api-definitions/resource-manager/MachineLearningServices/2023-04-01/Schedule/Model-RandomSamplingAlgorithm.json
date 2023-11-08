@@ -10,7 +10,8 @@
     "referenceName": "RandomSamplingAlgorithmRule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The specific type of random algorithm"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An optional integer to use as the seed for random number generation"
   }
  ],
  "discriminatedParentModelName": "SamplingAlgorithm",
- "discriminatedTypeValue": "Random"
+ "discriminatedTypeValue": "Random",
+ "typeHintIn": "SamplingAlgorithmType"
 }

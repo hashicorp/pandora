@@ -10,7 +10,8 @@
     "referenceName": "DestinationMetaData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "destination meta data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The destination resource ID. This can be copied from the Properties entry of the destination resource in Azure."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Type"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the destination resource"
   }
  ]
 }

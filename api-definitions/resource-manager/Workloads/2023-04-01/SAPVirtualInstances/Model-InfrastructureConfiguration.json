@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The application resource group where SAP system resources will be deployed."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "SAPDeploymentType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   }
- ]
+ ],
+ "typeHintIn": "DeploymentType"
 }

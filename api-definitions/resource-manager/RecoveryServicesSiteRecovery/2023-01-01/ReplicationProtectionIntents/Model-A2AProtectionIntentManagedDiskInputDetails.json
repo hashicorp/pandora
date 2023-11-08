@@ -10,7 +10,8 @@
     "referenceName": "DiskEncryptionInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery disk encryption information (for one / single pass flows)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The disk Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "StorageAccountCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary staging storage account input."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery disk encryption set Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replica disk type. Its an optional value and will be same as source disk type if not user provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "RecoveryResourceGroupCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery resource group input."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target disk type after failover. Its an optional value and will be same as source disk type if not user provided."
   }
  ]
 }

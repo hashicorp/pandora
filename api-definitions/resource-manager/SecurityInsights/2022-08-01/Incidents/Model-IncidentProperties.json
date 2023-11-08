@@ -10,7 +10,8 @@
     "referenceName": "IncidentAdditionalData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional data on the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "IncidentClassification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason the incident was closed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the reason the incident was closed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IncidentClassificationReason"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The classification reason the incident was closed with"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the incident was created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time of the first activity in the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A sequential number"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deep-link url to the incident in Azure portal"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -115,7 +124,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of labels relevant to this incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +137,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time of the last activity in the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time the incident was updated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": "IncidentOwnerInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of resource ids of Analytic rules related to the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": "IncidentSeverity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": "IncidentStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The status of the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The title of the incident"
   }
  ]
 }

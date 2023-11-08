@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workspace creation date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is a read-only property. Represents the ID associated with the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "WorkspaceFeatures"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workspace features."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether customer managed storage is mandatory for query management."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workspace modification date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of linked private link scope resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "WorkspaceEntityStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "PublicNetworkAccessType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network access type for accessing Log Analytics ingestion."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "PublicNetworkAccessType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network access type for accessing Log Analytics query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The workspace data retention in days. Allowed values are per pricing plan. See pricing tiers documentation for details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "WorkspaceSku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SKU of the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "WorkspaceCapping"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The daily volume cap for ingestion."
   }
  ]
 }

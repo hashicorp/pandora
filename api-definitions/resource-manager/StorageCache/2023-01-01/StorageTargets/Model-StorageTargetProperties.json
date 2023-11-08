@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The percentage of cache space allocated for this storage target"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BlobNfsTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties when targetType is blobNfs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ClfsTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties when targetType is clfs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Cache namespace junctions to target for namespace associations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "Nfs3Target"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties when targetType is nfs3."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ProvisioningStateType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "OperationalStateType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage target operational state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "StorageTargetType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the Storage Target."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "UnknownTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties when targetType is unknown."
   }
  ]
 }

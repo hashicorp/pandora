@@ -10,7 +10,8 @@
     "referenceName": "AssignmentType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Assignment type of the role assignment schedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of the condition. Currently accepted value is '2.0'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DateTime when role assignment schedule was created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "End DateTime when role assignment schedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": "ExpandedProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional properties of principal, scope and role definition"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of roleEligibilitySchedule used to activated this roleAssignmentSchedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": "MemberType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Membership type of the role assignment schedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The principal ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": "PrincipalType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The principal type of the assigned principal ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of roleAssignmentScheduleRequest used to create this roleAssignmentSchedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role definition ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role assignment schedule scope."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -156,7 +169,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start DateTime when role assignment schedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -167,7 +181,8 @@
     "referenceName": "Status"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the role assignment schedule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DateTime when role assignment schedule was modified"
   }
  ]
 }

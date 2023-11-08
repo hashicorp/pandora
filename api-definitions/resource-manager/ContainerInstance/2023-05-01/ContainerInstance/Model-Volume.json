@@ -10,7 +10,8 @@
     "referenceName": "AzureFileVolume"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure File volume."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The empty directory volume."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "GitRepoVolume"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The git repo volume."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the volume."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The secret volume."
   }
  ]
 }

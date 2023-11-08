@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of compute policies associated with this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of Data Lake Store accounts associated with this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The default Data Lake Store account associated with this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "FirewallAllowAzureIPsState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of firewall rules associated with this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     "referenceName": "FirewallState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the IP address firewall for this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum supported degree of parallelism for this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum supported degree of parallelism per job for this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum supported jobs running under the account at the same time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The minimum supported priority per job for this account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "TierType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The commitment tier for the next month."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of days that job metadata is retained."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -158,7 +170,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of Azure Blob Storage accounts associated with this account."
   }
  ]
 }

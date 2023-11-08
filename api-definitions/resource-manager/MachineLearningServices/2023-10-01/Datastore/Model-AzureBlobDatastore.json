@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account container name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure cloud endpoint for the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protocol used to communicate with the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Resource Group name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ServiceDataAccessAuthIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates which identity to use to authenticate service data access to customer's storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,9 +82,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Subscription Id"
   }
  ],
  "discriminatedParentModelName": "Datastore",
- "discriminatedTypeValue": "AzureBlob"
+ "discriminatedTypeValue": "AzureBlob",
+ "typeHintIn": "DatastoreType"
 }

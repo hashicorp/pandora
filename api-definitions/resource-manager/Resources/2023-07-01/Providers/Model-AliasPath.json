@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The API versions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "AliasPathMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The metadata of the alias path. If missing, fall back to the default metadata of the alias."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path of an alias."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "AliasPattern"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The pattern for an alias path."
   }
  ]
 }

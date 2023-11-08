@@ -10,7 +10,8 @@
     "referenceName": "BackupParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DataStoreInfoBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "TriggerContext"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "BasePolicyRule",
- "discriminatedTypeValue": "AzureBackupRule"
+ "discriminatedTypeValue": "AzureBackupRule",
+ "typeHintIn": "ObjectType"
 }

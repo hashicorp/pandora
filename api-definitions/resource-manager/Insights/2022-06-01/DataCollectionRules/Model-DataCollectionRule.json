@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the data collection endpoint that this rule can be used with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The specification of data flows."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "DataSourcesSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The specification of data sources. \r\nThis property is optional and can be omitted if the rule is meant to be used via direct calls to the provisioned endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the data collection rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "DestinationsSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The specification of destinations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The immutable ID of this data collection rule. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "Metadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata about the resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "KnownDataCollectionRuleProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Declaration of custom streams used in this rule."
   }
  ]
 }

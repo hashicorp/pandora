@@ -10,7 +10,8 @@
     "referenceName": "AzNsActionGroup"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure action group reference."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AlertSeverity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Severity of the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "time (in minutes) for which Alerts should be throttled or suppressed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "TriggerCondition"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The trigger condition that results in the alert rule being."
   }
  ],
  "discriminatedParentModelName": "Action",
- "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction"
+ "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.AlertingAction",
+ "typeHintIn": "OdataType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure resource id. Indicates if this resource is managed by another Azure resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Azure resource ids that manage this resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "DiskPoolUpdateProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Properties for Disk Pool update request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "Sku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Determines the SKU of the Disk Pool"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource tags."
   }
  ]
 }

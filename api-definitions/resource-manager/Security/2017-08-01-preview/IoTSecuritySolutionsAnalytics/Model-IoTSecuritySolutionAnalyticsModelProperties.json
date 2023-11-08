@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of devices metrics by the aggregated date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "IoTSeverityMetrics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Security Analytics of a security solution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "IoTSecurityDeviceAlertsList"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of most prevalent 3 alerts."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "IoTSecurityDeviceRecommendationsList"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of most prevalent 3 recommendations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "IoTSecurityAlertedDevicesList"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of top 3 devices with the most attacked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "number of unhealthy devices"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID of a Azure Machine Learning workspace to link with Databricks workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the Private Subnet within the Virtual Network"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of a Public Subnet within the Virtual Network"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID of a Virtual Network where this Databricks Cluster should be created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "WorkspaceCustomBooleanParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Should the Public IP be Disabled?"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "WorkspaceEncryptionParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contains the encryption details for Customer-Managed Key (CMK) enabled workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the outbound Load Balancer Backend Pool for Secure Cluster Connectivity (No Public IP)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource URI of Outbound Load balancer for Secure Cluster Connectivity (No Public IP) workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the NAT gateway for Secure Cluster Connectivity (No Public IP) workspace subnets."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "WorkspaceCustomBooleanParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Prepare the workspace for encryption. Enables the Managed Identity for managed storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Public IP for No Public IP workspace with managed vNet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "WorkspaceCustomBooleanParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean indicating whether or not the DBFS root file system will be enabled with secondary layer of encryption with platform managed keys for data at rest."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "WorkspaceCustomObjectParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tags applied to resources under Managed resource group. These can be updated by updating tags at workspace level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default DBFS storage account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account SKU name, ex: Standard_GRS, Standard_LRS. Refer https://aka.ms/storageskus for valid inputs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": "WorkspaceCustomStringParameter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Address prefix for Managed virtual network. Default value for this input is 10.139."
   }
  ]
 }

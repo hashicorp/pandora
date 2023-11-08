@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Acs mgmt host name to connect to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "ACS namespace name - tenant for our service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Global ACS namespace RP realm."
   }
  ],
  "discriminatedParentModelName": "ResourceCertificateDetails",
- "discriminatedTypeValue": "AccessControlService"
+ "discriminatedTypeValue": "AccessControlService",
+ "typeHintIn": "AuthType"
 }

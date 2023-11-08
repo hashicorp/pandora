@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The action that was taken as a response to the alert (Active, Blocked etc.)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of the alert type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the alert type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure resource ID of the associated resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether this alert can be investigated with Azure Security Center"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The entity that the incident happened on"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "reasons the alert got the confidenceScore value"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "level of confidence we have on the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Alerts with the same CorrelationKey will be grouped together in Ibiza."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the incident and what it means"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the incident was detected by the vendor"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "objects that are related to this alerts"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +175,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Instance ID of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +187,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether this alert is for incident type or not (otherwise - single alert)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -184,7 +199,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recommended steps to reradiate the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +211,8 @@
     "referenceName": "ReportedSeverity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Estimated severity of this alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +224,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the incident was reported to Microsoft.Security in UTC"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +236,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the alert (Active, Dismissed etc.)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +248,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure subscription ID of the resource that had the security alert or the subscription ID of the workspace that this resource reports to"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +260,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the alerted resource (Azure, Non-Azure)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the vendor that discovered the incident"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -262,7 +284,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure resource ID of the workspace that the alert was reported to."
   }
  ]
 }

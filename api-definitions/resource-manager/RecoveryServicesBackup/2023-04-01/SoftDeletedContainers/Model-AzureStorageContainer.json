@@ -10,7 +10,8 @@
     "referenceName": "AcquireStorageAccountLock"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether storage account lock is to be acquired for this container or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of items backed up in this container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource group name of Recovery Services Vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified ARM url."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account version."
   }
  ],
  "discriminatedParentModelName": "ProtectionContainer",
- "discriminatedTypeValue": "StorageContainer"
+ "discriminatedTypeValue": "StorageContainer",
+ "typeHintIn": "ContainerType"
 }

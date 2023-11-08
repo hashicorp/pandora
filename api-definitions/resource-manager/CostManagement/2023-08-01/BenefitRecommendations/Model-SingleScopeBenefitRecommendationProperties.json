@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource group that this single scope recommendation is for. Applicable only if recommendation is for 'Single' scope and 'ResourceGroup' request scope."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription ID that this single scope recommendation is for. Applicable only if recommendation is for 'Single' scope."
   }
  ],
  "discriminatedParentModelName": "BenefitRecommendationProperties",
- "discriminatedTypeValue": "Single"
+ "discriminatedTypeValue": "Single",
+ "typeHintIn": "Scope"
 }

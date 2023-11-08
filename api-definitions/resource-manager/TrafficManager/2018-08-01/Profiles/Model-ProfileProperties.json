@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of allowed endpoint record types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "DnsConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The DNS settings of the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of endpoints in the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of endpoints to be returned for MultiValue routing type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "MonitorConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint monitoring settings of the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "ProfileStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "TrafficRoutingMethod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The traffic routing method of the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "TrafficViewEnrollmentStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether Traffic View is 'Enabled' or 'Disabled' for the Traffic Manager profile. Null, indicates 'Disabled'. Enabling this feature will increase the cost of the Traffic Manage profile."
   }
  ]
 }

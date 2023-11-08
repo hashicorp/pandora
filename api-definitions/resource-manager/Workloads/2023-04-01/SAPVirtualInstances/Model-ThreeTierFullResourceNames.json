@@ -10,7 +10,8 @@
     "referenceName": "ApplicationServerFullResourceNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CentralServerFullResourceNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DatabaseServerFullResourceNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "SharedStorageResourceNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "ThreeTierCustomResourceNames",
- "discriminatedTypeValue": "FullResourceName"
+ "discriminatedTypeValue": "FullResourceName",
+ "typeHintIn": "NamingPatternType"
 }

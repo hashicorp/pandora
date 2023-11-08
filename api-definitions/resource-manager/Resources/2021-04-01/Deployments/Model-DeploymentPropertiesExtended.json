@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The correlation ID of the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DebugSetting"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The debug setting of the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of deployment dependencies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration of the template deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ErrorResponse"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "DeploymentMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deployment mode. Possible values are Incremental and Complete."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "OnErrorDeploymentExtended"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deployment on error behavior."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of provisioned resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key/value pairs that represent deployment output."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deployment parameters. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": "ParametersLink"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI referencing the parameters. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of resource providers needed for the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Denotes the state of provisioning."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The hash produced for the template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": "TemplateLink"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI referencing the template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +203,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp of the template deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -203,7 +219,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of validated resources."
   }
  ]
 }

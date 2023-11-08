@@ -10,7 +10,8 @@
     "referenceName": "ExtendedLocation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended location of the VM recovery point,\r\nshould be null if VM is in public cloud"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Is the session to recover items from this backup copy still active."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether VM is with Managed Disks"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This flag denotes if any of the disks in the VM are using Private access network setting"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies whether the VM was encrypted when the backup copy is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "KeyAndSecretDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Required details for recovering an encrypted VM. Applicable only when IsSourceVMEncrypted is true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Original Storage Account Option"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "OS type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information associated with this backup copy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "RecoveryPointDiskConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disk configuration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Eligibility of RP to be moved to another tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "RecoveryPointProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of Recovery Point"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recovery point tier information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +175,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time at which this backup copy was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +187,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the backup copy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -184,7 +199,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Security Type of the Disk"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +211,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage type of the VM whose backup copy is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -206,7 +223,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Machine Size"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -217,9 +235,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the zone of the VM at the time of backup. Applicable only for zone-pinned Vms"
   }
  ],
  "discriminatedParentModelName": "RecoveryPoint",
- "discriminatedTypeValue": "IaasVMRecoveryPoint"
+ "discriminatedTypeValue": "IaasVMRecoveryPoint",
+ "typeHintIn": "ObjectType"
 }

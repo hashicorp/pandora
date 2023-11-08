@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The password of the administrator login (required for server creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "availability Zone information of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "Backup"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup related properties of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "CreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mode to create a new MySQL server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "DataEncryption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Data Encryption for CMK."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "HighAvailability"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "High availability related properties of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "MaintenanceWindow"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maintenance window of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "Network"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network related properties of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum number of replicas that a primary server can have."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "ReplicationRole"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replication role."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Restore point creation time (ISO8601 format), specifying the time to restore from."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source MySQL server id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": "ServerState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "referenceName": "Storage"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage related properties of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +203,8 @@
     "referenceName": "ServerVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server version."
   }
  ]
 }

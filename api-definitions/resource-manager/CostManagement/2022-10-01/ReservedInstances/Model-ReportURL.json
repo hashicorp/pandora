@@ -10,7 +10,8 @@
     "referenceName": "ReservationReportSchema"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CSV file from the reportUrl blob link consists of reservation usage data with the following schema at daily granularity"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which report URL becomes invalid."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sweep Job max concurrent trials."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sweep Job max total trials."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sweep Job Trial timeout value."
   }
  ],
  "discriminatedParentModelName": "JobLimits",
- "discriminatedTypeValue": "Sweep"
+ "discriminatedTypeValue": "Sweep",
+ "typeHintIn": "JobLimitsType"
 }

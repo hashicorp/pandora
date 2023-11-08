@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Egress nat IP to use"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "EgressNat"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Enable egress NAT, enabled by default"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "NetworkType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "vnet or vwan, cannot be updated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of IPs associated with the Firewall"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "VnetConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Vnet configurations"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "VwanConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Vwan configurations"
   }
  ]
 }

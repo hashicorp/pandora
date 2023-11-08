@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reference to the component asset used to preprocess the data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The time offset between the end of the data window and the monitor's current run time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The size of the rolling data window."
   }
  ],
  "discriminatedParentModelName": "MonitoringInputDataBase",
- "discriminatedTypeValue": "Rolling"
+ "discriminatedTypeValue": "Rolling",
+ "typeHintIn": "InputDataType"
 }

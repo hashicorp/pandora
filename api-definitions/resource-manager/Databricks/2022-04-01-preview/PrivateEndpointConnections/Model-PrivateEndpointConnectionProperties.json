@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GroupIds from the private link service resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "PrivateEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private endpoint"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "PrivateLinkServiceConnectionState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Private endpoint connection state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "PrivateEndpointConnectionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the private endpoint connection."
   }
  ]
 }

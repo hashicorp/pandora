@@ -10,7 +10,8 @@
     "referenceName": "DatastoreCredentials"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Account credentials."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "DatastoreType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Storage type backing the datastore."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset description text."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Readonly property to indicate if datastore is the workspace default datastore"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset property dictionary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tag dictionary. Tags can be added, removed, and updated."
   }
- ]
+ ],
+ "typeHintIn": "DatastoreType"
 }

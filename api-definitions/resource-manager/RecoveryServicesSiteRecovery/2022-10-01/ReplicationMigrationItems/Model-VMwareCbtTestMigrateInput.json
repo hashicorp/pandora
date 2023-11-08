@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The test network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The recovery point Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,9 +38,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of NIC details."
   }
  ],
  "discriminatedParentModelName": "TestMigrateProviderSpecificInput",
- "discriminatedTypeValue": "VMwareCbt"
+ "discriminatedTypeValue": "VMwareCbt",
+ "typeHintIn": "InstanceType"
 }

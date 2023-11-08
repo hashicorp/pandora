@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The group ids"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "PrivateEndpointResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PE network resource that is linked to this PE connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "RegistryPrivateLinkServiceConnectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The connection state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "One of null, \"Succeeded\", \"Provisioning\", \"Failed\". While not approved, it's null."
   }
  ]
 }

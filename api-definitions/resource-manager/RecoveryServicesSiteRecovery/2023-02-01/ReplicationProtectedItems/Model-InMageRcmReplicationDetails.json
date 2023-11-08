@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent version to which last agent upgrade was attempted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent upgrade blocking error information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent upgrade job Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "MobilityAgentUpgradeState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent auto upgrade state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The allocated memory in MB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "InMageRcmDiscoveredProtectedVMDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The discovered VM details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the discovered VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM Id of the discovered VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point Id to which the VM was failed over."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The firmware type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "VMReplicationProgressHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication progress health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication progress percentage. This is calculated based on total bytes processed for all disks in the source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication transferred bytes from source VM to azure for all selected disks on source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine internal identifier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether agent registration was successful after failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether last agent upgrade was successful or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last agent upgrade error information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -216,7 +234,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last agent upgrade type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +246,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -239,7 +259,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point received time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point objective calculated time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -262,7 +284,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point objective value."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -273,7 +296,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License Type of the VM to be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -284,7 +308,8 @@
     "referenceName": "InMageRcmMobilityAgentDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mobility agent information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -295,7 +320,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi VM group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -306,7 +332,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the OS on the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -317,7 +344,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IP address of the primary network interface."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -328,7 +356,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The process server Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -339,7 +368,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The process server name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -350,7 +380,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The processor core count."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -365,7 +396,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -376,7 +408,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -387,7 +420,8 @@
     "referenceName": "VMReplicationProgressHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync progress health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -398,7 +432,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync progress percentage. This is calculated based on total bytes processed for all disks in the source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -409,7 +444,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether resync is required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -420,7 +456,8 @@
     "referenceName": "ResyncState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -431,7 +468,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync transferred bytes from source VM to azure for all selected disks on source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -442,7 +480,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The run-as account Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -453,7 +492,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replication storage account ARM Id. This is applicable only for the blob based replication test hook."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -464,7 +504,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability set Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -475,7 +516,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -486,7 +528,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target boot diagnostics storage account ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -497,7 +540,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target generation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -508,7 +552,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -519,7 +564,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -530,7 +576,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target proximity placement group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -541,7 +588,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target resource group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -552,7 +600,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target VM name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -563,7 +612,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -574,7 +624,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The test network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -589,9 +640,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network details."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "InMageRcm"
+ "discriminatedTypeValue": "InMageRcm",
+ "typeHintIn": "InstanceType"
 }

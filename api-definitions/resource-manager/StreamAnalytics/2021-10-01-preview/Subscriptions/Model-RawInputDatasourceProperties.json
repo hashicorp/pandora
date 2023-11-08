@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The JSON serialized content of the input data. Either payload or payloadUri must be set, but not both. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SAS URL to a blob containing the JSON serialized content of the input data. Either payload or payloadUri must be set, but not both."
   }
  ]
 }

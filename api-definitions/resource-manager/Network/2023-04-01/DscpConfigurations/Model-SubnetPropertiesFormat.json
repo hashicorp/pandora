@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The address prefix for the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of address prefixes for the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Application gateway IP configurations of virtual network resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of references to the delegations on the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of IpAllocation which reference this subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of IP configuration profiles which reference this subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +106,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of references to the network interface IP configurations using subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +118,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +130,8 @@
     "referenceName": "NetworkSecurityGroup"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +142,8 @@
     "referenceName": "VirtualNetworkPrivateEndpointNetworkPolicies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or Disable apply network policies on private end point in the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +158,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of references to private endpoints."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +170,8 @@
     "referenceName": "VirtualNetworkPrivateLinkServiceNetworkPolicies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or Disable apply network policies on private link service in the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,7 +182,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A read-only string identifying the intention of use for this subnet based on delegations and other user-defined properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +210,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of references to the external resources using subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +222,8 @@
     "referenceName": "RouteTable"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -222,7 +238,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of references to services injecting into this subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -237,7 +254,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of service endpoint policies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -252,7 +270,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of service endpoints."
   }
  ]
 }

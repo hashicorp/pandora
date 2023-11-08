@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to include policies with the 'audit' effect in the results. Defaults to false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of fields and values that should be evaluated for potential restrictions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "CheckRestrictionsResourceDetails"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The information about the resource that will be evaluated."
   }
  ]
 }

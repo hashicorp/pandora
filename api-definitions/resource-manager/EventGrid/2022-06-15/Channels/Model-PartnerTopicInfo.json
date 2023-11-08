@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure subscription ID of the subscriber. The partner topic associated with the channel will be\r\ncreated under this Azure subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "EventTypeInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Event Type Information for the partner topic. This information is provided by the publisher and can be used by the \r\nsubscriber to view different types of events that are published."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the partner topic associated with the channel."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Resource Group of the subscriber. The partner topic associated with the channel will be\r\ncreated under this resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source information is provided by the publisher to determine the scope or context from which the events\r\nare originating. This information can be used by the subscriber during the approval process of the\r\ncreated partner topic."
   }
  ]
 }

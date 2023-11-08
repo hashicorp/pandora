@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the resource was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "EnvironmentStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An object that represents the status of the environment, and its internal state in the Time Series Insights service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": "Gen2StorageConfigurationOutput"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The storage configuration provides the connection details that allows the Time Series Insights service to connect to the customer storage account that is used to store the environment's data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of event properties which will be used to define the environment's time series id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": "WarmStoreConfigurationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The warm store configuration provides the details to create a warm store cache that will retain a copy of the environment's data available for faster query."
   }
  ]
 }

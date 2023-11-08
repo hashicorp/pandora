@@ -10,7 +10,8 @@
     "referenceName": "BackupSchedule"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Schedule for this backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of tags that can be applicable for given schedule."
   }
  ],
  "discriminatedParentModelName": "TriggerContext",
- "discriminatedTypeValue": "ScheduleBasedTriggerContext"
+ "discriminatedTypeValue": "ScheduleBasedTriggerContext",
+ "typeHintIn": "ObjectType"
 }

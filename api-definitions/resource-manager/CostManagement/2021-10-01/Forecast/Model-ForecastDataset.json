@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Dictionary of aggregation expression to use in the forecast. The key of each item in the dictionary is the alias for the aggregated column. forecast can have up to 2 aggregation clauses."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ForecastDatasetConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has configuration information for the data in the export. The configuration will be ignored if aggregation and grouping are provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ForecastFilter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has filter expression to use in the forecast."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "GranularityType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The granularity of rows in the forecast."
   }
  ]
 }

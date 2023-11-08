@@ -10,7 +10,8 @@
     "referenceName": "AdditionalCapabilities"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies additional capabilities enabled or disabled on the Virtual Machines in the Virtual Machine Scale Set. For instance: whether the Virtual Machines have the capability to support attaching managed data disks with UltraSSD_LRS storage account type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AutomaticRepairsPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Policy for automatic repairs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies information about the proximity placement group that the virtual machine scale set should be assigned to. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2018-04-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ScaleInPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "UpgradePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The upgrade policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "VirtualMachineScaleSetUpdateVMProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine profile."
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reasons why App Service Certificate is not renewable at the current moment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if the certificate should be automatically renewed when it expires; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the Key Vault secret."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "CertificateOrderContact"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contact info"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last CSR that was created for this order."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate distinguished name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Domain verification token."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate expiration time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "referenceName": "CertificateDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Intermediate certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if private key is external; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate key size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -141,7 +152,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate last issuance time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +165,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time stamp when the certificate would be auto renewed next"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +177,8 @@
     "referenceName": "CertificateProductType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Certificate product type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +189,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of certificate order."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +201,8 @@
     "referenceName": "CertificateDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Root certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +213,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current serial number of the certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +225,8 @@
     "referenceName": "CertificateDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Signed certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +237,8 @@
     "referenceName": "CertificateOrderStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current order status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +249,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Duration in years (must be 1)."
   }
  ]
 }

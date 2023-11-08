@@ -10,7 +10,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current state of the registration assignment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RegistrationAssignmentPropertiesRegistrationDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Registration definition inside registration assignment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Fully qualified path of the registration definition."
   }
  ]
 }

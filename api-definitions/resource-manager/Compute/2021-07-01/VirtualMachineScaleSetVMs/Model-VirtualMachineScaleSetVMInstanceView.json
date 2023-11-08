@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource id of the dedicated host, on which the virtual machine is allocated through automatic placement, when the virtual machine is associated with a dedicated host group that has automatic placement enabled. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2020-06-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BootDiagnosticsInstanceView"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Boot Diagnostics is a debugging feature which allows you to view Console Output and Screenshot to diagnose VM status. \u003cbr\u003e\u003cbr\u003e You can easily view the output of your console log. \u003cbr\u003e\u003cbr\u003e Azure also enables you to see a screenshot of the VM from the hypervisor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The disks information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The extensions information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "MaintenanceRedeployStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Maintenance Operation status on the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The placement group in which the VM is running. If the VM is deallocated it will not have a placementGroupId."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Fault Domain count."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Update Domain count."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Remote desktop certificate thumbprint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource status information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "VirtualMachineAgentInstanceView"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The VM Agent running on the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "VirtualMachineHealthStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The health status for the VM."
   }
  ]
 }

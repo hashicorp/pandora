@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Array of source control content types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of the source control"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The display name of the source control"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id (a Guid) of the source control"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "DeploymentInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information regarding the latest deployment for the source control."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "RepoType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The repository type of the source control"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "Repository"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Repository metadata."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "RepositoryResourceInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information regarding the resources created in user's repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "Version"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version number associated with the source control"
   }
  ]
 }

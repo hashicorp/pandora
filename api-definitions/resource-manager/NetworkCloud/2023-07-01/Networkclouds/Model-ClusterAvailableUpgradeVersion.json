@@ -10,7 +10,8 @@
     "referenceName": "ControlImpact"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator of whether the control plane will be impacted during the upgrade."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The expected duration needed for this upgrade."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The impact description including the specific details and release notes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last date the version of the platform is supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target version this cluster will be upgraded to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "WorkloadImpact"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator of whether the workload will be impacted during the upgrade."
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current notification mode for this signal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property dictionary. Properties can be added, but not removed or altered."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -40,7 +42,9 @@
     "referenceName": "MonitoringSignalType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of signal to monitor."
   }
- ]
+ ],
+ "typeHintIn": "SignalType"
 }

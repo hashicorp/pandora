@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Location for the underlying compute"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "ComputeType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of compute"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which the compute was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the Machine Learning compute."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Opt-out of local authentication and ensure customers can use only MSI and AAD exclusively for authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicating whether the compute was provisioned by user and brought from outside if true, or machine learning service provisioned it if false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which the compute was last modified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Errors during provisioning"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -104,7 +112,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provision state of the cluster. Valid values are Unknown, Updating, Provisioning, Succeeded, and Failed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -115,7 +124,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource id of the underlying compute"
   }
- ]
+ ],
+ "typeHintIn": "ComputeType"
 }
