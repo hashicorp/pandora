@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "API identifier path. /apis/{apiId}"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure region where the gateway that processed this request is located."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total time it took to process this request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP status code received by the gateway as a result of forwarding this request to the backend."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies if response cache was involved in generating the response. If the value is none, the cache was not used. If the value is hit, cached response was returned. If the value is miss, the cache was used but lookup resulted in a miss and request was fulfilled by the backend."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The client IP address associated with this request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP method associated with this request.."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operation identifier path. /apis/{apiId}/operations/{operationId}"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Product identifier path. /products/{productId}"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Request Identifier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of this request.."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP status code returned by the gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of the response returned by the gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "he time it took to forward this request to the backend and get the response back."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription identifier path. /subscriptions/{subscriptionId}"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The date and time when this request was received by the gateway in ISO 8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +203,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The full URL associated with this request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +215,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User identifier path. /users/{userId}"
   }
  ]
 }

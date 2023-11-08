@@ -10,7 +10,8 @@
     "referenceName": "ApplicationInsightsAgentVersions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the versions of application insight agent"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target application insight instrumentation key, null or whitespace include empty will disable monitoringSettings"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the sampling rate of application insight agent, should be in range [0.0, 100.0]"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "Error"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error when apply Monitoring Setting changes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "MonitoringSettingState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the Monitoring Setting."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether enable the trace functionality, which will be deprecated since api version 2020-11-01-preview. Please leverage appInsightsInstrumentationKey to indicate if monitoringSettings enabled or not"
   }
  ]
 }

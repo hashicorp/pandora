@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The update classifications to select when installing patches for Linux."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is used as a maintenance run identifier for Auto VM Guest Patching in Linux."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "packages to exclude in the patch operation. Format: packageName_packageVersion"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "packages to include in the patch operation. Format: packageName_packageVersion"
   }
  ]
 }

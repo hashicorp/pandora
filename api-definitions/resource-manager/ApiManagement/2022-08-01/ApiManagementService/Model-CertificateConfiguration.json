@@ -10,7 +10,8 @@
     "referenceName": "CertificateInformation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Certificate Password."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Base64 Encoded certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "StoreName"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The System.Security.Cryptography.x509certificates.StoreName certificate store location. Only Root and CertificateAuthority are valid locations."
   }
  ]
 }

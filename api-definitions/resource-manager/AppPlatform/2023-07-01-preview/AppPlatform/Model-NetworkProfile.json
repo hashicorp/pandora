@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the resource group containing network resources for customer apps in Azure Spring Apps"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified resource Id of the subnet to host customer apps in Azure Spring Apps"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "IngressConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Ingress configuration payload for Azure Spring Apps resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "NetworkProfileOutboundIPs"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired outbound IP resources for Azure Spring Apps resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The egress traffic type of Azure Spring Apps VNet instances."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Required inbound or outbound traffics for Azure Spring Apps resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Spring Apps service reserved CIDR"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the resource group containing network resources of Azure Spring Apps Service Runtime"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified resource Id of the subnet to host Azure Spring Apps Service Runtime"
   }
  ]
 }

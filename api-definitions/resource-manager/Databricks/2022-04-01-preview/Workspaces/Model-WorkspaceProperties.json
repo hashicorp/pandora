@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The workspace provider authorizations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "CreatedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the Object ID, PUID and Application ID of entity that created the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the date and time when the workspace is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource Id of the managed disk encryption set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": "WorkspacePropertiesEncryption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Encryption properties for databricks workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "ManagedIdentityConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The details of Managed Identity of Disk Encryption Set used for Managed Disk Encryption"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The managed resource group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": "WorkspaceCustomParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The workspace's custom parameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private endpoint connections created on the workspace"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The workspace provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network access type for accessing workspace. Set value to disabled to access workspace only via private link."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     "referenceName": "RequiredNsgRules"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets a value indicating whether data plane (clusters) to control plane communication happen over private endpoint. Supported values are 'AllRules' and 'NoAzureDatabricksRules'. 'NoAzureServiceRules' value is for internal use only."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": "ManagedIdentityConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The details of Managed Identity of Storage Account"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +175,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The blob URI where the UI definition file is located."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +187,8 @@
     "referenceName": "CreatedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the Object ID, PUID and Application ID of entity that last updated the workspace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -184,7 +199,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique identifier of the databricks workspace in databricks control plane."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +211,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The workspace URL which is of the format 'adb-{workspaceId}.{random}.azuredatabricks.net'"
   }
  ]
 }

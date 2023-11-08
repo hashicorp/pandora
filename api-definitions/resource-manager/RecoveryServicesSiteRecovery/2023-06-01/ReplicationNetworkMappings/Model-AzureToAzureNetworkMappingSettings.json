@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery fabric location."
   }
  ],
  "discriminatedParentModelName": "NetworkMappingFabricSpecificSettings",
- "discriminatedTypeValue": "AzureToAzure"
+ "discriminatedTypeValue": "AzureToAzure",
+ "typeHintIn": "InstanceType"
 }

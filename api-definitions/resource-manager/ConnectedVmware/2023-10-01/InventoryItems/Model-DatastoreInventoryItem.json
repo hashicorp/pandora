@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets Maximum capacity of this datastore, in GBs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets Available space of this datastore, in GBs."
   }
  ],
  "discriminatedParentModelName": "InventoryItemProperties",
- "discriminatedTypeValue": "Datastore"
+ "discriminatedTypeValue": "Datastore",
+ "typeHintIn": "InventoryType"
 }

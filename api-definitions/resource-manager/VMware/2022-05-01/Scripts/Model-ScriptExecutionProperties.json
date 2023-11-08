@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standard error output stream from the powershell execution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error message if the script was able to run, but if the script itself had errors or powershell threw an exception"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time the script execution was finished"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters that will be hidden/not visible to ARM, such as passwords and credentials"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +71,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standard information out stream from the powershell execution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -82,7 +87,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User-defined dictionary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -97,7 +103,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standard output stream from the powershell execution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -112,7 +119,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters the script will accept"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +131,8 @@
     "referenceName": "ScriptExecutionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the script execution resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -134,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time to live for the resource. If not provided, will be available for 60 days"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -145,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A reference to the script cmdlet resource if user is running a AVS script"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +168,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time the script execution was started"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +181,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time the script execution was submitted"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +193,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Time limit for execution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +209,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standard warning out stream from the powershell execution"
   }
  ]
 }

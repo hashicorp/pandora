@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Data management's service public IP address resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Engine service's public IP address resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "VnetState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When enabled, the cluster is deployed into the configured subnet, when disabled it will be removed from the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The subnet resource id."
   }
  ]
 }

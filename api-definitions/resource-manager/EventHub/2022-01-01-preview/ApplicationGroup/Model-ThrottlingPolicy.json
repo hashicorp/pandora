@@ -10,7 +10,8 @@
     "referenceName": "MetricId"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Metric Id on which the throttle limit should be set, MetricId can be discovered by hovering over Metric in the Metrics section of Event Hub Namespace inside Azure Portal"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Threshold limit above which the application group will be throttled.Rate limit is always per second."
   }
  ],
  "discriminatedParentModelName": "ApplicationGroupPolicy",
- "discriminatedTypeValue": "ThrottlingPolicy"
+ "discriminatedTypeValue": "ThrottlingPolicy",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ServiceTypeDeltaHealthPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The delta health policy used by default to evaluate the health of a service type when upgrading the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The map with service type delta health policy per service type name. The map is empty by default."
   }
  ]
 }

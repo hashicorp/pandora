@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "JVM parameter"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Relative path of the storage which stores the source"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Runtime version of the Jar file"
   }
  ],
  "discriminatedParentModelName": "UserSourceInfo",
- "discriminatedTypeValue": "Jar"
+ "discriminatedTypeValue": "Jar",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "DynamicThresholdSensitivity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The extent of deviation required to trigger an alert. This will affect how tight the threshold is to the metric series pattern."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DynamicThresholdFailingPeriods"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The minimum number of violations required within the selected lookback time window required to raise an alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Use this option to set the date from which to start learning the metric historical data and calculate the dynamic thresholds (in ISO8601 format)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,9 +47,11 @@
     "referenceName": "DynamicThresholdOperator"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The operator used to compare the metric value against the threshold."
   }
  ],
  "discriminatedParentModelName": "MultiMetricCriteria",
- "discriminatedTypeValue": "DynamicThresholdCriterion"
+ "discriminatedTypeValue": "DynamicThresholdCriterion",
+ "typeHintIn": "CriterionType"
 }

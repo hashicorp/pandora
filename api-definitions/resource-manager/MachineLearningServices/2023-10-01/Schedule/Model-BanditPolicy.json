@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Absolute distance allowed from the best performing run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Ratio of the allowed distance from the best performing run."
   }
  ],
  "discriminatedParentModelName": "EarlyTerminationPolicy",
- "discriminatedTypeValue": "Bandit"
+ "discriminatedTypeValue": "Bandit",
+ "typeHintIn": "PolicyType"
 }

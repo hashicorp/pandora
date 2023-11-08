@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003cappSettings\u003e\n \u003cappSetting name=\"FUNCTIONS_WORKER_RUNTIME\" value=\"dotnet\" /\u003e\n\u003c/appSettings\u003e\n Example: All the function apps need AppSetting: \"FUNCTIONS_WORKER_RUNTIME\" to be set stack name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if this supports Application Insights; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Application stack major version (display only)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if this is the default major version; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if this stack has been deprecated, otherwise \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if this stack should be hidden for new customers on portal, otherwise \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if this stack is in Preview, otherwise \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minor versions associated with the major version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Application stack major version (runtime only)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003csiteConfigProperties\u003e\n \u003csiteConfigProperty name=\"Use32BitWorkerProcess\" value=\"false\" /\u003e\n\u003c/siteConfigProperties\u003e\n Example: All Linux Function Apps, need Use32BitWorkerProcess to be set to 0"
   }
  ]
 }

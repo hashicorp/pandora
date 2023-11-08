@@ -10,7 +10,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "InterfaceProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual IP address(es) for the user plane on the access network in a High Availability (HA) system. In an HA deployment the access network router should be configured to forward traffic for this address to the control plane access interface on the active or standby node. In non-HA system this list should be omitted or empty."
   }
  ]
 }

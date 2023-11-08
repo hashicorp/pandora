@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The approvalId of the role eligibility schedule request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The conditions on the role assignment. This limits the resources it can be assigned to. e.g.: @Resource[Microsoft.Storage/storageAccounts/blobServices/containers:ContainerName] StringEqualsIgnoreCase 'foo_storage_container'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of the condition. Currently accepted value is '2.0'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DateTime when role eligibility schedule request was created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "ExpandedProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional properties of principal, scope and role definition"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Justification for the role eligibility"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The principal ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": "PrincipalType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The principal type of the assigned principal ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "RequestType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the role assignment schedule request. Eg: SelfActivate, AdminAssign etc"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Id of the user who created this request"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The role definition ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": "RoleEligibilityScheduleRequestPropertiesScheduleInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Schedule info of the role eligibility schedule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role eligibility schedule request scope."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": "Status"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the role eligibility schedule request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resultant role eligibility schedule id or the role eligibility schedule id being updated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role eligibility schedule instance id being updated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +203,8 @@
     "referenceName": "RoleEligibilityScheduleRequestPropertiesTicketInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Ticket Info of the role eligibility"
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The disabled rule groups."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Whether the web application firewall is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The exclusion list."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum file upload size in Mb for WAF."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "ApplicationGatewayFirewallMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Web application firewall mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum request body size for WAF."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum request body size in Kb for WAF."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether allow WAF to check request Body."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the web application firewall rule set. Possible values are: 'OWASP'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The version of the rule set type."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A custom context tag typically used to correlate the trigger against its usage. For example, if a periodic timer trigger is intended for certain specific IoT modules in the device, the tag can be the name or the image URL of the module."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RoleSinkInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Role Sink information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PeriodicTimerSourceInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Periodic timer details."
   }
  ]
 }

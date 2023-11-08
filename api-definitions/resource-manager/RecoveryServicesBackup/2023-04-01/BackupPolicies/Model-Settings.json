@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workload compression flag. This has been added so that 'isSqlCompression'\r\nwill be deprecated once clients upgrade to consider this flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL compression flag"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\"."
   }
  ]
 }

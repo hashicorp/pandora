@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The access policies of the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ServiceAcrConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The azure container registry settings used for convert data operation of the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ServiceAuthenticationConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The authentication configuration for the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ServiceCorsConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The settings for the CORS configuration of the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ServiceCosmosDbConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The settings for the Cosmos DB database backing the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ServiceExportConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The settings for the export operation of the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ServiceImportConfigurationInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The settings for the import operation of the service instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of private endpoint connections that are set up for this resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled."
   }
  ]
 }

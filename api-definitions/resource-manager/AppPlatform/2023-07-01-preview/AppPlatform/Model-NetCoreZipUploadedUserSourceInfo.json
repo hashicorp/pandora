@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path to the .NET executable relative to zip root"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Relative path of the storage which stores the source"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Runtime version of the .Net file"
   }
  ],
  "discriminatedParentModelName": "UserSourceInfo",
- "discriminatedTypeValue": "NetCoreZip"
+ "discriminatedTypeValue": "NetCoreZip",
+ "typeHintIn": "Type"
 }

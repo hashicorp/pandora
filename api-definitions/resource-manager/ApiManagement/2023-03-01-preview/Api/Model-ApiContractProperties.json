@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the revision of the API. If no value is provided, default revision 1 is created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the API Revision."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the version identifier of the API if the API is versioned"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the API Version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ApiVersionSetContractDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A resource identifier for the related ApiVersionSet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "AuthenticationSettingsContract"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of authentication settings included into this API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "ApiContactInformation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contact information for the API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the API. May include HTML formatting tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "API name. Must be 1 to 300 characters long."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if API revision is current api revision."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if API revision is accessible via the gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "ApiLicenseInformation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License information for the API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Relative URL uniquely identifying this API and all of its resource paths within the API Management service instance. It is appended to the API endpoint base URL specified during the service instance creation to form a public URL for this API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes on which protocols the operations in this API can be invoked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Absolute URL of the backend service implementing this API. Cannot be more than 2000 characters long."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "API identifier of the source API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -201,7 +218,8 @@
     "referenceName": "SubscriptionKeyParameterNamesContract"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protocols over which API is made available."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +230,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether an API or Product subscription is required for accessing the API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +242,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": " A URL to the Terms of Service for the API. MUST be in the format of a URL."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -234,7 +254,8 @@
     "referenceName": "ApiType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of API."
   }
  ]
 }

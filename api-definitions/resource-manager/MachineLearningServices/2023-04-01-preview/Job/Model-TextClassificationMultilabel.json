@@ -10,7 +10,8 @@
     "referenceName": "FeaturizationSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Featurization inputs needed for AutoML job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "NlpFixedParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Model/training parameters that will remain constant throughout training."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "NlpVerticalLimitSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Execution constraints for AutoMLJob."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ClassificationMultilabelPrimaryMetrics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary metric for Text-Classification-Multilabel task.\r\nCurrently only Accuracy is supported as primary metric, hence user need not set it explicitly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Search space for sampling different combinations of models and their hyperparameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "NlpSweepSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Settings for model sweeping and hyperparameter tuning."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,9 +86,11 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Validation data inputs."
   }
  ],
  "discriminatedParentModelName": "AutoMLVertical",
- "discriminatedTypeValue": "TextClassificationMultilabel"
+ "discriminatedTypeValue": "TextClassificationMultilabel",
+ "typeHintIn": "TaskType"
 }

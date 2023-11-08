@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Scheduled action name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "FileDestination"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Destination format of the view data. This is optional."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "NotificationProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Notification properties based on scheduled action kind."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ScheduleProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Schedule of the scheduled action."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cost Management scope like 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ScheduledActionStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Status of the scheduled action."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Cost analysis viewId used for scheduled action. For example, '/providers/Microsoft.CostManagement/views/swaggerExample'"
   }
  ]
 }

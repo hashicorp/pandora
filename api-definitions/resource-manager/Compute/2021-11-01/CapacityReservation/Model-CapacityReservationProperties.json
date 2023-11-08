@@ -10,7 +10,8 @@
     "referenceName": "CapacityReservationInstanceView"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Capacity reservation instance view."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The date time when the capacity reservation was last updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A unique id generated and assigned to the capacity reservation by the platform which does not change throughout the lifetime of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the time at which the Capacity Reservation resource was created.\u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-11-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of all virtual machine resource ids that are associated with the capacity reservation."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Storage account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure cloud endpoint for the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The name of the Data Lake Gen2 filesystem."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protocol used to communicate with the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": "ServiceDataAccessAuthIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates which identity to use to authenticate service data access to customer's storage."
   }
  ],
  "discriminatedParentModelName": "Datastore",
- "discriminatedTypeValue": "AzureDataLakeGen2"
+ "discriminatedTypeValue": "AzureDataLakeGen2",
+ "typeHintIn": "DatastoreType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ReportConfigDataset"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has definition for data in this report config."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If true, report includes monetary commitment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ReportConfigTimePeriod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has time period for pulling data for the report."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ReportTimeframeType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time frame for pulling data for the report. If custom, then a specific time period must be provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ReportType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the report. Usage represents actual usage, forecast represents forecasted data and UsageAndForecast represents both usage and forecasted data. Actual usage and forecasted data can be differentiated based on dates."
   }
  ]
 }

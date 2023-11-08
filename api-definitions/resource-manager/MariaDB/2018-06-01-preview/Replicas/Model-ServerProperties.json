@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Earliest restore point creation time (ISO8601 format)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The master server id of a replica server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "MinimalTlsVersionEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enforce a minimal Tls version for the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum number of replicas that a master server can have."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replication role of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": "SslEnforcementEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable ssl enforcement or not when connect to server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "StorageProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage profile of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": "ServerState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A state of a server that is visible to user."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": "ServerVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server version."
   }
  ]
 }

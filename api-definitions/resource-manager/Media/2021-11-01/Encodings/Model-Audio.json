@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The bitrate, in bits per second, of the output encoded audio."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of channels in the audio."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The sampling rate to use for encoding in hertz."
   }
  ],
  "discriminatedParentModelName": "Codec",
- "discriminatedTypeValue": "#Microsoft.Media.Audio"
+ "discriminatedTypeValue": "#Microsoft.Media.Audio",
+ "typeHintIn": "OdataType"
 }

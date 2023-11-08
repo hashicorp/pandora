@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allowed models for forecasting task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Blocked models for forecasting task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable recommendation of DNN models."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to turn on explainability on best model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag for enabling onnx compatible models."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable stack ensemble run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable voting ensemble run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "During VotingEnsemble and StackEnsemble model generation, multiple fitted models from the previous child runs are downloaded.\r\nConfigure this parameter with a higher value than 300 secs, if more time is needed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "StackEnsembleSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Stack ensemble settings for stack ensemble run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": "TrainingMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TrainingMode mode - Setting to 'auto' is same as setting it to 'non-distributed' for now, however in the future may result in mixed mode or heuristics based mode selection. Default is 'auto'.\r\nIf 'Distributed' then only distributed featurization is used and distributed algorithms are chosen.\r\nIf 'NonDistributed' then only non distributed algorithms are chosen."
   }
  ]
 }

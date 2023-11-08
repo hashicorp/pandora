@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A custom command to run during deployment of the Azure Functions API application."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path to the api code within the repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deprecated: The path of the app artifacts after building (deprecated in favor of OutputLocation)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A custom command to run during deployment of the static content application."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path to the app code within the repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Github Action secret name override."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The output path of the app after building."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Skip Github Action workflow generation."
   }
  ]
 }

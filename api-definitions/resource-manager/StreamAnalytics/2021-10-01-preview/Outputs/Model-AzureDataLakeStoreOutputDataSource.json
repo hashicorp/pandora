@@ -10,9 +10,11 @@
     "referenceName": "AzureDataLakeStoreOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with an Azure Data Lake Store output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.DataLake/Accounts"
+ "discriminatedTypeValue": "Microsoft.DataLake/Accounts",
+ "typeHintIn": "Type"
 }

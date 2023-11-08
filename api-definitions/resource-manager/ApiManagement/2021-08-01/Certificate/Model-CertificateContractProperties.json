@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Expiration date of the certificate. The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard.\n"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": "KeyVaultContractProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Subject attribute of the certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Thumbprint of the certificate."
   }
  ]
 }

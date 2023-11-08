@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery Azure resource group Id for classic deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery Azure resource group Id for resource manager deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SqlServerLicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SQL Server license type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target NICs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target proximity placement group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether managed disks should be used during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,9 +134,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of disk update properties."
   }
  ],
  "discriminatedParentModelName": "UpdateReplicationProtectedItemProviderInput",
- "discriminatedTypeValue": "InMageAzureV2"
+ "discriminatedTypeValue": "InMageAzureV2",
+ "typeHintIn": "InstanceType"
 }

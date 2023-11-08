@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional Azure regions to scope the query to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The end time for the Azure reachability report."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": "AzureReachabilityReportLocation"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Parameters that define a geographic location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Internet service providers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -64,7 +68,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The start time for the Azure reachability report."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the container registry used in this build service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The installed KPack version in this build service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "BuildServiceProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the KPack build service"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "BuildServicePropertiesResourceRequests"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The runtime resource configuration of this build service."
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of custom headers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of expected status code ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The monitor interval for endpoints in this profile. This is the interval at which Traffic Manager will check the health of each endpoint in this profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path relative to the endpoint domain name used to probe for endpoint health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The TCP port used to probe for endpoint health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "ProfileMonitorStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The profile-level monitoring status of the Traffic Manager profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "MonitorProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protocol (HTTP, HTTPS or TCP) used to probe for endpoint health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The monitor timeout for endpoints in this profile. This is the time that Traffic Manager allows endpoints in this profile to response to the health check."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of consecutive failed health check that Traffic Manager tolerates before declaring an endpoint in this profile Degraded after the next failed health check."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Account name used for creating cluster (at minimum needs permissions to 'Create Computer Objects' in domain)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Account name used for operating cluster i.e. will be part of administrators group on all the participating virtual machines in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ClusterSubnetType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster subnet type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified name of the domain."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional path for fileshare witness."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Organizational Unit path in which the nodes and cluster will be present."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Account name under which SQL service will run on all participating SQL virtual machines in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary key of the witness storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified ARM resource id of the witness storage account."
   }
  ]
 }

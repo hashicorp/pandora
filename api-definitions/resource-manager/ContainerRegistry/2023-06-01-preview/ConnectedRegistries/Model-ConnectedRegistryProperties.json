@@ -10,7 +10,8 @@
     "referenceName": "ActivationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The activation properties of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of the ACR token resource IDs used to authenticate clients to the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ConnectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current connection state of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last activity time of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": "LoggingProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The logging properties of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "LoginServerProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The login server properties of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": "ConnectedRegistryMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The mode of the connected registry resource that indicates the permissions of the registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of notifications subscription information for the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "referenceName": "ParentProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The parent of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +143,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of current statuses of the connected registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current version of ACR runtime on the connected registry."
   }
  ]
 }

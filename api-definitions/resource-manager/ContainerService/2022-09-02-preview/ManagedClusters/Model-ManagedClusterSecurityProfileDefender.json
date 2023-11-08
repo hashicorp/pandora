@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource ID of the Log Analytics workspace to be associated with Microsoft Defender. When Microsoft Defender is enabled, this field is required and must be a valid workspace resource ID. When Microsoft Defender is disabled, leave the field empty."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedClusterSecurityProfileDefenderSecurityMonitoring"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Microsoft Defender threat detection for Cloud settings for the security profile."
   }
  ]
 }

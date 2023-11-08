@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dedicated agent pool for the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value that indicates whether archiving is enabled for the run or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The template that describes the repository and tag information for run log artifact."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the run request."
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mutually exclusive with the \"allowedSourceAddressPrefixes\" parameter. Should be an IP address or CIDR, for example \"192.168.0.3\" or \"192.168.0.0/16\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mutually exclusive with the \"allowedSourceAddressPrefix\" parameter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Maximum duration requests can be made for. In ISO 8601 duration format. Minimum 5 minutes, maximum 1 day"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "Protocol"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   }
  ]
 }

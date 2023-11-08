@@ -10,9 +10,11 @@
     "referenceName": "WorkloadItemType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workload item type of the item for which intent is to be set"
   }
  ],
  "discriminatedParentModelName": "ProtectionIntent",
- "discriminatedTypeValue": "AzureWorkloadSQLAutoProtectionIntent"
+ "discriminatedTypeValue": "AzureWorkloadSQLAutoProtectionIntent",
+ "typeHintIn": "ProtectionIntentItemType"
 }

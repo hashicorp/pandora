@@ -10,7 +10,8 @@
     "referenceName": "AzureFileshareProtectedItemExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information with this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the fileshare represented by this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health details of different KPIs"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last backup operation status. Possible values: Healthy, Unhealthy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of the last backup operation on this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "ProtectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup state of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,9 +87,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup status of this backup item."
   }
  ],
  "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "AzureFileShareProtectedItem"
+ "discriminatedTypeValue": "AzureFileShareProtectedItem",
+ "typeHintIn": "ProtectedItemType"
 }

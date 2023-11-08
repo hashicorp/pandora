@@ -10,7 +10,8 @@
     "referenceName": "EnhancedSecurityState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enabled or Disabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This flag is no longer in use. Please use 'softDeleteFeatureState' to set the soft delete state for the vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ResourceGuard Operation Requests"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "SoftDeleteFeatureState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Soft Delete feature state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Soft delete retention period in days"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "StorageType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "StorageType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "StorageTypeState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Locked or Unlocked. Once a machine is registered against a resource, the storageTypeState is always Locked."
   }
  ]
 }

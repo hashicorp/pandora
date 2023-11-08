@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The authorization source of the request. Valid values are one or more combinations of Legacy, RoleBased, Bypassed, Direct and Management. For example, 'Legacy, RoleBased'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified ID for the subscription. For example, /subscriptions/8d65815f-a5b6-402f-9298-045155da7d74"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array containing the tenants managing the subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "SubscriptionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription state. Possible values are Enabled, Warned, PastDue, Disabled, and Deleted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "SubscriptionPolicies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription policies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags attached to the subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subscription tenant ID."
   }
  ]
 }

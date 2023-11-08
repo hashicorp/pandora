@@ -10,7 +10,8 @@
     "referenceName": "BackupManagementType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of backup management for the backed up item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID of the item which is getting protected, In case of Azure Vm , it is ProtectedItemId"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID of the backup policy with which this item is backed up."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -43,7 +46,8 @@
     "referenceName": "ProtectionIntentItemType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "backup protectionIntent type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ProtectionStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup state of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the resource to be backed up."
   }
- ]
+ ],
+ "typeHintIn": "ProtectionIntentItemType"
 }

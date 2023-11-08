@@ -10,7 +10,8 @@
     "referenceName": "AzureKeyVaultSmbCredentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Key Vault secret URIs which store the required credentials to access the SMB share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The host name or IP address of the server exporting the file system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the SMB share being exported from the server."
   }
  ],
  "discriminatedParentModelName": "EndpointBaseProperties",
- "discriminatedTypeValue": "SmbMount"
+ "discriminatedTypeValue": "SmbMount",
+ "typeHintIn": "EndpointType"
 }

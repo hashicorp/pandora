@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id of CA certificate for https URL of Git repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Password of git repository basic auth."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Username of git repository basic auth."
   }
  ],
  "discriminatedParentModelName": "AcceleratorAuthSetting",
- "discriminatedTypeValue": "BasicAuth"
+ "discriminatedTypeValue": "BasicAuth",
+ "typeHintIn": "AuthType"
 }

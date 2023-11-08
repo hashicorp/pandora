@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of instances in the read only query pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the SKU level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SkuTier"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the Azure pricing tier to which the SKU applies."
   }
  ]
 }

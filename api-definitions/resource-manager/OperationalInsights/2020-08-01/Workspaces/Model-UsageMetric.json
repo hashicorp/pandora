@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current value of the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The quota limit for the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MetricName"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the metric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time that the metric's value will reset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The quota period that determines the length of time between value resets."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The units used for the metric."
   }
  ]
 }

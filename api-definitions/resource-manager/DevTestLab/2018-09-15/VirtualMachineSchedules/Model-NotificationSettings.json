@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The email recipient to send notifications to (can be a list of semi-colon separated email addresses)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The locale to use when sending a notification (fallback for unsupported languages is EN)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EnableStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If notifications are enabled for this schedule (i.e. Enabled, Disabled)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time in minutes before event at which notification will be sent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The webhook URL to which the notification will be sent."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "CurrentProtectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the current protection state of the resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Datasource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the data source information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DatasourceSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the data source set information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "AuthCredentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Credentials to use to authenticate with data source provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the Backup Instance friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "PolicyInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the policy information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "UserFacingError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the protection error of the resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "ProtectionStatusDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the protection status of the resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "ValidationType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again."
   }
  ]
 }

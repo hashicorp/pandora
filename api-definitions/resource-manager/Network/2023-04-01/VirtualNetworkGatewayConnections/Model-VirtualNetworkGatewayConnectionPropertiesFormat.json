@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The authorizationKey."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "VirtualNetworkGatewayConnectionMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The connection mode for this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "VirtualNetworkGatewayConnectionProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connection protocol used for this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "VirtualNetworkGatewayConnectionStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Network Gateway connection status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "VirtualNetworkGatewayConnectionType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gateway connection type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dead peer detection timeout of this connection in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The egress bytes transferred in this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of egress NatRules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "EnableBgp flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Bypass ExpressRoute Gateway for data forwarding."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IPSec Policies to be considered by this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ingress bytes transferred in this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of ingress NatRules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +206,8 @@
     "referenceName": "LocalNetworkGateway"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reference to local network gateway resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource GUID property of the virtual network gateway connection resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The routing weight."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +266,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IPSec shared key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -261,7 +282,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Traffic Selector Policies to be considered by this connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -276,7 +298,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of all tunnels' connection health status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +310,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Use private local Azure IP for the connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -298,7 +322,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable policy-based traffic selectors."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +334,8 @@
     "referenceName": "VirtualNetworkGateway"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to virtual network gateway resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +346,8 @@
     "referenceName": "VirtualNetworkGateway"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reference to virtual network gateway resource."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the azure resource"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "TriggerKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Kind of synchronization on trigger."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the azure resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the azure resource"
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

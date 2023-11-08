@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The container friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fabric friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The remote container name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The remote fabric name."
   }
  ],
  "discriminatedParentModelName": "EventProviderSpecificDetails",
- "discriminatedTypeValue": "HyperVReplica2012"
+ "discriminatedTypeValue": "HyperVReplica2012",
+ "typeHintIn": "InstanceType"
 }

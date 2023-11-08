@@ -10,7 +10,8 @@
     "referenceName": "ContactsPropertiesAntennaConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration associated with the allocated antenna."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ResourceReference"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to the contact profile resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azimuth of the antenna at the end of the contact in decimal degrees."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Spacecraft elevation above the horizon at contact end."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Any error message while scheduling a contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Azure Ground Station name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum elevation of the antenna during the contact in decimal degrees."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the resource's creation, deletion, or modification."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Reservation end time of a contact (ISO 8601 UTC standard)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Reservation start time of a contact (ISO 8601 UTC standard)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +133,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Receive end time of a contact (ISO 8601 UTC standard)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Receive start time of a contact (ISO 8601 UTC standard)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azimuth of the antenna at the start of the contact in decimal degrees."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Spacecraft elevation above the horizon at contact start."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "referenceName": "ContactsStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of a contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +195,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Transmit end time of a contact (ISO 8601 UTC standard)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -192,7 +208,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Transmit start time of a contact (ISO 8601 UTC standard)."
   }
  ]
 }

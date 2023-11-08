@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "If resource type is dimension, this must be either ResourceGroupName or SubscriptionId. If resource type is tag, this must be a valid Azure tag"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CostAllocationPolicyType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Method of cost allocation for the rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CostAllocationResourceType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of resources contained in this cost allocation rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Target resources for cost allocation. This list cannot contain more than 25 values."
   }
  ]
 }

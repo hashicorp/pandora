@@ -10,7 +10,8 @@
     "referenceName": "AssessmentType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "BuiltIn if the assessment based on built-in Azure Policy definition, Custom if the assessment based on custom Azure Policy definition"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Human readable description of the assessment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "User friendly display name of the assessment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ImplementationEffort"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The implementation effort required to remediate this assessment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "SecurityAssessmentMetadataPartnerData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure resource ID of the policy definition that turns this assessment calculation on"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if this assessment is in preview release status"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Human readable description of what you should do to mitigate this security issue"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "Severity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The severity level of the assessment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "referenceName": "UserImpact"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The user impact of the assessment"
   }
  ]
 }

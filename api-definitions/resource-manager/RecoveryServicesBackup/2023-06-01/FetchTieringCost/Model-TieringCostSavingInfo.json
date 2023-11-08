@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Source tier retail cost per GB per month"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Target tier retail cost per GB per month"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Source tier size reduction in bytes after moving all the recommended backup points to target tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Target tier size increase in bytes after moving all the recommended backup points to target tier"
   }
  ],
  "discriminatedParentModelName": "TieringCostInfo",
- "discriminatedTypeValue": "TieringCostSavingInfo"
+ "discriminatedTypeValue": "TieringCostSavingInfo",
+ "typeHintIn": "ObjectType"
 }

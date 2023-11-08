@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "JWT token key id. Validation keys are looked up based on the key id present on the JWT token header."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The discriminator for derived types."
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "AffinityType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "placement policy affinity type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Virtual machine members list"
   }
  ],
  "discriminatedParentModelName": "PlacementPolicyProperties",
- "discriminatedTypeValue": "VmVm"
+ "discriminatedTypeValue": "VmVm",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ApplicationGatewayRewriteRuleActionSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set of actions to be done as part of the rewrite Rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Conditions based on which the action set execution will be evaluated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the rewrite rule that is unique within an Application Gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Rule Sequence of the rewrite rule that determines the order of execution of a particular rule in a RewriteRuleSet."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Traffic destination. Accepted values are: '*', IP Address/CIDR, Service Tag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Traffic destination port. Accepted values are '*' and a single port in the range (0 - 65535)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Direction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The direction of the traffic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Protocol to be verified on. Accepted values are '*', TCP, UDP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Traffic source. Accepted values are '*', IP Address/CIDR, Service Tag."
   }
  ]
 }

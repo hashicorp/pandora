@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Query statement for data import Database source"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL StoredProcedure on data import Database source"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL StoredProcedure parameters"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,9 +54,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the table on data import Database source"
   }
  ],
  "discriminatedParentModelName": "DataImportSource",
- "discriminatedTypeValue": "database"
+ "discriminatedTypeValue": "database",
+ "typeHintIn": "SourceType"
 }

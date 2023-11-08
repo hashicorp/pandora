@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of blocking application characteristics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of features enabled on app that prevent cloning."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "CloneAbilityResult"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of app."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of features enabled on app that are non-blocking but cannot be cloned. The app can still be cloned\nbut the features in this list will not be set up on cloned app."
   }
  ]
 }

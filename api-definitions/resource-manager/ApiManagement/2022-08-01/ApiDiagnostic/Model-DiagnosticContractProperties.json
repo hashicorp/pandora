@@ -10,7 +10,8 @@
     "referenceName": "AlwaysLog"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies for what type of messages sampling settings should not apply."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PipelineDiagnosticSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Backend"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PipelineDiagnosticSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Diagnostic settings for incoming/outgoing HTTP messages to the Gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "HTTPCorrelationProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets correlation protocol to use for Application Insights diagnostics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Log the ClientIP. Default is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Resource Id of a target logger."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Emit custom metrics via emit-metric policy. Applicable only to Application Insights diagnostic settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "OperationNameFormat"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The format of the Operation Name for Application Insights telemetries. Default is Name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "SamplingSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sampling settings for Diagnostic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "Verbosity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The verbosity level applied to traces emitted by trace policies."
   }
  ]
 }

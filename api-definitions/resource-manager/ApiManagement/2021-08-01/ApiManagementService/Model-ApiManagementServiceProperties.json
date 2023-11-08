@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional datacenter locations of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ApiVersionConstraint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Control Plane Apis version constraint for the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Certificates that need to be installed in the API Management service. Max supported certificates that can be installed is 10."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Creation UTC date of the API Management service.The date conforms to the following format: `yyyy-MM-ddTHH:mm:ssZ` as specified by the ISO 8601 standard."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +71,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom properties of the API Management service.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TripleDes168` will disable the cipher TLS_RSA_WITH_3DES_EDE_CBC_SHA for all TLS(1.0, 1.1 and 1.2).\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls11` can be used to disable just TLS 1.1.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Protocols.Tls10` can be used to disable TLS 1.0 on an API Management service.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls11` can be used to disable just TLS 1.1 for communications with backends.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Backend.Protocols.Tls10` can be used to disable TLS 1.0 for communications with backends.\u003c/br\u003eSetting `Microsoft.WindowsAzure.ApiManagement.Gateway.Protocols.Server.Http2` can be used to enable HTTP2 protocol on an API Management service.\u003c/br\u003eNot specifying any of these properties on PATCH operation will reset omitted properties' values to their defaults. For all the settings except Http2 the default value is `True` if the service was created on or before April 1, 2018 and `False` otherwise. Http2 setting's default value is `False`.\u003c/br\u003e\u003c/br\u003eYou can disable any of the following ciphers by using settings `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.[cipher_name]`: TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA, TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA, TLS_RSA_WITH_AES_128_GCM_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA256, TLS_RSA_WITH_AES_128_CBC_SHA256, TLS_RSA_WITH_AES_256_CBC_SHA, TLS_RSA_WITH_AES_128_CBC_SHA. For example, `Microsoft.WindowsAzure.ApiManagement.Gateway.Security.Ciphers.TLS_RSA_WITH_AES_128_CBC_SHA256`:`false`. The default value is `true` for them.\u003c/br\u003e Note: The following ciphers can't be disabled since they are required by internal platform components: TLS_AES_256_GCM_SHA384,TLS_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384,TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256,TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256,TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384,TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DEveloper Portal endpoint URL of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in master region."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +107,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property only meant to be used for Consumption SKU Service. This enforces a client certificate to be presented on each request to the gateway. This also enables the ability to authenticate the certificate in the policy on the gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gateway URL of the API Management service in the Default Region."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gateway URL of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +147,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom hostname configuration of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +159,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Management API endpoint URL of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +171,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Email address from which the notification will be sent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,7 +183,8 @@
     "referenceName": "PlatformVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute Platform Version running the service in this location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +195,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Publisher portal endpoint Url of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +211,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Private Endpoint Connections of this service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -211,7 +227,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private Static Load Balanced IP addresses of the API Management service in Primary region which is deployed in an Internal Virtual Network. Available only for Basic, Standard, Premium and Isolated SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -222,7 +239,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current provisioning state of the API Management service which can be one of the following: Created/Activating/Succeeded/Updating/Failed/Stopped/Terminating/TerminationFailed/Deleted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -233,7 +251,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the region. Supported only for Developer and Premium SKU being deployed in Virtual Network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -248,7 +267,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public Static Load Balanced IP addresses of the API Management service in Primary region. Available only for Basic, Standard, Premium and Isolated SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -259,7 +279,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public endpoint access is allowed for this API Management service.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -270,7 +291,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Publisher email."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -281,7 +303,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Publisher name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -292,7 +315,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Undelete Api Management Service if it was previously soft-deleted. If this flag is specified and set to True all other properties will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -303,7 +327,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SCM endpoint URL of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -314,7 +339,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the API Management service, which is targeted by the long running operation started on the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -325,7 +351,8 @@
     "referenceName": "VirtualNetworkConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual network configuration of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -336,7 +363,8 @@
     "referenceName": "VirtualNetworkType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of VPN in which API Management service needs to be configured in. None (Default Value) means the API Management service is not part of any Virtual Network, External means the API Management deployment is set up inside a Virtual Network having an Internet Facing Endpoint, and Internal means that API Management deployment is setup inside a Virtual Network having an Intranet Facing Endpoint only."
   }
  ]
 }

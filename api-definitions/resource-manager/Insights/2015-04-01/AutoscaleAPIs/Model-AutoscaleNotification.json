@@ -10,7 +10,8 @@
     "referenceName": "EmailNotification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the email notification."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "OperationType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the operation associated with the notification and its value must be \"scale\""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the collection of webhook notifications."
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A bag of custom fields that should be part of the entity and will be presented to the user."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The uri link of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type name of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of the main entity being reported on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ConfidenceLevel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The confidence level of this alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The confidence reasons"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The confidence score of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ConfidenceScoreStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The confidence score calculation status, i.e. indicating if score calculation is pending for this alert, not applicable or final."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Alert description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The impact end time of the alert (the time of the last event contributing to the alert)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The graph item display name which is a short humanly readable description of the graph item instance. This property is optional and might be system generated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": "KillChainIntent"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Holds the alert intent stage(s) mapping for this alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +176,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the alert was made available for consumption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -174,7 +188,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of a component inside the product which generated the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -185,7 +200,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the product which published this alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +212,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of the product generating the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +224,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The identifier of the alert inside the product which generated the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -222,7 +240,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Manual action items to take to remediate the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -237,7 +256,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of resource identifiers of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -248,7 +268,8 @@
     "referenceName": "AlertSeverity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -260,7 +281,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The impact start time of the alert (the time of the first event contributing to the alert)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -271,7 +293,8 @@
     "referenceName": "AlertStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lifecycle status of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -282,7 +305,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Holds the product identifier of the alert for the product."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -297,7 +321,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tactics of the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +334,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the alert was generated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +346,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the vendor that raise the alert."
   }
  ]
 }

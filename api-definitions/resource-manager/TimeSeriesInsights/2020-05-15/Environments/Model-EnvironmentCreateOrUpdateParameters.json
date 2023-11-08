@@ -10,7 +10,8 @@
     "referenceName": "EnvironmentKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The kind of the environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The location of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Sku"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The sku determines the type of environment, either Gen1 (S1 or S2) or Gen2 (L1). For Gen1 environments the sku determines the capacity of the environment, the ingress rate, and the billing rate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key-value pairs of additional properties for the resource."
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

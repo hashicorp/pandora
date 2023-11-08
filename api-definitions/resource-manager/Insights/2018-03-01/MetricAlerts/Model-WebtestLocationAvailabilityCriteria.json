@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Application Insights resource Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of failed locations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Application Insights web test Id."
   }
  ],
  "discriminatedParentModelName": "MetricAlertCriteria",
- "discriminatedTypeValue": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria"
+ "discriminatedTypeValue": "Microsoft.Azure.Monitor.WebtestLocationAvailabilityCriteria",
+ "typeHintIn": "OdataType"
 }

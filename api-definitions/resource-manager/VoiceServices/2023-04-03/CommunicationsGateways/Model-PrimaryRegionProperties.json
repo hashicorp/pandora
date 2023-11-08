@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The allowed source IP address or CIDR ranges for media"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The allowed source IP address or CIDR ranges for signaling"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP address to use to contact the ESRP from this region"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "IP address to use to contact the operator network from this region"
   }
  ]
 }

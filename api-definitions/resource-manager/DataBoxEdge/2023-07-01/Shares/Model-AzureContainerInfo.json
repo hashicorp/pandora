@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Container name (Based on the data format specified, this represents the name of Azure Files/Page blob/Block blob)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AzureContainerDataFormat"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Storage format used for the file represented by the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "ID of the storage account credential used to access storage."
   }
  ]
 }

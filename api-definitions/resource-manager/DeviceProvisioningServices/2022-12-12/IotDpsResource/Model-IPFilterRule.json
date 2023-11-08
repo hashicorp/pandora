@@ -10,7 +10,8 @@
     "referenceName": "IPFilterActionType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The desired action for requests captured by this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the IP filter rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A string that contains the IP address range in CIDR notation for the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IPFilterTargetType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target for requests captured by this rule."
   }
  ]
 }

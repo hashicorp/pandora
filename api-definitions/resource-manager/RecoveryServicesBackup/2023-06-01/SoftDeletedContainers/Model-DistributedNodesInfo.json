@@ -10,7 +10,8 @@
     "referenceName": "ErrorDetail"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error Details if the Status is non-success."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the node under a distributed container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource id of the node"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of this Node.\r\nFailed | Succeeded"
   }
  ]
 }

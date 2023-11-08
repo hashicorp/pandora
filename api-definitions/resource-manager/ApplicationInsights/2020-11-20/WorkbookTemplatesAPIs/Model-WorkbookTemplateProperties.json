@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the author of the workbook template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Workbook galleries supported by the template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key value pair of localized gallery. Each key is the locale code of languages supported by the Azure portal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Priority of the template. Determines which template to open when a workbook gallery is opened in viewer mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Valid JSON object containing workbook template payload."
   }
  ]
 }

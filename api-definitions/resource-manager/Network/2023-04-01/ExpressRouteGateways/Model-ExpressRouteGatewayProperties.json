@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configures this gateway to accept traffic from non Virtual WAN networks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration for auto scaling."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of ExpressRoute connections to the ExpressRoute gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "VirtualHubId"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Virtual Hub where the ExpressRoute gateway is or will be deployed."
   }
  ]
 }

@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Agent certificate expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +24,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Agent expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,7 +36,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "referenceName": "AutoProtectionOfDataDisk"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the auto protection is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fabric specific object Id of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial primary extended location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial primary fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial primary availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial recovery extended location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial recovery fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial recovery availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether agent certificate update is required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether replication agent update is required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -156,7 +169,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last heartbeat received from the source server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time (in UTC) when the last RPO value was calculated by Protection Service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An id associated with the PE that survives actions like switch protection which change the backing PE/CPE objects internally.The lifecycle id gets carried forward to have a link/continuity in being able to have an Id that denotes the \"same\" protected item even though other internal Ids/ARM Id might be changing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The management Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -201,7 +218,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the monitoring job. The progress is contained in MonitoringPercentageCompletion property."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +230,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The percentage of the monitoring job. The type of the monitoring job is defined by MonitoringJobType property."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +242,8 @@
     "referenceName": "MultiVMGroupCreateOption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether Multi VM group is auto created or specified by user."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -234,7 +254,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -245,7 +266,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -256,7 +278,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of operating system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -267,7 +290,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -278,7 +302,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary Extended Location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -289,7 +314,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -304,7 +330,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -319,7 +346,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -330,7 +358,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -341,7 +370,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -352,7 +382,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery azure generation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -363,7 +394,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -374,7 +406,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of recovery virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -385,7 +418,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of recovery virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -396,7 +430,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery boot diagnostic storage account Arm Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -407,7 +442,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery capacity reservation group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -418,7 +454,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery cloud service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -429,7 +466,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery Extended Location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -440,7 +478,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -451,7 +490,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery fabric object Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -462,7 +502,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery proximity placement group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -473,7 +514,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery virtual machine scale set id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -484,7 +526,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last RPO value in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -495,7 +538,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery virtual network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -506,7 +550,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The test failover virtual network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -517,7 +562,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The test failover fabric object Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -528,7 +574,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The test failover vm name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -543,7 +590,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of unprotected disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -554,7 +602,8 @@
     "referenceName": "VMEncryptionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption type of the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -569,7 +618,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine nic details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -580,7 +630,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -591,7 +642,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state description for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -602,9 +654,11 @@
     "referenceName": "AzureToAzureVMSyncedConfigDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The synced configuration details."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

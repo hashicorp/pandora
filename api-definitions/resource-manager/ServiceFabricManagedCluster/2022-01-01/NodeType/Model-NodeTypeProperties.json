@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional managed data disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "EndpointRangeDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The range of ports from which cluster assigned port to Service Fabric applications."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The capacity tags applied to the nodes in the node type, the cluster resource manager uses these tags to understand how much resource a node has."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed data disk letter. It can not use the reserved letter C or D and it can not change after created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disk size for the managed disk attached to the vms on the node type in GBs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "DiskType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed data disk type. Specifies the storage account type for the managed disk"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the network interface is accelerated networking-enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or disable the Host Encryption for the virtual machines on the node type. This will enable the encryption for all the disks including Resource/Temp disk at host itself. Default: The Encryption at host will be disabled unless this property is set to true for the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the node type should be overprovisioned. It is only allowed for stateless node types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": "EndpointRangeDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The range of ephemeral ports that nodes in this node type should be configured with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the node type uses its own frontend configurations instead of the default one for the cluster. This setting can only be specified for non-primary node types and can not be added or removed after the node type is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicates the Service Fabric system services for the cluster will run on this node type. This setting cannot be changed once the node type is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the node type can only host Stateless workloads."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if scale set associated with the node type can be composed of multiple placement groups."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Network Security Rules for this node type. This setting can only be specified for node types that are configured with frontend configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +210,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The placement tags applied to nodes in the node type, which can be used to indicate where certain services (workload) should run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -206,7 +222,8 @@
     "referenceName": "ManagedResourceProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the node type resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -217,7 +234,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the use public load balancer. If not specified and the node type doesn't have its own frontend configuration, it will be attached to the default load balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is true, then the frontend has to be an Internal Load Balancer. If the node type uses its own Load balancer and useDefaultPublicLoadBalancer is false or not set, then the custom load balancer must include a public load balancer to provide outbound connectivity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -228,7 +246,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether to use the temporary disk for the service fabric data root, in which case no managed data disk will be attached and the temporary disk will be used. It is only allowed for stateless node types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -243,7 +262,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set of extensions that should be installed onto the virtual machines."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -254,7 +274,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The offer type of the Azure Virtual Machines Marketplace image. For example, UbuntuServer or WindowsServer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -265,7 +286,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The publisher of the Azure Virtual Machines Marketplace image. For example, Canonical or MicrosoftWindowsServer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -276,7 +298,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SKU of the Azure Virtual Machines Marketplace image. For example, 14.04.0-LTS or 2012-R2-Datacenter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +310,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of the Azure Virtual Machines Marketplace image. A value of 'latest' can be specified to select the latest version of an image. If omitted, the default is 'latest'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -298,7 +322,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of nodes in the node type. \u003cbr /\u003e\u003cbr /\u003e**Values:** \u003cbr /\u003e-1 - Use when auto scale rules are configured or sku.capacity is defined \u003cbr /\u003e 0 - Not supported \u003cbr /\u003e \u003e0 - Use for manual scale."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +334,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identities to assign to the virtual machine scale set under the node type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -324,7 +350,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The secrets to install in the virtual machines."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -335,7 +362,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of virtual machines in the pool. All virtual machines in a pool are the same size. For example, Standard_D3."
   }
  ]
 }

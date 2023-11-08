@@ -10,7 +10,8 @@
     "referenceName": "FirewallPolicyFilterRuleCollectionAction"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The action type of a Filter rule collection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of rules included in a rule collection."
   }
  ],
  "discriminatedParentModelName": "FirewallPolicyRuleCollection",
- "discriminatedTypeValue": "FirewallPolicyFilterRuleCollection"
+ "discriminatedTypeValue": "FirewallPolicyFilterRuleCollection",
+ "typeHintIn": "RuleCollectionType"
 }

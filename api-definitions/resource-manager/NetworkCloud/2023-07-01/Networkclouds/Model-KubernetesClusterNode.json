@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the agent pool that this node belongs to. This value is not represented on control plane nodes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The availability zone this node is running within."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the bare metal machine that hosts this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of CPU cores configured for this node, derived from the VM SKU specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "KubernetesClusterNodeDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The detailed state of this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of the disk configured for this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The machine image used to deploy this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The currently running version of Kubernetes and bundled features running on this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of labels on this node that have been assigned to the agent pool containing this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of memory configured for this node, derived from the vm SKU specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "AgentPoolMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mode of the agent pool containing this node. Not applicable for control plane nodes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of this node, as realized in the Kubernetes cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The NetworkAttachments made to this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": "KubernetesNodePowerState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The power state of this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "referenceName": "KubernetesNodeRole"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The role of this node in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of taints that have been assigned to the agent pool containing this node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -209,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The VM SKU name that was used to create this cluster node."
   }
  ]
 }

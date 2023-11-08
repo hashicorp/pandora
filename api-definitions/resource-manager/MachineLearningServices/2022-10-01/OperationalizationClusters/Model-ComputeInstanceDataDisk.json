@@ -10,7 +10,8 @@
     "referenceName": "Caching"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Caching type of Data Disk."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial disk size in gigabytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lun is used to uniquely identify each data disk. If attaching multiple disks, each should have a distinct lun."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "StorageAccountType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "type of this storage account."
   }
  ]
 }

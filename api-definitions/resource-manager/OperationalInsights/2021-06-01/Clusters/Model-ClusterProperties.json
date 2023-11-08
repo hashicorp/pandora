@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of Log Analytics workspaces associated with the cluster"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "BillingType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster's billing type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "CapacityReservationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional properties for capacity reservation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID associated with the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster creation time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets whether the cluster will support availability zones. This can be set as true only in regions where Azure Data Explorer support Availability Zones. This Property can not be modified after cluster creation. Default value is 'true' if region supports Availability Zones."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configures whether cluster will use double encryption. This Property can not be modified after cluster creation. Default value is 'true'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "KeyVaultProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The associated key properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time the cluster was updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "ClusterEntityStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the cluster."
   }
  ]
 }

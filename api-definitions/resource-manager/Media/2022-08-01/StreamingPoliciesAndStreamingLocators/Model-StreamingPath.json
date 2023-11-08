@@ -10,7 +10,8 @@
     "referenceName": "EncryptionScheme"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Encryption scheme"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Streaming paths for each protocol and encryptionScheme pair"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "StreamingPolicyStreamingProtocol"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Streaming protocol"
   }
  ]
 }

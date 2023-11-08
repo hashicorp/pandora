@@ -10,7 +10,8 @@
     "referenceName": "ClusterCapacityViewData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster capacity data for compute resources (Memory and GPU)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ClusterStorageViewData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster capacity data for storage resources (CSV)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dictionary of individual node names and node capacities in the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of request in UTC"
   }
  ]
 }

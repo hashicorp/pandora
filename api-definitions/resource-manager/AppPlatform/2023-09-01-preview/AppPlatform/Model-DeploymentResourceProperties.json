@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the Deployment is active"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DeploymentSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deployment settings of the Deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of instances belong to the Deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "DeploymentResourceProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the Deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "UserSourceInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Uploaded source information of the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "DeploymentResourceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the Deployment"
   }
  ]
 }

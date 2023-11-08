@@ -10,7 +10,8 @@
     "referenceName": "AccessLevel"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Time duration in seconds until the SAS access expires."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "FileFormat"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Used to specify the file format when making request for SAS on a VHDX file format snapshot"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set this flag to true to get additional SAS for VM guest state"
   }
  ]
 }

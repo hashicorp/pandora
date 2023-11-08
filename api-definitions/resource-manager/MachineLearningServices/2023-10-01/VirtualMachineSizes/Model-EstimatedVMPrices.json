@@ -10,7 +10,8 @@
     "referenceName": "BillingCurrency"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Three lettered code specifying the currency of the VM price. Example: USD"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "UnitOfMeasure"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The unit of time measurement for the specified VM price. Example: OneHour"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of estimated prices for using a VM of a particular OS type, tier, etc."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "FileImportContentType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The content type of this file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the file was imported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "FileMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Represents the error file (if the import was ingested with errors or failed the validation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An ordered list of some of the errors that were encountered during validation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the files associated with this import are deleted from the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "referenceName": "FileMetadata"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Represents the imported file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +89,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the file import record is soft deleted from the database and history."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,7 +101,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of records that have been successfully ingested."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -105,7 +113,8 @@
     "referenceName": "IngestionMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Describes how to ingest the records in the file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -116,7 +125,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The source for the data in the file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +137,8 @@
     "referenceName": "FileImportState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the file import."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -138,7 +149,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of records in the file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -149,7 +161,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of records that have passed validation."
   }
  ]
 }

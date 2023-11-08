@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The app consistent snapshot frequency in minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The crash consistent snapshot frequency in minutes."
   }
  ],
  "discriminatedParentModelName": "PolicyProviderSpecificDetails",
- "discriminatedTypeValue": "InMageRcmFailback"
+ "discriminatedTypeValue": "InMageRcmFailback",
+ "typeHintIn": "InstanceType"
 }

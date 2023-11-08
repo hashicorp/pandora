@@ -10,7 +10,8 @@
     "referenceName": "MonitoringInputData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data to calculate drift against."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "FeatureAttributionMetricThreshold"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] A list of metrics to calculate and their associated thresholds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MonitoringModelType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The type of task the model performs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "MonitoringInputData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data which drift will be calculated for."
   }
  ],
  "discriminatedParentModelName": "MonitoringSignalBase",
- "discriminatedTypeValue": "FeatureAttributionDrift"
+ "discriminatedTypeValue": "FeatureAttributionDrift",
+ "typeHintIn": "SignalType"
 }

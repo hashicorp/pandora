@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Contact Profile Link Channel."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "Direction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Direction (Uplink or Downlink)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Effective Isotropic Radiated Power (EIRP) in dBW. It is the required EIRP by the customer. Not used yet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gain to noise temperature in db/K. It is the required G/T by the customer. Not used yet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Link name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "Polarization"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Polarization. e.g. (RHCP, LHCP)."
   }
  ]
 }

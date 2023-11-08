@@ -10,7 +10,8 @@
     "referenceName": "SecurityRuleAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination address prefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AzureLoadBalancer, Internet), System Tags, and the asterisk (*)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination port or range."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as separator (e.g. 100-400), or an asterisk (*)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "SecurityRuleDirection"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Expanded destination address prefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The expanded source address prefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the security rule specified by the user (if created by the user)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The priority of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +146,8 @@
     "referenceName": "EffectiveSecurityRuleProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network protocol this rule applies to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source address prefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +174,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source address prefixes. Expected values include CIDR IP ranges, Default Tags (VirtualNetwork, AzureLoadBalancer, Internet), System Tags, and the asterisk (*)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +186,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source port or range."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +202,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source port ranges. Expected values include a single integer between 0 and 65535, a range using '-' as separator (e.g. 100-400), or an asterisk (*)."
   }
  ]
 }

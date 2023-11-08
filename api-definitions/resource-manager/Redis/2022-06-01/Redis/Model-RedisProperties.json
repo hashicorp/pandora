@@ -10,7 +10,8 @@
     "referenceName": "RedisAccessKeys"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The keys of the Redis cache - not set if this object is not the response to Create or Update redis cache"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the non-ssl Redis server port (6379) is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis host name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of the Redis instances associated with the cache"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of the linked servers associated with the cache"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "TlsVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional: requires clients to use a specified TLS version (or higher) to connect (e,g, '1.0', '1.1', '1.2')"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis non-SSL port."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private endpoint connection associated with the specified redis cache"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis instance provisioning status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public endpoint access is allowed for this cache.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'. If 'Disabled', private endpoints are the exclusive access method. Default value is 'Enabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "RedisCommonPropertiesRedisConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "All Redis Settings. Few possible keys: rdb-backup-enabled,rdb-storage-connection-string,rdb-backup-frequency,maxmemory-delta,maxmemory-policy,notify-keyspace-events,maxmemory-samples,slowlog-log-slower-than,slowlog-max-len,list-max-ziplist-entries,list-max-ziplist-value,hash-max-ziplist-entries,hash-max-ziplist-value,set-max-intset-entries,zset-max-ziplist-entries,zset-max-ziplist-value etc."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis version. This should be in the form 'major[.minor]' (only 'major' is required) or the value 'latest' which refers to the latest stable Redis version that is available. Supported versions: 4.0, 6.0 (latest). Default value is 'latest'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of replicas to be created per primary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of replicas to be created per primary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of shards to be created on a Premium Cluster Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": "Sku"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The SKU of the Redis cache to deploy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis SSL port."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -209,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Static IP address. Optionally, may be specified when deploying a Redis cache inside an existing Azure Virtual Network; auto assigned by default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -220,7 +238,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The full resource ID of a subnet in a virtual network to deploy the Redis cache in. Example format: /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/Microsoft.{Network|ClassicNetwork}/VirtualNetworks/vnet1/subnets/subnet1"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A dictionary of tenant settings"
   }
  ]
 }

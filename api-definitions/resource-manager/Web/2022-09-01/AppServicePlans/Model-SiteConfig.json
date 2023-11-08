@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to use Managed Identity Creds for ACR pull"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If using user managed identity, the user managed identity ClientId"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if Always On is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ApiDefinitionInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ApiManagementConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "App command line to launch."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Application settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if Auto Heal is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "AutoHealRules"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Auto-swap slot name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Azure Storage Accounts."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connection strings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "CorsSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +182,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default documents."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if detailed error logging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +206,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Document root."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of workers that a site can scale out to.\nThis setting only applies to apps in plans where ElasticScaleEnabled is \u003ccode\u003etrue\u003c/code\u003e"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": "Experiments"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": "FtpsState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of FTP / FTPS service"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of workers that a site can scale out to.\nThis setting only applies to the Consumption and Elastic Premium Plans"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +266,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets a value indicating whether functions runtime scale monitoring is enabled. When enabled,\nthe ScaleController will not monitor event sources directly, but will instead call to the\nruntime to get scale status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +278,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Http20Enabled: configures a web site to allow clients to connect over http2.0"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -268,7 +290,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if HTTP logging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -283,7 +306,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Handler mappings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -294,7 +318,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health check path"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +334,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP security restrictions for main."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +346,8 @@
     "referenceName": "DefaultAction"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default action for main access restriction if no rules are matched."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -331,7 +358,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Java container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -342,7 +370,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Java container version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -353,7 +382,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Java version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -364,7 +394,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identity to use for Key Vault Reference authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -375,7 +406,8 @@
     "referenceName": "SiteLimits"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -386,7 +418,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Linux App Framework and version"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -397,7 +430,8 @@
     "referenceName": "SiteLoadBalancing"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Site load balancing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -408,7 +442,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e to enable local MySQL; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -419,7 +454,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "HTTP logs directory size limit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -430,7 +466,8 @@
     "referenceName": "SiteMachineKey"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -441,7 +478,8 @@
     "referenceName": "ManagedPipelineMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed pipeline mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -452,7 +490,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed Service Identity Id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -467,7 +506,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Application metadata. This property cannot be retrieved, since it may contain secrets."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -478,7 +518,8 @@
     "referenceName": "SupportedTlsVersions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "MinTlsVersion: configures the minimum version of TLS required for SSL requests"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -489,7 +530,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of minimum instance count for a site\nThis setting only applies to the Elastic Plans"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -500,7 +542,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ".NET Framework version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -511,7 +554,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of Node.js."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -522,7 +566,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of workers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -533,7 +578,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of PHP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -544,7 +590,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of PowerShell."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -555,7 +602,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of preWarmed instances.\nThis setting only applies to the Consumption and Elastic Plans"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -566,7 +614,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property to allow or block all public traffic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -577,7 +626,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Publishing user name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -588,7 +638,8 @@
     "referenceName": "PushSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -599,7 +650,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version of Python."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -610,7 +662,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if remote debugging is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -621,7 +674,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Remote debugging version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -632,7 +686,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if request tracing is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -644,7 +699,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Request tracing expiration time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -659,7 +715,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP security restrictions for scm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -670,7 +727,8 @@
     "referenceName": "DefaultAction"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default action for scm access restriction if no rules are matched."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -681,7 +739,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP security restrictions for scm to use main."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -692,7 +751,8 @@
     "referenceName": "SupportedTlsVersions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ScmMinTlsVersion: configures the minimum version of TLS required for SSL requests for SCM site"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -703,7 +763,8 @@
     "referenceName": "ScmType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SCM type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -714,7 +775,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tracing options."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -725,7 +787,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e to use 32-bit worker process; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -740,7 +803,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual applications."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -751,7 +815,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Network name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -762,7 +827,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of private ports assigned to this app. These will be assigned dynamically on runtime."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -773,7 +839,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Network Route All enabled. This causes all outbound traffic to have Virtual Network Security Groups and User Defined Routes applied."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -784,7 +851,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if WebSocket is enabled; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -795,7 +863,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets the time zone a site uses for generating timestamps. Compatible with Linux and Windows App Service. Setting the WEBSITE_TIME_ZONE app setting takes precedence over this config. For Linux, expects tz database values https://www.iana.org/time-zones (for a quick reference see https://en.wikipedia.org/wiki/List_of_tz_database_time_zones). For Windows, expects one of the time zones listed under HKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -806,7 +875,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Xenon App Framework and version"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -817,7 +887,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Explicit Managed Service Identity Id"
   }
  ]
 }

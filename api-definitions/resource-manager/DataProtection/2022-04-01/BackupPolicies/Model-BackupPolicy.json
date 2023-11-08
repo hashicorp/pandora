@@ -14,9 +14,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc"
   }
  ],
  "discriminatedParentModelName": "BaseBackupPolicy",
- "discriminatedTypeValue": "BackupPolicy"
+ "discriminatedTypeValue": "BackupPolicy",
+ "typeHintIn": "ObjectType"
 }

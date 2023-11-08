@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional details of this usage item. Use this field to get usage line item specific details such as the actual VM Size (ServiceType) or the ratio in which the reservation discount is applied."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique identifier for the applicable benefit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the applicable benefit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Billing Account identifier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Billing Account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The currency defining the billed cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Billing Period End Date as in the invoice."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Billing Period Start Date as in the invoice."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier for the billing profile that groups costs across invoices in the a singular billing currency across across the customers who have onboarded the Microsoft customer agreement and the customers in CSP who have made entitlement purchases like SaaS, Marketplace, RI, etc."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the billing profile that groups costs across invoices in the a singular billing currency across across the customers who have onboarded the Microsoft customer agreement and the customers in CSP who have made entitlement purchases like SaaS, Marketplace, RI, etc."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates a charge represents credits, usage, a Marketplace purchase, a reservation fee, or a refund."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Consumed service name. Name of the azure resource provider that emits the usage or was purchased. This value is not provided for marketplace usage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name for Cost Allocation Rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +168,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cost center of this department if it is a department and a cost center is provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +180,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ExtendedCost or blended cost before tax in billed currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -177,7 +192,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ExtendedCost or blended cost before tax in pricing currency to correlate with prices."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +204,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Estimated extendedCost or blended cost before tax in USD."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +216,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the customer's AAD tenant."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -210,7 +228,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier of the customer's AAD tenant."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -222,7 +241,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date for the usage record."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -233,7 +253,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Effective Price that's charged for the usage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -244,7 +265,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Exchange rate used in conversion from pricing currency to billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -256,7 +278,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date on which exchange rate used in conversion from pricing currency to billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -267,7 +290,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Exchange Rate from pricing currency to billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -278,7 +302,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates how frequently this charge will occur. OneTime for purchases which only happen once, Monthly for fees which recur every month, and UsageBased for charges based on how much a service is used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -289,7 +314,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Instance Name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -300,7 +326,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Invoice ID as on the invoice where the specific transaction appears."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -311,7 +338,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -322,7 +350,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the project that is being charged in the invoice. Not applicable for Microsoft Customer Agreements onboarded by partners."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -333,7 +362,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Determines if the cost is eligible to be paid for using Azure credits."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -344,7 +374,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Market Price that's charged for the usage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -355,7 +386,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the top-level service for the usage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -366,7 +398,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The meter id (GUID). Not available for marketplace. For reserved instance this represents the primary meter for which the reservation was purchased. For the actual VM Size for which the reservation is purchased see productOrderName."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -377,7 +410,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the name of the meter against which consumption is measured."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -388,7 +422,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the location of the datacenter for certain services that are priced based on datacenter location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -399,7 +434,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Defines the type or sub-category of Azure service that can affect the rate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -410,7 +446,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to indicate if partner earned credit has been applied or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -421,7 +458,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Rate of discount applied if there is a partner earned credit (PEC) based on partner admin link access."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -432,7 +470,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the partner' AAD tenant."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -443,7 +482,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier for the partner's AAD tenant."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -454,7 +494,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retail price for the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -465,7 +506,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of PayG cost before tax in billing currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -476,7 +518,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of PayG cost before tax in US Dollar currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -487,7 +530,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reference to an original invoice there is a refund (negative cost). This is populated only when there is a refund."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -498,7 +542,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Pricing Billing Currency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -509,7 +554,8 @@
     "referenceName": "PricingModelType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier that indicates how the meter is priced"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -520,7 +566,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the product that has accrued charges by consumption or purchase as listed in the invoice. Not available for Marketplace."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -531,7 +578,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier for the product that has accrued charges by consumption or purchase . This is the concatenated key of productId and SkuId in partner center."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -542,7 +590,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The identifier for the asset or Azure plan name that the subscription belongs to. For example: Azure Plan. For reservations this is the Reservation Order ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -553,7 +602,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Product Order Name. For reservations this is the SKU that was purchased."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -564,7 +614,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier for Product Category or Line Of Business, Ex - Azure, Microsoft 365, AWS e.t.c"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -575,7 +626,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Publisher Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -586,7 +638,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the publisher of the service including Microsoft or Third Party publishers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -597,7 +650,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of publisher that identifies if the publisher is first party, third party reseller or third party agency."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -608,7 +662,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Measure the quantity purchased or consumed.The amount of the meter used during the billing period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -619,7 +674,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "MPNId for the reseller associated with the subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -630,7 +686,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reseller Name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -641,7 +698,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource id of the reservation. Only applies to records relevant to reservations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -652,7 +710,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User provided display name of the reservation. Last known name for a particular day is populated in the daily data. Only applies to records relevant to reservations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -663,7 +722,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Azure resource group used for cohesive lifecycle management of resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -674,7 +734,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the resource location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -685,7 +746,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Location Normalized."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -696,7 +758,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List the service family for the product purchased or charged (Example: Storage ; Compute)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -707,7 +770,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Service-specific metadata."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -718,7 +782,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Legacy field with optional service-specific metadata."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -730,7 +795,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "End date for the period when the service usage was rated for charges. The prices for Azure services are determined based on the rating period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -742,7 +808,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start date for the rating period when the service usage was rated for charges. The prices for Azure services are determined for the rating period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -753,7 +820,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique Microsoft generated identifier for the Azure Subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -764,7 +832,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Azure Subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -775,7 +844,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Term (in months). Displays the term for the validity of the offer. For example. In case of reserved instances it displays 12 months for yearly term of reserved instance. For one time purchases or recurring purchases, the terms displays 1 month; This is not applicable for Azure consumption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -786,7 +856,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the Unit that the service is charged in. For example, GB, hours, 10,000 s."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -797,7 +868,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unit Price is the price applicable to you. (your EA or other contract price)."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] AML compute binding used in inferencing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] AML compute binding used in training."
   }
  ],
  "discriminatedParentModelName": "MLAssistConfiguration",
- "discriminatedTypeValue": "Enabled"
+ "discriminatedTypeValue": "Enabled",
+ "typeHintIn": "MlAssist"
 }

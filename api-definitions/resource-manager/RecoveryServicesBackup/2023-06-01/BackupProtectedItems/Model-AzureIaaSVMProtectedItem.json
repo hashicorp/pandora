@@ -10,7 +10,8 @@
     "referenceName": "AzureIaaSVMProtectedItemExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information for this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ExtendedProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the VM represented by this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health details on this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "HealthStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health status of protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health details of different KPIs"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last backup operation status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of the last backup operation on this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data ID of the protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "referenceName": "ProtectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup state of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup status of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,9 +151,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified ARM ID of the virtual machine represented by this item."
   }
  ],
  "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "AzureIaaSVMProtectedItem"
+ "discriminatedTypeValue": "AzureIaaSVMProtectedItem",
+ "typeHintIn": "ProtectedItemType"
 }

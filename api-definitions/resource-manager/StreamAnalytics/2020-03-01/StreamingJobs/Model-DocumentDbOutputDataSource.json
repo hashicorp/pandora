@@ -10,9 +10,11 @@
     "referenceName": "DocumentDbOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a DocumentDB output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.Storage/DocumentDB"
+ "discriminatedTypeValue": "Microsoft.Storage/DocumentDB",
+ "typeHintIn": "Type"
 }

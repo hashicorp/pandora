@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The client certificate id for the management endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The client certificate thumbprint for the management endpoint. Will be ignored if certificatesIds are provided"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The cluster management endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of retries while attempting resolve the partition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Thumbprints of certificates cluster management service uses for tls communication"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server X509 Certificate Names Collection"
   }
  ]
 }

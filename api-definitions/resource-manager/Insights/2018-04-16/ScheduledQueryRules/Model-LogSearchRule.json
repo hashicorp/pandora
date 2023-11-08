@@ -10,7 +10,8 @@
     "referenceName": "Action"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Action needs to be taken on rule execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The flag that indicates whether the alert should be automatically resolved or not. The default is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The api-version used when creating this alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the Log Search rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "Enabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The flag which indicates whether the Log Search rule is enabled. Value should be true or false"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if alert rule is legacy Log Analytic rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last time the rule was updated in IS08601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the scheduled query rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": "Schedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Schedule (Frequency, Time Window) for rule. Required for action type - AlertingAction"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": "Source"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Data Source against which rule will Query Data"
   }
  ]
 }

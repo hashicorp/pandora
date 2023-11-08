@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name given to the subnet within the lab."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SubnetSharedPublicIPAddressConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties that virtual machines on this subnet will share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "UsagePermissionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether this subnet can be used during virtual machine creation (i.e. Allow, Deny)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "UsagePermissionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether public IP addresses can be assigned to virtual machines on this subnet (i.e. Allow, Deny)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual network pool associated with this subnet."
   }
  ]
 }

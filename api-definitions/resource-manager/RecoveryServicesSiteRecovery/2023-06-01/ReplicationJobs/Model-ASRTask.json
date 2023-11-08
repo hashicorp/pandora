@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state/actions applicable on this task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "TaskTypeDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The custom task details based on the task type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The task error details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": "GroupTaskDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The custom task details based on the task type, if the task type is GroupTaskDetails or one of the types derived from it."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique Task name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -97,7 +104,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The State. It is one of these values - NotStarted, InProgress, Succeeded, Failed, Cancelled, Suspended or Other."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the task state. For example - For Succeeded state, description can be Completed, PartiallySucceeded, CompletedWithInformation or Skipped."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -141,7 +152,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of task. Details in CustomDetails property depend on this type."
   }
  ]
 }

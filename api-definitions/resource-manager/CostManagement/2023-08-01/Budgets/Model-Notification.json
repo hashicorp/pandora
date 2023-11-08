@@ -16,7 +16,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Email addresses to send the notification to when the threshold is breached. Must have at least one contact email or contact group specified at the Subscription or Resource Group scopes. All other scopes must have at least one contact email specified.\n\n Supported for CategoryType(s): Cost, ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +34,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription or Resource Group scopes only. Action groups to send the notification to when the threshold is exceeded. Must be provided as a fully qualified Azure resource id.\n\n Supported for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription or Resource Group scopes only. Contact roles to send the notification to when the threshold is breached.\n\n Supported for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The notification is enabled or not.\n\n Supported for CategoryType(s): Cost, ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     "referenceName": "Frequency"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frequency of a notification. Represents how long the notification will be silent after triggering an alert for a threshold breach. If not specified, the frequency will be set by default based on the timeGrain (Weekly when timeGrain: Last7Days, Monthly when timeGrain: Last30Days).\n\n Supported for CategoryType(s): ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     "referenceName": "CultureCode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Language in which the recipient will receive the notification, \n\n Supported for CategoryType(s): Cost, ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     "referenceName": "BudgetNotificationOperatorType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The comparison operator.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n Supported operators for **CategoryType: Cost**\n- GreaterThan\n- GreaterThanOrEqualTo\n\n Supported operators for **CategoryType: ReservationUtilization**\n- LessThan"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Threshold value associated with a notification. It is always percent with a maximum of 2 decimal places.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n **CategoryType: Cost** - Must be between 0 and 1000. Notification is sent when the cost exceeded the threshold.\n\n **CategoryType: ReservationUtilization** - Must be between 0 and 100. Notification is sent when a reservation has a utilization percentage below the threshold."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": "ThresholdType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of threshold.\n\n Supported for CategoryType(s): Cost."
   }
  ]
 }

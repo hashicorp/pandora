@@ -10,7 +10,8 @@
     "referenceName": "AgentProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The machine configuration of the run agent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of override arguments to be used when executing the run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "Credentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that describes a set of credentials that will be used when this run is invoked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Docker file path relative to the source location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified image names including the repository and tag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value of this property indicates whether the image built should be pushed to the registry or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value of this property indicates whether the image cache is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "PlatformProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The platform properties against which the run has to happen."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r\nIf it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the target build stage for the docker build."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,9 +138,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Run timeout in seconds."
   }
  ],
  "discriminatedParentModelName": "RunRequest",
- "discriminatedTypeValue": "DockerBuildRequest"
+ "discriminatedTypeValue": "DockerBuildRequest",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": "BackupPolicyMigrationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object representing the state of the migration between the backup policies."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "BackupPolicyType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Describes the mode of backups."
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Hyper-V host Vm Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account to be used for logging during replication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS type associated with vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS disk VHD id associated with vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,9 +70,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Vm Name."
   }
  ],
  "discriminatedParentModelName": "ReverseReplicationProviderSpecificInput",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

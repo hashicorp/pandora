@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the UTC creation time of the policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies an array of alerts that are disabled. Allowed values are: Sql_Injection, Sql_Injection_Vulnerability, Access_Anomaly, Data_Exfiltration, Unsafe_Action, Brute_Force"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies that the alert is sent to the account administrators."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies an array of e-mail addresses to which the alert is sent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the number of days to keep in the Threat Detection audit logs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": "SecurityAlertPolicyState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the state of the policy, whether it is enabled or disabled or a policy has not been applied yet on the specific database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the identifier key of the Threat Detection audit storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the blob storage endpoint (e.g. https://MyAccount.blob.core.windows.net). This blob storage will hold all Threat Detection audit logs."
   }
  ]
 }

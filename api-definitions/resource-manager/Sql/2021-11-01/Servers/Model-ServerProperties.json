@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Administrator username for the server. Once created it cannot be changed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator login password (required for server creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ServerExternalAdministrator"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Active Directory administrator of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Client id used for cross tenant CMK scenario"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A CMK URI of the key to use for encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimal TLS version. Allowed values: '1.0', '1.1', '1.2'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of a user assigned identity to be used by default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private endpoint connections on a server"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "ServerNetworkAccessFlag"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public endpoint access is allowed for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "ServerNetworkAccessFlag"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not to restrict outbound network access for this server.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": "ServerWorkspaceFeature"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not existing server has a workspace created and if it allows connection from workspace"
   }
  ]
 }

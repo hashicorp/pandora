@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time of the last state change (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Instance count for the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "ServiceSize"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -44,7 +47,8 @@
     "referenceName": "ServiceType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,9 @@
     "referenceName": "ServiceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
- ]
+ ],
+ "typeHintIn": "ServiceType"
 }

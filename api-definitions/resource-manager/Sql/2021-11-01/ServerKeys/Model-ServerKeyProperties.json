@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key auto rotation opt-in flag. Either true or false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The server key creation date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "ServerKeyType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The server key type like 'ServiceManaged', 'AzureKeyVault'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subregion of the server key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Thumbprint of the server key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI of the server key. If the ServerKeyType is AzureKeyVault, then the URI is required. The AKV URI is required to be in this format: 'https://YourVaultName.vault.azure.net/keys/YourKeyName/YourKeyVersion'"
   }
  ]
 }

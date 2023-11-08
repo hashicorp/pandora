@@ -10,7 +10,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CacheConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The caching configuration associated with this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A custom path used to rewrite resource paths matched by this rule. Leave empty to use incoming path."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "FrontDoorForwardingProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protocol this rule will use when forwarding traffic to backends."
   }
  ],
  "discriminatedParentModelName": "RouteConfiguration",
- "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration"
+ "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ "typeHintIn": "OdataType"
 }

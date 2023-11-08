@@ -10,7 +10,8 @@
     "referenceName": "ForecastDataset"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Has definition for data in this forecast."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean determining if actualCost will be included."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean determining if FreshPartialCost will be included."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ForecastTimePeriod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Has time period for pulling data for the forecast."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ForecastTimeframe"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time frame for pulling data for the forecast. If custom, then a specific time period must be provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ForecastType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the forecast."
   }
  ]
 }

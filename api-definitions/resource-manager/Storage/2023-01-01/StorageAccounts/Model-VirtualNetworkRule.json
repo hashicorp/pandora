@@ -10,7 +10,8 @@
     "referenceName": "Action"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The action of virtual network rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Resource ID of a subnet, for example: /subscriptions/{subscriptionId}/resourceGroups/{groupName}/providers/Microsoft.Network/virtualNetworks/{vnetName}/subnets/{subnetName}."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "State"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets the state of virtual network rule."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The RSA Parameter exponent"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The RSA Parameter modulus"
   }
  ],
  "discriminatedParentModelName": "ContentKeyPolicyRestrictionTokenKey",
- "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey"
+ "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyRsaTokenKey",
+ "typeHintIn": "OdataType"
 }

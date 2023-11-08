@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Create firewall rule before the virtual network has vnet service endpoint enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "VirtualNetworkRuleState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Network Rule State"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ARM resource id of the virtual network subnet."
   }
  ]
 }

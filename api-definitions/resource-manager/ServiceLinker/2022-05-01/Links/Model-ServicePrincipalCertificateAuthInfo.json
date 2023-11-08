@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "ServicePrincipal certificate for servicePrincipal auth."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Application clientId for servicePrincipal auth."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Principal Id for servicePrincipal auth."
   }
  ],
  "discriminatedParentModelName": "AuthInfoBase",
- "discriminatedTypeValue": "servicePrincipalCertificate"
+ "discriminatedTypeValue": "servicePrincipalCertificate",
+ "typeHintIn": "AuthType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Object Id of user creating the query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Body of the query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Unique display name for your query within the Query Pack."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique ID of your application. This field cannot be changed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional properties that can be set for the query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "LogAnalyticsQueryPackQueryPropertiesRelated"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The related metadata items for the function."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tags associated with the query."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Creation Date for the Log Analytics Query, in ISO 8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last modified date of the Log Analytics Query, in ISO 8601 format."
   }
  ]
 }

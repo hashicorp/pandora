@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The latest backup copy available for this backup item in archive tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +24,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The oldest backup copy available for this backup item across all tiers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +37,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The oldest backup copy available for this backup item in archive tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The oldest backup copy available for this backup item in vault tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies if backup policy associated with the backup item is inconsistent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of backup copies available for this backup item."
   }
  ]
 }

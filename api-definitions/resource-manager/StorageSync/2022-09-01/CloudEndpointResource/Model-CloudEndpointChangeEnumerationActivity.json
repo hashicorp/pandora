@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Progress percentage for processing deletes. This is done separately from the rest of the enumeration run"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last updated timestamp"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Estimate of time remaining for the enumeration run"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "CloudEndpointChangeEnumerationActivityState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Change enumeration operation state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Count of directories processed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Count of files processed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Progress percentage for change enumeration run, excluding processing of deletes"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when change enumeration started"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When non-zero, indicates an issue that is delaying change enumeration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": "CloudEndpointChangeEnumerationTotalCountsState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Change enumeration total counts state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Total count of directories enumerated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Total count of files enumerated"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Total enumerated size in bytes"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The skipped reason."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The skipped reason string."
   }
  ],
  "discriminatedParentModelName": "JobTaskDetails",
- "discriminatedTypeValue": "FabricReplicationGroupTaskDetails"
+ "discriminatedTypeValue": "FabricReplicationGroupTaskDetails",
+ "typeHintIn": "InstanceType"
 }

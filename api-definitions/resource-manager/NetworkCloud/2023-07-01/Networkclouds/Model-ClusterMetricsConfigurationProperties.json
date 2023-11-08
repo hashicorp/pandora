@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The interval in minutes by which metrics will be collected."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ClusterMetricsConfigurationDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The more detailed status of the metrics configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of metrics that are available for the cluster but disabled at the moment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of metric names that have been chosen to be enabled in addition to the core set of enabled metrics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "ClusterMetricsConfigurationProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the metrics configuration."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "WebTestPropertiesConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An XML configuration specification for a WebTest."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Purpose/user defined descriptive test for this WebTest."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Is the test actively being monitored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Interval in seconds between test runs for this WebTest. Default value is 300."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "WebTestKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The kind of web test this is, valid choices are ping and multistep."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A list of where to physically run the tests from to give global coverage for accessibility of your application."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "User defined name if this WebTest."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current state of this component, whether or not is has been provisioned within the resource group it is defined. Users cannot change this value but are able to read from it. Values will include Succeeded, Deploying, Canceled, and Failed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allow for retries should this WebTest fail."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Unique ID of this WebTest. This is typically the same value as the Name field."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Seconds until this WebTest will timeout and fail. Default value is 30."
   }
  ]
 }

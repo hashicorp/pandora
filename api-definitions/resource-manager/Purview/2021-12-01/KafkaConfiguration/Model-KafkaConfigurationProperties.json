@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Consumer group for hook event hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Credentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Credentials to access event hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional partition Id for notification event hub. If not set, all partitions will be leveraged."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "EventHubType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The event hub type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "EventStreamingState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the event streaming service"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "EventStreamingType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The event streaming service type"
   }
  ]
 }

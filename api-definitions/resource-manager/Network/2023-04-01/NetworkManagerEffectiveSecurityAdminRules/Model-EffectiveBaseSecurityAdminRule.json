@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of the security admin configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource ID."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -32,7 +34,8 @@
     "referenceName": "EffectiveAdminRuleKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Whether the rule is custom or default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Groups for rule collection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of the rule collection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,9 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Effective configuration groups."
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

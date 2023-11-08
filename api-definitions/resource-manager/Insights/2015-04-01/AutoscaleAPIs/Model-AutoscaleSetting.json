@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the enabled flag. Specifies whether automatic scaling is enabled for the resource. The default value is 'false'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the name of the autoscale setting."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the collection of notifications."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the collection of automatic scaling profiles that specify different scaling parameters for different time periods. A maximum of 20 profiles can be specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the location of the resource that the autoscale setting should be added to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the resource identifier of the resource that the autoscale setting should be added to."
   }
  ]
 }

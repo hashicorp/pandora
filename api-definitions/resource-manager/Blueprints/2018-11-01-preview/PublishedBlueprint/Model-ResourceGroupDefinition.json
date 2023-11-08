@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Artifacts which need to be deployed before this resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Location of this resourceGroup. Leave empty if the resource group location will be specified during the blueprint assignment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ParameterDefinitionMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User-friendly properties for this resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of this resourceGroup. Leave empty if the resource group name will be specified during the blueprint assignment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tags to be assigned to this resource group."
   }
  ]
 }

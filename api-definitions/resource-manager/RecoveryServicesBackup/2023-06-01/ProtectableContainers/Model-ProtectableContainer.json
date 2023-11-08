@@ -10,7 +10,8 @@
     "referenceName": "BackupManagementType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of backup management for the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fabric Id of the container such as ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of health of the container."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -54,7 +58,9 @@
     "referenceName": "ProtectableContainerType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the container. The value of this property for\r\n1. Compute Azure VM is Microsoft.Compute/virtualMachines\r\n2. Classic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines"
   }
- ]
+ ],
+ "typeHintIn": "ProtectableContainerType"
 }

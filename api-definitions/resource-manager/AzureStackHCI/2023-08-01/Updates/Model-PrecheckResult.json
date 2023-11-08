@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property bag of key value pairs for additional information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Detailed overview of the issue and what impact the issue has on the stamp."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the services called for the HealthCheck (I.E. Test-AzureStack, Test-Cluster)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the individual test/rule/alert that was executed. Unique, not exposed to the customer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set of steps that can be taken to resolve the issue found."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "Severity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Severity of the result (Critical, Warning, Informational, Hidden). This answers how important the result is. Critical is the only update-blocking severity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "Status"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the check running (i.e. Failed, Succeeded, In Progress). This answers whether the check ran, and passed or failed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "PrecheckResultTags"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key-value pairs that allow grouping/filtering individual tests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique identifier for the affected resource (such as a node or drive)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the affected resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Time in which the HealthCheck was called."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User-facing name; one or more sentences indicating the direct issue."
   }
  ]
 }

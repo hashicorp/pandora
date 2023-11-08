@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Geo backup key uri as key vault can't cross region, need cmk in same region as geo backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Geo backup user identity resource id as identity can't cross region, need identity in same region as geo backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary key uri"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary user identity resource id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "DataEncryptionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The key type, AzureKeyVault for enable cmk, SystemManaged for disable cmk."
   }
  ]
 }

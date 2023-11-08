@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional details of this usage item. By default this is not populated, unless it's specified in $expand."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the billing period resource that the usage belongs to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The quantity of usage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Consumed service name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cost center of this department if it is a department and a costcenter exists"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ISO currency in which the meter is charged, for example, USD."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Department name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The uri of the resource instance that the usage is about."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the resource instance that the usage is about."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The estimated usage is subject to change."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag indicating whether this is a recurring charge or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The meter id (GUID)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of offer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The order number."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of cost before tax."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of publisher."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +238,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +250,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The marketplace resource rate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -241,7 +262,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription guid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -252,7 +274,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -263,7 +286,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unit of measure."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -275,7 +299,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end of the date time range covered by the usage detail."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +312,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start of the date time range covered by the usage detail."
   }
  ]
 }

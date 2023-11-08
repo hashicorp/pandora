@@ -10,7 +10,8 @@
     "referenceName": "ManagedCertificateDomainControlValidation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Selected type of domain control validation for managed certificates."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Any error occurred during the certificate provision."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CertificateProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subject name of the certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A TXT token used for DNS TXT domain control validation when issuing this type of managed certificates."
   }
  ]
 }

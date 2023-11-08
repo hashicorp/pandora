@@ -10,7 +10,8 @@
     "referenceName": "RecoveryPlanActionLocation"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The fabric location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The script path."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The script timeout."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanActionDetails",
- "discriminatedTypeValue": "ScriptActionDetails"
+ "discriminatedTypeValue": "ScriptActionDetails",
+ "typeHintIn": "InstanceType"
 }

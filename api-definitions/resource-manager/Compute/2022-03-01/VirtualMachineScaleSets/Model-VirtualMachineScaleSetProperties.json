@@ -10,7 +10,8 @@
     "referenceName": "AdditionalCapabilities"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AutomaticRepairsPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Policy for automatic repairs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When Overprovision is enabled, extensions are launched only on the requested number of VMs which are finally kept. This property will hence ensure that the extensions do not run on the extra overprovisioned VMs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "OrchestrationMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the orchestration mode for the virtual machine scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the Virtual Machine Scale Set should be overprovisioned."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fault Domain count for each placement group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "ScaleInPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the policies applied when scaling in Virtual Machines in the Virtual Machine Scale Set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When true this limits the scale set to a single placement group, of max size 100 virtual machines. NOTE: If singlePlacementGroup is true, it may be modified to false. However, if singlePlacementGroup is false, it may not be modified to true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "SpotRestorePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the Spot Restore properties for the virtual machine scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the time at which the Virtual Machine Scale Set resource was created.\u003cbr\u003e\u003cbr\u003eMinimum api-version: 2022-03-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the ID which uniquely identifies a Virtual Machine Scale Set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": "UpgradePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The upgrade policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "referenceName": "VirtualMachineScaleSetVMProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +203,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to force strictly even Virtual Machine distribution cross x-zones in case there is zone outage. zoneBalance property can only be set if the zones property of the scale set contains more than one zone. If there are no zones or only one zone specified, then zoneBalance property should not be set."
   }
  ]
 }

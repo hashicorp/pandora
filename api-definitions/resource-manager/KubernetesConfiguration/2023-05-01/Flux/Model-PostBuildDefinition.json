@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key/value pairs holding the variables to be substituted in this Kustomization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of ConfigMaps/Secrets from which the variables are substituted for this Kustomization."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "ActionType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Describes what action to be applied when rule matches."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CustomRuleEnabledState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of match conditions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the name of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Describes priority of the rule. Rules with a lower value will be evaluated before rules with a higher value."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time window for resetting the rate limit count. Default is 1 minute."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of allowed requests per client within the time window."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "RuleType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Describes type of rule."
   }
  ]
 }

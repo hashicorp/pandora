@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time zone for updating the agent components. Valid time zones can be found here: https://docs.microsoft.com/en-us/dotnet/api/system.timezoneinfo.findsystemtimezonebyid?view=net-5.0. A time zone must be specified if useSessionHostLocalTime is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maintenance windows (day and time) for updating the agent components. At least 1 window must be specified. Optionally, a 2nd window can be specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "SessionHostComponentUpdateType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The preferred mechanism for updating the agent components. This is either Scheduled or Default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Boolean indicating whether to update the agent components in the local time zone of each session host in the host pool. By default, this is false."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "InputLinuxParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input parameters specific to patching Linux machine. For Windows machines, do not pass this property."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RebootOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Possible reboot preference as defined by the user based on which it would be decided to reboot the machine or not after the patch operation is completed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "InputWindowsParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input parameters specific to patching a Windows machine. For Linux machines, do not pass this property."
   }
  ]
 }

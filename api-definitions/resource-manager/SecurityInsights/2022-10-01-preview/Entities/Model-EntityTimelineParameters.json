@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The end timeline date, so the results returned are before this date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of timeline Item kinds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of bucket for timeline queries aggregation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The start timeline date, so the results returned are after this date."
   }
  ]
 }

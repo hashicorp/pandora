@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if the domain should be automatically renewed; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DomainPurchaseConsent"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Legal agreement consent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "Contact"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Administrative contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "Contact"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Billing contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "Contact"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Registrant contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "Contact"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Technical contact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Domain creation timestamp."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "DnsType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current DNS type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure DNS Zone to use"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reasons why domain is not renewable."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +148,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Domain expiration timestamp."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -149,7 +161,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when the domain was renewed last time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +177,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "All hostnames derived from the domain and assigned to Azure resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +193,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name servers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +205,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if domain privacy is enabled for this domain; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -201,7 +217,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Domain provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +229,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if Azure can assign this domain to App Service apps; otherwise, \u003ccode\u003efalse\u003c/code\u003e. This value will be \u003ccode\u003etrue\u003c/code\u003e if domain registration status is active and \n it is hosted on name servers Azure has programmatic access to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +241,8 @@
     "referenceName": "DomainStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Domain registration status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -234,7 +253,8 @@
     "referenceName": "DnsType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target DNS type (would be used for migration)"
   }
  ]
 }

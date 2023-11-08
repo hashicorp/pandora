@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the rule."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "RoleManagementPolicyRuleType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,9 @@
     "referenceName": "RoleManagementPolicyRuleTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
- ]
+ ],
+ "typeHintIn": "RuleType"
 }

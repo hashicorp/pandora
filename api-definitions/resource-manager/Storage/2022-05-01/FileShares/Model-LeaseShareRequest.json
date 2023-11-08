@@ -10,7 +10,8 @@
     "referenceName": "LeaseShareAction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the lease action. Can be one of the available actions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional. For a break action, proposed duration the lease should continue before it is broken, in seconds, between 0 and 60."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Required for acquire. Specifies the duration of the lease, in seconds, or negative one (-1) for a lease that never expires."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifies the lease. Can be specified in any valid GUID string format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional for acquire, required for change. Proposed lease ID, in a GUID string format."
   }
  ]
 }

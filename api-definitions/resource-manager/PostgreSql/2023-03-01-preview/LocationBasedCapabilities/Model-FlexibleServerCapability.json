@@ -10,7 +10,8 @@
     "referenceName": "FastProvisioningSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets a value indicating whether fast provisioning is supported. \"Enabled\" means fast provisioning is supported. \"Disabled\" stands for fast provisioning is not supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "GeoBackupSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Determines if geo-backup is supported in this region. \"Enabled\" means geo-backup is supported. \"Disabled\" stands for geo-back is not supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of flexible servers capability"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "OnlineResizeSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether online resize is supported in this region for the given subscription. \"Enabled\" means storage online resize is supported. \"Disabled\" means storage online resize is not supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason for the capability not being available."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "RestrictedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether this region is restricted. \"Enabled\" means region is restricted. \"Disabled\" stands for region is not restricted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "CapabilityStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the capability."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "StorageAutoGrowthSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether storage auto-grow is supported in this region. \"Enabled\" means storage auto-grow is supported. \"Disabled\" stands for storage auto-grow is not supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of supported server editions for fast provisioning"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of supported flexible server editions"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of server versions supported for this capability."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether Zone Redundant HA and Geo-backup is supported in this region. \"Enabled\" means zone redundant HA and geo-backup is supported. \"Disabled\" stands for zone redundant HA and geo-backup is not supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "ZoneRedundantHaSupportedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether Zone Redundant HA is supported in this region. \"Enabled\" means zone redundant HA is supported. \"Disabled\" stands for zone redundant HA is not supported."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "Protocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether redis clients can connect using TLS-encrypted or plaintext redis protocols. Default is TLS-encrypted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ClusteringPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Clustering policy - default is OSSCluster. Specified at create time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EvictionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redis eviction policy - default is VolatileLRU"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DatabasePropertiesGeoReplication"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional set of properties to configure geo replication for this database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional set of redis modules to enable in this database - modules can only be added at creation time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "Persistence"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Persistence settings"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TCP port of the database endpoint. Specified at create time. Defaults to an available port."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current provisioning status of the database"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "ResourceState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current resource status of the database"
   }
  ]
 }

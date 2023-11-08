@@ -10,9 +10,11 @@
     "referenceName": "EventHubEventSubscriptionDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Event Hub Properties of the event subscription destination."
   }
  ],
  "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "EventHub"
+ "discriminatedTypeValue": "EventHub",
+ "typeHintIn": "EndpointType"
 }

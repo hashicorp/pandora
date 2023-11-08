@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the computer associated with this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sync time for deferred deletion in UTC"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MabFileFolderProtectedItemExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information with this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of last backup operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of the last backup operation on this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,9 +83,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protected, ProtectionStopped, IRPending or ProtectionError"
   }
  ],
  "discriminatedParentModelName": "ProtectedItem",
- "discriminatedTypeValue": "MabFileFolderProtectedItem"
+ "discriminatedTypeValue": "MabFileFolderProtectedItem",
+ "typeHintIn": "ProtectedItemType"
 }

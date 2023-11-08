@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Resource Id of the destination volume on which the files need to be restored"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +28,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of files to be restored"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -38,7 +40,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Destination folder where the files will be restored. The path name should start with a forward slash. If it is omitted from request then restore is done at the root folder of the destination volume by default"
   }
  ]
 }

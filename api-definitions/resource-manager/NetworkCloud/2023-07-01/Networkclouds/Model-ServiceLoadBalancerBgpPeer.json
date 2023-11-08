@@ -10,7 +10,8 @@
     "referenceName": "BfdEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator of BFD enablement for this BgpPeer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BgpMultiHop"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator to enable multi-hop peering support."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The requested BGP hold time value. This field uses ISO 8601 duration format, for example P1H."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The requested BGP keepalive time value. This field uses ISO 8601 duration format, for example P1H."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The autonomous system number used for the local end of the BGP session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name used to identify this BGP peer for association with a BGP advertisement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The authentication password for routers enforcing TCP MD5 authenticated sessions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IPv4 or IPv6 address used to connect this BGP session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The autonomous system number expected from the remote end of the BGP session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port used to connect this BGP session."
   }
  ]
 }

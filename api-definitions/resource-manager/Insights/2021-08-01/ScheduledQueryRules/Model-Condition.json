@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Dimensions conditions"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ConditionFailingPeriods"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The minimum number of violations required within the selected lookback time window required to raise an alert. Relevant only for rules of the kind LogAlert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The column containing the metric measure number. Relevant only for rules of the kind LogAlert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the metric to be sent. Relevant and required only for rules of the kind LogToMetric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ConditionOperator"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The criteria operator. Relevant and required only for rules of the kind LogAlert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Log query alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The column containing the resource id. The content of the column must be a uri formatted as resource id. Relevant only for rules of the kind LogAlert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the criteria threshold value that activates the alert. Relevant and required only for rules of the kind LogAlert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "TimeAggregation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Aggregation type. Relevant and required only for rules of the kind LogAlert."
   }
  ]
 }

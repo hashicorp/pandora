@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the Log Analytics workspace that is used for the logs collection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The Azure availability zones within the region that will be used to support the cluster manager resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of the cluster versions the manager supports. It is used as input in clusterVersion property of a cluster resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ClusterManagerDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The detailed status that provides additional information about the cluster manager."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource ID of the fabric controller that has one to one mapping with the cluster manager."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ManagedResourceGroupConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration of the managed resource group associated with the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "ExtendedLocation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The extended location (custom location) that represents the cluster manager's control plane location. This extended location is used when creating cluster and rack manifest resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "ClusterManagerProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the cluster manager."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field deprecated, this value will no longer influence the cluster manager allocation process and will be removed in a future version. The size of the Azure virtual machines to use for hosting the cluster manager resource."
   }
  ]
 }

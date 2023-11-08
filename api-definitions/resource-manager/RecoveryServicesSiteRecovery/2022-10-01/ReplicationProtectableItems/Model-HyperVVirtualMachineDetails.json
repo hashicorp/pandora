@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last successful failover time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the object in fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "PresenceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the VM has a fibre channel adapter attached. String value of SrsDataContract.PresenceStatus enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "PresenceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the VM has a physical disk attached. String value of SrsDataContract.PresenceStatus enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "PresenceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the VM has a shared VHD attached. String value of SrsDataContract.PresenceStatus enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of the hyper-v host in fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "OSDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last replication time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,9 +98,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source id of the object."
   }
  ],
  "discriminatedParentModelName": "ConfigurationSettings",
- "discriminatedTypeValue": "HyperVVirtualMachine"
+ "discriminatedTypeValue": "HyperVVirtualMachine",
+ "typeHintIn": "InstanceType"
 }

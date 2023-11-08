@@ -10,7 +10,8 @@
     "referenceName": "ImageLimitSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "[Required] Limit settings for the AutoML job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ImageModelSettingsClassification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Settings used for training the model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ClassificationMultilabelPrimaryMetrics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary metric to optimize for this task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Search space for sampling different combinations of models and their hyperparameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ImageSweepSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Model sweeping and hyperparameter sweeping related settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Validation data inputs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,9 +86,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided."
   }
  ],
  "discriminatedParentModelName": "AutoMLVertical",
- "discriminatedTypeValue": "ImageClassificationMultilabel"
+ "discriminatedTypeValue": "ImageClassificationMultilabel",
+ "typeHintIn": "TaskType"
 }

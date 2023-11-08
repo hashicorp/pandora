@@ -10,7 +10,8 @@
     "referenceName": "ObjectReferenceDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Object reference to the Kustomization that applied this object"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "FluxComplianceState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compliance state of the applied object showing whether the applied object has come into a ready state on the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "HelmReleasePropertiesDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional properties that are provided from objects of the HelmRelease kind"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Kind of the applied object"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the applied object"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Namespace of the applied object"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Kubernetes object status conditions present on the cluster"
   }
  ]
 }

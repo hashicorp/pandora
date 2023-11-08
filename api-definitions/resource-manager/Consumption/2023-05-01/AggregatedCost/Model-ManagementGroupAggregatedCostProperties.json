@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure Charges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the billing period resource that the aggregated cost belongs to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Charges Billed Separately."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Children of a management group"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ISO currency in which the meter is charged, for example, USD."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of subscription Guids excluded from the calculation of aggregated cost"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of subscription Guids included in the calculation of aggregated cost"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Marketplace Charges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +119,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end of the date time range covered by the aggregated cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +132,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start of the date time range covered by aggregated cost."
   }
  ]
 }

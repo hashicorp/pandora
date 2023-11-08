@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on private bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RequestsBasedTrigger"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on total requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SlowRequestsBasedTrigger"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on request execution time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on multiple Slow Requests Rule with path"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on status codes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A rule based on status codes ranges."
   }
  ]
 }

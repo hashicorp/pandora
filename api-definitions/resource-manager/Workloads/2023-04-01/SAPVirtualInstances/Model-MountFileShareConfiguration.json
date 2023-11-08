@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The fileshare resource ID"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The private endpoint resource ID"
   }
  ],
  "discriminatedParentModelName": "FileShareConfiguration",
- "discriminatedTypeValue": "Mount"
+ "discriminatedTypeValue": "Mount",
+ "typeHintIn": "ConfigurationType"
 }

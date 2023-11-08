@@ -10,7 +10,8 @@
     "referenceName": "MonitorNotificationSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The monitor's notification settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MonitorComputeConfigurationBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The ARM resource ID of the compute resource to run the monitoring job on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MonitoringTarget"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The entities targeted by the monitor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The signals to monitor."
   }
  ]
 }

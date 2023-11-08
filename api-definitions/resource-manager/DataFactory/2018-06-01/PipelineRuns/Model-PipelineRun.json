@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration of a pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PipelineRunInvokedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Entity that started the pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the recovered pipeline run is the latest in its group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last updated timestamp for the pipeline run event in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The message from a pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The full or partial list of parameter name, value pair used in the pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The pipeline name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Run dimensions emitted by Pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end time of a pipeline run in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier that correlates all the recovery runs of a pipeline run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identifier of a run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +153,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start time of a pipeline run in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +165,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of a pipeline run. Possible values: Queued, InProgress, Succeeded, Failed, Canceling, Cancelled"
   }
  ]
 }

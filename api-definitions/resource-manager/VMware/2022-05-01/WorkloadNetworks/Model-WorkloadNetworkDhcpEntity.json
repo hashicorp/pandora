@@ -10,7 +10,8 @@
     "referenceName": "DhcpTypeEnum"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of DHCP: SERVER or RELAY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of the DHCP entity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "WorkloadNetworkDhcpProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "NSX revision number."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,9 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "NSX Segments consuming DHCP."
   }
- ]
+ ],
+ "typeHintIn": "DhcpType"
 }

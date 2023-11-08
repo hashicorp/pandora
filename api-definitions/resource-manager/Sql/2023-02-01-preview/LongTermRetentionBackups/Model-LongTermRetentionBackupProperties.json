@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the long term retention backup will expire."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage redundancy type of the backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,7 +36,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the backup was taken"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -46,7 +49,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The delete time of the database"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -57,7 +61,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the database the backup belong to"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -68,7 +73,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The setting whether the LTR backup is immutable"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -79,7 +85,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage redundancy type of the backup"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The create time of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The server name that the backup database belong to."
   }
  ]
 }

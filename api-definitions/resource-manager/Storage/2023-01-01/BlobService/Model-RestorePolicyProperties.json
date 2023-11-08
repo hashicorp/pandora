@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "how long this blob can be restored. It should be great than zero and less than DeleteRetentionPolicy.days."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Blob restore is enabled if set to true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deprecated in favor of minRestoreTime property."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Returns the minimum date and time that the restore can be started."
   }
  ]
 }

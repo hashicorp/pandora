@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reference to the component asset used to preprocess the data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The end date of the data window."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,9 +36,11 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The start date of the data window."
   }
  ],
  "discriminatedParentModelName": "MonitoringInputDataBase",
- "discriminatedTypeValue": "Static"
+ "discriminatedTypeValue": "Static",
+ "typeHintIn": "InputDataType"
 }

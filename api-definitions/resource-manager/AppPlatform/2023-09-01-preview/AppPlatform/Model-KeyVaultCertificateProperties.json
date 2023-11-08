@@ -10,7 +10,8 @@
     "referenceName": "KeyVaultCertificateAutoSync"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether to automatically synchronize certificate from key vault or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The certificate version of key vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional. If set to true, it will not import private key from key vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The certificate name of key vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The vault uri of user key vault."
   }
  ],
  "discriminatedParentModelName": "CertificateProperties",
- "discriminatedTypeValue": "KeyVaultCertificate"
+ "discriminatedTypeValue": "KeyVaultCertificate",
+ "typeHintIn": "Type"
 }

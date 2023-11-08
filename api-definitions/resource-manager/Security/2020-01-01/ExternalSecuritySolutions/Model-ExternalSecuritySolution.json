@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "ExternalSecuritySolutionKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The kind of the external solution"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Location where the resource is stored"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource type"
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

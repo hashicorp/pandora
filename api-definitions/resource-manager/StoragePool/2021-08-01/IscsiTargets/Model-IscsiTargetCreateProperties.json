@@ -10,7 +10,8 @@
     "referenceName": "IscsiTargetAclMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Mode for Target connectivity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of LUNs to be exposed through iSCSI Target."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Access Control List (ACL) for an iSCSI Target; defines LUN masking policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "iSCSI Target IQN (iSCSI Qualified Name); example: \"iqn.2005-03.org.iscsi:server\"."
   }
  ]
 }

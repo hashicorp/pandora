@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of Channel Integrity Key stored in the Client Key Vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of Channel Integrity Key stored in the Client Key Vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Key Vault ARM Id for client secrets"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The url to access the Client Key Vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Container for cloud witness in the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Cloud Witness Storage account name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure service endpoint of the cloud witness storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "ClusterWitnessType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster Witness Type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Device secrets, will be returned only with ODataFilter $expand=deviceSecrets"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The public part of the encryption certificate. Client uses this to encrypt any secret."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The digital signature of encrypted certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The witness location of file share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The username of file share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": "KeyVaultSyncStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key vault sync status"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Resource ID of the Resource."
   }
  ]
 }

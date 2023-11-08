@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Host name for the IoT hub associated to the device."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The MDM account to which the counters should be pushed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The MDM namespace to which the counters should be pushed. This is required if MDMAccount is specified"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Resource ID on which the metrics should be pushed."
   }
  ]
 }

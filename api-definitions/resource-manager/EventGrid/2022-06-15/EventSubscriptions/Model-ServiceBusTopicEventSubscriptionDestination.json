@@ -10,9 +10,11 @@
     "referenceName": "ServiceBusTopicEventSubscriptionDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Service Bus Topic Properties of the event subscription destination."
   }
  ],
  "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "ServiceBusTopic"
+ "discriminatedTypeValue": "ServiceBusTopic",
+ "typeHintIn": "EndpointType"
 }

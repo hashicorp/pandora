@@ -10,7 +10,8 @@
     "referenceName": "HTTPConfigurationMethod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP method to use."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path component of the URI. For instance, \"/dir1/dir2\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port to connect to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value indicating whether HTTPS is preferred over HTTP in cases where the choice is not explicit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTP headers to transmit with the request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "HTTP status codes to consider successful. For instance, \"2xx,301-304,418\"."
   }
  ]
 }

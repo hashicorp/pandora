@@ -10,7 +10,8 @@
     "referenceName": "ActiveRevisionsMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ActiveRevisionsMode controls how active revisions are handled for the Container app:\n\u003clist\u003e\u003citem\u003eMultiple: multiple revisions can be active.\u003c/item\u003e\u003citem\u003eSingle: Only one revision can be active at a time. Revision weights can not be used in this mode. If no value if provided, this is the default.\u003c/item\u003e\u003c/list\u003e"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Dapr"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Ingress"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional. Max inactive revisions a Container App can have."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of private container registry credentials for containers used by the Container app"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collection of secrets used by a Container app"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "Service"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ]
 }

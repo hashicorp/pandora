@@ -10,7 +10,8 @@
     "referenceName": "VirtualMachineAdditionalCapabilities"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional VM capabilities."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Credentials"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Credentials for the admin user on the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CreateOption"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicates what lab virtual machines are created from."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ImageReference"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The image configuration for lab virtual machines."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "Credentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Credentials for the non-admin user on the VM, if one exists."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "OsType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "Sku"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The initial quota alloted to each lab user. Must be a time span between 0 and 9999 hours."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "EnableState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ]
 }

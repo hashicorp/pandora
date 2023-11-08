@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of column names to special uses."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The context metadata of the data source."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -36,7 +38,8 @@
     "referenceName": "MonitoringInputDataType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of signal to monitor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "JobInputType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Input Asset URI."
   }
- ]
+ ],
+ "typeHintIn": "InputDataType"
 }

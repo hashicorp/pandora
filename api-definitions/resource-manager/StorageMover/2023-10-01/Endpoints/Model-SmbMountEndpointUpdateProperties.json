@@ -10,9 +10,11 @@
     "referenceName": "AzureKeyVaultSmbCredentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Key Vault secret URIs which store the required credentials to access the SMB share."
   }
  ],
  "discriminatedParentModelName": "EndpointBaseUpdateProperties",
- "discriminatedTypeValue": "SmbMount"
+ "discriminatedTypeValue": "SmbMount",
+ "typeHintIn": "EndpointType"
 }

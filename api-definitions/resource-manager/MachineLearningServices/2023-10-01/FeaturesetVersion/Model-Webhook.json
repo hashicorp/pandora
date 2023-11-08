@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Send callback on a specified notification event"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "WebhookType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of service to send a callback"
   }
- ]
+ ],
+ "typeHintIn": "WebhookType"
 }

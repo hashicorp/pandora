@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last time the message was sent, or a request was received, for this topic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ISO 8601 timespan idle interval after which the topic is automatically deleted. The minimum duration is 5 minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "MessageCountDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Exact time the message was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ISO 8601 Default message timespan to live value. This is the duration after which the message expires, starting from when the message is sent to Service Bus. This is the default value used when TimeToLive is not set on a message itself."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ISO8601 timespan structure that defines the duration of the duplicate detection history. The default value is 10 minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value that indicates whether server-side batched operations are enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value that indicates whether Express Entities are enabled. An express topic holds a message in memory temporarily before writing it to persistent storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value that indicates whether the topic to be partitioned across multiple message brokers is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum size (in KB) of the message payload that can be accepted by the topic. This property is only used in Premium today and default is 1024."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum size of the topic in megabytes, which is the size of the memory allocated for the topic. Default is 1024."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value indicating if this topic requires duplicate detection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Size of the topic, in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +168,8 @@
     "referenceName": "EntityStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +180,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of subscriptions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -177,7 +192,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value that indicates whether the topic supports ordering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -189,7 +205,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The exact time the message was updated."
   }
  ]
 }

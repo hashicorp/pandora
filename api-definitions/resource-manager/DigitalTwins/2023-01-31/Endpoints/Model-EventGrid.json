@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "EventGrid secondary accesskey. Will be obfuscated during read."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "EventGrid secondary accesskey. Will be obfuscated during read."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "EventGrid Topic Endpoint."
   }
  ],
  "discriminatedParentModelName": "DigitalTwinsEndpointResourceProperties",
- "discriminatedTypeValue": "EventGrid"
+ "discriminatedTypeValue": "EventGrid",
+ "typeHintIn": "EndpointType"
 }

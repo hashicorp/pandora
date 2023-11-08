@@ -10,7 +10,8 @@
     "referenceName": "DesiredInstallationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The desired installation state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AsyncOperationId"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reason(s) for the current installation state of the packet core."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ReinstallRequired"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether a reinstall of the packet core is required to pick up the latest configuration changes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "InstallationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Installation state"
   }
  ]
 }

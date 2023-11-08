@@ -10,7 +10,8 @@
     "referenceName": "DiskConfigurationType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disk configuration to apply to SQL Server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "SQLStorageSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Server Data Storage Settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SQLStorageSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Server Log Storage Settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Server SystemDb Storage on DataPool if true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "SQLTempDbSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Server TempDb Storage Settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "StorageWorkloadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage workload type."
   }
  ]
 }

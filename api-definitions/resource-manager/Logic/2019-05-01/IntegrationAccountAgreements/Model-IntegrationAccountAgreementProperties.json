@@ -10,7 +10,8 @@
     "referenceName": "AgreementType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The agreement type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The changed time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "AgreementContent"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The agreement content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The created time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "referenceName": "BusinessIdentity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The business identity of the guest partner."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The integration account partner that is set as guest partner for this agreement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": "BusinessIdentity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The business identity of the host partner."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The integration account partner that is set as host partner for this agreement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The metadata."
   }
  ]
 }

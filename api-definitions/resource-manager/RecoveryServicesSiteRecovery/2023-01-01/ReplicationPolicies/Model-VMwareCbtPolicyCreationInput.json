@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The app consistent snapshot frequency (in minutes)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The crash consistent snapshot frequency (in minutes)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration in minutes until which the recovery points need to be stored."
   }
  ],
  "discriminatedParentModelName": "PolicyProviderSpecificInput",
- "discriminatedTypeValue": "VMwareCbt"
+ "discriminatedTypeValue": "VMwareCbt",
+ "typeHintIn": "InstanceType"
 }

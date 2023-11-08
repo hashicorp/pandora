@@ -10,7 +10,8 @@
     "referenceName": "ControlledValues"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Controls which resource value autoscaler will change. Default value is RequestsAndLimits."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Whether to enable VPA. Default value is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "UpdateMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Each update mode level is a superset of the lower levels. Off\u003cInitial\u003cRecreate\u003c=Auto. For example: if UpdateMode is Initial, it means VPA sets the recommended resources in the VerticalPodAutoscaler Custom Resource (from UpdateMode Off) and also assigns resources on pod creation (from Initial). The default value is Off."
   }
  ]
 }

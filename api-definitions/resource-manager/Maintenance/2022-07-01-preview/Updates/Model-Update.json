@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Duration of impact in seconds"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ImpactType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The impact type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MaintenanceScope"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The impact area"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time when Azure will start force updates if not self-updated by customer before this time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "UpdateProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of the apply update"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": "UpdateStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status"
   }
  ]
 }

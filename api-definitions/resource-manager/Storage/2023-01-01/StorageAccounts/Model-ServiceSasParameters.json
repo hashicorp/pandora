@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The canonical path to the signed resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end of partition key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end of row key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The key to sign the account SAS token with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The response header override for cache control."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The response header override for content disposition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The response header override for content encoding."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The response header override for content language."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The response header override for content type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which the shared access signature becomes invalid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An IP address or a range of IP addresses from which to accept requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A unique value up to 64 characters in length that correlates to an access policy specified for the container, queue, or table."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "referenceName": "Permissions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The signed permissions for the service SAS. Possible values include: Read (r), Write (w), Delete (d), List (l), Add (a), Create (c), Update (u) and Process (p)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": "HTTPProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protocol permitted for a request made with the account SAS."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": "SignedResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The signed services accessible with the service SAS. Possible values include: Blob (b), Container (c), File (f), Share (s)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -177,7 +192,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which the SAS becomes valid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +204,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start of partition key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +216,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start of row key."
   }
  ]
 }

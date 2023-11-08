@@ -10,7 +10,8 @@
     "referenceName": "ActiveDirectoryProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Required if directoryServiceOptions are AD, optional if they are AADKERB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DefaultSharePermission"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default share permission for users using Kerberos authentication if RBAC role is not assigned."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DirectoryServiceOptions"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicates the directory service used. Note that this enum may be extended in the future."
   }
  ]
 }

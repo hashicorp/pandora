@@ -10,7 +10,8 @@
     "referenceName": "AccessPolicyEccAlgo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Elliptical curve algorithm to be used: ES256, ES384 or ES512."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "X coordinate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Y coordinate."
   }
  ],
  "discriminatedParentModelName": "TokenKey",
- "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.EccTokenKey"
+ "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.EccTokenKey",
+ "typeHintIn": "Type"
 }

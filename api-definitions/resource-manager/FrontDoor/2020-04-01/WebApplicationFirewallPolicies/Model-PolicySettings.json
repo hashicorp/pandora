@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the action type is block, customer can override the response body. The body must be specified in base64 encoding."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the action type is block, customer can override the response status code."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PolicyEnabledState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes if the policy is in enabled or disabled state. Defaults to Enabled if not specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PolicyMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes if it is in detection mode or prevention mode at policy level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If action type is redirect, this field represents redirect URL for the client."
   }
  ]
 }

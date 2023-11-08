@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disables all authentication methods other than AAD authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property specifying whether protection against purge is enabled for this configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EncryptionProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption settings of the configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled."
   }
  ]
 }

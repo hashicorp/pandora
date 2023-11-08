@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "External URLs that can be redirected to as part of logging in or logging out of the app. Note that the query string part of the URL is ignored.\nThis is an advanced setting typically only needed by Windows Store application backends.\nNote that URLs within the current domain are always implicitly allowed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "CookieExpiration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the session cookie's expiration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "Nonce"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the nonce used in the login flow."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if the fragments from the request are preserved after the login request is made; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "LoginRoutes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The routes that specify the endpoints used for login and logout requests."
   }
  ]
 }

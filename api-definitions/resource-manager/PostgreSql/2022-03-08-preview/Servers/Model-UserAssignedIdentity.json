@@ -10,7 +10,8 @@
     "referenceName": "IdentityType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the types of identities associated with this resource; currently restricted to 'SystemAssigned and UserAssigned'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "represents user assigned identities map."
   }
  ]
 }

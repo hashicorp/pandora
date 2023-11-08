@@ -10,7 +10,8 @@
     "referenceName": "AgentAutoUpdateStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the auto update is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The automation account arm id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "AutomationAccountAuthenticationType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating the type authentication to use for automation Account."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificUpdateContainerMappingInput",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

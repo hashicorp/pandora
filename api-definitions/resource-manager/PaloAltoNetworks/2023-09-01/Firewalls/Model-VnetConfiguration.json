@@ -10,7 +10,8 @@
     "referenceName": "IPAddress"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP of trust subnet for UDR"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "IPAddressSpace"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Trust Subnet"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "IPAddressSpace"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Untrust Subnet"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IPAddressSpace"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Azure Virtual Network"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if the name is available, otherwise false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A message explaining why the name is unavailable. Will be undefined if the name is available."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name whose availability was checked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "CheckNameAvailabilityReason"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason code explaining why the name is unavailable. Will be undefined if the name is available."
   }
  ]
 }

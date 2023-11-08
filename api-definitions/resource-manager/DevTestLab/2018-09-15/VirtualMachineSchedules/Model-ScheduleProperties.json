@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of the schedule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": "DayDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the schedule will occur once each day of the week, specify the daily recurrence."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "HourDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the schedule will occur multiple times a day, specify the hourly recurrence."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "NotificationSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Notification settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning status of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": "EnableStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the schedule (i.e. Enabled, Disabled)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID to which the schedule belongs"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The task type of the schedule (e.g. LabVmsShutdownTask, LabVmAutoStart)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time zone ID (e.g. China Standard Time, Greenland Standard Time, Pacific Standard time, etc.). The possible values for this property can be found in `IReadOnlyCollection\u003cstring\u003e TimeZoneConverter.TZConvert.KnownWindowsTimeZoneIds` (https://github.com/mattjohnsonpint/TimeZoneConverter/blob/main/README.md)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique immutable identifier of a resource (Guid)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": "WeekDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the schedule will occur only some days of the week, specify the weekly recurrence."
   }
  ]
 }

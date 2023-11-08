@@ -10,7 +10,8 @@
     "referenceName": "JsonWebKeyEncryptionAlgorithm"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Algorithm identifier for encryption, default RSA-OAEP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether or not resource disk encryption is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key name that is used for enabling disk encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specific key version that is used for enabling disk encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource ID of Managed Identity that is used to access the key vault."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Base key vault URI where the customers key is located eg. https://myvault.vault.azure.net"
   }
  ]
 }

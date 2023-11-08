@@ -10,7 +10,8 @@
     "referenceName": "BillingProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the billing related details of a Azure Spot VMSS. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2019-03-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DiagnosticsProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set diagnostics profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "VirtualMachineScaleSetExtensionProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set extension profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The license type, which is for bring your own license scenario."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set network profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "VirtualMachineScaleSetUpdateOSProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set OS profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ScheduledEventsProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies Scheduled Event related configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "SecurityProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set Security profile"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "VirtualMachineScaleSetUpdateStorageProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set storage profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UserData for the VM, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01"
   }
  ]
 }

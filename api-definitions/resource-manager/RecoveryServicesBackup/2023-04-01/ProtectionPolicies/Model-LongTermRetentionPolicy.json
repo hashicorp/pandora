@@ -10,7 +10,8 @@
     "referenceName": "DailyRetentionSchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Daily retention schedule of the protection policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MonthlyRetentionSchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Monthly retention schedule of the protection policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "WeeklyRetentionSchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Weekly retention schedule of the protection policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "YearlyRetentionSchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Yearly retention schedule of the protection policy."
   }
  ],
  "discriminatedParentModelName": "RetentionPolicy",
- "discriminatedTypeValue": "LongTermRetentionPolicy"
+ "discriminatedTypeValue": "LongTermRetentionPolicy",
+ "typeHintIn": "RetentionPolicyType"
 }
