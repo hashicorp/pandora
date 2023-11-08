@@ -346,8 +346,6 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 			Optional:    field.Optional,
 			Required:    field.Required,
 			Description: field.Description,
-			// TODO this field is still missing - where is this information taken from?
-			//ForceNew:         false,
 		}
 
 		objectDefinition, err := mapObjectDefinition(&field.ObjectDefinition)

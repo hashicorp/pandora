@@ -18,7 +18,8 @@ type Model struct {
 	// DiscriminatedTypeValue contains the name of the model that implements a discriminated type
 	DiscriminatedTypeValue *string `json:"discriminatedTypeValue,omitempty"`
 
-	// TypeHintIn specifies the field which gives the type hint for the model that implements a discriminated type
+	// TypeHintIn specifies the field which contains the type hint for the model that implements
+	// a discriminated type
 	TypeHintIn *string `json:"typeHintIn,omitempty"`
 }
 
