@@ -10,7 +10,8 @@
     "referenceName": "BackupManagementType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of backup management for the backed up item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the backup set the backup item belongs to"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique name of container"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "CreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Create mode to indicate recovery of existing soft deleted data source or creation of new data source."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time for deferred deletion in UTC"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time remaining before the DS marked for deferred delete is permanently deleted"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to identify whether datasource is protected in archive"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to identify whether the deferred deleted DS is to be purged soon"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to identify that deferred deleted DS is to be moved into Pause state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to identify whether the DS is scheduled for deferred delete"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when the last (latest) backup copy was created for this backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID of the backup policy with which this item is backed up."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the policy used for protection"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -155,7 +168,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "backup item type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,7 +184,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ResourceGuardOperationRequests on which LAC check will be performed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +196,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Soft delete retention period in days"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -192,7 +208,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM ID of the resource to be backed up."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -203,7 +220,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID of the vault which protects this item"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -214,7 +232,9 @@
     "referenceName": "DataSourceType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of workload this item represents."
   }
- ]
+ ],
+ "typeHintIn": "ProtectedItemType"
 }

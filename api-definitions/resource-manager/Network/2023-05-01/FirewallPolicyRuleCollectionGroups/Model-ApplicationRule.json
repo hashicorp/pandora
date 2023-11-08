@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of destination IP addresses or Service Tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of FQDN Tags for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of HTTP/S headers to insert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of Application Protocols."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of source IP addresses for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of source IpGroups for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -104,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of FQDNs for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +126,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Urls for this rule condition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +138,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Terminate TLS connections for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -145,9 +154,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of destination azure web categories."
   }
  ],
  "discriminatedParentModelName": "FirewallPolicyRule",
- "discriminatedTypeValue": "ApplicationRule"
+ "discriminatedTypeValue": "ApplicationRule",
+ "typeHintIn": "RuleType"
 }

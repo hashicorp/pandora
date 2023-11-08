@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003efalse\u003c/code\u003e if the Google provider should not be enabled despite the set registration; otherwise, \u003ccode\u003etrue\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "LoginScopes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the login flow."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ClientRegistration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the app registration for the Google provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "AllowedAudiencesValidation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the Azure Active Directory token validation flow."
   }
  ]
 }

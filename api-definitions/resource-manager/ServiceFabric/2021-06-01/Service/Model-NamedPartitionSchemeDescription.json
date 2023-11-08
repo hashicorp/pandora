@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of partitions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Array of size specified by the ‘count’ parameter, for the names of the partitions."
   }
  ],
  "discriminatedParentModelName": "PartitionSchemeDescription",
- "discriminatedTypeValue": "Named"
+ "discriminatedTypeValue": "Named",
+ "typeHintIn": "PartitionScheme"
 }

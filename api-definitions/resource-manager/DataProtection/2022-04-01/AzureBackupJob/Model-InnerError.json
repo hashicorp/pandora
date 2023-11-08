@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Any Key value pairs that can be provided to the client for additional  verbose information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique code for this error"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "InnerError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Child Inner Error, to allow Nesting."
   }
  ]
 }

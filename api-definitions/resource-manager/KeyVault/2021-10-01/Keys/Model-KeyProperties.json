@@ -10,7 +10,8 @@
     "referenceName": "KeyAttributes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The attributes of the key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "JsonWebKeyCurveName"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The elliptic curve name. For valid values, see JsonWebKeyCurveName."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The key size in bits. For example: 2048, 3072, or 4096 for RSA."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI to retrieve the current version of the key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI to retrieve the specific version of the key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "JsonWebKeyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the key. For valid values, see JsonWebKeyType."
   }
  ]
 }

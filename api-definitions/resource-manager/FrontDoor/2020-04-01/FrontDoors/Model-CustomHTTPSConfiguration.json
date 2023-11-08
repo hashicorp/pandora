@@ -10,7 +10,8 @@
     "referenceName": "FrontDoorCertificateSource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Defines the source of the SSL certificate"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "FrontDoorCertificateSourceParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters required for enabling SSL with Front Door-managed certificates (if certificateSource=FrontDoor)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "KeyVaultCertificateSourceParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "KeyVault certificate source parameters (if certificateSource=AzureKeyVault)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "MinimumTLSVersion"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The minimum TLS version required from the clients to establish an SSL handshake with Front Door."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "FrontDoorTlsProtocolType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Defines the TLS extension protocol that is used for secure delivery"
   }
  ]
 }

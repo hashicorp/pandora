@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The parent application id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ApplicationClientDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The client entity that created the JIT request."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The JIT authorization policies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "JitRequestState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The JIT request state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "JitSchedulingPolicy"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The JIT request properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The JIT request provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The publisher tenant id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "ApplicationClientDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The client entity that last updated the JIT request."
   }
  ]
 }

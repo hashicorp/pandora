@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If true, enables Application Insights logging."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CodeConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Code configuration for the endpoint deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the endpoint deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "EgressPublicNetworkAccessType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If Enabled, allow egress public network access. If Disabled, this will create secure egress. Default: Enabled."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -54,7 +58,8 @@
     "referenceName": "EndpointComputeType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The compute type of the endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource ID or AssetId of the environment specification for the endpoint deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Environment variables configuration for the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute instance type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "ProbeSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Liveness probe monitors the health of the container regularly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI path to the model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The path to mount the model in custom container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property dictionary. Properties can be added, but not removed or altered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": "DeploymentProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state for the endpoint deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     "referenceName": "ProbeSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": "OnlineRequestSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Request settings for the deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,9 @@
     "referenceName": "OnlineScaleSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scale settings for the deployment.\r\nIf it is null or not provided,\r\nit defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment\r\nand to DefaultScaleSettings for ManagedOnlineDeployment."
   }
- ]
+ ],
+ "typeHintIn": "EndpointComputeType"
 }

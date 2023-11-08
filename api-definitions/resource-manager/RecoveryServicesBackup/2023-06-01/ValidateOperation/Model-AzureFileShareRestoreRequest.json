@@ -10,7 +10,8 @@
     "referenceName": "CopyOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Options to resolve copy conflicts."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RecoveryType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of this recovery."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Source Files/Folders(which need to recover) and TargetFolderPath details"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "RestoreRequestType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Restore Type (FullShareRestore or ItemLevelRestore)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source storage account ARM Id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,9 +74,11 @@
     "referenceName": "TargetAFSRestoreInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target File Share Details"
   }
  ],
  "discriminatedParentModelName": "RestoreRequest",
- "discriminatedTypeValue": "AzureFileShareRestoreRequest"
+ "discriminatedTypeValue": "AzureFileShareRestoreRequest",
+ "typeHintIn": "ObjectType"
 }

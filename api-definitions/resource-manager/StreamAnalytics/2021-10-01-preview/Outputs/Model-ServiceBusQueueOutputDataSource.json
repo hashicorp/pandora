@@ -10,9 +10,11 @@
     "referenceName": "ServiceBusQueueOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a Service Bus Queue output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.ServiceBus/Queue"
+ "discriminatedTypeValue": "Microsoft.ServiceBus/Queue",
+ "typeHintIn": "Type"
 }

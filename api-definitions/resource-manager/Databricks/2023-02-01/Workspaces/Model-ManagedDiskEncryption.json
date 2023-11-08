@@ -10,7 +10,8 @@
     "referenceName": "EncryptionKeySource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The encryption keySource (provider). Possible values (case-insensitive):  Microsoft.Keyvault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedDiskEncryptionKeyVaultProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Key Vault input properties for encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicate whether the latest key version should be automatically used for Managed Disk Encryption."
   }
  ]
 }

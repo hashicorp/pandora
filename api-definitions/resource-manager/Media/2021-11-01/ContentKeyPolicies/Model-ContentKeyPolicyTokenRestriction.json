@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of alternative verification keys."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The audience for the token."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The token issuer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OpenID connect discovery document."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ContentKeyPolicyRestrictionTokenKey"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The primary verification key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of required token claims."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,9 +90,11 @@
     "referenceName": "ContentKeyPolicyRestrictionTokenType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of token."
   }
  ],
  "discriminatedParentModelName": "ContentKeyPolicyRestriction",
- "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyTokenRestriction"
+ "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyTokenRestriction",
+ "typeHintIn": "OdataType"
 }

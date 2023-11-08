@@ -10,7 +10,8 @@
     "referenceName": "DateAfterModification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to delete the blob"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This property enables auto tiering of a blob from cool to hot on a blob access. This property requires tierToCool.daysAfterLastAccessTimeGreaterThan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DateAfterModification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to archive storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DateAfterModification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to cold storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "DateAfterModification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to cool storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "DateAfterModification"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts"
   }
  ]
 }

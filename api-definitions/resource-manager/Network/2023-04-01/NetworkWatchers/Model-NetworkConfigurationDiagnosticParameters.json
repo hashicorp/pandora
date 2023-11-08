@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of network configuration diagnostic profiles."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ID of the target resource to perform network configuration diagnostic. Valid options are VM, NetworkInterface, VMSS/NetworkInterface and Application Gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "VerbosityLevel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Verbosity level."
   }
  ]
 }

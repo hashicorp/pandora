@@ -10,7 +10,8 @@
     "referenceName": "BaseImageTriggerType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the auto trigger for base image dependency updates."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the trigger."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "TriggerStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of trigger."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint URL for receiving update triggers."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "UpdateTriggerPayloadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of Payload body for Base image update triggers."
   }
  ]
 }

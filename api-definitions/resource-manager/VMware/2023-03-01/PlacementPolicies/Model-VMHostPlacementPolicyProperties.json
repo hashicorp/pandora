@@ -10,7 +10,8 @@
     "referenceName": "AffinityStrength"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "vm-host placement policy affinity strength (should/must)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AffinityType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "placement policy affinity type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AzureHybridBenefitType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "placement policy azure hybrid benefit opt-in type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Host members list"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,9 +66,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Virtual machine members list"
   }
  ],
  "discriminatedParentModelName": "PlacementPolicyProperties",
- "discriminatedTypeValue": "VmHost"
+ "discriminatedTypeValue": "VmHost",
+ "typeHintIn": "Type"
 }

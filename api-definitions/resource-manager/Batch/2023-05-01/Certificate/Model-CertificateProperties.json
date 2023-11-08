@@ -10,7 +10,8 @@
     "referenceName": "DeleteCertificateError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is only returned when the certificate provisioningState is 'Failed'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CertificateFormat"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The format of the certificate - either Pfx or Cer. If omitted, the default is Pfx."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CertificateProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The previous provisioned state of the resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "CertificateProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The public key of the certificate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This must match the thumbprint from the name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This must match the first portion of the certificate name. Currently required to be 'SHA1'."
   }
  ]
 }

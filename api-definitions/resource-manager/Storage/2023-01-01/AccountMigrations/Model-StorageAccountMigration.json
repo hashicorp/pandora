@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Migration Resource Id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "current value is 'default' for customer initiated migration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "StorageAccountMigrationProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The properties of a storage account’s ongoing or enqueued migration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SrpAccountMigrationType in ARM contract which is 'accountMigrations'"
   }
  ]
 }

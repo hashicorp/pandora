@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of cluster types available."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of cluster versions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether support compute isolation. 'true' means only for ComputeIsolationEnabled, 'false' means only for regular cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether apply for ESP cluster. 'true' means only for ESP, 'false' means only for non-ESP, null or empty string or others mean for both."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mode for the filter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of node types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of OS types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +114,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of regions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of virtual machine sizes."
   }
  ]
 }

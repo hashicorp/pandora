@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the blob which contains data for this backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique correlation identifier. Please use this along with the timestamp while communicating with Azure support."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of the backup creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of databases included in the backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when this backup finished."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Id of the backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +89,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp of a last restore operation which used this backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,7 +101,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details regarding this backup. Might contain an error message."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -105,7 +113,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of this backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -116,7 +125,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if this backup has been created due to a schedule being triggered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +137,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Size of the backup in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -138,7 +149,8 @@
     "referenceName": "BackupItemStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -149,7 +161,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SAS URL for the storage account container which contains this backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -160,7 +173,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Size of the original web app which has been backed up."
   }
  ]
 }

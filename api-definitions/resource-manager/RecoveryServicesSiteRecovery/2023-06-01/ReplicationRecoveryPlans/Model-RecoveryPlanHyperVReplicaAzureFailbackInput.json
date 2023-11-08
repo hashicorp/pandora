@@ -10,7 +10,8 @@
     "referenceName": "DataSyncStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The data sync option."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "AlternateLocationRecoveryOption"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ALR option."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
- "discriminatedTypeValue": "HyperVReplicaAzureFailback"
+ "discriminatedTypeValue": "HyperVReplicaAzureFailback",
+ "typeHintIn": "InstanceType"
 }

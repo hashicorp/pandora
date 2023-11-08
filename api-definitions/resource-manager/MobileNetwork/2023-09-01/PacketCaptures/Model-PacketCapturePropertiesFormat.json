@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of bytes captured per packet, the remaining bytes are truncated. The default \"0\" means the entire packet is captured."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The start time of the packet capture session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -38,7 +40,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of network interfaces to capture on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -53,7 +56,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of output files of a packet capture session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -64,7 +68,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +80,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason the current packet capture session state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -86,7 +92,8 @@
     "referenceName": "PacketCaptureStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the packet capture session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -97,7 +104,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum duration of the capture session in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum size of the capture output."
   }
  ]
 }

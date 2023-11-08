@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of additional capabilities for Disk Pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Logical zone for Disk Pool resource; example: [\"1\"]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "Sku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Determines the SKU of VM deployed for Disk Pool"
   }
  ]
 }

@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Agent expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating all available inplace OS Upgrade configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure VM Disk details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target generation for this protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The compressed data change rate in MB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +95,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The datastores of the on-premise machine. Value can be list of strings that contain datastore names."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +107,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating the discovery type of the machine. Value can be vCenter or physical."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether any disk is resized for this VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The firmware type of this protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source IP address."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +167,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The infrastructure VM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +179,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether additional IR stats are available or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -177,7 +191,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether installed agent needs to be updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +203,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the source server requires a restart after update."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -200,7 +216,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last heartbeat received from the source server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +229,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point received time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last RPO calculated time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -236,7 +255,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last update time received from on-prem components."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -247,7 +267,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License Type of the VM to be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -258,7 +279,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The master target Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -269,7 +291,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -280,7 +303,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -291,7 +315,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether multi vm sync is enabled or disabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -302,7 +327,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The id of the disk containing the OS."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -313,7 +339,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the OS on the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -324,7 +351,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the OS on the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -335,7 +363,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS Version of the protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -346,7 +375,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The process server Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -357,7 +387,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The process server name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -372,7 +403,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -387,7 +419,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -398,7 +431,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection stage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -409,7 +443,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability set Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -420,7 +455,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -431,7 +467,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target resource group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -442,7 +479,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery Azure storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -453,7 +491,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recovery Azure given name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -464,7 +503,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Recovery Azure VM size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -475,7 +515,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replica id of the protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -486,7 +527,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync progress percentage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -497,7 +539,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The RPO in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -512,7 +555,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the seed managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -523,7 +567,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected recovery azure network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -534,7 +579,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected source nic Id which will be used as the primary nic during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -545,7 +591,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The test failover virtual network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -556,7 +603,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CPU count of the VM on the primary side."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -567,7 +615,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The RAM size of the VM on the primary side."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -578,7 +627,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SQL Server license type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -593,7 +643,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating the inplace OS Upgrade version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -608,7 +659,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The switch provider blocking error information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -619,7 +671,8 @@
     "referenceName": "InMageAzureV2SwitchProviderDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The switch provider blocking error information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -630,7 +683,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -645,7 +699,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -660,7 +715,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target NICs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -671,7 +727,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target proximity placement group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -682,7 +739,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM Id of the target Azure VM. This value will be null until the VM is failed over. Only after failure it will be populated with the ARM Id of the Azure VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -697,7 +755,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -708,7 +767,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total transferred data in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -719,7 +779,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The progress health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -730,7 +791,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The uncompressed data change rate in MB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -741,7 +803,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether managed disks should be used during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -752,7 +815,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The vCenter infrastructure Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -763,7 +827,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -778,7 +843,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PE Network details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -789,7 +855,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -800,7 +867,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state description for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -815,7 +883,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The validation errors of the on-premise machine Value can be list of validation errors."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -826,9 +895,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS disk VHD name."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "InMageAzureV2"
+ "discriminatedTypeValue": "InMageAzureV2",
+ "typeHintIn": "InstanceType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of destination IP addresses for this rule. Supports IP ranges, prefixes, and service tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of destination ports."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the NAT rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of AzureFirewallNetworkRuleProtocols applicable to this NAT rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of source IP addresses for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of source IpGroups for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The translated address for this NAT rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The translated FQDN for this NAT rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +138,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The translated port for this NAT rule."
   }
  ]
 }

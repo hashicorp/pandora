@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The branch which will trigger the auto deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "GithubActionConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Container App Revision Template with all possible settings and the\ndefaults if user did not provide them. The defaults are populated\nas they were at the creation time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SourceControlOperationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current provisioning State of the operation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The repo url which will be integrated to ContainerApp."
   }
  ]
 }

@@ -10,9 +10,11 @@
     "referenceName": "AzureSynapseDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with an Azure Synapse output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.Sql/Server/DataWarehouse"
+ "discriminatedTypeValue": "Microsoft.Sql/Server/DataWarehouse",
+ "typeHintIn": "Type"
 }

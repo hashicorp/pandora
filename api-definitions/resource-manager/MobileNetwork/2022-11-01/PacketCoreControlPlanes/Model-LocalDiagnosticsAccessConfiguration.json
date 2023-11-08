@@ -10,7 +10,8 @@
     "referenceName": "AuthenticationType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "How to authenticate users who access local diagnostics APIs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "HTTPSServerCertificate"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HTTPS server TLS certificate used to secure local access to diagnostics."
   }
  ]
 }

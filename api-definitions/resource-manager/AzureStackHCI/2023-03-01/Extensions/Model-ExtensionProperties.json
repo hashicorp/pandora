@@ -10,7 +10,8 @@
     "referenceName": "ExtensionAggregateState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Aggregate state of Arc Extensions across the nodes in this HCI cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ExtensionParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters specific to this extension type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ExtensionManagedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the extension is managed by azure or the user."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of Arc Extension in each of the nodes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the Extension proxy resource."
   }
  ]
 }

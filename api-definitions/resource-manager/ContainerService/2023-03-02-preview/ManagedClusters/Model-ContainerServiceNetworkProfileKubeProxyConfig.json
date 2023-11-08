@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to enable on kube-proxy on the cluster (if no 'kubeProxyConfig' exists, kube-proxy is enabled in AKS by default without these customizations)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ContainerServiceNetworkProfileKubeProxyConfigIPvsConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Holds configuration customizations for IPVS. May only be specified if 'mode' is set to 'IPVS'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Mode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specify which proxy mode to use ('IPTABLES' or 'IPVS')"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the attached database configuration cluster"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DatabaseShareOrigin"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the data should be kept in cache for fast queries in TimeSpan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the leader cluster"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The original database name, before databaseNameOverride or databaseNamePrefix where applied."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "PrincipalsModificationKind"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The principals modification kind of the database"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioned state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time the data should be kept before it stops being accessible to queries in TimeSpan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "DatabaseStatistics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The statistics of the database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "SuspensionDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The database suspension details. If the database is suspended, this object contains information related to the database's suspension state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "TableLevelSharingProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Table level sharing specifications"
   }
  ]
 }

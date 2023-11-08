@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RehydrationPriority"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Priority to be used for rehydration. Values High or Standard"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Retention duration in ISO 8601 format i.e P10D ."
   }
  ],
  "discriminatedParentModelName": "AzureBackupRestoreRequest",
- "discriminatedTypeValue": "AzureBackupRestoreWithRehydrationRequest"
+ "discriminatedTypeValue": "AzureBackupRestoreWithRehydrationRequest",
+ "typeHintIn": "ObjectType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Hostname of a slot to which the traffic will be redirected if decided to. E.g. myapp-stage.azurewebsites.net."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom decision algorithm can be provided in TiPCallback site extension which URL can be specified. See TiPCallback site extension for the scaffold and contracts.\nhttps://www.siteextensions.net/packages/TiPCallback/"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies interval in minutes to reevaluate ReroutePercentage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "In auto ramp up scenario this is the step to add/remove from \u003ccode\u003eReroutePercentage\u003c/code\u003e until it reaches \\n\u003ccode\u003eMinReroutePercentage\u003c/code\u003e or \n\u003ccode\u003eMaxReroutePercentage\u003c/code\u003e. Site metrics are checked every N minutes specified in \u003ccode\u003eChangeIntervalInMinutes\u003c/code\u003e.\\nCustom decision algorithm \ncan be provided in TiPCallback site extension which URL can be specified in \u003ccode\u003eChangeDecisionCallbackUrl\u003c/code\u003e."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies upper boundary below which ReroutePercentage will stay."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies lower boundary above which ReroutePercentage will stay."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the routing rule. The recommended name would be to point to the slot which will receive the traffic in the experiment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Percentage of the traffic which will be redirected to \u003ccode\u003eActionHostName\u003c/code\u003e."
   }
  ]
 }

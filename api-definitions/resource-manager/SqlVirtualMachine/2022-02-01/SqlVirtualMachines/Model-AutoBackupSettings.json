@@ -10,7 +10,8 @@
     "referenceName": "BackupScheduleType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup schedule type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Include or exclude system databases from auto backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Days of the week for the backups when FullBackupFrequency is set to Weekly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or disable autobackup on SQL virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or disable encryption for backup on SQL virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "FullBackupFrequencyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frequency of full backups. In both cases, full backups begin during the next scheduled time window."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start time of a given day during which full backups can take place. 0-23 hours."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Duration of the time window of a given day during which full backups can take place. 1-23 hours."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frequency of log backups. 5-60 minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Password for encryption on backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention period of backup: 1-90 days."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account key where backup will be taken to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage account url where backup will be taken to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage container name where backup will be taken to."
   }
  ]
 }

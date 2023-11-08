@@ -10,7 +10,8 @@
     "referenceName": "DeadLetterDestination"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DeadLetterWithResourceIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dead letter destination of the event subscription. Any event that cannot be delivered to its' destination is sent to the dead letter destination.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DeliveryWithResourceIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses the managed identity setup on the parent resource (namely, topic or domain) to acquire the authentication tokens being used during delivery / dead-lettering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "EventSubscriptionDestination"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the destination where events have to be delivered for the event subscription.\r\nUses Azure Event Grid's identity to acquire the authentication tokens being used during delivery / dead-lettering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "EventDeliverySchema"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The event delivery schema for the event subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Expiration time of the event subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": "EventSubscriptionFilter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the filter for the event subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of user defined labels."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +111,8 @@
     "referenceName": "EventSubscriptionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the event subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     "referenceName": "RetryPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The retry policy for events. This can be used to configure maximum number of delivery attempts and time to live for events."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the topic of the event subscription."
   }
  ]
 }

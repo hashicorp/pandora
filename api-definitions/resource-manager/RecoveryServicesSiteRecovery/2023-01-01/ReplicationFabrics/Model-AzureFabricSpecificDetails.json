@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The container Ids for the Azure fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ExtendedLocations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Location for the Azure fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,9 +58,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The zones."
   }
  ],
  "discriminatedParentModelName": "FabricSpecificDetails",
- "discriminatedTypeValue": "Azure"
+ "discriminatedTypeValue": "Azure",
+ "typeHintIn": "InstanceType"
 }

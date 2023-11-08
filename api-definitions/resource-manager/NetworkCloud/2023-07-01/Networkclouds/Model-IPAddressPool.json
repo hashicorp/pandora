@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of IP address ranges. Each range can be a either a subnet in CIDR format or an explicit start-end range of IP addresses."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "BfdEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator to determine if automatic allocation from the pool should occur."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name used to identify this IP address pool for association with a BGP advertisement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "BfdEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator to prevent the use of IP addresses ending with .0 and .255 for this pool. Enabling this option will only use IP addresses between .1 and .254 inclusive."
   }
  ]
 }

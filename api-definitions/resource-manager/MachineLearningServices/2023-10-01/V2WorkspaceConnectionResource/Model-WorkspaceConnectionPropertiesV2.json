@@ -10,7 +10,8 @@
     "referenceName": "ConnectionAuthType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ConnectionCategory"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value details of the workspace connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,9 @@
     "referenceName": "ValueFormat"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "format for the workspace connection value"
   }
- ]
+ ],
+ "typeHintIn": "AuthType"
 }

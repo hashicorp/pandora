@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm disk vhd URIs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,9 +30,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm managed disk Ids."
   }
  ],
  "discriminatedParentModelName": "RemoveDisksProviderSpecificInput",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

@@ -16,9 +16,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DHCP Relay Addresses. Max 3."
   }
  ],
  "discriminatedParentModelName": "WorkloadNetworkDhcpEntity",
- "discriminatedTypeValue": "RELAY"
+ "discriminatedTypeValue": "RELAY",
+ "typeHintIn": "DhcpType"
 }

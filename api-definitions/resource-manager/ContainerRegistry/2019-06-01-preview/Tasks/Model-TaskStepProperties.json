@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of base image dependencies for a step."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The token (git PAT or SAS token of storage account blob) associated with the context for a step."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URL(absolute or relative) of the source context for the task step."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -47,7 +50,9 @@
     "referenceName": "StepType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of the step."
   }
- ]
+ ],
+ "typeHintIn": "Type"
 }

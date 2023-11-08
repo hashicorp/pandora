@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Event Types that are supported by the Event Grid adapter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "EventGridEventSchemaType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the Event Grid schema type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of one or more Azure Storage accounts. Required on PUT (CreateOrReplace) requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "EventHubV2StreamInputDataSource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscribers for the Event Grid. Currently only EventHub Subscriber is supported."
   }
  ]
 }

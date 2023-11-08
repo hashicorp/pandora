@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of machine SKUs and associated rack slot for the compute-dedicated machines in this rack model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of machine SKUs and associated rack slot for the control-plane dedicated machines in this rack model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The free-form text describing the rack."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum number of compute racks supported by an aggregator rack. 0 if this is a compute rack or a rack for a single rack cluster(rackType=\"Single\")."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "RackSkuProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the rack SKU resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "RackSkuType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the rack."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of appliance SKUs and associated rack slot for the storage appliance(s) in this rack model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of supported SKUs if the rack is an aggregator."
   }
  ]
 }

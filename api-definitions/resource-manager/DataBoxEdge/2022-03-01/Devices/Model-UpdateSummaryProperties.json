@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time when a scan was done on the device."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current version of the device in format: 1.2.17312.13.\","
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current version of the device in text format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The job ID of the download job in progress."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the currently running download (if any) started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The job ID of the install job in progress."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -79,7 +85,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the currently running install (if any) started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the last Download job was completed (success/cancelled/failed) on the appliance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "JobId of the last ran download job.(Can be success/cancelled/failed)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the last Install job was completed (success/cancelled/failed) on the appliance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "JobId of the last ran install job.(Can be success/cancelled/failed)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +148,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the last scan job was completed (success/cancelled/failed) on the appliance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +160,8 @@
     "referenceName": "JobStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "JobStatus of the last ran download job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +172,8 @@
     "referenceName": "JobStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "JobStatus of the last ran install job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +185,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the Last Install job was completed successfully on the appliance"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time when the last scan job is successfully completed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -194,7 +210,8 @@
     "referenceName": "UpdateOperation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current update operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     "referenceName": "InstallRebootBehavior"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if updates are available and at least one of the updates needs a reboot."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -216,7 +234,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of updates available for the current device version as per the last device scan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +246,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total number of items pending download."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -238,7 +258,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total number of items pending install."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -249,7 +270,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total time in Minutes"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -260,7 +282,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total size of updates available for download in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -275,7 +298,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of updates available for install."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -290,7 +314,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of updates available for install."
   }
  ]
 }

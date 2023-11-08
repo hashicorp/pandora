@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "URL of the Node Exporter endpoint"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the SAP System Identifier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the blob URI to SSL certificate for the prometheus node exporter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "SslPreference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "ProviderSpecificProperties",
- "discriminatedTypeValue": "PrometheusOS"
+ "discriminatedTypeValue": "PrometheusOS",
+ "typeHintIn": "ProviderType"
 }

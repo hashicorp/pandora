@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "URI for the key for data encryption for primary server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id for the User assigned identity to be used for data encryption for primary server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ArmServerKeyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data encryption type to depict if it is System assigned vs Azure Key vault."
   }
  ]
 }

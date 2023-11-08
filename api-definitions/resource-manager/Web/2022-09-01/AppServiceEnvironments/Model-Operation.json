@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time when operation has started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Any errors associate with the operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -38,7 +40,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time when operation will expire."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Applicable only for stamp operation ids."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operation ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +77,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time when operation has been updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +89,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operation name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -94,7 +101,8 @@
     "referenceName": "OperationStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the operation."
   }
  ]
 }

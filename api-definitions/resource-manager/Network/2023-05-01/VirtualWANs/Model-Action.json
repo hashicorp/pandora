@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of parameters relevant to the action.For instance if type is drop then parameters has list of prefixes to be dropped.If type is add, parameters would have list of ASN numbers to be added"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "RouteMapActionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of action to be taken. Supported types are 'Remove', 'Add', 'Replace', and 'Drop.'"
   }
  ]
 }

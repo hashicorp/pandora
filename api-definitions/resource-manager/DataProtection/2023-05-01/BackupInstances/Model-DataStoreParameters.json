@@ -10,7 +10,8 @@
     "referenceName": "DataStoreTypes"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "type of datastore; Operational/Vault/Archive"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the specific object - used for deserializing"
   }
- ]
+ ],
+ "typeHintIn": "ObjectType"
 }

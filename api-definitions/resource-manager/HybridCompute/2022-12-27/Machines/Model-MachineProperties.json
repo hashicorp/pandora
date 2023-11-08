@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the AD fully qualified display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AgentConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configurable properties that the user can set locally via the azcmagent config command, or remotely via ARM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AgentUpgrade"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The info of the machine w.r.t Agent Upgrade"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The hybrid machine agent full version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public Key that the client provides to be used during initial resource onboarding"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "CloudMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The metadata of the cloud environment (Azure/GCP/AWS/OCI...)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Detected properties from the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the hybrid machine display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the DNS fully qualified display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the Windows domain name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details about the error state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Machine Extensions information (deprecated field)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +167,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time of the last status change."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +179,8 @@
     "referenceName": "LocationData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -177,7 +191,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the hybrid machine FQDN."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +203,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether any MS SQL instance is discovered on the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +215,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Operating System running on the hybrid machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -210,7 +227,8 @@
     "referenceName": "OSProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the operating system settings for the hybrid machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -221,7 +239,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the Operating System product SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -232,7 +251,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of Operating System (windows/linux)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -243,7 +263,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of Operating System running on the hybrid machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -254,7 +275,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the parent cluster (Azure HCI) this machine is assigned to, if any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -265,7 +287,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of the private link scope this machine is assigned to, if any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -276,7 +299,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +311,8 @@
     "referenceName": "ServiceStatuses"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Statuses of dependent services that are reported back to ARM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -298,7 +323,8 @@
     "referenceName": "StatusTypes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the hybrid machine agent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +335,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the hybrid machine unique ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +347,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the Arc Machine's unique SMBIOS ID"
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The address prefixes of the effective routes in CIDR notation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If true, on-premises routes are not propagated to the network interfaces in the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the user defined route. This is optional."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IP address of the next hop of the effective route."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "RouteNextHopType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "EffectiveRouteSource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Who created the route."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "EffectiveRouteState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value of effective route."
   }
  ]
 }

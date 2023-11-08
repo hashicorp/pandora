@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The allowed source IP addresses or CIDR ranges for accessing the API Bridge"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ApiBridgeActivationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The activation state of the API Bridge for this Communications Gateway"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "FQDNs for sending requests to the API Bridge endpoint"
   }
  ]
 }

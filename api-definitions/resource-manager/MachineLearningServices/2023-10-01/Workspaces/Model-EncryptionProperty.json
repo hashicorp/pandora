@@ -10,7 +10,8 @@
     "referenceName": "IdentityForCmk"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The identity that will be used to access the key vault for encryption at rest."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "EncryptionKeyVaultProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Customer Key vault properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EncryptionStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Indicates whether or not the encryption is enabled for the workspace."
   }
  ]
 }

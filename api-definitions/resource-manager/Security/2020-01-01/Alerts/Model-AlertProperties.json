@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique identifier for the detection logic (all alert instances from the same detection logic will have the same alertType)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A direct link to the alert page in Azure Portal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the resource most related to this alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key for corelating related alerts. Alerts with the same correlation key considered to be related."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the suspicious activity that was detected."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC time of the last event or activity included in the alert in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of entities related to the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +119,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Links related to the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -126,7 +135,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom properties for the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +147,8 @@
     "referenceName": "Intent"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The kill chain related intent behind the alert. For list of supported values, and explanations of Azure Security Center's supported kill chain intents."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +159,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This field determines whether the alert is an incident (a compound grouping of several alerts) or a single alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -160,7 +172,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC processing end time of the alert in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +184,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of Azure Security Center pricing tier which powering this alert. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-pricing"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -182,7 +196,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the product which published this alert (Azure Security Center, Azure ATP, Microsoft Defender ATP, O365 ATP, and so on)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +212,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Manual action items to take to remediate the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +228,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource identifiers that can be used to direct the alert to the right product exposure group (tenant, workspace, subscription etc.). There can be multiple identifiers of different type per alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +240,8 @@
     "referenceName": "AlertSeverity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The risk level of the threat that was detected. Learn more: https://docs.microsoft.com/en-us/azure/security-center/security-center-alerts-overview#how-are-alerts-classified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +253,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC time of the first event or activity included in the alert in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +265,8 @@
     "referenceName": "AlertStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The life cycle status of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +277,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique identifier for the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -269,7 +290,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC time the alert was generated in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -280,7 +302,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the vendor that raises the alert."
   }
  ]
 }

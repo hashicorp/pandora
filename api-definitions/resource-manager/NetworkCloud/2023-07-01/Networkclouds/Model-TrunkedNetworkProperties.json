@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of resource IDs for the other Microsoft.NetworkCloud resources that have attached this network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the Network Cloud cluster this trunked network is associated with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "TrunkedNetworkDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The more detailed status of the trunked network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field Deprecated. These fields will be empty/omitted. The list of Hybrid AKS cluster resource IDs that are associated with this trunked network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "HybridAksPluginType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field Deprecated. The field was previously optional, now it will have no defined behavior and will be ignored. The network plugin type for Hybrid AKS."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default interface name for this trunked network in the virtual machine. This name can be overridden by the name supplied in the network attachment configuration of that virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +107,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of resource IDs representing the Network Fabric isolation domains. It can be any combination of l2IsolationDomain and l3IsolationDomain resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +119,8 @@
     "referenceName": "TrunkedNetworkProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the trunked network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -126,7 +135,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Field Deprecated. These fields will be empty/omitted. The list of virtual machine resource IDs, excluding any Hybrid AKS virtual machines, that are currently using this trunked network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +152,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of vlans that are selected from the isolation domains for trunking."
   }
  ]
 }

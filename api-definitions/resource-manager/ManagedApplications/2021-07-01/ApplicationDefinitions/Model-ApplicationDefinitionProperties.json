@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of managed application artifacts. The portal will use the files specified as artifacts to construct the user experience of creating a managed application from a managed application definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application provider authorizations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The createUiDefinition json for the backing template with Microsoft.Solutions/applications resource. It can be a JObject or well-formed JSON string."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "ApplicationDeploymentPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application deployment policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application definition description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application definition display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the package is enabled or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "ApplicationLockLevel"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The managed application lock level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ApplicationPackageLockingPolicyDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application locking policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The inline main template json which has resources to be provisioned. It can be a JObject or well-formed JSON string."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": "ApplicationManagementPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application management policy that determines publisher's access to the managed resource group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "referenceName": "ApplicationNotificationPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application notification policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application definition package file Uri. Use this element"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed application provider policies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account id for bring your own storage scenario."
   }
  ]
 }

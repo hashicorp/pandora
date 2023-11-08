@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Command line arguments to pass to the script. Arguments are separated by spaces. ex: -Name blue* -Location 'West US 2' "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Azure CLI module version to be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CleanupOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The clean up preference when the script execution gets in a terminal state. Default setting is 'Always'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ContainerConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Container settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The environment variables to pass over to the script."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets how the deployment script should be forced to execute even if the script resource has not changed. Can be current time stamp or a GUID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of script outputs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Uri for the script. This is the entry point for the external script."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ScriptProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the script execution. This only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Interval for which the service retains the script resource after it reaches a terminal state. Resource will be deleted when this duration expires. Duration is based on ISO 8601 pattern (for example P1D means one day)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Script body."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "referenceName": "ScriptStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Contains the results of script execution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": "StorageAccountConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage Account settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Supporting files for the external script."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum allowed script execution time specified in ISO 8601 format. Default value is P1D"
   }
  ]
 }

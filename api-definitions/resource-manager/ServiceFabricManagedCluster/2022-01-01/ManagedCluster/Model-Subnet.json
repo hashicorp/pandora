@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates wether to enable Ipv6 or not. If not provided, it will take the same configuration as the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Subnet name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Full resource id for the network security group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PrivateEndpointNetworkPolicies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or Disable apply network policies on private end point in the subnet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "PrivateLinkServiceNetworkPolicies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable or Disable apply network policies on private link service in the subnet."
   }
  ]
 }

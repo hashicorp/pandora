@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The application gateway backend address pools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies an array of references to application security group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The load balancer backend address pools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The load balancer inbound nat pools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the primary IP Configuration in case the network interface has more than one IP Configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     "referenceName": "IPVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Available from Api-Version 2017-03-30 onwards, it represents whether the specific ipconfiguration is IPv4 or IPv6. Default is taken as IPv4.  Possible values are: 'IPv4' and 'IPv6'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     "referenceName": "VirtualMachineScaleSetUpdatePublicIPAddressConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The publicIPAddressConfiguration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": "ApiEntityReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The subnet."
   }
  ]
 }

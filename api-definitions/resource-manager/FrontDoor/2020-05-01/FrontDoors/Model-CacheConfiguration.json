@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration for which the content needs to be cached. Allowed format is in ISO 8601 format (http://en.wikipedia.org/wiki/ISO_8601#Durations). HTTP requires the value to be no more than a year"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DynamicCompressionEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to use dynamic compression for cached content"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "FrontDoorQuery"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Treatment of URL query terms when forming the cache key."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "query parameters to include or exclude (comma separated)."
   }
  ]
 }

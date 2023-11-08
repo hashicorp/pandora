@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "File Patterns where the log files are located"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "KnownLogFilesDataSourceFormat"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The data format of the log files"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A friendly name for the data source. \r\nThis name should be unique across all data sources (regardless of type) within the data collection rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "LogFileSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The log files specific settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "List of streams that this data source will be sent to.\r\nA stream indicates what schema will be used for this data source"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "RecurrenceFrequency"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The frequency to trigger schedule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies schedule interval in conjunction with frequency"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "RecurrenceSchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recurrence schedule."
   }
  ],
  "discriminatedParentModelName": "TriggerBase",
- "discriminatedTypeValue": "Recurrence"
+ "discriminatedTypeValue": "Recurrence",
+ "typeHintIn": "TriggerType"
 }

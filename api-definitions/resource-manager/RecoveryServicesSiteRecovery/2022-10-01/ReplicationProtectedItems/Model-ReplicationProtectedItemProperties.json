@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Current active location of the PE."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The allowed operations on the Replication protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "CurrentScenarioDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current scenario."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The correlation Id for events associated with this protected item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The consolidated failover health for the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point ARM Id to which the Vm was failed over."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of health errors."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last successful failover time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last successful test failover time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of Policy governing this PE."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -141,7 +152,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID of Policy governing this PE."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -152,7 +164,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The friendly name of the primary fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +176,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fabric provider of the primary fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -174,7 +188,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of primary protection container friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -185,7 +200,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protected item ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +212,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of protected item type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +224,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +236,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +248,8 @@
     "referenceName": "ReplicationProviderSpecificSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Replication provider custom settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +260,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery container Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The friendly name of recovery fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -262,7 +284,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Arm Id of recovery fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -273,7 +296,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of recovery container friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -284,7 +308,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery provider ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -295,7 +320,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The consolidated protection health for the VM taking any issues with SRS as well as all the replication units associated with the VM's replication group into account. This is a string representation of the ProtectionHealth enumeration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -306,7 +332,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The switch provider state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -317,7 +344,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The switch provider state description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -328,7 +356,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Test failover state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -339,7 +368,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Test failover state description."
   }
  ]
 }

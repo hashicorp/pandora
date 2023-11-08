@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The stream bit rate for the audio track."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DashSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The DASH specific setting for the audio track."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the audio track on a video player. In HLS, this maps to the NAME attribute of EXT-X-MEDIA."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The file name to the source file. This file is located in the storage container of the asset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "HlsSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The HLS specific setting for the audio track."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The RFC5646 language code for the audio track."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,9 +82,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The MPEG-4 audio track ID for the audio track."
   }
  ],
  "discriminatedParentModelName": "TrackBase",
- "discriminatedTypeValue": "#Microsoft.Media.AudioTrack"
+ "discriminatedTypeValue": "#Microsoft.Media.AudioTrack",
+ "typeHintIn": "OdataType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workspace connection for data import source storage"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": "DataImportSourceType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of data."
   }
- ]
+ ],
+ "typeHintIn": "SourceType"
 }

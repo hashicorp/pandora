@@ -10,9 +10,11 @@
     "referenceName": "DataConnectorTenantId"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "AAD (Azure Active Directory) requirements check properties."
   }
  ],
  "discriminatedParentModelName": "DataConnectorsCheckRequirements",
- "discriminatedTypeValue": "AzureActiveDirectory"
+ "discriminatedTypeValue": "AzureActiveDirectory",
+ "typeHintIn": "Kind"
 }

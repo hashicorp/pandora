@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If reason == invalid, provide the user with the reason why the given name is invalid, and provide the resource naming requirements so that the user can select a valid name. If reason == AlreadyExists, explain that resource name is already in use, and direct them to select a different name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e indicates name is valid and available. \u003ccode\u003efalse\u003c/code\u003e indicates the name is invalid, unavailable, or both."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "InAvailabilityReasonType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003eInvalid\u003c/code\u003e indicates the name provided does not match Azure App Service naming requirements. \u003ccode\u003eAlreadyExists\u003c/code\u003e indicates that the name is already in use and is therefore unavailable."
   }
  ]
 }

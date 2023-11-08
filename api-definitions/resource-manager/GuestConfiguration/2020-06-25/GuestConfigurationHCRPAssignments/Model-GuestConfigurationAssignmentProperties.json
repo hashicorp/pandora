@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Combined hash of the configuration package and parameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ComplianceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating compliance status of the machine for the assigned guest configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source which initiated the guest configuration assignment. Ex: Azure Policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "GuestConfigurationNavigation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The guest configuration to assign."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date and time when last compliance status was checked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": "AssignmentReport"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last reported guest configuration assignment report."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Id of the latest report for the guest configuration assignment. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "parameter hash for the guest configuration assignment. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the resource - VMSS / VM"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VM resource Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of VM Compliance data for VMSS"
   }
  ]
 }

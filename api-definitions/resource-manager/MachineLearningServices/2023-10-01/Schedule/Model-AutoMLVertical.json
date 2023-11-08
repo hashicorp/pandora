@@ -10,7 +10,8 @@
     "referenceName": "LogVerbosity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Log verbosity for the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target column name: This is prediction values column.\r\nAlso known as label column name in context of classification tasks."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -32,7 +34,8 @@
     "referenceName": "TaskType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Task type for AutoMLJob."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Training data input."
   }
- ]
+ ],
+ "typeHintIn": "TaskType"
 }

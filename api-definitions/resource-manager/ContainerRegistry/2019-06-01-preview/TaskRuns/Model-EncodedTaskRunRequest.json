@@ -10,7 +10,8 @@
     "referenceName": "AgentProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The machine configuration of the run agent."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Credentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that describes a set of credentials that will be used when this run is invoked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Base64 encoded value of the template/definition file content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Base64 encoded value of the parameters/values file content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "PlatformProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The platform properties against which the run has to happen."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URL(absolute or relative) of the source context. It can be an URL to a tar or git repository.\r\nIf it is relative URL, the relative path should be obtained from calling listBuildSourceUploadUrl API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Run timeout in seconds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,9 +98,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of overridable values that can be passed when running a task."
   }
  ],
  "discriminatedParentModelName": "RunRequest",
- "discriminatedTypeValue": "EncodedTaskRunRequest"
+ "discriminatedTypeValue": "EncodedTaskRunRequest",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data sync option."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provider Id for alternate location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ALR options to create alternate recovery."
   }
  ],
  "discriminatedParentModelName": "PlannedFailoverProviderSpecificFailoverInput",
- "discriminatedTypeValue": "HyperVReplicaAzureFailback"
+ "discriminatedTypeValue": "HyperVReplicaAzureFailback",
+ "typeHintIn": "InstanceType"
 }

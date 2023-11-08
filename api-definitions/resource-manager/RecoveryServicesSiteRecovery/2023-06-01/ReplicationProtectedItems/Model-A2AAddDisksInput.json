@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm disk details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,9 +30,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm managed disk details."
   }
  ],
  "discriminatedParentModelName": "AddDisksProviderSpecificInput",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

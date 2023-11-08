@@ -10,7 +10,8 @@
     "referenceName": "ClusterConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ClusterManagerType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of cluster manager: Windows Server Failover Cluster (WSFC), implied by the scale type of the group and the OS type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state to track the async operation status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ScaleType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scale type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL image offer. Examples may include SQL2016-WS2016, SQL2017-WS2016."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "SqlVMGroupImageSku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL image sku."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "WsfcDomainProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cluster Active Directory domain profile."
   }
  ]
 }

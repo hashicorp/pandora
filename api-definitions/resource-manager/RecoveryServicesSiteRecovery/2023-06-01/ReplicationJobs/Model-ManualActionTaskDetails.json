@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The instructions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The observation."
   }
  ],
  "discriminatedParentModelName": "TaskTypeDetails",
- "discriminatedTypeValue": "ManualActionTaskDetails"
+ "discriminatedTypeValue": "ManualActionTaskDetails",
+ "typeHintIn": "InstanceType"
 }

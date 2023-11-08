@@ -10,7 +10,8 @@
     "referenceName": "CreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The create mode to indicate whether the resource is being created or is being recovered from a deleted resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property specifying whether protection against purge is enabled for this managed HSM pool. Setting this property to true activates protection against purge for this managed HSM pool and its content - only the Managed HSM service may initiate a hard, irrecoverable deletion. Enabling this functionality is irreversible."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property to specify whether the 'soft delete' functionality is enabled for this managed HSM pool. Soft delete is enabled by default for all managed HSMs and is immutable."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI of the managed hsm pool for performing operations on keys."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of initial administrators object ids for this managed hsm pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "MHSMNetworkRuleSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Rules governing the accessibility of the key vault from specific network locations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private endpoint connections associated with the managed hsm pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Control permission to the managed HSM from public networks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +127,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The scheduled purge date in UTC."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Soft deleted data retention days. When you delete an HSM or a key, it will remain recoverable for the configured retention period or for a default period of 90 days. It accepts values between 7 and 90."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Status Message."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Active Directory tenant ID that should be used for authenticating requests to the managed HSM pool."
   }
  ]
 }

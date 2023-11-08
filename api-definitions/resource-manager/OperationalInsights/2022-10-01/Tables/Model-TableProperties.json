@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The table data archive retention in days. Calculated as (totalRetentionInDays-retentionInDays)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp that table plan was last modified (UTC)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "TablePlanEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Instruct the system how to handle and charge the logs ingested to this table."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ProvisioningStateEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Table's current provisioning state. If set to 'updating', indicates a resource lock due to ongoing operation, forbidding any update to the table until the ongoing operation is concluded."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "RestoredLogs"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters of the restore operation that initiated this table."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ResultStatistics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Search job execution statistics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The table retention in days, between 4 and 730. Setting this property to -1 will default to the workspace retention."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True - Value originates from workspace retention in days, False - Customer specific."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "Schema"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Table schema."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "SearchResults"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters of the search job that initiated this table."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The table total retention in days, between 4 and 2556. Setting this property to -1 will default to table retention."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True - Value originates from retention in days, False - Customer specific."
   }
  ]
 }

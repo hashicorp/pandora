@@ -10,9 +10,11 @@
     "referenceName": "StorageQueueEventSubscriptionDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage Queue Properties of the event subscription destination."
   }
  ],
  "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "StorageQueue"
+ "discriminatedTypeValue": "StorageQueue",
+ "typeHintIn": "EndpointType"
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IP Configuration of the Kubernetes node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Node name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "KubernetesNodeType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Node type - Master/Worker"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup agent version"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID of the backup engine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the backup engine with the Recovery Services Vault. = {Active/Deleting/DeleteFailed}"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -43,7 +46,8 @@
     "referenceName": "BackupEngineType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the backup engine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "BackupManagementType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of backup management for the backup engine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag indicating if the backup engine be registered, once already registered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup engine version"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "BackupEngineExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended info of the backupengine"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the backup engine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup status of the backup engine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "To check if backup agent upgrade available"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "To check if backup engine upgrade available"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Registration status of the backup engine with the Recovery Services Vault."
   }
- ]
+ ],
+ "typeHintIn": "BackupEngineType"
 }

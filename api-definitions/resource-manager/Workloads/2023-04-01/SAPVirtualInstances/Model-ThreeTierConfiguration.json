@@ -10,7 +10,8 @@
     "referenceName": "ApplicationServerConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The application server configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CentralServerConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The central server configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ThreeTierCustomResourceNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The set of custom names to be used for underlying azure resources that are part of the SAP system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DatabaseConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The database configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "HighAvailabilityConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The high availability configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "NetworkConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network configuration common to all servers"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,9 +82,11 @@
     "referenceName": "StorageConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage configuration."
   }
  ],
  "discriminatedParentModelName": "InfrastructureConfiguration",
- "discriminatedTypeValue": "ThreeTier"
+ "discriminatedTypeValue": "ThreeTier",
+ "typeHintIn": "DeploymentType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ASN for CIDR advertising. Should be an integer as string."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Authorization message for WAN validation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of all Children for IPv6 /48 CustomIpPrefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The prefix range in CIDR notation. Should include the start address and the prefix length."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "CommissionedState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The commissioned state of the Custom IP Prefix."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to do express route advertise."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason why resource is in failed state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "Geo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Geo for CIDR advertising. Should be an Geo code."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to Advertise the range to Internet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "CustomIPPrefixType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of custom IP prefix. Should be Singular, Parent, or Child."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of all referenced PublicIpPrefixes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource GUID property of the custom IP prefix resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Signed message for WAN validation."
   }
  ]
 }

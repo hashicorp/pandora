@@ -10,9 +10,11 @@
     "referenceName": "AzureSqlReferenceInputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with SQL DB input containing reference data. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "ReferenceInputDataSource",
- "discriminatedTypeValue": "Microsoft.Sql/Server/Database"
+ "discriminatedTypeValue": "Microsoft.Sql/Server/Database",
+ "typeHintIn": "Type"
 }

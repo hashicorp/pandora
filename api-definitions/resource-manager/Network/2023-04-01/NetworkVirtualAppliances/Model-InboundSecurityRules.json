@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "NVA port ranges to be opened up. One needs to provide specific ports."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "InboundSecurityRulesProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Protocol. This should be either TCP or UDP."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CIDR or source IP range. Only /30, /31 and /32 Ip ranges are allowed."
   }
  ]
 }

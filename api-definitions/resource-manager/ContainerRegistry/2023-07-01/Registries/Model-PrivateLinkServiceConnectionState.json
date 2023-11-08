@@ -10,7 +10,8 @@
     "referenceName": "ActionsRequired"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A message indicating if changes on the service provider require any updates on the consumer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description for connection status. For example if connection is rejected it can indicate reason for rejection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ConnectionStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The private link service connection status."
   }
  ]
 }

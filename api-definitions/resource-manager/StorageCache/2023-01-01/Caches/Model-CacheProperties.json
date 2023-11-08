@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The size of this Cache, in GB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CacheDirectorySettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies Directory Services settings of the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CacheEncryptionSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies encryption settings of the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "CacheHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health of the Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of IP addresses that can be used by clients mounting this Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "CacheNetworkSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies network settings of the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the priming jobs defined in the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "ProvisioningStateType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM provisioning state, see https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/Addendum.md#provisioningstate-property"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "CacheSecuritySettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies security settings of the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the space allocation percentage for each storage target in the cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subnet used for the Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "CacheUpgradeSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Upgrade settings of the Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "CacheUpgradeStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Upgrade status of the Cache."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Availability zones for resources. This field should only contain a single element in the array."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "ContainerStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current status of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC time when container got created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "AzureContainerDataFormat"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "DataFormat for Container"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "RefreshDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details of the refresh job on this container."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of references to Child Firewall Policies."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "DnsSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DNS Proxy Settings definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ExplicitProxy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Explicit Proxy Settings definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of references to Azure Firewalls that this Firewall Policy is associated with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "FirewallPolicyInsights"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Insights on Firewall Policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "FirewallPolicyIntrusionDetection"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration for Intrusion detection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of references to FirewallPolicyRuleCollectionGroups."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "FirewallPolicySku"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Firewall Policy SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "FirewallPolicySNAT"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The private IP addresses/IP ranges to which traffic will not be SNAT."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "FirewallPolicySQL"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL Settings definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": "AzureFirewallThreatIntelMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": "FirewallPolicyThreatIntelWhitelist"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ThreatIntel Whitelist for Firewall Policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": "FirewallPolicyTransportSecurity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TLS Configuration definition."
   }
  ]
 }

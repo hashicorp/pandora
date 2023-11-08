@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Maximum number of named partitions of the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Minimum number of named partitions of the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of instances to add or remove during a scaling operation."
   }
  ],
  "discriminatedParentModelName": "ScalingMechanism",
- "discriminatedTypeValue": "AddRemoveIncrementalNamedPartition"
+ "discriminatedTypeValue": "AddRemoveIncrementalNamedPartition",
+ "typeHintIn": "Kind"
 }

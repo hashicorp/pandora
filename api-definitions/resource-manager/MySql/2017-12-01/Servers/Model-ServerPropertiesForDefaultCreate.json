@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The administrator's login name of a server. Can only be specified when the server is being created (and is required for creation). The login name is required when updating password."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The password of the administrator login."
   }
  ],
  "discriminatedParentModelName": "ServerPropertiesForCreate",
- "discriminatedTypeValue": "Default"
+ "discriminatedTypeValue": "Default",
+ "typeHintIn": "CreateMode"
 }

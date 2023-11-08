@@ -10,7 +10,8 @@
     "referenceName": "EventSourceKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The kind of the event source."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "LocalTimestamp"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The location of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key-value pairs of additional properties for the resource."
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

@@ -10,7 +10,8 @@
     "referenceName": "Access"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The network traffic is allowed or denied."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network security rule description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination address prefixes. CIDR or destination IP ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination port ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "Direction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Network security rule direction."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Network security rule name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The priority of the rule. The value can be in the range 1000 to 3000. Values outside this range are reserved for Service Fabric ManagerCluster Resource Provider. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "NsgProtocol"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Network protocol this rule applies to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CIDR or source IP ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source port ranges."
   }
  ]
 }

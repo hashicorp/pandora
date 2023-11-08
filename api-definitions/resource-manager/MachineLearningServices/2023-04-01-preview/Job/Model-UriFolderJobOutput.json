@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Output Asset Name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Output Asset Version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AutoDeleteSetting"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Auto delete setting of output data asset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "OutputDeliveryMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Output Asset Delivery Mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Output Asset URI."
   }
  ],
  "discriminatedParentModelName": "JobOutput",
- "discriminatedTypeValue": "uri_folder"
+ "discriminatedTypeValue": "uri_folder",
+ "typeHintIn": "JobOutputType"
 }

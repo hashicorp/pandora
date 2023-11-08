@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the state/actions applicable on this job like cancel/retry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Container name of the entity on which the current job is executing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time elapsed during the execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error details on execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "AzureIaaSVMJobExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information for this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicated that whether the job is adhoc(true) or scheduled(false)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,9 +90,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the backup item is a Classic or an Azure Resource Manager VM."
   }
  ],
  "discriminatedParentModelName": "Job",
- "discriminatedTypeValue": "AzureIaaSVMJob"
+ "discriminatedTypeValue": "AzureIaaSVMJob",
+ "typeHintIn": "JobType"
 }

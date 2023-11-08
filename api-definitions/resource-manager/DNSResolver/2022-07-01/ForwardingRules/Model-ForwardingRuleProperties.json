@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The domain name for the forwarding rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ForwardingRuleState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of forwarding rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata attached to the forwarding rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current provisioning state of the forwarding rule. This is a read-only property and any attempt to set this value will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "DNS servers to forward the DNS query to."
   }
  ]
 }

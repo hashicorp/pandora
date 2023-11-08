@@ -10,7 +10,8 @@
     "referenceName": "FeaturizationSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Featurization inputs needed for AutoML job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "NlpVerticalLimitSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Execution constraints for AutoMLJob."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ClassificationPrimaryMetrics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary metric for Text-Classification task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Validation data inputs."
   }
  ],
  "discriminatedParentModelName": "AutoMLVertical",
- "discriminatedTypeValue": "TextClassification"
+ "discriminatedTypeValue": "TextClassification",
+ "typeHintIn": "TaskType"
 }

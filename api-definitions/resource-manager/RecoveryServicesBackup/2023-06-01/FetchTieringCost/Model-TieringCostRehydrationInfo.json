@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Rehydration size in bytes"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Source tier to target tier rehydration cost per GB per month"
   }
  ],
  "discriminatedParentModelName": "TieringCostInfo",
- "discriminatedTypeValue": "TieringCostRehydrationInfo"
+ "discriminatedTypeValue": "TieringCostRehydrationInfo",
+ "typeHintIn": "ObjectType"
 }

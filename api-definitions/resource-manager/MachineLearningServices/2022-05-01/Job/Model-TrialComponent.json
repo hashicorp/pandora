@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ARM resource ID of the code asset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The command to execute on startup of the job. eg. \"python train.py\""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DistributionConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Distribution configuration of the job. If set, this should be one of Mpi, Tensorflow, PyTorch, or null."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The ARM resource ID of the Environment specification for the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Environment variables included in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ResourceConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute Resource configuration for the job."
   }
  ]
 }

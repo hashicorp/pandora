@@ -10,7 +10,8 @@
     "referenceName": "AgentAutoUpdateStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the auto update is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AutoProtectionOfDataDisk"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether the auto protection is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The automation account arm id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "AutomationAccountAuthenticationType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating the type authentication to use for automation Account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "DiskEncryptionInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery disk encryption information (for two pass flows)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fabric specific object Id of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi vm group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary location for the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "StorageAccountCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary staging storage account details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "ProtectionProfileCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection profile custom details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "RecoveryAvailabilitySetCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability set details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The recovery availability type of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": "StorageAccountCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The boot diagnostic storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery location for the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +202,8 @@
     "referenceName": "RecoveryProximityPlacementGroupCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery proximity placement group custom details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery resource group id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery subscription Id of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +238,8 @@
     "referenceName": "RecoveryVirtualNetworkCustomDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery virtual network details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -234,7 +254,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm disk details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -249,9 +270,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of vm managed disk details."
   }
  ],
  "discriminatedParentModelName": "ReplicationProtectionIntentProviderSpecificSettings",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

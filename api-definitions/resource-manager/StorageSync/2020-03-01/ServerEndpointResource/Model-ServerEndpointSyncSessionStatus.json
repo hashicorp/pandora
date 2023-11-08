@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of per-item errors coming from the last sync session."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ServerEndpointSyncMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sync mode"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sync per item error count."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sync result (HResult)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sync success timestamp"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sync timestamp"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -82,7 +88,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Count of persistent files not syncing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Count of transient files not syncing."
   }
  ]
 }

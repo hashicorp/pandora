@@ -10,7 +10,8 @@
     "referenceName": "ClearKeyEncryptionConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional configuration supporting ClearKey in CommonEncryptionCenc encryption scheme."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Representing which tracks should not be encrypted"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "StreamingPolicyContentKeys"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Representing default content key for each encryption scheme and separate content keys for specific tracks"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "CencDrmConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration of DRMs for CommonEncryptionCenc encryption scheme"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "EnabledProtocols"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Representing supported protocols"
   }
  ]
 }

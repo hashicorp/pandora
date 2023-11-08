@@ -10,7 +10,8 @@
     "referenceName": "InitialReplicationDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Initial replication details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last replication time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VM disk details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PE Network details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,9 +91,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state description for the vm."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "HyperVReplicaBaseReplicationDetails"
+ "discriminatedTypeValue": "HyperVReplicaBaseReplicationDetails",
+ "typeHintIn": "InstanceType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ComponentNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The component name. Currently, the only allowable value is Microsoft-Windows-Shell-Setup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the XML formatted content that is added to the unattend.xml file for the specified path and component. The XML must be less than 4KB and must include the root element for the setting or feature that is being inserted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PassNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The pass name. Currently, the only allowable value is OobeSystem."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "SettingNames"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the name of the setting to which the content applies. Possible values are: FirstLogonCommands and AutoLogon."
   }
  ]
 }

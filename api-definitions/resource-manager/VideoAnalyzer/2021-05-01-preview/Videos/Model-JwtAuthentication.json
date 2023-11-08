@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of expected token audiences. Token audience is valid if it matches at least one of the given values."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of expected token issuers. Token issuer is valid if it matches at least one of the given values."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,9 +62,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key."
   }
  ],
  "discriminatedParentModelName": "AuthenticationBase",
- "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.JwtAuthentication"
+ "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.JwtAuthentication",
+ "typeHintIn": "Type"
 }

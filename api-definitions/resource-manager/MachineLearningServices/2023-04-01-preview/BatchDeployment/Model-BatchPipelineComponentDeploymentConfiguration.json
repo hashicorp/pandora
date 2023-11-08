@@ -10,7 +10,8 @@
     "referenceName": "IdAssetReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM id of the component to be run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description which will be applied to the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Run-time settings for the pipeline job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,9 +50,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags which will be applied to the job."
   }
  ],
  "discriminatedParentModelName": "BatchDeploymentConfiguration",
- "discriminatedTypeValue": "PipelineComponent"
+ "discriminatedTypeValue": "PipelineComponent",
+ "typeHintIn": "DeploymentConfigurationType"
 }

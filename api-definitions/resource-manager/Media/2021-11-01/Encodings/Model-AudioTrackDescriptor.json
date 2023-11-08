@@ -10,9 +10,11 @@
     "referenceName": "ChannelMapping"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional designation for single channel audio tracks.  Can be used to combine the tracks into stereo or multi-channel audio tracks."
   }
  ],
  "discriminatedParentModelName": "TrackDescriptor",
- "discriminatedTypeValue": "#Microsoft.Media.AudioTrackDescriptor"
+ "discriminatedTypeValue": "#Microsoft.Media.AudioTrackDescriptor",
+ "typeHintIn": "OdataType"
 }

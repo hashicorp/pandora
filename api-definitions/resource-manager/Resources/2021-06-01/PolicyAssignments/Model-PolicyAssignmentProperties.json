@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This message will be part of response in case of policy violation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the policy assignment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EnforcementMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy assignment enforcement mode. Possible values are Default and DoNotEnforce."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy assignment metadata. Metadata is an open ended object and is typically a collection of key value pairs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The messages that describe why a resource is non-compliant with the policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy's excluded scopes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The parameter values for the assigned policy rule. The keys are the parameter names."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ID of the policy definition or policy set definition being assigned."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The scope for the policy assignment."
   }
  ]
 }

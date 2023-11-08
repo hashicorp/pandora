@@ -10,7 +10,8 @@
     "referenceName": "CachingTypes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The caching type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the size of the operating system disk in gigabytes. This element can be used to overwrite the size of the disk in a virtual machine image. \u003cbr\u003e\u003cbr\u003e This value cannot be larger than 1023 GB"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "VirtualHardDisk"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Source User Image VirtualHardDisk. This VirtualHardDisk will be copied before using it to attach to the Virtual Machine. If SourceImage is provided, the destination VirtualHardDisk should not exist."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "VirtualMachineScaleSetManagedDiskParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed disk parameters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of virtual hard disk container uris."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether writeAccelerator should be enabled or disabled on the disk."
   }
  ]
 }

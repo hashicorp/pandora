@@ -10,7 +10,8 @@
     "referenceName": "ApiError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error Details for this upgrade if there are any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RollingUpgradeProgressInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Counts of the VMs in each state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "RollbackStatusInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about OS rollback if performed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "UpgradeOperationHistoryStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the overall status of the upgrade operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "UpgradeOperationInvoker"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Invoker of the Upgrade Operation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "ImageReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Image Reference details"
   }
  ]
 }

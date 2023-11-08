@@ -10,7 +10,8 @@
     "referenceName": "ConsoleEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The credentials used to login to the image repository that has access to the specified image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The date and time after which the key will be disallowed access."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "SshPublicKey"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SSH public key that will be provisioned for user access. The user is expected to have the corresponding SSH private key for logging in."
   }
  ]
 }

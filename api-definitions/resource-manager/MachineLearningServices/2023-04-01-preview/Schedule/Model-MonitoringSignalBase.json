@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of time a single monitor should look back over the target data on a given run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MonitoringNotificationMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current notification mode for this signal."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -32,7 +34,9 @@
     "referenceName": "MonitoringSignalType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the type of signal to monitor."
   }
- ]
+ ],
+ "typeHintIn": "SignalType"
 }

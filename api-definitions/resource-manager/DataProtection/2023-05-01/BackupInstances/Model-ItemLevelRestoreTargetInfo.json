@@ -10,7 +10,8 @@
     "referenceName": "AuthCredentials"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Credentials to use to authenticate with data source provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Datasource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Information of target DS"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DatasourceSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information of target DS Set"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,9 +50,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Restore Criteria"
   }
  ],
  "discriminatedParentModelName": "RestoreTargetInfoBase",
- "discriminatedTypeValue": "ItemLevelRestoreTargetInfo"
+ "discriminatedTypeValue": "ItemLevelRestoreTargetInfo",
+ "typeHintIn": "ObjectType"
 }

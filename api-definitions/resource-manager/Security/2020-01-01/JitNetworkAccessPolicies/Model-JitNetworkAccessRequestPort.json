@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mutually exclusive with the \"allowedSourceAddressPrefixes\" parameter. Should be an IP address or CIDR, for example \"192.168.0.3\" or \"192.168.0.0/16\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mutually exclusive with the \"allowedSourceAddressPrefix\" parameter."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The date \u0026 time at which the request ends in UTC"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port which is mapped to this port's `number` in the Azure Firewall, if applicable"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "Status"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The status of the port"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": "StatusReason"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A description of why the `status` has its value"
   }
  ]
 }

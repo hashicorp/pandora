@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM id of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Reason for why the resource is sending logs (or why it is not sending)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SendingLogs"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag indicating the status of the resource for sending logs operation to Elastic."
   }
  ]
 }

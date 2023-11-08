@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default the container to use specified encryption scope for all writes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the blob container was deleted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Blob container deletion time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Block override of encryption scope from the container default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable NFSv3 all squash on blob container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable NFSv3 root squash on blob container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The hasImmutabilityPolicy public property is set to true by SRP if ImmutabilityPolicy has been created for this container. The hasImmutabilityPolicy public property is set to false by SRP if ImmutabilityPolicy has not been created for this container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The hasLegalHold public property is set to true by SRP if there are at least one existing tag. The hasLegalHold public property is set to false by SRP if all existing legal hold tags are cleared out. There can be a maximum of 1000 blob containers with hasLegalHold=true for a given account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "ImmutabilityPolicyProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ImmutabilityPolicy property of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": "ImmutableStorageWithVersioning"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object level immutability property of the container. The property is immutable and can only be set to true at the container creation time. Existing containers must undergo a migration process."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -122,7 +132,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Returns the date and time the container was last modified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +144,8 @@
     "referenceName": "LeaseDuration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the lease on a container is of infinite or fixed duration, only when the container is leased."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "referenceName": "LeaseState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Lease state of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +168,8 @@
     "referenceName": "LeaseStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The lease status of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +180,8 @@
     "referenceName": "LegalHoldProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The LegalHold property of the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +196,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A name-value pair to associate with the container as metadata."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -192,7 +208,8 @@
     "referenceName": "PublicAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether data in the container may be accessed publicly and the level of access."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -203,7 +220,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Remaining retention days for soft deleted blob container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -214,7 +232,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of the deleted blob container."
   }
  ]
 }

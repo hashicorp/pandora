@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Analytical TTL."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the Cosmos DB MongoDB collection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of index keys"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A key-value pair of shard keys to be applied for the request."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Kubernetes version (major, minor, patch)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Pool name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ContainerServiceOSTypes"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "OsType to be used to specify os type. Choose from Linux and Windows. Default to Linux."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of orchestrator types and versions available for upgrade."
   }
  ]
 }

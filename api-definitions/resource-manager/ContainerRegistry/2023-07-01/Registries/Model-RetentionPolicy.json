@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of days to retain an untagged manifest after which it gets purged."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The timestamp when the policy was last updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "PolicyStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value that indicates whether the policy is enabled or not."
   }
  ]
 }

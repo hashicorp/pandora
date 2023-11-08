@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the list of administrator's custom email addresses to notify of the activation of the alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether the administrators (service and co-administrators) of the service should be notified when the alert is activated."
   }
  ],
  "discriminatedParentModelName": "RuleAction",
- "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction"
+ "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.RuleEmailAction",
+ "typeHintIn": "OdataType"
 }

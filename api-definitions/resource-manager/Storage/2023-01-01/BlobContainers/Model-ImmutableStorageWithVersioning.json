@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is an immutable property, when set to true it enables object level immutability at the container level."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MigrationState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This property denotes the container level immutability to object level immutability migration state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Returns the date and time the object level immutability was enabled."
   }
  ]
 }

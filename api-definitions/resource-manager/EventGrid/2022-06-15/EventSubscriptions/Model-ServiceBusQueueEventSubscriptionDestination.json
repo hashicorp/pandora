@@ -10,9 +10,11 @@
     "referenceName": "ServiceBusQueueEventSubscriptionDestinationProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Service Bus Properties of the event subscription destination."
   }
  ],
  "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "ServiceBusQueue"
+ "discriminatedTypeValue": "ServiceBusQueue",
+ "typeHintIn": "EndpointType"
 }

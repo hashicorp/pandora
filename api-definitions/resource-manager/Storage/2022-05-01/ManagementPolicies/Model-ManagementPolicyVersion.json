@@ -10,7 +10,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to delete the blob version"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blob version to archive storage. Support blob version currently at Hot or Cool tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blob version to cool storage. Support blob version currently at Hot tier"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default owner group for all new folders and files created in the Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "EncryptionConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Key Vault encryption configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EncryptionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of encryption for this Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "FirewallAllowAzureIPsState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of allowing or disallowing IPs originating within Azure through the firewall. If the firewall is disabled, this is not enforced."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of firewall rules associated with this Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "FirewallState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the IP address firewall for this Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "TierType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The commitment tier to use for next month."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "TrustedIdProviderState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current state of the trusted identity provider feature for this Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of trusted identity providers associated with this Data Lake Store account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of virtual network rules associated with this Data Lake Store account."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "AnalyticalStorageConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Analytical storage specific properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ApiProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "API specific properties. Currently, supported only for MongoDB API."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "BackupPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object representing the policy for taking backups on an account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Cosmos DB capabilities for the account"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "Capacity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object that represents all properties related to capacity enforcement on an account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ConnectorOffer"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cassandra connector offer type for the Cosmos DB database C* account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "ConsistencyPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The consistency policy for the Cosmos DB account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CORS policy for the Cosmos DB database account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "CreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enum to indicate the mode of account creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": "DatabaseAccountOfferType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The offer type for the database"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disable write operations on metadata resources (databases, containers, throughput) via account keys"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to indicate whether to enable storage analytics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enables the cassandra connector on the Cosmos DB C* account"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -194,7 +210,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to indicate whether Free Tier is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enables the account to write in multiple locations"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -220,7 +238,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of IpRules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -231,7 +250,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to indicate whether to enable/disable Virtual Network ACL rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -242,7 +262,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URI of the key vault"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +278,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "An array that contains the georeplication locations enabled for the Cosmos DB account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -268,7 +290,8 @@
     "referenceName": "NetworkAclBypass"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates what services are allowed to bypass firewall checks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -283,7 +306,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -294,7 +318,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether requests from Public Network are allowed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -305,7 +330,8 @@
     "referenceName": "RestoreParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters to indicate the information about the restore."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +346,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Virtual Network ACL rules configured for the Cosmos DB account."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value that indicates whether the admin user is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enables registry-wide pull from unauthenticated clients."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of the container registry in ISO8601 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable a single data endpoint per region for serving data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of host names that will serve data when dataEndpointEnabled is true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "EncryptionProperty"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption settings of container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The URL that can be used to log into the container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": "NetworkRuleBypassOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to allow trusted Azure services to access a network restricted registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +111,8 @@
     "referenceName": "NetworkRuleSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network rule set for a container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     "referenceName": "Policies"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policies for a container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +139,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private endpoint connections for a container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -140,7 +151,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the container registry at the time the operation was called."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +163,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public network access is allowed for the container registry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +175,8 @@
     "referenceName": "Status"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the container registry at the time the operation was called."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +187,8 @@
     "referenceName": "ZoneRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not zone redundancy is enabled for this container registry"
   }
  ]
 }

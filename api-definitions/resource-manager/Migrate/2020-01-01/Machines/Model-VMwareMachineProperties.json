@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allocated Memory in MB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AppsAndRoles"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Apps And Roles of the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "BIOS GUID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Machine BIOS serial number."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value indicating whether change tracking is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value indicating whether change tracking is supported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp marking machine creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scope of the data center."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If dependency mapping feature is enabled or not for the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When dependency mapping collection is last started."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User description of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disks attached to the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +159,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Display name of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -162,7 +175,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Errors for machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -173,7 +187,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Firmware of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -185,7 +200,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time at which the Guest Details was discovered or the error while discovering guest details based discovery of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +212,8 @@
     "referenceName": "GuestOSDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operating System Details extracted from the guest bu executing script inside the guest VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +224,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the host is in maintenance mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +236,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The host name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +248,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The host power state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +260,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The host version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "On-premise Instance UUID of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -262,7 +284,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value indicating whether VM is deleted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -273,7 +296,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether Refresh Fabric Layout Guest Details has been completed once. Portal will show discovery in progress, if this value is true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -284,7 +308,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of snapshots for the VM. Default value is -1."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -299,7 +324,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network adapters attached to the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -310,7 +336,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of applications installed in the guest VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -321,7 +348,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of Processor Cores allocated for the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -332,7 +360,8 @@
     "referenceName": "OperatingSystem"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operating System Details installed on the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -343,7 +372,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Machine power status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -354,7 +384,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp marking last updated on the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -365,7 +396,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VCenter FQDN/IPAddress."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -376,7 +408,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VCenter ARM ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -387,7 +420,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Root location of the VM configuration file."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -398,7 +432,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Machine FQDN."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -409,7 +444,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "VMware tools status."
   }
  ]
 }

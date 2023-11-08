@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Private Endpoint Connection details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure resource Id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "PublicNetworkAccessType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether machines associated with the private link scope can also use public Azure Arc service endpoints."
   }
  ]
 }

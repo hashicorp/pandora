@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "CreatedBy property, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Creation time of the resource, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "ErrorResponse"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "LastModifiedBy property, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +60,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last time resource was modified, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +72,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state for the software update configuration, which only appears in the response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "referenceName": "SUCScheduleProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Schedule information for the Software update configuration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,7 +96,8 @@
     "referenceName": "SoftwareUpdateConfigurationTasks"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tasks information for the Software update configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "referenceName": "UpdateConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "update specific properties for the Software update configuration"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "MonitorComputeIdentityBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The identity scheme leveraged to by the spark jobs running on serverless Spark."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The instance type running the Spark job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The Spark runtime version."
   }
  ],
  "discriminatedParentModelName": "MonitorComputeConfigurationBase",
- "discriminatedTypeValue": "ServerlessSpark"
+ "discriminatedTypeValue": "ServerlessSpark",
+ "typeHintIn": "ComputeType"
 }

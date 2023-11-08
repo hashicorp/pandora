@@ -10,7 +10,8 @@
     "referenceName": "ConfigurationAccessEndpointSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint used by agents to access their configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the data collection endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The immutable ID of this data collection endpoint resource. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "LogsIngestionEndpointSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint used by clients to ingest logs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "NetworkRuleSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network access control rules for the endpoints."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "KnownDataCollectionEndpointProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource provisioning state. This property is READ-ONLY."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Selected persistent volume claim name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Selected storage class name for restore operation"
   }
  ],
  "discriminatedParentModelName": "ItemLevelRestoreCriteria",
- "discriminatedTypeValue": "KubernetesPVRestoreCriteria"
+ "discriminatedTypeValue": "KubernetesPVRestoreCriteria",
+ "typeHintIn": "ObjectType"
 }

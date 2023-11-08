@@ -10,7 +10,8 @@
     "referenceName": "DeleteOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specify what happens to the network interface when the VM is deleted"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "VirtualMachineScaleSetNetworkConfigurationDnsSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The dns settings to be applied on the network interfaces."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the network interface is accelerated networking-enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the network interface is FPGA networking-enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether IP forwarding enabled on this NIC."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine scale set IP Configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether this is a primary NIC on a virtual machine."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "AzureBlobPatchDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters to reconcile to the AzureBlob source kind type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BucketPatchDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters to reconcile to the Bucket source kind type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Key-value pairs of protected configuration settings for the configuration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "GitRepositoryPatchDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parameters to reconcile to the GitRepository source kind type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of kustomizations used to reconcile the artifact pulled by the source type on the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "SourceKindType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source Kind to pull the configuration data from."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether this configuration should suspend its reconciliation of its kustomizations and sources."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public SSH Key of git repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SSH Key algorithm of git repository."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private SSH Key algorithm of git repository."
   }
  ],
  "discriminatedParentModelName": "AcceleratorAuthSetting",
- "discriminatedTypeValue": "SSH"
+ "discriminatedTypeValue": "SSH",
+ "typeHintIn": "AuthType"
 }

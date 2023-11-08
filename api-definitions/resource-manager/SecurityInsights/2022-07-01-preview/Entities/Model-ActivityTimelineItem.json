@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The grouping bucket end time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +24,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The grouping bucket start time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,7 +36,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The activity timeline content."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -46,7 +49,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time of the first activity in the grouping bucket."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time of the last activity in the grouping bucket."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The activity query id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,9 +86,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The activity timeline title."
   }
  ],
  "discriminatedParentModelName": "EntityTimelineItem",
- "discriminatedTypeValue": "Activity"
+ "discriminatedTypeValue": "Activity",
+ "typeHintIn": "Kind"
 }

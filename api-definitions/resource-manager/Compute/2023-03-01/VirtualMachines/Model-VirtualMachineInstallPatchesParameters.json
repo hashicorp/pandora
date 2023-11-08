@@ -10,7 +10,8 @@
     "referenceName": "LinuxParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input for InstallPatches on a Linux VM, as directly received by the API"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the maximum amount of time that the operation will run. It must be an ISO 8601-compliant duration string such as PT4H (4 hours)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "VMGuestPatchRebootSetting"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Defines when it is acceptable to reboot a VM during a software update operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "WindowsParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Input for InstallPatches on a Windows VM, as directly received by the API"
   }
  ]
 }

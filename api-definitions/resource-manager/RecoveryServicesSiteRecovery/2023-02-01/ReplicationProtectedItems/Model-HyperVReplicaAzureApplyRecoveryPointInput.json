@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The primary kek certificate pfx."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The secondary kek certificate pfx."
   }
  ],
  "discriminatedParentModelName": "ApplyRecoveryPointProviderSpecificInput",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ResourceIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Key Vault identity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "KeyVaultProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties of the key used to encrypt the account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the Key Vault mapping."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "AccountEncryptionKeyType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of key used to encrypt the Account Key."
   }
  ]
 }

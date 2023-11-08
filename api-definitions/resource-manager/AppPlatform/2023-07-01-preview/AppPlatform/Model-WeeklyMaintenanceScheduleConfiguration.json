@@ -10,7 +10,8 @@
     "referenceName": "WeekDay"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The day to run the maintenance job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration time to run the maintenance job, specified in ISO8601 format, e.g. PT8H"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The hour to run the maintenance job"
   }
  ],
  "discriminatedParentModelName": "MaintenanceScheduleConfiguration",
- "discriminatedTypeValue": "Weekly"
+ "discriminatedTypeValue": "Weekly",
+ "typeHintIn": "Frequency"
 }

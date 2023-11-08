@@ -10,7 +10,8 @@
     "referenceName": "GenericContainerExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended information (not returned in List container API calls)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the container's fabric"
   }
  ],
  "discriminatedParentModelName": "ProtectionContainer",
- "discriminatedTypeValue": "GenericContainer"
+ "discriminatedTypeValue": "GenericContainer",
+ "typeHintIn": "ContainerType"
 }

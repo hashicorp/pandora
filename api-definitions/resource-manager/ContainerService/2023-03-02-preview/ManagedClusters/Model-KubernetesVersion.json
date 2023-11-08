@@ -10,7 +10,8 @@
     "referenceName": "KubernetesVersionCapabilities"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Capabilities on this Kubernetes version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether this version is in preview mode."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Patch versions of Kubernetes release"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "major.minor version of Kubernetes release"
   }
  ]
 }

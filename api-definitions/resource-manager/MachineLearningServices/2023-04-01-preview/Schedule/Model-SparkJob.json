@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Archive files used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Arguments for the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] ARM resource ID of the code asset."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Spark configured properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "SparkJobEntry"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The entry to execute on startup of the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM resource ID of the Environment specification for the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Files used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of input data bindings used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +126,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Jar files used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +142,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of output data bindings used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +158,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Python files used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +170,8 @@
     "referenceName": "QueueSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Queue settings for the job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,9 +182,11 @@
     "referenceName": "SparkResourceConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute Resource configuration for the job."
   }
  ],
  "discriminatedParentModelName": "JobBase",
- "discriminatedTypeValue": "Spark"
+ "discriminatedTypeValue": "Spark",
+ "typeHintIn": "JobType"
 }

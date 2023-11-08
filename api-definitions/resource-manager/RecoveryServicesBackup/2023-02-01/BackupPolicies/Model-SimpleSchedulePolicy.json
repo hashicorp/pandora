@@ -10,7 +10,8 @@
     "referenceName": "HourlySchedule"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Hourly Schedule of this Policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of days of week this schedule has to be run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ScheduleRunType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frequency of the schedule operation of this policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of times of day this schedule has to be run."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,9 +67,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "At every number weeks this schedule has to be run."
   }
  ],
  "discriminatedParentModelName": "SchedulePolicy",
- "discriminatedTypeValue": "SimpleSchedulePolicy"
+ "discriminatedTypeValue": "SimpleSchedulePolicy",
+ "typeHintIn": "SchedulePolicyType"
 }

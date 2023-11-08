@@ -10,7 +10,8 @@
     "referenceName": "JobLimitsType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] JobLimit type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The max run duration in ISO 8601 format, after which the job will be cancelled. Only supports duration with precision as low as Seconds."
   }
- ]
+ ],
+ "typeHintIn": "JobLimitsType"
 }

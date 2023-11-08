@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end of life date of the gallery image version Definition. This property can be used for decommissioning purposes. This property is updatable."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If set to true, Virtual Machines deployed from the latest version of the Image Definition won't use this Image Version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -34,7 +36,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The published date of the gallery image version Definition. This property can be used for decommissioning purposes. This property is updatable."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "referenceName": "SharedGalleryImageVersionStorageProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ]
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A dictionary that maps feature names to their respective data types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "FeatureImportanceSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The settings for computing feature importance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "MonitoringFeatureFilterBase"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The features to calculate drift over."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] A list of metrics to calculate and their associated thresholds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "MonitoringInputDataBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data produced by the production service which drift will be calculated for."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,9 +78,11 @@
     "referenceName": "MonitoringInputDataBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data to calculate drift against."
   }
  ],
  "discriminatedParentModelName": "MonitoringSignalBase",
- "discriminatedTypeValue": "DataQuality"
+ "discriminatedTypeValue": "DataQuality",
+ "typeHintIn": "SignalType"
 }

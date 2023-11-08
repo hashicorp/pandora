@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "backup support feature name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "FeatureType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "backup support feature type."
   }
  ],
  "discriminatedParentModelName": "FeatureValidationRequestBase",
- "discriminatedTypeValue": "FeatureValidationRequest"
+ "discriminatedTypeValue": "FeatureValidationRequest",
+ "typeHintIn": "ObjectType"
 }

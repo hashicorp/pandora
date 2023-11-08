@@ -10,7 +10,8 @@
     "referenceName": "AdvertiseToFabric"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator of if this advertisement is also made to the network fabric associated with the Network Cloud Cluster. This field is ignored if fabricPeeringEnabled is set to False."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The names of the BGP communities to be associated with the announcement, utilizing a BGP community string in 1234:1234 format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The names of the IP address pools associated with this announcement."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The names of the BGP peers to limit this advertisement to. If no values are specified, all BGP peers will receive this advertisement."
   }
  ]
 }

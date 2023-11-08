@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The capability information in the specified SKU, including file encryption, network ACLs, change notification, etc."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "Kind"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the type of storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The set of locations that the SKU is available. This will be supported and registered Azure Geo Regions (e.g. West US, East US, Southeast Asia, etc.)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "SkuName"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the resource, usually it is 'storageAccounts'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The restrictions because of which SKU cannot be used. This is empty if there are no restrictions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": "SkuTier"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   }
  ]
 }

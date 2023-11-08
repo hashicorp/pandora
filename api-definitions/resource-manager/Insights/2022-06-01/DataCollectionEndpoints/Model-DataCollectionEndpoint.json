@@ -10,7 +10,8 @@
     "referenceName": "ConfigurationAccessEndpointSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint used by clients to access their configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description of the data collection endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "FailoverConfigurationSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Failover configuration on this endpoint. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The immutable ID of this data collection endpoint resource. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "LogsIngestionEndpointSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint used by clients to ingest logs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "Metadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata for the resource. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "MetricsIngestionEndpointSpec"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoint used by clients to ingest metrics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "NetworkRuleSet"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network access control rules for the endpoints."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Azure Monitor Private Link Scope Resources to which this data collection endpoint resource is associated. This property is READ-ONLY."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "KnownDataCollectionEndpointProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource provisioning state. This property is READ-ONLY."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The DiskEncryptionSet ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DiskAccountType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The DiskType."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of VHD Ids of disks to be protected."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The disks to include list for managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Hyper-V host VM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "LicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account to be used for logging during replication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS type associated with VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the seed managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "SqlServerLicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SQL Server license type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability set ARM Id for resource manager deployment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected target Azure network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected target Azure subnet Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of the target resource group (for classic deployment) in which the failover VM is to be created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -198,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of the target resource group (for resource manager deployment) in which the failover VM is to be created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -209,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target azure VM Name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -239,7 +258,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target NICs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -250,7 +270,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The proximity placement group ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -261,7 +282,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -272,7 +294,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +310,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -298,7 +322,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether managed disks should be used during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -309,7 +334,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether managed disks should be used during replication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -320,7 +346,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS disk VHD id associated with VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -331,9 +358,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The VM Name."
   }
  ],
  "discriminatedParentModelName": "EnableProtectionProviderSpecificInput",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

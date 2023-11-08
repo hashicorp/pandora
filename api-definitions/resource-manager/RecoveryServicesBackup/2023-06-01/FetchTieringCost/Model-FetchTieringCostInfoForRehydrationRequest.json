@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the protected item container"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the protectedItemName"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "ID of the backup copy for rehydration cost info needs to be fetched."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": "RehydrationPriority"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Rehydration Priority"
   }
  ],
  "discriminatedParentModelName": "FetchTieringCostInfoRequest",
- "discriminatedTypeValue": "FetchTieringCostInfoForRehydrationRequest"
+ "discriminatedTypeValue": "FetchTieringCostInfoForRehydrationRequest",
+ "typeHintIn": "ObjectType"
 }

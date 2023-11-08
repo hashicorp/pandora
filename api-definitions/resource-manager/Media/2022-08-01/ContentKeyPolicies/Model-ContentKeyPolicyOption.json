@@ -10,7 +10,8 @@
     "referenceName": "ContentKeyPolicyConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The key delivery configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Policy Option description."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The legacy Policy Option ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ContentKeyPolicyRestriction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The requirements that must be met to deliver keys with this configuration"
   }
  ]
 }

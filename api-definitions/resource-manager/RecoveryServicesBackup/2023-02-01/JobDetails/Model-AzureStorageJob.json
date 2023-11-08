@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the state/actions applicable on this job like cancel/retry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time elapsed during the execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error details on execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "AzureStorageJobExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information about the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicated that whether the job is adhoc(true) or scheduled(false)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies friendly name of the storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,9 +90,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether the Storage account is a Classic or an Azure Resource Manager Storage account."
   }
  ],
  "discriminatedParentModelName": "Job",
- "discriminatedTypeValue": "AzureStorageJob"
+ "discriminatedTypeValue": "AzureStorageJob",
+ "typeHintIn": "JobType"
 }

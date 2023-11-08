@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target appliance Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target fabric Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target vault Id."
   }
  ],
  "discriminatedParentModelName": "SwitchProviderProviderSpecificInput",
- "discriminatedTypeValue": "InMageAzureV2"
+ "discriminatedTypeValue": "InMageAzureV2",
+ "typeHintIn": "InstanceType"
 }

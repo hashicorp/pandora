@@ -10,7 +10,8 @@
     "referenceName": "OverrideTaskStepProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Set of overridable parameters that can be passed when running a Task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource ID of task against which run has to be queued."
   }
  ],
  "discriminatedParentModelName": "RunRequest",
- "discriminatedTypeValue": "TaskRunRequest"
+ "discriminatedTypeValue": "TaskRunRequest",
+ "typeHintIn": "Type"
 }

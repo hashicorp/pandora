@@ -10,7 +10,8 @@
     "referenceName": "L3NetworkConfigurationIPamEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indication of whether this network will or will not perform IP address management and allocate IP addresses when attached."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource ID of the network that is being configured for attachment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "KubernetesPluginType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator of how this network will be utilized by the Kubernetes cluster."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fabric specific object Id of the virtual machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery container Id."
   }
  ],
  "discriminatedParentModelName": "EnableProtectionProviderSpecificInput",
- "discriminatedTypeValue": "A2ACrossClusterMigration"
+ "discriminatedTypeValue": "A2ACrossClusterMigration",
+ "typeHintIn": "InstanceType"
 }

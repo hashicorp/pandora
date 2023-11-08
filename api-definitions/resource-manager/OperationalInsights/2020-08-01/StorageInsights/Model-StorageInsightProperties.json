@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The names of the blob containers that the workspace should read"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "StorageInsightStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The status of the storage insight"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "StorageAccount"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The storage account connection details"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The names of the Azure tables that the workspace should read"
   }
  ]
 }

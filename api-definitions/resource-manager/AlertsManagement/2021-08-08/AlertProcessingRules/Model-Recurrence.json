@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "End time for recurrence."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "RecurrenceType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies when the recurrence should be applied."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start time for recurrence."
   }
- ]
+ ],
+ "typeHintIn": "RecurrenceType"
 }

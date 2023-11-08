@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The maximum software version of the platform where this packet core version can be deployed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The minimum software version of the platform where this packet core version can be deployed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ObsoleteVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether this version is obsoleted for this platform."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PlatformType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The platform type where this version can be deployed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "RecommendedVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether this is the recommended version for this platform."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "VersionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of this packet core control plane version on this platform."
   }
  ]
 }

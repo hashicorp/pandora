@@ -10,7 +10,8 @@
     "referenceName": "RetentionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention policy details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "SchedulePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup schedule of backup policy."
   }
  ],
  "discriminatedParentModelName": "ProtectionPolicy",
- "discriminatedTypeValue": "MAB"
+ "discriminatedTypeValue": "MAB",
+ "typeHintIn": "BackupManagementType"
 }

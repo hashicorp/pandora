@@ -10,7 +10,8 @@
     "referenceName": "Action"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Represents the filter actions which are allowed for the transformation of a message that have been matched by a filter expression."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CorrelationFilter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of correlationFilter"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "FilterType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Filter type that is evaluated against a BrokeredMessage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "SqlFilter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of sqlFilter"
   }
  ]
 }

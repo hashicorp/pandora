@@ -1,5 +1,5 @@
 {
-	"apiVersion": "",
+	"apiVersion": "2023-04-01",
 	"category": "Dev Center",
 	"createMethod": {
 		"generate": true,
@@ -16,7 +16,7 @@
 	"exampleUsage": "\nresource \"azurerm_resource_group\" \"example\" {\n  name     = \"example-resources\"\n  location = \"West Europe\"\n}\nresource \"azurerm_user_assigned_identity\" \"example\" {\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n  location            = azurerm_resource_group.example.location\n}\nresource \"azurerm_dev_center\" \"example\" {\n  location            = azurerm_resource_group.example.location\n  name                = \"example\"\n  resource_group_name = azurerm_resource_group.example.name\n}\n",
 	"generate": true,
 	"generateIdValidationFunction": true,
-	"generateModel": false,
+	"generateModel": true,
 	"generateSchema": true,
 	"label": "dev_center",
 	"readMethod": {

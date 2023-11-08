@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id name of the container in which Target DataBase resides"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Database name InstanceName/DataBaseName for SQL or System/DbName for SAP Hana"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "OverwriteOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Can Overwrite if Target DataBase already exists"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target directory location for restore as files."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The appliance name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The component display name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protected item name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The server type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protected item name."
   }
  ],
  "discriminatedParentModelName": "EventProviderSpecificDetails",
- "discriminatedTypeValue": "InMageRcmFailback"
+ "discriminatedTypeValue": "InMageRcmFailback",
+ "typeHintIn": "InstanceType"
 }

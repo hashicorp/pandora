@@ -10,7 +10,8 @@
     "referenceName": "EarlyTerminationPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Early termination policies enable canceling poor-performing runs before they complete"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of input data bindings used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "SweepJobLimits"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sweep Job limit."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "Objective"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Optimization objective."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of output data bindings used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": "SamplingAlgorithm"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The hyperparameter sampling algorithm"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] A dictionary containing each parameter and its distribution. The dictionary key is the name of the parameter"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,9 +102,11 @@
     "referenceName": "TrialComponent"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Trial component definition."
   }
  ],
  "discriminatedParentModelName": "JobBase",
- "discriminatedTypeValue": "Sweep"
+ "discriminatedTypeValue": "Sweep",
+ "typeHintIn": "JobType"
 }

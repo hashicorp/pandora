@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of TrackDescriptors which define the metadata and selection of tracks in the input."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -25,7 +26,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The discriminator for derived types."
   }
- ]
+ ],
+ "typeHintIn": "OdataType"
 }
