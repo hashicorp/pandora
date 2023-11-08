@@ -773,7 +773,7 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 		case ResourceGroupResourceIdSegmentType:
 			s.ExampleValue = "example-resource-group"
 		case ResourceProviderResourceIdSegmentType:
-			continue
+			s.ExampleValue = pointer.From(segment.Value)
 		case ScopeResourceIdSegmentType:
 			s.ExampleValue = "/subscriptions/12345678-1234-9876-4563-123456789012/resourceGroups/some-resource-group"
 		case StaticResourceIdSegmentType:
