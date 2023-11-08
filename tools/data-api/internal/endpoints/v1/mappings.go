@@ -27,7 +27,6 @@ func mapSchemaFields(input map[string]repositories.FieldDetails) map[string]mode
 	for k, field := range input {
 
 		fields[k] = models.FieldDetails{
-			Default:          field.Default,
 			DateFormat:       pointer.To(models.DateFormat(pointer.From(field.DateFormat))),
 			ForceNew:         field.ForceNew,
 			IsTypeHint:       field.IsTypeHint,

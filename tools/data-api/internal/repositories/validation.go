@@ -1,12 +1,50 @@
 package repositories
 
-import "fmt"
+import (
+	"fmt"
+)
 
 func validateModels(input map[string]ModelDetails, constants map[string]ConstantDetails) error {
 	for modelName, modelDetail := range input {
-		for _, field := range modelDetail.Fields {
+		if modelDetail.ParentTypeName != nil || modelDetail.TypeHintValue != nil {
+			if modelDetail.ParentTypeName == nil {
+				return fmt.Errorf("model %q: model implements a discriminated type but `ParentTypeName` is unset", modelName)
+			}
+			if modelDetail.TypeHintValue == nil {
+				return fmt.Errorf("model %q: model implements a discriminated type but `TypeHintValue` is unset", modelName)
+			}
+			if modelDetail.TypeHintIn == nil {
+				return fmt.Errorf("model %q: model implements a discriminated type but `TypeHintIn` is unset", modelName)
+			}
+
+			parentModel, ok := input[*modelDetail.ParentTypeName]
+			if !ok {
+				return fmt.Errorf("model %q: discriminated parent type model %q not found", *modelDetail.ParentTypeName)
+			}
+
+			typeHintIn := ""
+			for fieldName, fieldDetail := range parentModel.Fields {
+				if fieldDetail.IsTypeHint {
+					if typeHintIn != "" {
+						return fmt.Errorf("model %q: a `TypeHintIn` already exists for this model, existing: %s duplicate: %s", modelName, typeHintIn, fieldName)
+					}
+					typeHintIn = fieldName
+					continue
+				}
+			}
+
+		}
+		for fieldName, field := range modelDetail.Fields {
+			if field.IsTypeHint {
+				if modelDetail.TypeHintIn == nil {
+					return fmt.Errorf("model %q: field provides type hint but model is missing `TypeHintIn` information", modelName)
+				}
+				if *modelDetail.TypeHintIn != fieldName {
+					return fmt.Errorf("model %q: field provides type hint but `TypeHintIn` is set to %s, should be %s", modelName, *modelDetail.TypeHintIn, fieldName)
+				}
+			}
 			if err := validateObjectDefinition(field.ObjectDefinition, constants, input); err != nil {
-				return fmt.Errorf("validating model %q: %+v", modelName, err)
+				return fmt.Errorf("model %q: %+v", modelName, err)
 			}
 		}
 	}
@@ -17,12 +55,12 @@ func validateOperations(input map[string]ResourceOperations, apiModels map[strin
 	for operationName, operationDetail := range input {
 		if operationDetail.RequestObject != nil {
 			if err := validateObjectDefinition(*operationDetail.RequestObject, constants, apiModels); err != nil {
-				return fmt.Errorf("validating operation request object %q: %+v", operationName, err)
+				return fmt.Errorf("operation request object %q: %+v", operationName, err)
 			}
 		}
 		if operationDetail.ResponseObject != nil {
 			if err := validateObjectDefinition(*operationDetail.ResponseObject, constants, apiModels); err != nil {
-				return fmt.Errorf("validating operation response object %q: %+v", operationName, err)
+				return fmt.Errorf("operation response object %q: %+v", operationName, err)
 			}
 		}
 	}
