@@ -1,0 +1,27 @@
+{
+ "name": "EnterpriseDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "marketplaceTrialQuota",
+   "name": "MarketplaceTrialQuota",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MarketplaceTrialQuota"
+   },
+   "optional": true,
+   "required": false
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "saasSubscriptionDetails",
+   "name": "SaasSubscriptionDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SaasSubscriptionDetails"
+   },
+   "optional": true,
+   "required": false
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "PowerShell72ModuleCreateOrUpdate",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "PowerShell72ModuleId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ModuleCreateOrUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Module"
+ }
+}

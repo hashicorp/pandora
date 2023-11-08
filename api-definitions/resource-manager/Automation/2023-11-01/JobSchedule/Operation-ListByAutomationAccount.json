@@ -1,0 +1,28 @@
+{
+ "name": "ListByAutomationAccount",
+ "contentType": "application/json",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AutomationAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "JobSchedule"
+ },
+ "uriSuffix": "/jobSchedules"
+}
