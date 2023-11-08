@@ -10,7 +10,8 @@
     "referenceName": "AzureDevOpsResourceInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resources created in Azure DevOps for this source-control."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "GitHubResourceInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resources created in GitHub for this source-control."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Webhook"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The webhook object created for the source-control."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "CancelEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "To trigger cancel for entire migration we need to send this flag as True"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When you want to trigger cancel for specific databases send cancel flag as True and database names in this array"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -41,7 +43,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of databases to migrate"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -56,7 +59,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When you want to trigger cutover for specific databases send triggerCutover flag as True and database names in this array"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +71,8 @@
     "referenceName": "MigrationMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "There are two types of migration modes Online and Offline"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -79,7 +84,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start time in UTC for migration window"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -90,7 +96,8 @@
     "referenceName": "OverwriteDbsInTargetEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the databases on the target server can be overwritten, if already present. If set to False, the migration workflow will wait for a confirmation, if it detects that the database already exists."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -101,7 +108,8 @@
     "referenceName": "MigrationSecretParameters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Migration secret parameters"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -112,7 +120,8 @@
     "referenceName": "LogicalReplicationOnSourceDbEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether to setup LogicalReplicationOnSourceDb, if needed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +132,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -134,7 +144,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ResourceId of the source database server"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -145,7 +156,8 @@
     "referenceName": "StartDataMigrationEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the data migration should start right away"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -156,7 +168,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target server fully qualified domain name or ip. It is a optional value, if customer provide it, dms will always use it for connection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -167,7 +180,8 @@
     "referenceName": "TriggerCutoverEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "To trigger cutover for entire migration we need to send this flag as True"
   }
  ]
 }

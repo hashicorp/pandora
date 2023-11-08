@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The link identifier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PrivateEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The private endpoint of the private endpoint connection"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PrivateLinkServiceConnectionState"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The private link service connection state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PrivateEndpointConnectionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state, which only appears in the response."
   }
  ]
 }

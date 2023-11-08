@@ -10,7 +10,8 @@
     "referenceName": "JustInTimeAccessPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The just-in-time access policy setting."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The identifier of the Azure Active Directory principal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The display name of the Azure Active Directory principal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The identifier of the Azure built-in role that defines the permissions that the Azure Active Directory principal will have on the projected scope."
   }
  ]
 }

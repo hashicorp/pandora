@@ -10,7 +10,8 @@
     "referenceName": "BenefitUtilizationSummaryReportSchema"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sas url to the async benefit utilization summaries report. Will be empty if the report is in Running or Failed state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BenefitUtilizationSummaryReportSchema"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sas url to async benefit utilization summaries report in secondary storage in case of primary outage. Will be empty if the report is in Running or Failed state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The date that the sas url provided in reportUrl expires."
   }
  ]
 }

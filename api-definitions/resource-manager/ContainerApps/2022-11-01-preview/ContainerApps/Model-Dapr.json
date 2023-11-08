@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dapr application identifier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tells Dapr which port your application is listening on"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AppProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tells Dapr which protocol your application is using. Valid options are http and grpc. Default is http"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enables API logging for the Dapr sidecar"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Boolean indicating if the Dapr side car is enabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Increasing max size of request body http and grpc servers parameter in MB to handle uploading of big files. Default is 4 MB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dapr max size of http header read buffer in KB to handle when sending multi-KB headers. Default is 65KB."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "LogLevel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets the log level for the Dapr sidecar. Allowed values are debug, info, warn, error. Default is info."
   }
  ]
 }

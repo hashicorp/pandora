@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data directory details"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL specific property where user can chose to set no-recovery when restore operation is tried"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "PointInTime value"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Workload specific property bag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": "RecoveryMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Defines whether the current recovery mode is file restore or database restore"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "referenceName": "RecoveryType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of this recovery."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default option set to true. If this is set to false, alternate data directory must be provided"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +103,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified ARM ID of the VM on which workload that was running is being recovered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +115,8 @@
     "referenceName": "TargetRestoreInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details of target database"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,9 +127,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is the complete ARM Id of the target VM\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}"
   }
  ],
  "discriminatedParentModelName": "RestoreRequest",
- "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreRequest"
+ "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreRequest",
+ "typeHintIn": "ObjectType"
 }

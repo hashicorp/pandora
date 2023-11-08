@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata attached to the virtual network link."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current provisioning state of the virtual network link. This is a read-only property and any attempt to set this value will be ignored."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "SubResource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to the virtual network. This cannot be changed after creation."
   }
  ]
 }

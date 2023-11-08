@@ -10,7 +10,8 @@
     "referenceName": "ManagedClusterSKUName"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of a managed cluster SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedClusterSKUTier"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If not specified, the default is 'Free'. See [uptime SLA](https://docs.microsoft.com/azure/aks/uptime-sla) for more details."
   }
  ]
 }

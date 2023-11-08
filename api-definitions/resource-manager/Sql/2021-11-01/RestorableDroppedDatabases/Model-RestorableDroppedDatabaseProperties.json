@@ -10,7 +10,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account type used to store backups for this database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of the database (ISO8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The deletion date of the database (ISO8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -57,7 +61,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The earliest restore date of the database (ISO8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -68,7 +73,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The max size of the database expressed in bytes."
   }
  ]
 }

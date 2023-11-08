@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end date for the budget. If not provided, we default this to 10 years from the start date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +24,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The start date for the budget."
   }
  ]
 }

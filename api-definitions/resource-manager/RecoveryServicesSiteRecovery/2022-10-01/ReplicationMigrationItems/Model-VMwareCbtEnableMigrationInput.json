@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The data mover run as account Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The disks to include list."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "LicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether auto resync is to be done."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether bulk SQL RP registration to be done."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the seed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The snapshot run as account Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "SqlServerLicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SQL Server license type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability set ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target boot diagnostics storage account ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target network ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +182,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target NICs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target proximity placement group ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +206,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The target resource group ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target subnet name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -239,7 +258,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -250,7 +270,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected test network ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -261,7 +282,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected test subnet name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -272,9 +294,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ARM Id of the VM discovered in VMware."
   }
  ],
  "discriminatedParentModelName": "EnableMigrationProviderSpecificInput",
- "discriminatedTypeValue": "VMwareCbt"
+ "discriminatedTypeValue": "VMwareCbt",
+ "typeHintIn": "InstanceType"
 }

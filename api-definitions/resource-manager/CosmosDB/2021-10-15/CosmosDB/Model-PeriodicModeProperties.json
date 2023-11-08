@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An integer representing the interval in minutes between two backups"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An integer representing the time (in hours) that each backup is retained"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enum to indicate type of backup residency"
   }
  ]
 }

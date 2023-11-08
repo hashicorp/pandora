@@ -10,7 +10,8 @@
     "referenceName": "NodeOSUpgradeChannel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default is Unmanaged, but may change to either NodeImage or SecurityPatch at GA."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "UpgradeChannel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "For more information see [setting the AKS cluster auto-upgrade channel](https://docs.microsoft.com/azure/aks/upgrade-cluster#set-auto-upgrade-channel)."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The directory being exported from the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The host name or IP address of the server exporting the file system."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "NfsVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The NFS protocol version."
   }
  ],
  "discriminatedParentModelName": "EndpointBaseProperties",
- "discriminatedTypeValue": "NfsMount"
+ "discriminatedTypeValue": "NfsMount",
+ "typeHintIn": "EndpointType"
 }

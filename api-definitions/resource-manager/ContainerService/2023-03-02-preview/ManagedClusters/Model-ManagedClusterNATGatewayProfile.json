@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The effective outbound IP resources of the cluster NAT gateway."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Desired outbound flow idle timeout in minutes. Allowed values are in the range of 4 to 120 (inclusive). The default value is 4 minutes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "ManagedClusterManagedOutboundIPProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Profile of the managed outbound IP resources of the cluster NAT gateway."
   }
  ]
 }

@@ -10,9 +10,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The storage account Arm Id. Throw error, if resource does not exists."
   }
  ],
  "discriminatedParentModelName": "StorageAccountCustomDetails",
- "discriminatedTypeValue": "Existing"
+ "discriminatedTypeValue": "Existing",
+ "typeHintIn": "ResourceType"
 }

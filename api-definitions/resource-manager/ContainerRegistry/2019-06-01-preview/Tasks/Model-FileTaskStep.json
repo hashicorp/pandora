@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The task template/definition file path relative to the source context."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The collection of overridable values that can be passed when running a task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,9 +38,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The task values/parameters file path relative to the source context."
   }
  ],
  "discriminatedParentModelName": "TaskStepProperties",
- "discriminatedTypeValue": "FileTask"
+ "discriminatedTypeValue": "FileTask",
+ "typeHintIn": "Type"
 }

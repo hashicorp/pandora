@@ -10,7 +10,8 @@
     "referenceName": "Compression"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The event hub messages compression type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The event hub consumer group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EventHubDataFormat"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The data format of the message. Optionally the data format can be added to each message."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DatabaseRouting"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indication for database routing information from the data connection, by default only database routing information is allowed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource ID of the event hub to be used to create a data connection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "System properties of the event hub"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The object ID of the managedIdentityResourceId"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of a managed identity (system or user assigned) to be used to authenticate with event hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mapping rule to be used to ingest the data. Optionally the mapping information can be added to each message."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioned state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When defined, the data connection retrieves existing Event hub events created since the Retrieval start date. It can only retrieve events retained by the Event hub, based on its retention period."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The table where the data should be ingested. Optionally the table information can be added to each message."
   }
  ]
 }

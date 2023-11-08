@@ -10,9 +10,11 @@
     "referenceName": "InventoryItemDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parent host inventory resource details."
   }
  ],
  "discriminatedParentModelName": "InventoryItemProperties",
- "discriminatedTypeValue": "Host"
+ "discriminatedTypeValue": "Host",
+ "typeHintIn": "InventoryType"
 }

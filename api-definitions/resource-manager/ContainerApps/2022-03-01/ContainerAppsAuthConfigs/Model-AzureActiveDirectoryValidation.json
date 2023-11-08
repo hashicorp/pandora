@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of audiences that can make successful authentication/authorization requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "DefaultAuthorizationPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the default authorization policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "JwtClaimChecks"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration settings of the checks that should be made while validating the JWT Claims."
   }
  ]
 }

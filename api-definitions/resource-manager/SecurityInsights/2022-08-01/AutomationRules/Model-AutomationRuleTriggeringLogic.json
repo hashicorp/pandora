@@ -15,7 +15,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The conditions to evaluate to determine if the automation rule should be triggered on a given object"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +28,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Determines when the automation rule should automatically expire and be disabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -38,7 +40,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Determines whether the automation rule is enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "referenceName": "TriggersOn"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +64,8 @@
     "referenceName": "TriggersWhen"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   }
  ]
 }

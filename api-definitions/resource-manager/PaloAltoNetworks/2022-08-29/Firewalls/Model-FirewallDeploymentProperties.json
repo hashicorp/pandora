@@ -10,7 +10,8 @@
     "referenceName": "RulestackDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Associated Rulestack"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DNSSettings"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "DNS settings for Firewall"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frontend settings for Firewall"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "BooleanEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Panorama Managed: Default is False. Default will be CloudSec managed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "MarketplaceDetails"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Marketplace details"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "NetworkProfile"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Network settings"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "panEtag info"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "PanoramaConfig"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Panorama Configuration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "PlanData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Billing plan information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the resource."
   }
  ]
 }

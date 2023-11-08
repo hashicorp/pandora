@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of action recommended by this object."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Deep link to a blade on the portal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of category tags that this recommendation belongs to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "Channels"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of channels that this recommendation can apply."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when this instance was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UI friendly name of the rule (may not be unique)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if this recommendation is still valid (i.e. \"actionable\"). False if it is invalid."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -93,7 +100,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The end time in UTC of a range that the recommendation refers to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -104,7 +112,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extension name of the portal if exists."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -115,7 +124,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Forward link to an external document associated with the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -126,7 +136,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "True if this is associated with a dynamically added rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +148,8 @@
     "referenceName": "NotificationLevel"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Level indicating how critical this recommendation can impact."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +160,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recommendation text."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -160,7 +173,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "When to notify this recommendation next in UTC. Null means that this will never be notified anymore."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date and time in UTC when this notification expires."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -184,7 +199,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last timestamp in UTC this instance was actually notified. Null means that this recommendation hasn't been notified yet."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +211,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A GUID value that each recommendation object is associated with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -206,7 +223,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Full ARM resource ID string that this recommendation object is associated with."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -217,7 +235,8 @@
     "referenceName": "ResourceScopeType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of a resource type this recommendation applies, e.g. Subscription, ServerFarm, Site."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -228,7 +247,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique name of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -239,7 +259,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A metric value measured by the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The beginning time in UTC of a range that the recommendation refers to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -266,7 +288,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of states of this recommendation. If it's null then it should be considered \"Active\"."
   }
  ]
 }

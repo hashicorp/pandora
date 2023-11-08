@@ -10,7 +10,8 @@
     "referenceName": "FeatureType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "backup support feature type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Response features"
   }
  ],
  "discriminatedParentModelName": "FeatureValidationResponseBase",
- "discriminatedTypeValue": "FeatureValidationResponse"
+ "discriminatedTypeValue": "FeatureValidationResponse",
+ "typeHintIn": "ObjectType"
 }

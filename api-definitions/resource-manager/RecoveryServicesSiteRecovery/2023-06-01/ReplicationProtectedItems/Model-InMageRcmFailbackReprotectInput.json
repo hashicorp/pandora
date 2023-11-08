@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Policy Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The process server Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The run as account Id."
   }
  ],
  "discriminatedParentModelName": "ReverseReplicationProviderSpecificInput",
- "discriminatedTypeValue": "InMageRcmFailback"
+ "discriminatedTypeValue": "InMageRcmFailback",
+ "typeHintIn": "InstanceType"
 }

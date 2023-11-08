@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery virtual network name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the resource group to be used to create the recovery virtual network. If absent, target network would be created in the same resource group as target VM."
   }
  ],
  "discriminatedParentModelName": "RecoveryVirtualNetworkCustomDetails",
- "discriminatedTypeValue": "New"
+ "discriminatedTypeValue": "New",
+ "typeHintIn": "ResourceType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fix the policy inconsistency"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Settings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Common settings for the backup management"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of sub-protection policies which includes schedule and retention"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,9 +50,11 @@
     "referenceName": "WorkloadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of workload for the backup management"
   }
  ],
  "discriminatedParentModelName": "ProtectionPolicy",
- "discriminatedTypeValue": "AzureWorkload"
+ "discriminatedTypeValue": "AzureWorkload",
+ "typeHintIn": "BackupManagementType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "RecoveryPlanPointType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The recovery point type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether multi VM sync enabled VMs should use multi VM sync points for failover."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
- "discriminatedTypeValue": "InMageRcm"
+ "discriminatedTypeValue": "InMageRcm",
+ "typeHintIn": "InstanceType"
 }

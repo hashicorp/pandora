@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Inputs for the pipeline job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Jobs construct the Pipeline Job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Outputs for the pipeline job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Pipeline settings, for things like ContinueRunOnStepFailure etc."
   }
  ],
  "discriminatedParentModelName": "JobBase",
- "discriminatedTypeValue": "Pipeline"
+ "discriminatedTypeValue": "Pipeline",
+ "typeHintIn": "JobType"
 }

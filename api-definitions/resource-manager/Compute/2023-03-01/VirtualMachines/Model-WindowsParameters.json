@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The update classifications to select when installing patches for Windows."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Filters out Kbs that don't have an InstallationRebootBehavior of 'NeverReboots' when this is set to true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Kbs to exclude in the patch operation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Kbs to include in the patch operation"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +71,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "This is used to install patches that were published on or before this given max published date."
   }
  ]
 }

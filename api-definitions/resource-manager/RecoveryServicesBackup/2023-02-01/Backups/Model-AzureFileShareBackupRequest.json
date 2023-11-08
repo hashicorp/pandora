@@ -11,9 +11,11 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup copy will expire after the time specified (UTC)."
   }
  ],
  "discriminatedParentModelName": "BackupRequest",
- "discriminatedTypeValue": "AzureFileShareBackupRequest"
+ "discriminatedTypeValue": "AzureFileShareBackupRequest",
+ "typeHintIn": "ObjectType"
 }

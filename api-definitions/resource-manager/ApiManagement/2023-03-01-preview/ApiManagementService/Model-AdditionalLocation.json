@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property only valid for an Api Management service deployed in multiple locations. This can be used to disable the gateway in this additional location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gateway URL of the API Management service in the Region."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The location name of the additional region among Azure Data center regions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "NatGatewayState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property can be used to enable NAT Gateway for this API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Outbound public IPV4 address prefixes associated with NAT Gateway deployed service. Available only for Premium SKU on stv2 platform."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "PlatformVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute Platform Version running the service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private Static Load Balanced IP addresses of the API Management service which is deployed in an Internal Virtual Network in a particular additional location. Available only for Basic, Standard, Premium and Isolated SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public Standard SKU IP V4 based IP address to be associated with Virtual Network deployed service in the location. Supported only for Premium SKU being deployed in Virtual Network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public Static Load Balanced IP addresses of the API Management service in the additional location. Available only for Basic, Standard, Premium and Isolated SKU."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": "ApiManagementServiceSkuProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "SKU properties of the API Management service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "VirtualNetworkConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual network configuration for the location."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of availability zones denoting where the resource needs to come from."
   }
  ]
 }

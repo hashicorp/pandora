@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Administrator username for the managed instance. Can only be specified when the managed instance is being created (and is required for creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator login password (required for managed instance creation)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ManagedInstanceExternalAdministrator"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Active Directory administrator of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Collation of the managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account type used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Dns Zone that the managed instance is in."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of another managed instance whose DNS zone this managed instance will share after creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fully qualified domain name of the managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of the instance pool this managed server belongs to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A CMK URI of the key to use for encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "ManagedInstanceLicenseType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The license type. Possible values are 'LicenseIncluded' (regular price inclusive of a new SQL license) and 'BasePrice' (discounted AHB price for bringing your own SQL licenses)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies maintenance configuration id to apply to this managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "ManagedServerCreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the mode of database creation.\r\n\r\nDefault: Regular instance creation.\r\n\r\nRestore: Creates an instance by restoring a set of backups to specific point in time. RestorePointInTime and SourceManagedInstanceId must be specified."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimal TLS version. Allowed values: 'None', '1.0', '1.1', '1.2'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource id of a user assigned identity to be used by default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private endpoint connections on a managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -201,7 +218,8 @@
     "referenceName": "ManagedInstanceProxyOverride"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connection type used for connecting to the instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +230,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not the public data endpoint is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +242,8 @@
     "referenceName": "BackupStorageRedundancy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The storage account type to be used to store backups for this instance. The options are Local (LocallyRedundantStorage), Zone (ZoneRedundantStorage), Geo (GeoRedundantStorage) and GeoZone(GeoZoneRedundantStorage)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +255,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +267,8 @@
     "referenceName": "ServicePrincipal"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The managed instance's service principal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +279,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource identifier of the source managed instance associated with create operation of this instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -268,7 +291,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +303,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage size in GB. Minimum value: 32. Maximum value: 16384. Increments of 32 GB allowed only. Maximum value depends on the selected hardware family and number of vCores."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -290,7 +315,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subnet resource ID for the managed instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -301,7 +327,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Id of the timezone. Allowed values are timezones supported by Windows.\r\nWindows keeps details on supported timezones, including the id, in registry under\r\nKEY_LOCAL_MACHINE\\SOFTWARE\\Microsoft\\Windows NT\\CurrentVersion\\Time Zones.\r\nYou can get those registry values via SQL Server by querying SELECT name AS timezone_id FROM sys.time_zone_info.\r\nList of Ids can also be obtained by executing [System.TimeZoneInfo]::GetSystemTimeZones() in PowerShell.\r\nAn example of valid timezone id is \"Pacific Standard Time\" or \"W. Europe Standard Time\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -312,7 +339,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of vCores. Allowed values: 8, 16, 24, 32, 40, 64, 80."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -323,7 +351,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not the multi-az is enabled."
   }
  ]
 }

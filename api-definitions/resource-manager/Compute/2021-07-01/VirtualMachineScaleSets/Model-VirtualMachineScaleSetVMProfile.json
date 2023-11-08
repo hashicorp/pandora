@@ -10,7 +10,8 @@
     "referenceName": "ApplicationProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the gallery applications that should be made available to the VM/VMSS"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BillingProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the billing related details of a Azure Spot VMSS. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2019-03-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CapacityReservationProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the capacity reservation related details of a scale set. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-04-01."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DiagnosticsProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the boot diagnostic settings state. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2015-06-15."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "VirtualMachineEvictionPolicyTypes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the eviction policy for the Azure Spot virtual machine and Azure Spot scale set. \u003cbr\u003e\u003cbr\u003eFor Azure Spot virtual machines, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2019-03-01. \u003cbr\u003e\u003cbr\u003eFor Azure Spot scale sets, both 'Deallocate' and 'Delete' are supported and the minimum api-version is 2017-10-30-preview."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "VirtualMachineScaleSetExtensionProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies a collection of settings for extensions installed on virtual machines in the scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies that the image or disk that is being used was licensed on-premises. \u003cbr\u003e\u003cbr\u003e Possible values for Windows Server operating system are: \u003cbr\u003e\u003cbr\u003e Windows_Client \u003cbr\u003e\u003cbr\u003e Windows_Server \u003cbr\u003e\u003cbr\u003e Possible values for Linux Server operating system are: \u003cbr\u003e\u003cbr\u003e RHEL_BYOS (for RHEL) \u003cbr\u003e\u003cbr\u003e SLES_BYOS (for SUSE) \u003cbr\u003e\u003cbr\u003e For more information, see [Azure Hybrid Use Benefit for Windows Server](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) \u003cbr\u003e\u003cbr\u003e [Azure Hybrid Use Benefit for Linux Server](https://docs.microsoft.com/azure/virtual-machines/linux/azure-hybrid-benefit-linux) \u003cbr\u003e\u003cbr\u003e Minimum api-version: 2015-06-15"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "VirtualMachineScaleSetNetworkProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies properties of the network interfaces of the virtual machines in the scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "VirtualMachineScaleSetOSProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the operating system settings for the virtual machines in the scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "VirtualMachinePriorityTypes"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the priority for the virtual machines in the scale set. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2017-10-30-preview"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": "ScheduledEventsProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies Scheduled Event related configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": "SecurityProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the Security related profile settings for the virtual machines in the scale set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": "VirtualMachineScaleSetStorageProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the storage settings for the virtual machine disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UserData for the virtual machines in the scale set, which must be base-64 encoded. Customer should not pass any secrets in here. \u003cbr\u003e\u003cbr\u003eMinimum api-version: 2021-03-01"
   }
  ]
 }

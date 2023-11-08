@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable AMSGrad when optimizer is 'adam' or 'adamw'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Settings for using Augmentations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of 'beta1' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of 'beta2' when optimizer is 'adam' or 'adamw'. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of detections per image, for all classes. Must be a positive integer.\r\nNote: This settings is not supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "During inference, only return proposals with a classification score greater than\r\nBoxScoreThreshold. Must be a float in the range[0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether to use distributer training."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable early stopping logic during training."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimum number of epochs or validation evaluations to wait before primary metric improvement\r\nis tracked for early stopping. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimum number of epochs or validation evaluations with no primary metric improvement before\r\nthe run is stopped. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable normalization when exporting ONNX model."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frequency to evaluate validation dataset to get metric scores. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gradient accumulation means running a configured number of \"GradAccumulationStep\" steps without\r\nupdating the model weights while accumulating the gradients of those steps, and then using\r\nthe accumulated gradients to compute the weight updates. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Image size for train and validation. Must be a positive integer.\r\nNote: The training run may get into CUDA OOM if the size is too big.\r\nNote: This settings is only supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of layers to freeze for the model. Must be a positive integer.\r\nFor instance, passing 2 as value for 'seresnext' means\r\nfreezing layer0 and layer1. For a full list of models supported and details on layer freeze, please\r\nsee: https://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Initial learning rate. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of learning rate scheduler. Must be 'warmup_cosine' or 'step'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum size of the image to be rescaled before feeding it to the backbone.\r\nMust be a positive integer. Note: training run may get into CUDA OOM if the size is too big.\r\nNote: This settings is not supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +226,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Minimum size of the image to be rescaled before feeding it to the backbone.\r\nMust be a positive integer. Note: training run may get into CUDA OOM if the size is too big.\r\nNote: This settings is not supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +238,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the model to use for training.\r\nFor more information on the available models please visit the official documentation:\r\nhttps://docs.microsoft.com/en-us/azure/machine-learning/how-to-auto-train-image-models."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +250,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Model size. Must be 'small', 'medium', 'large', or 'xlarge'.\r\nNote: training run may get into CUDA OOM if the model size is too big.\r\nNote: This settings is only supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -241,7 +262,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of momentum when optimizer is 'sgd'. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -252,7 +274,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable multi-scale image by varying image size by +/- 50%.\r\nNote: training run may get into CUDA OOM if no sufficient GPU memory.\r\nNote: This settings is only supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -263,7 +286,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable nesterov when optimizer is 'sgd'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -274,7 +298,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IOU threshold used during inference in NMS post processing. Must be float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -285,7 +310,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of training epochs. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -296,7 +322,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of data loader workers. Must be a non-negative integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -307,7 +334,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of optimizer. Must be either 'sgd', 'adam', or 'adamw'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -318,7 +346,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Random seed to be used when using deterministic training."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -329,7 +358,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of gamma when learning rate scheduler is 'step'. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -340,7 +370,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of step size when learning rate scheduler is 'step'. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -351,7 +382,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The grid size to use for tiling each image. Note: TileGridSize must not be\r\nNone to enable small object detection logic. A string containing two integers in mxn format.\r\nNote: This settings is not supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -362,7 +394,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Overlap ratio between adjacent tiles in each dimension. Must be float in the range [0, 1).\r\nNote: This settings is not supported for the 'yolov5' algorithm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -373,7 +406,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IOU threshold to use to perform NMS while merging predictions from tiles and image.\r\nUsed in validation/ inference. Must be float in the range [0, 1].\r\nNote: This settings is not supported for the 'yolov5' algorithm.\r\nNMS: Non-maximum suppression"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -384,7 +418,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Training batch size. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -395,7 +430,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Validation batch size. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -406,7 +442,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "IOU threshold to use when computing validation metric. Must be float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -417,7 +454,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metric computation method to use for validation metrics. Must be 'none', 'coco', 'voc', or 'coco_voc'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -428,7 +466,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of cosine cycle when learning rate scheduler is 'warmup_cosine'. Must be a float in the range [0, 1]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -439,7 +478,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of warmup epochs when learning rate scheduler is 'warmup_cosine'. Must be a positive integer."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -450,7 +490,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Value of weight decay when optimizer is 'sgd', 'adam', or 'adamw'. Must be a float in the range[0, 1]."
   }
  ]
 }

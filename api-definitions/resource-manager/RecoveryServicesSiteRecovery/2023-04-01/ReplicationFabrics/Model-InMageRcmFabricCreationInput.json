@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ARM Id of the physical site."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "IdentityProviderInput"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The identity provider input for source agent authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ARM Id of the VMware site."
   }
  ],
  "discriminatedParentModelName": "FabricSpecificCreationInput",
- "discriminatedTypeValue": "InMageRcm"
+ "discriminatedTypeValue": "InMageRcm",
+ "typeHintIn": "InstanceType"
 }

@@ -10,9 +10,11 @@
     "referenceName": "IoTHubStreamInputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with an IoT Hub input containing stream data. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "StreamInputDataSource",
- "discriminatedTypeValue": "Microsoft.Devices/IotHubs"
+ "discriminatedTypeValue": "Microsoft.Devices/IotHubs",
+ "typeHintIn": "Type"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point id to be passed to test failover to a particular recovery point. In case of latest recovery point, null should be passed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": "RecoveryPointType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery point type. Values from LatestTime, LatestTag or Custom. In the case of custom, the recovery point provided by RecoveryPointId will be used. In the other two cases, recovery point id will be ignored."
   }
  ],
  "discriminatedParentModelName": "TestFailoverProviderSpecificInput",
- "discriminatedTypeValue": "InMage"
+ "discriminatedTypeValue": "InMage",
+ "typeHintIn": "InstanceType"
 }

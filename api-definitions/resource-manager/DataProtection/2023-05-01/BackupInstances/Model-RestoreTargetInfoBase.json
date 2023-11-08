@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of Datasource object, used to initialize the right inherited type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RecoveryOption"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Recovery Option"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target Restore region"
   }
- ]
+ ],
+ "typeHintIn": "ObjectType"
 }

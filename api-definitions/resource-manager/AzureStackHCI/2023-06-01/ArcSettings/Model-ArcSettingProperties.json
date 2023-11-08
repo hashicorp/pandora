@@ -10,7 +10,8 @@
     "referenceName": "ArcSettingAggregateState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Aggregate state of Arc agent across the nodes in this HCI cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "App id of arc AAD identity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Object id of arc AAD identity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tenant id of arc AAD identity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource group that hosts the Arc agents, ie. Hybrid Compute Machine resources."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Object id of arc AAD service principal."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "contains connectivity related configuration for ARC resources"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties for each of the default extensions category"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of Arc agent in each of the nodes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the ArcSetting proxy resource."
   }
  ]
 }

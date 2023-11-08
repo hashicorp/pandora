@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether to use recovery cloud service for TFO or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MultiVMSyncPointOption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether multi VM sync enabled VMs should use multi VM sync points for failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "A2ARpRecoveryPointType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The recovery point type."
   }
  ],
  "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
- "discriminatedTypeValue": "A2A"
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A dictionary that maps feature names to their respective data types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "FeatureImportanceSettings"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The settings for computing feature importance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "FeatureAttributionMetricThreshold"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] A list of metrics to calculate and their associated thresholds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data which drift will be calculated for."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,9 +66,11 @@
     "referenceName": "MonitoringInputDataBase"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data to calculate drift against."
   }
  ],
  "discriminatedParentModelName": "MonitoringSignalBase",
- "discriminatedTypeValue": "FeatureAttributionDrift"
+ "discriminatedTypeValue": "FeatureAttributionDrift",
+ "typeHintIn": "SignalType"
 }

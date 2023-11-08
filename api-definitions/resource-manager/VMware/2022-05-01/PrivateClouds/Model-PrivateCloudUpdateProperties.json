@@ -10,7 +10,8 @@
     "referenceName": "AvailabilityProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties describing how the cloud is distributed across availability zones"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Encryption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Customer managed key encryption, can be enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "vCenter Single Sign On Identity Sources"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "InternetEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connectivity to internet is enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "CommonClusterProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The default cluster used for management"
   }
  ]
 }

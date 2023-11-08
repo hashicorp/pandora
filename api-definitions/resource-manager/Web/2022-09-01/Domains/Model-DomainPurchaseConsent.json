@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp when the agreements were accepted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Client IP address."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of applicable legal agreement keys. This list can be retrieved using ListLegalAgreements API under \u003ccode\u003eTopLevelDomain\u003c/code\u003e resource."
   }
  ]
 }

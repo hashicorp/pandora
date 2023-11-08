@@ -10,7 +10,8 @@
     "referenceName": "ExtensionPropertiesAksAssignedIdentity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Identity of the Extension resource in an AKS cluster"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to note if this extension participates in auto upgrade of minor version, or not."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration settings that are sensitive, as name-value pairs for configuring this extension."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration settings, as name-value pairs for configuring this extension."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Currently installed version of the extension."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom Location settings properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": "ErrorDetail"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the Extension, of which this resource is an instance of.  It must be one of the Extension Types registered with Microsoft.KubernetesConfiguration by the Extension publisher."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to note if this extension is a system extension"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Uri of the Helm package"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ReleaseTrain this extension participates in for auto-upgrade (e.g. Stable, Preview, etc.) - only if autoUpgradeMinorVersion is 'true'."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "Scope"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scope at which the extension is installed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +182,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status from this extension."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User-specified version of the extension for this extension to 'pin'. To use 'version', autoUpgradeMinorVersion must be 'false'."
   }
  ]
 }

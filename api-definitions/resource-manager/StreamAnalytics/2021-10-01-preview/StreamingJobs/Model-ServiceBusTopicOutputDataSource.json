@@ -10,9 +10,11 @@
     "referenceName": "ServiceBusTopicOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a Service Bus Topic output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.ServiceBus/Topic"
+ "discriminatedTypeValue": "Microsoft.ServiceBus/Topic",
+ "typeHintIn": "Type"
 }

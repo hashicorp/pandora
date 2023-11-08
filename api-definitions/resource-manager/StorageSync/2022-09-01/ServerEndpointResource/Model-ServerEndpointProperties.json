@@ -10,7 +10,8 @@
     "referenceName": "FeatureStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cloud Tiering."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ServerEndpointCloudTieringStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cloud tiering status. Only populated if cloud tiering is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly Name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "InitialDownloadPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Policy for how namespace and files are recalled during FastDr."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "InitialUploadPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Policy for how the initial upload sync session is performed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Last Operation Name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ServerEndpoint lastWorkflowId"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "LocalCacheMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Policy for enabling follow-the-sun business models: link local cache to cloud behavior to pre-populate before local access."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": "FeatureStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Offline data transfer"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Offline data transfer share name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +130,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Offline data transfer storage account resource ID"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +142,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Offline data transfer storage account tenant ID"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -142,7 +154,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ServerEndpoint Provisioning State"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -153,7 +166,8 @@
     "referenceName": "ServerEndpointRecallStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recall status. Only populated if cloud tiering is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -164,7 +178,8 @@
     "referenceName": "ServerEndpointProvisioningStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server Endpoint provisioning status"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +190,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server Local path."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -186,7 +202,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -197,7 +214,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server Resource Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -208,7 +226,8 @@
     "referenceName": "ServerEndpointSyncStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server Endpoint sync status"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +238,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tier files older than days."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +250,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Level of free space to be maintained by Cloud Tiering if it is enabled."
   }
  ]
 }

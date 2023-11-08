@@ -10,7 +10,8 @@
     "referenceName": "DiskPoolVolume"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An iSCSI volume"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "NetAppVolume"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An Azure NetApp Files volume"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DatastoreProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the datastore provisioning"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DatastoreStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The operational status of the datastore"
   }
  ]
 }

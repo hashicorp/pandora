@@ -10,9 +10,11 @@
     "referenceName": "BlobOutputDataSourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a blob output. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "OutputDataSource",
- "discriminatedTypeValue": "Microsoft.Storage/Blob"
+ "discriminatedTypeValue": "Microsoft.Storage/Blob",
+ "typeHintIn": "Type"
 }

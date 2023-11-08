@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id"
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,8 @@
     "referenceName": "SettingKind"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the kind of the settings string (DataExportSetting)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource name"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource type"
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

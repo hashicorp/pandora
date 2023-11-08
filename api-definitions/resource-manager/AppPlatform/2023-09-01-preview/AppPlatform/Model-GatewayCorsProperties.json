@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether user credentials are supported on cross-site requests. Valid values: `true`, `false`."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allowed headers in cross-site requests. The special value `*` allows actual requests to send any header."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allowed HTTP methods on cross-site requests. The special value `*` allows all methods. If not set, `GET` and `HEAD` are allowed by default."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allowed origin patterns to make cross-site requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allowed origins to make cross-site requests. The special value `*` allows all domains."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "HTTP response headers to expose for cross-site requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +102,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "How long, in seconds, the response from a pre-flight request can be cached by clients."
   }
  ]
 }

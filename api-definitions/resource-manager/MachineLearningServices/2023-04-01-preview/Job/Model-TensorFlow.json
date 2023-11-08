@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of parameter server tasks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of workers. If not specified, will default to the instance count."
   }
  ],
  "discriminatedParentModelName": "DistributionConfiguration",
- "discriminatedTypeValue": "TensorFlow"
+ "discriminatedTypeValue": "TensorFlow",
+ "typeHintIn": "DistributionType"
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom settings for changing the behavior of the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "CustomDnsSuffixConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dedicated Host Count"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "DNS suffix of the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scale factor for front-ends."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag that displays whether an ASE has linux workers or not"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of IP SSL addresses reserved for the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "LoadBalancingMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies which endpoints to serve internally in the Virtual Network for the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of VMs in the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of front-end instances."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Front-end VM size, e.g. \"Medium\", \"Large\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "AseV3NetworkingConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": "HostingEnvironmentStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current status of the App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +182,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "\u003ccode\u003etrue\u003c/code\u003e if the App Service Environment is suspended; otherwise, \u003ccode\u003efalse\u003c/code\u003e. The environment can be suspended, e.g. when the management endpoint is no longer available\n (most likely because NSG blocked the incoming traffic)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +194,8 @@
     "referenceName": "UpgradeAvailability"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether an upgrade is available for this App Service Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +206,8 @@
     "referenceName": "UpgradePreference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Upgrade Preference"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User added ip ranges to whitelist on ASE db"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -216,7 +234,8 @@
     "referenceName": "VirtualNetworkProfile"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Description of the Virtual Network."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +246,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not this App Service Environment is zone-redundant."
   }
  ]
 }

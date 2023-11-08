@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GitHub bring your own app client id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "GitHubClientSecret"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GitHub bring your own app client secret information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GitHub Enterprise host name. For example: `https://github.mydomain.com`"
   }
  ],
  "discriminatedParentModelName": "FactoryRepoConfiguration",
- "discriminatedTypeValue": "FactoryGitHubConfiguration"
+ "discriminatedTypeValue": "FactoryGitHubConfiguration",
+ "typeHintIn": "Type"
 }

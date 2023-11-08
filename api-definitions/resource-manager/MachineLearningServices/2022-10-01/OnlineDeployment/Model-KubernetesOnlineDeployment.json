@@ -10,9 +10,11 @@
     "referenceName": "ContainerResourceRequirements"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource requirements for the container (cpu and memory)."
   }
  ],
  "discriminatedParentModelName": "OnlineDeployment",
- "discriminatedTypeValue": "Kubernetes"
+ "discriminatedTypeValue": "Kubernetes",
+ "typeHintIn": "EndpointComputeType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Delegated subnet resource id used to setup vnet for a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private DNS zone resource id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "EnableStatusEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public network access is allowed for this server. Value is 'Disabled' when server has VNet integration."
   }
  ]
 }

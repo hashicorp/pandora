@@ -10,7 +10,8 @@
     "referenceName": "CreateMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The mode to create a new server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "InfrastructureEncryption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status showing whether the server enabled infrastructure encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "MinimalTlsVersionEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enforce a minimal Tls version for the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PublicNetworkAccessEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not public network access is allowed for this server. Value is optional but if passed in, must be 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "SslEnforcementEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enable ssl enforcement or not when connect to server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "StorageProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage profile of a server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,9 @@
     "referenceName": "ServerVersion"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Server version."
   }
- ]
+ ],
+ "typeHintIn": "CreateMode"
 }

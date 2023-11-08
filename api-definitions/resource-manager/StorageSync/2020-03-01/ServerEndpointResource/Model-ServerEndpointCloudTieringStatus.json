@@ -10,7 +10,8 @@
     "referenceName": "CloudTieringCachePerformance"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information regarding how well the local cache on the server is performing."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CloudTieringDatePolicyStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the date policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CloudTieringFilesNotTiering"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information regarding files that failed to be tiered"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ServerEndpointCloudTieringHealthState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cloud tiering health state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last updated timestamp of health state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last cloud tiering result (HResult)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +84,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last cloud tiering success timestamp"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -90,7 +97,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last updated timestamp"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -101,7 +109,8 @@
     "referenceName": "CloudTieringSpaceSavings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information regarding how much local space cloud tiering is saving."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -112,7 +121,8 @@
     "referenceName": "CloudTieringVolumeFreeSpacePolicyStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Status of the volume free space policy"
   }
  ]
 }

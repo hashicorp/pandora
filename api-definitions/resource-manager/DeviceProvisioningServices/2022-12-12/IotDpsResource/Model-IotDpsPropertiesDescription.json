@@ -10,7 +10,8 @@
     "referenceName": "AllocationPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Allocation policy to be used by this provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of authorization keys for a provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Device endpoint for this provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional.\nIndicates if the DPS instance has Data Residency enabled, removing the cross geo-pair disaster recovery."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IP filter rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique identifier of this provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of IoT hubs associated with this provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Portal endpoint to enable CORS for this provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private endpoint connections created on this IotHub"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM provisioning state of the provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +146,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether requests from Public Network are allowed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Service endpoint for provisioning service."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -158,7 +170,8 @@
     "referenceName": "State"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current state of the provisioning service."
   }
  ]
 }

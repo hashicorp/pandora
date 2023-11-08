@@ -10,7 +10,8 @@
     "referenceName": "ConnectionType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of time series connection resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedIdentityReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed identity properties for the time series database connection resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,9 @@
     "referenceName": "TimeSeriesDatabaseConnectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state."
   }
- ]
+ ],
+ "typeHintIn": "ConnectionType"
 }

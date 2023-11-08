@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total amount of cost to track with the budget.\n\n Supported for CategoryType(s): Cost.\n\n Required for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "CategoryType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The category of the budget.\n- 'Cost' defines a Budget.\n- 'ReservationUtilization' defines a Reservation Utilization Alert Rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CurrentSpend"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current amount of cost which is being tracked for a budget.\n\n Supported for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "BudgetFilter"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "May be used to filter budgets by user-specified dimensions and/or tags.\n\n Supported for CategoryType(s): Cost, ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "ForecastSpend"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The forecasted cost which is being tracked for a budget.\n\n Supported for CategoryType(s): Cost."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dictionary of notifications associated with the budget.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n- Constraints for **CategoryType: Cost** - Budget can have up to 5 notifications with thresholdType: Actual and 5 notifications with thresholdType: Forecasted.\n- Constraints for **CategoryType: ReservationUtilization** - Only one notification allowed. thresholdType is not applicable."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "TimeGrainType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time covered by a budget. Tracking of the amount will be reset based on the time grain.\n\nSupported for CategoryType(s): Cost, ReservationUtilization.\n\n Supported timeGrainTypes for **CategoryType: Cost**\n\n- Monthly\n- Quarterly\n- Annually\n- BillingMonth*\n- BillingQuarter*\n- BillingAnnual*\n\n  *only supported for Web Direct customers.\n\n Supported timeGrainTypes for **CategoryType: ReservationUtilization**\n- Last7Days\n- Last30Days\n\n Required for CategoryType(s): Cost, ReservationUtilization."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": "BudgetTimePeriod"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time period that defines the active period of the budget. The budget will evaluate data on or after the startDate and will expire on the endDate.\n\n Supported for CategoryType(s): Cost, ReservationUtilization.\n\n Required for CategoryType(s): Cost, ReservationUtilization."
   }
  ]
 }

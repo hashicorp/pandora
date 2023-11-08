@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the global database account"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ApiType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The API type of the restorable database account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation time of the restorable database account (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -45,7 +48,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time at which the restorable database account has been deleted (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -57,7 +61,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The least recent time at which the database account can be restored to (ISO-8601 format)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +77,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of regions where the of the database account can be restored from."
   }
  ]
 }

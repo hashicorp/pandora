@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The expected value."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Operator"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A valid comparer operator to use. A case-insensitive comparison will be applied for String PropertyType."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The JPath of the entity model property that should be checked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PropertyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The data type of the compared operands (string, integer, floating point number or a boolean [true/false]]"
   }
  ]
 }

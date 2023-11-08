@@ -10,7 +10,8 @@
     "referenceName": "MonitoringInputData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data to calculate drift against."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MonitoringFeatureFilterBase"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The features to calculate drift over."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] A list of metrics to calculate and their associated thresholds."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,9 +50,11 @@
     "referenceName": "MonitoringInputData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] The data produced by the production service which drift will be calculated for."
   }
  ],
  "discriminatedParentModelName": "MonitoringSignalBase",
- "discriminatedTypeValue": "DataQuality"
+ "discriminatedTypeValue": "DataQuality",
+ "typeHintIn": "SignalType"
 }

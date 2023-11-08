@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The group id from the provider of resource the private link service connection is for."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PrivateEndpointConnectionPropertiesPrivateEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The private endpoint resource from Microsoft.Network provider."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PrivateEndpointConnectionPropertiesPrivateLinkServiceConnectionState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the current state of an existing Private Link Service connection to the Azure Private Endpoint."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "PrivateLinkServiceConnectionProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the private link service connection. Valid values are Updating, Deleting, Failed, Succeeded, or Incomplete"
   }
  ]
 }

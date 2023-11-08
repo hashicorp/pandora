@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The FQDN of the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ClusterGpuCapacity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster's GPU capacity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time at which the ClusterCapacityViewData was set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "ClusterMemoryCapacity"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster's memory capacity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total # of vCPUs provisioned by non-HPN VM per appliance."
   }
  ]
 }

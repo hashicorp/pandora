@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An optional label for the codec. The label can be used to control muxing behavior."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -21,7 +22,9 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The discriminator for derived types."
   }
- ]
+ ],
+ "typeHintIn": "OdataType"
 }

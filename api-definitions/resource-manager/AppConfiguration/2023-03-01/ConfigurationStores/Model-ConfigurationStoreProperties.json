@@ -10,7 +10,8 @@
     "referenceName": "CreateMode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether the configuration store need to be recovered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Disables all authentication methods other than AAD authentication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Property specifying whether protection against purge is enabled for this configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": "EncryptionProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption settings of the configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The DNS endpoint where the configuration store API will be available."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of private endpoint connections that are set up for this resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the configuration store."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +111,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Control permission for data plane traffic coming from public networks while private endpoint is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The amount of time in days that the configuration store will be retained when it is soft deleted."
   }
  ]
 }

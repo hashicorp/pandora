@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "AAD tenant authority."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "AAD tenant Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Azure Management Endpoint Audience."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "AAD service principal clientId."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "AAD service principal ObjectId."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,9 +70,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Service Resource Id."
   }
  ],
  "discriminatedParentModelName": "ResourceCertificateDetails",
- "discriminatedTypeValue": "AzureActiveDirectory"
+ "discriminatedTypeValue": "AzureActiveDirectory",
+ "typeHintIn": "AuthType"
 }

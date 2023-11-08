@@ -10,7 +10,8 @@
     "referenceName": "Category"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of a Diagnostic Log category for a resource type this setting is applied to. To obtain the list of Diagnostic Log categories for a resource, first perform a GET diagnostic settings operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A value indicating whether this log is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "RetentionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The retention policy for this log."
   }
  ]
 }

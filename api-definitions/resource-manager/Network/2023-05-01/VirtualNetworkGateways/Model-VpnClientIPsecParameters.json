@@ -10,7 +10,8 @@
     "referenceName": "DhGroup"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The DH Group used in IKE Phase 1 for initial SA."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "IPsecEncryption"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IPSec encryption algorithm (IKE phase 1)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "IPsecIntegrity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IPSec integrity algorithm (IKE phase 1)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "IkeEncryption"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IKE encryption algorithm (IKE phase 2)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "IkeIntegrity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IKE integrity algorithm (IKE phase 2)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "PfsGroup"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Pfs Group used in IKE Phase 2 for new child SA."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) payload size in KB for P2S client.."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The IPSec Security Association (also called Quick Mode or Phase 2 SA) lifetime in seconds for P2S client."
   }
  ]
 }

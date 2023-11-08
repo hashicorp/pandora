@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Volume name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of storage resource. No need to provide for EmptyDir."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "StorageType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage type for the volume. If not provided, use EmptyDir."
   }
  ]
 }

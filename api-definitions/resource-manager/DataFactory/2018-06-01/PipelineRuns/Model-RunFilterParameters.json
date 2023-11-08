@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The continuation token for getting the next page of results. Null for first page."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of filters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time at or after which the run event was updated in 'ISO 8601' format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -49,7 +52,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The time at or before which the run event was updated in 'ISO 8601' format."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -64,7 +68,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of OrderBy option."
   }
  ]
 }

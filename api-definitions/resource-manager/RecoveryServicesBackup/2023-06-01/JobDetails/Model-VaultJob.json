@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the state/actions applicable on this job like cancel/retry."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Time elapsed during the execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error details on execution of this job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,9 +54,11 @@
     "referenceName": "VaultJobExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Additional information about the job."
   }
  ],
  "discriminatedParentModelName": "Job",
- "discriminatedTypeValue": "VaultJob"
+ "discriminatedTypeValue": "VaultJob",
+ "typeHintIn": "JobType"
 }

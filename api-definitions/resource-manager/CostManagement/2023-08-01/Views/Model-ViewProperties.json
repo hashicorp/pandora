@@ -10,7 +10,8 @@
     "referenceName": "AccumulatedType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Show costs accumulated over time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ChartType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Chart type of the main view in Cost Analysis. Required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date the user created this view."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Currency of the current view."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date range of the current view."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "User input name of the view. Required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of KPIs to show in Cost Analysis UI."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": "MetricType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metric to use when displaying costs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -104,7 +112,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Date when the user last modified this view."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +128,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration of 3 sub-views in the Cost Analysis UI."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -130,7 +140,8 @@
     "referenceName": "ReportConfigDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Query body configuration. Required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -141,7 +152,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Cost Management scope to save the view on. This includes 'subscriptions/{subscriptionId}' for subscription scope, 'subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}' for resourceGroup scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}' for Billing Account scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/departments/{departmentId}' for Department scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/enrollmentAccounts/{enrollmentAccountId}' for EnrollmentAccount scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/billingProfiles/{billingProfileId}' for BillingProfile scope, 'providers/Microsoft.Billing/billingAccounts/{billingAccountId}/invoiceSections/{invoiceSectionId}' for InvoiceSection scope, 'providers/Microsoft.Management/managementGroups/{managementGroupId}' for Management Group scope, '/providers/Microsoft.CostManagement/externalBillingAccounts/{externalBillingAccountName}' for ExternalBillingAccount scope, and '/providers/Microsoft.CostManagement/externalSubscriptions/{externalSubscriptionName}' for ExternalSubscription scope."
   }
  ]
 }

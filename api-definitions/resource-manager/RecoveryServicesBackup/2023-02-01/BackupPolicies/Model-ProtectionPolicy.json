@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "This property will be used as the discriminator for deciding the specific types in the polymorphic chain of types."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of items associated with this policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,9 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ResourceGuard Operation Requests"
   }
- ]
+ ],
+ "typeHintIn": "BackupManagementType"
 }

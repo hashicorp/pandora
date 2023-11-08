@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The association of IP address pools to the communities and peers, allowing for announcement of IPs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of additional BgpPeer entities that the Kubernetes cluster will peer with. All peering must be explicitly defined."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "FabricPeeringEnabled"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The indicator to specify if the load balancer peers with the network fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of pools of IP addresses that can be allocated to Load Balancer services."
   }
  ]
 }

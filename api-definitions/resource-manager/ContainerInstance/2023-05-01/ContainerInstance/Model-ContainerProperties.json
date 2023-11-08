@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The commands to execute within the container instance in exec form."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The environment variables to set in the container instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the image used to create the container instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "ContainerPropertiesInstanceView"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The instance view of the container instance. Only valid in response."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "ContainerProbe"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The liveness probe."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The exposed ports on the container instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": "ContainerProbe"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The readiness probe."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": "ResourceRequirements"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The resource requirements of the container instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": "SecurityContextDefinition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The container security properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The volume mounts available to the container instance."
   }
  ]
 }

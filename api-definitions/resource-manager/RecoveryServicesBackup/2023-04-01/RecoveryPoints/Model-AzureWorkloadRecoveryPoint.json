@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Eligibility of RP to be moved to another tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "RecoveryPointProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of Recovery Point"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recovery point tier information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UTC time at which recovery point was created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,9 +67,11 @@
     "referenceName": "RestorePointType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of restore point"
   }
  ],
  "discriminatedParentModelName": "RecoveryPoint",
- "discriminatedTypeValue": "AzureWorkloadRecoveryPoint"
+ "discriminatedTypeValue": "AzureWorkloadRecoveryPoint",
+ "typeHintIn": "ObjectType"
 }

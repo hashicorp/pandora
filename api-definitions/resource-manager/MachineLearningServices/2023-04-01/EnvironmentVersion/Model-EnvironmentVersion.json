@@ -10,7 +10,8 @@
     "referenceName": "AutoRebuildSetting"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Defines if image needs to be rebuilt based on base image changes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "BuildContext"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Configuration settings for Docker build context."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Standard configuration file used by Conda that lets you install any kind of package, including Python, R, and C/C++ packages.\r\n\u003csee href=\"https://repo2docker.readthedocs.io/en/latest/config_files.html#environment-yml-install-a-conda-environment\" /\u003e"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset description text."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "EnvironmentType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Environment type is either user managed or curated by the Azure ML service\r\n\u003csee href=\"https://docs.microsoft.com/en-us/azure/machine-learning/resource-curated-environments\" /\u003e"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the image that will be used for the environment.\r\n\u003cseealso href=\"https://docs.microsoft.com/en-us/azure/machine-learning/how-to-deploy-custom-docker-image#use-a-custom-base-image\" /\u003e"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "InferenceContainerProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Defines configuration specific to inference."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If the name version are system generated (anonymous registration)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Is the asset archived?"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +118,8 @@
     "referenceName": "OperatingSystemType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS type of the environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The asset property dictionary."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +146,8 @@
     "referenceName": "AssetProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state for the environment version."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Stage in the environment lifecycle assigned to this environment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Tag dictionary. Tags can be added, removed, and updated."
   }
  ]
 }

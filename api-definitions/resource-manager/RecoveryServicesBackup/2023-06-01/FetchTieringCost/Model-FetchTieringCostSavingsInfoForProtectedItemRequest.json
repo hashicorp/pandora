@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the protected item container"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Name of the protectedItemName"
   }
  ],
  "discriminatedParentModelName": "FetchTieringCostInfoRequest",
- "discriminatedTypeValue": "FetchTieringCostSavingsInfoForProtectedItemRequest"
+ "discriminatedTypeValue": "FetchTieringCostSavingsInfoForProtectedItemRequest",
+ "typeHintIn": "ObjectType"
 }

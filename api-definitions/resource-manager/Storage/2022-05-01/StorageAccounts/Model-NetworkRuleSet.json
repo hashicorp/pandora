@@ -10,7 +10,8 @@
     "referenceName": "Bypass"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether traffic is bypassed for Logging/Metrics/AzureServices. Possible values are any combination of Logging|Metrics|AzureServices (For example, \"Logging, Metrics\"), or None to bypass none of those traffics."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DefaultAction"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the default action of allow or deny when no other rules match."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets the IP ACL rules"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets the resource access rules"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Sets the virtual network rules"
   }
  ]
 }

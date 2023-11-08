@@ -10,9 +10,11 @@
     "referenceName": "RawInputDatasourceProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The properties that are associated with a raw input. Required on PUT (CreateOrReplace) requests."
   }
  ],
  "discriminatedParentModelName": "StreamInputDataSource",
- "discriminatedTypeValue": "Raw"
+ "discriminatedTypeValue": "Raw",
+ "typeHintIn": "Type"
 }

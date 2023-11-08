@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "true if the group is one of the three system groups (Administrators, Developers, or Guests); otherwise false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Group description. Can contain HTML formatting tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "For external groups, this property contains the id of the group from the external identity provider, e.g. for Azure Active Directory `aad://\u003ctenant\u003e.onmicrosoft.com/groups/\u003cgroup object id\u003e`; otherwise the value is null."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "GroupType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Group type."
   }
  ]
 }

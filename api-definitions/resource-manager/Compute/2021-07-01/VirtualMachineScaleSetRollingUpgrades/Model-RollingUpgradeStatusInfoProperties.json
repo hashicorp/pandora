@@ -10,7 +10,8 @@
     "referenceName": "ApiError"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error details for this upgrade, if there are any."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "RollingUpgradePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The rolling upgrade policies applied for this upgrade."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "RollingUpgradeProgressInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the number of virtual machine instances in each upgrade state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "RollingUpgradeRunningStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Information about the current running state of the overall upgrade."
   }
  ]
 }

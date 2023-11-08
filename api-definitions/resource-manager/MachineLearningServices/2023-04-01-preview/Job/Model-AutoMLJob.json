@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM resource ID of the Environment specification for the job.\r\nThis is optional value to provide, if not provided, AutoML will default this to Production AutoML curated environment version when running the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Environment variables included in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of output data bindings used in the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "QueueSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Queue settings for the job"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "JobResourceConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Compute Resource configuration for the job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,9 +78,11 @@
     "referenceName": "AutoMLVertical"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] This represents scenario which can be one of Tables/NLP/Image"
   }
  ],
  "discriminatedParentModelName": "JobBase",
- "discriminatedTypeValue": "AutoML"
+ "discriminatedTypeValue": "AutoML",
+ "typeHintIn": "JobType"
 }

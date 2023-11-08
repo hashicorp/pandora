@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if workload item is auto-protectable"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name for instance or AG"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Host/Cluster Name for instance or AG"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "For instance or AG, indicates number of DB's to be protected"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "For instance or AG, indicates number of DB's present"
   }
  ],
  "discriminatedParentModelName": "WorkloadItem",
- "discriminatedTypeValue": "SAPHanaSystem"
+ "discriminatedTypeValue": "SAPHanaSystem",
+ "typeHintIn": "WorkloadItemType"
 }

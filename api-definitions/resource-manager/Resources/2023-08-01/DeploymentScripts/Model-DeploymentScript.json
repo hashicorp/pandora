@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "String Id used to locate any resource on Azure."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional property. Managed identity to be used for this deployment script. Currently, only user-assigned MSI is supported."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -32,7 +34,8 @@
     "referenceName": "ScriptType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the script."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The location of the ACI and the storage account for the deployment script."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of this resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of this resource."
   }
- ]
+ ],
+ "typeHintIn": "Kind"
 }

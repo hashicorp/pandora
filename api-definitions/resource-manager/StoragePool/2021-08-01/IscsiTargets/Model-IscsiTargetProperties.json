@@ -10,7 +10,8 @@
     "referenceName": "IscsiTargetAclMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Mode for Target connectivity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of private IPv4 addresses to connect to the iSCSI Target."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of LUNs to be exposed through iSCSI Target."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The port used by iSCSI Target portal group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "ProvisioningStates"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "State of the operation on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of identifiers for active sessions on the iSCSI target"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Access Control List (ACL) for an iSCSI Target; defines LUN masking policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": "OperationalStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Operational status of the iSCSI Target."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "iSCSI Target IQN (iSCSI Qualified Name); example: \"iqn.2005-03.org.iscsi:server\"."
   }
  ]
 }

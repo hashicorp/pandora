@@ -10,7 +10,8 @@
     "referenceName": "JobErrorCategory"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Helps with categorization of errors."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "JobErrorCode"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Error code describing the error."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An array of details about specific errors that led to this reported error."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A human-readable language-dependent representation of the error."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": "JobRetry"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates that it may be possible to retry the Job. If retry is unsuccessful, please contact Azure support via Azure Portal."
   }
  ]
 }

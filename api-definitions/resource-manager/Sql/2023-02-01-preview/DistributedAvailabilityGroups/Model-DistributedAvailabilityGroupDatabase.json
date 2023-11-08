@@ -10,7 +10,8 @@
     "referenceName": "ReplicaConnectedState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Link connected state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the database in link"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Redo lag when Managed Instance link side is primary"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Managed instance replica id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Replication lag when Managed Instance link side is primary"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last backup LSN"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last backup LSN time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last commit LSN"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +108,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last commit LSN time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +120,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last hardened LSN"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +133,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last hardened LSN time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -134,7 +145,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last received LSN"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +158,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last received LSN time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +170,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sent LSN"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +183,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last sent LSN time"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +195,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The most recent link connection error description"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +207,8 @@
     "referenceName": "CertificateInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL server certificate validity"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +219,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "SQL server replica id"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +231,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current link state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +243,8 @@
     "referenceName": "ReplicaSynchronizationHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Link health state"
   }
  ]
 }

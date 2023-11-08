@@ -10,7 +10,8 @@
     "referenceName": "SkuName"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The SKU name of the container registry. Required for registry creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "SkuTier"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SKU tier based on the SKU name."
   }
  ]
 }

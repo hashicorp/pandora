@@ -10,7 +10,8 @@
     "referenceName": "AadConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Azure Active Directory Integration properties."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AdministratorConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrative credentials that will be applied to the control plane and agent pool nodes that do not specify their own values."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The full list of network resource IDs that are attached to this cluster, including those attached only to specific agent pools."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of versions that this Kubernetes cluster can be upgraded to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the Network Cloud cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource ID of the connected cluster set up when this Kubernetes cluster is created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current running version of Kubernetes on the control plane."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "ControlPlaneNodeConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The defining characteristics of the control plane for this Kubernetes Cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "KubernetesClusterDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the Kubernetes cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current feature settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +159,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The agent pools that are created with this Kubernetes cluster for running critical system services and workloads. This data in this field is only used during creation, and the field will be empty following the creation of the Kubernetes Cluster. After creation, the management of agent pools is done using the agentPools sub-resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +171,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The Kubernetes version for this cluster. Accepts n.n, n.n.n, and n.n.n-n format. The interpreted version used will be resolved into this field after creation or update."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,7 +183,8 @@
     "referenceName": "ManagedResourceGroupConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration of the managed resource group associated with the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +195,8 @@
     "referenceName": "NetworkConfiguration"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The configuration of the Kubernetes cluster networking, including the attachment of networks that span the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -196,7 +211,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The details of the nodes in this cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +223,8 @@
     "referenceName": "KubernetesClusterProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the Kubernetes cluster resource."
   }
  ]
 }

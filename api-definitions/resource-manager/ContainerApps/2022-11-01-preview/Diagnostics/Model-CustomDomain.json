@@ -10,7 +10,8 @@
     "referenceName": "BindingType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Custom Domain binding type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource Id of the Certificate to be bound to this hostname. Must exist in the Managed Environment."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Hostname."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ServerFarm supports ElasticScale. Apps in this plan will scale as if the ServerFarm was ElasticPremium sku"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the server farm free offer expires."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Geographical location for the App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "HostingEnvironmentProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If Hyper-V container app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If \u003ccode\u003etrue\u003c/code\u003e, this App Service Plan owns spot instances."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Obsolete: If Hyper-V container app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": "KubeEnvironmentProfile"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of total workers allowed for this ElasticScaleEnabled App Service Plan"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Maximum number of instances that can be assigned to this App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of apps assigned to this App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of instances that are assigned to this App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If \u003ccode\u003etrue\u003c/code\u003e, apps assigned to this App Service plan can be scaled independently.\nIf \u003ccode\u003efalse\u003c/code\u003e, apps assigned to this App Service plan will scale to all instances of the plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the App Service Plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If Linux app service plan \u003ccode\u003etrue\u003c/code\u003e, \u003ccode\u003efalse\u003c/code\u003e otherwise."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource group of the App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +204,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time when the server farm expires. Valid only if it is a spot server farm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +216,8 @@
     "referenceName": "StatusOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "App Service plan status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -210,7 +228,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "App Service plan subscription."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -221,7 +240,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scaling worker count."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -232,7 +252,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Scaling worker size ID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -243,7 +264,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target worker tier assigned to the App Service plan."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -254,7 +276,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "If \u003ccode\u003etrue\u003c/code\u003e, this App Service Plan will perform availability zone balancing.\nIf \u003ccode\u003efalse\u003c/code\u003e, this App Service Plan will not perform availability zone balancing."
   }
  ]
 }

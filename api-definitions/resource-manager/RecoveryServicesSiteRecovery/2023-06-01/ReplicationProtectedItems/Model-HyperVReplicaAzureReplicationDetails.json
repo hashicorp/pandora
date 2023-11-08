@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating all available inplace OS Upgrade configurations."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure VM Disk details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected option to enable RDP\\SSH on target vm after failover. String value of SrsDataContract.EnableRDPOnTargetOption enum."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The encryption info."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "InitialReplicationDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Initial replication details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -74,7 +79,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last recovery point received time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -86,7 +92,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Last replication time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -98,7 +105,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last RPO calculated time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -109,7 +117,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "License Type of the VM to be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +129,8 @@
     "referenceName": "OSDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The operating system info."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +145,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -146,7 +157,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery availability set Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +169,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM id of the log storage account used for replication. This will be set to null if no log storage account was provided during enable protection."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +181,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target resource group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +193,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recovery Azure storage account."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -190,7 +205,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recovery Azure given name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -201,7 +217,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Recovery Azure VM size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -212,7 +229,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Last RPO value."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +245,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the seed managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -238,7 +257,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected recovery azure network Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -249,7 +269,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The selected source nic Id which will be used as the primary nic during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -260,7 +281,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CPU count of the VM on the primary side."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -271,7 +293,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The RAM size of the VM on the primary side."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -282,7 +305,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SQL Server license type."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -293,7 +317,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target availability zone."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -308,7 +333,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target managed disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -323,7 +349,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tags for the target NICs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -334,7 +361,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target proximity placement group Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -349,7 +377,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM tags."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -360,7 +389,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether managed disks should be used during failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -371,7 +401,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -386,7 +417,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PE Network details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -397,7 +429,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state for the vm."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -408,9 +441,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The protection state description for the vm."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

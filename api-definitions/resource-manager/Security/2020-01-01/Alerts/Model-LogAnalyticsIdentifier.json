@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "(optional) The LogAnalytics agent id reporting the event that this alert is based on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The LogAnalytics workspace id that stores this alert."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The azure resource group for the LogAnalytics workspace storing this alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,9 +46,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The azure subscription id for the LogAnalytics workspace storing this alert."
   }
  ],
  "discriminatedParentModelName": "ResourceIdentifier",
- "discriminatedTypeValue": "LogAnalytics"
+ "discriminatedTypeValue": "LogAnalytics",
+ "typeHintIn": "Type"
 }

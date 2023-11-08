@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of databases in the failover group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of partner server information for the failover group."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "FailoverGroupReadOnlyEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Read-only endpoint of the failover group instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "FailoverGroupReadWriteEndpoint"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Read-write endpoint of the failover group instance."
   }
  ]
 }

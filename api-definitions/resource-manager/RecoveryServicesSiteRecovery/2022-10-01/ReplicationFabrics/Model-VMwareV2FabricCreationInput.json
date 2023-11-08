@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The ARM Id of the migration solution."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM Id of the physical site."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM Id of the VMware site."
   }
  ],
  "discriminatedParentModelName": "FabricSpecificCreationInput",
- "discriminatedTypeValue": "VMwareV2"
+ "discriminatedTypeValue": "VMwareV2",
+ "typeHintIn": "InstanceType"
 }

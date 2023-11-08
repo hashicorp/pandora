@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the Azure resource the hostname is assigned to. If it is assigned to a Traffic Manager then it will be the Traffic Manager name otherwise it will be the app name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AzureResourceType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the Azure resource the hostname is assigned to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "CustomHostNameDnsRecordType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the DNS record."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "HostNameType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the hostname."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of apps the hostname is assigned to. This list will have more than one app only if the hostname is pointing to a Traffic Manager."
   }
  ]
 }

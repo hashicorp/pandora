@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of additional capabilities for Disk Pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Logical zone for Disk Pool resource; example: [\"1\"]."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of Azure Managed Disks to attach to a Disk Pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "ProvisioningStates"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "State of the operation on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "OperationalStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Operational status of the Disk Pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Azure Resource ID of a Subnet for the Disk Pool."
   }
  ]
 }

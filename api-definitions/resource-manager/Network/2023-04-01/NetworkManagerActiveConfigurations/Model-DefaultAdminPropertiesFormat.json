@@ -10,7 +10,8 @@
     "referenceName": "SecurityConfigurationRuleAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates the access allowed for this particular rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description for this rule. Restricted to 140 chars."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination port ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The destination address prefixes. CIDR or destination IP ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": "SecurityConfigurationRuleDirection"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if the traffic matched against the rule in inbound or outbound."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Default rule flag."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "SecurityConfigurationRuleProtocol"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network protocol this rule applies to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique identifier for this resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source port ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +158,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CIDR or source IP ranges."
   }
  ]
 }

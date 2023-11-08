@@ -10,7 +10,8 @@
     "referenceName": "PlatformType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Host OS supported by the Kubernetes role."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "HostPlatformType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Platform where the runtime is hosted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "KubernetesClusterInfo"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Kubernetes cluster configuration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "KubernetesRoleResources"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Kubernetes role resources"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "KubernetesState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of Kubernetes deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "RoleStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Role status."
   }
  ]
 }

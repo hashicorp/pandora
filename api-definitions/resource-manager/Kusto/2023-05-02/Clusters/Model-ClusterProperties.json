@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster's accepted audiences."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of allowed FQDNs(Fully Qualified Domain Name) for egress from Cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of ips in the format of CIDR allowed to connect to the cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster data ingestion URI."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean value that indicates if the cluster could be automatically stopped (due to lack of data or no activity for many days)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean value that indicates if the cluster's disks are encrypted."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean value that indicates if double encryption is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean value that indicates if the purge operations are enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +118,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A boolean value that indicates if the streaming ingest is enabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     "referenceName": "EngineType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The engine type"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +142,8 @@
     "referenceName": "KeyVaultProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "KeyVault properties for the cluster encryption."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +154,8 @@
     "referenceName": "LanguageExtensionsList"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of the cluster's language extensions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +166,8 @@
     "referenceName": "MigrationClusterProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of the peer cluster involved in a migration to/from this cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +178,8 @@
     "referenceName": "OptimizedAutoscale"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optimized auto scale definition."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +194,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A list of private endpoint connections."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +206,8 @@
     "referenceName": "ProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioned state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +218,8 @@
     "referenceName": "PublicIPType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates what public IP type to create - IPv4 (default), or DualStack (both IPv4 and IPv6)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +230,8 @@
     "referenceName": "PublicNetworkAccess"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Public network access to the cluster is enabled by default. When disabled, only private endpoint connection to the cluster is allowed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +242,8 @@
     "referenceName": "ClusterNetworkAccessFlag"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not to restrict outbound network access.  Value is optional but if passed in, must be 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +254,8 @@
     "referenceName": "State"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +266,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason for the cluster's current state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -261,7 +282,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster's external tenants."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -272,7 +294,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The cluster URI."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -283,7 +306,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual Cluster graduation properties"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -294,7 +318,8 @@
     "referenceName": "VirtualNetworkConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Virtual network definition."
   }
  ]
 }

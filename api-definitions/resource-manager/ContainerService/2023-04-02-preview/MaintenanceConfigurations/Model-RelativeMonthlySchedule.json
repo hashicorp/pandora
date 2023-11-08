@@ -10,7 +10,8 @@
     "referenceName": "WeekDay"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies on which day of the week the maintenance occurs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies the number of months between each set of occurrences."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Type"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Specifies on which instance of the allowed days specified in daysOfWeek the maintenance occurs."
   }
  ]
 }

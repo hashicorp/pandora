@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The author of the custom image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The creation date of the custom image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "CustomImagePropertiesFromPlan"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage information about the plan related to this custom image"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage information about the data disks present in the custom image"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The description of the custom image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether or not the custom images underlying offer/plan has been enabled for programmatic deployment"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +87,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Managed Image Id backing the custom image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +99,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Managed Snapshot Id backing the custom image."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +111,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning status of the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The unique immutable identifier of a resource (Guid)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "referenceName": "CustomImagePropertiesFromVM"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine from which the image is to be created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     "referenceName": "CustomImagePropertiesCustom"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The VHD from which the image is to be created."
   }
  ]
 }

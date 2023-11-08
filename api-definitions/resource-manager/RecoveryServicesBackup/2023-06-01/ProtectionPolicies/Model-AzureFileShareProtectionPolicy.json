@@ -10,7 +10,8 @@
     "referenceName": "RetentionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention policy with the details on backup copy retention ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "SchedulePolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backup schedule specified as part of backup policy."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\"."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "VaultRetentionPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Retention policy with the details on hardened backup copy retention ranges."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,9 +58,11 @@
     "referenceName": "WorkloadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of workload for the backup management"
   }
  ],
  "discriminatedParentModelName": "ProtectionPolicy",
- "discriminatedTypeValue": "AzureStorage"
+ "discriminatedTypeValue": "AzureStorage",
+ "typeHintIn": "BackupManagementType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "AzureWorkloadSQLRecoveryPointExtendedInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended Info that provides data directory details. Will be populated in two cases:\r\nWhen a specific recovery point is accessed using GetRecoveryPoint\r\nOr when ListRecoveryPoints is called for Log RP only with ExtendedInfo query filter"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Eligibility of RP to be moved to another tier"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "RecoveryPointProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of Recovery Point"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Recovery point tier information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UTC time at which recovery point was created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -78,7 +83,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of log ranges"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -89,9 +95,11 @@
     "referenceName": "RestorePointType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of restore point"
   }
  ],
  "discriminatedParentModelName": "RecoveryPoint",
- "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRecoveryPoint"
+ "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRecoveryPoint",
+ "typeHintIn": "ObjectType"
 }

@@ -10,7 +10,8 @@
     "referenceName": "ComplianceStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating compliance status of the machine for the assigned guest configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "End date and time of the guest configuration assignment compliance status check."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "GUID of the report."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": "Type"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of report, Consistency or Initial"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of resources for which guest configuration assignment compliance is checked."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Start date and time of the guest configuration assignment compliance status check."
   }
  ]
 }

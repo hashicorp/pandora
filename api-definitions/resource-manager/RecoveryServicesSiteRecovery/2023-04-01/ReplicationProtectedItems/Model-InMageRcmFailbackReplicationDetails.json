@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The ARM Id of the azure VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "InMageRcmFailbackDiscoveredProtectedVMDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The discovered VM information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "VMReplicationProgressHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication progress health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication progress percentage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The initial replication transferred bytes from source VM to target for all selected disks on source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The virtual machine internal identifier."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether agent registration was successful after failover."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last planned failover start time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": "PlannedFailoverStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last planned failover status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy friendly name used by the forward replication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The policy Id used by the forward replication."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +155,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The log storage account ARM Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -154,7 +167,8 @@
     "referenceName": "InMageRcmFailbackMobilityAgentDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The mobility agent information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -165,7 +179,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The multi VM group name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -176,7 +191,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of the OS on the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +207,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of protected disks."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -202,7 +219,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reprotect agent Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -213,7 +231,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reprotect agent name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -224,7 +243,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync processed bytes. This includes sum of total bytes transferred and matched bytes on all selected disks in source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +255,8 @@
     "referenceName": "VMReplicationProgressHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync progress health."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -246,7 +267,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync progress percentage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +279,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether resync is required."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -268,7 +291,8 @@
     "referenceName": "ResyncState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync state."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +303,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resync transferred bytes from source VM to target for all selected disks on source VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -290,7 +315,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target datastore name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -301,7 +327,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target VM name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -312,7 +339,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The target vCenter Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -327,9 +355,11 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The network details."
   }
  ],
  "discriminatedParentModelName": "ReplicationProviderSpecificSettings",
- "discriminatedTypeValue": "InMageRcmFailback"
+ "discriminatedTypeValue": "InMageRcmFailback",
+ "typeHintIn": "InstanceType"
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The PlayReady licenses."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,9 +26,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The custom response data."
   }
  ],
  "discriminatedParentModelName": "ContentKeyPolicyConfiguration",
- "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration"
+ "discriminatedTypeValue": "#Microsoft.Media.ContentKeyPolicyPlayReadyConfiguration",
+ "typeHintIn": "OdataType"
 }

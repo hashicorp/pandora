@@ -10,7 +10,8 @@
     "referenceName": "SourceCreationData"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the operation on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ManagedByInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Parent resource information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ProvisioningStates"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the operation on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Volume size."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "IscsiTargetInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Storage target information"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Unique Id of the volume in GUID format"
   }
  ]
 }

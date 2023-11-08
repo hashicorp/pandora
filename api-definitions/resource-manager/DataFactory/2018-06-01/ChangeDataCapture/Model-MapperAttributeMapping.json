@@ -10,7 +10,8 @@
     "referenceName": "MapperAttributeReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of references for source columns. It is used for 'Derived' and 'Aggregate' type mappings only."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Expression used for 'Aggregate' and 'Derived' type mapping."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the function used for 'Aggregate' and 'Derived' (except 'Advanced') type mapping."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of the target column."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "MappingType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of the CDC attribute mapping. Note: 'Advanced' mapping type is also saved as 'Derived'."
   }
  ]
 }

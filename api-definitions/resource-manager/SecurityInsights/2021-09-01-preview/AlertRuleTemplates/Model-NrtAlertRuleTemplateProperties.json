@@ -10,7 +10,8 @@
     "referenceName": "AlertDetailsOverride"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The alert details override settings"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the number of alert rules that were created by this template"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The time that this alert rule template has been added."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dictionary of string key-value pairs of columns to be attached to the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The description of the alert rule template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The display name for alert rule template."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +91,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of the entity mappings of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -97,7 +104,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last time that this alert rule template has been updated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +116,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The query that creates alerts for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +132,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The required data sources for this template"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -134,7 +144,8 @@
     "referenceName": "AlertSeverity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -145,7 +156,8 @@
     "referenceName": "TemplateStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The alert rule template status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -160,7 +172,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tactics of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +184,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The version of this template - in format \u003ca.b.c\u003e, where all are numbers. For example \u003c1.0.2\u003e."
   }
  ]
 }

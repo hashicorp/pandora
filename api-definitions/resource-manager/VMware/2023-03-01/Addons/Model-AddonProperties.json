@@ -10,7 +10,8 @@
     "referenceName": "AddonType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The type of private cloud addon"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,9 @@
     "referenceName": "AddonProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the addon provisioning"
   }
- ]
+ ],
+ "typeHintIn": "AddonType"
 }

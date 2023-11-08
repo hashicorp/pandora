@@ -10,7 +10,8 @@
     "referenceName": "ActionList"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The actions that will activate when the condition is met."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AlertRuleAllOfCondition"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The condition that will cause this alert to activate."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A description of this Activity Log Alert rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates whether this Activity Log Alert rule is enabled. If an Activity Log Alert rule is not enabled, then none of its actions will be activated."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "A list of resource IDs that will be used as prefixes. The alert will only apply to Activity Log events with resource IDs that fall under one of these prefixes. This list must include at least one item."
   }
  ]
 }

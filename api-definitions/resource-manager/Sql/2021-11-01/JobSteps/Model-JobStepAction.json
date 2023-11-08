@@ -10,7 +10,8 @@
     "referenceName": "JobStepActionSource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The source of the action to execute."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "JobStepActionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of action being executed by the job step."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The action value, for example the text of the T-SQL script to execute."
   }
  ]
 }

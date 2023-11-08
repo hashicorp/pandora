@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The containers collection under a replica."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -26,7 +27,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Timestamp describing when the pod was created by controller"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -41,7 +43,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The init containers collection under a replica."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -52,7 +55,8 @@
     "referenceName": "ContainerAppReplicaRunningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current running state of the replica"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +67,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The details of replica current running state"
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether password authentication should be disabled."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "SshConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the ssh key configuration for a Linux OS. (This property is deprecated, please use 'sshKeyPair' instead)"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,9 +34,11 @@
     "referenceName": "SshKeyPair"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SSH Key-pair used to authenticate with the VM's."
   }
  ],
  "discriminatedParentModelName": "OSConfiguration",
- "discriminatedTypeValue": "Linux"
+ "discriminatedTypeValue": "Linux",
+ "typeHintIn": "OsType"
 }

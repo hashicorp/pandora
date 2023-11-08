@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UTC day on which cost analysis data will be emailed. Must be between 1 and 31. This property is applicable when frequency is Monthly and overrides weeksOfMonth or daysOfWeek."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Day names in english on which cost analysis data will be emailed. This property is applicable when frequency is Weekly or Monthly."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -37,7 +39,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The end date and time of the scheduled action (UTC)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +51,8 @@
     "referenceName": "ScheduleFrequency"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Frequency of the schedule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "UTC time at which cost analysis data will be emailed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +76,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The start date and time of the scheduled action (UTC)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -86,7 +92,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Weeks in which cost analysis data will be emailed. This property is applicable when frequency is Monthly and used in combination with daysOfWeek."
   }
  ]
 }

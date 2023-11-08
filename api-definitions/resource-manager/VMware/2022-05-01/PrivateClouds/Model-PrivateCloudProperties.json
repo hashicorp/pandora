@@ -10,7 +10,8 @@
     "referenceName": "AvailabilityProperties"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties describing how the cloud is distributed across availability zones"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "Circuit"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "An ExpressRoute Circuit"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "Encryption"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Customer managed key encryption, can be enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "Endpoints"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The endpoints"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of cloud link IDs from other clouds that connect to this one"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -73,7 +78,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "vCenter Single Sign On Identity Sources"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     "referenceName": "InternetEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Connectivity to internet is enabled or disabled"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     "referenceName": "CommonClusterProperties"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The default cluster used for management"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Network used to access vCenter Server and NSX-T Manager"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -117,7 +126,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The block of addresses should be unique across VNet in your subscription as well as on-premise. Make sure the CIDR format is conformed to (A.B.C.D/X) where A,B,C,D are between 0 and 255, and X is between 0 and 22"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -128,7 +138,8 @@
     "referenceName": "NsxPublicIPQuotaRaisedEnum"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Flag to indicate whether the private cloud has the quota for provisioned NSX Public IP count raised from 64 to 1024"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Thumbprint of the NSX-T Manager SSL certificate"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optionally, set the NSX-T Manager password when the private cloud is created"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Used for virtual machine cold migration, cloning, and snapshot migration"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -172,7 +186,8 @@
     "referenceName": "PrivateCloudProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +198,8 @@
     "referenceName": "Circuit"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A secondary expressRoute circuit from a separate AZ. Only present in a stretched private cloud"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -194,7 +210,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Used for live migration of virtual machines"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +222,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Thumbprint of the vCenter Server SSL certificate"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -216,7 +234,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optionally, set the vCenter admin password when the private cloud is created"
   }
  ]
 }

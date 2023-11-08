@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Permissions for the access policy. Learn how to configure permissions at https://aka.ms/redis/AADPreRequisites"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AccessPolicyProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of access policy"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AccessPolicyType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Built-In or Custom access policy"
   }
  ]
 }

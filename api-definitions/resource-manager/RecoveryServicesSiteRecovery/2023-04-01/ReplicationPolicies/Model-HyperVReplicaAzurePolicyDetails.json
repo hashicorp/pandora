@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The active storage account Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The interval (in hours) at which Hyper-V Replica should create an application consistent snapshot within the VM."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A value indicating whether encryption is enabled for virtual machines in this cloud."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The scheduled start time for the initial replication. If this parameter is Null, the initial replication starts immediately."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The duration (in hours) to which point the recovery history needs to be maintained."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,9 +70,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The replication interval."
   }
  ],
  "discriminatedParentModelName": "PolicyProviderSpecificDetails",
- "discriminatedTypeValue": "HyperVReplicaAzure"
+ "discriminatedTypeValue": "HyperVReplicaAzure",
+ "typeHintIn": "InstanceType"
 }

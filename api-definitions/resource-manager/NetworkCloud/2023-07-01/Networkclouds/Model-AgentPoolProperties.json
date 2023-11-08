@@ -10,7 +10,8 @@
     "referenceName": "AdministratorConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The administrator credentials to be used for the nodes in this agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AgentOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configurations that will be applied to each agent in this agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "AttachedNetworkConfiguration"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration of networks being attached to the agent pool for use by the workloads that run on this Kubernetes cluster."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of availability zones of the Network Cloud cluster used for the provisioning of nodes in this agent pool. If not specified, all availability zones will be used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The number of virtual machines that use this configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "AgentPoolDetailedStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The current status of the agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The descriptive message about the current detailed status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Kubernetes version running in this agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The labels applied to the nodes in this agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "AgentPoolMode"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The selection of how this agent pool is utilized, either as a system pool or a user pool. System pools run the features and critical services for the Kubernetes Cluster, while user pools are dedicated to user workloads. Every Kubernetes cluster must contain at least one system node pool with at least one node."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": "AgentPoolProvisioningState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The provisioning state of the agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +150,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The taints applied to the nodes in this agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -150,7 +162,8 @@
     "referenceName": "AgentPoolUpgradeSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The configuration of the agent pool."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -161,7 +174,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The name of the VM SKU that determines the size of resources allocated for node VMs."
   }
  ]
 }

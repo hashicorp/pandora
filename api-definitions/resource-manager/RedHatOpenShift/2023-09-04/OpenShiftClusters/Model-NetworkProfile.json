@@ -10,7 +10,8 @@
     "referenceName": "OutboundType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OutboundType used for egress traffic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CIDR used for OpenShift/Kubernetes Pods."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PreconfiguredNSG"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies whether subnets are pre-attached with an NSG"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CIDR used for OpenShift/Kubernetes Services."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Evaluation of metric on a particular column"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "MetricTriggerType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metric Trigger Type - 'Consecutive' or 'Total'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The threshold of the metric trigger."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "ConditionalOperator"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Evaluation operation for Metric -'GreaterThan' or 'LessThan' or 'Equal'."
   }
  ]
 }

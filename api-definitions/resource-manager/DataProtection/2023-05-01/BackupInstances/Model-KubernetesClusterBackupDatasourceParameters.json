@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the backup hook references. This property sets the hook reference to be executed during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +46,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the include namespaces property. This property sets the namespaces to be included during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -85,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the include resource types property. This property sets the resource types to be included during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +106,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,9 +118,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup."
   }
  ],
  "discriminatedParentModelName": "BackupDatasourceParameters",
- "discriminatedTypeValue": "KubernetesClusterBackupDatasourceParameters"
+ "discriminatedTypeValue": "KubernetesClusterBackupDatasourceParameters",
+ "typeHintIn": "ObjectType"
 }

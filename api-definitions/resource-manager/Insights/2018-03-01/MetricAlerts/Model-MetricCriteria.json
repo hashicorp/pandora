@@ -10,7 +10,8 @@
     "referenceName": "Operator"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the criteria operator."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the criteria threshold value that activates the alert."
   }
  ],
  "discriminatedParentModelName": "MultiMetricCriteria",
- "discriminatedTypeValue": "StaticThresholdCriterion"
+ "discriminatedTypeValue": "StaticThresholdCriterion",
+ "typeHintIn": "CriterionType"
 }

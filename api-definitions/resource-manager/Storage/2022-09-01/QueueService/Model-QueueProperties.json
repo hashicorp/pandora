@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Integer indicating an approximate number of messages in the queue. This number is not lower than the actual number of messages in the queue, but could be higher."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A name-value pair that represents queue metadata."
   }
  ]
 }

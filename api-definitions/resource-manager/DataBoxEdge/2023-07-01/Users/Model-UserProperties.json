@@ -10,7 +10,8 @@
     "referenceName": "AsymmetricEncryptedSecret"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The password details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of shares that the user has rights on. This field should not be specified during user creation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "UserType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the user."
   }
  ]
 }

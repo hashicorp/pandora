@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Network Security Groups effective on the network interfaces of the protected resource"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The security rules which are recommended to be effective on the VM"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -41,7 +43,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC time on which the rules were calculated"
   }
  ]
 }

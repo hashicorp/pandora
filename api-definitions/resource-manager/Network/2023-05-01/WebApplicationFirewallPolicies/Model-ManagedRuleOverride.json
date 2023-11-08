@@ -10,7 +10,8 @@
     "referenceName": "ActionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Describes the override action to be applied when rule matches."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Identifier for the managed rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ManagedRuleEnabledState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The state of the managed rule. Defaults to Disabled if not specified."
   }
  ]
 }

@@ -18,7 +18,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of recommended actions to implement recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     "referenceName": "Category"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The category of the recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The detailed description of recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recommendation metadata properties exposed to customer to provide additional information."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Extended properties"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     "referenceName": "Impact"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The business impact of the recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -92,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource type identified by Advisor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The resource identified by Advisor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The label of recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -126,7 +135,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The most recent time that Advisor checked the validity of the recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +147,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The link to learn more about recommendation and generation logic."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -152,7 +163,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recommendation metadata."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +175,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The potential benefit of implementing recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -174,7 +187,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The recommendation-type GUID."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -189,7 +203,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The automated way to apply recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -200,7 +215,8 @@
     "referenceName": "ResourceMetadata"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Metadata of resource that was assessed"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -211,7 +227,8 @@
     "referenceName": "Risk"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The potential risk of not implementing the recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -222,7 +239,8 @@
     "referenceName": "ShortDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A summary of the recommendation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -237,7 +255,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of snoozed and dismissed rules for the recommendation."
   }
  ]
 }

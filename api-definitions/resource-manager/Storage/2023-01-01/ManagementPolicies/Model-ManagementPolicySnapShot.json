@@ -10,7 +10,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to delete the blob snapshot"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blob snapshot to archive storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to cold storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blob snapshot to cool storage."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "DateAfterCreation"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The function to tier blobs to hot storage. This action can only be used with Premium Block Blob Storage Accounts"
   }
  ]
 }

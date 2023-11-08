@@ -11,7 +11,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Agent expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The version of the scout component on the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": "VersionDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent version details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The available memory."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +59,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The available space."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The percentage of the CPU load."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CPU load status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Process Server's friendly name."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "ProtectionHealth"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The health of Process Server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +123,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health errors."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +135,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The agent generated Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +147,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The IP address of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +159,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Process Server Id."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +172,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The last heartbeat received from the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -170,7 +184,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The servers configured with this PS."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +196,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The MARS communication status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -192,7 +208,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The MARS registration status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -203,7 +220,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The memory usage status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +236,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of the mobility service updates available on the Process Server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +248,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The OS type of the server."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +260,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "OS Version of the process server. Note: This will get populated if user has CS version greater than 9.12.0.0."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +272,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PS service status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -263,7 +285,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The process server stats refresh time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -274,7 +297,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of replication pairs configured in this PS."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -285,7 +309,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The space usage status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -297,7 +322,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The PS SSL cert expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -308,7 +334,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "CS SSL cert expiry date."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -319,7 +346,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The percentage of the system load."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -330,7 +358,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The system load status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -341,7 +370,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The throughput in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -352,7 +382,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The throughput in MBps."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -363,7 +394,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The throughput status."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -374,7 +406,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The uploading pending data in bytes."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -385,7 +418,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total memory."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -396,7 +430,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The total space."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -407,7 +442,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Version status."
   }
  ]
 }

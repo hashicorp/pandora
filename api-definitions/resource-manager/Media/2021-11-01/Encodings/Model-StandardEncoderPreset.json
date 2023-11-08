@@ -14,7 +14,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of codecs to be used when encoding the input video."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "Filters"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "One or more filtering operations that are applied to the input media before encoding."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,9 +42,11 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The list of outputs to be produced by the encoder."
   }
  ],
  "discriminatedParentModelName": "Preset",
- "discriminatedTypeValue": "#Microsoft.Media.StandardEncoderPreset"
+ "discriminatedTypeValue": "#Microsoft.Media.StandardEncoderPreset",
+ "typeHintIn": "OdataType"
 }

@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of AAAA records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -29,7 +30,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of A records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     "referenceName": "CnameRecord"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The CNAME record in the  record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +58,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of CAA records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +70,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Fully qualified domain name of the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -81,7 +86,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of MX records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The metadata attached to the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +118,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of NS records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -126,7 +134,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of PTR records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -137,7 +146,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "provisioning State of the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +158,8 @@
     "referenceName": "SoaRecord"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The SOA record in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +174,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of SRV records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -174,7 +186,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The TTL (time-to-live) of the records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -189,7 +202,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The list of TXT records in the record set."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -200,7 +214,8 @@
     "referenceName": "SubResource"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A reference to an azure resource from where the dns resource value is taken."
   }
  ]
 }

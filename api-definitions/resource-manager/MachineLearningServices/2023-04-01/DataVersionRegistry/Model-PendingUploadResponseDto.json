@@ -10,7 +10,8 @@
     "referenceName": "BlobReferenceForConsumptionDto"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Container level read, write, list SAS"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ID for this upload request"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "PendingUploadType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TemporaryBlobReference is the only supported type"
   }
  ]
 }

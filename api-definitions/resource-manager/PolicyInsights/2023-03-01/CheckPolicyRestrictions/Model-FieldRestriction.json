@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The value that policy will set for the field if the user does not provide a value."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "PolicyReference"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The details of the policy that is causing the field restriction."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The effect of the policy that is causing the field restriction. http://aka.ms/policyeffects"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reason for the restriction."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": "FieldRestrictionResult"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The type of restriction that is imposed on the field."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The values that policy either requires or denies for the field."
   }
  ]
 }

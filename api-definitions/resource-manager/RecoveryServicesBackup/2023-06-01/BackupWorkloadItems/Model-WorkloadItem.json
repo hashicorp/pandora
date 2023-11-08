@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of backup management to backup an item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Friendly name of the backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ProtectionStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the back up item."
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Type of the backup item."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,9 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of workload for the backup management"
   }
- ]
+ ],
+ "typeHintIn": "WorkloadItemType"
 }

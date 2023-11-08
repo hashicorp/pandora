@@ -10,9 +10,11 @@
     "referenceName": "ManagementEventAggregationCondition"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "How the data that is collected should be combined over time and when the alert is activated. Note that for management event alerts aggregation is optional – if it is not provided then any event will cause the alert to activate."
   }
  ],
  "discriminatedParentModelName": "RuleCondition",
- "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition"
+ "discriminatedTypeValue": "Microsoft.Azure.Management.Insights.Models.ManagementEventRuleCondition",
+ "typeHintIn": "OdataType"
 }

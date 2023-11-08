@@ -10,7 +10,8 @@
     "referenceName": "SnapshotCreationData"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Data used when creating a volume snapshot."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "ProvisioningStates"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "State of the operation on the resource."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Size of Source Volume"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source Volume Name of a snapshot"
   }
  ]
 }

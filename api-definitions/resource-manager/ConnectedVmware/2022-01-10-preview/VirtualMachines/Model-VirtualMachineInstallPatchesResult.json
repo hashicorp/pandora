@@ -10,7 +10,8 @@
     "referenceName": "ErrorDetail"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The errors that were encountered during execution of the operation. The details array contains the list of them."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of patches that were not installed due to the user blocking their installation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of patches that could not be installed due to some issue. See errors for details."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The activity ID of the operation that produced this result."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of patches successfully installed."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -66,7 +71,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC timestamp when the operation finished."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +83,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Whether the operation ran out of time before it completed all its intended actions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +95,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of patches that were detected as available for install, but did not meet the operation's criteria."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +107,8 @@
     "referenceName": "OsTypeUM"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The operating system type of the machine."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -110,7 +119,8 @@
     "referenceName": "PatchServiceUsed"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Specifies the patch service used for the operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +131,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The number of patches that were identified as meeting the installation criteria, but were not able to be installed. Typically this happens when maintenanceWindowExceeded == true."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +143,8 @@
     "referenceName": "VMGuestPatchRebootStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The reboot state of the VM following completion of the operation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +156,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The UTC timestamp when the operation began."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +168,8 @@
     "referenceName": "PatchOperationStartedBy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicates if operation was triggered by user or by platform."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +180,8 @@
     "referenceName": "PatchOperationStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The overall success or failure status of the operation. It remains \"InProgress\" until the operation completes. At that point it will become \"Failed\", \"Succeeded\", \"Unknown\" or \"CompletedWithWarnings.\""
   }
  ]
 }

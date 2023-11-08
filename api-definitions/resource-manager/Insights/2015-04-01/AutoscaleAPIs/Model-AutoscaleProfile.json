@@ -10,7 +10,8 @@
     "referenceName": "ScaleCapacity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the number of instances that can be used during this profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "TimeWindow"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the specific date-time for the profile. This element is not used if the Recurrence element is used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the name of the profile."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": "Recurrence"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "the repeating times at which this profile begins. This element is not used if the FixedDate element is used."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "the collection of rules that provide the triggers and parameters for the scaling action. A maximum of 10 rules can be specified."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "DayOfWeek"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Day of the week when a cache can be patched."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "ISO8601 timespan specifying how much time cache patching can take. "
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Start hour after which cache patching can start."
   }
  ]
 }

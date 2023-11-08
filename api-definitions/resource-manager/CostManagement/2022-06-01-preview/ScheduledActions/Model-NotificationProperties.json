@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Optional message to be added in the email. Length is limited to 250 characters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Subject of the email. Length is limited to 70 characters."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -38,7 +40,8 @@
     }
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Array of email addresses."
   }
  ]
 }

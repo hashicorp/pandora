@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private IP address of the IP configuration."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "IPAllocationMethod"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Private IP address allocation method."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "SubResource"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The reference to the subnet bound to the IP configuration."
   }
  ]
 }

@@ -10,7 +10,8 @@
     "referenceName": "ShareAccessProtocol"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Access protocol to be used by the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": "AzureContainerInfo"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Azure container mapping for the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of IP addresses and corresponding access rights on the share(required for NFS protocol)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "DataPolicy"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Data policy of the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Description for the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "MonitoringStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Current monitoring status of the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "RefreshDetails"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Details of the refresh job on this share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +102,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Share mount point to the role."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -106,7 +114,8 @@
     "referenceName": "ShareStatus"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Current status of the share."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +130,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Mapping of users and corresponding access rights on the share (required for SMB protocol)."
   }
  ]
 }

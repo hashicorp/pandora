@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Client Id for userAssignedIdentity."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Subscription id for userAssignedIdentity."
   }
  ],
  "discriminatedParentModelName": "AuthInfoBase",
- "discriminatedTypeValue": "userAssignedIdentity"
+ "discriminatedTypeValue": "userAssignedIdentity",
+ "typeHintIn": "AuthType"
 }

@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Name of this policy's fabric."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "List of sub-protection policies which includes schedule and retention"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,9 +38,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "TimeZone optional input as string. For example: TimeZone = \"Pacific Standard Time\"."
   }
  ],
  "discriminatedParentModelName": "ProtectionPolicy",
- "discriminatedTypeValue": "GenericProtectionPolicy"
+ "discriminatedTypeValue": "GenericProtectionPolicy",
+ "typeHintIn": "BackupManagementType"
 }

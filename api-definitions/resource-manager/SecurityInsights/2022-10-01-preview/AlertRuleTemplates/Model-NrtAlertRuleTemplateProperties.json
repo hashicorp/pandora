@@ -10,7 +10,8 @@
     "referenceName": "AlertDetailsOverride"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The alert details override settings"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Dictionary of string key-value pairs of columns to be attached to the alert"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -40,7 +42,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of the entity mappings of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +54,8 @@
     "referenceName": "EventGroupingSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The event grouping settings."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +66,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The query that creates alerts for this rule."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -77,7 +82,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Array of the sentinel entity mappings of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +94,8 @@
     "referenceName": "AlertSeverity"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +110,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The tactics of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -118,7 +126,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The techniques of the alert rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -129,7 +138,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "The version of this template - in format \u003ca.b.c\u003e, where all are numbers. For example \u003c1.0.2\u003e."
   }
  ]
 }

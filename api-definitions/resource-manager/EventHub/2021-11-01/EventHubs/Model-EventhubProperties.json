@@ -10,7 +10,8 @@
     "referenceName": "CaptureDescription"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Properties of capture description"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -22,7 +23,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Exact time the Event Hub was created."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +35,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of days to retain the events for this Event Hub, value should be 1 to 7 days"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -44,7 +47,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of partitions created for the Event Hub, allowed values are from 1 to 32 partitions."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +63,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Current number of shards on the Event Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -70,7 +75,8 @@
     "referenceName": "EntityStatus"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Enumerates the possible values for the status of the Event Hub."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -82,7 +88,8 @@
     "dateFormat": "RFC3339"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The exact time the message was updated."
   }
  ]
 }

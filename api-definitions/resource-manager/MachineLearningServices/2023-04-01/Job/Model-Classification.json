@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Columns to use for CVSplit data."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "TableVerticalFeaturizationSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Featurization inputs needed for AutoML job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": "TableVerticalLimitSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Execution constraints for AutoMLJob."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "NCrossValidations"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Number of cross validation folds to be applied on training dataset\r\nwhen validation dataset is not provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Positive label for binary metrics calculation."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": "ClassificationPrimaryMetrics"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Primary metric for the task."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -80,7 +86,8 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Test data input."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -91,7 +98,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fraction of test dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -102,7 +110,8 @@
     "referenceName": "ClassificationTrainingSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Inputs for training phase for an AutoML Job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -113,7 +122,8 @@
     "referenceName": "MLTableJobInput"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Validation data inputs."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -124,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The fraction of training dataset that needs to be set aside for validation purpose.\r\nValues between (0.0 , 1.0)\r\nApplied when validation dataset is not provided."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,9 +146,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The name of the sample weight column. Automated ML supports a weighted column as an input, causing rows in the data to be weighted up or down."
   }
  ],
  "discriminatedParentModelName": "AutoMLVertical",
- "discriminatedTypeValue": "Classification"
+ "discriminatedTypeValue": "Classification",
+ "typeHintIn": "TaskType"
 }

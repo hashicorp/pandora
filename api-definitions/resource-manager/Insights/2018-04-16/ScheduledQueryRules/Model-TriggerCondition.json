@@ -10,7 +10,8 @@
     "referenceName": "LogMetricTrigger"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Trigger condition for metric query rule"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Result or count threshold based on which rule should be triggered."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": "ConditionalOperator"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "Evaluation operation for rule - 'GreaterThan' or 'LessThan."
   }
  ]
 }

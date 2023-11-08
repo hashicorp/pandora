@@ -10,7 +10,8 @@
     "referenceName": "BindOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Bind Options of the mount"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Consistency of the volume"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -32,7 +34,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Indicate whether to mount volume as readOnly. Default value for this is false."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +46,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Source of the mount. For bind mounts this is the host path."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -54,7 +58,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Target of the mount. For bind mounts this is the path in the container."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +70,8 @@
     "referenceName": "TmpfsOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "tmpfs option of the mount"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +82,8 @@
     "referenceName": "VolumeDefinitionType"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Type of Volume Definition. Possible Values: bind,volume,tmpfs,npipe"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +94,8 @@
     "referenceName": "VolumeOptions"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Volume Options of the mount"
   }
  ]
 }

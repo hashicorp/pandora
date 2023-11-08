@@ -10,7 +10,8 @@
     "referenceName": "MonitoringFeatureDataType"
    },
    "optional": false,
-   "required": true
+   "required": true,
+   "description": "[Required] Specifies the data type of the metric threshold."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,7 +22,9 @@
     "referenceName": "MonitoringThreshold"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The threshold value. If null, a default value will be set depending on the selected metric."
   }
- ]
+ ],
+ "typeHintIn": "DataType"
 }

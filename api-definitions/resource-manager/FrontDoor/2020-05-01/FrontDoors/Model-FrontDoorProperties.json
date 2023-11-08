@@ -14,7 +14,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Backend pools available to routing rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -25,7 +26,8 @@
     "referenceName": "BackendPoolsSettings"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Settings for all backendPools"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +38,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The host that each frontendEndpoint must CNAME to."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +50,8 @@
     "referenceName": "FrontDoorEnabledState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Operational status of the Front Door load balancer. Permitted values are 'Enabled' or 'Disabled'"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -58,7 +62,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "A friendly name for the frontDoor"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -69,7 +74,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The Id of the frontdoor."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +90,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Frontend endpoints available to routing rules."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +106,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Health probe settings associated with this Front Door instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -114,7 +122,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Load balancing settings associated with this Front Door instance."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -125,7 +134,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Provisioning state of the Front Door."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +146,8 @@
     "referenceName": "FrontDoorResourceState"
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Resource status of the Front Door."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +162,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Routing rules associated with this Front Door."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -166,7 +178,8 @@
     }
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "Rules Engine Configurations available to routing rules."
   }
  ]
 }

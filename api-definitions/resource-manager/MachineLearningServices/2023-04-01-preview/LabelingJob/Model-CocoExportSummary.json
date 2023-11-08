@@ -10,7 +10,8 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The container name to which the labels will be exported."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -21,9 +22,11 @@
     "referenceName": null
    },
    "optional": true,
-   "required": false
+   "required": false,
+   "description": "The output path where the labels will be exported."
   }
  ],
  "discriminatedParentModelName": "ExportSummary",
- "discriminatedTypeValue": "Coco"
+ "discriminatedTypeValue": "Coco",
+ "typeHintIn": "Format"
 }
