@@ -49,7 +49,7 @@ service "automanage" {
 }
 service "automation" {
   name      = "Automation"
-  available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08"]
+  available = ["2015-10-31", "2019-06-01", "2020-01-13-preview", "2021-06-22", "2022-08-08", "2023-11-01"]
 }
 service "azure-kusto" {
   name      = "Kusto"
@@ -126,7 +126,7 @@ service "customproviders" {
 }
 service "dashboard" {
   name      = "Dashboard"
-  available = ["2022-08-01"]
+  available = ["2022-08-01", "2023-09-01"]
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
@@ -450,7 +450,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2022-01-01", "2023-07-01", "2023-10-01-preview"]
+  available = ["2022-01-01", "2023-07-01", "2023-10-01-preview", "2023-11-01"]
 }
 service "relay" {
   name      = "Relay"
