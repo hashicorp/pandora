@@ -17,7 +17,7 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	sort.Ints(expectedStatusCodes)
 	output := dataApiModels.Operation{
 		Name:                             operationName,
-		ContentType:                      input.ContentType,
+		ContentType:                      fmt.Sprintf("%s; charset=utf-8", input.ContentType),
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
