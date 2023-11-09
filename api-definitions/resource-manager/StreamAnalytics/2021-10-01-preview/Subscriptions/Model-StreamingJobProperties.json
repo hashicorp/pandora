@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "The cluster which streaming jobs will run on."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "Controls certain runtime behaviors of the streaming job."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +108,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "Indicates the policy to apply to events that arrive out of order in the input event stream."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +120,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "The storage account where the custom code artifacts are located."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -188,7 +188,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "The properties that are associated with an Azure Storage account with MSI"
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -225,7 +225,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "Indicates the policy to apply to events that arrive at the output and cannot be written to the external storage due to being malformed (missing column values, column values of wrong type or size)."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -237,7 +237,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "This property should only be utilized when it is desired that the job be started immediately upon creation. Value may be JobStartTime, CustomTime, or LastOutputEventTime to indicate whether the starting point of the output event stream should start whenever the job is started, start at a custom user time stamp specified via the outputStartTime property, or start from the last event output time."
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -290,7 +290,7 @@
    },
    "optional": true,
    "required": false,
-   "description": ""
+   "description": "Describes the SKU of the streaming job. Required on PUT (CreateOrReplace) requests."
   },
   {
    "containsDiscriminatedTypeValue": false,
