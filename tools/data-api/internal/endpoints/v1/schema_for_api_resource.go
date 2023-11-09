@@ -31,9 +31,10 @@ func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 
 	for k, schemaModel := range resource.Schema.Models {
 		schemaModels[k] = models.ModelDetails{
-			Fields:        mapSchemaFields(schemaModel.Fields),
-			TypeHintIn:    schemaModel.TypeHintIn,
-			TypeHintValue: schemaModel.TypeHintValue,
+			Fields:         mapSchemaFields(schemaModel.Fields),
+			ParentTypeName: schemaModel.ParentTypeName,
+			TypeHintIn:     schemaModel.TypeHintIn,
+			TypeHintValue:  schemaModel.TypeHintValue,
 		}
 	}
 

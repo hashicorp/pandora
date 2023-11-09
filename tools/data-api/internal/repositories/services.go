@@ -368,6 +368,7 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 				Values: pointer.To([]interface{}{field.ObjectDefinition.MinItems, field.ObjectDefinition.MaxItems}),
 			}
 		}
+		fieldDetails[field.Name] = fieldDetail
 	}
 
 	return &ModelDetails{
