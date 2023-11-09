@@ -27,6 +27,11 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataA
 						SdkFieldPath:    item.DirectAssignment.SdkFieldPath,
 					},
 				})
+				// NOTE: any duplications get removed below - so this is safe for now
+				modelToModelMappings = append(modelToModelMappings, dataApiModels.TerraformModelToModelMappingDefinition{
+					SchemaModelName: item.DirectAssignment.SchemaModelName,
+					SdkModelName:    item.DirectAssignment.SdkModelName,
+				})
 				continue
 			}
 
@@ -170,19 +175,15 @@ func orderFieldMappings(input []dataApiModels.TerraformFieldMappingDefinition) (
 }
 
 func uniqueAndSortModelToModelMappings(input []dataApiModels.TerraformModelToModelMappingDefinition) []dataApiModels.TerraformModelToModelMappingDefinition {
-	keys := make([]string, 0)
 	keysToValues := make(map[string]dataApiModels.TerraformModelToModelMappingDefinition)
 	for _, item := range input {
 		// using this key format means we'll also de-dupe this slice at the same time
 		key := fmt.Sprintf("%s-%s", item.SchemaModelName, item.SdkModelName)
-		keys = append(keys, key)
 		keysToValues[key] = item
 	}
-	sort.Strings(keys)
 
 	output := make([]dataApiModels.TerraformModelToModelMappingDefinition, 0)
-	for _, key := range keys {
-		value := keysToValues[key]
+	for _, value := range keysToValues {
 		output = append(output, value)
 	}
 
