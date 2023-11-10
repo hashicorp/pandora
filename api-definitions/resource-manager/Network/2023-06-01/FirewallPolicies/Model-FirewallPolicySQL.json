@@ -1,0 +1,17 @@
+{
+ "name": "FirewallPolicySQL",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowSqlRedirect",
+   "name": "AllowSqlRedirect",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A flag to indicate if SQL Redirect traffic filtering is enabled. Turning on the flag requires no rule using port 11000-11999."
+  }
+ ]
+}

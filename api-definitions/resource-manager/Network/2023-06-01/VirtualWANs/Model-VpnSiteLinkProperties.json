@@ -1,0 +1,65 @@
+{
+ "name": "VpnSiteLinkProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpProperties",
+   "name": "BgpProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnLinkBgpSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The set of bgp properties."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fqdn",
+   "name": "Fqdn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "FQDN of vpn-site-link."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddress",
+   "name": "IPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ip-address for the vpn-site-link."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkProperties",
+   "name": "LinkProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnLinkProviderProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The link provider properties."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

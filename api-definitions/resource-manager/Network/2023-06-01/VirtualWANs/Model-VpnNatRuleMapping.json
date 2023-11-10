@@ -1,0 +1,29 @@
+{
+ "name": "VpnNatRuleMapping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressSpace",
+   "name": "AddressSpace",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Address space for Vpn NatRule mapping."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "portRange",
+   "name": "PortRange",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Port range for Vpn NatRule mapping."
+  }
+ ]
+}

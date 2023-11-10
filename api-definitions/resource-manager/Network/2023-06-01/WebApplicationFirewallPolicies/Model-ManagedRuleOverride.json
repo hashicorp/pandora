@@ -1,0 +1,41 @@
+{
+ "name": "ManagedRuleOverride",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Describes the override action to be applied when rule matches."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleId",
+   "name": "RuleId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Identifier for the managed rule."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedRuleEnabledState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The state of the managed rule. Defaults to Disabled if not specified."
+  }
+ ]
+}

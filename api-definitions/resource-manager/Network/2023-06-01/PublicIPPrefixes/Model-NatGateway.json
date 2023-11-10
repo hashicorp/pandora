@@ -1,0 +1,113 @@
+{
+ "name": "NatGateway",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "etag",
+   "name": "Etag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A unique read-only string that changes whenever the resource is updated."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource ID."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource location."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource name."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NatGatewayPropertiesFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Nat Gateway properties."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NatGatewaySku"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The nat gateway SKU."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tags",
+   "name": "Tags",
+   "objectDefinition": {
+    "type": "Tags",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource tags."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zones",
+   "name": "Zones",
+   "objectDefinition": {
+    "type": "Zones",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of availability zones denoting the zone in which Nat Gateway should be deployed."
+  }
+ ]
+}

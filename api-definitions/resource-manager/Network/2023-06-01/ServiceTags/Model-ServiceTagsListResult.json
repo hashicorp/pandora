@@ -1,0 +1,93 @@
+{
+ "name": "ServiceTagsListResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "changeNumber",
+   "name": "ChangeNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The iteration number."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cloud",
+   "name": "Cloud",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the cloud."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID of the cloud."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the cloud."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextLink",
+   "name": "NextLink",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The URL to get next page of service tag information resources."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The azure resource type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "values",
+   "name": "Values",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServiceTagInformation"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of service tag information resources."
+  }
+ ]
+}

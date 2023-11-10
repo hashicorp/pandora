@@ -1,0 +1,193 @@
+{
+ "name": "CustomIPPrefixPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asn",
+   "name": "Asn",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ASN for CIDR advertising. Should be an integer as string."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationMessage",
+   "name": "AuthorizationMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Authorization message for WAN validation."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "childCustomIpPrefixes",
+   "name": "ChildCustomIPPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of all Children for IPv6 /48 CustomIpPrefix."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cidr",
+   "name": "Cidr",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The prefix range in CIDR notation. Should include the start address and the prefix length."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commissionedState",
+   "name": "CommissionedState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CommissionedState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The commissioned state of the Custom IP Prefix."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customIpPrefixParent",
+   "name": "CustomIPPrefixParent",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expressRouteAdvertise",
+   "name": "ExpressRouteAdvertise",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether to do express route advertise."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failedReason",
+   "name": "FailedReason",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reason why resource is in failed state."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "geo",
+   "name": "Geo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Geo"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Geo for CIDR advertising. Should be an Geo code."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "noInternetAdvertise",
+   "name": "NoInternetAdvertise",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether to Advertise the range to Internet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "prefixType",
+   "name": "PrefixType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomIPPrefixType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Type of custom IP prefix. Should be Singular, Parent, or Child."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIpPrefixes",
+   "name": "PublicIPPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of all referenced PublicIpPrefixes."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the custom IP prefix resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedMessage",
+   "name": "SignedMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Signed message for WAN validation."
+  }
+ ]
+}

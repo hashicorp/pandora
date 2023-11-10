@@ -1,0 +1,45 @@
+{
+ "name": "NetworkConfigurationDiagnosticParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "profiles",
+   "name": "Profiles",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkConfigurationDiagnosticProfile"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of network configuration diagnostic profiles."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The ID of the target resource to perform network configuration diagnostic. Valid options are VM, NetworkInterface, VMSS/NetworkInterface and Application Gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "verbosityLevel",
+   "name": "VerbosityLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VerbosityLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Verbosity level."
+  }
+ ]
+}

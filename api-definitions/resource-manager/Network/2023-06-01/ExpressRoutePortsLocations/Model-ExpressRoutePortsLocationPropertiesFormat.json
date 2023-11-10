@@ -1,0 +1,57 @@
+{
+ "name": "ExpressRoutePortsLocationPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Address of peering location."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableBandwidths",
+   "name": "AvailableBandwidths",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExpressRoutePortsLocationBandwidths"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The inventory of available ExpressRoutePort bandwidths."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contact",
+   "name": "Contact",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Contact details of peering locations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

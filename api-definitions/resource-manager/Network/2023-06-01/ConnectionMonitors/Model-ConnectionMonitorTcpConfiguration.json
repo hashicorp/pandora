@@ -1,0 +1,41 @@
+{
+ "name": "ConnectionMonitorTcpConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationPortBehavior",
+   "name": "DestinationPortBehavior",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DestinationPortBehavior"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Destination port behavior."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableTraceRoute",
+   "name": "DisableTraceRoute",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Value indicating whether path evaluation with trace route should be disabled."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The port to connect to."
+  }
+ ]
+}

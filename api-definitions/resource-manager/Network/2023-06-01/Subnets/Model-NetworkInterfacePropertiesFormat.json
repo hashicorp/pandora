@@ -1,0 +1,281 @@
+{
+ "name": "NetworkInterfacePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "auxiliaryMode",
+   "name": "AuxiliaryMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceAuxiliaryMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Auxiliary mode of Network Interface resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "auxiliarySku",
+   "name": "AuxiliarySku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceAuxiliarySku"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Auxiliary sku of Network Interface resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableTcpStateTracking",
+   "name": "DisableTcpStateTracking",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates whether to disable tcp state tracking."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsSettings",
+   "name": "DnsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceDnsSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dscpConfiguration",
+   "name": "DscpConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableAcceleratedNetworking",
+   "name": "EnableAcceleratedNetworking",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "If the network interface is configured for accelerated networking. Not applicable to VM sizes which require accelerated networking."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableIPForwarding",
+   "name": "EnableIPForwarding",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates whether IP forwarding is enabled on this network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostedWorkloads",
+   "name": "HostedWorkloads",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of references to linked BareMetal resources."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurations",
+   "name": "IPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterfaceIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of IPConfigurations of the network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "macAddress",
+   "name": "MacAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The MAC address of the network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationPhase",
+   "name": "MigrationPhase",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceMigrationPhase"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Migration phase of Network Interface resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkSecurityGroup",
+   "name": "NetworkSecurityGroup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityGroup"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nicType",
+   "name": "NicType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceNicType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Type of Network Interface resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primary",
+   "name": "Primary",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether this is a primary network interface on a virtual machine."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpoint",
+   "name": "PrivateEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpoint"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkService",
+   "name": "PrivateLinkService",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkService"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the network interface resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tapConfigurations",
+   "name": "TapConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterfaceTapConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of TapConfigurations of the network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachine",
+   "name": "VirtualMachine",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vnetEncryptionSupported",
+   "name": "VnetEncryptionSupported",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the virtual machine this nic is attached to supports encryption."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workloadType",
+   "name": "WorkloadType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "WorkloadType of the NetworkInterface for BareMetal resources"
+  }
+ ]
+}

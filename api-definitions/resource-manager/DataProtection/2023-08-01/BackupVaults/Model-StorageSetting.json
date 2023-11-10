@@ -1,0 +1,29 @@
+{
+ "name": "StorageSetting",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datastoreType",
+   "name": "DatastoreType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageSettingStoreTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the type of the datastore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageSettingTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the type."
+  }
+ ]
+}

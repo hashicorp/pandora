@@ -1,0 +1,24 @@
+{
+ "name": "BackupPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyRules",
+   "name": "PolicyRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BasePolicyRule"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "Policy rule dictionary that contains rules for each backuptype i.e Full/Incremental/Logs etc"
+  }
+ ],
+ "discriminatedParentModelName": "BaseBackupPolicy",
+ "discriminatedTypeValue": "BackupPolicy",
+ "typeHintIn": "ObjectType"
+}

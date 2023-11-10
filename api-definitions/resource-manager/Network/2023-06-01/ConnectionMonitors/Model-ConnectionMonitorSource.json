@@ -1,0 +1,29 @@
+{
+ "name": "ConnectionMonitorSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The source port used by connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The ID of the resource used as the source by connection monitor."
+  }
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "name": "ApplicationGatewayFirewallManifestRuleSet",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleGroups",
+   "name": "RuleGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayFirewallRuleGroup"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "The rule groups of the web application firewall rule set."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleSetType",
+   "name": "RuleSetType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The type of the web application firewall rule set."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleSetVersion",
+   "name": "RuleSetVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The version of the web application firewall rule set type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayRuleSetStatusOptions"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The rule set status"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tiers",
+   "name": "Tiers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayTierTypes"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Tier of an application gateway that support the rule set."
+  }
+ ]
+}

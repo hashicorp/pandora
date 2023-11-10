@@ -1,0 +1,121 @@
+{
+ "name": "NetworkSecurityGroupPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultSecurityRules",
+   "name": "DefaultSecurityRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SecurityRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The default security rules of network security group."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flowLogs",
+   "name": "FlowLogs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FlowLog"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of references to flow log resources."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flushConnection",
+   "name": "FlushConnection",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "When enabled, flows created from Network Security Group connections will be re-evaluated when rules are updates. Initial enablement will trigger re-evaluation."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkInterfaces",
+   "name": "NetworkInterfaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterface"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of references to network interfaces."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the network security group resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securityRules",
+   "name": "SecurityRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SecurityRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of security rules of the network security group."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnets",
+   "name": "Subnets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Subnet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of references to subnets."
+  }
+ ]
+}

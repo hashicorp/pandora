@@ -1,0 +1,20 @@
+{
+ "name": "AzureBackupRecoveryTimeBasedRestoreRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointTime",
+   "name": "RecoveryPointTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The recovery time in ISO 8601 format example - 2020-08-14T17:30:00.0000000Z."
+  }
+ ],
+ "discriminatedParentModelName": "AzureBackupRestoreRequest",
+ "discriminatedTypeValue": "AzureBackupRecoveryTimeBasedRestoreRequest",
+ "typeHintIn": "ObjectType"
+}

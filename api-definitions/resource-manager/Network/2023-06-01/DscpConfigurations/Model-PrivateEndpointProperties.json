@@ -1,0 +1,137 @@
+{
+ "name": "PrivateEndpointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationSecurityGroups",
+   "name": "ApplicationSecurityGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationSecurityGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Application security groups in which the private endpoint IP configuration is included."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customDnsConfigs",
+   "name": "CustomDnsConfigs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "CustomDnsConfigPropertiesFormat"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of custom dns configurations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customNetworkInterfaceName",
+   "name": "CustomNetworkInterfaceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The custom name of the network interface attached to the private endpoint."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurations",
+   "name": "IPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateEndpointIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of IP configurations of the private endpoint. This will be used to map to the First Party Service's endpoints."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "manualPrivateLinkServiceConnections",
+   "name": "ManualPrivateLinkServiceConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateLinkServiceConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A grouping of information about the connection to the remote resource. Used when the network admin does not have access to approve connections to the remote resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkInterfaces",
+   "name": "NetworkInterfaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterface"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of references to the network interfaces created for this private endpoint."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceConnections",
+   "name": "PrivateLinkServiceConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateLinkServiceConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A grouping of information about the connection to the remote resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Subnet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

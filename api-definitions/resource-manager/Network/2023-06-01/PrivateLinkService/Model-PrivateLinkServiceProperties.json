@@ -1,0 +1,145 @@
+{
+ "name": "PrivateLinkServiceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alias",
+   "name": "Alias",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The alias of the private link service."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoApproval",
+   "name": "AutoApproval",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The auto-approval list of the private link service."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableProxyProtocol",
+   "name": "EnableProxyProtocol",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the private link service is enabled for proxy protocol or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fqdns",
+   "name": "Fqdns",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of Fqdn."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurations",
+   "name": "IPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateLinkServiceIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of private link service IP configurations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerFrontendIpConfigurations",
+   "name": "LoadBalancerFrontendIPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FrontendIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of references to the load balancer IP configurations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkInterfaces",
+   "name": "NetworkInterfaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterface"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of references to the network interfaces created for this private link service."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpointConnections",
+   "name": "PrivateEndpointConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateEndpointConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "An array of list about connections to the private endpoint."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "visibility",
+   "name": "Visibility",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The visibility list of the private link service."
+  }
+ ]
+}

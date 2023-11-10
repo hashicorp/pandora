@@ -1,0 +1,29 @@
+{
+ "name": "FirewallPolicyCertificateAuthority",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultSecretId",
+   "name": "KeyVaultSecretId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Secret Id of (base-64 encoded unencrypted pfx) 'Secret' or 'Certificate' object stored in KeyVault."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of the CA certificate."
+  }
+ ]
+}

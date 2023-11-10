@@ -1,0 +1,45 @@
+{
+ "name": "VngClientConnectionConfigurationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkGatewayPolicyGroups",
+   "name": "VirtualNetworkGatewayPolicyGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of references to virtualNetworkGatewayPolicyGroups"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientAddressPool",
+   "name": "VpnClientAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,193 @@
+{
+ "name": "NetworkInterfaceIPConfigurationPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationGatewayBackendAddressPools",
+   "name": "ApplicationGatewayBackendAddressPools",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayBackendAddressPool"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to ApplicationGatewayBackendAddressPool resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationSecurityGroups",
+   "name": "ApplicationSecurityGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationSecurityGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Application security groups in which the IP configuration is included."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayLoadBalancer",
+   "name": "GatewayLoadBalancer",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerBackendAddressPools",
+   "name": "LoadBalancerBackendAddressPools",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BackendAddressPool"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to LoadBalancerBackendAddressPool resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerInboundNatRules",
+   "name": "LoadBalancerInboundNatRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InboundNatRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of references of LoadBalancerInboundNatRules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primary",
+   "name": "Primary",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether this is a primary customer address on the network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIPAddress",
+   "name": "PrivateIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Private IP address of the IP configuration."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIPAddressVersion",
+   "name": "PrivateIPAddressVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIPAllocationMethod",
+   "name": "PrivateIPAllocationMethod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAllocationMethod"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkConnectionProperties",
+   "name": "PrivateLinkConnectionProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceIPConfigurationPrivateLinkConnectionProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPAddress",
+   "name": "PublicIPAddress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicIPAddress"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Subnet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkTaps",
+   "name": "VirtualNetworkTaps",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkTap"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to Virtual Network Taps."
+  }
+ ]
+}

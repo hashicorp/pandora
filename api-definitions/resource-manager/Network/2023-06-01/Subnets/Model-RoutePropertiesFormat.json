@@ -1,0 +1,65 @@
+{
+ "name": "RoutePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressPrefix",
+   "name": "AddressPrefix",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination CIDR to which the route applies."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasBgpOverride",
+   "name": "HasBgpOverride",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A value indicating whether this route overrides overlapping BGP routes regardless of LPM."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopIpAddress",
+   "name": "NextHopIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IP address packets should be forwarded to. Next hop values are only allowed in routes where the next hop type is VirtualAppliance."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopType",
+   "name": "NextHopType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RouteNextHopType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The type of Azure hop the packet should be sent to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

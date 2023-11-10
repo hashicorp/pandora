@@ -1,0 +1,157 @@
+{
+ "name": "ExpressRoutePortPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocationDate",
+   "name": "AllocationDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Date of the physical port allocation to be used in Letter of Authorization."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bandwidthInGbps",
+   "name": "BandwidthInGbps",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Bandwidth of procured ports in Gbps."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingType",
+   "name": "BillingType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRoutePortsBillingType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The billing type of the ExpressRoutePort resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "circuits",
+   "name": "Circuits",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Reference the ExpressRoute circuit(s) that are provisioned on this ExpressRoutePort resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encapsulation",
+   "name": "Encapsulation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRoutePortsEncapsulation"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Encapsulation method on physical ports."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "etherType",
+   "name": "EtherType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ether type of the physical port."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "links",
+   "name": "Links",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExpressRouteLink"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The set of physical links of the ExpressRoutePort resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mtu",
+   "name": "Mtu",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Maximum transmission unit of the physical port pair(s)."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "peeringLocation",
+   "name": "PeeringLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the peering location that the ExpressRoutePort is mapped to physically."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisionedBandwidthInGbps",
+   "name": "ProvisionedBandwidthInGbps",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Aggregate Gbps of associated circuit bandwidths."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the express route port resource."
+  }
+ ]
+}

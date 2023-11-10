@@ -1,0 +1,101 @@
+{
+ "name": "BgpPeerStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asn",
+   "name": "Asn",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The autonomous system number of the remote BGP peer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectedDuration",
+   "name": "ConnectedDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "For how long the peering has been up."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localAddress",
+   "name": "LocalAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The virtual network gateway's local address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messagesReceived",
+   "name": "MessagesReceived",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of BGP messages received."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "messagesSent",
+   "name": "MessagesSent",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of BGP messages sent."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "neighbor",
+   "name": "Neighbor",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The remote BGP peer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routesReceived",
+   "name": "RoutesReceived",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of routes learned from this peer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BgpPeerState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The BGP peer state."
+  }
+ ]
+}

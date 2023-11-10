@@ -1,0 +1,65 @@
+{
+ "name": "IPGroupPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewallPolicies",
+   "name": "FirewallPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to Firewall Policies resources that this IpGroups is associated with."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewalls",
+   "name": "Firewalls",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to Firewall resources that this IpGroups is associated with."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddresses",
+   "name": "IPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "IpAddresses/IpAddressPrefixes in the IpGroups resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

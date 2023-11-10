@@ -1,0 +1,61 @@
+{
+ "name": "RouteMapRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actions",
+   "name": "Actions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Action"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of actions which will be applied on a match."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchCriteria",
+   "name": "MatchCriteria",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Criterion"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of matching criterion which will be applied to traffic."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The unique name for the rule."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextStepIfMatched",
+   "name": "NextStepIfMatched",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NextStep"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Next step after rule is evaluated. Current supported behaviors are 'Continue'(to next rule) and 'Terminate'."
+  }
+ ]
+}

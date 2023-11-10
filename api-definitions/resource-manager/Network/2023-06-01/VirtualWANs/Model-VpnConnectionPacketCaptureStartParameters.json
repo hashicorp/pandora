@@ -1,0 +1,33 @@
+{
+ "name": "VpnConnectionPacketCaptureStartParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filterData",
+   "name": "FilterData",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Start Packet capture parameters on vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkConnectionNames",
+   "name": "LinkConnectionNames",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of site link connection names."
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "name": "ActiveSecurityAdminRulesListResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skipToken",
+   "name": "SkipToken",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "When present, the value can be passed to a subsequent query call (together with the same query and scopes used in the current request) to retrieve the next page of data."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ActiveBaseSecurityAdminRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets a page of active security admin rules."
+  }
+ ]
+}

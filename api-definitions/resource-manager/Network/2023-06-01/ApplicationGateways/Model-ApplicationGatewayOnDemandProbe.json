@@ -1,0 +1,101 @@
+{
+ "name": "ApplicationGatewayOnDemandProbe",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendAddressPool",
+   "name": "BackendAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendHttpSettings",
+   "name": "BackendHTTPSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "host",
+   "name": "Host",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Host name to send the probe to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "match",
+   "name": "Match",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayProbeHealthResponseMatch"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Criterion for classifying a healthy probe response."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Relative path of probe. Valid path starts from '/'. Probe is sent to \u003cProtocol\u003e://\u003chost\u003e:\u003cport\u003e\u003cpath\u003e."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pickHostNameFromBackendHttpSettings",
+   "name": "PickHostNameFromBackendHTTPSettings",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the host header should be picked from the backend http settings. Default value is false."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The protocol used for the probe."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeout",
+   "name": "Timeout",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The probe timeout in seconds. Probe marked as failed if valid response is not received with this timeout period. Acceptable values are from 1 second to 86400 seconds."
+  }
+ ]
+}

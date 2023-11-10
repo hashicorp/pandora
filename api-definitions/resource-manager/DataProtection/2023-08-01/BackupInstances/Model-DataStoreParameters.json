@@ -1,0 +1,30 @@
+{
+ "name": "DataStoreParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataStoreType",
+   "name": "DataStoreType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataStoreTypes"
+   },
+   "optional": false,
+   "required": true,
+   "description": "type of datastore; Operational/Vault/Archive"
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Type of the specific object - used for deserializing"
+  }
+ ],
+ "typeHintIn": "ObjectType"
+}

@@ -1,0 +1,189 @@
+{
+ "name": "VirtualNetworkPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressSpace",
+   "name": "AddressSpace",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The AddressSpace that contains an array of IP address ranges that can be used by subnets."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpCommunities",
+   "name": "BgpCommunities",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkBgpCommunities"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Bgp Communities sent over ExpressRoute with each route corresponding to a prefix in this VNET."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ddosProtectionPlan",
+   "name": "DdosProtectionPlan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dhcpOptions",
+   "name": "DhcpOptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DhcpOptions"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The dhcpOptions that contains an array of DNS servers available to VMs deployed in the virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableDdosProtection",
+   "name": "EnableDdosProtection",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates if DDoS protection is enabled for all the protected resources in the virtual network. It requires a DDoS protection plan associated with the resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableVmProtection",
+   "name": "EnableVMProtection",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates if VM protection is enabled for all the subnets in the virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkEncryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates if encryption is enabled on virtual network and if VM without encryption is allowed in encrypted VNet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flowLogs",
+   "name": "FlowLogs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FlowLog"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of references to flow log resources."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flowTimeoutInMinutes",
+   "name": "FlowTimeoutInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The FlowTimeout value (in minutes) for the Virtual Network"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAllocations",
+   "name": "IPAllocations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Array of IpAllocation which reference this VNET."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resourceGuid property of the Virtual Network resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnets",
+   "name": "Subnets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Subnet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of subnets in a Virtual Network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkPeerings",
+   "name": "VirtualNetworkPeerings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkPeering"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of peerings in a Virtual Network."
+  }
+ ]
+}

@@ -1,0 +1,57 @@
+{
+ "name": "AzureFirewallNetworkRuleCollectionPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureFirewallRCAction"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The action type of a rule collection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Priority of the network rule collection resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rules",
+   "name": "Rules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureFirewallNetworkRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Collection of rules used by a network rule collection."
+  }
+ ]
+}

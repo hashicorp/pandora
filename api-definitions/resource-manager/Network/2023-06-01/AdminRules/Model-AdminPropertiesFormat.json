@@ -1,0 +1,153 @@
+{
+ "name": "AdminPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "access",
+   "name": "Access",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityConfigurationRuleAccess"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Indicates the access allowed for this particular rule"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A description for this rule. Restricted to 140 chars."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationPortRanges",
+   "name": "DestinationPortRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination port ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinations",
+   "name": "Destinations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AddressPrefixItem"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination address prefixes. CIDR or destination IP ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "direction",
+   "name": "Direction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityConfigurationRuleDirection"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Indicates if the traffic matched against the rule in inbound or outbound."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The priority of the rule. The value can be between 1 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityConfigurationRuleProtocol"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Network protocol this rule applies to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Unique identifier for this resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourcePortRanges",
+   "name": "SourcePortRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The source port ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sources",
+   "name": "Sources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AddressPrefixItem"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The CIDR or source IP ranges."
+  }
+ ]
+}

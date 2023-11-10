@@ -1,0 +1,117 @@
+{
+ "name": "BackupVault",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "featureSettings",
+   "name": "FeatureSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FeatureSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Feature Settings"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isVaultProtectedByResourceGuard",
+   "name": "IsVaultProtectedByResourceGuard",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Is vault protected by resource guard"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringSettings",
+   "name": "MonitoringSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Monitoring Settings"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Provisioning state of the BackupVault resource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceMoveDetails",
+   "name": "ResourceMoveDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceMoveDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource move details for backup vault"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceMoveState",
+   "name": "ResourceMoveState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceMoveState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource move state for backup vault"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secureScore",
+   "name": "SecureScore",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecureScoreLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Secure Score of Backup Vault"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securitySettings",
+   "name": "SecuritySettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecuritySettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Security Settings"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageSettings",
+   "name": "StorageSettings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StorageSetting"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "Storage Settings"
+  }
+ ]
+}

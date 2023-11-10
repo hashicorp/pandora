@@ -1,0 +1,53 @@
+{
+ "name": "GatewayLoadBalancerTunnelInterface",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identifier",
+   "name": "Identifier",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Identifier of gateway load balancer tunnel interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Port of gateway load balancer tunnel interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GatewayLoadBalancerTunnelProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Protocol of gateway load balancer tunnel interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GatewayLoadBalancerTunnelInterfaceType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Traffic type of gateway load balancer tunnel interface."
+  }
+ ]
+}

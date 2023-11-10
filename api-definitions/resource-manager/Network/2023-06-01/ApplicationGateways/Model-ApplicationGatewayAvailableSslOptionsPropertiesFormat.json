@@ -1,0 +1,65 @@
+{
+ "name": "ApplicationGatewayAvailableSslOptionsPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableCipherSuites",
+   "name": "AvailableCipherSuites",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewaySslCipherSuite"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of available Ssl cipher suites."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableProtocols",
+   "name": "AvailableProtocols",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewaySslProtocol"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of available Ssl protocols."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultPolicy",
+   "name": "DefaultPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewaySslPolicyName"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of the Ssl predefined policy applied by default to application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "predefinedPolicies",
+   "name": "PredefinedPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of available Ssl predefined policy."
+  }
+ ]
+}

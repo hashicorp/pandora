@@ -1,0 +1,37 @@
+{
+ "name": "ManagedRulesDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclusions",
+   "name": "Exclusions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "OwaspCrsExclusionEntry"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Exclusions that are applied on the policy."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedRuleSets",
+   "name": "ManagedRuleSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ManagedRuleSet"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "The managed rule sets that are associated with the policy."
+  }
+ ]
+}

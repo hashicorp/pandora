@@ -1,0 +1,49 @@
+{
+ "name": "HTTPConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "headers",
+   "name": "Headers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HTTPHeader"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of HTTP headers."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "method",
+   "name": "Method",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPMethod"
+   },
+   "optional": true,
+   "required": false,
+   "description": "HTTP method."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validStatusCodes",
+   "name": "ValidStatusCodes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Integer",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Valid status codes."
+  }
+ ]
+}

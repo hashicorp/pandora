@@ -1,0 +1,77 @@
+{
+ "name": "MatchCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchValues",
+   "name": "MatchValues",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "Match value."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchVariables",
+   "name": "MatchVariables",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MatchVariable"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of match variables."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "negationConditon",
+   "name": "NegationConditon",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether this is negate condition or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebApplicationFirewallOperator"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The operator to be matched."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "transforms",
+   "name": "Transforms",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "WebApplicationFirewallTransform"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of transforms."
+  }
+ ]
+}

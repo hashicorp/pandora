@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewayBackendHealthPool",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendAddressPool",
+   "name": "BackendAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendAddressPool"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Reference to an ApplicationGatewayBackendAddressPool resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendHttpSettingsCollection",
+   "name": "BackendHTTPSettingsCollection",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayBackendHealthHTTPSettings"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of ApplicationGatewayBackendHealthHttpSettings resources."
+  }
+ ]
+}

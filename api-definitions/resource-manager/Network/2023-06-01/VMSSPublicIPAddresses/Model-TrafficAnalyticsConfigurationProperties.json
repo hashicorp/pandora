@@ -1,0 +1,65 @@
+{
+ "name": "TrafficAnalyticsConfigurationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Flag to enable/disable traffic analytics."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trafficAnalyticsInterval",
+   "name": "TrafficAnalyticsInterval",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The interval in minutes which would decide how frequently TA service should do flow analytics."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspaceId",
+   "name": "WorkspaceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource guid of the attached workspace."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspaceRegion",
+   "name": "WorkspaceRegion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The location of the attached workspace."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspaceResourceId",
+   "name": "WorkspaceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource Id of the attached workspace."
+  }
+ ]
+}

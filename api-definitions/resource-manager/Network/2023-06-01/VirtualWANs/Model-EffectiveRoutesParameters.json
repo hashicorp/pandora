@@ -1,0 +1,29 @@
+{
+ "name": "EffectiveRoutesParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource whose effective routes are being requested."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualWanResourceType",
+   "name": "VirtualWanResourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of the specified resource like RouteTable, ExpressRouteConnection, HubVirtualNetworkConnection, VpnConnection and P2SConnection."
+  }
+ ]
+}

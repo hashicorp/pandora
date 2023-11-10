@@ -1,0 +1,109 @@
+{
+ "name": "VirtualWanProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowBranchToBranchTraffic",
+   "name": "AllowBranchToBranchTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "True if branch to branch traffic is allowed."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowVnetToVnetTraffic",
+   "name": "AllowVnetToVnetTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "True if Vnet to Vnet traffic is allowed."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableVpnEncryption",
+   "name": "DisableVpnEncryption",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Vpn encryption to be disabled or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "office365LocalBreakoutCategory",
+   "name": "Office365LocalBreakoutCategory",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OfficeTrafficCategory"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The office local breakout category."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of the VirtualWAN."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualHubs",
+   "name": "VirtualHubs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of VirtualHubs in the VirtualWAN."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnSites",
+   "name": "VpnSites",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of VpnSites in the VirtualWAN."
+  }
+ ]
+}

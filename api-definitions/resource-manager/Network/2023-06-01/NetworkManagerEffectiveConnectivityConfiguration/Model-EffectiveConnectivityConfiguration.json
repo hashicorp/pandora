@@ -1,0 +1,45 @@
+{
+ "name": "EffectiveConnectivityConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurationGroups",
+   "name": "ConfigurationGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConfigurationGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Effective configuration groups."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Connectivity configuration ID."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectivityConfigurationProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

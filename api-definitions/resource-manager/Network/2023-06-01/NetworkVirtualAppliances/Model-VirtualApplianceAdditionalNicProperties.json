@@ -1,0 +1,29 @@
+{
+ "name": "VirtualApplianceAdditionalNicProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasPublicIp",
+   "name": "HasPublicIP",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Flag (true or false) for Intent for Public Ip on additional nic"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of additional nic"
+  }
+ ]
+}

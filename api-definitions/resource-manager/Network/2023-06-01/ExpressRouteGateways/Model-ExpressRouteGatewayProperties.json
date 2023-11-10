@@ -1,0 +1,69 @@
+{
+ "name": "ExpressRouteGatewayProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowNonVirtualWanTraffic",
+   "name": "AllowNonVirtualWanTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Configures this gateway to accept traffic from non Virtual WAN networks."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoScaleConfiguration",
+   "name": "AutoScaleConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteGatewayPropertiesAutoScaleConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Configuration for auto scaling."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expressRouteConnections",
+   "name": "ExpressRouteConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExpressRouteConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of ExpressRoute connections to the ExpressRoute gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualHub",
+   "name": "VirtualHub",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualHubId"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The Virtual Hub where the ExpressRoute gateway is or will be deployed."
+  }
+ ]
+}

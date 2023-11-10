@@ -1,0 +1,57 @@
+{
+ "name": "VpnClientParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authenticationMethod",
+   "name": "AuthenticationMethod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthenticationMethod"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientRootCertificates",
+   "name": "ClientRootCertificates",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of client root certificates public certificate data encoded as Base-64 strings. Optional parameter for external radius based authentication with EAPTLS."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "processorArchitecture",
+   "name": "ProcessorArchitecture",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProcessorArchitecture"
+   },
+   "optional": true,
+   "required": false,
+   "description": "VPN client Processor Architecture."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerAuthCertificate",
+   "name": "RadiusServerAuthCertificate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The public certificate data for the radius server authentication certificate as a Base-64 encoded string. Required only if external radius authentication has been configured with EAPTLS authentication."
+  }
+ ]
+}

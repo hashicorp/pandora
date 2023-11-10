@@ -1,0 +1,29 @@
+{
+ "name": "QueryInboundNatRulePortMappingRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddress",
+   "name": "IPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "IP address set in load balancer backend address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfiguration",
+   "name": "IPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

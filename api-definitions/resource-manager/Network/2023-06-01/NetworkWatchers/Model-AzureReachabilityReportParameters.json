@@ -1,0 +1,75 @@
+{
+ "name": "AzureReachabilityReportParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureLocations",
+   "name": "AzureLocations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Optional Azure regions to scope the query to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The end time for the Azure reachability report."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerLocation",
+   "name": "ProviderLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureReachabilityReportLocation"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Parameters that define a geographic location."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providers",
+   "name": "Providers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of Internet service providers."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The start time for the Azure reachability report."
+  }
+ ]
+}

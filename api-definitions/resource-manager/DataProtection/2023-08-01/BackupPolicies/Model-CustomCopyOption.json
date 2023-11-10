@@ -1,0 +1,20 @@
+{
+ "name": "CustomCopyOption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Data copied after given timespan"
+  }
+ ],
+ "discriminatedParentModelName": "CopyOption",
+ "discriminatedTypeValue": "CustomCopyOption",
+ "typeHintIn": "ObjectType"
+}

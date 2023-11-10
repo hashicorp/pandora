@@ -1,0 +1,65 @@
+{
+ "name": "PrivateEndpointConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkIdentifier",
+   "name": "LinkIdentifier",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The consumer link id."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpoint",
+   "name": "PrivateEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpoint"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpointLocation",
+   "name": "PrivateEndpointLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The location of the private endpoint."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceConnectionState",
+   "name": "PrivateLinkServiceConnectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkServiceConnectionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of information about the state of the connection between service consumer and provider."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "name": "DatasourceSet",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceType",
+   "name": "DatasourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "DatasourceType of the resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Type of Datasource object, used to initialize the right inherited type"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceID",
+   "name": "ResourceID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Full ARM ID of the resource. For azure resources, this is ARM ID. For non azure resources, this will be the ID created by backup service via Fabric/Vault."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceLocation",
+   "name": "ResourceLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Location of datasource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceName",
+   "name": "ResourceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Unique identifier of the resource in the context of parent."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceProperties",
+   "name": "ResourceProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BaseResourceProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Properties specific to data source set"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceType",
+   "name": "ResourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource Type of Datasource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceUri",
+   "name": "ResourceUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Uri of the resource."
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "FlowLogInformation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flowAnalyticsConfiguration",
+   "name": "FlowAnalyticsConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrafficAnalyticsProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Parameters that define the configuration of traffic analytics."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FlowLogProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Properties of the flow log."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The ID of the resource to configure for flow log and traffic analytics (optional) ."
+  }
+ ]
+}

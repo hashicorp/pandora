@@ -1,0 +1,57 @@
+{
+ "name": "ContainerNetworkInterfacePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "container",
+   "name": "Container",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Reference to the container to which this container network interface is attached."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerNetworkInterfaceConfiguration",
+   "name": "ContainerNetworkInterfaceConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerNetworkInterfaceConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Container network interface configuration from which this container network interface is created."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurations",
+   "name": "IPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ContainerNetworkInterfaceIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Reference to the ip configuration on this container nic."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

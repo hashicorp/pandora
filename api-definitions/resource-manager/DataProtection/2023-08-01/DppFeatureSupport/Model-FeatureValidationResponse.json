@@ -1,0 +1,36 @@
+{
+ "name": "FeatureValidationResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "featureType",
+   "name": "FeatureType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FeatureType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "backup support feature type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SupportedFeature"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Response features"
+  }
+ ],
+ "discriminatedParentModelName": "FeatureValidationResponseBase",
+ "discriminatedTypeValue": "FeatureValidationResponse",
+ "typeHintIn": "ObjectType"
+}

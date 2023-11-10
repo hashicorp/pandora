@@ -1,0 +1,133 @@
+{
+ "name": "ApplicationGatewayWebApplicationFirewallConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disabledRuleGroups",
+   "name": "DisabledRuleGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayFirewallDisabledRuleGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The disabled rule groups."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Whether the web application firewall is enabled or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclusions",
+   "name": "Exclusions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayFirewallExclusion"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The exclusion list."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fileUploadLimitInMb",
+   "name": "FileUploadLimitInMb",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Maximum file upload size in Mb for WAF."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewallMode",
+   "name": "FirewallMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayFirewallMode"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Web application firewall mode."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxRequestBodySize",
+   "name": "MaxRequestBodySize",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Maximum request body size for WAF."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxRequestBodySizeInKb",
+   "name": "MaxRequestBodySizeInKb",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Maximum request body size in Kb for WAF."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requestBodyCheck",
+   "name": "RequestBodyCheck",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether allow WAF to check request Body."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleSetType",
+   "name": "RuleSetType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The type of the web application firewall rule set. Possible values are: 'OWASP'."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleSetVersion",
+   "name": "RuleSetVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The version of the rule set type."
+  }
+ ]
+}

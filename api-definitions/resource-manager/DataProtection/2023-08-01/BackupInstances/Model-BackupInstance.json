@@ -1,0 +1,149 @@
+{
+ "name": "BackupInstance",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentProtectionState",
+   "name": "CurrentProtectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CurrentProtectionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies the current protection state of the resource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceInfo",
+   "name": "DataSourceInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Datasource"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the data source information."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceSetInfo",
+   "name": "DataSourceSetInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatasourceSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the data source set information."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceAuthCredentials",
+   "name": "DatasourceAuthCredentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthCredentials"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Credentials to use to authenticate with data source provider."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "friendlyName",
+   "name": "FriendlyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the Backup Instance friendly name."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identityDetails",
+   "name": "IdentityDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Contains information of the Identity Details for the BI.\r\nIf it is null, default will be considered as System Assigned."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyInfo",
+   "name": "PolicyInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PolicyInfo"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the policy information."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectionErrorDetails",
+   "name": "ProtectionErrorDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserFacingError"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies the protection error of the resource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectionStatus",
+   "name": "ProtectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProtectionStatusDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies the protection status of the resource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies the provisioning state of the resource i.e. provisioning/updating/Succeeded/Failed"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationType",
+   "name": "ValidationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidationType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies the type of validation. In case of DeepValidation, all validations from /validateForBackup API will run again."
+  }
+ ]
+}

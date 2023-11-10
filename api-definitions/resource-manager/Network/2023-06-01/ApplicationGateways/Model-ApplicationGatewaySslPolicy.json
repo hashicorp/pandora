@@ -1,0 +1,73 @@
+{
+ "name": "ApplicationGatewaySslPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cipherSuites",
+   "name": "CipherSuites",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewaySslCipherSuite"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ssl cipher suites to be enabled in the specified order to application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disabledSslProtocols",
+   "name": "DisabledSslProtocols",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewaySslProtocol"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ssl protocols to be disabled on application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minProtocolVersion",
+   "name": "MinProtocolVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewaySslProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Minimum version of Ssl protocol to be supported on application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyName",
+   "name": "PolicyName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewaySslPolicyName"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of Ssl predefined policy."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyType",
+   "name": "PolicyType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewaySslPolicyType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Type of Ssl Policy."
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "ExpressRouteCircuitSku",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "family",
+   "name": "Family",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteCircuitSkuFamily"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The family of the SKU."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the SKU."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tier",
+   "name": "Tier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteCircuitSkuTier"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The tier of the SKU."
+  }
+ ]
+}

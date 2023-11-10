@@ -1,0 +1,21 @@
+{
+ "name": "SignaturesOverridesList",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SignaturesOverrides"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Describes a list consisting exactly one item describing the policy's signature override status"
+  }
+ ]
+}

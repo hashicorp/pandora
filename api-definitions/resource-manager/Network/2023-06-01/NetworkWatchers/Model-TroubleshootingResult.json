@@ -1,0 +1,59 @@
+{
+ "name": "TroubleshootingResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "code",
+   "name": "Code",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The result code of the troubleshooting."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The end time of the troubleshooting."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "results",
+   "name": "Results",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TroubleshootingDetails"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Information from troubleshooting."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The start time of the troubleshooting."
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "name": "ExpressRoutePortAuthorizationPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationKey",
+   "name": "AuthorizationKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The authorization key."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationUseStatus",
+   "name": "AuthorizationUseStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRoutePortAuthorizationUseStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The authorization use status."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "circuitResourceUri",
+   "name": "CircuitResourceUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the ExpressRoute circuit resource using the authorization."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

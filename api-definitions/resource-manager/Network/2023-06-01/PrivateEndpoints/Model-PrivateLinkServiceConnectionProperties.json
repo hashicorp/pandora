@@ -1,0 +1,69 @@
+{
+ "name": "PrivateLinkServiceConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupIds",
+   "name": "GroupIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID(s) of the group(s) obtained from the remote resource that this private endpoint should connect to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceConnectionState",
+   "name": "PrivateLinkServiceConnectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkServiceConnectionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateLinkServiceId",
+   "name": "PrivateLinkServiceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource id of private link service."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requestMessage",
+   "name": "RequestMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A message passed to the owner of the remote resource with this connection request. Restricted to 140 chars."
+  }
+ ]
+}

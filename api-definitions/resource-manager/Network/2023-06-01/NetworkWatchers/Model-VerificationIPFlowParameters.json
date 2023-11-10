@@ -1,0 +1,101 @@
+{
+ "name": "VerificationIPFlowParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "direction",
+   "name": "Direction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Direction"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The direction of the packet represented as a 5-tuple."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localIPAddress",
+   "name": "LocalIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The local IP address. Acceptable values are valid IPv4 addresses."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localPort",
+   "name": "LocalPort",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The local port. Acceptable values are a single integer in the range (0-65535). Support for * for the source port, which depends on the direction."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPFlowProtocol"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Protocol to be verified on."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteIPAddress",
+   "name": "RemoteIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The remote IP address. Acceptable values are valid IPv4 addresses."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remotePort",
+   "name": "RemotePort",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The remote port. Acceptable values are a single integer in the range (0-65535). Support for * for the source port, which depends on the direction."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetNicResourceId",
+   "name": "TargetNicResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The NIC ID. (If VM has multiple NICs and IP forwarding is enabled on any of them, then this parameter must be specified. Otherwise optional)."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The ID of the target resource to perform next-hop on."
+  }
+ ]
+}

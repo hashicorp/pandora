@@ -1,0 +1,245 @@
+{
+ "name": "VpnConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionBandwidth",
+   "name": "ConnectionBandwidth",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Expected bandwidth in MBPS."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionStatus",
+   "name": "ConnectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnConnectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The connection status."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dpdTimeoutSeconds",
+   "name": "DpdTimeoutSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "DPD timeout in seconds for vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressBytesTransferred",
+   "name": "EgressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Egress bytes transferred."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBgp",
+   "name": "EnableBgp",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgp flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableInternetSecurity",
+   "name": "EnableInternetSecurity",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable internet security."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableRateLimiting",
+   "name": "EnableRateLimiting",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgp flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipsecPolicies",
+   "name": "IPsecPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPsecPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IPSec Policies to be considered by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressBytesTransferred",
+   "name": "IngressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ingress bytes transferred."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteVpnSite",
+   "name": "RemoteVpnSite",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingConfiguration",
+   "name": "RoutingConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Routing Configuration indicating the associated and propagated route tables on this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingWeight",
+   "name": "RoutingWeight",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Routing weight for vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharedKey",
+   "name": "SharedKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "SharedKey for the vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trafficSelectorPolicies",
+   "name": "TrafficSelectorPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TrafficSelectorPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Traffic Selector Policies to be considered by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useLocalAzureIpAddress",
+   "name": "UseLocalAzureIPAddress",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Use local azure ip to initiate connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usePolicyBasedTrafficSelectors",
+   "name": "UsePolicyBasedTrafficSelectors",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable policy-based traffic selectors."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnConnectionProtocolType",
+   "name": "VpnConnectionProtocolType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnLinkConnections",
+   "name": "VpnLinkConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VpnSiteLinkConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of all vpn site link connections to the gateway."
+  }
+ ]
+}

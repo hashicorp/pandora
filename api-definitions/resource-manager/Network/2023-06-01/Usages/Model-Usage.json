@@ -1,0 +1,65 @@
+{
+ "name": "Usage",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentValue",
+   "name": "CurrentValue",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The current value of the usage."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource identifier."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limit",
+   "name": "Limit",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The limit of usage."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UsageName"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The name of the type of usage."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unit",
+   "name": "Unit",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UsageUnit"
+   },
+   "optional": false,
+   "required": true,
+   "description": "An enum describing the unit of measurement."
+  }
+ ]
+}

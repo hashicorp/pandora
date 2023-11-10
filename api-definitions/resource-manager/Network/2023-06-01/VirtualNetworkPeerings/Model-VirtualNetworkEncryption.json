@@ -1,0 +1,29 @@
+{
+ "name": "VirtualNetworkEncryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Indicates if encryption is enabled on the virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enforcement",
+   "name": "Enforcement",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkEncryptionEnforcement"
+   },
+   "optional": true,
+   "required": false,
+   "description": "If the encrypted VNet allows VM that does not support encryption"
+  }
+ ]
+}

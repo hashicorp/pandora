@@ -1,0 +1,29 @@
+{
+ "name": "ApplicationGatewayAutoscaleConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxCapacity",
+   "name": "MaxCapacity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Upper bound on number of Application Gateway capacity."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minCapacity",
+   "name": "MinCapacity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Lower bound on number of Application Gateway capacity."
+  }
+ ]
+}

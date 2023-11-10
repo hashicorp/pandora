@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewaySslPredefinedPolicyPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cipherSuites",
+   "name": "CipherSuites",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewaySslCipherSuite"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ssl cipher suites to be enabled in the specified order for application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minProtocolVersion",
+   "name": "MinProtocolVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewaySslProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Minimum version of Ssl protocol to be supported on application gateway."
+  }
+ ]
+}

@@ -1,0 +1,53 @@
+{
+ "name": "ApplicationGatewayTrustedClientCertificatePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientCertIssuerDN",
+   "name": "ClientCertIssuerDN",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Distinguished name of client certificate issuer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "data",
+   "name": "Data",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Certificate public data."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validatedCertData",
+   "name": "ValidatedCertData",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Validated certificate data."
+  }
+ ]
+}

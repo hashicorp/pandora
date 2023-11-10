@@ -1,0 +1,53 @@
+{
+ "name": "ExportJobsResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobSasKey",
+   "name": "BlobSasKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "SAS key to access the blob."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobUrl",
+   "name": "BlobUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "URL of the blob into which the serialized string of list of jobs is exported."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excelFileBlobSasKey",
+   "name": "ExcelFileBlobSasKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "SAS key to access the ExcelFile blob."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excelFileBlobUrl",
+   "name": "ExcelFileBlobUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "URL of the blob into which the ExcelFile is uploaded."
+  }
+ ]
+}

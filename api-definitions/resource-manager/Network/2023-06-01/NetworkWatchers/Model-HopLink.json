@@ -1,0 +1,85 @@
+{
+ "name": "HopLink",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "context",
+   "name": "Context",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Provides additional context on links."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "issues",
+   "name": "Issues",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectivityIssue"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of issues."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkType",
+   "name": "LinkType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Link type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopId",
+   "name": "NextHopId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID of the next hop."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HopLinkProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Hop link properties."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Resource ID."
+  }
+ ]
+}

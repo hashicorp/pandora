@@ -1,0 +1,209 @@
+{
+ "name": "FirewallPolicyPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "basePolicy",
+   "name": "BasePolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "childPolicies",
+   "name": "ChildPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to Child Firewall Policies."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsSettings",
+   "name": "DnsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DnsSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "DNS Proxy Settings definition."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "explicitProxy",
+   "name": "ExplicitProxy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExplicitProxy"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Explicit Proxy Settings definition."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "firewalls",
+   "name": "Firewalls",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to Azure Firewalls that this Firewall Policy is associated with."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "insights",
+   "name": "Insights",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyInsights"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Insights on Firewall Policy."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "intrusionDetection",
+   "name": "IntrusionDetection",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIntrusionDetection"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The configuration for Intrusion detection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleCollectionGroups",
+   "name": "RuleCollectionGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to FirewallPolicyRuleCollectionGroups."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "size",
+   "name": "Size",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A read-only string that represents the size of the FirewallPolicyPropertiesFormat in MB. (ex 0.5MB)"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicySku"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Firewall Policy SKU."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "snat",
+   "name": "Snat",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicySNAT"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The private IP addresses/IP ranges to which traffic will not be SNAT."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sql",
+   "name": "Sql",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicySQL"
+   },
+   "optional": true,
+   "required": false,
+   "description": "SQL Settings definition."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threatIntelMode",
+   "name": "ThreatIntelMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureFirewallThreatIntelMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threatIntelWhitelist",
+   "name": "ThreatIntelWhitelist",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyThreatIntelWhitelist"
+   },
+   "optional": true,
+   "required": false,
+   "description": "ThreatIntel Whitelist for Firewall Policy."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "transportSecurity",
+   "name": "TransportSecurity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyTransportSecurity"
+   },
+   "optional": true,
+   "required": false,
+   "description": "TLS Configuration definition."
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "name": "Criterion",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asPath",
+   "name": "AsPath",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of AS paths which this criteria matches."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "community",
+   "name": "Community",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of BGP communities which this criteria matches."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchCondition",
+   "name": "MatchCondition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RouteMapMatchCondition"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Match condition to apply RouteMap rules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routePrefix",
+   "name": "RoutePrefix",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of route prefixes which this criteria matches."
+  }
+ ]
+}

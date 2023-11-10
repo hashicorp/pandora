@@ -1,0 +1,221 @@
+{
+ "name": "SecurityRulePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "access",
+   "name": "Access",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityRuleAccess"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The network traffic is allowed or denied."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A description for this rule. Restricted to 140 chars."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationAddressPrefix",
+   "name": "DestinationAddressPrefix",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination address prefix. CIDR or destination IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationAddressPrefixes",
+   "name": "DestinationAddressPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination address prefixes. CIDR or destination IP ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationApplicationSecurityGroups",
+   "name": "DestinationApplicationSecurityGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationSecurityGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The application security group specified as destination."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationPortRange",
+   "name": "DestinationPortRange",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationPortRanges",
+   "name": "DestinationPortRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The destination port ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "direction",
+   "name": "Direction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityRuleDirection"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The direction of the rule. The direction specifies if rule will be evaluated on incoming or outgoing traffic."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The priority of the rule. The value can be between 100 and 4096. The priority number must be unique for each rule in the collection. The lower the priority number, the higher the priority of the rule."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityRuleProtocol"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Network protocol this rule applies to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceAddressPrefix",
+   "name": "SourceAddressPrefix",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The CIDR or source IP range. Asterisk '*' can also be used to match all source IPs. Default tags such as 'VirtualNetwork', 'AzureLoadBalancer' and 'Internet' can also be used. If this is an ingress rule, specifies where network traffic originates from."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceAddressPrefixes",
+   "name": "SourceAddressPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The CIDR or source IP ranges."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceApplicationSecurityGroups",
+   "name": "SourceApplicationSecurityGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationSecurityGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The application security group specified as source."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourcePortRange",
+   "name": "SourcePortRange",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The source port or range. Integer or range between 0 and 65535. Asterisk '*' can also be used to match all ports."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourcePortRanges",
+   "name": "SourcePortRanges",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The source port ranges."
+  }
+ ]
+}

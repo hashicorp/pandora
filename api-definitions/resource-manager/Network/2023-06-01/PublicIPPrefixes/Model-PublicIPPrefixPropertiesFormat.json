@@ -1,0 +1,133 @@
+{
+ "name": "PublicIPPrefixPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customIPPrefix",
+   "name": "CustomIPPrefix",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipPrefix",
+   "name": "IPPrefix",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The allocated Prefix."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipTags",
+   "name": "IPTags",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPTag"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of tags associated with the public IP prefix."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerFrontendIpConfiguration",
+   "name": "LoadBalancerFrontendIPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "natGateway",
+   "name": "NatGateway",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NatGateway"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "prefixLength",
+   "name": "PrefixLength",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Length of the Public IP Prefix."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPAddressVersion",
+   "name": "PublicIPAddressVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPAddresses",
+   "name": "PublicIPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ReferencedPublicIPAddress"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of all referenced PublicIPAddresses."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the public IP prefix resource."
+  }
+ ]
+}

@@ -1,0 +1,101 @@
+{
+ "name": "ExpressRouteConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationKey",
+   "name": "AuthorizationKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Authorization key to establish the connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableInternetSecurity",
+   "name": "EnableInternetSecurity",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable internet security."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enablePrivateLinkFastPath",
+   "name": "EnablePrivateLinkFastPath",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expressRouteCircuitPeering",
+   "name": "ExpressRouteCircuitPeering",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExpressRouteCircuitPeeringId"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The ExpressRoute circuit peering."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expressRouteGatewayBypass",
+   "name": "ExpressRouteGatewayBypass",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable FastPath to vWan Firewall hub."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingConfiguration",
+   "name": "RoutingConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Routing Configuration indicating the associated and propagated route tables on this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingWeight",
+   "name": "RoutingWeight",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The routing weight associated to the connection."
+  }
+ ]
+}

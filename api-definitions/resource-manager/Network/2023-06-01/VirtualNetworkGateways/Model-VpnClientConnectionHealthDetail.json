@@ -1,0 +1,149 @@
+{
+ "name": "VpnClientConnectionHealthDetail",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressBytesTransferred",
+   "name": "EgressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The egress bytes per second."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressPacketsTransferred",
+   "name": "EgressPacketsTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The egress packets per second."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressBytesTransferred",
+   "name": "IngressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ingress bytes per second."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressPacketsTransferred",
+   "name": "IngressPacketsTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ingress packets per second."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxBandwidth",
+   "name": "MaxBandwidth",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The max band width."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxPacketsPerSecond",
+   "name": "MaxPacketsPerSecond",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The max packets transferred per second."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateIpAddress",
+   "name": "PrivateIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The assigned private Ip of a connected vpn client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIpAddress",
+   "name": "PublicIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The public Ip of a connected vpn client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnConnectionDuration",
+   "name": "VpnConnectionDuration",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The duration time of a connected vpn client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnConnectionId",
+   "name": "VpnConnectionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The vpn client Id."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnConnectionTime",
+   "name": "VpnConnectionTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The start time of a connected vpn client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnUserName",
+   "name": "VpnUserName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The user name of a connected vpn client."
+  }
+ ]
+}

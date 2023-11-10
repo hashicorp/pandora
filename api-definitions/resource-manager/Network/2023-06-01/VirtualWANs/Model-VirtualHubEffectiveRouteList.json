@@ -1,0 +1,21 @@
+{
+ "name": "VirtualHubEffectiveRouteList",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualHubEffectiveRoute"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of effective routes configured on the virtual hub or the specified resource."
+  }
+ ]
+}

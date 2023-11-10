@@ -1,0 +1,29 @@
+{
+ "name": "ConnectionMonitorSuccessThreshold",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "checksFailedPercent",
+   "name": "ChecksFailedPercent",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The maximum percentage of failed checks permitted for a test to evaluate as successful."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roundTripTimeMs",
+   "name": "RoundTripTimeMs",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The maximum round-trip time in milliseconds permitted for a test to evaluate as successful."
+  }
+ ]
+}

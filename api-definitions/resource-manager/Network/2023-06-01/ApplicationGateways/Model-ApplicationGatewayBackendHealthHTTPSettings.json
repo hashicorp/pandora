@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewayBackendHealthHTTPSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendHttpSettings",
+   "name": "BackendHTTPSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendHTTPSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Reference to an ApplicationGatewayBackendHttpSettings resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "servers",
+   "name": "Servers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayBackendHealthServer"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of ApplicationGatewayBackendHealthServer resources."
+  }
+ ]
+}
