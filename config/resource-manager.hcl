@@ -158,7 +158,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2023-05-01"]
+  available = ["2022-04-01", "2023-05-01", "2023-08-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -361,7 +361,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-04-01", "2023-05-01"]
+  available = ["2023-04-01", "2023-05-01", "2023-06-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
