@@ -15,9 +15,14 @@ import (
 func codeForOperation(operationName string, input importerModels.OperationDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) ([]byte, error) {
 	expectedStatusCodes := input.ExpectedStatusCodes
 	sort.Ints(expectedStatusCodes)
+
+	contentType := input.ContentType
+	if strings.Contains(strings.ToLower(input.ContentType), "application/json") {
+		contentType = fmt.Sprintf("%s; charset=utf-8", input.ContentType)
+	}
 	output := dataApiModels.Operation{
 		Name:                             operationName,
-		ContentType:                      fmt.Sprintf("%s; charset=utf-8", input.ContentType),
+		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
