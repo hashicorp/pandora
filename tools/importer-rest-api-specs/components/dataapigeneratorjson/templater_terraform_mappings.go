@@ -182,9 +182,15 @@ func uniqueAndSortModelToModelMappings(input []dataApiModels.TerraformModelToMod
 		keysToValues[key] = item
 	}
 
+	keys := make([]string, 0)
+	for k := range keysToValues {
+		keys = append(keys, k)
+	}
+	sort.Strings(keys)
+
 	output := make([]dataApiModels.TerraformModelToModelMappingDefinition, 0)
-	for _, value := range keysToValues {
-		output = append(output, value)
+	for _, key := range keys {
+		output = append(output, keysToValues[key])
 	}
 
 	return output
