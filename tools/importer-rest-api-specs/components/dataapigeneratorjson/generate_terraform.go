@@ -26,6 +26,9 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 	if err := ensureDirectoryExists(s.workingDirectoryForTerraform, s.logger); err != nil {
 		return fmt.Errorf("ensuring the Terraform Directory at %q exists: %+v", s.workingDirectoryForTerraform, err)
 	}
+	if err := ensureDirectoryExists(s.workingDirectoryForTerraformTests, s.logger); err != nil {
+		return fmt.Errorf("ensuring the Terraform Tests Directory at %q exists: %+v", s.workingDirectoryForTerraformTests, err)
+	}
 
 	for resourceName, resource := range apiVersion.Resources {
 		if resource.Terraform == nil {

@@ -49,15 +49,10 @@ func (s Generator) generateTerraformResourceDefinition(resourceLabel string, det
 	}
 
 	// output the Tests for this Terraform Resource
-	resourceTestsFileName := path.Join(s.workingDirectoryForTerraform, fmt.Sprintf("%s-Resource-Tests.json", details.ResourceName))
+	resourceTestsFileName := path.Join(s.workingDirectoryForTerraformTests, fmt.Sprintf("%s-Resource-Tests.hcl", details.ResourceName))
 	s.logger.Trace(fmt.Sprintf("Generating Tests for the Terraform Resource into %q", resourceTestsFileName))
 	resourceTestsCode := mapTerraformResourceTestDefinition(details.Tests)
-	s.logger.Trace("Marshalling Tests for the Terraform Resource..")
-	testsCode, err := json.MarshalIndent(resourceTestsCode, "", "\t")
-	if err != nil {
-		return fmt.Errorf("marshaling Tests for the Terraform Resource %q: %+v", resourceLabel, err)
-	}
-	if err := writeJsonToFile(resourceTestsFileName, testsCode); err != nil {
+	if err := writeTestsHclToFile(s.workingDirectoryForTerraformTests, details.ResourceName, resourceTestsCode); err != nil {
 		return fmt.Errorf("generating Tests for the Terraform Resource %q: %+v", resourceLabel, err)
 	}
 

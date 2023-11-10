@@ -13,15 +13,17 @@ func NewForService(serviceName, outputDirectory string, resourceProvider, terraf
 	normalisedServiceName := strings.ReplaceAll(serviceName, "-", "")
 	serviceWorkingDirectory := path.Join(outputDirectory, strings.Title(normalisedServiceName))
 	terraformWorkingDirectory := path.Join(serviceWorkingDirectory, "Terraform")
+	terraformTestsWorkingDirectory := path.Join(terraformWorkingDirectory, "Tests")
 
 	return &Generator{
-		logger:                       logger,
-		outputDirectory:              outputDirectory,
-		resourceProvider:             resourceProvider,
-		serviceName:                  serviceName,
-		terraformPackageName:         terraformPackageName,
-		workingDirectoryForService:   serviceWorkingDirectory,
-		workingDirectoryForTerraform: terraformWorkingDirectory,
+		logger:                            logger,
+		outputDirectory:                   outputDirectory,
+		resourceProvider:                  resourceProvider,
+		serviceName:                       serviceName,
+		terraformPackageName:              terraformPackageName,
+		workingDirectoryForService:        serviceWorkingDirectory,
+		workingDirectoryForTerraform:      terraformWorkingDirectory,
+		workingDirectoryForTerraformTests: terraformTestsWorkingDirectory,
 	}
 }
 
