@@ -1,0 +1,17 @@
+{
+ "name": "SyncBackupInstanceRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "syncType",
+   "name": "SyncType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SyncType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Field indicating sync type e.g. to sync only in case of failure or in all cases"
+  }
+ ]
+}

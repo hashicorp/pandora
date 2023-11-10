@@ -1,0 +1,387 @@
+{
+ "name": "AzureBackupJob",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activityID",
+   "name": "ActivityID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Job Activity Id"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupInstanceFriendlyName",
+   "name": "BackupInstanceFriendlyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Name of the Backup Instance"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupInstanceId",
+   "name": "BackupInstanceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "ARM ID of the Backup Instance"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceId",
+   "name": "DataSourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "ARM ID of the DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceLocation",
+   "name": "DataSourceLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Location of the DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceName",
+   "name": "DataSourceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "User Friendly Name of the DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceSetName",
+   "name": "DataSourceSetName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Data Source Set Name of the DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSourceType",
+   "name": "DataSourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Type of DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationDataStoreName",
+   "name": "DestinationDataStoreName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Total run time of the job. ISO 8601 format."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "EndTime of the job(in UTC)"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorDetails",
+   "name": "ErrorDetails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UserFacingError"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A List, detailing the errors related to the job"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "etag",
+   "name": "Etag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extendedInfo",
+   "name": "ExtendedInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobExtendedInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Extended Information about the job"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isUserTriggered",
+   "name": "IsUserTriggered",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Indicated that whether the job is adhoc(true) or scheduled(false)"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operation",
+   "name": "Operation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "It indicates the type of Job i.e. Backup:full/log/diff ;Restore:ALR/OLR; Tiering:Backup/Archive ; Management:ConfigureProtection/UnConfigure"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operationCategory",
+   "name": "OperationCategory",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "It indicates the type of Job i.e. Backup/Restore/Tiering/Management"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyId",
+   "name": "PolicyId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "ARM ID of the policy"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyName",
+   "name": "PolicyName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of the policy"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "progressEnabled",
+   "name": "ProgressEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Indicated whether progress is enabled for the job"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "progressUrl",
+   "name": "ProgressUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Url which contains job's progress"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rehydrationPriority",
+   "name": "RehydrationPriority",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Priority to be used for rehydration"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreType",
+   "name": "RestoreType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "It indicates the sub type of operation i.e. in case of Restore it can be ALR/OLR"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDataStoreName",
+   "name": "SourceDataStoreName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceGroup",
+   "name": "SourceResourceGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Resource Group Name of the Datasource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceSubscriptionID",
+   "name": "SourceSubscriptionID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "SubscriptionId corresponding to the DataSource"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true,
+   "description": "StartTime of the job(in UTC)"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Status of the job like InProgress/Success/Failed/Cancelled/SuccessWithWarning"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subscriptionId",
+   "name": "SubscriptionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Subscription Id of the corresponding backup vault"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedActions",
+   "name": "SupportedActions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of supported actions"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vaultName",
+   "name": "VaultName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Name of the vault"
+  }
+ ]
+}

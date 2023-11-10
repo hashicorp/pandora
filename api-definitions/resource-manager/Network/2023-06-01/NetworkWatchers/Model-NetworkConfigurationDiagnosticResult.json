@@ -1,0 +1,29 @@
+{
+ "name": "NetworkConfigurationDiagnosticResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkSecurityGroupResult",
+   "name": "NetworkSecurityGroupResult",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkSecurityGroupResult"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Network security group result."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "profile",
+   "name": "Profile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkConfigurationDiagnosticProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Network configuration diagnostic profile."
+  }
+ ]
+}

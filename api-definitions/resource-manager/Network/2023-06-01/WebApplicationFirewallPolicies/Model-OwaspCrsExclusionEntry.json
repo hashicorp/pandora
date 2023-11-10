@@ -1,0 +1,57 @@
+{
+ "name": "OwaspCrsExclusionEntry",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclusionManagedRuleSets",
+   "name": "ExclusionManagedRuleSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExclusionManagedRuleSet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The managed rule sets that are associated with the exclusion."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchVariable",
+   "name": "MatchVariable",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OwaspCrsExclusionEntryMatchVariable"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The variable to be excluded."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selector",
+   "name": "Selector",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "When matchVariable is a collection, operator used to specify which elements in the collection this exclusion applies to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectorMatchOperator",
+   "name": "SelectorMatchOperator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OwaspCrsExclusionEntrySelectorMatchOperator"
+   },
+   "optional": false,
+   "required": true,
+   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this exclusion applies to."
+  }
+ ]
+}

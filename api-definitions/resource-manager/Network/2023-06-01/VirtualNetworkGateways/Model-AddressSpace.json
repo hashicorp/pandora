@@ -1,0 +1,21 @@
+{
+ "name": "AddressSpace",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressPrefixes",
+   "name": "AddressPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of address blocks reserved for this virtual network in CIDR notation."
+  }
+ ]
+}

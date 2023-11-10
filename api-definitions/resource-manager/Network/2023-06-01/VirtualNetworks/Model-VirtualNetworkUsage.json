@@ -1,0 +1,65 @@
+{
+ "name": "VirtualNetworkUsage",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentValue",
+   "name": "CurrentValue",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates number of IPs used from the Subnet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Subnet identifier."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limit",
+   "name": "Limit",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates the size of the subnet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkUsageName"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name containing common and localized value for usage."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unit",
+   "name": "Unit",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Usage units. Returns 'Count'."
+  }
+ ]
+}

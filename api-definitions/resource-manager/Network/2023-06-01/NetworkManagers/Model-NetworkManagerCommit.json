@@ -1,0 +1,61 @@
+{
+ "name": "NetworkManagerCommit",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commitId",
+   "name": "CommitId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Commit Id."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "commitType",
+   "name": "CommitType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConfigurationType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Commit Type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurationIds",
+   "name": "ConfigurationIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of configuration ids."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetLocations",
+   "name": "TargetLocations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of target locations."
+  }
+ ]
+}

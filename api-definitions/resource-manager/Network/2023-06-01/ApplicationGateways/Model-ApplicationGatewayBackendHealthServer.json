@@ -1,0 +1,53 @@
+{
+ "name": "ApplicationGatewayBackendHealthServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "IP address or FQDN of backend server."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "health",
+   "name": "Health",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendHealthServerHealth"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Health of backend server."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthProbeLog",
+   "name": "HealthProbeLog",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Health Probe Log."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfiguration",
+   "name": "IPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceIPConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

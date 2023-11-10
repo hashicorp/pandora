@@ -1,0 +1,33 @@
+{
+ "name": "BackupSchedule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "repeatingTimeIntervals",
+   "name": "RepeatingTimeIntervals",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "ISO 8601 repeating time interval format"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZone",
+   "name": "TimeZone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Time zone for a schedule. Example: Pacific Standard Time"
+  }
+ ]
+}

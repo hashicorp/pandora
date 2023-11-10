@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewayFirewallDisabledRuleGroup",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleGroupName",
+   "name": "RuleGroupName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The name of the rule group that will be disabled."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rules",
+   "name": "Rules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Integer",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of rules that will be disabled. If null, all rules of the rule group will be disabled."
+  }
+ ]
+}

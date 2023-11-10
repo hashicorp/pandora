@@ -1,0 +1,17 @@
+{
+ "name": "TriggerBackupRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupRuleOptions",
+   "name": "BackupRuleOptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdHocBackupRuleOptions"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Name for the Rule of the Policy which needs to be applied for this backup"
+  }
+ ]
+}

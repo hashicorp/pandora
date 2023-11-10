@@ -1,0 +1,137 @@
+{
+ "name": "BastionActiveSession",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BastionConnectProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The protocol used to connect to the target."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceType",
+   "name": "ResourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of the resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionDurationInMins",
+   "name": "SessionDurationInMins",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Duration in mins the session has been active."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionId",
+   "name": "SessionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A unique id for the session."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The time when the session started."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetHostName",
+   "name": "TargetHostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The host name of the target."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetIpAddress",
+   "name": "TargetIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IP Address of the target."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceGroup",
+   "name": "TargetResourceGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource group of the target."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource id of the target."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetSubscriptionId",
+   "name": "TargetSubscriptionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The subscription id for the target virtual machine."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userName",
+   "name": "UserName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The user name who is active on this session."
+  }
+ ]
+}

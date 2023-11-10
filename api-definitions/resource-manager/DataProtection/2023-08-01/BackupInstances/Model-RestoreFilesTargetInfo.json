@@ -1,0 +1,20 @@
+{
+ "name": "RestoreFilesTargetInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDetails",
+   "name": "TargetDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TargetDetails"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Destination of RestoreAsFiles operation, when destination is not a datasource"
+  }
+ ],
+ "discriminatedParentModelName": "RestoreTargetInfoBase",
+ "discriminatedTypeValue": "RestoreFilesTargetInfo",
+ "typeHintIn": "ObjectType"
+}

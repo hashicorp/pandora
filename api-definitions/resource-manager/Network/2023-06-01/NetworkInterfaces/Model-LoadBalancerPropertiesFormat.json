@@ -1,0 +1,141 @@
+{
+ "name": "LoadBalancerPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendAddressPools",
+   "name": "BackendAddressPools",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BackendAddressPool"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Collection of backend address pools used by a load balancer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontendIPConfigurations",
+   "name": "FrontendIPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FrontendIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Object representing the frontend IPs to be used for the load balancer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inboundNatPools",
+   "name": "InboundNatPools",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InboundNatPool"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Defines an external port range for inbound NAT to a single backend port on NICs associated with a load balancer. Inbound NAT rules are created automatically for each NIC associated with the Load Balancer using an external port from this range. Defining an Inbound NAT pool on your Load Balancer is mutually exclusive with defining inbound NAT rules. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an inbound NAT pool. They have to reference individual inbound NAT rules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inboundNatRules",
+   "name": "InboundNatRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "InboundNatRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Collection of inbound NAT Rules used by a load balancer. Defining inbound NAT rules on your load balancer is mutually exclusive with defining an inbound NAT pool. Inbound NAT pools are referenced from virtual machine scale sets. NICs that are associated with individual virtual machines cannot reference an Inbound NAT pool. They have to reference individual inbound NAT rules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancingRules",
+   "name": "LoadBalancingRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "LoadBalancingRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Object collection representing the load balancing rules Gets the provisioning."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundRules",
+   "name": "OutboundRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "OutboundRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The outbound rules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "probes",
+   "name": "Probes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Probe"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Collection of probe objects used in the load balancer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the load balancer resource."
+  }
+ ]
+}

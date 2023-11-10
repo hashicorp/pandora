@@ -1,0 +1,133 @@
+{
+ "name": "ConnectivityHop",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IP address of the hop."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID of the hop."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "issues",
+   "name": "Issues",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectivityIssue"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of issues."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "links",
+   "name": "Links",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HopLink"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of hop links."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopIds",
+   "name": "NextHopIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of next hop identifiers."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "previousHopIds",
+   "name": "PreviousHopIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of previous hop identifiers."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "previousLinks",
+   "name": "PreviousLinks",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HopLink"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of previous hop links."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID of the resource corresponding to this hop."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of the hop."
+  }
+ ]
+}

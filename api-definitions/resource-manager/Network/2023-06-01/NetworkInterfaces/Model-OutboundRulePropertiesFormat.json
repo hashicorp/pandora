@@ -1,0 +1,93 @@
+{
+ "name": "OutboundRulePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocatedOutboundPorts",
+   "name": "AllocatedOutboundPorts",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of outbound ports to be used for NAT."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendAddressPool",
+   "name": "BackendAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableTcpReset",
+   "name": "EnableTcpReset",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Receive bidirectional TCP Reset on TCP flow idle timeout or unexpected connection termination. This element is only used when the protocol is set to TCP."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontendIPConfigurations",
+   "name": "FrontendIPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "The Frontend IP addresses of the load balancer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "idleTimeoutInMinutes",
+   "name": "IdleTimeoutInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The timeout for the TCP idle connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LoadBalancerOutboundRuleProtocol"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The protocol for the outbound rule in load balancer."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

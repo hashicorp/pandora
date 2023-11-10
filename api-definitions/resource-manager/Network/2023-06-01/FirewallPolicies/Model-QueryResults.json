@@ -1,0 +1,33 @@
+{
+ "name": "QueryResults",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchingRecordsCount",
+   "name": "MatchingRecordsCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Number of total records matching the query."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signatures",
+   "name": "Signatures",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SingleQueryResult"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Array containing the results of the query"
+  }
+ ]
+}

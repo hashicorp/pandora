@@ -1,0 +1,41 @@
+{
+ "name": "AzureBackupRehydrationRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Id of the recovery point to be recovered"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rehydrationPriority",
+   "name": "RehydrationPriority",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RehydrationPriority"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Priority to be used for rehydration. Values High or Standard"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rehydrationRetentionDuration",
+   "name": "RehydrationRetentionDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Retention duration in ISO 8601 format i.e P10D ."
+  }
+ ]
+}

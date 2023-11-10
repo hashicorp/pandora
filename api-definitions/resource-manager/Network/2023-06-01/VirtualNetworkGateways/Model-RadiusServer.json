@@ -1,0 +1,41 @@
+{
+ "name": "RadiusServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerAddress",
+   "name": "RadiusServerAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The address of this radius server."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerScore",
+   "name": "RadiusServerScore",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The initial score assigned to this radius server."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerSecret",
+   "name": "RadiusServerSecret",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The secret used for this radius server."
+  }
+ ]
+}

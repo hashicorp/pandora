@@ -1,0 +1,29 @@
+{
+ "name": "ApplicationGatewayClientAuthConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "verifyClientCertIssuerDN",
+   "name": "VerifyClientCertIssuerDN",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Verify client certificate issuer name on the application gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "verifyClientRevocation",
+   "name": "VerifyClientRevocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayClientRevocationOptions"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Verify client certificate revocation status."
+  }
+ ]
+}

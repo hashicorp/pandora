@@ -1,0 +1,53 @@
+{
+ "name": "FlowLogProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Flag to enable/disable flow logging."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "format",
+   "name": "Format",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FlowLogFormatParameters"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Parameters that define the flow log format."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionPolicy",
+   "name": "RetentionPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RetentionPolicyParameters"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Parameters that define the retention policy for flow log."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageId",
+   "name": "StorageId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "ID of the storage account which is used to store the flow log."
+  }
+ ]
+}

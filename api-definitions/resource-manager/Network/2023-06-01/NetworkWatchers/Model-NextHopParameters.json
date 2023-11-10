@@ -1,0 +1,53 @@
+{
+ "name": "NextHopParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destinationIPAddress",
+   "name": "DestinationIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The destination IP address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceIPAddress",
+   "name": "SourceIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The source IP address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetNicResourceId",
+   "name": "TargetNicResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The NIC ID. (If VM has multiple NICs and IP forwarding is enabled on any of the nics, then this parameter must be specified. Otherwise optional)."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The resource identifier of the target resource against which the action is to be performed."
+  }
+ ]
+}

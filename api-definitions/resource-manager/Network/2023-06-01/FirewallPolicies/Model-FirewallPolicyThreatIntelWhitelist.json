@@ -1,0 +1,37 @@
+{
+ "name": "FirewallPolicyThreatIntelWhitelist",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fqdns",
+   "name": "Fqdns",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of FQDNs for the ThreatIntel Whitelist."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddresses",
+   "name": "IPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of IP addresses for the ThreatIntel Whitelist."
+  }
+ ]
+}

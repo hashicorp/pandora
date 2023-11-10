@@ -1,0 +1,60 @@
+{
+ "name": "ItemLevelRestoreTargetInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceAuthCredentials",
+   "name": "DatasourceAuthCredentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthCredentials"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Credentials to use to authenticate with data source provider."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceInfo",
+   "name": "DatasourceInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Datasource"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Information of target DS"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasourceSetInfo",
+   "name": "DatasourceSetInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatasourceSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Information of target DS Set"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreCriteria",
+   "name": "RestoreCriteria",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ItemLevelRestoreCriteria"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "Restore Criteria"
+  }
+ ],
+ "discriminatedParentModelName": "RestoreTargetInfoBase",
+ "discriminatedTypeValue": "ItemLevelRestoreTargetInfo",
+ "typeHintIn": "ObjectType"
+}

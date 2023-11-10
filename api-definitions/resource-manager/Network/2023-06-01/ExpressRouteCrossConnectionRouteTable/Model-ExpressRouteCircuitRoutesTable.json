@@ -1,0 +1,65 @@
+{
+ "name": "ExpressRouteCircuitRoutesTable",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "locPrf",
+   "name": "LocPrf",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Local preference value as set with the set local-preference route-map configuration command."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "network",
+   "name": "Network",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "IP address of a network entity."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHop",
+   "name": "NextHop",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "NextHop address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Autonomous system paths to the destination network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weight",
+   "name": "Weight",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Route Weight."
+  }
+ ]
+}

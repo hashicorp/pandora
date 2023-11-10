@@ -1,0 +1,28 @@
+{
+ "name": "Reset",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "ipConfigurationId",
+   "required": false,
+   "field": "IPConfigurationId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "VpnGatewayId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VpnGateway"
+ },
+ "uriSuffix": "/reset"
+}

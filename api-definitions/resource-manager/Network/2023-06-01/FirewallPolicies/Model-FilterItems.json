@@ -1,0 +1,33 @@
+{
+ "name": "FilterItems",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "field",
+   "name": "Field",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the field we would like to filter"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "values",
+   "name": "Values",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of values to filter the current field by"
+  }
+ ]
+}

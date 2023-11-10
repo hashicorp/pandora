@@ -1,0 +1,97 @@
+{
+ "name": "EffectiveRoute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressPrefix",
+   "name": "AddressPrefix",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The address prefixes of the effective routes in CIDR notation."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableBgpRoutePropagation",
+   "name": "DisableBgpRoutePropagation",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "If true, on-premises routes are not propagated to the network interfaces in the subnet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the user defined route. This is optional."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopIpAddress",
+   "name": "NextHopIPAddress",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IP address of the next hop of the effective route."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopType",
+   "name": "NextHopType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RouteNextHopType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "source",
+   "name": "Source",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EffectiveRouteSource"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Who created the route."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EffectiveRouteState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The value of effective route."
+  }
+ ]
+}

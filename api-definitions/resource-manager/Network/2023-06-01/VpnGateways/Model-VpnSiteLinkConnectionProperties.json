@@ -1,0 +1,237 @@
+{
+ "name": "VpnSiteLinkConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionBandwidth",
+   "name": "ConnectionBandwidth",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Expected bandwidth in MBPS."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionStatus",
+   "name": "ConnectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnConnectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The connection status."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressBytesTransferred",
+   "name": "EgressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Egress bytes transferred."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressNatRules",
+   "name": "EgressNatRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of egress NatRules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBgp",
+   "name": "EnableBgp",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgp flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableRateLimiting",
+   "name": "EnableRateLimiting",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgp flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipsecPolicies",
+   "name": "IPsecPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPsecPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IPSec Policies to be considered by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressBytesTransferred",
+   "name": "IngressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Ingress bytes transferred."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressNatRules",
+   "name": "IngressNatRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of ingress NatRules."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingWeight",
+   "name": "RoutingWeight",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Routing weight for vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharedKey",
+   "name": "SharedKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "SharedKey for the vpn connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useLocalAzureIpAddress",
+   "name": "UseLocalAzureIPAddress",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Use local azure ip to initiate connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usePolicyBasedTrafficSelectors",
+   "name": "UsePolicyBasedTrafficSelectors",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable policy-based traffic selectors."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnConnectionProtocolType",
+   "name": "VpnConnectionProtocolType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnGatewayCustomBgpAddresses",
+   "name": "VpnGatewayCustomBgpAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "GatewayCustomBgpIPAddressIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "vpnGatewayCustomBgpAddresses used by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnLinkConnectionMode",
+   "name": "VpnLinkConnectionMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnLinkConnectionMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Vpn link connection mode."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnSiteLink",
+   "name": "VpnSiteLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

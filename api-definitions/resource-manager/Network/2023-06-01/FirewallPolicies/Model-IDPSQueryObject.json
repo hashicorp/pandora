@@ -1,0 +1,69 @@
+{
+ "name": "IDPSQueryObject",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filters",
+   "name": "Filters",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FilterItems"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Contain all filters names and values"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orderBy",
+   "name": "OrderBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OrderBy"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Column to sort response by"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resultsPerPage",
+   "name": "ResultsPerPage",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of the results to return in each page"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "search",
+   "name": "Search",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Search term in all columns"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skip",
+   "name": "Skip",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The number of records matching the filter to skip"
+  }
+ ]
+}

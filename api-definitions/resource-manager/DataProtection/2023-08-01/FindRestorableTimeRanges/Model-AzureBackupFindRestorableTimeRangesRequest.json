@@ -1,0 +1,41 @@
+{
+ "name": "AzureBackupFindRestorableTimeRangesRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "End time for the List Restore Ranges request. ISO 8601 format."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDataStoreType",
+   "name": "SourceDataStoreType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoreSourceDataStoreType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the type of the source data store."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Start time for the List Restore Ranges request. ISO 8601 format."
+  }
+ ]
+}

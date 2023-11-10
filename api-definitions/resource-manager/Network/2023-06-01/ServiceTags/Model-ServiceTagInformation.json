@@ -1,0 +1,53 @@
+{
+ "name": "ServiceTagInformation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ID of service tag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of service tag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceTagInformationPropertiesFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Properties of the service tag information."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceTagChangeNumber",
+   "name": "ServiceTagChangeNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The iteration number of service tag object for region."
+  }
+ ]
+}

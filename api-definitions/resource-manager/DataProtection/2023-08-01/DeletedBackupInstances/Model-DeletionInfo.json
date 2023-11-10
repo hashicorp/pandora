@@ -1,0 +1,53 @@
+{
+ "name": "DeletionInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingEndDate",
+   "name": "BillingEndDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies billing end date"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deleteActivityID",
+   "name": "DeleteActivityID",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Delete activity ID for troubleshooting purpose"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deletionTime",
+   "name": "DeletionTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies time of deletion"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheduledPurgeTime",
+   "name": "ScheduledPurgeTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Specifies purge time"
+  }
+ ]
+}

@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewayProbeHealthResponseMatch",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "body",
+   "name": "Body",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Body that must be contained in the health response. Default value is empty."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusCodes",
+   "name": "StatusCodes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Allowed ranges of healthy status codes. Default range of healthy status codes is 200-399."
+  }
+ ]
+}

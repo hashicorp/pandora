@@ -1,0 +1,29 @@
+{
+ "name": "GatewayCustomBgpIPAddressIPConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customBgpIpAddress",
+   "name": "CustomBgpIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The custom BgpPeeringAddress which belongs to IpconfigurationId."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurationId",
+   "name": "IPConfigurationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The IpconfigurationId of ipconfiguration which belongs to gateway."
+  }
+ ]
+}

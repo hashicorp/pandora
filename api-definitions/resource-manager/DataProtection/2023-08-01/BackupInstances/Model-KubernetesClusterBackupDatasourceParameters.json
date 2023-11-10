@@ -1,0 +1,128 @@
+{
+ "name": "KubernetesClusterBackupDatasourceParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupHookReferences",
+   "name": "BackupHookReferences",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NamespacedNameResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the backup hook references. This property sets the hook reference to be executed during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludedNamespaces",
+   "name": "ExcludedNamespaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludedResourceTypes",
+   "name": "ExcludedResourceTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the exclude resource types property. This property sets the resource types to be excluded during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeClusterScopeResources",
+   "name": "IncludeClusterScopeResources",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includedNamespaces",
+   "name": "IncludedNamespaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the include namespaces property. This property sets the namespaces to be included during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includedResourceTypes",
+   "name": "IncludedResourceTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the include resource types property. This property sets the resource types to be included during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labelSelectors",
+   "name": "LabelSelectors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during backup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "snapshotVolumes",
+   "name": "SnapshotVolumes",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the volume snapshot property. This property if enabled will take volume snapshots during backup."
+  }
+ ],
+ "discriminatedParentModelName": "BackupDatasourceParameters",
+ "discriminatedTypeValue": "KubernetesClusterBackupDatasourceParameters",
+ "typeHintIn": "ObjectType"
+}

@@ -1,0 +1,156 @@
+{
+ "name": "KubernetesClusterRestoreCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "conflictPolicy",
+   "name": "ConflictPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExistingResourcePolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the Conflict Policy property. This property sets policy during conflict of resources during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludedNamespaces",
+   "name": "ExcludedNamespaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the exclude namespaces property. This property sets the namespaces to be excluded during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludedResourceTypes",
+   "name": "ExcludedResourceTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the exclude resource types property. This property sets the resource types to be excluded during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeClusterScopeResources",
+   "name": "IncludeClusterScopeResources",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the include cluster resources property. This property if enabled will include cluster scope resources during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includedNamespaces",
+   "name": "IncludedNamespaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the include namespaces property. This property sets the namespaces to be included during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includedResourceTypes",
+   "name": "IncludedResourceTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the include resource types property. This property sets the resource types to be included during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labelSelectors",
+   "name": "LabelSelectors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the LabelSelectors property. This property sets the resource with such label selectors to be included during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "namespaceMappings",
+   "name": "NamespaceMappings",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the Namespace Mappings property. This property sets if namespace needs to be change during restore."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "persistentVolumeRestoreMode",
+   "name": "PersistentVolumeRestoreMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PersistentVolumeRestoreMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the PV (Persistent Volume) Restore Mode property. This property sets whether volumes needs to be restored."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreHookReferences",
+   "name": "RestoreHookReferences",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NamespacedNameResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Gets or sets the restore hook references. This property sets the hook reference to be executed during restore."
+  }
+ ],
+ "discriminatedParentModelName": "ItemLevelRestoreCriteria",
+ "discriminatedTypeValue": "KubernetesClusterRestoreCriteria",
+ "typeHintIn": "ObjectType"
+}

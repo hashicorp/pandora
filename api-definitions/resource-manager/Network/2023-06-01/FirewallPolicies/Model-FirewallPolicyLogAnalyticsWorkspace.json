@@ -1,0 +1,29 @@
+{
+ "name": "FirewallPolicyLogAnalyticsWorkspace",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "region",
+   "name": "Region",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Region to configure the Workspace."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workspaceId",
+   "name": "WorkspaceId",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

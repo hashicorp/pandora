@@ -1,0 +1,20 @@
+{
+ "name": "DefaultAdminRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DefaultAdminPropertiesFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Indicates the properties of the security admin rule"
+  }
+ ],
+ "discriminatedParentModelName": "BaseAdminRule",
+ "discriminatedTypeValue": "Default",
+ "typeHintIn": "Kind"
+}

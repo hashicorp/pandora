@@ -1,0 +1,49 @@
+{
+ "name": "VnetRoute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpConnections",
+   "name": "BgpConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of references to HubBgpConnection objects."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "staticRoutes",
+   "name": "StaticRoutes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StaticRoute"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of all Static Routes."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "staticRoutesConfig",
+   "name": "StaticRoutesConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StaticRoutesConfig"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Configuration for static routes on this HubVnetConnection."
+  }
+ ]
+}

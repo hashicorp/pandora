@@ -1,0 +1,21 @@
+{
+ "name": "BastionShareableLinkListRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vms",
+   "name": "VMs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BastionShareableLink"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of VM references."
+  }
+ ]
+}

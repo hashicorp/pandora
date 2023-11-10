@@ -1,0 +1,73 @@
+{
+ "name": "VirtualNetworkGatewayPolicyGroupProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isDefault",
+   "name": "IsDefault",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Shows if this is a Default VirtualNetworkGatewayPolicyGroup or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyMembers",
+   "name": "PolicyMembers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkGatewayPolicyGroupMember"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "Multiple PolicyMembers for VirtualNetworkGatewayPolicyGroup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Priority for VirtualNetworkGatewayPolicyGroup."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vngClientConnectionConfigurations",
+   "name": "VngClientConnectionConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of references to vngClientConnectionConfigurations."
+  }
+ ]
+}

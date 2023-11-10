@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationGatewayWafDynamicManifestPropertiesResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableRuleSets",
+   "name": "AvailableRuleSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApplicationGatewayFirewallManifestRuleSet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The available rulesets."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultRuleSet",
+   "name": "DefaultRuleSet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DefaultRuleSetPropertyFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The default ruleset."
+  }
+ ]
+}

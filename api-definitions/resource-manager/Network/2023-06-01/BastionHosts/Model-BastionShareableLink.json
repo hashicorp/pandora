@@ -1,0 +1,53 @@
+{
+ "name": "BastionShareableLink",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bsl",
+   "name": "Bsl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The unique Bastion Shareable Link to the virtual machine."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdAt",
+   "name": "CreatedAt",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The time when the link was created."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "message",
+   "name": "Message",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Optional field indicating the warning or error message related to the vm in case of partial failure."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vm",
+   "name": "VM",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Resource"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Reference of the virtual machine resource."
+  }
+ ]
+}

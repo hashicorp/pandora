@@ -1,0 +1,297 @@
+{
+ "name": "VirtualNetworkGatewayConnectionListEntityPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationKey",
+   "name": "AuthorizationKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The authorizationKey."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionMode",
+   "name": "ConnectionMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The connection mode for this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionProtocol",
+   "name": "ConnectionProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Connection protocol used for this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionStatus",
+   "name": "ConnectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Virtual Network Gateway connection status."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionType",
+   "name": "ConnectionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayConnectionType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gateway connection type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "egressBytesTransferred",
+   "name": "EgressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The egress bytes transferred in this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBgp",
+   "name": "EnableBgp",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgp flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enablePrivateLinkFastPath",
+   "name": "EnablePrivateLinkFastPath",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Bypass the ExpressRoute gateway when accessing private-links. ExpressRoute FastPath (expressRouteGatewayBypass) must be enabled."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expressRouteGatewayBypass",
+   "name": "ExpressRouteGatewayBypass",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Bypass ExpressRoute Gateway for data forwarding."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayCustomBgpIpAddresses",
+   "name": "GatewayCustomBgpIPAddresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "GatewayCustomBgpIPAddressIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "GatewayCustomBgpIpAddresses to be used for virtual network gateway Connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipsecPolicies",
+   "name": "IPsecPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPsecPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IPSec Policies to be considered by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingressBytesTransferred",
+   "name": "IngressBytesTransferred",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ingress bytes transferred in this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localNetworkGateway2",
+   "name": "LocalNetworkGateway2",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkConnectionGatewayReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to local network gateway resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "peer",
+   "name": "Peer",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the virtual network gateway connection resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingWeight",
+   "name": "RoutingWeight",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The routing weight."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharedKey",
+   "name": "SharedKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IPSec shared key."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trafficSelectorPolicies",
+   "name": "TrafficSelectorPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TrafficSelectorPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Traffic Selector Policies to be considered by this connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tunnelConnectionStatus",
+   "name": "TunnelConnectionStatus",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TunnelConnectionHealth"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Collection of all tunnels' connection health status."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usePolicyBasedTrafficSelectors",
+   "name": "UsePolicyBasedTrafficSelectors",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable policy-based traffic selectors."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkGateway1",
+   "name": "VirtualNetworkGateway1",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkConnectionGatewayReference"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The reference to virtual network gateway resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkGateway2",
+   "name": "VirtualNetworkGateway2",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkConnectionGatewayReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to virtual network gateway resource."
+  }
+ ]
+}

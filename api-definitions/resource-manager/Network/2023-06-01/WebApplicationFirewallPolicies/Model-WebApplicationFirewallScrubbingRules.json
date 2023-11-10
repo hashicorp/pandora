@@ -1,0 +1,53 @@
+{
+ "name": "WebApplicationFirewallScrubbingRules",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchVariable",
+   "name": "MatchVariable",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScrubbingRuleEntryMatchVariable"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The variable to be scrubbed from the logs."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selector",
+   "name": "Selector",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "When matchVariable is a collection, operator used to specify which elements in the collection this rule applies to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectorMatchOperator",
+   "name": "SelectorMatchOperator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScrubbingRuleEntryMatchOperator"
+   },
+   "optional": false,
+   "required": true,
+   "description": "When matchVariable is a collection, operate on the selector to specify which elements in the collection this rule applies to."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScrubbingRuleEntryState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Defines the state of log scrubbing rule. Default value is Enabled."
+  }
+ ]
+}

@@ -1,0 +1,173 @@
+{
+ "name": "VirtualNetworkPeeringPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowForwardedTraffic",
+   "name": "AllowForwardedTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the forwarded traffic from the VMs in the local virtual network will be allowed/disallowed in remote virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowGatewayTransit",
+   "name": "AllowGatewayTransit",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "If gateway links can be used in remote virtual networking to link to this virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowVirtualNetworkAccess",
+   "name": "AllowVirtualNetworkAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the VMs in the local virtual network space would be able to access the VMs in remote virtual network space."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "doNotVerifyRemoteGateways",
+   "name": "DoNotVerifyRemoteGateways",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "If we need to verify the provisioning state of the remote gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "peeringState",
+   "name": "PeeringState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkPeeringState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The status of the virtual network peering."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "peeringSyncLevel",
+   "name": "PeeringSyncLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkPeeringLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The peering sync status of the virtual network peering."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteAddressSpace",
+   "name": "RemoteAddressSpace",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the address space peered with the remote virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteBgpCommunities",
+   "name": "RemoteBgpCommunities",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkBgpCommunities"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the remote virtual network's Bgp Communities."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteVirtualNetwork",
+   "name": "RemoteVirtualNetwork",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteVirtualNetworkAddressSpace",
+   "name": "RemoteVirtualNetworkAddressSpace",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the current address space of the remote virtual network."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "remoteVirtualNetworkEncryption",
+   "name": "RemoteVirtualNetworkEncryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkEncryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the remote virtual network's encryption"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resourceGuid property of the Virtual Network peering resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useRemoteGateways",
+   "name": "UseRemoteGateways",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "If remote gateways can be used on this virtual network. If the flag is set to true, and allowGatewayTransit on remote peering is also true, virtual network will use gateways of remote virtual network for transit. Only one peering can have this flag set to true. This flag cannot be set if virtual network already has a gateway."
+  }
+ ]
+}

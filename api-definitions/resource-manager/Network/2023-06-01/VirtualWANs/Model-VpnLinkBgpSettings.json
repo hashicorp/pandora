@@ -1,0 +1,29 @@
+{
+ "name": "VpnLinkBgpSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asn",
+   "name": "Asn",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The BGP speaker's ASN."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpPeeringAddress",
+   "name": "BgpPeeringAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The BGP peering address and BGP identifier of this BGP speaker."
+  }
+ ]
+}

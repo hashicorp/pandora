@@ -1,0 +1,41 @@
+{
+ "name": "VirtualNetworkGatewayPolicyGroupMember",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attributeType",
+   "name": "AttributeType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnPolicyMemberAttributeType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The Vpn Policy member attribute type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attributeValue",
+   "name": "AttributeValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The value of Attribute used for this VirtualNetworkGatewayPolicyGroupMember."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of the VirtualNetworkGatewayPolicyGroupMember."
+  }
+ ]
+}

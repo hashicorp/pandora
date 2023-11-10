@@ -1,0 +1,33 @@
+{
+ "name": "ExpressRouteCircuitsRoutesTableListResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextLink",
+   "name": "NextLink",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The URL to get the next set of results."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExpressRouteCircuitRoutesTable"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of routes table."
+  }
+ ]
+}

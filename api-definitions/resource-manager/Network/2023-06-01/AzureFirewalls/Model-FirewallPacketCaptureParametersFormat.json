@@ -1,0 +1,97 @@
+{
+ "name": "FirewallPacketCaptureParametersFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "durationInSeconds",
+   "name": "DurationInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Duration of packet capture in seconds."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fileName",
+   "name": "FileName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Name of file to be uploaded to sasURL"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filters",
+   "name": "Filters",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureFirewallPacketCaptureRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Rules to filter packet captures."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flags",
+   "name": "Flags",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureFirewallPacketCaptureFlags"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The tcp-flag type to be captured. Used with protocol TCP"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "numberOfPacketsToCapture",
+   "name": "NumberOfPacketsToCapture",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Number of packets to be captured."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureFirewallNetworkRuleProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The protocol of packets to capture"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sasUrl",
+   "name": "SasUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Upload capture location"
+  }
+ ]
+}

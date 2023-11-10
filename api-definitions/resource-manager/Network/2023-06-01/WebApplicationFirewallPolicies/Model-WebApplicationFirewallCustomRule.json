@@ -1,0 +1,133 @@
+{
+ "name": "WebApplicationFirewallCustomRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebApplicationFirewallAction"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Type of Actions."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "etag",
+   "name": "Etag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "A unique read-only string that changes whenever the resource is updated."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groupByUserSession",
+   "name": "GroupByUserSession",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "GroupByUserSession"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of user session identifier group by clauses."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "matchConditions",
+   "name": "MatchConditions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MatchCondition"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of match conditions."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of the resource that is unique within a policy. This name can be used to access the resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "Priority of the rule. Rules with a lower value will be evaluated before rules with a higher value."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rateLimitDuration",
+   "name": "RateLimitDuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayFirewallRateLimitDuration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Duration over which Rate Limit policy will be applied. Applies only when ruleType is RateLimitRule."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rateLimitThreshold",
+   "name": "RateLimitThreshold",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Rate Limit threshold to apply in case ruleType is RateLimitRule. Must be greater than or equal to 1"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleType",
+   "name": "RuleType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebApplicationFirewallRuleType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "The rule type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebApplicationFirewallState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Describes if the custom rule is in enabled or disabled state. Defaults to Enabled if not specified."
+  }
+ ]
+}

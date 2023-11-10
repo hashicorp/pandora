@@ -1,0 +1,20 @@
+{
+ "name": "AdhocBasedTriggerContext",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taggingCriteria",
+   "name": "TaggingCriteria",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdhocBasedTaggingCriteria"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Tagging Criteria containing retention tag for adhoc backup."
+  }
+ ],
+ "discriminatedParentModelName": "TriggerContext",
+ "discriminatedTypeValue": "AdhocBasedTriggerContext",
+ "typeHintIn": "ObjectType"
+}

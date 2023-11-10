@@ -1,0 +1,41 @@
+{
+ "name": "NextHopResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopIpAddress",
+   "name": "NextHopIPAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Next hop IP Address."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nextHopType",
+   "name": "NextHopType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NextHopType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Next hop type."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routeTableId",
+   "name": "RouteTableId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource identifier for the route table associated with the route being returned. If the route being returned does not correspond to any user created routes then this field will be the string 'System Route'."
+  }
+ ]
+}

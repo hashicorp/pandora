@@ -1,0 +1,189 @@
+{
+ "name": "VpnClientConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aadAudience",
+   "name": "AadAudience",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The AADAudience property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aadIssuer",
+   "name": "AadIssuer",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The AADIssuer property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aadTenant",
+   "name": "AadTenant",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The AADTenant property of the VirtualNetworkGateway resource for vpn client connection used for AAD authentication."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerAddress",
+   "name": "RadiusServerAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The radius server address property of the VirtualNetworkGateway resource for vpn client connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServerSecret",
+   "name": "RadiusServerSecret",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The radius secret property of the VirtualNetworkGateway resource for vpn client connection."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "radiusServers",
+   "name": "RadiusServers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RadiusServer"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The radiusServers property for multiple radius server configuration."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vngClientConnectionConfigurations",
+   "name": "VngClientConnectionConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VngClientConnectionConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "per ip address pool connection policy for virtual network gateway P2S client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnAuthenticationTypes",
+   "name": "VpnAuthenticationTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VpnAuthenticationType"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "VPN authentication types for the virtual network gateway.."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientAddressPool",
+   "name": "VpnClientAddressPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientIpsecPolicies",
+   "name": "VpnClientIPsecPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPsecPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "VpnClientIpsecPolicies for virtual network gateway P2S client."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientProtocols",
+   "name": "VpnClientProtocols",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VpnClientProtocol"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "VpnClientProtocols for Virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientRevokedCertificates",
+   "name": "VpnClientRevokedCertificates",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VpnClientRevokedCertificate"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "VpnClientRevokedCertificate for Virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientRootCertificates",
+   "name": "VpnClientRootCertificates",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VpnClientRootCertificate"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "VpnClientRootCertificate for virtual network gateway."
+  }
+ ]
+}

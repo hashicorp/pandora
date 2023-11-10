@@ -1,0 +1,33 @@
+{
+ "name": "PrivateDnsZonePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateDnsZoneId",
+   "name": "PrivateDnsZoneId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource id of the private dns zone."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recordSets",
+   "name": "RecordSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RecordSet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A collection of information regarding a recordSet, holding information to identify private resources."
+  }
+ ]
+}

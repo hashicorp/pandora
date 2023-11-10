@@ -1,0 +1,125 @@
+{
+ "name": "UserFacingError",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "code",
+   "name": "Code",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Unique code for this error"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "details",
+   "name": "Details",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UserFacingError"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Additional related Errors"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "innerError",
+   "name": "InnerError",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InnerError"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Inner Error"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isRetryable",
+   "name": "IsRetryable",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the operation will be retryable or not"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isUserError",
+   "name": "IsUserError",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether the operation is due to a user error or service error"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "message",
+   "name": "Message",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "Any key value pairs that can be injected inside error object"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recommendedAction",
+   "name": "RecommendedAction",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "RecommendedAction � localized."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "target",
+   "name": "Target",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Target of the error."
+  }
+ ]
+}

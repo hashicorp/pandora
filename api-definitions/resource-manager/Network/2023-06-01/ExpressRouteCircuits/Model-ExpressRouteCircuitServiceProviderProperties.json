@@ -1,0 +1,41 @@
+{
+ "name": "ExpressRouteCircuitServiceProviderProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bandwidthInMbps",
+   "name": "BandwidthInMbps",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The BandwidthInMbps."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "peeringLocation",
+   "name": "PeeringLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The peering location."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceProviderName",
+   "name": "ServiceProviderName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The serviceProviderName."
+  }
+ ]
+}

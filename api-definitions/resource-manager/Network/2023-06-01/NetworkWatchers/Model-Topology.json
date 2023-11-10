@@ -1,0 +1,59 @@
+{
+ "name": "Topology",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdDateTime",
+   "name": "CreatedDateTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The datetime when the topology was initially created for the resource group."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "GUID representing the operation id."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastModified",
+   "name": "LastModified",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The datetime when the topology was last modified."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resources",
+   "name": "Resources",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TopologyResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "A list of topology resources."
+  }
+ ]
+}

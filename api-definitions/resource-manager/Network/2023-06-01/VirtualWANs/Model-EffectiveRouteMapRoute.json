@@ -1,0 +1,41 @@
+{
+ "name": "EffectiveRouteMapRoute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asPath",
+   "name": "AsPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The ASPath of this route."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpCommunities",
+   "name": "BgpCommunities",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "BGP communities of the route."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "prefix",
+   "name": "Prefix",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The address prefix of the route."
+  }
+ ]
+}

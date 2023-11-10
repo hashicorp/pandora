@@ -1,0 +1,105 @@
+{
+ "name": "ScheduleBasedBackupCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "absoluteCriteria",
+   "name": "AbsoluteCriteria",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AbsoluteMarker"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "it contains absolute values like \"AllBackup\" / \"FirstOfDay\" / \"FirstOfWeek\" / \"FirstOfMonth\"\r\nand should be part of AbsoluteMarker enum"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "daysOfMonth",
+   "name": "DaysOfMonth",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Day"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "This is day of the month from 1 to 28 other wise last of month"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "daysOfTheWeek",
+   "name": "DaysOfTheWeek",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DayOfWeek"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "It should be Sunday/Monday/T..../Saturday"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monthsOfYear",
+   "name": "MonthsOfYear",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Month"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "It should be January/February/....../December"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheduleTimes",
+   "name": "ScheduleTimes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "DateTime",
+     "referenceName": null,
+     "dateFormat": "RFC3339"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of schedule times for backup"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weeksOfTheMonth",
+   "name": "WeeksOfTheMonth",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "WeekNumber"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "It should be First/Second/Third/Fourth/Last"
+  }
+ ],
+ "discriminatedParentModelName": "BackupCriteria",
+ "discriminatedTypeValue": "ScheduleBasedBackupCriteria",
+ "typeHintIn": "ObjectType"
+}

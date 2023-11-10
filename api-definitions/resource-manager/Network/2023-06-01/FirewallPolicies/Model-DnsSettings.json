@@ -1,0 +1,45 @@
+{
+ "name": "DnsSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableProxy",
+   "name": "EnableProxy",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Enable DNS Proxy on Firewalls attached to the Firewall Policy."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requireProxyForNetworkRules",
+   "name": "RequireProxyForNetworkRules",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "FQDNs in Network Rules are supported when set to true."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "servers",
+   "name": "Servers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of Custom DNS Servers."
+  }
+ ]
+}

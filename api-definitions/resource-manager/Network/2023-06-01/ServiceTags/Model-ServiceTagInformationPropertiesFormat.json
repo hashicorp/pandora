@@ -1,0 +1,69 @@
+{
+ "name": "ServiceTagInformationPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addressPrefixes",
+   "name": "AddressPrefixes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The list of IP address prefixes."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "changeNumber",
+   "name": "ChangeNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The iteration number of service tag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "region",
+   "name": "Region",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The region of service tag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The state of the service tag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "systemService",
+   "name": "SystemService",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The name of system service."
+  }
+ ]
+}

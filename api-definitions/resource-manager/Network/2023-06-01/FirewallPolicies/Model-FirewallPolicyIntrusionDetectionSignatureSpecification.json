@@ -1,0 +1,29 @@
+{
+ "name": "FirewallPolicyIntrusionDetectionSignatureSpecification",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Signature id."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIntrusionDetectionStateType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The signature state."
+  }
+ ]
+}

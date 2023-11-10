@@ -1,0 +1,37 @@
+{
+ "name": "PacketCaptureMachineScope",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclude",
+   "name": "Exclude",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of AzureVMSS instances which has to be excluded from the AzureVMSS from running packet capture."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "include",
+   "name": "Include",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of AzureVMSS instances to run packet capture on."
+  }
+ ]
+}

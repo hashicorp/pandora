@@ -1,0 +1,178 @@
+{
+ "name": "ConnectionMonitorResultProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoStart",
+   "name": "AutoStart",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Determines if the connection monitor will start automatically once created."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionMonitorType",
+   "name": "ConnectionMonitorType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMonitorType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Type of connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destination",
+   "name": "Destination",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMonitorDestination"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Describes the destination of connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpoints",
+   "name": "Endpoints",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectionMonitorEndpoint"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of connection monitor endpoints."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringIntervalInSeconds",
+   "name": "MonitoringIntervalInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Monitoring interval in seconds."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringStatus",
+   "name": "MonitoringStatus",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The monitoring status of the connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notes",
+   "name": "Notes",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Optional notes to be associated with the connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outputs",
+   "name": "Outputs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectionMonitorOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of connection monitor outputs."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "source",
+   "name": "Source",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMonitorSource"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Describes the source of connection monitor."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The date and time when the connection monitor was started."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "testConfigurations",
+   "name": "TestConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectionMonitorTestConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of connection monitor test configurations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "testGroups",
+   "name": "TestGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ConnectionMonitorTestGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of connection monitor test groups."
+  }
+ ]
+}

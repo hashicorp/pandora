@@ -1,0 +1,77 @@
+{
+ "name": "ExplicitProxy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableExplicitProxy",
+   "name": "EnableExplicitProxy",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "When set to true, explicit proxy mode is enabled."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enablePacFile",
+   "name": "EnablePacFile",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "When set to true, pac file port and url needs to be provided."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "httpPort",
+   "name": "HTTPPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Port number for explicit proxy http protocol, cannot be greater than 64000."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "httpsPort",
+   "name": "HTTPSPort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Port number for explicit proxy https protocol, cannot be greater than 64000."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pacFile",
+   "name": "PacFile",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "SAS URL for PAC file."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pacFilePort",
+   "name": "PacFilePort",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Port number for firewall to serve PAC file."
+  }
+ ]
+}

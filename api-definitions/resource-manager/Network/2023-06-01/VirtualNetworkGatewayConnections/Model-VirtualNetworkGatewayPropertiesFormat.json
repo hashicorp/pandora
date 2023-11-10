@@ -1,0 +1,317 @@
+{
+ "name": "VirtualNetworkGatewayPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeActive",
+   "name": "ActiveActive",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "ActiveActive flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "adminState",
+   "name": "AdminState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdminState"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Property to indicate if the Express Route Gateway serves traffic when there are multiple Express Route Gateways in the vnet"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowRemoteVnetTraffic",
+   "name": "AllowRemoteVnetTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Configure this gateway to accept traffic from other Azure Virtual Networks. This configuration does not support connectivity to Azure Virtual WAN."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowVirtualWanTraffic",
+   "name": "AllowVirtualWanTraffic",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Configures this gateway to accept traffic from remote Virtual WAN networks."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoScaleConfiguration",
+   "name": "AutoScaleConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayAutoScaleConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Autoscale configuration for virutal network gateway"
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bgpSettings",
+   "name": "BgpSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BgpSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Virtual network gateway's BGP speaker settings."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customRoutes",
+   "name": "CustomRoutes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AddressSpace"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disableIPSecReplayProtection",
+   "name": "DisableIPSecReplayProtection",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "disableIPSecReplayProtection flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBgp",
+   "name": "EnableBgp",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether BGP is enabled for this virtual network gateway or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBgpRouteTranslationForNat",
+   "name": "EnableBgpRouteTranslationForNat",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "EnableBgpRouteTranslationForNat flag."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableDnsForwarding",
+   "name": "EnableDnsForwarding",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether dns forwarding is enabled or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enablePrivateIpAddress",
+   "name": "EnablePrivateIPAddress",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Whether private IP needs to be enabled on this gateway for connections or not."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayDefaultSite",
+   "name": "GatewayDefaultSite",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayType",
+   "name": "GatewayType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewayType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of this virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfigurations",
+   "name": "IPConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkGatewayIPConfiguration"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "IP configurations for virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inboundDnsForwardingEndpoint",
+   "name": "InboundDnsForwardingEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The IP address allocated by the gateway to which dns requests can be sent."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "natRules",
+   "name": "NatRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkGatewayNatRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "NatRules for virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceGuid",
+   "name": "ResourceGuid",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "The resource GUID property of the virtual network gateway resource."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkGatewaySku"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the VirtualNetworkGatewaySku resource which represents the SKU selected for Virtual network gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vNetExtendedLocationResourceId",
+   "name": "VNetExtendedLocationResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Customer vnet resource id. VirtualNetworkGateway of type local gateway is associated with the customer vnet."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkGatewayPolicyGroups",
+   "name": "VirtualNetworkGatewayPolicyGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualNetworkGatewayPolicyGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the VirtualNetworkGatewayPolicyGroup resource which represents the available VirtualNetworkGatewayPolicyGroup for the gateway."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnClientConfiguration",
+   "name": "VpnClientConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnClientConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The reference to the VpnClientConfiguration resource which represents the P2S VpnClient configurations."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnGatewayGeneration",
+   "name": "VpnGatewayGeneration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnGatewayGeneration"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The generation for this VirtualNetworkGateway. Must be None if gatewayType is not VPN."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vpnType",
+   "name": "VpnType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VpnType"
+   },
+   "optional": true,
+   "required": false,
+   "description": "The type of this virtual network gateway."
+  }
+ ]
+}

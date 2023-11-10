@@ -1,0 +1,66 @@
+{
+ "name": "AzureBackupRestoreRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identityDetails",
+   "name": "IdentityDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": "Contains information of the Identity Details for the BI.\r\nIf it is null, default will be considered as System Assigned."
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreTargetInfo",
+   "name": "RestoreTargetInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoreTargetInfoBase"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the restore target information."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDataStoreType",
+   "name": "SourceDataStoreType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SourceDataStoreType"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Gets or sets the type of the source data store."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Fully qualified Azure Resource Manager ID of the datasource which is being recovered."
+  }
+ ],
+ "typeHintIn": "ObjectType"
+}

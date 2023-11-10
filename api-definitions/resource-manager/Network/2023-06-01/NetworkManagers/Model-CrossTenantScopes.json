@@ -1,0 +1,49 @@
+{
+ "name": "CrossTenantScopes",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managementGroups",
+   "name": "ManagementGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of management groups."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subscriptions",
+   "name": "Subscriptions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": "List of subscriptions."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "Tenant ID."
+  }
+ ]
+}

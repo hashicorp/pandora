@@ -1,0 +1,29 @@
+{
+ "name": "SecurityGroupNetworkInterface",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": "ID of the network interface."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securityRuleAssociations",
+   "name": "SecurityRuleAssociations",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityRuleAssociations"
+   },
+   "optional": true,
+   "required": false,
+   "description": "All security rules associated with the network interface."
+  }
+ ]
+}

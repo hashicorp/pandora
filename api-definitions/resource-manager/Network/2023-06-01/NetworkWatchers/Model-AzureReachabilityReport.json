@@ -1,0 +1,45 @@
+{
+ "name": "AzureReachabilityReport",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aggregationLevel",
+   "name": "AggregationLevel",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": "The aggregation level of Azure reachability report. Can be Country, State or City."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerLocation",
+   "name": "ProviderLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureReachabilityReportLocation"
+   },
+   "optional": false,
+   "required": true,
+   "description": "Parameters that define a geographic location."
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reachabilityReport",
+   "name": "ReachabilityReport",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureReachabilityReportItem"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": "List of Azure reachability report items."
+  }
+ ]
+}
