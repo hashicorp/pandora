@@ -1,0 +1,89 @@
+{
+ "name": "HardwareProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cpuCount",
+   "name": "CpuCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dynamicMemoryEnabled",
+   "name": "DynamicMemoryEnabled",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DynamicMemoryEnabled"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dynamicMemoryMaxMB",
+   "name": "DynamicMemoryMaxMB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dynamicMemoryMinMB",
+   "name": "DynamicMemoryMinMB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isHighlyAvailable",
+   "name": "IsHighlyAvailable",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IsHighlyAvailable"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limitCpuForMigration",
+   "name": "LimitCPUForMigration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LimitCPUForMigration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "memoryMB",
+   "name": "MemoryMB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
