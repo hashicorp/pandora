@@ -106,9 +106,10 @@ func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isType
 		Name:                           fieldName,
 		ObjectDefinition:               *objectDefinition,
 		// TODO: support Optional being a distinct value in-time so we can have ReadOnly fields too
-		Optional:    !fieldDetails.Required,
-		Required:    fieldDetails.Required,
-		Description: fieldDetails.Description,
+		Optional: !fieldDetails.Required,
+		Required: fieldDetails.Required,
+		// TODO this can be uncommented when #3325 has been fixed
+		// Description: fieldDetails.Description,
 	}, nil
 }
 
