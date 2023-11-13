@@ -69,3 +69,18 @@ func mapResourceIdSegments(input []repositories.ResourceIdSegment) []models.Reso
 
 	return segments
 }
+
+func mapOptionObjectDefinition(input *repositories.OptionObjectDefinition) *models.ApiObjectDefinition {
+	if input == nil {
+		return nil
+	}
+
+	output := models.ApiObjectDefinition{}
+	if input.NestedItem != nil {
+		output.NestedItem = mapOptionObjectDefinition(input.NestedItem)
+	}
+	output.ReferenceName = input.ReferenceName
+	output.Type = models.ApiObjectDefinitionType(input.Type)
+
+	return &output
+}
