@@ -3,6 +3,7 @@ name: Extract TF resource IDs
 on:
   pull_request_target:
     paths:
+      - 'api-definitions/**' # needed until https://github.com/hashicorp/pandora/issues/3315 is implemented
       - 'data/**'
     types: ['opened', 'edited']
 
