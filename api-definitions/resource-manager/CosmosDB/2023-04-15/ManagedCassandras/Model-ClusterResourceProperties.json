@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Which authentication method Cassandra should use to authenticate clients. 'None' turns off authentication, so should not be used except in emergencies. 'Cassandra' is the default password based authentication. The default is 'Cassandra'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether Cassandra audit logging is enabled"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Which version of Cassandra should this cluster converge to running (e.g., 3.11). When updated, the cluster may take some time to migrate to the new version."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of TLS certificates used to authorize clients connecting to the cluster. All connections are TLS encrypted whether clientCertificates is set or not, but if clientCertificates is set, the managed Cassandra cluster will reject all connections not bearing a TLS client certificate that can be validated from one or more of the public certificates in this property."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If you need to set the clusterName property in cassandra.yaml to something besides the resource name of the cluster, set the value to use on this property."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether the cluster and associated data centers has been deallocated."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Resource id of a subnet that this cluster's management service should have its network interface attached to. The subnet must be routable to all subnets that will be delegated to data centers. The resource id must be of the form '/subscriptions/\u003csubscription id\u003e/resourceGroups/\u003cresource group\u003e/providers/Microsoft.Network/virtualNetworks/\u003cvirtual network\u003e/subnets/\u003csubnet\u003e'"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +103,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of TLS certificates used to authorize gossip from unmanaged data centers. The TLS certificates of all nodes in unmanaged data centers must be verifiable using one of the certificates provided in this property."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of IP addresses of seed nodes in unmanaged data centers. These will be added to the seed node lists of all managed nodes."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +135,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of TLS certificates that unmanaged nodes must trust for gossip with managed nodes. All managed nodes will present TLS client certificates that are verifiable using one of the certificates provided in this property."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "(Deprecated) Number of hours to wait between taking a backup of the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +159,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Initial password for clients connecting as admin to the cluster. Should be changed after cluster creation. Returns null on GET. This field only applies when the authenticationMethod field is 'Cassandra'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +171,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Hostname or IP address where the Prometheus endpoint containing data about the managed Cassandra nodes can be reached."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +183,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Error related to resource provisioning."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +207,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Should automatic repairs run on this cluster? If omitted, this is true, and should stay true unless you are running a hybrid cluster where you are already doing your own repairs."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +219,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "To create an empty cluster, omit this field or set it to null. To restore a backup into a new cluster, set this field to the resource id of the backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +235,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of IP addresses of seed nodes in the managed data centers. These should be added to the seed node lists of all unmanaged nodes."
+   "description": ""
   }
  ]
 }

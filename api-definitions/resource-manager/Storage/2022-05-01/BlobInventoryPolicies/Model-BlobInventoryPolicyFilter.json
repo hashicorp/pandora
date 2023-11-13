@@ -15,7 +15,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An array of predefined enum values. Valid values include blockBlob, appendBlob, pageBlob. Hns accounts does not support pageBlobs. This field is required when definition.objectType property is set to 'Blob'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -31,7 +31,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An array of strings with maximum 10 blob prefixes to be excluded from the inventory."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +43,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Includes blob versions in blob inventory when value is set to true. The definition.schemaFields values 'VersionId and IsCurrentVersion' are required if this property is set to true, else they must be excluded."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +55,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "For 'Container' definition.objectType the definition.schemaFields must include 'Deleted, Version, DeletedTime and RemainingRetentionDays'. For 'Blob' definition.objectType and HNS enabled storage accounts the definition.schemaFields must include 'DeletionId, Deleted, DeletedTime and RemainingRetentionDays' and for Hns disabled accounts the definition.schemaFields must include 'Deleted and RemainingRetentionDays', else it must be excluded."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +67,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Includes blob snapshots in blob inventory when value is set to true. The definition.schemaFields value 'Snapshot' is required if this property is set to true, else it must be excluded."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An array of strings with maximum 10 blob prefixes to be included in the inventory."
+   "description": ""
   }
  ]
 }

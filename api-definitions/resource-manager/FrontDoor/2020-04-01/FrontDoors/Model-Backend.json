@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Location of the backend (IP address or FQDN)"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The value to use as the host header sent to the backend. If blank or unspecified, this defaults to the incoming host."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether to enable use of this backend. Permitted values are 'Enabled' or 'Disabled'"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The HTTP TCP port number. Must be between 1 and 65535."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The HTTPS TCP port number. Must be between 1 and 65535."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Priority to use for load balancing. Higher priorities will not be used for load balancing if any lower priority backend is healthy."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Approval status for the connection to the Private Link"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Alias of the Private Link resource. Populating this optional field indicates that this backend is 'Private'"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "A custom message to be included in the approval request to connect to the Private Link"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Weight of this endpoint for load balancing purposes."
+   "description": ""
   }
  ]
 }

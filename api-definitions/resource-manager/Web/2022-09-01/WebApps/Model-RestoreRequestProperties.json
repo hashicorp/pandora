@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "\u003ccode\u003etrue\u003c/code\u003e if SiteConfig.ConnectionStrings should be set in new app; otherwise, \u003ccode\u003efalse\u003c/code\u003e."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specify app service plan that will own restored site."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Name of a blob which contains the backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Collection of databases which should be restored. This list has to match the list of databases included in the backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "App Service Environment name, if needed (only when restoring an app to an App Service Environment)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Changes a logic when restoring an app with custom domains. \u003ccode\u003etrue\u003c/code\u003e to remove custom domains automatically. If \u003ccode\u003efalse\u003c/code\u003e, custom domains are added to \nthe app's object when it is being restored, but that might fail due to conflicts during the operation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Ignore the databases and only restore the site content"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +99,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Operation type."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +111,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "\u003ccode\u003etrue\u003c/code\u003e if the restore operation can overwrite target app; otherwise, \u003ccode\u003efalse\u003c/code\u003e. \u003ccode\u003etrue\u003c/code\u003e is needed if trying to restore over an existing app."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +123,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Name of an app."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +135,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "SAS URL to the container."
+   "description": ""
   }
  ]
 }

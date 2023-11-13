@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Analytical storage specific properties."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "API specific properties. Currently, supported only for MongoDB API."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The object representing the policy for taking backups on an account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of Cosmos DB capabilities for the account"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The object that represents all properties related to capacity enforcement on an account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The cassandra connector offer type for the Cosmos DB database C* account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The consistency policy for the Cosmos DB account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +103,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The CORS policy for the Cosmos DB database account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -115,7 +115,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The default identity for accessing key vault used in features like customer managed keys. The default identity needs to be explicitly set by the users. It can be \"FirstPartyIdentity\", \"SystemAssignedIdentity\" and more."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +127,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Disable write operations on metadata resources (databases, containers, throughput) via account keys"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +139,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Opt-out of local authentication and ensure only MSI and AAD can be used exclusively for authentication."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +151,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag to indicate whether to enable storage analytics."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +163,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Enables automatic failover of the write region in the rare event that the region is unavailable due to an outage. Automatic failover will result in a new write region for the account and is chosen based on the failover priorities configured for the account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +175,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Enables the cassandra connector on the Cosmos DB C* account"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +187,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag to indicate whether Free Tier is enabled."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +199,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Enables the account to write in multiple locations"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -211,7 +211,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag to indicate enabling/disabling of Partition Merge feature on the account"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -227,7 +227,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of IpRules."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -239,7 +239,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag to indicate whether to enable/disable Virtual Network ACL rules."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -251,7 +251,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The URI of the key vault"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -263,7 +263,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This property is ignored during the update operation, as the metadata is read-only. The object represents the metadata for the Account Keys of the Cosmos DB account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +279,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An array that contains the georeplication locations enabled for the Cosmos DB account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -291,7 +291,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates the minimum allowed Tls version. The default is Tls 1.0, except for Cassandra and Mongo API's, which only work with Tls 1.2."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -303,7 +303,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates what services are allowed to bypass firewall checks."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -319,7 +319,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An array that contains the Resource Ids for Network Acl Bypass for the Cosmos DB account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -331,7 +331,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether requests from Public Network are allowed"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -347,7 +347,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of Virtual Network ACL rules configured for the Cosmos DB account."
+   "description": ""
   }
  ]
 }

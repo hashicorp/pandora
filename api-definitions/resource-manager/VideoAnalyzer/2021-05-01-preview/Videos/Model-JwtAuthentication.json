@@ -15,7 +15,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of expected token audiences. Token audience is valid if it matches at least one of the given values."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -31,7 +31,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of additional token claims to be validated. Token must contains all claims and respective values for it to be valid."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of expected token issuers. Token issuer is valid if it matches at least one of the given values."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of keys which can be used to validate access tokens. Having multiple keys allow for seamless key rotation of the token signing key. Token signature must match exactly one key."
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "AuthenticationBase",

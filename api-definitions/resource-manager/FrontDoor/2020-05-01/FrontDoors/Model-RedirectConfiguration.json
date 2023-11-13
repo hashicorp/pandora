@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Fragment to add to the redirect URL. Fragment is the part of the URL that comes after #. Do not include the #."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Host to redirect. Leave empty to use the incoming host as the destination host."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The full path to redirect. Path cannot be empty and must start with /. Leave empty to use the incoming path as destination path."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The set of query strings to be placed in the redirect URL. Setting this value would replace any existing query string; leave empty to preserve the incoming query string. Query string must be in \u003ckey\u003e=\u003cvalue\u003e format. The first ? and \u0026 will be added automatically so do not include them in the front, but do separate multiple query strings with \u0026."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The protocol of the destination to where the traffic is redirected"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The redirect type the rule will use when redirecting traffic."
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "RouteConfiguration",

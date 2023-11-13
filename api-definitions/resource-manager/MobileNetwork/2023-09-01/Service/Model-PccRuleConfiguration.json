@@ -11,7 +11,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The name of the rule. This must be unique within the parent service. You must not use any of the following reserved strings - `default`, `requested` or `service`."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "A precedence value that is used to decide between data flow policy rules when identifying the QoS values to use for a particular SIM. A lower value means a higher priority. This value should be unique among all data flow policy rules configured in the mobile network."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The QoS policy to use for packets matching this rule. If this field is null then the parent service will define the QoS settings."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -53,7 +53,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The set of data flow templates to use for this data flow policy rule."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -65,7 +65,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Determines whether flows that match this data flow policy rule are permitted."
+   "description": ""
   }
  ]
 }

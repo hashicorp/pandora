@@ -12,7 +12,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The time the resource was created."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -24,7 +24,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The fully qualified domain name used to access the environment data, e.g. to query the environment's events or upload reference data for the environment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +36,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An id used to access the environment data, e.g. to query the environment's events or upload reference data for the environment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +48,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "ISO8601 timespan specifying the minimum number of days the environment's events will be available for query."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -64,7 +64,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of event properties which will be used to partition data in the environment. Currently, only a single partition key property is supported."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -76,7 +76,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Provisioning state of the resource."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -88,7 +88,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An object that represents the status of the environment, and its internal state in the Time Series Insights service."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -100,7 +100,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The behavior the Time Series Insights service should take when the environment's capacity has been exceeded. If \"PauseIngress\" is specified, new events will not be read from the event source. If \"PurgeOldData\" is specified, new events will continue to be read and old events will be deleted from the environment. The default behavior is PurgeOldData."
+   "description": ""
   }
  ]
 }
