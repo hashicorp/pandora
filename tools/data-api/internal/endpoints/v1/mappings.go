@@ -1,6 +1,7 @@
 package v1
 
 import (
+	"fmt"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
@@ -27,7 +28,7 @@ func mapSchemaFields(input map[string]repositories.FieldDetails) map[string]mode
 	for k, field := range input {
 
 		fields[k] = models.FieldDetails{
-			DateFormat:       pointer.To(models.DateFormat(pointer.From(field.DateFormat))),
+			DateFormat:       mapDateFormat(field.DateFormat),
 			ForceNew:         field.ForceNew,
 			IsTypeHint:       field.IsTypeHint,
 			JsonName:         field.JsonName,
@@ -51,6 +52,32 @@ func mapFieldValidation(input *repositories.FieldValidationDetails) *models.Fiel
 	output.Values = input.Values
 
 	return &output
+}
+
+func mapDateFormat(input *repositories.DateFormat) *models.DateFormat {
+	if input != nil {
+		mappings := map[repositories.DateFormat]models.DateFormat{
+			repositories.RFC3339DateFormat: models.RFC3339,
+		}
+		if v, ok := mappings[*input]; ok {
+			return &v
+		}
+	}
+
+	return nil
+}
+
+func mapConstantType(input repositories.ConstantType) (*models.ConstantType, error) {
+	mappings := map[repositories.ConstantType]models.ConstantType{
+		repositories.FloatConstant:   models.FloatConstant,
+		repositories.IntegerConstant: models.IntegerConstant,
+		repositories.StringConstant:  models.StringConstant,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped constant type %q", input)
 }
 
 func mapResourceIdSegments(input []repositories.ResourceIdSegment) []models.ResourceIdSegment {

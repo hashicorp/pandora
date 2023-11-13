@@ -23,8 +23,13 @@ func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 	resourceIds := make(map[string]models.ResourceIdDefinition, 0)
 
 	for k, constant := range resource.Schema.Constants {
+		constantType, err := mapConstantType(constant.Type)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("unmapped constant type %q", constant.Type))
+			return
+		}
 		constants[k] = models.ConstantDetails{
-			Type:   models.ConstantType(constant.Type),
+			Type:   *constantType,
 			Values: constant.Values,
 		}
 	}
