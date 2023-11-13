@@ -27,11 +27,11 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 func mapConstant(constantName string, details resourcemanager.ConstantDetails) (*models.Constant, error) {
 	keys := make([]string, 0)
 	keysToValues := make(map[string]models.ConstantValue)
-	for _, key := range details.Values {
-		keys = append(keys, key)
-		keysToValues[key] = models.ConstantValue{
-			Key:   key,
-			Value: details.Values[key],
+	for k, v := range details.Values {
+		keys = append(keys, k)
+		keysToValues[k] = models.ConstantValue{
+			Key:   k,
+			Value: v,
 			// TODO: expose Description in the future when this is surfaced from the Parser
 		}
 	}
