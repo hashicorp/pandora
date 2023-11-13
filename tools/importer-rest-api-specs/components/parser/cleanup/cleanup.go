@@ -178,6 +178,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"role":                                    "role",   // handles Role
 		"routes":                                  "routes", // handles Routes
 		"rulesengines":                            "rulesEngines",
+		"runasaccounts":                           "runAsAccounts",
 		"saasresources":                           "saasResources",
 		"schemagroups":                            "schemaGroups",
 		"scripts":                                 "scripts", // handles Scripts
