@@ -469,7 +469,7 @@ service "resources" {
   available = ["2020-05-01", "2020-06-01", "2020-10-01", "2021-04-01", "2021-06-01", "2021-07-01", "2022-02-01", "2022-06-01", "2022-07-01-preview", "2022-09-01", "2022-12-01", "2023-04-01", "2023-07-01", "2023-08-01"]
 }
 service "scvmm" {
-  name      = "ScVmm"
+  name      = "SystemCenterVirtualMachineManager"
   available = ["2023-10-07"]
 }
 service "search" {
