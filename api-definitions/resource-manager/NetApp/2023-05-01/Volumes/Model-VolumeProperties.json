@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Actual throughput in MiB/s for auto qosType volumes calculated based on size and serviceLevel"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies whether the volume is enabled for Azure VMware Solution (AVS) datastore purpose"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "UUID v4 or resource identifier used to identify the Backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Unique Baremetal Tenant Identifier."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Pool Resource Id used in case of creating a volume through volume group"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "When a volume is being restored from another volume's snapshot, will show the percentage completion of this cloning process. When this value is empty/null there is no cloning process currently happening on this volume. This value will update every 5 minutes during cloning."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies whether Cool Access(tiering) is enabled for the volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies the number of days after which data that is not accessed by clients will be tiered."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "A unique file path for the volume. Used when creating mount targets"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +131,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "DataProtection type volumes include an object containing details of the replication"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Data store resource unique identifier"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +159,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Default group quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +171,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Default user quota for volume in KiBs. If isDefaultQuotaEnabled is set, the minimum value of 4 KiBs applies ."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +183,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If enabled (true) the snapshot the volume was created from will be automatically deleted after the volume create operation has finished.  Defaults to false"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +195,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag indicating whether subvolume operations are enabled on the volume"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +207,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies if the volume is encrypted or not. Only available on volumes created or updated after 2022-01-01."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +219,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Source of key used to encrypt data in volume. Applicable if NetApp account has encryption.keySource = 'Microsoft.KeyVault'. Possible values (case-insensitive) are: 'Microsoft.NetApp, Microsoft.KeyVault'"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -231,7 +231,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Set of export policy rules"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -243,7 +243,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag indicating whether file access logs are enabled for the volume, based on active diagnostic settings present on the volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -255,7 +255,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Unique FileSystem Identifier."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -267,7 +267,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies if default quota is enabled for the volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +279,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies whether volume is a Large Volume or Regular Volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -291,7 +291,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Restoring"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -303,7 +303,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Describe if a volume is KerberosEnabled. To be use with swagger version 2020-05-01 or later"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -315,7 +315,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource ID of private endpoint for KeyVault. It must reside in the same VNET as the volume. Only applicable if encryptionKeySource = 'Microsoft.KeyVault'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -327,7 +327,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies whether LDAP is enabled or not for a given NFS volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -339,7 +339,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Maximum number of files allowed. Needs a service request in order to be changed. Only allowed to be changed if volume quota is more than 4TiB."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -355,7 +355,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of mount targets"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -379,7 +379,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Network Sibling Set ID for the the group of volumes sharing networking resources."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -391,7 +391,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Id of the snapshot or backup that the volume is restored from."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -407,7 +407,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Application specific placement rules for the particular volume"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -423,7 +423,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Set of protocol types, default NFSv3, CIFS for SMB protocol"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -435,7 +435,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The availability zone where the volume is provisioned. This refers to the logical availability zone where the volume resides."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -447,7 +447,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Azure lifecycle management"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -459,7 +459,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Proximity placement group associated with the volume"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -471,7 +471,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The security style of volume, default unix, defaults to ntfs for dual protocol or CIFS protocol"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -507,7 +507,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Enables continuously available share property for smb volume. Only applicable for SMB volume"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -519,7 +519,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Enables encryption for in-flight smb3 data. Only applicable for SMB/DualProtocol volume. To be used with swagger version 2020-08-01 or later"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -543,7 +543,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If enabled (true) the volume will contain a read-only snapshot directory which provides access to each of the volume's snapshots (defaults to true)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -555,7 +555,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "UUID v4 or resource identifier used to identify the Snapshot."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -567,7 +567,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Provides storage to network proximity information for the volume."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -579,7 +579,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The Azure Resource URI for a delegated subnet. Must have the delegation Microsoft.NetApp/volumes"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -591,7 +591,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "T2 network information"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -615,7 +615,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "UNIX permissions for NFS volume accepted in octal 4 digit format. First digit selects the set user ID(4), set group ID (2) and sticky (1) attributes. Second digit selects permission for the owner of the file: read (4), write (2) and execute (1). Third selects permissions for other users in the same group. the fourth for other users not in the group. 0755 - gives read/write/execute permissions to owner and read/execute to group and other users."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -627,7 +627,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Maximum storage quota allowed for a file system in bytes. This is a soft quota used for alerting only. Minimum size is 100 GiB. Upper limit is 100TiB, 500Tib for LargeVolume or 2400Tib for LargeVolume on exceptional basis. Specified in bytes."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -639,7 +639,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Volume Group Name"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -651,7 +651,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Volume spec name is the application specific designation or identifier for the particular volume in a volume group for e.g. data, log"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -663,7 +663,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "What type of volume is this. For destination volumes in Cross Region Replication, set type to DataProtection"
+   "description": ""
   }
  ]
 }

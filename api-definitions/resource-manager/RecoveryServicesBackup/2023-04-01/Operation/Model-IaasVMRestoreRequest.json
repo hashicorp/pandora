@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Affinity group associated to VM to be restored. Used only for Classic Compute Virtual Machines."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Should a new cloud service be created while restoring the VM. If this is false, VM will be restored to the same\r\ncloud service as it was at the time of backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "DiskEncryptionSet's ID - needed if the VM needs to be encrypted at rest during restore with customer managed key."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Details needed if the VM was encrypted at the time of backup."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Target extended location where the VM should be restored,\r\nshould be null if restore is to be done in public cloud"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "IaaS VM workload specific restore details for restores using managed identity."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Managed Identity information required to access customer storage account."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Original Storage Account Option"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "ID of the backup copy to be recovered."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Type of this recovery."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +131,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Region in which the virtual machine is restored."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of Disk LUNs for partial restore"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +159,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag to denote of an Unmanaged disk VM should be restored with Managed disks."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +171,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Stores Secured VM Details"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +183,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Fully qualified ARM ID of the VM which is being recovered."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -195,7 +195,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Fully qualified ARM ID of the storage account to which the VM has to be restored."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -207,7 +207,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Subnet ID, is the subnet ID associated with the to be restored VM. For Classic VMs it would be\r\n{VnetID}/Subnet/{SubnetName} and, for the Azure Resource Manager VMs it would be ARM resource ID used to represent\r\nthe subnet."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -219,7 +219,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies target network access settings for disks of VM to be restored,"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -231,7 +231,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Fully qualified ARM ID of the domain name to be associated to the VM being restored. This applies only to Classic\r\nVirtual Machines."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -243,7 +243,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This is the ARM Id of the resource group that you want to create for this Virtual machine and other artifacts.\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -255,7 +255,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This is the complete ARM Id of the VM that will be created.\r\nFor e.g. /subscriptions/{subId}/resourcegroups/{rg}/provider/Microsoft.Compute/virtualmachines/{vm}"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -267,7 +267,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This is the virtual network Id of the vnet that will be attached to the virtual machine.\r\nUser will be validated for join action permissions in the linked access."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -279,7 +279,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Target zone where the VM and its disks should be restored."
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "RestoreRequest",

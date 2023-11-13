@@ -15,7 +15,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of add-on features to enable in the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +27,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The policy used to clean up unused versions."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -39,7 +39,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The certificate to use for securing the cluster. The certificate provided will be used for  node to node security within the cluster, SSL certificate for cluster management endpoint and default  admin client."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +67,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of client certificates referenced by common name that are allowed to manage the cluster. This will overwrite the existing list."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of client certificates referenced by thumbprint that are allowed to manage the cluster. This will overwrite the existing list."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Service Fabric runtime version of the cluster. This property can only by set the user when **upgradeMode** is set to 'Manual'. To get list of available Service Fabric versions for new clusters use [ClusterVersion API](https://learn.microsoft.com/rest/api/servicefabric/cluster-versions/list). To get the list of available version for existing clusters use **availableClusterVersions**."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates if the event store service is enabled."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +123,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of custom fabric settings to configure the cluster. This will overwrite the existing list."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +135,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates if infrastructure service manager is enabled."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +151,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of node types in the cluster. This will overwrite the existing list."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -167,7 +167,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates a list of notification channels for cluster events."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +191,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The server certificate used by reverse proxy."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -215,7 +215,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The policy to use when upgrading the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -240,7 +240,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The end timestamp of pause runtime version upgrades on the cluster (UTC)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -253,7 +253,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The start timestamp to pause runtime version upgrades on the cluster (UTC)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -265,7 +265,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Indicates when new cluster runtime version upgrades will be applied after they are released. By default is Wave0. Only applies when **upgradeMode** is set to 'Automatic'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -289,7 +289,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Boolean to pause automatic runtime version upgrades to the cluster."
+   "description": ""
   }
  ]
 }

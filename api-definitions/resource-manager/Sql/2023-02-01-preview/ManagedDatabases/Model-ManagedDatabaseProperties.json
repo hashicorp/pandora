@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether to auto complete restore of this managed database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Collation of the metadata catalog."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Collation of the managed database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Managed database create mode. PointInTimeRestore: Create a database by restoring a point in time backup of an existing database. SourceDatabaseName, SourceManagedInstanceName and PointInTime must be specified. RestoreExternalBackup: Create a database by restoring from external backup files. Collation, StorageContainerUri and StorageContainerSasToken must be specified. Recovery: Creates a database by restoring a geo-replicated backup. RecoverableDatabaseId must be specified as the recoverable database resource ID to restore. RestoreLongTermRetentionBackup: Create a database by restoring from a long term retention backup (longTermRetentionBackupResourceId required)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +60,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Creation date of the database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +72,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The restorable cross-subscription dropped database resource id to restore when creating this database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +84,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource identifier of the cross-subscription source database associated with create operation of this database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +96,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Target managed instance id used in cross-subscription restore."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +108,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Geo paired region."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -121,7 +121,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Earliest restore point in time for point in time restore."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -133,7 +133,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Instance Failover Group resource identifier that this managed database belongs to."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -145,7 +145,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether or not this database is a ledger database, which means all tables in the database are ledger tables. Note: the value of this property cannot be changed after the database has been created."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -157,7 +157,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Last backup file name for restore of this managed database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -169,7 +169,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The name of the Long Term Retention backup to be used for restore of this managed database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -181,7 +181,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource identifier of the recoverable database associated with create operation of this database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -193,7 +193,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The restorable dropped database resource id to restore when creating this database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -206,7 +206,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Conditional. If createMode is PointInTimeRestore, this value is required. Specifies the point in time (ISO8601 format) of the source database that will be restored to create the new database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -218,7 +218,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource identifier of the source database associated with create operation of this database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -230,7 +230,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Status of the database."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -242,7 +242,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Conditional. If createMode is RestoreExternalBackup, this value is used. Specifies the identity used for storage container authentication. Can be 'SharedAccessSignature' or 'ManagedIdentity'; if not specified 'SharedAccessSignature' is assumed."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -254,7 +254,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Conditional. If createMode is RestoreExternalBackup and storageContainerIdentity is not ManagedIdentity, this value is required. Specifies the storage container sas token."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -266,7 +266,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Conditional. If createMode is RestoreExternalBackup, this value is required. Specifies the uri of the storage container where backups for this restore are stored."
+   "description": ""
   }
  ]
 }

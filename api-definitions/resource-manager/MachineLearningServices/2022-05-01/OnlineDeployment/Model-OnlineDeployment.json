@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If true, enables Application Insights logging."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Code configuration for the endpoint deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Description of the endpoint deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -47,7 +47,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "[Required] The compute type of the endpoint."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "ARM resource ID or AssetId of the environment specification for the endpoint deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Environment variables configuration for the deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Compute instance type."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +99,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Liveness probe monitors the health of the container regularly."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +111,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The URI path to the model."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +123,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The path to mount the model in custom container."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +139,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Property dictionary. Properties can be added, but not removed or altered."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +151,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Provisioning state for the endpoint deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +163,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Readiness probe validates if the container is ready to serve traffic. The properties and defaults are the same as liveness probe."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +175,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Request settings for the deployment."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +187,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Scale settings for the deployment.\r\nIf it is null or not provided,\r\nit defaults to TargetUtilizationScaleSettings for KubernetesOnlineDeployment\r\nand to DefaultScaleSettings for ManagedOnlineDeployment."
+   "description": ""
   }
  ],
  "typeHintIn": "EndpointComputeType"

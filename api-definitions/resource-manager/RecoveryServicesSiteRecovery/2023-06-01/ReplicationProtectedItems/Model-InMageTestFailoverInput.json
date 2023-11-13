@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The recovery point id to be passed to test failover to a particular recovery point. In case of latest recovery point, null should be passed."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The recovery point type. Values from LatestTime, LatestTag or Custom. In the case of custom, the recovery point provided by RecoveryPointId will be used. In the other two cases, recovery point id will be ignored."
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "TestFailoverProviderSpecificInput",

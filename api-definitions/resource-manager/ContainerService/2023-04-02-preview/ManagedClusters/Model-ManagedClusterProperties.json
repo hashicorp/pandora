@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Azure Active Directory configuration."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +27,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The profile of managed cluster add-on."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +43,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The agent pool properties."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -55,7 +55,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The access profile for managed cluster API server."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -67,7 +67,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Parameters to be applied to the cluster-autoscaler when enabled"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -79,7 +79,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The auto upgrade configuration."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -103,7 +103,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Azure Portal requires certain Cross-Origin Resource Sharing (CORS) headers to be sent in some responses, which Kubernetes APIServer doesn't handle by default. This special FQDN supports CORS, allowing the Azure Portal to function properly."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -115,7 +115,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "CreationData to be used to specify the source Snapshot ID if the cluster will be created/upgraded using a snapshot."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -127,7 +127,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The version of Kubernetes the Managed Cluster is running."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -139,7 +139,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If set to true, getting static credentials will be disabled for this cluster. This must only be used on Managed Clusters that are AAD enabled. For more details see [disable local accounts](https://docs.microsoft.com/azure/aks/managed-aad#disable-local-accounts-preview)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -151,7 +151,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This is of the form: '/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{encryptionSetName}'"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -163,7 +163,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This cannot be updated once the Managed Cluster has been created."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -175,7 +175,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The default value is false. It can be enabled/disabled on creation and updating of the managed cluster. See [https://aka.ms/NamespaceARMResource](https://aka.ms/NamespaceARMResource) for more details on Namespace as a ARM Resource."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -187,7 +187,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "(DEPRECATED) Whether to enable Kubernetes pod security policy (preview). PodSecurityPolicy was deprecated in Kubernetes v1.21, and removed from Kubernetes in v1.25. Learn more at https://aka.ms/k8s/psp and https://aka.ms/aks/psp."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +199,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether to enable Kubernetes Role-Based Access Control."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -211,7 +211,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The FQDN of the master pool."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +223,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "This cannot be updated once the Managed Cluster has been created."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +235,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The guardrails profile holds all the guardrails information for a given cluster"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -247,7 +247,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Configurations for provisioning the cluster with HTTP proxy servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -263,7 +263,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Identities associated with the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -275,7 +275,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Ingress profile for the managed cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -287,7 +287,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "When you upgrade a supported AKS cluster, Kubernetes minor versions cannot be skipped. All upgrades must be performed sequentially by major version number. For example, upgrades between 1.14.x -\u003e 1.15.x or 1.15.x -\u003e 1.16.x are allowed, however 1.14.x -\u003e 1.16.x is not allowed. See [upgrading an AKS cluster](https://docs.microsoft.com/azure/aks/upgrade-cluster) for more details."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -299,7 +299,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The profile for Linux VMs in the Managed Cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -311,7 +311,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The max number of agent pools for the managed cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -323,7 +323,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The network configuration profile."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -335,7 +335,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The name of the resource group containing agent pool nodes."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -347,7 +347,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The node resource group configuration profile."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -359,7 +359,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The OIDC issuer profile of the Managed Cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -371,7 +371,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "See [use AAD pod identity](https://docs.microsoft.com/azure/aks/use-azure-ad-pod-identity) for more details on AAD pod identity integration."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -383,7 +383,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Power State of the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -395,7 +395,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The FQDN of private cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -411,7 +411,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Private link resources associated with the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -423,7 +423,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The current provisioning state."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -435,7 +435,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Allow or deny public network access for AKS"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -447,7 +447,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Security profile for the managed cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -471,7 +471,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Information about a service principal identity for the cluster to use for manipulating Azure APIs."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -483,7 +483,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Storage profile for the managed cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -495,7 +495,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The support plan for the Managed Cluster. If unspecified, the default is 'KubernetesOfficial'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -507,7 +507,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Settings for upgrading a cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -519,7 +519,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The profile for Windows VMs in the Managed Cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,

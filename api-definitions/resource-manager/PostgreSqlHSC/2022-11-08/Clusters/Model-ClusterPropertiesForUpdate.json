@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The password of the administrator login. Each cluster is created with pre-defined administrative role called ‘citus’. "
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Citus extension version on all cluster servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If public access is enabled on coordinator."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The edition of the coordinator (default: GeneralPurpose)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The storage of the coordinator in MB."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The vCores count of the coordinator (max: 96)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If high availability (HA) is enabled or not for the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Maintenance window of a cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +131,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If public access is enabled on worker nodes."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -143,7 +143,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The edition of a node (default: MemoryOptimized)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -155,7 +155,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The storage in MB on each worker node."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -167,7 +167,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The compute in vCores on each worker node (max: 104)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -179,7 +179,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The major PostgreSQL version on all cluster servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -191,7 +191,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Preferred primary availability zone (AZ) for all cluster servers."
+   "description": ""
   }
  ]
 }

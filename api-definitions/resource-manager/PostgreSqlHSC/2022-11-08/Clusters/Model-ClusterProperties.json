@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The administrator's login name of the servers in the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The password of the administrator login. Required for creation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Citus extension version on all cluster servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If public access is enabled on coordinator."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The edition of a coordinator server (default: GeneralPurpose). Required for creation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The storage of a server in MB. Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The vCores count of a server (max: 96). Required for creation. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +96,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The earliest restore point time (ISO8601 format) for the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +108,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If high availability (HA) is enabled or not for the cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +120,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If distributed tables are placed on coordinator or not. Should be set to 'true' on single node clusters. Requires shard rebalancing after value is changed."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -132,7 +132,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Maintenance window of a cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -144,7 +144,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Worker node count of the cluster. When node count is 0, it represents a single node configuration with the ability to create distributed tables on that node. 2 or more worker nodes represent multi-node configuration. Node count value cannot be 1. Required for creation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -156,7 +156,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If public access is enabled on worker nodes."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -168,7 +168,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The edition of a node server (default: MemoryOptimized)."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -180,7 +180,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The storage in MB on each worker node. See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -192,7 +192,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The compute in vCores on each worker node (max: 104). See https://learn.microsoft.com/azure/cosmos-db/postgresql/resources-compute for more information."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -205,7 +205,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Date and time in UTC (ISO8601 format) for cluster restore."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -217,7 +217,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The major PostgreSQL version on all cluster servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -229,7 +229,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Preferred primary availability zone (AZ) for all cluster servers."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -245,7 +245,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The private endpoint connections for a cluster."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -257,7 +257,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Provisioning state of the cluster"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -273,7 +273,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The array of read replica clusters."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -289,7 +289,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of server names in the cluster"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -301,7 +301,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Azure region of source cluster for read replica clusters."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -313,7 +313,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource id of source cluster for read replica clusters."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -325,7 +325,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "A state of a cluster/server that is visible to user."
+   "description": ""
   }
  ]
 }

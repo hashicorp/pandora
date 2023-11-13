@@ -16,7 +16,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of backend pool names. Currently, ACSS deploys only one backend pool and hence, size of this list should be 1"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -33,7 +33,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of frontend IP configuration names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -50,7 +50,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The list of health probe names. If provided as input, size of this list should be 2 for cs layer and should be 1 for database layer."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -62,7 +62,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The full resource name for load balancer. If this value is not provided, load balancer will be name as {ASCS/DB}-loadBalancer."
+   "description": ""
   }
  ]
 }

@@ -27,7 +27,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Gets or sets the list of system events."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -39,7 +39,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Gets or sets the EventHandler URL template. You can use a predefined parameter {hub} and {event} inside the template, the value of the EventHandler URL is dynamically calculated when the client request comes in.\r\nFor example, UrlTemplate can be `http://example.com/api/{hub}/{event}`. The host part can't contains parameters."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Gets or sets the matching pattern for event names.\r\nThere are 3 kinds of patterns supported:\r\n    1. \"*\", it matches any event name\r\n    2. Combine multiple events with \",\", for example \"event1,event2\", it matches event \"event1\" and \"event2\"\r\n    3. A single event name, for example, \"event1\", it matches \"event1\""
+   "description": ""
   }
  ]
 }

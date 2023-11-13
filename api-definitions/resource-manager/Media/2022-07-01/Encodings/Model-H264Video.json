@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Tells the encoder how to choose its encoding settings. The default value is Balanced."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The distance between two key frames. The value should be non-zero in the range [0.5, 20] seconds, specified in ISO 8601 format. The default is 2 seconds(PT2S). Note that this setting is ignored if VideoSyncMode.Passthrough is set, where the KeyFrameInterval value will follow the input source setting."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -39,7 +39,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The collection of output H.264 layers to be produced by the encoder."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The video rate control mode"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether or not the encoder should insert key frames at scene changes. If not specified, the default is false. This flag should be set to true only when the encoder is being configured to produce a single output video."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resizing mode - how the input video will be resized to fit the desired output resolution(s). Default is AutoSize"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The Video Sync Mode"
+   "description": ""
   }
  ],
  "discriminatedParentModelName": "Codec",

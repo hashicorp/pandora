@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Country or region for holidays for forecasting tasks.\r\nThese should be ISO 3166 two-letter country/region codes, for example 'US' or 'GB'."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Number of periods between the origin time of one CV fold and the next fold. For\r\nexample, if `CVStepSize` = 3 for daily data, the origin time for each fold will be\r\nthree days apart."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Flag for generating lags for the numeric features with 'auto' or null."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The desired maximum forecast horizon in units of time-series frequency."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "When forecasting, this parameter represents the period with which the forecast is desired, for example daily, weekly, yearly, etc. The forecast frequency is dataset frequency by default."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Set time series seasonality as an integer multiple of the series frequency.\r\nIf seasonality is set to 'auto', it will be inferred."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The parameter defining how if AutoML should handle short time series."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The function to be used to aggregate the time series target column to conform to a user specified frequency.\r\nIf the TargetAggregateFunction is set i.e. not 'None', but the freq parameter is not set, the error is raised. The possible target aggregation functions are: \"sum\", \"max\", \"min\" and \"mean\"."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of past periods to lag from the target column."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of past periods used to create a rolling window average of the target column."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +131,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The name of the time column. This parameter is required when forecasting to specify the datetime column in the input data used for building the time series and inferring its frequency."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The names of columns used to group a timeseries. It can be used to create multiple series.\r\nIf grain is not defined, the data set is assumed to be one time-series. This parameter is used with task type forecasting."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +159,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Configure STL Decomposition of the time-series target column."
+   "description": ""
   }
  ]
 }

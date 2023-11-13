@@ -15,7 +15,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "List of dimension conditions. For example: [{\"DimensionName\":\"AppName\",\"Operator\":\"Equals\",\"Values\":[\"App1\"]},{\"DimensionName\":\"Deployment\",\"Operator\":\"Equals\",\"Values\":[\"default\"]}]."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +27,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "a value indicating whether metric should divide per instance."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -39,7 +39,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the name of the metric that defines what the rule monitors."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -51,7 +51,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "the namespace of the metric that defines what the rule monitors."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -63,7 +63,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "the location of the resource the rule monitors."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -75,7 +75,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the resource identifier of the resource the rule monitors."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -87,7 +87,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the operator that is used to compare the metric data and the threshold."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +99,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the metric statistic type. How the metrics from multiple instances are combined."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +111,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the threshold of the metric that triggers the scale action."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +123,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "time aggregation type. How the data that is collected should be combined over time. The default value is Average."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -135,7 +135,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the granularity of metrics the rule monitors. Must be one of the predefined values returned from metric definitions for the metric. Must be between 12 hours and 1 minute."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "the range of time in which instance data is collected. This value must be greater than the delay in metric collection, which can vary from resource-to-resource. Must be between 12 hours and 5 minutes."
+   "description": ""
   }
  ]
 }

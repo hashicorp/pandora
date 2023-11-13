@@ -23,7 +23,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of patches that were not installed due to the user blocking their installation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of patches that could not be installed due to some issue. See errors for details."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The activity ID of the operation that produced this result. It is used to correlate across CRP and extension logs."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of patches successfully installed."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Whether the operation ran out of time before it completed all its intended actions."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of patches that were detected as available for install, but did not meet the operation's criteria."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -99,7 +99,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The patches that were installed during the operation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -111,7 +111,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The number of patches that were identified as meeting the installation criteria, but were not able to be installed. Typically this happens when maintenanceWindowExceeded == true."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -123,7 +123,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The reboot state of the VM following completion of the operation."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -136,7 +136,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The UTC timestamp when the operation began."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -148,7 +148,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The overall success or failure status of the operation. It remains \"InProgress\" until the operation completes. At that point it will become \"Failed\", \"Succeeded\", \"Unknown\" or \"CompletedWithWarnings.\""
+   "description": ""
   }
  ]
 }

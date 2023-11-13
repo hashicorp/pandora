@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies the authentication type being used for connecting to the endpoint. Defaults to 'KeyBased'. If 'KeyBased' is selected, a connection string must be specified (at least the primary connection string). If 'IdentityBased' is select, the endpointUri and entityPath properties must be specified."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -24,7 +24,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Time when the Endpoint was added to DigitalTwinsInstance."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +36,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Dead letter storage secret for key-based authentication. Will be obfuscated during read."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +48,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Dead letter storage URL for identity-based authentication."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -60,7 +60,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The type of Digital Twins endpoint"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +72,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Managed identity properties for the endpoint."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +84,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The provisioning state."
+   "description": ""
   }
  ],
  "typeHintIn": "EndpointType"

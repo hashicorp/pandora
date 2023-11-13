@@ -11,7 +11,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The name of the iot hub's consumer group that holds the partitions from which events will be read."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -24,7 +24,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The time the resource was created."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -36,7 +36,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The resource id of the event source in Azure Resource Manager."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -48,7 +48,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An object that contains the details about the starting point in time to ingest events."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -60,7 +60,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The name of the iot hub."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -72,7 +72,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The name of the Shared Access Policy key that grants the Time Series Insights service access to the iot hub. This shared access policy key must grant 'service connect' permissions to the iot hub."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -84,7 +84,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "An object that represents the local timestamp property. It contains the format of local timestamp that needs to be used and the corresponding timezone offset information. If a value isn't specified for localTimestamp, or if null, then the local timestamp will not be ingressed with the events."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -96,7 +96,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Provisioning state of the resource."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -108,7 +108,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "The value of the Shared Access Policy key that grants the Time Series Insights service read access to the iot hub. This property is not shown in event source responses."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -120,7 +120,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "The event property that will be used as the event source's timestamp. If a value isn't specified for timestampPropertyName, or if null or empty-string is specified, the event creation time will be used."
+   "description": ""
   }
  ]
 }

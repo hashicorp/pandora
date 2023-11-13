@@ -11,7 +11,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "OAuth authorization endpoint. See http://tools.ietf.org/html/rfc6749#section-3.2."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -27,7 +27,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "HTTP verbs supported by the authorization endpoint. GET must be always present. POST is optional."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -43,7 +43,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Specifies the mechanism by which access token is passed to the API. "
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Method of authentication supported by the token endpoint of this authorization server. Possible values are Basic and/or Body. When Body is specified, client credentials and other parameters are passed within the request body in the application/x-www-form-urlencoded format."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Client or app id registered with this authorization server."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -83,7 +83,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Optional reference to a page where client or app registration for this authorization server is performed. Contains absolute URL to entity being referenced."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -95,7 +95,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Client or app secret registered with this authorization server. This property will not be filled on 'GET' operations! Use '/listSecrets' POST request to get the value."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -107,7 +107,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Access token scope that is going to be requested by default. Can be overridden at the API level. Should be provided in the form of a string containing space-delimited values."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -119,7 +119,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Description of the authorization server. Can contain HTML formatting tags."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -131,7 +131,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "User-friendly authorization server name."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -147,7 +147,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Form of an authorization grant, which the client uses to request the access token."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -159,7 +159,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner password."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -171,7 +171,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Can be optionally specified when resource owner password grant type is supported by this authorization server. Default resource owner username."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -183,7 +183,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If true, authorization server will include state parameter from the authorization request to its response. Client may use state parameter to raise protocol security."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -199,7 +199,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Additional parameters required by the token endpoint of this authorization server represented as an array of JSON objects with name and value string properties, i.e. {\"name\" : \"name value\", \"value\": \"a value\"}."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -211,7 +211,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "OAuth token endpoint. Contains absolute URI to entity being referenced."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -223,7 +223,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If true, the authorization server will be used in the API documentation in the developer portal. False by default if no value is provided."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -235,7 +235,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "If true, the authorization server may be used in the developer portal test console. True by default if no value is provided."
+   "description": ""
   }
  ]
 }

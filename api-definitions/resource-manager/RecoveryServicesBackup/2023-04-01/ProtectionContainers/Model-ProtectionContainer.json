@@ -11,7 +11,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Type of backup management for the container."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": true,
@@ -23,7 +23,7 @@
    },
    "optional": false,
    "required": true,
-   "description": "Type of the container. The value of this property for: 1. Compute Azure VM is Microsoft.Compute/virtualMachines 2.\r\nClassic Compute Azure VM is Microsoft.ClassicCompute/virtualMachines 3. Windows machines (like MAB, DPM etc) is\r\nWindows 4. Azure SQL instance is AzureSqlContainer. 5. Storage containers is StorageContainer. 6. Azure workload\r\nBackup is VMAppContainer"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -35,7 +35,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Friendly name of the container."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -47,7 +47,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Status of health of the container."
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -59,7 +59,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Type of the protectable object associated with this container"
+   "description": ""
   },
   {
    "containsDiscriminatedTypeValue": false,
@@ -71,7 +71,7 @@
    },
    "optional": true,
    "required": false,
-   "description": "Status of registration of the container with the Recovery Services Vault."
+   "description": ""
   }
  ],
  "typeHintIn": "ContainerType"
