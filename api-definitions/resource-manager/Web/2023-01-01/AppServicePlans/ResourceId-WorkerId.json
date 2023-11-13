@@ -1,0 +1,52 @@
+{
+ "name": "WorkerId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Web/serverFarms/{serverFarmName}/workers/{workerName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftWeb",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Web"
+  },
+  {
+   "name": "staticServerFarms",
+   "type": "Static",
+   "value": "serverFarms"
+  },
+  {
+   "name": "serverFarmName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticWorkers",
+   "type": "Static",
+   "value": "workers"
+  },
+  {
+   "name": "workerName",
+   "type": "UserSpecified"
+  }
+ ]
+}

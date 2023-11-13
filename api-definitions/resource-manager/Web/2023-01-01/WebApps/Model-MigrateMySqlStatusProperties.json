@@ -1,0 +1,41 @@
+{
+ "name": "MigrateMySqlStatusProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localMySqlEnabled",
+   "name": "LocalMySqlEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationOperationStatus",
+   "name": "MigrationOperationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operationId",
+   "name": "OperationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

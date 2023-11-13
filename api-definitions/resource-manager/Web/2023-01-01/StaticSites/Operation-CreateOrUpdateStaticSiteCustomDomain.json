@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateStaticSiteCustomDomain",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "CustomDomainId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteCustomDomainRequestPropertiesARMResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StaticSiteCustomDomainOverviewARMResource"
+ }
+}

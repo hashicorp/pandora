@@ -1,0 +1,34 @@
+{
+ "name": "ContainerAppId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Web/containerApps/{containerAppName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftWeb",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Web"
+  },
+  {
+   "name": "staticContainerApps",
+   "type": "Static",
+   "value": "containerApps"
+  },
+  {
+   "name": "containerAppName",
+   "type": "UserSpecified"
+  }
+ ]
+}

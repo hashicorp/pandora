@@ -1,0 +1,15 @@
+{
+ "name": "ResendRequestEmails",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "CertificateOrderId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NameIdentifier"
+ },
+ "uriSuffix": "/resendRequestEmails"
+}

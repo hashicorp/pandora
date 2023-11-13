@@ -1,0 +1,31 @@
+{
+ "name": "MigrateStorage",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "subscriptionName",
+   "required": true,
+   "field": "SubscriptionName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StorageMigrationOptions"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StorageMigrationResponse"
+ },
+ "uriSuffix": "/migrate"
+}
