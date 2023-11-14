@@ -1,0 +1,23 @@
+{
+ "name": "RestartWebApps",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "softRestart",
+   "required": false,
+   "field": "SoftRestart",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "AppServicePlanId",
+ "uriSuffix": "/restartSites"
+}

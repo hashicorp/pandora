@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateWorkerPool",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "WorkerPoolId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkerPoolResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkerPoolResource"
+ }
+}

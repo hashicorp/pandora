@@ -1,0 +1,19 @@
+{
+ "name": "UpdateDiagnosticLogsConfig",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SiteLogsConfig"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteLogsConfig"
+ },
+ "uriSuffix": "/config/logs"
+}

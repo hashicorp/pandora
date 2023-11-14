@@ -1,0 +1,19 @@
+{
+ "name": "UpdateApplicationSettings",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "StringDictionary"
+ },
+ "uriSuffix": "/config/appSettings"
+}

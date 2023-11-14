@@ -1,0 +1,21 @@
+{
+ "name": "UpdateSourceControl",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AppServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SiteSourceControl"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteSourceControl"
+ },
+ "uriSuffix": "/sourceControls/web"
+}
