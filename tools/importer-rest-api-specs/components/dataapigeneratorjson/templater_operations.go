@@ -38,7 +38,9 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 		}
 		output.RequestObject = requestObject
 	}
-	if input.ResponseObject != nil {
+
+	// disregard the response object since this shouldn't be useful
+	if input.ResponseObject != nil && !input.LongRunning {
 		responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
