@@ -563,7 +563,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			tests.TemplateConfiguration = &templateConfig
 
 		case strings.HasPrefix(lowerCaseTestType, "other"):
-			// we're assuming that tests are read in order
+			// todo we're assuming that tests are read in order and we should instead confirm that order
 			testName, _, err := getTerraformOtherTestInfo(testType)
 			if err != nil {
 				return nil, err
@@ -584,7 +584,6 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 				return nil, err
 			}
 
-			// todo we're assuming that we'll read the files in sequential order and should probably confirm that the ordering is correct
 			otherTest = append(otherTest, otherTestConfig)
 			otherTests[testName] = otherTest
 			tests.OtherTests = &otherTests

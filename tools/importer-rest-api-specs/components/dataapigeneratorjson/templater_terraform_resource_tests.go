@@ -7,7 +7,6 @@ import (
 )
 
 func mapTerraformResourceTestDefinition(input resourcemanager.TerraformResourceTestsDefinition) dataApiModels.TerraformResourceTestConfig {
-	// Perhaps `Resource-Test-{Basic|Complete}.hcl` and  `Resource-Test-{Other}{1|2|3}.hcl`?
 	testConfig := dataApiModels.TerraformResourceTestConfig{
 		BasicConfig:    input.BasicConfiguration,
 		CompleteConfig: input.CompleteConfiguration,

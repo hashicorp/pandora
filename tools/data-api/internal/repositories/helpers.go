@@ -101,12 +101,12 @@ func getTerraformTestInfo(fileName string) (string, string, string, error) {
 
 }
 
-// getTerraformTestInfo transforms the file names in the Tests directory into a name, Terraform Definition type, Test Type  e.g.
-// LoadTest-Resource.json -> name = LoadTest and type = Resource
+// getTerraformOtherTestInfo transforms an otherTestType into `Other`, TestName, and a TestNum  e.g.
+// LoadTest-Resource-Other-Foo-2 -> testName = Foo and testNum = 2
 func getTerraformOtherTestInfo(otherTestType string) (string, int, error) {
 	splitName := strings.SplitN(otherTestType, "-", 4)
 	if len(splitName) != 4 {
-		return "", -1, fmt.Errorf("expected OtherTest to be split into format Other-Foo-1. Received: %+v", otherTestType)
+		return "", -1, fmt.Errorf("expected OtherTest to be split into format Other-Foo-2. Received: %+v", otherTestType)
 	}
 
 	testName := splitName[1]
