@@ -133,6 +133,10 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	if versions != nil {
 		for _, version := range *versions {
+			// The Terraform directory can be skipped as it only has a subdirectory for tests
+			if version == "Terraform" {
+				continue
+			}
 			resources, err := listSubDirectories(fmt.Sprintf("%s/%s/%s", s.directory, serviceName, version))
 			if err != nil {
 				return nil, fmt.Errorf("retrieving resources for %s: %+v", version, err)
@@ -505,6 +509,91 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		terraformDetails.Resources[definitionName] = resource
 	}
 
+	terraformTestsPath := path.Join(terraformDefinitionsPath, "Tests")
+	testFiles, err := os.ReadDir(terraformTestsPath)
+	if err != nil {
+		if strings.Contains(err.Error(), "no such file or directory") {
+			return nil, nil
+		}
+		return nil, fmt.Errorf("retrieving tests under %s: %+v", terraformTestsPath, err)
+	}
+
+	for _, file := range testFiles {
+		if file.IsDir() {
+			continue
+		}
+
+		// todo the `_` is defintionType (ie. Resource, Datasource?), we'll probably do something with that later but for now we'll ignore
+		definitionName, _, testType, err := getTerraformTestInfo(file.Name())
+		if err != nil {
+			return nil, err
+		}
+
+		if _, ok := terraformDetails.Resources[definitionName]; !ok {
+			break
+		}
+		resource := terraformDetails.Resources[definitionName]
+		tests := resource.Tests
+
+		lowerCaseTestType := strings.ToLower(testType)
+		switch {
+		case lowerCaseTestType == "basic-test":
+			basicConfig, err := parseTerraformTestFromFilePath(terraformTestsPath, file)
+			if err != nil {
+				return nil, err
+			}
+			tests.BasicConfiguration = basicConfig
+		case lowerCaseTestType == "complete-test":
+			completeConfig, err := parseTerraformTestFromFilePath(terraformTestsPath, file)
+			if err != nil {
+				return nil, err
+			}
+			tests.CompleteConfiguration = &completeConfig
+		case lowerCaseTestType == "requires-import-test":
+			requiresImportConfig, err := parseTerraformTestFromFilePath(terraformTestsPath, file)
+			if err != nil {
+				return nil, err
+			}
+			tests.RequiresImportConfiguration = requiresImportConfig
+		case lowerCaseTestType == "template-test":
+			templateConfig, err := parseTerraformTestFromFilePath(terraformTestsPath, file)
+			if err != nil {
+				return nil, err
+			}
+			tests.TemplateConfiguration = &templateConfig
+
+		case strings.HasPrefix(lowerCaseTestType, "other"):
+			// we're assuming that tests are read in order
+			testName, _, err := getTerraformOtherTestInfo(testType)
+			if err != nil {
+				return nil, err
+			}
+
+			if tests.OtherTests == nil {
+				tests.OtherTests = pointer.To(make(map[string][]string))
+			}
+			otherTests := *tests.OtherTests
+
+			if otherTests[testName] == nil {
+				otherTests[testName] = make([]string, 0)
+			}
+			otherTest := otherTests[testName]
+
+			otherTestConfig, err := parseTerraformTestFromFilePath(terraformTestsPath, file)
+			if err != nil {
+				return nil, err
+			}
+
+			// todo we're assuming that we'll read the files in sequential order and should probably confirm that the ordering is correct
+			otherTest = append(otherTest, otherTestConfig)
+			otherTests[testName] = otherTest
+			tests.OtherTests = &otherTests
+		}
+
+		resource.Tests = tests
+		terraformDetails.Resources[definitionName] = resource
+	}
+
 	return &terraformDetails, nil
 }
 
@@ -643,6 +732,15 @@ func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, f
 	}
 
 	return mappings, nil
+}
+
+func parseTerraformTestFromFilePath(resourcePath string, file os.DirEntry) (string, error) {
+	contents, err := loadHcl(path.Join(resourcePath, file.Name()))
+	if err != nil {
+		return contents, err
+	}
+
+	return contents, nil
 }
 
 func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {

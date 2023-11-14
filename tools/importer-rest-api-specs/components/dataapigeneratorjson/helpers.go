@@ -2,11 +2,11 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
-	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"os"
 	"path"
 
 	"github.com/hashicorp/go-hclog"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 )
 
 func (s Generator) workingDirectoryForResource(resource string) string {
@@ -88,7 +88,7 @@ func writeTestsHclToFile(directory, resourceName string, tests dataApiModels.Ter
 	if tests.OtherTests != nil {
 		for otherTestName, v := range *tests.OtherTests {
 			for i, test := range v {
-				otherTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-%s-%d-Test.hcl", resourceName, otherTestName, i))
+				otherTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Other-%s-%d-Test.hcl", resourceName, otherTestName, i))
 				if err := writeStringToFile(otherTestFileName, test); err != nil {
 					return fmt.Errorf("writing %s Test Config: %+v", otherTestName, err)
 				}
