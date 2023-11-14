@@ -365,6 +365,7 @@ type ListOperationResponse struct {
 }
 
 type ListCompleteResult struct {
+	LatestHttpResponse *http.Response
 	Items []LingLing
 }
 
@@ -430,6 +431,7 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 	}
 
 	result = ListCompleteResult{
+		LatestHttpResponse: resp.HttpResponse,
 		Items: items,
 	}
 	return
