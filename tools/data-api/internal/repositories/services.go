@@ -526,7 +526,9 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 	definition.GenerateSchema = resourceDefinition.GenerateSchema
 	definition.ApiVersion = resourceDefinition.ApiVersion
 	definition.Generate = resourceDefinition.Generate
+	definition.Resource = resourceDefinition.Resource
 	definition.ResourceIdName = resourceDefinition.ResourceIdName
+	definition.SchemaModelName = resourceDefinition.SchemaModelName
 	definition.Label = resourceDefinition.Label
 
 	definition.CreateMethod = MethodDefinition{
