@@ -3,7 +3,10 @@ package commands
 import (
 	"flag"
 	"fmt"
+	"log"
 	"net/http"
+	"os"
+	"strconv"
 	"strings"
 	"time"
 
@@ -17,10 +20,9 @@ import (
 
 var _ cli.Command = ServeCommand{}
 
-func NewServeCommand(definitionsDirectory string) func() (cli.Command, error) {
+func NewServeCommand() func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return ServeCommand{
-			DefinitionsDirectory: definitionsDirectory,
 			Log: hclog.New(&hclog.LoggerOptions{
 				Level:  hclog.DefaultLevel,
 				Output: hclog.DefaultOutput,
@@ -31,8 +33,7 @@ func NewServeCommand(definitionsDirectory string) func() (cli.Command, error) {
 }
 
 type ServeCommand struct {
-	DefinitionsDirectory string
-	Log                  hclog.Logger
+	Log hclog.Logger
 }
 
 func (ServeCommand) Help() string {
@@ -40,13 +41,14 @@ func (ServeCommand) Help() string {
 }
 
 func (c ServeCommand) Run(args []string) int {
-	// TODO: dynamic ports from args/env
-	port := 8080
-
+	var portVar int
 	var serviceNamesRaw string
+	var dataDirectoryRaw string
 
 	f := flag.NewFlagSet("serve", flag.ExitOnError)
 	f.StringVar(&serviceNamesRaw, "services", "", "A list of comma separated Service names to load")
+	f.IntVar(&portVar, "port", 8080, "The Port the Data API Endpoint will run on (e.g. --port=8080")
+	f.StringVar(&dataDirectoryRaw, "data-directory", "../../api-definitions/", "The path to the directory the data will be read from")
 	f.Parse(args)
 
 	var serviceNames *[]string
@@ -54,10 +56,30 @@ func (c ServeCommand) Run(args []string) int {
 		serviceNames = pointer.To(strings.Split(serviceNamesRaw, ","))
 	}
 
+	var port int
+	if portVar != 0 {
+		port = portVar
+	}
+
+	portEnv := os.Getenv("PANDORA_API_PORT")
+	if portEnv != "" {
+		var err error
+		port, err = strconv.Atoi(portEnv)
+		if err != nil {
+			log.Printf("Error: expected PANDORA_API_PORT to be an int: %+v", err)
+			return 1
+		}
+	}
+
+	var dataDirectory string
+	if dataDirectoryRaw != "" {
+		dataDirectory = dataDirectoryRaw
+	}
+
 	c.Log.Debug(fmt.Sprintf("Launching Server on port %d", port))
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
-	r.Route("/", endpoints.Router(c.DefinitionsDirectory, serviceNames))
+	r.Route("/", endpoints.Router(dataDirectory, serviceNames))
 	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 	return 0
 }
