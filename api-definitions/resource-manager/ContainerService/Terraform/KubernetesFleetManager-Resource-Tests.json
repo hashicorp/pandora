@@ -1,7 +1,0 @@
-{
-	"basicConfig": "\n\nprovider \"azurerm\" {\n  features {}\n}\n\nresource \"azurerm_kubernetes_fleet_manager\" \"test\" {\n  location            = azurerm_resource_group.test.location\n  name                = \"acctestkfm-${var.random_string}\"\n  resource_group_name = azurerm_resource_group.test.name\n}\n\n",
-	"completeConfig": "\n\nprovider \"azurerm\" {\n  features {}\n}\n\nresource \"azurerm_kubernetes_fleet_manager\" \"test\" {\n  location            = azurerm_resource_group.test.location\n  name                = \"acctestkfm-${var.random_string}\"\n  resource_group_name = azurerm_resource_group.test.name\n  tags = {\n    environment = \"terraform-acctests\"\n    some_key    = \"some-value\"\n  }\n  hub_profile {\n    dns_prefix = \"val-${var.random_string}\"\n  }\n}\n\n",
-	"generate": true,
-	"requiresImport": "resource \"azurerm_kubernetes_fleet_manager\" \"import\" {\n  location            = azurerm_kubernetes_fleet_manager.test.location\n  name                = azurerm_kubernetes_fleet_manager.test.name\n  resource_group_name = azurerm_kubernetes_fleet_manager.test.resource_group_name\n}\n",
-	"templateConfig": "variable \"primary_location\" {}\nvariable \"random_integer\" {}\nvariable \"random_string\" {}\n\nresource \"azurerm_resource_group\" \"test\" {\n  name     = \"acctestrg-${var.random_integer}\"\n  location = var.primary_location\n}\n"
-}
