@@ -15,7 +15,12 @@ func run(args Arguments) error {
 	}
 
 	// 1: Launch the Data API
-	dataApi := exec.Command("dotnet", args.DataApiAssemblyPath)
+	var dataApi *exec.Cmd
+	if args.UseV2Generator {
+		dataApi = exec.Command("data-api", args.DataApiAssemblyPath)
+	} else {
+		dataApi = exec.Command("dotnet", args.DataApiAssemblyPath)
+	}
 	env := os.Environ()
 	env = append(env, fmt.Sprintf("PANDORA_API_PORT=%d", args.DataApiPort))
 	dataApi.Env = env

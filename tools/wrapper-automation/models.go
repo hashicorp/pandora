@@ -12,6 +12,7 @@ type Arguments struct {
 	RunGoSdkGenerator       bool
 	RunTerraformGenerator   bool
 	RunRestApiSpecsImporter bool
+	UseV2Generator          bool
 }
 
 func (a Arguments) Validate() error {
