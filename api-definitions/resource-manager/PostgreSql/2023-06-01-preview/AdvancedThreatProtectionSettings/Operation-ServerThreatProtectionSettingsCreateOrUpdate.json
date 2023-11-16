@@ -1,0 +1,20 @@
+{
+ "name": "ServerThreatProtectionSettingsCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "FlexibleServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServerThreatProtectionSettingsModel"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServerThreatProtectionSettingsModel"
+ },
+ "uriSuffix": "/advancedThreatProtectionSettings/default"
+}
