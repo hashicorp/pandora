@@ -86,7 +86,7 @@ func writeTestsHclToFile(directory, resourceName string, tests dataApiModels.Ter
 	}
 
 	if tests.OtherTests != nil {
-		for otherTestName, v := range *tests.OtherTests {
+		for otherTestName, v := range tests.OtherTests {
 			for i, test := range v {
 				otherTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Other-%s-%d-Test.hcl", resourceName, otherTestName, i))
 				if err := writeStringToFile(otherTestFileName, test); err != nil {
