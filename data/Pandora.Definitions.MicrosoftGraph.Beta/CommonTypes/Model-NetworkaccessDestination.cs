@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class NetworkaccessDestinationModel
 {
+    [JsonPropertyName("deviceCount")]
+    public int? DeviceCount { get; set; }
+
     [JsonPropertyName("fqdn")]
     public string? Fqdn { get; set; }
 
@@ -33,4 +36,10 @@ internal class NetworkaccessDestinationModel
 
     [JsonPropertyName("trafficType")]
     public NetworkaccessDestinationTrafficTypeConstant? TrafficType { get; set; }
+
+    [JsonPropertyName("transactionCount")]
+    public int? TransactionCount { get; set; }
+
+    [JsonPropertyName("userCount")]
+    public int? UserCount { get; set; }
 }

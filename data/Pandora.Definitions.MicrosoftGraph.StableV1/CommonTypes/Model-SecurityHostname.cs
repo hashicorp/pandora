@@ -46,6 +46,9 @@ internal class SecurityHostnameModel
     [JsonPropertyName("passiveDnsReverse")]
     public List<SecurityPassiveDnsRecordModel>? PassiveDnsReverse { get; set; }
 
+    [JsonPropertyName("ports")]
+    public List<SecurityHostPortModel>? Ports { get; set; }
+
     [JsonPropertyName("registrant")]
     public string? Registrant { get; set; }
 

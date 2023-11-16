@@ -17,7 +17,7 @@ internal class VirtualEventModel
     public CommunicationsIdentitySetModel? CreatedBy { get; set; }
 
     [JsonPropertyName("description")]
-    public string? Description { get; set; }
+    public ItemBodyModel? Description { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

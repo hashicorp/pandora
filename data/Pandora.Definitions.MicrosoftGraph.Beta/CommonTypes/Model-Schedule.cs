@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class ScheduleModel
 {
+    [JsonPropertyName("dayNotes")]
+    public List<DayNoteModel>? DayNotes { get; set; }
+
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
 

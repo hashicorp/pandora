@@ -18,7 +18,6 @@ internal class Definition : ResourceDefinition
         new DeleteMePhotoOperation(),
         new GetMePhotoByIdOperation(),
         new GetMePhotoByIdValueOperation(),
-        new GetMePhotoCountOperation(),
         new GetMePhotoOperation(),
         new GetMePhotoValueOperation(),
         new ListMePhotosOperation(),

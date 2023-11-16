@@ -37,6 +37,9 @@ internal class CloudPCDeviceImageModel
     [JsonPropertyName("osStatus")]
     public CloudPCDeviceImageOsStatusConstant? OsStatus { get; set; }
 
+    [JsonPropertyName("scopeIds")]
+    public List<string>? ScopeIds { get; set; }
+
     [JsonPropertyName("sourceImageResourceId")]
     public string? SourceImageResourceId { get; set; }
 

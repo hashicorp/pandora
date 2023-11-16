@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class Win32LobAppAssignmentSettingsModel
 {
+    [JsonPropertyName("autoUpdateSettings")]
+    public Win32LobAppAutoUpdateSettingsModel? AutoUpdateSettings { get; set; }
+
     [JsonPropertyName("deliveryOptimizationPriority")]
     public Win32LobAppAssignmentSettingsDeliveryOptimizationPriorityConstant? DeliveryOptimizationPriority { get; set; }
 
