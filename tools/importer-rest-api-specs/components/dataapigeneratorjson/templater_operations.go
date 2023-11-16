@@ -40,7 +40,9 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	}
 
 	if input.ResponseObject != nil {
-		// disregard the response object if it's either a long running operation or not a list operation
+		// we disregard the response object if it's either a long running operation or not a list operation
+		// since that is the behaviour in the current data api and to prevent diffs in the generated sdk
+		// this can be removed once #3364 has been fixed
 		if !input.LongRunning || input.FieldContainingPaginationDetails != nil {
 			responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
 			if err != nil {
@@ -200,6 +202,7 @@ func determineStatusCodes(operation importerModels.OperationDetails) []int {
 	return expectedStatusCodes
 }
 
+// this is needed at the moment to prevent diffs in the generated SDK - and can be removed once #3363 has been fixed
 func usesNonDefaultStatusCodes(operation importerModels.OperationDetails) bool {
 	defaultStatusCodes := map[string][]int{
 		"get":    {200},
