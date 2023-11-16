@@ -77,10 +77,10 @@ type FieldMappingDefinition struct {
 	Type MappingDefinitionType `json:"type"`
 
 	// DirectAssignment specifies the mapping information when Type is set to DirectAssignment.
-	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment,omitempty"`
+	DirectAssignment *FieldMappingDirectAssignmentDefinition `json:"directAssignment"`
 
 	// ModelToModel specifies the mapping information when Type is set to ModelToModel.
-	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel,omitempty"`
+	ModelToModel *FieldMappingModelToModelDefinition `json:"modelToModel"`
 
 	// Manual contains additional metadata when Type is set to Manual.
 	Manual *FieldManualMappingDefinition `json:"manual,omitempty"`
@@ -342,7 +342,7 @@ type TerraformSchemaFieldDefinition struct {
 	Documentation TerraformSchemaDocumentationDefinition `json:"documentation"`
 
 	// Validation specifies the validation criteria for this field, for example a set of fixed values
-	Validation *TerraformSchemaValidationDefinition `json:"validation,omitempty"`
+	Validation *TerraformSchemaValidationDefinition `json:"validation"`
 }
 
 type ResourceDocumentationDefinition struct {
@@ -435,7 +435,7 @@ const (
 )
 
 type TerraformSchemaFieldObjectDefinition struct {
-	NestedObject *TerraformSchemaFieldObjectDefinition `json:"nestedObject,omitempty"`
+	NestedObject *TerraformSchemaFieldObjectDefinition `json:"nestedObject"`
 
 	// ReferenceName is the name of the Reference associated with this ObjectDefinition.
 	ReferenceName *string `json:"referenceName"`
@@ -477,7 +477,7 @@ type TerraformResourceTestsDefinition struct {
 
 	// OtherTests is a map of key (TestName) to value (a slice of Test Configurations) which
 	// should be output as Acceptance Tests.
-	OtherTests *map[string][]string `json:"otherTests"`
+	OtherTests map[string][]string `json:"otherTests"`
 
 	// TemplateConfiguration is an optional Terraform Configuration which should be used
 	// as the Template for each of the Tests defined above, which should include any parent

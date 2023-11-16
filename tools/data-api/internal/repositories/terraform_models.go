@@ -250,6 +250,6 @@ type TerraformResourceTestsDefinition struct {
 	RequiresImportConfiguration string
 	CompleteConfiguration       *string
 	Generate                    bool
-	OtherTests                  *map[string][]string
+	OtherTests                  map[string][]string
 	TemplateConfiguration       *string
 }

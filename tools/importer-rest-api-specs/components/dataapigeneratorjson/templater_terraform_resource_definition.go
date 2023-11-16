@@ -8,7 +8,7 @@ import (
 func buildTerraformResourceDefinition(resourceLabel string, input resourcemanager.TerraformResourceDetails) (*dataApiModels.TerraformResourceDefinition, error) {
 	// TODO: ExampleUsage should probably go out into a file - perhaps `Resource-ExampleUsage.hcl`?
 	output := dataApiModels.TerraformResourceDefinition{
-		ApiVersion: input.ApiVersion, // NOTE: this needs to be populated elsewhere
+		ApiVersion: input.ApiVersion,
 		Category:   input.Documentation.Category,
 		CreateMethod: dataApiModels.TerraformMethodDefinition{
 			Generate:         input.CreateMethod.Generate,
@@ -33,8 +33,10 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 			Name:             input.ReadMethod.MethodName,
 			TimeoutInMinutes: input.ReadMethod.TimeoutInMinutes,
 		},
-		ResourceIdName: input.ResourceIdName,
-		UpdateMethod:   nil,
+		Resource:        input.Resource,
+		ResourceIdName:  input.ResourceIdName,
+		SchemaModelName: input.SchemaModelName,
+		UpdateMethod:    nil,
 	}
 	if input.UpdateMethod != nil {
 		output.UpdateMethod = &dataApiModels.TerraformMethodDefinition{

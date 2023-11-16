@@ -44,8 +44,15 @@ type TerraformResourceDefinition struct {
 	// ReadMethod defines the Read Method associated with this Resource.
 	ReadMethod TerraformMethodDefinition `json:"readMethod"`
 
+	// Resource specifies the Resource within this API Version within the Service where
+	// the details for this Resource can be found.
+	Resource string `json:"resource"`
+
 	// ResourceIdName specifies the name of the Resource ID type used for this Resource.
 	ResourceIdName string `json:"resourceIdName"`
+
+	// SchemaModelName specifies the name of the Schema model for this Terraform Resource
+	SchemaModelName string `json:"schemaModelName"`
 
 	// UpdateMethod defines the Update Method associated with this Resource.
 	UpdateMethod *TerraformMethodDefinition `json:"updateMethod,omitempty"`

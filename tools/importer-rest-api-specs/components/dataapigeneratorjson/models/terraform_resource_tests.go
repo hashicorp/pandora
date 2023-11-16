@@ -17,7 +17,7 @@ type TerraformResourceTestConfig struct {
 
 	// OtherTests is a map of key (TestName) to value (a slice of Test Configurations) which
 	// should be output as Acceptance Tests.
-	OtherTests *map[string][]string `json:"otherTests,omitempty"`
+	OtherTests map[string][]string `json:"otherTests"`
 
 	// RequiresImport specifies the Terraform Configuration used for the RequiresImport test
 	// This test typically provisions the Basic test and then tries to provision the exact
