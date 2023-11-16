@@ -570,9 +570,9 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			}
 
 			if tests.OtherTests == nil {
-				tests.OtherTests = pointer.To(make(map[string][]string))
+				tests.OtherTests = make(map[string][]string)
 			}
-			otherTests := *tests.OtherTests
+			otherTests := tests.OtherTests
 
 			if otherTests[testName] == nil {
 				otherTests[testName] = make([]string, 0)
@@ -586,7 +586,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 
 			otherTest = append(otherTest, otherTestConfig)
 			otherTests[testName] = otherTest
-			tests.OtherTests = &otherTests
+			tests.OtherTests = otherTests
 		}
 
 		resource.Tests = tests
