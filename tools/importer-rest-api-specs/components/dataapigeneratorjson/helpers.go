@@ -6,6 +6,7 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-hclog"
+	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 )
 
 func (s Generator) workingDirectoryForResource(resource string) string {
@@ -52,6 +53,65 @@ func writeJsonToFile(fileName string, fileContents []byte) error {
 	}
 
 	file.Write(fileContents)
+	file.Close()
+	return nil
+}
+
+func writeTestsHclToFile(directory, resourceName string, tests dataApiModels.TerraformResourceTestConfig) error {
+	if !tests.Generate {
+		return nil
+	}
+	if tests.TemplateConfig != nil {
+		templateTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Template-Test.hcl", resourceName))
+		if err := writeStringToFile(templateTestFileName, *tests.TemplateConfig); err != nil {
+			return fmt.Errorf("writing Template Test Config: %+v", err)
+		}
+	}
+
+	basicTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Basic-Test.hcl", resourceName))
+	if err := writeStringToFile(basicTestFileName, tests.BasicConfig); err != nil {
+		return fmt.Errorf("writing Basic Test Config: %+v", err)
+	}
+
+	requiresImportTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Requires-Import-Test.hcl", resourceName))
+	if err := writeStringToFile(requiresImportTestFileName, tests.RequiresImport); err != nil {
+		return fmt.Errorf("writing Requires Import Test Config: %+v", err)
+	}
+
+	if tests.CompleteConfig != nil {
+		completeTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Complete-Test.hcl", resourceName))
+		if err := writeStringToFile(completeTestFileName, *tests.CompleteConfig); err != nil {
+			return fmt.Errorf("writing Complete Test Config: %+v", err)
+		}
+	}
+
+	if tests.OtherTests != nil {
+		for otherTestName, v := range *tests.OtherTests {
+			for i, test := range v {
+				otherTestFileName := path.Join(directory, fmt.Sprintf("%s-Resource-Other-%s-%d-Test.hcl", resourceName, otherTestName, i))
+				if err := writeStringToFile(otherTestFileName, test); err != nil {
+					return fmt.Errorf("writing %s Test Config: %+v", otherTestName, err)
+				}
+			}
+		}
+	}
+
+	return nil
+}
+
+func writeStringToFile(fileName string, fileContents string) error {
+	existing, err := os.Open(fileName)
+	if os.IsExist(err) {
+		return fmt.Errorf("existing file exists at %q", fileName)
+	}
+	existing.Close()
+
+	file, err := os.Create(fileName)
+	if err != nil {
+		return fmt.Errorf("creating %q: %+v", fileName, err)
+	}
+
+	file.WriteString(fileContents)
 	file.Close()
 	return nil
 }
