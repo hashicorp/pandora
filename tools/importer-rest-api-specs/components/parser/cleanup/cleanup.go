@@ -197,12 +197,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"trafficmanagerprofiles":                  "trafficManagerProfiles",
 		"triggeredwebjobs":                        "triggeredWebJobs",
 		"vaultstorageconfig":                      "vaultStorageConfig",
+		"vcenters":                                "vCenters",
+		"virtualendpoints":                        "virtualEndpoints", // exists in Postgresql
 		"virtualnetworks":                         "virtualNetworks",
 		"virtualmachine":                          "virtualMachine", // exists in MarketplaceOrdering
 		"virtualmachines":                         "virtualMachines",
 		"vmname":                                  "virtualMachineName",         // inconsistency in Compute
 		"vmscalesetname":                          "virtualMachineScaleSetName", // inconsistency in Compute (#1204)
-		"vcenters":                                "vCenters",
 		"vmwaresites":                             "vmwareSites",
 		"vmextension":                             "vmExtension",
 		"vmimage":                                 "vmImage",
