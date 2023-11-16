@@ -109,12 +109,26 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
+  local dataApiV2Path="tools/data-api/data-api"
   local outputDirectory="tmp/provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
+  local useV2Generator=false
+
+  while getopts ":use-v2-generator" opt; do
+    case $opt in
+      use-v2-generator)
+        useV2Generator=${OPTARG};;
+    esac
+  done
 
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory"
+  if [ "$useV2Generator" = true ]
+  then
+    runWrapper "$dataApiV2Path" "$outputDirectory"
+  else
+    runWrapper "$dataApiAssemblyPath" "$outputDirectory"
+  fi
   runFmtImportsAndGenerate "$outputDirectory"
   runTerraformProviderUnitTests "$outputDirectory"
   cleanup "$outputDirectory"
