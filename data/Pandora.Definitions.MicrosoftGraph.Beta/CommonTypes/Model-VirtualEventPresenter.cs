@@ -27,4 +27,10 @@ internal class VirtualEventPresenterModel
 
     [JsonPropertyName("presenterDetails")]
     public VirtualEventPresenterDetailsModel? PresenterDetails { get; set; }
+
+    [JsonPropertyName("profilePhoto")]
+    public string? ProfilePhoto { get; set; }
+
+    [JsonPropertyName("sessions")]
+    public List<VirtualEventSessionModel>? Sessions { get; set; }
 }

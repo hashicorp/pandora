@@ -151,6 +151,9 @@ internal class IosManagedAppProtectionModel
     [JsonPropertyName("maximumWipeOsVersion")]
     public string? MaximumWipeOsVersion { get; set; }
 
+    [JsonPropertyName("messagingRedirectAppUrlScheme")]
+    public string? MessagingRedirectAppUrlScheme { get; set; }
+
     [JsonPropertyName("minimumPinLength")]
     public int? MinimumPinLength { get; set; }
 
@@ -225,6 +228,9 @@ internal class IosManagedAppProtectionModel
 
     [JsonPropertyName("protectInboundDataFromUnknownSources")]
     public bool? ProtectInboundDataFromUnknownSources { get; set; }
+
+    [JsonPropertyName("protectedMessagingRedirectAppType")]
+    public IosManagedAppProtectionProtectedMessagingRedirectAppTypeConstant? ProtectedMessagingRedirectAppType { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }

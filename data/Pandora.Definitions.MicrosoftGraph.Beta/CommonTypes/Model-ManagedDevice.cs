@@ -94,6 +94,9 @@ internal class ManagedDeviceModel
     [JsonPropertyName("deviceHealthScriptStates")]
     public List<DeviceHealthScriptPolicyStateModel>? DeviceHealthScriptStates { get; set; }
 
+    [JsonPropertyName("deviceIdentityAttestationDetail")]
+    public DeviceIdentityAttestationDetailModel? DeviceIdentityAttestationDetail { get; set; }
+
     [JsonPropertyName("deviceName")]
     public string? DeviceName { get; set; }
 

@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class MonthlyInactiveUsersByApplicationMetricModel
 {
+    [JsonPropertyName("appId")]
+    public string? AppId { get; set; }
+
     [JsonPropertyName("factDate")]
     public DateTime? FactDate { get; set; }
 

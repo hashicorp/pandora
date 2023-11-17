@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class CallRecordsParticipantEndpointModel
 {
+    [JsonPropertyName("associatedIdentity")]
+    public CallRecordsUserIdentityModel? AssociatedIdentity { get; set; }
+
     [JsonPropertyName("cpuCoresCount")]
     public int? CpuCoresCount { get; set; }
 

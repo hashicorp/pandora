@@ -16,6 +16,9 @@ internal class WindowsUpdatesExpediteSettingsModel
     [JsonPropertyName("isExpedited")]
     public bool? IsExpedited { get; set; }
 
+    [JsonPropertyName("isReadinessTest")]
+    public bool? IsReadinessTest { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }
