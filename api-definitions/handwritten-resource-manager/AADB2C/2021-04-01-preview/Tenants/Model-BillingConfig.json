@@ -1,0 +1,29 @@
+{
+  "name": "BillingConfig",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "billingType",
+      "name": "BillingType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BillingType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveStartDateUtc",
+      "name": "EffectiveStartDateUtc",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
+}
