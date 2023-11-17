@@ -6,7 +6,7 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func OutputMetaData(workingDirectory, swaggerGitSha string) error {

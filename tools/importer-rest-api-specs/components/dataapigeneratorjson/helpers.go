@@ -6,7 +6,7 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-hclog"
-	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func (s Generator) workingDirectoryForResource(resource string) string {

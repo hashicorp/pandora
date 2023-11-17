@@ -3,8 +3,8 @@ package dataapigeneratorjson
 import (
 	"sort"
 
-	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataApiModels.ApiVersionDefinition, error) {

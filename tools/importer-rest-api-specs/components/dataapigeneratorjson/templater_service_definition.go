@@ -4,8 +4,8 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func buildServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataApiModels.ServiceDefinition, error) {
