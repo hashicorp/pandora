@@ -3,7 +3,6 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
-
 	dataApiModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -18,6 +17,7 @@ func codeForResourceId(name string, input importerModels.ParsedResourceId) ([]by
 		}
 		segments = append(segments, *outputSegment)
 	}
+
 	resourceId := dataApiModels.ResourceId{
 		Name:        name,
 		CommonAlias: input.CommonAlias,

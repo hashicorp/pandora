@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"os"
 	"path"
+	"sort"
 	"strings"
+	"sync"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories/models"
@@ -29,6 +31,8 @@ type ServicesRepositoryImpl struct {
 	// serviceNames is a list containing the names of services which should be loaded
 	// this allows the loading/parsing of a subset of services for faster iterations during development
 	serviceNames *[]string
+
+	sync.Mutex
 }
 
 type ApiDefinition struct {
@@ -116,8 +120,10 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 	}
 
 	if s.services != nil {
+		s.Lock()
 		services := *s.services
 		services[serviceName] = *serviceDetails
+		s.Unlock()
 	}
 
 	return serviceDetails, nil
@@ -867,14 +873,21 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 
 		switch *segmentType {
 		case ConstantResourceIdSegmentType:
-			if s.ConstantReference != nil {
-				if _, ok := constants[*s.ConstantReference]; ok {
-					constantNames = append(constantNames, *s.ConstantReference)
-					continue
-				}
+			if s.ConstantReference == nil {
+				return nil, fmt.Errorf("constant segment has no constant reference")
+			}
+			constant, ok := constants[*s.ConstantReference]
+			if !ok {
 				return nil, fmt.Errorf("no constant definition found for constant segment reference %q", *s.ConstantReference)
 			}
-			return nil, fmt.Errorf("constant segment has no constant reference")
+			constantValues := make([]string, 0)
+			for _, v := range constant.Values {
+				constantValues = append(constantValues, v)
+			}
+			sort.Strings(constantValues)
+			s.ExampleValue = constantValues[0]
+
+			constantNames = append(constantNames, *s.ConstantReference)
 		case ResourceGroupResourceIdSegmentType:
 			s.ExampleValue = "example-resource-group"
 		case ResourceProviderResourceIdSegmentType:

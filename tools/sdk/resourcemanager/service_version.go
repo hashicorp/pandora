@@ -23,7 +23,7 @@ func (c ServiceVersionClient) Get(input ServiceVersion) (*ServiceVersionDetails,
 		return nil, err
 	}
 
-	return &response, nil
+	return &response, resp.Body.Close()
 }
 
 type ServiceVersionDetails struct {
