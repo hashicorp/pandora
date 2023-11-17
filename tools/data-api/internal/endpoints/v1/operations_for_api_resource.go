@@ -36,14 +36,24 @@ func (api Api) operationsForApiResource(w http.ResponseWriter, r *http.Request) 
 			}
 		}
 
+		requestObject, err := mapObjectDefinition(details.RequestObject)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping request object for operation %q: %+v", method, err))
+		}
+
+		responseObject, err := mapObjectDefinition(details.ResponseObject)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping response object for operation %q: %+v", method, err))
+		}
+
 		operations[method] = models.ApiOperation{
 			ContentType:                      pointer.To(details.ContentType),
 			ExpectedStatusCodes:              details.ExpectedStatusCodes,
 			LongRunning:                      details.LongRunning,
 			Method:                           details.Method,
-			RequestObject:                    mapObjectDefinition(details.RequestObject),
+			RequestObject:                    requestObject,
 			ResourceIdName:                   details.ResourceIdName,
-			ResponseObject:                   mapObjectDefinition(details.ResponseObject),
+			ResponseObject:                   responseObject,
 			FieldContainingPaginationDetails: details.FieldContainingPaginationDetails,
 			Options:                          options,
 			UriSuffix:                        details.UriSuffix,
