@@ -25,12 +25,14 @@ function buildAndInstallDependencies {
 function runWrapper {
   local dataApiAssemblyPath=$1
   local outputDirectory=$2
+  local useV2Generator=$3
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"
+    -output-dir="../../$outputDirectory"\
+    -use-v2-generator="$useV2Generator"
 
   cd "${DIR}"
 
@@ -114,20 +116,13 @@ function main {
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
   local useV2Generator=false
 
-  while getopts ":use-v2-generator" opt; do
-    case $opt in
-      use-v2-generator)
-        useV2Generator=${OPTARG};;
-    esac
-  done
-
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
   if [ "$useV2Generator" = true ]
   then
-    runWrapper "$dataApiV2Path" "$outputDirectory"
+    runWrapper "$dataApiV2Path" "$outputDirectory" "$useV2Generator"
   else
-    runWrapper "$dataApiAssemblyPath" "$outputDirectory"
+    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$useV2Generator"
   fi
   runFmtImportsAndGenerate "$outputDirectory"
   runTerraformProviderUnitTests "$outputDirectory"
