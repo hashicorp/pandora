@@ -54,11 +54,16 @@ func (api Api) commonTypes(w http.ResponseWriter, r *http.Request) {
 
 				for k, v := range resource.Schema.Models {
 					if _, ok := payload.Models[k]; ok {
-						internalServerError(w, fmt.Errorf("model %q already exists in common types, there is a duplicated definition in the source datafor service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
+						internalServerError(w, fmt.Errorf("model %q already exists in common types, there is a duplicated definition in the source data for service: %s, version: %s, resource: %s", k, service.Name, version, resourceName))
+						return
+					}
+					fields, err := mapSchemaFields(v.Fields)
+					if err != nil {
+						internalServerError(w, fmt.Errorf("mapping fields for model %q in service: %s, version: %s, resource: %s: %+v", k, service.Name, version, resourceName, err))
 						return
 					}
 					payload.Models[k] = models.ModelDetails{
-						Fields:         mapSchemaFields(v.Fields),
+						Fields:         fields,
 						ParentTypeName: v.ParentTypeName,
 						TypeHintIn:     v.TypeHintIn,
 						TypeHintValue:  v.TypeHintValue,
