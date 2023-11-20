@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // OptionObjectDefinition specifies the type of values that the HTTP Operation supports and sends at Request time in either the
 // HTTP Header and/or the QueryString

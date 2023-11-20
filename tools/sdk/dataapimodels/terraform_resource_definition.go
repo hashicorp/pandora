@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformResourceDefinition describes a Resource with information specific to Terraform
 type TerraformResourceDefinition struct {

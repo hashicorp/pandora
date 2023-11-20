@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformSchemaField describes information about an attribute that will be mapped into the Terraform Schema of a resource
 type TerraformSchemaField struct {

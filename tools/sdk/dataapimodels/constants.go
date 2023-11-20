@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // Constant describes a constant specific to the SDK
 // Azure supports Constants being either Float, Integer or String values

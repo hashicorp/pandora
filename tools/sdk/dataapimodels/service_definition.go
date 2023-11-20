@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // ServiceDefinition is used to define a Service (such as `Compute`) within which
 // API Versions (which have API Resources) and Terraform Definitions may exist.

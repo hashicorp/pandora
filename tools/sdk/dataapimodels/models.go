@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // NOTE: these types are intentionally undocumented atm, these'll be added in a follow-up PR
 

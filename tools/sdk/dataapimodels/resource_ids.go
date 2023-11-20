@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // ResourceId defines the ID for a given Azure Resource which comprises one or more Segments.
 type ResourceId struct {

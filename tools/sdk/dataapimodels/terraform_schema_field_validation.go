@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformSchemaFieldValidationDefinition defines the Validation for a Schema Field within
 // the Terraform Schema.

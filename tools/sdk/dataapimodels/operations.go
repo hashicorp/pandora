@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 type Operation struct {
 	// Name specifies the Display Name for this Operation (e.g. `Create`) which is also
