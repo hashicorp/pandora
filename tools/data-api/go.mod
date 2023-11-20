@@ -7,6 +7,7 @@ require (
 	github.com/go-chi/render v1.0.2
 	github.com/hashicorp/go-azure-helpers v0.57.0
 	github.com/hashicorp/go-hclog v1.5.0
+	github.com/hashicorp/pandora/tools/sdk v0.0.0-20231120114556-5d946e565a56
 	github.com/mitchellh/cli v1.1.5
 )
 

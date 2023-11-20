@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -24,7 +24,7 @@ func codeForModel(modelName string, model importerModels.ModelDetails, parentMod
 		return nil, fmt.Errorf("mapping fields for model %q: %+v", modelName, err)
 	}
 
-	dataApiModel := dataApiModels.Model{
+	dataApiModel := dataapimodels.Model{
 		Name:   modelName,
 		Fields: *fields,
 	}
@@ -50,7 +50,7 @@ func codeForModel(modelName string, model importerModels.ModelDetails, parentMod
 	return data, nil
 }
 
-func mapFieldsForModel(model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails, logger hclog.Logger) (*[]dataApiModels.ModelField, error) {
+func mapFieldsForModel(model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails, logger hclog.Logger) (*[]dataapimodels.ModelField, error) {
 	// TODO: thread through logging
 
 	// ensure consistency in the output
@@ -60,7 +60,7 @@ func mapFieldsForModel(model importerModels.ModelDetails, parentModel *importerM
 	}
 	sort.Strings(sortedFieldNames)
 
-	fields := make([]dataApiModels.ModelField, 0)
+	fields := make([]dataapimodels.ModelField, 0)
 
 	for _, fieldName := range sortedFieldNames {
 		// we should skip outputting this field if it's present on the parent
@@ -93,14 +93,14 @@ func mapFieldsForModel(model importerModels.ModelDetails, parentModel *importerM
 	return &fields, nil
 }
 
-func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) (*dataApiModels.ModelField, error) {
+func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isTypeHint bool, constants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) (*dataapimodels.ModelField, error) {
 	// TODO: thread through logging
 	objectDefinition, err := mapObjectDefinitionForField(fieldDetails, constants, knownModels)
 	if err != nil {
 		return nil, fmt.Errorf("mapping the ObjectDefinition for field %q: %+v", fieldName, err)
 	}
 
-	return &dataApiModels.ModelField{
+	return &dataapimodels.ModelField{
 		ContainsDiscriminatedTypeValue: isTypeHint,
 		JsonName:                       fieldDetails.JsonName,
 		Name:                           fieldName,
@@ -113,46 +113,46 @@ func mapField(fieldName string, fieldDetails importerModels.FieldDetails, isType
 	}, nil
 }
 
-var customFieldTypesToObjectDefinitionTypes = map[importerModels.CustomFieldType]dataApiModels.ObjectDefinitionType{
-	importerModels.CustomFieldTypeEdgeZone:                                dataApiModels.EdgeZoneObjectDefinitionType,
-	importerModels.CustomFieldTypeLocation:                                dataApiModels.LocationObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAssignedIdentity:                  dataApiModels.SystemAssignedIdentityObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       dataApiModels.SystemAndUserAssignedIdentityListObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        dataApiModels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
-	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: dataApiModels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  dataApiModels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        dataApiModels.SystemOrUserAssignedIdentityListObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         dataApiModels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
-	importerModels.CustomFieldTypeUserAssignedIdentityList:                dataApiModels.UserAssignedIdentityListObjectDefinitionType,
-	importerModels.CustomFieldTypeUserAssignedIdentityMap:                 dataApiModels.UserAssignedIdentityMapObjectDefinitionType,
-	importerModels.CustomFieldTypeTags:                                    dataApiModels.TagsObjectDefinitionType,
-	importerModels.CustomFieldTypeSystemData:                              dataApiModels.SystemDataObjectDefinitionType,
-	importerModels.CustomFieldTypeZone:                                    dataApiModels.ZoneObjectDefinitionType,
-	importerModels.CustomFieldTypeZones:                                   dataApiModels.ZonesObjectDefinitionType,
+var customFieldTypesToObjectDefinitionTypes = map[importerModels.CustomFieldType]dataapimodels.ObjectDefinitionType{
+	importerModels.CustomFieldTypeEdgeZone:                                dataapimodels.EdgeZoneObjectDefinitionType,
+	importerModels.CustomFieldTypeLocation:                                dataapimodels.LocationObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAssignedIdentity:                  dataapimodels.SystemAssignedIdentityObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList:       dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap:        dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList: dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap:  dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList:        dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap:         dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeUserAssignedIdentityList:                dataapimodels.UserAssignedIdentityListObjectDefinitionType,
+	importerModels.CustomFieldTypeUserAssignedIdentityMap:                 dataapimodels.UserAssignedIdentityMapObjectDefinitionType,
+	importerModels.CustomFieldTypeTags:                                    dataapimodels.TagsObjectDefinitionType,
+	importerModels.CustomFieldTypeSystemData:                              dataapimodels.SystemDataObjectDefinitionType,
+	importerModels.CustomFieldTypeZone:                                    dataapimodels.ZoneObjectDefinitionType,
+	importerModels.CustomFieldTypeZones:                                   dataapimodels.ZonesObjectDefinitionType,
 }
 
-var internalObjectDefinitionsToObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.ObjectDefinitionType{
-	importerModels.ObjectDefinitionBoolean:    dataApiModels.BooleanObjectDefinitionType,
-	importerModels.ObjectDefinitionCsv:        dataApiModels.CsvObjectDefinitionType,
-	importerModels.ObjectDefinitionDateTime:   dataApiModels.DateTimeObjectDefinitionType,
-	importerModels.ObjectDefinitionDictionary: dataApiModels.DictionaryObjectDefinitionType,
-	importerModels.ObjectDefinitionInteger:    dataApiModels.IntegerObjectDefinitionType,
-	importerModels.ObjectDefinitionFloat:      dataApiModels.FloatObjectDefinitionType,
-	importerModels.ObjectDefinitionList:       dataApiModels.ListObjectDefinitionType,
-	importerModels.ObjectDefinitionRawFile:    dataApiModels.RawFileObjectDefinitionType,
-	importerModels.ObjectDefinitionRawObject:  dataApiModels.RawObjectObjectDefinitionType,
-	importerModels.ObjectDefinitionReference:  dataApiModels.ReferenceObjectDefinitionType,
-	importerModels.ObjectDefinitionString:     dataApiModels.StringObjectDefinitionType,
+var internalObjectDefinitionsToObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataapimodels.ObjectDefinitionType{
+	importerModels.ObjectDefinitionBoolean:    dataapimodels.BooleanObjectDefinitionType,
+	importerModels.ObjectDefinitionCsv:        dataapimodels.CsvObjectDefinitionType,
+	importerModels.ObjectDefinitionDateTime:   dataapimodels.DateTimeObjectDefinitionType,
+	importerModels.ObjectDefinitionDictionary: dataapimodels.DictionaryObjectDefinitionType,
+	importerModels.ObjectDefinitionInteger:    dataapimodels.IntegerObjectDefinitionType,
+	importerModels.ObjectDefinitionFloat:      dataapimodels.FloatObjectDefinitionType,
+	importerModels.ObjectDefinitionList:       dataapimodels.ListObjectDefinitionType,
+	importerModels.ObjectDefinitionRawFile:    dataapimodels.RawFileObjectDefinitionType,
+	importerModels.ObjectDefinitionRawObject:  dataapimodels.RawObjectObjectDefinitionType,
+	importerModels.ObjectDefinitionReference:  dataapimodels.ReferenceObjectDefinitionType,
+	importerModels.ObjectDefinitionString:     dataapimodels.StringObjectDefinitionType,
 }
 
-func mapObjectDefinitionForField(details importerModels.FieldDetails, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.ObjectDefinition, error) {
+func mapObjectDefinitionForField(details importerModels.FieldDetails, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataapimodels.ObjectDefinition, error) {
 	// if it's a CustomFieldType then it can't contain another item
 	if details.CustomFieldType != nil {
 		typeVal, ok := customFieldTypesToObjectDefinitionTypes[*details.CustomFieldType]
 		if !ok {
 			return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the CustomFieldType %q", string(*details.CustomFieldType))
 		}
-		return &dataApiModels.ObjectDefinition{
+		return &dataapimodels.ObjectDefinition{
 			Type:          typeVal,
 			ReferenceName: nil,
 			NestedItem:    nil,
@@ -171,13 +171,13 @@ func mapObjectDefinitionForField(details importerModels.FieldDetails, constants 
 	return objectDefinition, nil
 }
 
-func mapObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.ObjectDefinition, error) {
+func mapObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataapimodels.ObjectDefinition, error) {
 	typeVal, ok := internalObjectDefinitionsToObjectDefinitionTypes[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no ObjectDefinition mapping is defined for the ObjectDefinition Type %q", string(definition.Type))
 	}
 
-	output := dataApiModels.ObjectDefinition{
+	output := dataapimodels.ObjectDefinition{
 		Type:          typeVal,
 		ReferenceName: nil,
 		NestedItem:    nil,
@@ -201,9 +201,9 @@ func mapObjectDefinition(definition *importerModels.ObjectDefinition, constants 
 	if definition.Minimum != nil {
 		output.MinItems = definition.Minimum
 	}
-	if output.Type == dataApiModels.DateTimeObjectDefinitionType {
+	if output.Type == dataapimodels.DateTimeObjectDefinitionType {
 		// TODO: support additional types of Date Formats (#8)
-		output.DateFormat = pointer.To(dataApiModels.RFC3339DateFormat)
+		output.DateFormat = pointer.To(dataapimodels.RFC3339DateFormat)
 	}
 
 	// finally let's do some sanity-checking to ensure the data being output looks legit
@@ -214,11 +214,11 @@ func mapObjectDefinition(definition *importerModels.ObjectDefinition, constants 
 	return &output, nil
 }
 
-func validateObjectDefinition(input dataApiModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
-	requiresNestedItem := input.Type == dataApiModels.CsvObjectDefinitionType ||
-		input.Type == dataApiModels.DictionaryObjectDefinitionType ||
-		input.Type == dataApiModels.ListObjectDefinitionType
-	requiresReference := input.Type == dataApiModels.ReferenceObjectDefinitionType
+func validateObjectDefinition(input dataapimodels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
+	requiresNestedItem := input.Type == dataapimodels.CsvObjectDefinitionType ||
+		input.Type == dataapimodels.DictionaryObjectDefinitionType ||
+		input.Type == dataapimodels.ListObjectDefinitionType
+	requiresReference := input.Type == dataapimodels.ReferenceObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
 		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}

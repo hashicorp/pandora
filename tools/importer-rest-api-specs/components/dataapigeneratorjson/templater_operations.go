@@ -8,7 +8,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -20,7 +20,7 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 
 	expectedStatusCodes := determineStatusCodes(input)
 
-	output := dataApiModels.Operation{
+	output := dataapimodels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
 		ExpectedStatusCodes:              expectedStatusCodes,
@@ -53,7 +53,7 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	}
 
 	if len(input.Options) > 0 {
-		options := make([]dataApiModels.Option, 0)
+		options := make([]dataapimodels.Option, 0)
 		sortedOptionsKeys := make([]string, 0)
 		for k := range input.Options {
 			sortedOptionsKeys = append(sortedOptionsKeys, k)
@@ -72,7 +72,7 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 				return nil, fmt.Errorf("mapping the object definition: %+v", err)
 			}
 
-			option := dataApiModels.Option{
+			option := dataapimodels.Option{
 				HeaderName:       optionDetails.HeaderName,
 				QueryString:      optionDetails.QueryStringName,
 				Field:            optionName,
@@ -98,23 +98,23 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	return data, nil
 }
 
-var internalObjectDefinitionsToOptionObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataApiModels.OptionObjectDefinitionType{
-	importerModels.ObjectDefinitionBoolean:   dataApiModels.BooleanOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionCsv:       dataApiModels.CsvOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionInteger:   dataApiModels.IntegerOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionFloat:     dataApiModels.FloatOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionList:      dataApiModels.ListOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionReference: dataApiModels.ReferenceOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionString:    dataApiModels.StringOptionObjectDefinitionType,
+var internalObjectDefinitionsToOptionObjectDefinitionTypes = map[importerModels.ObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
+	importerModels.ObjectDefinitionBoolean:   dataapimodels.BooleanOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionCsv:       dataapimodels.CsvOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionInteger:   dataapimodels.IntegerOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionFloat:     dataapimodels.FloatOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionList:      dataapimodels.ListOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionReference: dataapimodels.ReferenceOptionObjectDefinitionType,
+	importerModels.ObjectDefinitionString:    dataapimodels.StringOptionObjectDefinitionType,
 }
 
-func mapOptionObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataApiModels.OptionObjectDefinition, error) {
+func mapOptionObjectDefinition(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataapimodels.OptionObjectDefinition, error) {
 	typeVal, ok := internalObjectDefinitionsToOptionObjectDefinitionTypes[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
 	}
 
-	output := dataApiModels.OptionObjectDefinition{
+	output := dataapimodels.OptionObjectDefinition{
 		Type:          typeVal,
 		ReferenceName: nil,
 		NestedItem:    nil,
@@ -140,9 +140,9 @@ func mapOptionObjectDefinition(definition *importerModels.ObjectDefinition, cons
 	return &output, nil
 }
 
-func validateOptionObjectDefinition(input dataApiModels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
-	requiresNestedItem := input.Type == dataApiModels.CsvOptionObjectDefinitionType || input.Type == dataApiModels.ListOptionObjectDefinitionType
-	requiresReference := input.Type == dataApiModels.ReferenceOptionObjectDefinitionType
+func validateOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
+	requiresNestedItem := input.Type == dataapimodels.CsvOptionObjectDefinitionType || input.Type == dataapimodels.ListOptionObjectDefinitionType
+	requiresReference := input.Type == dataapimodels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {
 		return fmt.Errorf("a Nested Object Definition must be specified for a %q type but didn't get one", string(input.Type))
 	}

@@ -10,7 +10,7 @@ import (
 	"sync"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/data-api/internal/repositories/models"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 type ServicesRepository interface {
@@ -307,7 +307,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 }
 
 func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
-	var constant models.Constant
+	var constant dataapimodels.Constant
 
 	contents, err := loadJson(fmt.Sprintf(filePath))
 	if err != nil {
@@ -336,7 +336,7 @@ func parseConstantFromFilePath(filePath string) (*ConstantDetails, error) {
 }
 
 func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
-	var model models.Model
+	var model dataapimodels.Model
 
 	contents, err := loadJson(filePath)
 	if err != nil {
@@ -389,7 +389,7 @@ func parseModelFromFilePath(filePath string) (*ModelDetails, error) {
 }
 
 func parseOperationFromFilePath(filePath string, constants map[string]ConstantDetails, apiModels map[string]ModelDetails, resourceIds map[string]ResourceIdDefinition) (*ResourceOperations, error) {
-	var operation models.Operation
+	var operation dataapimodels.Operation
 
 	contents, err := loadJson(filePath)
 	if err != nil {
@@ -608,7 +608,7 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 		return definition, err
 	}
 
-	var resourceDefinition models.TerraformResourceDefinition
+	var resourceDefinition dataapimodels.TerraformResourceDefinition
 
 	if err := json.Unmarshal(*contents, &resourceDefinition); err != nil {
 		return definition, fmt.Errorf("unmarshaling Terraform Resource Definition")
@@ -673,7 +673,7 @@ func parseTerraformDefinitionResourceMappingsFromFilePath(resourcePath string, f
 		return mappings, err
 	}
 
-	var resourceMapping models.TerraformMappingDefinition
+	var resourceMapping dataapimodels.TerraformMappingDefinition
 
 	if err := json.Unmarshal(*contents, &resourceMapping); err != nil {
 		return mappings, fmt.Errorf("unmarshaling Terraform Resource Mapping")
@@ -757,7 +757,7 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 		return schemaModelDefinition, err
 	}
 
-	var schemaModel models.TerraformSchemaModel
+	var schemaModel dataapimodels.TerraformSchemaModel
 
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
 		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
@@ -813,7 +813,7 @@ func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file
 		return TerraformResourceTestsDefinition{}, err
 	}
 
-	var testConfig models.TerraformResourceTestConfig
+	var testConfig dataapimodels.TerraformResourceTestConfig
 	if err := json.Unmarshal(*contents, &testConfig); err != nil {
 		return TerraformResourceTestsDefinition{}, fmt.Errorf("unmarshaling Terraform Resource Tests %+v", err)
 	}
@@ -830,7 +830,7 @@ func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file
 	return testDefinition, nil
 }
 
-func terraformSchemaFieldObjectDefinitionFromField(input models.TerraformSchemaObjectDefinition) TerraformSchemaFieldObjectDefinition {
+func terraformSchemaFieldObjectDefinitionFromField(input dataapimodels.TerraformSchemaObjectDefinition) TerraformSchemaFieldObjectDefinition {
 	objectDefinition := TerraformSchemaFieldObjectDefinition{
 		ReferenceName: input.ReferenceName,
 		Type:          TerraformSchemaFieldType(input.Type),
@@ -845,7 +845,7 @@ func terraformSchemaFieldObjectDefinitionFromField(input models.TerraformSchemaO
 }
 
 func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantDetails) (*ResourceIdDefinition, error) {
-	var resourceId models.ResourceId
+	var resourceId dataapimodels.ResourceId
 
 	contents, err := loadJson(filePath)
 	if err != nil {
@@ -917,7 +917,7 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 	}, nil
 }
 
-func mapObjectDefinition(input *models.ObjectDefinition) (*ObjectDefinition, error) {
+func mapObjectDefinition(input *dataapimodels.ObjectDefinition) (*ObjectDefinition, error) {
 	if input == nil {
 		return nil, nil
 	}
@@ -943,7 +943,7 @@ func mapObjectDefinition(input *models.ObjectDefinition) (*ObjectDefinition, err
 	return &output, nil
 }
 
-func mapOptionObjectDefinition(input *models.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
+func mapOptionObjectDefinition(input *dataapimodels.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
 	optionObjectType, err := mapOptionObjectDefinitionType(input.Type)
 	if err != nil {
 		return nil, err
@@ -969,9 +969,9 @@ func mapOptionObjectDefinition(input *models.OptionObjectDefinition, constants m
 	return &output, nil
 }
 
-func mapDateFormatType(input models.DateFormat) (*DateFormat, error) {
-	mappings := map[models.DateFormat]DateFormat{
-		models.RFC3339DateFormat: RFC3339DateFormat,
+func mapDateFormatType(input dataapimodels.DateFormat) (*DateFormat, error) {
+	mappings := map[dataapimodels.DateFormat]DateFormat{
+		dataapimodels.RFC3339DateFormat: RFC3339DateFormat,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -980,35 +980,35 @@ func mapDateFormatType(input models.DateFormat) (*DateFormat, error) {
 	return nil, fmt.Errorf("unmapped Date Format Type %q", string(input))
 }
 
-func mapObjectDefinitionType(input models.ObjectDefinitionType) (*ObjectDefinitionType, error) {
-	mappings := map[models.ObjectDefinitionType]ObjectDefinitionType{
-		models.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
-		models.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
-		models.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
-		models.FloatObjectDefinitionType:      FloatObjectDefinitionType,
-		models.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
-		models.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
-		models.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
-		models.StringObjectDefinitionType:     StringObjectDefinitionType,
-		models.CsvObjectDefinitionType:        CsvObjectDefinitionType,
-		models.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
-		models.ListObjectDefinitionType:       ListObjectDefinitionType,
+func mapObjectDefinitionType(input dataapimodels.ObjectDefinitionType) (*ObjectDefinitionType, error) {
+	mappings := map[dataapimodels.ObjectDefinitionType]ObjectDefinitionType{
+		dataapimodels.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
+		dataapimodels.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
+		dataapimodels.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
+		dataapimodels.FloatObjectDefinitionType:      FloatObjectDefinitionType,
+		dataapimodels.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
+		dataapimodels.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
+		dataapimodels.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
+		dataapimodels.StringObjectDefinitionType:     StringObjectDefinitionType,
+		dataapimodels.CsvObjectDefinitionType:        CsvObjectDefinitionType,
+		dataapimodels.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
+		dataapimodels.ListObjectDefinitionType:       ListObjectDefinitionType,
 
-		models.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
-		models.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
-		models.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
-		models.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
-		models.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
-		models.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
-		models.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-		models.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-		models.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
-		models.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
-		models.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
-		models.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
-		models.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
-		models.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
-		models.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
+		dataapimodels.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
+		dataapimodels.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
+		dataapimodels.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
+		dataapimodels.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
+		dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
+		dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
+		dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
+		dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
+		dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
+		dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
+		dataapimodels.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
+		dataapimodels.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
+		dataapimodels.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
+		dataapimodels.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
+		dataapimodels.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -1017,15 +1017,15 @@ func mapObjectDefinitionType(input models.ObjectDefinitionType) (*ObjectDefiniti
 	return nil, fmt.Errorf("unmapped Object Definition Type %q", string(input))
 }
 
-func mapOptionObjectDefinitionType(input models.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
-	mappings := map[models.OptionObjectDefinitionType]OptionObjectDefinitionType{
-		models.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
-		models.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
-		models.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
-		models.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
-		models.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
-		models.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
-		models.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
+func mapOptionObjectDefinitionType(input dataapimodels.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
+	mappings := map[dataapimodels.OptionObjectDefinitionType]OptionObjectDefinitionType{
+		dataapimodels.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
+		dataapimodels.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
+		dataapimodels.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
+		dataapimodels.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
+		dataapimodels.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
+		dataapimodels.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
+		dataapimodels.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -1034,11 +1034,11 @@ func mapOptionObjectDefinitionType(input models.OptionObjectDefinitionType) (*Op
 	return nil, fmt.Errorf("unmapped Options Object Definition Type %q", string(input))
 }
 
-func mapConstantFieldType(input models.ConstantType) (*ConstantType, error) {
-	mappings := map[models.ConstantType]ConstantType{
-		models.FloatConstant:   FloatConstant,
-		models.IntegerConstant: IntegerConstant,
-		models.StringConstant:  StringConstant,
+func mapConstantFieldType(input dataapimodels.ConstantType) (*ConstantType, error) {
+	mappings := map[dataapimodels.ConstantType]ConstantType{
+		dataapimodels.FloatConstant:   FloatConstant,
+		dataapimodels.IntegerConstant: IntegerConstant,
+		dataapimodels.StringConstant:  StringConstant,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
@@ -1047,15 +1047,15 @@ func mapConstantFieldType(input models.ConstantType) (*ConstantType, error) {
 	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
 }
 
-func mapResourceIdSegmentType(input models.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
-	mappings := map[models.ResourceIdSegmentType]ResourceIdSegmentType{
-		models.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
-		models.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
-		models.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
-		models.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
-		models.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
-		models.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
-		models.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
+func mapResourceIdSegmentType(input dataapimodels.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
+	mappings := map[dataapimodels.ResourceIdSegmentType]ResourceIdSegmentType{
+		dataapimodels.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
+		dataapimodels.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
+		dataapimodels.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
+		dataapimodels.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
+		dataapimodels.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
+		dataapimodels.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
+		dataapimodels.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

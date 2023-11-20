@@ -1,12 +1,12 @@
 package dataapigeneratorjson
 
 import (
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformResourceTestDefinition(input resourcemanager.TerraformResourceTestsDefinition) dataApiModels.TerraformResourceTestConfig {
-	return dataApiModels.TerraformResourceTestConfig{
+func mapTerraformResourceTestDefinition(input resourcemanager.TerraformResourceTestsDefinition) dataapimodels.TerraformResourceTestConfig {
+	return dataapimodels.TerraformResourceTestConfig{
 		BasicConfig:    input.BasicConfiguration,
 		CompleteConfig: input.CompleteConfiguration,
 		Generate:       input.Generate,
