@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // MetaData contains Meta Data about this
 type MetaData struct {

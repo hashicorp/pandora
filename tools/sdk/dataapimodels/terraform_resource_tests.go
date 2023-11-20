@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformResourceTestConfig describes the various test configurations that a Resource will be tested against
 type TerraformResourceTestConfig struct {

@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformSchemaObjectDefinition describes the Type used in a Terraform Schema field.
 type TerraformSchemaObjectDefinition struct {

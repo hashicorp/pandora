@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // ObjectDefinition specifies additional information about a specific Object and any associated nested Objects
 type ObjectDefinition struct {

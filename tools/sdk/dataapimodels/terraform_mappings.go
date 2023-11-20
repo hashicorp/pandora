@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformMappingDefinition defines a Mappings between a Terraform Resource and
 // the Models used within the SDK.

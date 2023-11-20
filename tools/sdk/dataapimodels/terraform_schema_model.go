@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // TerraformSchemaModel defines a model used in the Terraform Schema for a Resource.
 //

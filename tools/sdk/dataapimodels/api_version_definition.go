@@ -1,4 +1,4 @@
-package models
+package dataapimodels
 
 // ApiVersionDefinition specifies an API Version within a Service which must contain at least one Resource
 type ApiVersionDefinition struct {
