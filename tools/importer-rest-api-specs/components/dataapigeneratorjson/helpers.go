@@ -6,7 +6,7 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-hclog"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func (s Generator) workingDirectoryForResource(resource string) string {
@@ -57,7 +57,7 @@ func writeJsonToFile(fileName string, fileContents []byte) error {
 	return nil
 }
 
-func writeTestsHclToFile(directory, resourceName string, tests dataApiModels.TerraformResourceTestConfig) error {
+func writeTestsHclToFile(directory, resourceName string, tests dataapimodels.TerraformResourceTestConfig) error {
 	if !tests.Generate {
 		return nil
 	}

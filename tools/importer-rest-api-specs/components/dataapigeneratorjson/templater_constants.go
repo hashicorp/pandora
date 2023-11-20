@@ -24,12 +24,12 @@ func codeForConstant(constantName string, details resourcemanager.ConstantDetail
 	return data, nil
 }
 
-func mapConstant(constantName string, details resourcemanager.ConstantDetails) (*models.Constant, error) {
+func mapConstant(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
 	keys := make([]string, 0)
-	keysToValues := make(map[string]models.ConstantValue)
+	keysToValues := make(map[string]dataapimodels.ConstantValue)
 	for k, v := range details.Values {
 		keys = append(keys, k)
-		keysToValues[k] = models.ConstantValue{
+		keysToValues[k] = dataapimodels.ConstantValue{
 			Key:   k,
 			Value: v,
 			// TODO: expose Description in the future when this is surfaced from the Parser
@@ -37,7 +37,7 @@ func mapConstant(constantName string, details resourcemanager.ConstantDetails) (
 	}
 	sort.Strings(keys)
 
-	values := make([]models.ConstantValue, 0)
+	values := make([]dataapimodels.ConstantValue, 0)
 	for _, key := range keys {
 		value := keysToValues[key]
 		values = append(values, value)
@@ -48,18 +48,18 @@ func mapConstant(constantName string, details resourcemanager.ConstantDetails) (
 		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
 
-	return &models.Constant{
+	return &dataapimodels.Constant{
 		Name:   constantName,
 		Type:   pointer.From(constantType),
 		Values: values,
 	}, nil
 }
 
-func mapConstantFieldType(input resourcemanager.ConstantType) (*models.ConstantType, error) {
-	mappings := map[resourcemanager.ConstantType]models.ConstantType{
-		resourcemanager.FloatConstant:   models.FloatConstant,
-		resourcemanager.IntegerConstant: models.IntegerConstant,
-		resourcemanager.StringConstant:  models.StringConstant,
+func mapConstantFieldType(input resourcemanager.ConstantType) (*dataapimodels.ConstantType, error) {
+	mappings := map[resourcemanager.ConstantType]dataapimodels.ConstantType{
+		resourcemanager.FloatConstant:   dataapimodels.FloatConstant,
+		resourcemanager.IntegerConstant: dataapimodels.IntegerConstant,
+		resourcemanager.StringConstant:  dataapimodels.StringConstant,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil

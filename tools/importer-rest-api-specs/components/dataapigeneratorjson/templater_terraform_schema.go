@@ -5,18 +5,18 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformSchemaModelDefinition(modelName string, schemaModel resourcemanager.TerraformSchemaModelDefinition) (*dataApiModels.TerraformSchemaModel, error) {
+func mapTerraformSchemaModelDefinition(modelName string, schemaModel resourcemanager.TerraformSchemaModelDefinition) (*dataapimodels.TerraformSchemaModel, error) {
 	fieldList := make([]string, 0)
 	for f := range schemaModel.Fields {
 		fieldList = append(fieldList, f)
 	}
 	sort.Strings(fieldList)
 
-	schemaFields := make([]dataApiModels.TerraformSchemaField, 0)
+	schemaFields := make([]dataapimodels.TerraformSchemaField, 0)
 	for _, fieldName := range fieldList {
 		def := schemaModel.Fields[fieldName]
 
@@ -28,19 +28,19 @@ func mapTerraformSchemaModelDefinition(modelName string, schemaModel resourceman
 		schemaFields = append(schemaFields, *fieldBody)
 	}
 
-	return &dataApiModels.TerraformSchemaModel{
+	return &dataapimodels.TerraformSchemaModel{
 		Fields: schemaFields,
 		Name:   modelName,
 	}, nil
 }
 
-func fieldDefinitionForTerraformSchemaField(fieldName string, input resourcemanager.TerraformSchemaFieldDefinition) (*dataApiModels.TerraformSchemaField, error) {
+func fieldDefinitionForTerraformSchemaField(fieldName string, input resourcemanager.TerraformSchemaFieldDefinition) (*dataapimodels.TerraformSchemaField, error) {
 	objectDefinition, err := mapTerraformSchemaObjectDefinition(input.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("mapping Terraform Schema Object Definition: %+v", err)
 	}
 
-	output := dataApiModels.TerraformSchemaField{
+	output := dataapimodels.TerraformSchemaField{
 		HclName:          input.HclName,
 		Name:             fieldName,
 		ObjectDefinition: *objectDefinition,
@@ -59,7 +59,7 @@ func fieldDefinitionForTerraformSchemaField(fieldName string, input resourcemana
 		output.Required = pointer.To(true)
 	}
 	if input.Documentation.Markdown != "" {
-		output.Documentation = &dataApiModels.TerraformSchemaFieldDocumentation{
+		output.Documentation = &dataapimodels.TerraformSchemaFieldDocumentation{
 			Markdown: input.Documentation.Markdown,
 		}
 	}
@@ -79,36 +79,36 @@ func fieldDefinitionForTerraformSchemaField(fieldName string, input resourcemana
 	return &output, nil
 }
 
-var objectDefinitionsToTerraformSchemaObjectDefinitionTypes = map[resourcemanager.TerraformSchemaFieldType]dataApiModels.TerraformSchemaObjectDefinitionType{
-	resourcemanager.TerraformSchemaFieldTypeBoolean:                       dataApiModels.BooleanTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeDateTime:                      dataApiModels.DateTimeTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeDictionary:                    dataApiModels.DictionaryTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      dataApiModels.EdgeZoneTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        dataApiModels.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: dataApiModels.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  dataApiModels.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          dataApiModels.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeLocation:                      dataApiModels.LocationTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeFloat:                         dataApiModels.FloatTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeInteger:                       dataApiModels.IntegerTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeList:                          dataApiModels.ListTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeReference:                     dataApiModels.ReferenceTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 dataApiModels.ResourceGroupTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeSet:                           dataApiModels.SetTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeString:                        dataApiModels.StringTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeTags:                          dataApiModels.TagsTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeSku:                           dataApiModels.SkuTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeZone:                          dataApiModels.ZoneTerraformSchemaObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeZones:                         dataApiModels.ZonesTerraformSchemaObjectDefinitionType,
+var objectDefinitionsToTerraformSchemaObjectDefinitionTypes = map[resourcemanager.TerraformSchemaFieldType]dataapimodels.TerraformSchemaObjectDefinitionType{
+	resourcemanager.TerraformSchemaFieldTypeBoolean:                       dataapimodels.BooleanTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeDateTime:                      dataapimodels.DateTimeTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeDictionary:                    dataapimodels.DictionaryTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      dataapimodels.EdgeZoneTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        dataapimodels.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: dataapimodels.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  dataapimodels.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          dataapimodels.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeLocation:                      dataapimodels.LocationTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeFloat:                         dataapimodels.FloatTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeInteger:                       dataapimodels.IntegerTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeList:                          dataapimodels.ListTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeReference:                     dataapimodels.ReferenceTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 dataapimodels.ResourceGroupTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeSet:                           dataapimodels.SetTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeString:                        dataapimodels.StringTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeTags:                          dataapimodels.TagsTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeSku:                           dataapimodels.SkuTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeZone:                          dataapimodels.ZoneTerraformSchemaObjectDefinitionType,
+	resourcemanager.TerraformSchemaFieldTypeZones:                         dataapimodels.ZonesTerraformSchemaObjectDefinitionType,
 }
 
-func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*dataApiModels.TerraformSchemaObjectDefinition, error) {
+func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*dataapimodels.TerraformSchemaObjectDefinition, error) {
 	mapped, ok := objectDefinitionsToTerraformSchemaObjectDefinitionTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for the Terraform Schema Field Object Definition %q", string(input.Type))
 	}
 
-	objectDefinition := dataApiModels.TerraformSchemaObjectDefinition{
+	objectDefinition := dataapimodels.TerraformSchemaObjectDefinition{
 		ReferenceName: input.ReferenceName,
 		Type:          mapped,
 	}
@@ -124,21 +124,21 @@ func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFie
 	return &objectDefinition, nil
 }
 
-var fieldValidationTypesToTerraformSchemaFieldValidationTypes = map[resourcemanager.TerraformSchemaValidationType]dataApiModels.TerraformSchemaFieldValidationType{
-	resourcemanager.TerraformSchemaValidationTypePossibleValues: dataApiModels.PossibleValuesTerraformSchemaValidationType,
+var fieldValidationTypesToTerraformSchemaFieldValidationTypes = map[resourcemanager.TerraformSchemaValidationType]dataapimodels.TerraformSchemaFieldValidationType{
+	resourcemanager.TerraformSchemaValidationTypePossibleValues: dataapimodels.PossibleValuesTerraformSchemaValidationType,
 }
 
-func mapFieldValidationDefinition(input resourcemanager.TerraformSchemaValidationDefinition) (*dataApiModels.TerraformSchemaFieldValidationDefinition, error) {
+func mapFieldValidationDefinition(input resourcemanager.TerraformSchemaValidationDefinition) (*dataapimodels.TerraformSchemaFieldValidationDefinition, error) {
 	mappedType, ok := fieldValidationTypesToTerraformSchemaFieldValidationTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Schema Field Validation Type %q", string(input.Type))
 	}
 
-	output := dataApiModels.TerraformSchemaFieldValidationDefinition{
+	output := dataapimodels.TerraformSchemaFieldValidationDefinition{
 		Type: mappedType,
 	}
 
-	if mappedType == dataApiModels.PossibleValuesTerraformSchemaValidationType {
+	if mappedType == dataapimodels.PossibleValuesTerraformSchemaValidationType {
 		if input.PossibleValues == nil {
 			return nil, fmt.Errorf("internal-error: bad data -`internal.PossibleValues` was nil for a PossibleValues type")
 		}
@@ -151,19 +151,19 @@ func mapFieldValidationDefinition(input resourcemanager.TerraformSchemaValidatio
 	return &output, nil
 }
 
-var possibleValuesTypeMappings = map[resourcemanager.TerraformSchemaValidationPossibleValueType]dataApiModels.TerraformSchemaValidationPossibleValuesType{
-	resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:    dataApiModels.FloatTerraformSchemaValidationPossibleValuesType,
-	resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:  dataApiModels.IntegerTerraformSchemaValidationPossibleValuesType,
-	resourcemanager.TerraformSchemaValidationPossibleValueTypeString: dataApiModels.StringTerraformSchemaValidationPossibleValuesType,
+var possibleValuesTypeMappings = map[resourcemanager.TerraformSchemaValidationPossibleValueType]dataapimodels.TerraformSchemaValidationPossibleValuesType{
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:    dataapimodels.FloatTerraformSchemaValidationPossibleValuesType,
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:  dataapimodels.IntegerTerraformSchemaValidationPossibleValuesType,
+	resourcemanager.TerraformSchemaValidationPossibleValueTypeString: dataapimodels.StringTerraformSchemaValidationPossibleValuesType,
 }
 
-func mapPossibleValuesForTerraformSchemaFieldValidation(input resourcemanager.TerraformSchemaValidationPossibleValuesDefinition) (*dataApiModels.TerraformSchemaValidationPossibleValuesDefinition, error) {
+func mapPossibleValuesForTerraformSchemaFieldValidation(input resourcemanager.TerraformSchemaValidationPossibleValuesDefinition) (*dataapimodels.TerraformSchemaValidationPossibleValuesDefinition, error) {
 	val, ok := possibleValuesTypeMappings[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Validation PossibleValueType %q", string(input.Type))
 	}
 
-	return &dataApiModels.TerraformSchemaValidationPossibleValuesDefinition{
+	return &dataapimodels.TerraformSchemaValidationPossibleValuesDefinition{
 		Type:   val,
 		Values: input.Values,
 	}, nil

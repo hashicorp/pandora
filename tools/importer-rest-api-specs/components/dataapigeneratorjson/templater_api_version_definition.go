@@ -4,11 +4,11 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataApiModels.ApiVersionDefinition, error) {
-	versionDefinition := dataApiModels.ApiVersionDefinition{
+func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataapimodels.ApiVersionDefinition, error) {
+	versionDefinition := dataapimodels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,
 		Generate:   true,

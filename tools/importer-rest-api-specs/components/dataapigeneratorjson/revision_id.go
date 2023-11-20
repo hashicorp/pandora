@@ -6,13 +6,13 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
 func OutputMetaData(workingDirectory, swaggerGitSha string) error {
-	metaData := dataApiModels.MetaData{
-		DataSource:        dataApiModels.AzureResourceManagerDataSource,
-		SourceInformation: dataApiModels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
+	metaData := dataapimodels.MetaData{
+		DataSource:        dataapimodels.AzureResourceManagerDataSource,
+		SourceInformation: dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
 		GitRevision:       pointer.To(swaggerGitSha),
 	}
 

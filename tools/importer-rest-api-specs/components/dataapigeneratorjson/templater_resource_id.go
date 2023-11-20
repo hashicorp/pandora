@@ -4,12 +4,12 @@ import (
 	"encoding/json"
 	"fmt"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	dataApiModels "github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func codeForResourceId(name string, input importerModels.ParsedResourceId) ([]byte, error) {
-	segments := make([]dataApiModels.ResourceIdSegment, 0)
+	segments := make([]dataapimodels.ResourceIdSegment, 0)
 	for _, inputSegment := range input.Segments {
 		outputSegment, err := mapResourceIdSegment(inputSegment)
 		if err != nil {
@@ -18,7 +18,7 @@ func codeForResourceId(name string, input importerModels.ParsedResourceId) ([]by
 		segments = append(segments, *outputSegment)
 	}
 
-	resourceId := dataApiModels.ResourceId{
+	resourceId := dataapimodels.ResourceId{
 		Name:        name,
 		CommonAlias: input.CommonAlias,
 		Id:          input.ID(),
@@ -33,22 +33,22 @@ func codeForResourceId(name string, input importerModels.ParsedResourceId) ([]by
 	return data, nil
 }
 
-func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataApiModels.ResourceIdSegment, error) {
+func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataapimodels.ResourceIdSegment, error) {
 	if input.Type == resourcemanager.ConstantSegment {
 		if input.ConstantReference == nil {
 			return nil, fmt.Errorf("constant segment type with missing constant reference: %+v", input)
 		}
-		return &dataApiModels.ResourceIdSegment{
+		return &dataapimodels.ResourceIdSegment{
 			Name:         input.Name,
-			Type:         dataApiModels.ConstantResourceIdSegmentType,
+			Type:         dataapimodels.ConstantResourceIdSegmentType,
 			ConstantName: input.ConstantReference,
 		}, nil
 	}
 
 	if input.Type == resourcemanager.ResourceGroupSegment {
-		return &dataApiModels.ResourceIdSegment{
+		return &dataapimodels.ResourceIdSegment{
 			Name: input.Name,
-			Type: dataApiModels.ResourceGroupResourceIdSegmentType,
+			Type: dataapimodels.ResourceGroupResourceIdSegmentType,
 		}, nil
 	}
 
@@ -57,17 +57,17 @@ func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataApiMode
 			return nil, fmt.Errorf("resource provider segment type with missing fixed value: %+v", input)
 		}
 
-		return &dataApiModels.ResourceIdSegment{
+		return &dataapimodels.ResourceIdSegment{
 			Name:  input.Name,
-			Type:  dataApiModels.ResourceProviderResourceIdSegmentType,
+			Type:  dataapimodels.ResourceProviderResourceIdSegmentType,
 			Value: input.FixedValue,
 		}, nil
 	}
 
 	if input.Type == resourcemanager.ScopeSegment {
-		return &dataApiModels.ResourceIdSegment{
+		return &dataapimodels.ResourceIdSegment{
 			Name: input.Name,
-			Type: dataApiModels.ScopeResourceIdSegmentType,
+			Type: dataapimodels.ScopeResourceIdSegmentType,
 		}, nil
 	}
 
@@ -75,23 +75,23 @@ func mapResourceIdSegment(input resourcemanager.ResourceIdSegment) (*dataApiMode
 		if input.FixedValue == nil {
 			return nil, fmt.Errorf("static segment type with missing fixed value: %+v", input)
 		}
-		return &dataApiModels.ResourceIdSegment{
-			Type:  dataApiModels.StaticResourceIdSegmentType,
+		return &dataapimodels.ResourceIdSegment{
+			Type:  dataapimodels.StaticResourceIdSegmentType,
 			Name:  input.Name,
 			Value: input.FixedValue,
 		}, nil
 	}
 
 	if input.Type == resourcemanager.SubscriptionIdSegment {
-		return &dataApiModels.ResourceIdSegment{
-			Type: dataApiModels.SubscriptionIdResourceIdSegmentType,
+		return &dataapimodels.ResourceIdSegment{
+			Type: dataapimodels.SubscriptionIdResourceIdSegmentType,
 			Name: input.Name,
 		}, nil
 	}
 
 	if input.Type == resourcemanager.UserSpecifiedSegment {
-		return &dataApiModels.ResourceIdSegment{
-			Type: dataApiModels.UserSpecifiedResourceIdSegmentType,
+		return &dataapimodels.ResourceIdSegment{
+			Type: dataapimodels.UserSpecifiedResourceIdSegmentType,
 			Name: input.Name,
 		}, nil
 	}
