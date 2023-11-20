@@ -1,0 +1,52 @@
+{
+ "name": "SchemaGroupId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventHub/namespaces/{namespaceName}/schemaGroups/{schemaGroupName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftEventHub",
+   "type": "ResourceProvider",
+   "value": "Microsoft.EventHub"
+  },
+  {
+   "name": "staticNamespaces",
+   "type": "Static",
+   "value": "namespaces"
+  },
+  {
+   "name": "namespaceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSchemaGroups",
+   "type": "Static",
+   "value": "schemaGroups"
+  },
+  {
+   "name": "schemaGroupName",
+   "type": "UserSpecified"
+  }
+ ]
+}
