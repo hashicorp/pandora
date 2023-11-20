@@ -220,7 +220,7 @@ service "eventgrid" {
 }
 service "eventhub" {
   name      = "EventHub"
-  available = ["2021-11-01", "2022-01-01-preview"]
+  available = ["2021-11-01", "2022-01-01-preview", "2024-01-01"]
 }
 service "extendedlocation" {
   name      = "ExtendedLocation"
@@ -256,7 +256,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2022-12-01", "2023-02-28", "2023-09-06"]
+  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
