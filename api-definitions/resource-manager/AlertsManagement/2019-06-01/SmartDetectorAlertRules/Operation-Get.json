@@ -1,0 +1,26 @@
+{
+ "name": "Get",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "expandDetector",
+   "required": false,
+   "field": "ExpandDetector",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SmartDetectorAlertRuleId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AlertRule"
+ }
+}

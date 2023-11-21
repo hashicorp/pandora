@@ -1,0 +1,128 @@
+{
+ "name": "GetAll",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "monitorCondition",
+   "required": false,
+   "field": "MonitorCondition",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitorCondition"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "monitorService",
+   "required": false,
+   "field": "MonitorService",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitorService"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "pageCount",
+   "required": false,
+   "field": "PageCount",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "severity",
+   "required": false,
+   "field": "Severity",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "Severity"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "smartGroupState",
+   "required": false,
+   "field": "SmartGroupState",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertState"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "sortBy",
+   "required": false,
+   "field": "SortBy",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "SmartGroupsSortByFields"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "sortOrder",
+   "required": false,
+   "field": "SortOrder",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "SortOrder"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "targetResource",
+   "required": false,
+   "field": "TargetResource",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "targetResourceGroup",
+   "required": false,
+   "field": "TargetResourceGroup",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "targetResourceType",
+   "required": false,
+   "field": "TargetResourceType",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "timeRange",
+   "required": false,
+   "field": "TimeRange",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "TimeRange"
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SmartGroup"
+ },
+ "uriSuffix": "/providers/Microsoft.AlertsManagement/smartGroups"
+}
