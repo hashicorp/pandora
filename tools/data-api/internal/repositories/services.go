@@ -2,6 +2,7 @@ package repositories
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"os"
 	"path"
@@ -28,6 +29,10 @@ type ServicesRepositoryImpl struct {
 	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
 	services *map[string]ServiceDetails
 
+	// serviceDirectory is a map of all the services belonging to a serviceType mapped to the directory containing its
+	// definitions
+	serviceDirectory map[string]string
+
 	// serviceNames is a list containing the names of services which should be loaded
 	// this allows the loading/parsing of a subset of services for faster iterations during development
 	serviceNames *[]string
@@ -52,9 +57,62 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	// e.g. definitions for `Containers` under `handwritten` and under `resource-manager`
 	// we probably want to save a map of map[ServiceName]FilePath for each serviceType to reduce the overhead of
 	// iterating through the directories multiple times.
+	dirs, err := listSubDirectories(directory)
+	if err != nil {
+		//TODO errors
+	}
+
+	allServices := make(map[string]string, 0)
+	for _, d := range *dirs {
+		serviceDir := path.Join(directory, d)
+
+		// check whether directory contains a metadata.json
+
+		var metadata dataapimodels.MetaData
+		contents, err := loadJson(fmt.Sprintf(path.Join(serviceDir, "metadata.json")))
+		if err != nil {
+			var pathError *os.PathError
+			if errors.As(err, &pathError) {
+				// this folder has no metadata.json so shouldn't contain any definitions
+				continue
+			}
+			// TODO errors
+		}
+
+		if err := json.Unmarshal(*contents, &metadata); err != nil {
+			// TODO errors
+		}
+
+		if serviceType == ResourceManagerServiceType {
+			if metadata.DataSource != dataapimodels.AzureResourceManagerDataSource {
+				continue
+			}
+		}
+		if serviceType == MicrosoftGraphV1StableServiceType {
+			if metadata.DataSource != dataapimodels.MicrosoftGraphDataSource {
+				continue
+			}
+		}
+
+		files, err := os.ReadDir(serviceDir)
+		if err != nil {
+			// TODO errors
+		}
+
+		for _, f := range files {
+			if f.IsDir() {
+				if _, ok := allServices[f.Name()]; ok {
+					// TODO error
+				}
+				allServices[f.Name()] = path.Join(serviceDir, f.Name())
+			}
+		}
+	}
+
 	return &ServicesRepositoryImpl{
-		directory:    path.Join(directory, string(serviceType)),
-		serviceNames: serviceNames,
+		//directory:        path.Join(directory, string(serviceType)),
+		serviceNames:     serviceNames,
+		serviceDirectory: allServices,
 	}
 }
 
@@ -73,29 +131,33 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 
 	// TODO add locking around this when reloading data/clearing cache so that it's only done once
 	if s.services == nil {
-		var err error
-		services := s.serviceNames
-		if services == nil {
-			// this means we haven't passed any specific services to the serve command, so we get whatever is available in the api definitions directory
-			services, err = listSubDirectories(s.directory)
-			if err != nil {
-				return nil, fmt.Errorf("retrieving list of services for %s: %+v", serviceType, err)
+		servicesToLoad := make([]string, 0)
+		if s.serviceNames == nil {
+			for service := range s.serviceDirectory {
+				servicesToLoad = append(servicesToLoad, service)
 			}
+		} else {
+			for _, service := range *s.serviceNames {
+				if _, ok := s.serviceDirectory[service]; !ok {
+					// TODO errors: api definitions for service x not found
+				}
+			}
+			servicesToLoad = *s.serviceNames
 		}
 
-		if services != nil {
-			servicesMap := make(map[string]ServiceDetails)
-			for _, service := range *services {
-				// loads the service definition locations
-				serviceDetail, err := s.GetByName(service, serviceType)
-				if err != nil {
-					return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
-				}
-				serviceDetails = append(serviceDetails, *serviceDetail)
-				servicesMap[serviceDetail.Name] = *serviceDetail
+		sort.Strings(servicesToLoad)
+
+		servicesMap := make(map[string]ServiceDetails)
+		for _, service := range servicesToLoad {
+			serviceDetail, err := s.GetByName(service, serviceType)
+			if err != nil {
+				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
 			}
-			s.services = &servicesMap
+			serviceDetails = append(serviceDetails, *serviceDetail)
+			servicesMap[serviceDetail.Name] = *serviceDetail
 		}
+		s.services = &servicesMap
+
 		return &serviceDetails, nil
 	}
 
@@ -109,8 +171,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
 	// GetByName builds the ServiceDetails for a singular service by calling processing functions to build the
 	// structs for the ServiceApiVersionDetails and ServiceApiVersionResourceDetails
-	serviceDirectory := fmt.Sprintf("%s/%s", s.directory, serviceName)
-	if _, err := os.Stat(serviceDirectory); os.IsNotExist(err) {
+	if _, err := os.Stat(s.serviceDirectory[serviceName]); os.IsNotExist(err) {
 		return nil, fmt.Errorf("service %q does not exist: %+v", serviceName, err)
 	}
 
@@ -130,7 +191,7 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 }
 
 func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (*ServiceDetails, error) {
-	versions, err := listSubDirectories(fmt.Sprintf("%s/%s", s.directory, serviceName))
+	versions, err := listSubDirectories(s.serviceDirectory[serviceName])
 	if err != nil {
 		return nil, fmt.Errorf("retrieving versions: %+v", err)
 	}
@@ -143,7 +204,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 			if version == "Terraform" {
 				continue
 			}
-			resources, err := listSubDirectories(fmt.Sprintf("%s/%s/%s", s.directory, serviceName, version))
+			resources, err := listSubDirectories(path.Join(s.serviceDirectory[serviceName], version))
 			if err != nil {
 				return nil, fmt.Errorf("retrieving resources for %s: %+v", version, err)
 			}
@@ -160,11 +221,21 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 		return nil, err
 	}
 
+	var serviceDefinition dataapimodels.ServiceDefinition
+
+	contents, err := loadJson(path.Join(s.serviceDirectory[serviceName], "ServiceDefinition.json"))
+	if err != nil {
+		// TODO error: cannot load service definition for x
+	}
+
+	if err := json.Unmarshal(*contents, &serviceDefinition); err != nil {
+		// TODO error: unmarshaling service definition x
+	}
+
 	serviceDetails := &ServiceDetails{
-		Name: serviceName,
-		// TODO RP name needs to be stored in the api definitions
-		// ResourceProvider: fmt.Sprintf("Microsoft.%s", serviceName),
-		ApiVersions: versionDefinitions,
+		Name:             serviceName,
+		ResourceProvider: *serviceDefinition.ResourceProvider,
+		ApiVersions:      versionDefinitions,
 	}
 
 	if terraformDetails != nil {
@@ -204,7 +275,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	operations := make(map[string]ResourceOperations)
 	resourceIds := make(map[string]ResourceIdDefinition)
 
-	resourcePath := path.Join(s.directory, serviceName, version, resource)
+	resourcePath := path.Join(s.serviceDirectory[serviceName], version, resource)
 	files, err := os.ReadDir(resourcePath)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving definitions under %s: %+v", resourcePath, err)
@@ -460,7 +531,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		DataSources: make(map[string]TerraformDataSourceDetails),
 	}
 
-	terraformDefinitionsPath := path.Join(s.directory, serviceName, "Terraform")
+	terraformDefinitionsPath := path.Join(s.serviceDirectory[serviceName], "Terraform")
 	files, err := os.ReadDir(terraformDefinitionsPath)
 	if err != nil {
 		if strings.Contains(err.Error(), "no such file or directory") {
