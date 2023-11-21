@@ -10,9 +10,9 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.Automation.v2023_11_01.ListAllHybridRunbookWorkerGroupInAutomationAccount;
+namespace Pandora.Definitions.ResourceManager.Automation.v2023_11_01.HybridRunbookWorkerGroup;
 
-internal class HybridRunbookWorkerGroupDeleteOperation : Pandora.Definitions.Operations.DeleteOperation
+internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {

@@ -14,6 +14,7 @@ internal class Definition : ResourceDefinition
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
         new CreateOperation(),
+        new DeleteOperation(),
         new GetOperation(),
         new ListByAutomationAccountOperation(),
         new UpdateOperation(),
