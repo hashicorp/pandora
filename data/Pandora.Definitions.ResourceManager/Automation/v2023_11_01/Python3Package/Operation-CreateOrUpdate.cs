@@ -14,6 +14,8 @@ namespace Pandora.Definitions.ResourceManager.Automation.v2023_11_01.Python3Pack
 
 internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
+    public override bool LongRunning() => true;
+
     public override Type? RequestObject() => typeof(PythonPackageCreateParametersModel);
 
     public override ResourceID? ResourceId() => new Python3PackageId();
