@@ -8,7 +8,7 @@ service "advisor" {
 }
 service "alertsmanagement" {
   name      = "AlertsManagement"
-  available = ["2021-08-08", "2023-03-01"]
+  available = ["2019-05-05-preview", "2019-06-01", "2021-08-08", "2023-03-01"]
 }
 service "analysisservices" {
   name      = "AnalysisServices"
