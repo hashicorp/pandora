@@ -1,0 +1,31 @@
+{
+ "name": "AlertsChangeState",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "newState",
+   "required": true,
+   "field": "NewState",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertState"
+   }
+  }
+ ],
+ "resourceIdName": "AlertId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Comments"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Alert"
+ },
+ "uriSuffix": "/changestate"
+}
