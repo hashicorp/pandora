@@ -1,0 +1,21 @@
+{
+ "name": "NodeImageSelectionStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectedNodeImageVersions",
+   "name": "SelectedNodeImageVersions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NodeImageVersion"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
