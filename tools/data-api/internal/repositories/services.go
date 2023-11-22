@@ -220,11 +220,11 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	contents, err := loadJson(path.Join(s.serviceDirectory[serviceName], "ServiceDefinition.json"))
 	if err != nil {
-		// TODO error: cannot load service definition for x
+		return nil, fmt.Errorf("processing service definition for %q: %+v", serviceName, err)
 	}
 
-	if err := json.Unmarshal(*contents, &serviceDefinition); err != nil {
-		// TODO error: unmarshaling service definition x
+	if err = json.Unmarshal(*contents, &serviceDefinition); err != nil {
+		return nil, fmt.Errorf("unmarshaling service definition for %q: %+v", serviceName, err)
 	}
 
 	serviceDetails := &ServiceDetails{
