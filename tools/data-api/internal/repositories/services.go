@@ -23,9 +23,6 @@ type ServicesRepository interface {
 var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
-	// directory is where the api definitions for all services exist - this is where the server will read from
-	directory string
-
 	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
 	services *map[string]ServiceDetails
 
@@ -52,14 +49,14 @@ type ApiDefinition struct {
 	fileName string
 }
 
-func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) ServicesRepository {
-	// TODO we should implement some validation in here ensure that there aren't multiple API definitions for a Service
-	// e.g. definitions for `Containers` under `handwritten` and under `resource-manager`
-	// we probably want to save a map of map[ServiceName]FilePath for each serviceType to reduce the overhead of
-	// iterating through the directories multiple times.
+func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) (ServicesRepository, error) {
+	// NewServicesRepository initialises a service repository for a given service type (e.g. resource-manager/graph etc.)
+	// beginning in the root directory for all api definitions, it auto discovers subdirectories with a metadata.json and collects
+	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
+	// to load
 	dirs, err := listSubDirectories(directory)
 	if err != nil {
-		//TODO errors
+		return nil, fmt.Errorf("initialising service repository for %q: %+v", string(serviceType), err)
 	}
 
 	allServices := make(map[string]string, 0)
@@ -67,20 +64,19 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 		serviceDir := path.Join(directory, d)
 
 		// check whether directory contains a metadata.json
-
 		var metadata dataapimodels.MetaData
 		contents, err := loadJson(fmt.Sprintf(path.Join(serviceDir, "metadata.json")))
 		if err != nil {
 			var pathError *os.PathError
 			if errors.As(err, &pathError) {
-				// this folder has no metadata.json so shouldn't contain any definitions
+				// this folder has no metadata.json, so we skip it
 				continue
 			}
-			// TODO errors
+			return nil, fmt.Errorf("initialising service repository for %q, loading metadata.json: %+v", string(serviceType), err)
 		}
 
 		if err := json.Unmarshal(*contents, &metadata); err != nil {
-			// TODO errors
+			return nil, fmt.Errorf("initialising service repository for %q, unmarshaling metadata.json: %+v", string(serviceType), err)
 		}
 
 		if serviceType == ResourceManagerServiceType {
@@ -96,13 +92,13 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 
 		files, err := os.ReadDir(serviceDir)
 		if err != nil {
-			// TODO errors
+			return nil, fmt.Errorf("initialising service repository for %q, getting services: %+v", string(serviceType), err)
 		}
 
 		for _, f := range files {
 			if f.IsDir() {
 				if _, ok := allServices[f.Name()]; ok {
-					// TODO error
+					return nil, fmt.Errorf("initialising service repository for %q, duplicate definitions for service %q: %+v", string(serviceType), f.Name(), err)
 				}
 				allServices[f.Name()] = path.Join(serviceDir, f.Name())
 			}
@@ -110,10 +106,9 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	}
 
 	return &ServicesRepositoryImpl{
-		//directory:        path.Join(directory, string(serviceType)),
 		serviceNames:     serviceNames,
 		serviceDirectory: allServices,
-	}
+	}, nil
 }
 
 func (s *ServicesRepositoryImpl) ClearCache() error {

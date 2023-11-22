@@ -1,6 +1,9 @@
 package endpoints
 
 import (
+	"log"
+	"os"
+
 	"github.com/go-chi/chi/v5"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/infrastructure"
 	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1"
@@ -16,7 +19,12 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 				UriPrefix:       "/v1/microsoft-graph/beta",
 				UsesCommonTypes: true,
 			}
-			serviceRepo := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			if err != nil {
+				// TODO logging
+				log.Printf("Error: %+v", err)
+				os.Exit(1)
+			}
 			v1.Router(r, opts, serviceRepo)
 		})
 		router.Route("/v1/microsoft-graph/stable-v1", func(r chi.Router) {
@@ -25,7 +33,12 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 				UriPrefix:       "/v1/microsoft-graph/stable-v1",
 				UsesCommonTypes: true,
 			}
-			serviceRepo := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			if err != nil {
+				// TODO logging
+				log.Printf("Error: %+v", err)
+				os.Exit(1)
+			}
 			v1.Router(r, opts, serviceRepo)
 		})
 		router.Route("/v1/resource-manager", func(r chi.Router) {
@@ -34,7 +47,12 @@ func Router(directory string, serviceNames *[]string) func(chi.Router) {
 				UriPrefix:       "/v1/resource-manager",
 				UsesCommonTypes: false,
 			}
-			serviceRepo := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
+			if err != nil {
+				// TODO logging
+				log.Printf("Error: %+v", err)
+				os.Exit(1)
+			}
 			v1.Router(r, opts, serviceRepo)
 		})
 		router.Get("/", HomePage(router))
