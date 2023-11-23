@@ -112,6 +112,22 @@ func mapObjectDefinitionType(input repositories.ObjectDefinitionType) (*models.A
 		repositories.CsvObjectDefinitionType:        models.CsvApiObjectDefinitionType,
 		repositories.DictionaryObjectDefinitionType: models.DictionaryApiObjectDefinitionType,
 		repositories.ListObjectDefinitionType:       models.ListApiObjectDefinitionType,
+
+		repositories.EdgeZoneObjectDefinitionType:                                models.EdgeZoneApiObjectDefinitionType,
+		repositories.LocationObjectDefinitionType:                                models.LocationApiObjectDefinitionType,
+		repositories.TagsObjectDefinitionType:                                    models.TagsApiObjectDefinitionType,
+		repositories.SystemAssignedIdentityObjectDefinitionType:                  models.SystemAssignedIdentityApiObjectDefinitionType,
+		repositories.SystemAndUserAssignedIdentityListObjectDefinitionType:       models.SystemAndUserAssignedIdentityListApiObjectDefinitionType,
+		repositories.SystemAndUserAssignedIdentityMapObjectDefinitionType:        models.SystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+		repositories.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: models.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType,
+		repositories.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  models.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+		repositories.SystemOrUserAssignedIdentityListObjectDefinitionType:        models.SystemOrUserAssignedIdentityListApiObjectDefinitionType,
+		repositories.SystemOrUserAssignedIdentityMapObjectDefinitionType:         models.SystemOrUserAssignedIdentityMapApiObjectDefinitionType,
+		repositories.UserAssignedIdentityListObjectDefinitionType:                models.UserAssignedIdentityListApiObjectDefinitionType,
+		repositories.UserAssignedIdentityMapObjectDefinitionType:                 models.UserAssignedIdentityMapApiObjectDefinitionType,
+		repositories.SystemDataObjectDefinitionType:                              models.SystemData,
+		repositories.ZoneObjectDefinitionType:                                    models.ZoneApiObjectDefinitionType,
+		repositories.ZonesObjectDefinitionType:                                   models.ZonesApiObjectDefinitionType,
 	}
 	if v, ok := mappings[input]; ok {
 		return &v, nil
