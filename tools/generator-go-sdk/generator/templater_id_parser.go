@@ -115,6 +115,12 @@ func (r resourceIdTemplater) methods() (*string, error) {
 		methods = append(methods, *functionBody)
 	}
 
+	functionBody, err = r.fromParseResultFunction(r.resource.Segments)
+	if err != nil {
+		return nil, fmt.Errorf("generating the fromParseResult function: %+v", err)
+	}
+	methods = append(methods, *functionBody)
+
 	// Validate function
 	methods = append(methods, r.validateFunction(nameWithoutSuffix))
 
@@ -264,9 +270,36 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 		functionName += "Insensitively"
 	}
 
+	description := fmt.Sprintf("// %[1]s parses 'input' into a %[2]s", functionName, r.name)
+	if !caseSensitive {
+		description = fmt.Sprintf(`
+// %[1]s parses 'input' case-insensitively into a %[2]s
+// note: this method should only be used for API response data and not user input`, functionName, r.name)
+	}
+
+	out := fmt.Sprintf(`%[4]s
+func %[1]s(input string) (*%[2]s, error) {
+	parser := resourceids.NewParserFromResourceIdType(%[2]s{})
+	parsed, err := parser.Parse(input, %[3]t)
+	if err != nil {
+		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
+	}
+
+	id := %[2]s{}
+	if err := id.FromParseResult(*parsed); err != nil {
+			return nil, err
+	}
+
+	return &id, nil
+}`, functionName, r.name, !caseSensitive, description)
+	return &out, nil
+}
+
+func (r resourceIdTemplater) fromParseResultFunction(segments []resourcemanager.ResourceIdSegment) (*string, error) {
+
 	lines := make([]string, 0)
 	varDeclaration := ""
-	for _, segment := range r.resource.Segments {
+	for _, segment := range segments {
 		switch segment.Type {
 		case resourcemanager.ConstantSegment:
 			{
@@ -276,14 +309,14 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 
 				lines = append(lines, fmt.Sprintf(`
 
-	if v, ok := parsed.Parsed[%[1]q]; true {
+	if v, ok := input.Parsed[%[1]q]; true {
 		if !ok {
-			return nil, resourceids.NewSegmentNotSpecifiedError(id, %[1]q, *parsed)
+			return resourceids.NewSegmentNotSpecifiedError(id, %[1]q, input)
 		}
 
 		%[1]s, err := parse%[3]s(v)
 		if err != nil {
-			return nil, fmt.Errorf("parsing %%q: %%+v", v, err)
+			return fmt.Errorf("parsing %%q: %%+v", v, err)
 		}
 		id.%[2]s = *%[1]s
 	}
@@ -294,8 +327,8 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 		case resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
 			{
 				lines = append(lines, fmt.Sprintf(`
-	if id.%[2]s, ok = parsed.Parsed[%[1]q]; !ok {
-		return nil, resourceids.NewSegmentNotSpecifiedError(id, %[1]q, *parsed)
+	if id.%[2]s, ok = input.Parsed[%[1]q]; !ok {
+		return resourceids.NewSegmentNotSpecifiedError(id, %[1]q, input)
 	}
 `, segment.Name, strings.Title(segment.Name)))
 
@@ -308,29 +341,13 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 			continue
 		}
 	}
+	out := fmt.Sprintf(`func (id %[1]s) FromParseResult(input resourceids.ParseResult) error {
+    %[2]s
 
-	description := fmt.Sprintf("// %[1]s parses 'input' into a %[2]s", functionName, r.name)
-	if !caseSensitive {
-		description = fmt.Sprintf(`
-// %[1]s parses 'input' case-insensitively into a %[2]s
-// note: this method should only be used for API response data and not user input`, functionName, r.name)
-	}
+	%[3]s
+    return nil
+}`, r.name, varDeclaration, strings.Join(lines, "\n"))
 
-	out := fmt.Sprintf(`%[5]s
-func %[1]s(input string) (*%[2]s, error) {
-	parser := resourceids.NewParserFromResourceIdType(%[2]s{})
-	parsed, err := parser.Parse(input, %[3]t)
-	if err != nil {
-		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
-	}
-
-	%[6]s
-	id := %[2]s{}
-
-	%[4]s
-
-	return &id, nil
-}`, functionName, r.name, !caseSensitive, strings.Join(lines, "\n"), description, varDeclaration)
 	return &out, nil
 }
 

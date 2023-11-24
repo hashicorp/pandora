@@ -71,11 +71,10 @@ var _ resourceids.ResourceId = BasicTestId{}
 	        return nil, fmt.Errorf("parsing %q: %+v", input, err)
         }
 
-        var ok bool
         id := BasicTestId{}
-        if id.SubscriptionId, ok = parsed.Parsed["subscriptionId"]; !ok {
-			return nil, resourceids.NewSegmentNotSpecifiedError(id, "subscriptionId", *parsed)
-        }
+        if err := id.FromParseResult(*parsed); err != nil {
+			return nil, err
+		}
 
         return &id, nil
 	}
@@ -89,13 +88,22 @@ var _ resourceids.ResourceId = BasicTestId{}
 	        return nil, fmt.Errorf("parsing %q: %+v", input, err)
         }
 
-        var ok bool
         id := BasicTestId{}
-        if id.SubscriptionId, ok = parsed.Parsed["subscriptionId"]; !ok {
-            return nil, resourceids.NewSegmentNotSpecifiedError(id, "subscriptionId", *parsed)
-        }
+        if err := id.FromParseResult(*parsed); err != nil {
+			return nil, err
+		}
 
         return &id, nil
+	}
+
+	func (id BasicTestId) FromParseResult(input resourceids.ParseResult) error {
+		var ok bool
+
+		if id.SubscriptionId, ok = input.Parsed["subscriptionId"]; !ok {
+			return resourceids.NewSegmentNotSpecifiedError(id, "subscriptionId", input)
+        }
+
+		return nil
 	}
 
 	// ValidateBasicTestID checks that 'input' can be parsed as a Basic Test ID
