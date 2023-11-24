@@ -227,17 +227,8 @@ func ParseConstantOnlyID(input string) (*ConstantOnlyId, error) {
 	}
 
 	id := ConstantOnlyId{}
-
-	if v, ok := parsed.Parsed["thingId"]; true {
-		if !ok {
-			return nil, resourceids.NewSegmentNotSpecifiedError(id, "thingId", *parsed)
-		}
-
-		thingId, err := parseThing(v)
-		if err != nil {
-			return nil, fmt.Errorf("parsing %q: %+v", v, err)
-		}
-		id.ThingId = *thingId
+	if err := id.FromParseResult(*parsed); err != nil {
+			return nil, err
 	}
 
 	return &id, nil
@@ -253,20 +244,25 @@ func ParseConstantOnlyIDInsensitively(input string) (*ConstantOnlyId, error) {
 	}
 
 	id := ConstantOnlyId{}
-
-	if v, ok := parsed.Parsed["thingId"]; true {
-		if !ok {
-			return nil, resourceids.NewSegmentNotSpecifiedError(id, "thingId", *parsed)
-		}
-
-		thingId, err := parseThing(v)
-		if err != nil {
-			return nil, fmt.Errorf("parsing %q: %+v", v, err)
-		}
-		id.ThingId = *thingId
+	if err := id.FromParseResult(*parsed); err != nil {
+			return nil, err
 	}
 
 	return &id, nil
+}
+
+func (id *ConstantOnlyId) FromParseResult(input resourceids.ParseResult) error {
+	if v, ok := input.Parsed["thingId"]; true {
+        if !ok {
+        	return resourceids.NewSegmentNotSpecifiedError(id, "thingId", input)
+        }
+        thingId, err := parseThing(v)
+        if err != nil {
+        	return fmt.Errorf("parsing %q: %+v", v, err)
+        }
+        id.ThingId = *thingId
+	}
+	return nil
 }
 
 // ValidateConstantOnlyID checks that 'input' can be parsed as a Constant Only ID
