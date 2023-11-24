@@ -341,7 +341,7 @@ func (r resourceIdTemplater) fromParseResultFunction(segments []resourcemanager.
 			continue
 		}
 	}
-	out := fmt.Sprintf(`func (id %[1]s) FromParseResult(input resourceids.ParseResult) error {
+	out := fmt.Sprintf(`func (id *%[1]s) FromParseResult(input resourceids.ParseResult) error {
     %[2]s
 
 	%[3]s

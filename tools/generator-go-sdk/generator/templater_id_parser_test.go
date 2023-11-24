@@ -96,7 +96,7 @@ var _ resourceids.ResourceId = BasicTestId{}
         return &id, nil
 	}
 
-	func (id BasicTestId) FromParseResult(input resourceids.ParseResult) error {
+	func (id *BasicTestId) FromParseResult(input resourceids.ParseResult) error {
 		var ok bool
 
 		if id.SubscriptionId, ok = input.Parsed["subscriptionId"]; !ok {
