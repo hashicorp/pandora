@@ -120,8 +120,8 @@ service "cost-management" {
   name      = "CostManagement"
   available = ["2021-10-01", "2022-06-01-preview", "2022-10-01", "2023-03-01", "2023-08-01"]
 }
-service "customlocations" {
-  name      = "CustomLocations"
+service "extendedlocation" {
+  name      = "ExtendedLocation"
   available = ["2021-08-15"]
 }
 service "customproviders" {
