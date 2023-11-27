@@ -25,12 +25,14 @@ function buildAndInstallDependencies {
 function runWrapper {
   local dataApiAssemblyPath=$1
   local outputDirectory=$2
+  local useV2Generator=$3
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"
+    -output-dir="../../$outputDirectory"\
+    -use-v2-generator="$useV2Generator"
 
   cd "${DIR}"
 
@@ -140,15 +142,22 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
+  local dataApiV2Path="tools/data-api/data-api"
   local swaggerSubmodule="./swagger"
   local outputDirectory="tmp/terraform-provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
   local sha
+  local useV2Generator=false
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  if [ "$useV2Generator" = true ]
+  then
+    runWrapper "$dataApiV2Path" "$outputDirectory" "$useV2Generator"
+  else
+    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$useV2Generator"
+  fi
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
