@@ -22,7 +22,7 @@ func run(args Arguments) error {
 		dataApi = exec.Command("dotnet", args.DataApiAssemblyPath)
 	}
 	env := os.Environ()
-	env = append(env, fmt.Sprintf("PANDORA_API_PORT=%d", 8080)) //args.DataApiPort))
+	env = append(env, fmt.Sprintf("PANDORA_API_PORT=%d", args.DataApiPort))
 	dataApi.Env = env
 	log.Printf("Launching Data API on Port %d", args.DataApiPort)
 	if err := dataApi.Start(); err != nil {
