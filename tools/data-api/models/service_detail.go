@@ -2,7 +2,7 @@ package models
 
 type ServiceDetails struct {
 	// ResourceProvider is the Resource Provider this service represents
-	ResourceProvider string `json:"resourceProvider,omitempty"`
+	ResourceProvider *string `json:"resourceProvider,omitempty"`
 
 	// TerraformPackageName is the name of the Service Package within
 	// the Terraform Provider associated with this service.

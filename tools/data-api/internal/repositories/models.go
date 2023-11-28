@@ -75,7 +75,7 @@ type ServiceDetails struct {
 	Name                 string
 	ApiVersions          map[string]*ServiceApiVersionDetails
 	Generate             bool
-	ResourceProvider     string
+	ResourceProvider     *string
 	TerraformPackageName *string
 	TerraformDetails     TerraformDetails
 }

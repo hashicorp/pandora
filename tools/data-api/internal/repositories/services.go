@@ -2,7 +2,6 @@ package repositories
 
 import (
 	"encoding/json"
-	"errors"
 	"fmt"
 	"os"
 	"path"
@@ -23,16 +22,25 @@ type ServicesRepository interface {
 var _ ServicesRepository = &ServicesRepositoryImpl{}
 
 type ServicesRepositoryImpl struct {
+	// expectedDataSource specifies the Data Source of the API definitions that we should load
+	expectedDataSource dataapimodels.DataSource
+
+	// rootDirectory is the directory containing the API definitions for all service types
+	rootDirectory string
+
 	// Service, Version and Resource definitions loaded and unmarshalled from the JSON API definitions
 	services *map[string]ServiceDetails
 
-	// serviceDirectory is a map of all the services belonging to a serviceType mapped to the directory containing its
+	// serviceNamesToDirectory is a map of all the services belonging to a serviceType mapped to the directory containing its
 	// definitions
-	serviceDirectory map[string]string
+	serviceNamesToDirectory *map[string]string
 
 	// serviceNames is a list containing the names of services which should be loaded
 	// this allows the loading/parsing of a subset of services for faster iterations during development
 	serviceNames *[]string
+
+	// serviceType specifies the type of definitions to be loaded, e.g. for resource manager, graph etc.
+	serviceType ServiceType
 
 	sync.Mutex
 }
@@ -49,66 +57,38 @@ type ApiDefinition struct {
 	fileName string
 }
 
-func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) (ServicesRepository, error) {
+func NewServicesRepository(directory string, serviceType ServiceType, serviceNames *[]string) (*ServicesRepositoryImpl, error) {
 	// NewServicesRepository initialises a service repository for a given service type (e.g. resource-manager/graph etc.)
 	// beginning in the root directory for all api definitions, it auto discovers subdirectories with a metadata.json and collects
 	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
-	// to load
-	dirs, err := listSubDirectories(directory)
-	if err != nil {
-		return nil, fmt.Errorf("initialising service repository for %q: %+v", string(serviceType), err)
+	// to load from
+
+	var expectedDataSource dataapimodels.DataSource
+	if serviceType == ResourceManagerServiceType {
+		expectedDataSource = dataapimodels.AzureResourceManagerDataSource
+	}
+	if serviceType == MicrosoftGraphV1StableServiceType {
+		expectedDataSource = dataapimodels.MicrosoftGraphDataSource
 	}
 
-	allServices := make(map[string]string, 0)
-	for _, d := range *dirs {
-		serviceDir := path.Join(directory, d)
+	repo := &ServicesRepositoryImpl{
+		expectedDataSource: expectedDataSource,
+		rootDirectory:      directory,
+		serviceNames:       serviceNames,
+		serviceType:        serviceType,
+	}
 
-		// check whether directory contains a metadata.json
-		var metadata dataapimodels.MetaData
-		contents, err := loadJson(fmt.Sprintf(path.Join(serviceDir, "metadata.json")))
-		if err != nil {
-			var pathError *os.PathError
-			if errors.As(err, &pathError) {
-				// this folder has no metadata.json, so we skip it
-				continue
-			}
-			return nil, fmt.Errorf("initialising service repository for %q, loading metadata.json: %+v", string(serviceType), err)
+	if repo.serviceNames != nil {
+		if err := repo.discoverSubsetOfServices(); err != nil {
+			return nil, fmt.Errorf("discovering subset of services for %q: %+v", string(repo.serviceType), err)
 		}
-
-		if err := json.Unmarshal(*contents, &metadata); err != nil {
-			return nil, fmt.Errorf("initialising service repository for %q, unmarshaling metadata.json: %+v", string(serviceType), err)
-		}
-
-		if serviceType == ResourceManagerServiceType {
-			if metadata.DataSource != dataapimodels.AzureResourceManagerDataSource {
-				continue
-			}
-		}
-		if serviceType == MicrosoftGraphV1StableServiceType {
-			if metadata.DataSource != dataapimodels.MicrosoftGraphDataSource {
-				continue
-			}
-		}
-
-		files, err := os.ReadDir(serviceDir)
-		if err != nil {
-			return nil, fmt.Errorf("initialising service repository for %q, getting services: %+v", string(serviceType), err)
-		}
-
-		for _, f := range files {
-			if f.IsDir() {
-				if _, ok := allServices[f.Name()]; ok {
-					return nil, fmt.Errorf("initialising service repository for %q, duplicate definitions for service %q: %+v", string(serviceType), f.Name(), err)
-				}
-				allServices[f.Name()] = path.Join(serviceDir, f.Name())
-			}
+	} else {
+		if err := repo.discoverAllServices(); err != nil {
+			return nil, fmt.Errorf("discovering all services for %q: %+v", string(repo.serviceType), err)
 		}
 	}
 
-	return &ServicesRepositoryImpl{
-		serviceNames:     serviceNames,
-		serviceDirectory: allServices,
-	}, nil
+	return repo, nil
 }
 
 func (s *ServicesRepositoryImpl) ClearCache() error {
@@ -122,29 +102,45 @@ func (s *ServicesRepositoryImpl) ClearCache() error {
 
 func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDetails, error) {
 	// GetAll calls GetByName for all the service names passed to the serve command, or for all the services available in the api definitions directory
+
+	if s.serviceNamesToDirectory == nil {
+		return nil, fmt.Errorf("no services to load")
+	}
+	servicesToLoadSorted := make([]string, 0)
+
+	for service, _ := range *s.serviceNamesToDirectory {
+		servicesToLoadSorted = append(servicesToLoadSorted, service)
+	}
+
+	sort.Strings(servicesToLoadSorted)
+
 	serviceDetails := make([]ServiceDetails, 0)
 
-	// TODO add locking around this when reloading data/clearing cache so that it's only done once
-	if s.services == nil {
-		servicesToLoad := make([]string, 0)
-		if s.serviceNames == nil {
-			for service := range s.serviceDirectory {
-				servicesToLoad = append(servicesToLoad, service)
-			}
-		} else {
-			for _, service := range *s.serviceNames {
-				if _, ok := s.serviceDirectory[service]; !ok {
-					// TODO errors: api definitions for service x not found
+	if s.services != nil {
+		s.Lock()
+		for _, serviceToLoad := range servicesToLoadSorted {
+			serviceInCache, ok := (*s.services)[serviceToLoad]
+			if !ok {
+				serviceDetail, err := s.GetByName(serviceToLoad, s.serviceType)
+				if err != nil {
+					return nil, fmt.Errorf("retrieving service details for %s: %+v", serviceToLoad, err)
 				}
+				// add it to the cache
+				(*s.services)[serviceToLoad] = *serviceDetail
+				serviceDetails = append(serviceDetails, *serviceDetail)
+			} else {
+				serviceDetails = append(serviceDetails, serviceInCache)
 			}
-			servicesToLoad = *s.serviceNames
 		}
+		s.Unlock()
+		return &serviceDetails, nil
+	}
 
-		sort.Strings(servicesToLoad)
-
+	if s.services == nil {
+		s.Lock()
 		servicesMap := make(map[string]ServiceDetails)
-		for _, service := range servicesToLoad {
-			serviceDetail, err := s.GetByName(service, serviceType)
+		for _, service := range servicesToLoadSorted {
+			serviceDetail, err := s.GetByName(service, s.serviceType)
 			if err != nil {
 				return nil, fmt.Errorf("retrieving service details for %s: %+v", service, err)
 			}
@@ -152,6 +148,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 			servicesMap[serviceDetail.Name] = *serviceDetail
 		}
 		s.services = &servicesMap
+		s.Unlock()
 
 		return &serviceDetails, nil
 	}
@@ -164,10 +161,16 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 }
 
 func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType ServiceType) (*ServiceDetails, error) {
-	// GetByName builds the ServiceDetails for a singular service by calling processing functions to build the
-	// structs for the ServiceApiVersionDetails and ServiceApiVersionResourceDetails
-	if _, err := os.Stat(s.serviceDirectory[serviceName]); os.IsNotExist(err) {
-		return nil, fmt.Errorf("service %q does not exist: %+v", serviceName, err)
+	// GetByName loads the ServiceDetails for a service from cache if available or builds the ServiceDetails for a singular
+	// service by calling processing functions to build the structs for the ServiceApiVersionDetails and ServiceApiVersionResourceDetails
+
+	if s.services != nil {
+		s.Lock()
+		service, ok := (*s.services)[serviceName]
+		s.Unlock()
+		if ok {
+			return &service, nil
+		}
 	}
 
 	serviceDetails, err := s.ProcessServiceDefinitions(serviceName)
@@ -177,8 +180,7 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 
 	if s.services != nil {
 		s.Lock()
-		services := *s.services
-		services[serviceName] = *serviceDetails
+		(*s.services)[serviceName] = *serviceDetails
 		s.Unlock()
 	}
 
@@ -186,7 +188,8 @@ func (s *ServicesRepositoryImpl) GetByName(serviceName string, serviceType Servi
 }
 
 func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (*ServiceDetails, error) {
-	versions, err := listSubDirectories(s.serviceDirectory[serviceName])
+	servicePath := (*s.serviceNamesToDirectory)[serviceName]
+	versions, err := listSubDirectories(servicePath)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving versions: %+v", err)
 	}
@@ -199,7 +202,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 			if version == "Terraform" {
 				continue
 			}
-			resources, err := listSubDirectories(path.Join(s.serviceDirectory[serviceName], version))
+			resources, err := listSubDirectories(path.Join(servicePath, version))
 			if err != nil {
 				return nil, fmt.Errorf("retrieving resources for %s: %+v", version, err)
 			}
@@ -218,7 +221,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	var serviceDefinition dataapimodels.ServiceDefinition
 
-	contents, err := loadJson(path.Join(s.serviceDirectory[serviceName], "ServiceDefinition.json"))
+	contents, err := loadJson(path.Join(servicePath, "ServiceDefinition.json"))
 	if err != nil {
 		return nil, fmt.Errorf("processing service definition for %q: %+v", serviceName, err)
 	}
@@ -229,7 +232,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	serviceDetails := &ServiceDetails{
 		Name:             serviceName,
-		ResourceProvider: *serviceDefinition.ResourceProvider,
+		ResourceProvider: serviceDefinition.ResourceProvider,
 		ApiVersions:      versionDefinitions,
 	}
 
@@ -270,7 +273,7 @@ func (s *ServicesRepositoryImpl) ProcessResourceDefinitions(serviceName string, 
 	operations := make(map[string]ResourceOperations)
 	resourceIds := make(map[string]ResourceIdDefinition)
 
-	resourcePath := path.Join(s.serviceDirectory[serviceName], version, resource)
+	resourcePath := path.Join((*s.serviceNamesToDirectory)[serviceName], version, resource)
 	files, err := os.ReadDir(resourcePath)
 	if err != nil {
 		return nil, fmt.Errorf("retrieving definitions under %s: %+v", resourcePath, err)
@@ -526,7 +529,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 		DataSources: make(map[string]TerraformDataSourceDetails),
 	}
 
-	terraformDefinitionsPath := path.Join(s.serviceDirectory[serviceName], "Terraform")
+	terraformDefinitionsPath := path.Join((*s.serviceNamesToDirectory)[serviceName], "Terraform")
 	files, err := os.ReadDir(terraformDefinitionsPath)
 	if err != nil {
 		if strings.Contains(err.Error(), "no such file or directory") {
@@ -981,151 +984,4 @@ func parseResourceIdFromFilePath(filePath string, constants map[string]ConstantD
 		// however this might already be supported under the `commonTypes` endpoint, keeping this here until clarified
 		ConstantNames: constantNames,
 	}, nil
-}
-
-func mapObjectDefinition(input *dataapimodels.ObjectDefinition) (*ObjectDefinition, error) {
-	if input == nil {
-		return nil, nil
-	}
-
-	objectDefinitionType, err := mapObjectDefinitionType(input.Type)
-	if err != nil {
-		return nil, err
-	}
-
-	output := ObjectDefinition{
-		ReferenceName: input.ReferenceName,
-		Type:          pointer.From(objectDefinitionType),
-	}
-
-	if input.NestedItem != nil {
-		nestedItem, err := mapObjectDefinition(input.NestedItem)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Nested Item for Object Definition: %+v", err)
-		}
-		output.NestedItem = nestedItem
-	}
-
-	return &output, nil
-}
-
-func mapOptionObjectDefinition(input *dataapimodels.OptionObjectDefinition, constants map[string]ConstantDetails, apiModels map[string]ModelDetails) (*OptionObjectDefinition, error) {
-	optionObjectType, err := mapOptionObjectDefinitionType(input.Type)
-	if err != nil {
-		return nil, err
-	}
-
-	output := OptionObjectDefinition{
-		ReferenceName: input.ReferenceName,
-		Type:          pointer.From(optionObjectType),
-	}
-
-	if input.NestedItem != nil {
-		nestedItem, err := mapOptionObjectDefinition(input.NestedItem, constants, apiModels)
-		if err != nil {
-			return nil, fmt.Errorf("mapping Nested Item for Option Object Definition: %+v", err)
-		}
-		output.NestedItem = nestedItem
-	}
-
-	if err := validateOptionObjectDefinition(output, constants, apiModels); err != nil {
-		return nil, fmt.Errorf("validating mapped Option Object Definition: %+v", err)
-	}
-
-	return &output, nil
-}
-
-func mapDateFormatType(input dataapimodels.DateFormat) (*DateFormat, error) {
-	mappings := map[dataapimodels.DateFormat]DateFormat{
-		dataapimodels.RFC3339DateFormat: RFC3339DateFormat,
-	}
-	if v, ok := mappings[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Date Format Type %q", string(input))
-}
-
-func mapObjectDefinitionType(input dataapimodels.ObjectDefinitionType) (*ObjectDefinitionType, error) {
-	mappings := map[dataapimodels.ObjectDefinitionType]ObjectDefinitionType{
-		dataapimodels.BooleanObjectDefinitionType:    BooleanObjectDefinitionType,
-		dataapimodels.DateTimeObjectDefinitionType:   DateTimeObjectDefinitionType,
-		dataapimodels.IntegerObjectDefinitionType:    IntegerObjectDefinitionType,
-		dataapimodels.FloatObjectDefinitionType:      FloatObjectDefinitionType,
-		dataapimodels.RawFileObjectDefinitionType:    RawFileObjectDefinitionType,
-		dataapimodels.RawObjectObjectDefinitionType:  RawObjectObjectDefinitionType,
-		dataapimodels.ReferenceObjectDefinitionType:  ReferenceObjectDefinitionType,
-		dataapimodels.StringObjectDefinitionType:     StringObjectDefinitionType,
-		dataapimodels.CsvObjectDefinitionType:        CsvObjectDefinitionType,
-		dataapimodels.DictionaryObjectDefinitionType: DictionaryObjectDefinitionType,
-		dataapimodels.ListObjectDefinitionType:       ListObjectDefinitionType,
-
-		dataapimodels.EdgeZoneObjectDefinitionType:                                EdgeZoneObjectDefinitionType,
-		dataapimodels.LocationObjectDefinitionType:                                LocationObjectDefinitionType,
-		dataapimodels.TagsObjectDefinitionType:                                    TagsObjectDefinitionType,
-		dataapimodels.SystemAssignedIdentityObjectDefinitionType:                  SystemAssignedIdentityObjectDefinitionType,
-		dataapimodels.SystemAndUserAssignedIdentityListObjectDefinitionType:       SystemAndUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.SystemAndUserAssignedIdentityMapObjectDefinitionType:        SystemAndUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.LegacySystemAndUserAssignedIdentityListObjectDefinitionType: LegacySystemAndUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.LegacySystemAndUserAssignedIdentityMapObjectDefinitionType:  LegacySystemAndUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.SystemOrUserAssignedIdentityListObjectDefinitionType:        SystemOrUserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.SystemOrUserAssignedIdentityMapObjectDefinitionType:         SystemOrUserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.UserAssignedIdentityListObjectDefinitionType:                UserAssignedIdentityListObjectDefinitionType,
-		dataapimodels.UserAssignedIdentityMapObjectDefinitionType:                 UserAssignedIdentityMapObjectDefinitionType,
-		dataapimodels.SystemDataObjectDefinitionType:                              SystemDataObjectDefinitionType,
-		dataapimodels.ZoneObjectDefinitionType:                                    ZoneObjectDefinitionType,
-		dataapimodels.ZonesObjectDefinitionType:                                   ZonesObjectDefinitionType,
-	}
-	if v, ok := mappings[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Object Definition Type %q", string(input))
-}
-
-func mapOptionObjectDefinitionType(input dataapimodels.OptionObjectDefinitionType) (*OptionObjectDefinitionType, error) {
-	mappings := map[dataapimodels.OptionObjectDefinitionType]OptionObjectDefinitionType{
-		dataapimodels.BooleanOptionObjectDefinitionType:   BooleanOptionObjectDefinition,
-		dataapimodels.IntegerOptionObjectDefinitionType:   IntegerOptionObjectDefinition,
-		dataapimodels.FloatOptionObjectDefinitionType:     FloatOptionObjectDefinitionType,
-		dataapimodels.StringOptionObjectDefinitionType:    StringOptionObjectDefinitionType,
-		dataapimodels.CsvOptionObjectDefinitionType:       CsvOptionObjectDefinitionType,
-		dataapimodels.ListOptionObjectDefinitionType:      ListOptionObjectDefinitionType,
-		dataapimodels.ReferenceOptionObjectDefinitionType: ReferenceOptionObjectDefinitionType,
-	}
-	if v, ok := mappings[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Options Object Definition Type %q", string(input))
-}
-
-func mapConstantFieldType(input dataapimodels.ConstantType) (*ConstantType, error) {
-	mappings := map[dataapimodels.ConstantType]ConstantType{
-		dataapimodels.FloatConstant:   FloatConstant,
-		dataapimodels.IntegerConstant: IntegerConstant,
-		dataapimodels.StringConstant:  StringConstant,
-	}
-	if v, ok := mappings[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Constant Type %q", string(input))
-}
-
-func mapResourceIdSegmentType(input dataapimodels.ResourceIdSegmentType) (*ResourceIdSegmentType, error) {
-	mappings := map[dataapimodels.ResourceIdSegmentType]ResourceIdSegmentType{
-		dataapimodels.ConstantResourceIdSegmentType:         ConstantResourceIdSegmentType,
-		dataapimodels.ResourceGroupResourceIdSegmentType:    ResourceGroupResourceIdSegmentType,
-		dataapimodels.ResourceProviderResourceIdSegmentType: ResourceProviderResourceIdSegmentType,
-		dataapimodels.ScopeResourceIdSegmentType:            ScopeResourceIdSegmentType,
-		dataapimodels.StaticResourceIdSegmentType:           StaticResourceIdSegmentType,
-		dataapimodels.SubscriptionIdResourceIdSegmentType:   SubscriptionIdResourceIdSegmentType,
-		dataapimodels.UserSpecifiedResourceIdSegmentType:    UserSpecifiedResourceIdSegmentType,
-	}
-	if v, ok := mappings[input]; ok {
-		return &v, nil
-	}
-
-	return nil, fmt.Errorf("unmapped Resource Id Segment Type %q", string(input))
 }
