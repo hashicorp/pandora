@@ -108,7 +108,7 @@ func (s *ServicesRepositoryImpl) GetAll(serviceType ServiceType) (*[]ServiceDeta
 	}
 	servicesToLoadSorted := make([]string, 0)
 
-	for service, _ := range *s.serviceNamesToDirectory {
+	for service := range *s.serviceNamesToDirectory {
 		servicesToLoadSorted = append(servicesToLoadSorted, service)
 	}
 
