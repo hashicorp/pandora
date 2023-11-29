@@ -50,4 +50,17 @@ HERE
       }
     }
   }
+
+  api "2023-10-15" {
+    package "FleetMembers" {
+      definition "kubernetes_fleet_member" {
+        id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}"
+        display_name = "Kubernetes Fleet Member"
+        website_subcategory = "Container"
+        description = <<HERE
+Manages a Kubernetes Fleet Member
+
+      }
+    }
+  }
 }
