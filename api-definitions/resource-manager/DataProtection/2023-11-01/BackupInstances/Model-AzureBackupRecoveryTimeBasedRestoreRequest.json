@@ -1,0 +1,20 @@
+{
+ "name": "AzureBackupRecoveryTimeBasedRestoreRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointTime",
+   "name": "RecoveryPointTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "AzureBackupRestoreRequest",
+ "discriminatedTypeValue": "AzureBackupRecoveryTimeBasedRestoreRequest",
+ "typeHintIn": "ObjectType"
+}
