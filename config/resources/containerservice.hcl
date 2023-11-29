@@ -59,7 +59,7 @@ HERE
         website_subcategory = "Container"
         description = <<HERE
 Manages a Kubernetes Fleet Member
-
+HERE
       }
     }
   }
