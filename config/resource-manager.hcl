@@ -158,7 +158,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2023-05-01", "2023-08-01"]
+  available = ["2022-04-01", "2023-05-01", "2023-08-01", "2023-11-01"]
 }
 service "datashare" {
   name      = "DataShare"
