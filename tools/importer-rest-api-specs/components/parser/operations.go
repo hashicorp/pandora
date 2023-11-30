@@ -252,6 +252,32 @@ func (p operationsParser) expectedStatusCodesForOperation(input parsedOperation)
 		}
 	}
 
+	if !usesNonDefaultStatusCodes(input, statusCodes) {
+		if p.operationIsLongRunning(input) {
+			if strings.EqualFold(input.httpMethod, "delete") {
+				statusCodes = []int{200, 202}
+			}
+			if strings.EqualFold(input.httpMethod, "post") {
+				statusCodes = []int{201, 202}
+			}
+			if strings.EqualFold(input.httpMethod, "put") {
+				statusCodes = []int{201, 202}
+			}
+		}
+		if p.isListOperation(input) {
+			if strings.EqualFold(input.httpMethod, "get") {
+				statusCodes = []int{200}
+			}
+		}
+		if strings.EqualFold(input.httpMethod, "delete") || strings.EqualFold(input.httpMethod, "get") || strings.EqualFold(input.httpMethod, "post") || strings.EqualFold(input.httpMethod, "head") {
+			statusCodes = []int{200}
+		}
+		if strings.EqualFold(input.httpMethod, "put") || strings.EqualFold(input.httpMethod, "patch") {
+			statusCodes = []int{200, 201}
+		}
+	}
+	sort.Ints(statusCodes)
+
 	return statusCodes
 }
 
@@ -525,4 +551,34 @@ func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOper
 	}
 
 	return &result
+}
+
+func usesNonDefaultStatusCodes(input parsedOperation, statusCodes []int) bool {
+	defaultStatusCodes := map[string][]int{
+		"get":    {200},
+		"post":   {200, 201},
+		"put":    {200, 201},
+		"delete": {200, 201},
+		"patch":  {200, 201},
+	}
+	expected, ok := defaultStatusCodes[strings.ToLower(input.httpMethod)]
+	if !ok {
+		// potentially an unsupported use-case but fine for now
+		return true
+	}
+
+	if len(expected) != len(statusCodes) {
+		return true
+	}
+
+	sort.Ints(expected)
+	sort.Ints(statusCodes)
+	for i, ev := range expected {
+		av := statusCodes[i]
+		if ev != av {
+			return true
+		}
+	}
+
+	return false
 }
