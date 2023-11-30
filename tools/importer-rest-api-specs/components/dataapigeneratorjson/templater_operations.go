@@ -40,16 +40,11 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	}
 
 	if input.ResponseObject != nil {
-		// we disregard the response object if it's either a long running operation or not a list operation
-		// since that is the behaviour in the current data api and to prevent diffs in the generated sdk
-		// this can be removed once #3364 has been fixed
-		if !input.LongRunning || input.FieldContainingPaginationDetails != nil {
-			responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
-			if err != nil {
-				return nil, fmt.Errorf("mapping the response object definition: %+v", err)
-			}
-			output.ResponseObject = responseObject
+		responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
 		}
+		output.ResponseObject = responseObject
 	}
 
 	if len(input.Options) > 0 {
