@@ -21,6 +21,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
 					DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
+						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 						SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 						SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 						SdkModelName:    item.DirectAssignment.SdkModelName,
@@ -29,6 +30,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 					SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 					SdkModelName:    item.DirectAssignment.SdkModelName,
 				})
@@ -47,6 +49,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
 					ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
+						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 						SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 						SdkModelName:    item.ModelToModel.SdkModelName,
 						SdkFieldName:    item.ModelToModel.SdkFieldName,
@@ -54,6 +57,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 					SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 					SdkModelName:    item.ModelToModel.SdkModelName,
 				})
@@ -79,6 +83,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 	for _, item := range input.ModelToModels {
 		// NOTE: any duplications get removed below
 		modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+			// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 			SchemaModelName: fmt.Sprintf("%sSchema", item.SchemaModelName),
 			SdkModelName:    item.SdkModelName,
 		})

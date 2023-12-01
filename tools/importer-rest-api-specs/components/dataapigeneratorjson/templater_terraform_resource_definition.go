@@ -35,8 +35,9 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 			Name:             input.ReadMethod.MethodName,
 			TimeoutInMinutes: input.ReadMethod.TimeoutInMinutes,
 		},
-		Resource:        input.Resource,
-		ResourceIdName:  input.ResourceIdName,
+		Resource:       input.Resource,
+		ResourceIdName: input.ResourceIdName,
+		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 		SchemaModelName: fmt.Sprintf("%sSchema", input.SchemaModelName),
 		UpdateMethod:    nil,
 	}
