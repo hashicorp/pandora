@@ -12,6 +12,7 @@ import (
 func Router(directory string, serviceNames *[]string) func(chi.Router) {
 	return func(router chi.Router) {
 		router.Route("/infrastructure", infrastructure.Router)
+		router.Route("/v1", infrastructure.Router)
 		router.Route("/v1/microsoft-graph/beta", func(r chi.Router) {
 			opts := v1.Options{
 				ServiceType:     repositories.MicrosoftGraphV1BetaServiceType,
