@@ -21,7 +21,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
 					DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
-						SchemaModelName: item.DirectAssignment.SchemaModelName,
+						SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 						SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 						SdkModelName:    item.DirectAssignment.SdkModelName,
 						SdkFieldPath:    item.DirectAssignment.SdkFieldPath,
@@ -29,7 +29,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-					SchemaModelName: item.DirectAssignment.SchemaModelName,
+					SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 					SdkModelName:    item.DirectAssignment.SdkModelName,
 				})
 				continue
@@ -47,14 +47,14 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
 					ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
-						SchemaModelName: item.ModelToModel.SchemaModelName,
+						SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 						SdkModelName:    item.ModelToModel.SdkModelName,
 						SdkFieldName:    item.ModelToModel.SdkFieldName,
 					},
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-					SchemaModelName: item.ModelToModel.SchemaModelName,
+					SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 					SdkModelName:    item.ModelToModel.SdkModelName,
 				})
 				continue
@@ -79,7 +79,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 	for _, item := range input.ModelToModels {
 		// NOTE: any duplications get removed below
 		modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-			SchemaModelName: item.SchemaModelName,
+			SchemaModelName: fmt.Sprintf("%sSchema", item.SchemaModelName),
 			SdkModelName:    item.SdkModelName,
 		})
 	}

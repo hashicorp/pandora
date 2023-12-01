@@ -10,9 +10,10 @@ import (
 
 func buildServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataapimodels.ServiceDefinition, error) {
 	output := dataapimodels.ServiceDefinition{
-		Name:             serviceName,
-		ResourceProvider: resourceProvider,
-		Generate:         true,
+		Name:                 serviceName,
+		ResourceProvider:     resourceProvider,
+		TerraformPackageName: terraformPackage,
+		Generate:             true,
 	}
 
 	if terraformPackage != nil {
