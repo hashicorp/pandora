@@ -232,6 +232,7 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 
 	serviceDetails := &ServiceDetails{
 		Name:             serviceName,
+		Generate:         serviceDefinition.Generate,
 		ResourceProvider: serviceDefinition.ResourceProvider,
 		ApiVersions:      versionDefinitions,
 	}
