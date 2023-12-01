@@ -75,6 +75,14 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 			},
 			UpdateMethod: mapUpdateMethod(resource.UpdateMethod),
 		}
+
+		// tests won't be added unless Generate is true when writing this out in dataapigeneratorjson/helpers.go writeTestsHclToFile
+		// so we can set this to true if BasicConfiguration has been written out
+		if output[resource.Label].Tests.BasicConfiguration != "" {
+			currResource := output[resource.Label]
+			currResource.Tests.Generate = true
+			output[resource.Label] = currResource
+		}
 	}
 
 	return output
