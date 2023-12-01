@@ -12,6 +12,7 @@ func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,
 		Generate:   true,
+		Source:     dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
 	}
 
 	names := make([]string, 0)
