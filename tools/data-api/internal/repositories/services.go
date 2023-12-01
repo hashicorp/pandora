@@ -231,10 +231,11 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 	}
 
 	serviceDetails := &ServiceDetails{
-		Name:             serviceName,
-		Generate:         serviceDefinition.Generate,
-		ResourceProvider: serviceDefinition.ResourceProvider,
-		ApiVersions:      versionDefinitions,
+		Name:                 serviceName,
+		Generate:             serviceDefinition.Generate,
+		TerraformPackageName: serviceDefinition.TerraformPackageName,
+		ResourceProvider:     serviceDefinition.ResourceProvider,
+		ApiVersions:          versionDefinitions,
 	}
 
 	if terraformDetails != nil {
@@ -739,7 +740,7 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 	}
 
 	definition.Documentation = ResourceDocumentationDefinition{
-		Category:        resourceDefinition.DisplayName,
+		Category:        resourceDefinition.Category,
 		Description:     resourceDefinition.Description,
 		ExampleUsageHcl: resourceDefinition.ExampleUsage,
 	}
