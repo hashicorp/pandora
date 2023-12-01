@@ -80,7 +80,7 @@ func mapDateFormat(input *repositories.DateFormat) (*models.DateFormat, error) {
 		if v, ok := mappings[*input]; ok {
 			return &v, nil
 		}
-		return nil, fmt.Errorf("unmapped date format %q", input)
+		return nil, fmt.Errorf("unmapped date format %+v", input)
 	}
 
 	return nil, nil

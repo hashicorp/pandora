@@ -19,7 +19,7 @@ func validateModels(input map[string]ModelDetails, constants map[string]Constant
 
 			parentModel, ok := input[*modelDetail.ParentTypeName]
 			if !ok {
-				return fmt.Errorf("model %q: discriminated parent type model %q not found", *modelDetail.ParentTypeName)
+				return fmt.Errorf("model %q: discriminated parent type model %q not found", modelName, *modelDetail.ParentTypeName)
 			}
 
 			typeHintIn := ""
