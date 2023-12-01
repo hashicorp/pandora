@@ -254,11 +254,11 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 
 	contents, err := loadJson(path.Join((*s.serviceNamesToDirectory)[serviceName], version, "ApiVersionDefinition.json"))
 	if err != nil {
-		return nil, fmt.Errorf("processing service definition for %q: %+v", serviceName, err)
+		return nil, fmt.Errorf("processing api version definition for %q: %+v", serviceName, err)
 	}
 
 	if err = json.Unmarshal(*contents, &apiVersionDefinition); err != nil {
-		return nil, fmt.Errorf("unmarshaling service definition for %q: %+v", serviceName, err)
+		return nil, fmt.Errorf("unmarshaling api version definition for %q: %+v", serviceName, err)
 	}
 
 	source, err := mapApiDefinitionSourceType(apiVersionDefinition.Source)
