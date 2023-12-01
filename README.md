@@ -12,11 +12,13 @@ These tools are:
 
 At the current time only Resource Manager Services are supported - although we're looking to support Microsoft Graph and (potentially) the Data Plane APIs in the future.
 
+Additional documentation can be found [in the `./docs` folder](docs/README.md).
+
 ## Getting Started
 
 The following dependencies are required:
 
-* [Golang 1.20.x](https://go.dev/dl/)
+* [Golang 1.21.x](https://go.dev/dl/)
 * [.NET 7.x](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 At first checkout you'll need to both initialize and then update the Git submodule:
@@ -32,31 +34,10 @@ The Swagger Git Submodule is updated every weekday (via Dependabot) - once updat
 $ git submodule update
 ```
 
-## How does this work?
-
-Pandora's primarily intended to be run in automation (using both Github Actions and Dependabot) - which gets run once a Pull Request is merged.
-
-* Once a Pull Request is merged that updates one of the following paths, the Rest API Specs Importer is run.
-  * The Resource Manager Config (`./config/resource-manager.hcl`).
-  * The Resource Manager Swagger Git Submodule (`./submodules/rest-api-specs`).
-  * Any of the tooling within `./tools`.
-* If the Rest API Specs Importer outputs any changes to the Imported API Definitions, those are committed and a Pull Request is opened.
-* Once that PR is merged, if there's any changes then the `hashicorp/go-azure-sdk` repository is updated in the same fashion via the Go SDK Generator (outputting any new/changes to the Go SDK).
-* At the same time, if there's any changes then the `hashicorp/terraform-provider-azurerm` repository is also updated via the Terraform Generator (outputting any new/changes to the Terraform Generator).
-
-To show the workflow with examples:
-
-1. A Pull Request is opened to add a new Service/API version to the config ([example](https://github.com/hashicorp/pandora/pull/939)).
-2. Once that Pull Request is merged that generates a Data API PR ([example](https://github.com/hashicorp/pandora/pull/941)).
-3. Once that Pull Request is merged that generates a Go SDK PR ([example](https://github.com/hashicorp/go-azure-sdk/pull/20)).
-4. Once that Pull Request is merged the SDK is automatically released (e.g. we add a new git tag).
-
-More information on [how to import a new Resource Manager Service/API Version for an existing Service](./docs/resource-manager-service-import) can be found in the `./docs` folder.
-
 ## Project Structure
 
-- `./config/resource-manager.hcl` - contains the list of Resource Manager Services and API Versions which should be imported.
-- `./data` - contains the Data API, containing the transformed Azure API Definitions in the intermediate C# format.
+- `./config` - contains the configuration for which Services should be imported from both Resource Manager and Microsoft Graph, and (for Resource Manager) the list of Terraform Resources which should be generated.
+- `./data` - contains V1 of the Data API - and the transformed Azure API Definitions in the intermediate C# format.
 - `./docs` - contains documentation.
 - `./submodules/msgraph-metadata` - contains the Git Submodule to [the `microsoftgraph/msgraph-metadata` repository](https://github.com/microsoftgraph/msgraph-metadata) - containing the OpenAPI/Swagger definitions for Microsoft Graph.
 - `./submodules/rest-api-specs` - contains the Git Submodule to [the `Azure/azure-rest-api-specs` repository](https://github.com/Azure/azure-rest-api-specs) - containing the OpenAPI/Swagger definitions for Azure Resource Manager.
@@ -65,6 +46,11 @@ More information on [how to import a new Resource Manager Service/API Version fo
 - `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.
 - `./tools/importer-rest-api-specs` - contains the Importer for the Azure Resource Manager OpenAPI/Swagger definitions.
 - `./tools/version-bumper` - contains a small tool to add new Services and new API Versions for existing Services to the config.
+
+The following directories are under active development, but aren't used in production at this time:
+
+- `./api-definitions` - contains V2 of the API Definitions - output as JSON rather than C# (as in V1).
+- `./tools/data-api` - contains V2 of the Data API - which will replace V1 of the Data API in time.
 
 There's also few helper tools (for example, for use in automation):
 

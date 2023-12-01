@@ -19,6 +19,8 @@ graph LR
   TerraformGenerator--->github.com/hashicorp/terraform-provider-azurerm
 ```
 
+A more detailed diagram explaining the workflow [can be found in the `Architecture Diagrams` document](internals-architecture-diagrams.md). 
+
 More details can be found [in the main README under "how does this work"](https://github.com/hashicorp/pandora#how-does-this-work).
 
 ## Overview
@@ -31,9 +33,17 @@ Specific information on each tool can be found in the README for each tool, [for
 
 ## Guides
 
+The following guides cover how to import a new Service/API Version - or to generate a new Terraform Resource:
+
 * [How to add a new Common ID](common-ids.md).
 * [Resource Manager: How to import a new API Version or Service into Pandora](resource-manager-service-import.md).
 * [Resource Manager: Generating a new Resource](resource-manager-generate-new-resource.md).
+
+The following guides are internal/technical documentation - documenting the overall architecture and requiring additional context:
+
+* [Internals: Architecture Diagrams](internals-architecture-diagrams.md)
+* [Internals: How the Automation Works](internals-how-automation-works.md)
+* [Internals: Future - changes to the Data API/Architecture](internals-architectural-changes-data-api.md)
 
 ### Resource ID's as a primary concept
 
