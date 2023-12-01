@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"strings"
 )
 
 func buildTerraformResourceDefinition(resourceLabel string, input resourcemanager.TerraformResourceDetails) (*dataapimodels.TerraformResourceDefinition, error) {
@@ -24,7 +23,7 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 		},
 		Description:                  input.Documentation.Description,
 		DisplayName:                  input.DisplayName,
-		ExampleUsage:                 strings.TrimPrefix(strings.TrimSuffix(input.Documentation.ExampleUsageHcl, "\n"), "\n"),
+		ExampleUsage:                 input.Documentation.ExampleUsageHcl,
 		Generate:                     input.Generate,
 		GenerateIdValidationFunction: input.GenerateIdValidation,
 		GenerateModel:                input.GenerateModel,

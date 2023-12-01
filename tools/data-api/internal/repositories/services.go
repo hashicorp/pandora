@@ -745,12 +745,6 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 		ExampleUsageHcl: resourceDefinition.ExampleUsage,
 	}
 
-	// todo the following are missing from the current information available
-	// TerraformResourceDetails{
-	//	Documentation:  ResourceDocumentationDefinition{},
-	//	Resource:       "",
-	// }
-
 	return definition, nil
 }
 
