@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineInstanceModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default";
 
 

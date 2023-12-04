@@ -20,7 +20,5 @@ internal class HubRouteTablesCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new HubRouteTableId();
 
-    public override Type? ResponseObject() => typeof(HubRouteTableModel);
-
 
 }

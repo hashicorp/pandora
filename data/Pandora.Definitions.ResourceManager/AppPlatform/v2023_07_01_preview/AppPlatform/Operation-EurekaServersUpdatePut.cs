@@ -20,8 +20,6 @@ internal class EurekaServersUpdatePutOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(EurekaServerResourceModel);
-
     public override string? UriSuffix() => "/eurekaServers/default";
 
 

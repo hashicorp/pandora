@@ -26,8 +26,6 @@ internal class GetIkeSasOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(string);
-
     public override string? UriSuffix() => "/getikesas";
 
 

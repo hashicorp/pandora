@@ -20,7 +20,5 @@ internal class SharedPrivateLinkResourcesCreateOrUpdateOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
-
 
 }

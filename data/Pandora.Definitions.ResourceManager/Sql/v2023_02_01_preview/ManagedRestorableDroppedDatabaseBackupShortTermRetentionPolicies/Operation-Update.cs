@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ManagedInstanceRestorableDroppedDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ManagedBackupShortTermRetentionPolicyModel);
-
     public override string? UriSuffix() => "/backupShortTermRetentionPolicies/default";
 
 

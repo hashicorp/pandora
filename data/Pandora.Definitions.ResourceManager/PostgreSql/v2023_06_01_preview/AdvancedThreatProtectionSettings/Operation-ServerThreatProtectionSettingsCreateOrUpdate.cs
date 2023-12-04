@@ -20,8 +20,6 @@ internal class ServerThreatProtectionSettingsCreateOrUpdateOperation : Pandora.D
 
     public override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override Type? ResponseObject() => typeof(ServerThreatProtectionSettingsModelModel);
-
     public override string? UriSuffix() => "/advancedThreatProtectionSettings/default";
 
 

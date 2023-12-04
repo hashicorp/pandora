@@ -25,8 +25,6 @@ internal class CassandraClustersInvokeCommandOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new CassandraClusterId();
 
-    public override Type? ResponseObject() => typeof(CommandOutputModel);
-
     public override string? UriSuffix() => "/invokeCommand";
 
 

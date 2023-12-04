@@ -20,7 +20,5 @@ internal class BuildServiceAgentPoolUpdatePutOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(BuildServiceAgentPoolResourceModel);
-
 
 }

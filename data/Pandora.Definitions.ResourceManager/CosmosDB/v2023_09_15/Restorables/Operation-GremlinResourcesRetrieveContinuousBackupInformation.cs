@@ -26,8 +26,6 @@ internal class GremlinResourcesRetrieveContinuousBackupInformationOperation : Pa
 
     public override ResourceID? ResourceId() => new GraphId();
 
-    public override Type? ResponseObject() => typeof(BackupInformationModel);
-
     public override string? UriSuffix() => "/retrieveContinuousBackupInformation";
 
 

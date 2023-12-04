@@ -26,7 +26,5 @@ internal class GremlinResourcesCreateUpdateGremlinDatabaseOperation : Pandora.De
 
     public override ResourceID? ResourceId() => new GremlinDatabaseId();
 
-    public override Type? ResponseObject() => typeof(GremlinDatabaseGetResultsModel);
-
 
 }

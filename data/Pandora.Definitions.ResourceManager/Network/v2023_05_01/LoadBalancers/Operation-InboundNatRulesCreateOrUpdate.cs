@@ -20,7 +20,5 @@ internal class InboundNatRulesCreateOrUpdateOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new InboundNatRuleId();
 
-    public override Type? ResponseObject() => typeof(InboundNatRuleModel);
-
 
 }

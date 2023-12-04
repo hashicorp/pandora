@@ -26,8 +26,6 @@ internal class ResumeReplicationOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new ReplicationMigrationItemId();
 
-    public override Type? ResponseObject() => typeof(MigrationItemModel);
-
     public override string? UriSuffix() => "/resumeReplication";
 
 

@@ -20,7 +20,5 @@ internal class CreateVMGroupOperation : Pandora.Definitions.Operations.PutOperat
 
     public override ResourceID? ResourceId() => new VMGroupId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
-
 
 }

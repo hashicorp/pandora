@@ -26,8 +26,6 @@ internal class SqlResourcesMigrateSqlContainerToAutoscaleOperation : Pandora.Def
 
     public override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToAutoscale";
 
 

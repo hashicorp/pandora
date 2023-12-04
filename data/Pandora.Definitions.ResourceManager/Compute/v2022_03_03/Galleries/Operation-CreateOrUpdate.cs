@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SharedImageGalleryId();
 
-    public override Type? ResponseObject() => typeof(GalleryModel);
-
 
 }

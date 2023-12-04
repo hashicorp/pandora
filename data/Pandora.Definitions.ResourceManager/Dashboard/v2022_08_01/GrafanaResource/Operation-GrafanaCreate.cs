@@ -20,7 +20,5 @@ internal class GrafanaCreateOperation : Pandora.Definitions.Operations.PutOperat
 
     public override ResourceID? ResourceId() => new GrafanaId();
 
-    public override Type? ResponseObject() => typeof(ManagedGrafanaModel);
-
 
 }

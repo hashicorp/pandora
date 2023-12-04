@@ -26,8 +26,6 @@ internal class TryPlannedBeforeForcedFailoverOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new FailoverGroupId();
 
-    public override Type? ResponseObject() => typeof(FailoverGroupModel);
-
     public override string? UriSuffix() => "/tryPlannedBeforeForcedFailover";
 
 

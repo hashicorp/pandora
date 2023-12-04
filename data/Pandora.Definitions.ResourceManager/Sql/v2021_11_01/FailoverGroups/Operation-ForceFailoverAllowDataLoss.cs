@@ -26,8 +26,6 @@ internal class ForceFailoverAllowDataLossOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new FailoverGroupId();
 
-    public override Type? ResponseObject() => typeof(FailoverGroupModel);
-
     public override string? UriSuffix() => "/forceFailoverAllowDataLoss";
 
 

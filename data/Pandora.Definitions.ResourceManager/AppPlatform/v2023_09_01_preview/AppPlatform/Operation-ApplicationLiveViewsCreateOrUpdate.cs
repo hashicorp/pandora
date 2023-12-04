@@ -20,7 +20,5 @@ internal class ApplicationLiveViewsCreateOrUpdateOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new ApplicationLiveViewId();
 
-    public override Type? ResponseObject() => typeof(ApplicationLiveViewResourceModel);
-
 
 }

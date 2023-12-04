@@ -26,7 +26,5 @@ internal class SettingsRuleCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new OutboundRuleId();
 
-    public override Type? ResponseObject() => typeof(OutboundRuleBasicResourceModel);
-
 
 }

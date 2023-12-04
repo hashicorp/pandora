@@ -26,8 +26,6 @@ internal class AcquireOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ManagedInstanceDnsAliasId();
 
-    public override Type? ResponseObject() => typeof(ManagedServerDnsAliasModel);
-
     public override string? UriSuffix() => "/acquire";
 
 

@@ -26,7 +26,5 @@ internal class CloudEndpointsCreateOperation : Pandora.Definitions.Operations.Pu
 
     public override ResourceID? ResourceId() => new CloudEndpointId();
 
-    public override Type? ResponseObject() => typeof(CloudEndpointModel);
-
 
 }

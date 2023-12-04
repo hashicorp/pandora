@@ -26,8 +26,6 @@ internal class RefreshProviderOperation : Pandora.Definitions.Operations.PostOpe
 
     public override ResourceID? ResourceId() => new ReplicationRecoveryServicesProviderId();
 
-    public override Type? ResponseObject() => typeof(RecoveryServicesProviderModel);
-
     public override string? UriSuffix() => "/refreshProvider";
 
 

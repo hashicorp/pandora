@@ -20,7 +20,5 @@ internal class DevToolPortalsCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new DevToolPortalId();
 
-    public override Type? ResponseObject() => typeof(DevToolPortalResourceModel);
-
 
 }

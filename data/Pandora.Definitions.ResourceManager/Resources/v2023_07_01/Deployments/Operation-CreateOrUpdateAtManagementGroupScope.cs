@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtManagementGroupScopeOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new Providers2DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class ConfigurationServicesValidateOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new ConfigurationServiceId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationServiceSettingsValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

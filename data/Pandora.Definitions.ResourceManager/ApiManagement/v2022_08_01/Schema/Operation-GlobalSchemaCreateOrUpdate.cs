@@ -27,8 +27,6 @@ internal class GlobalSchemaCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new SchemaId();
 
-    public override Type? ResponseObject() => typeof(GlobalSchemaContractModel);
-
     public override Type? OptionsObject() => typeof(GlobalSchemaCreateOrUpdateOperation.GlobalSchemaCreateOrUpdateOptions);
 
     internal class GlobalSchemaCreateOrUpdateOptions

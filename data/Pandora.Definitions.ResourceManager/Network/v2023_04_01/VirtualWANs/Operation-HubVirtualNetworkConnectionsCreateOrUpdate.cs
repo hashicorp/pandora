@@ -20,7 +20,5 @@ internal class HubVirtualNetworkConnectionsCreateOrUpdateOperation : Pandora.Def
 
     public override ResourceID? ResourceId() => new HubVirtualNetworkConnectionId();
 
-    public override Type? ResponseObject() => typeof(HubVirtualNetworkConnectionModel);
-
 
 }

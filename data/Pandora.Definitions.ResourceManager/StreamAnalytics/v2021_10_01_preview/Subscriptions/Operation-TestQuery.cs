@@ -26,8 +26,6 @@ internal class TestQueryOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(QueryTestingResultModel);
-
     public override string? UriSuffix() => "/testQuery";
 
 

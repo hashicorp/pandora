@@ -26,8 +26,6 @@ internal class VpnConnectionsStopPacketCaptureOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new VPNConnectionId();
 
-    public override Type? ResponseObject() => typeof(string);
-
     public override string? UriSuffix() => "/stoppacketcapture";
 
 

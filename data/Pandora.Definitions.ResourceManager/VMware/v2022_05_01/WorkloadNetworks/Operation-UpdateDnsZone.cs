@@ -26,7 +26,5 @@ internal class UpdateDnsZoneOperation : Pandora.Definitions.Operations.PatchOper
 
     public override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
-
 
 }

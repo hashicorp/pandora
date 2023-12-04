@@ -26,7 +26,5 @@ internal class UpdateTagsOperation : Pandora.Definitions.Operations.PatchOperati
 
     public override ResourceID? ResourceId() => new VirtualWANP2SVPNGatewayId();
 
-    public override Type? ResponseObject() => typeof(P2SVpnGatewayModel);
-
 
 }

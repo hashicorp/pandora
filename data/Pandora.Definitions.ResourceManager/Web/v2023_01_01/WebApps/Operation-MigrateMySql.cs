@@ -25,8 +25,6 @@ internal class MigrateMySqlOperation : Pandora.Definitions.Operations.PostOperat
 
     public override ResourceID? ResourceId() => new AppServiceId();
 
-    public override Type? ResponseObject() => typeof(OperationModel);
-
     public override string? UriSuffix() => "/migrateMySql";
 
 

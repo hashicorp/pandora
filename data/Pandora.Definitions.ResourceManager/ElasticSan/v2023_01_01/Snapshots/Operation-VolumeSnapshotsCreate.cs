@@ -20,7 +20,5 @@ internal class VolumeSnapshotsCreateOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(SnapshotModel);
-
 
 }

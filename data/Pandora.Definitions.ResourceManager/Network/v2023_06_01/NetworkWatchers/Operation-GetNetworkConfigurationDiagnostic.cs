@@ -26,8 +26,6 @@ internal class GetNetworkConfigurationDiagnosticOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(NetworkConfigurationDiagnosticResponseModel);
-
     public override string? UriSuffix() => "/networkConfigurationDiagnostic";
 
 

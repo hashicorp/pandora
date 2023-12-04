@@ -26,8 +26,6 @@ internal class AppsSetActiveDeploymentsOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new AppId();
 
-    public override Type? ResponseObject() => typeof(AppResourceModel);
-
     public override string? UriSuffix() => "/setActiveDeployments";
 
 

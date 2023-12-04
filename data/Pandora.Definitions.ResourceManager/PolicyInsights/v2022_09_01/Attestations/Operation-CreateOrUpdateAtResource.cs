@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtResourceOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new ScopedAttestationId();
 
-    public override Type? ResponseObject() => typeof(AttestationModel);
-
 
 }

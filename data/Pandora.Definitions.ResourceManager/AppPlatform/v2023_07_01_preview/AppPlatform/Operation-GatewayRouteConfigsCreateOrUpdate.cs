@@ -20,7 +20,5 @@ internal class GatewayRouteConfigsCreateOrUpdateOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new RouteConfigId();
 
-    public override Type? ResponseObject() => typeof(GatewayRouteConfigResourceModel);
-
 
 }

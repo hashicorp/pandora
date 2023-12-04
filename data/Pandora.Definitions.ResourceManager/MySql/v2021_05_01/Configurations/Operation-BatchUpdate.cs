@@ -26,8 +26,6 @@ internal class BatchUpdateOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationListResultModel);
-
     public override string? UriSuffix() => "/updateConfigurations";
 
 

@@ -20,7 +20,5 @@ internal class CreateDhcpOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new DhcpConfigurationId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
-
 
 }

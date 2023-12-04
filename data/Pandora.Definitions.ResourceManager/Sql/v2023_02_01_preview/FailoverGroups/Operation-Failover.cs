@@ -26,8 +26,6 @@ internal class FailoverOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new FailoverGroupId();
 
-    public override Type? ResponseObject() => typeof(FailoverGroupModel);
-
     public override string? UriSuffix() => "/failover";
 
 

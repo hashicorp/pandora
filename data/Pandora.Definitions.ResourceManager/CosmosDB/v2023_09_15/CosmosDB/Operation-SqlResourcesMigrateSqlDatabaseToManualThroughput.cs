@@ -26,8 +26,6 @@ internal class SqlResourcesMigrateSqlDatabaseToManualThroughputOperation : Pando
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToManualThroughput";
 
 

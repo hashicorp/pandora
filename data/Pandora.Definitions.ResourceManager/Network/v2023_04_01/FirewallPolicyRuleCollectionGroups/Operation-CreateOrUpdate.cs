@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new RuleCollectionGroupId();
 
-    public override Type? ResponseObject() => typeof(FirewallPolicyRuleCollectionGroupModel);
-
 
 }

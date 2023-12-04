@@ -20,7 +20,5 @@ internal class AccessPolicyCreateUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new AccessPolicyId();
 
-    public override Type? ResponseObject() => typeof(RedisCacheAccessPolicyModel);
-
 
 }

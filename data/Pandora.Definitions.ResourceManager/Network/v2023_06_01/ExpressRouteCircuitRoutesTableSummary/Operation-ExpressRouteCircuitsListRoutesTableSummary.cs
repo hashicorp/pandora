@@ -26,7 +26,5 @@ internal class ExpressRouteCircuitsListRoutesTableSummaryOperation : Pandora.Def
 
     public override ResourceID? ResourceId() => new RouteTablesSummaryId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteCircuitsRoutesTableSummaryListResultModel);
-
 
 }

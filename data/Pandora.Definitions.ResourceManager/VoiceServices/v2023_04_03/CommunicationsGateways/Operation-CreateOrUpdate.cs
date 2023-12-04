@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new CommunicationsGatewayId();
 
-    public override Type? ResponseObject() => typeof(CommunicationsGatewayModel);
-
 
 }

@@ -26,7 +26,5 @@ internal class CloudServicesNetworksUpdateOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new CloudServicesNetworkId();
 
-    public override Type? ResponseObject() => typeof(CloudServicesNetworkModel);
-
 
 }

@@ -20,7 +20,5 @@ internal class ExtensionsCreateOperation : Pandora.Definitions.Operations.PutOpe
 
     public override ResourceID? ResourceId() => new ScopedExtensionId();
 
-    public override Type? ResponseObject() => typeof(ExtensionModel);
-
 
 }

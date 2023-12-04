@@ -25,7 +25,5 @@ internal class LinkBackendOperation : Pandora.Definitions.Operations.PutOperatio
 
     public override ResourceID? ResourceId() => new LinkedBackendId();
 
-    public override Type? ResponseObject() => typeof(StaticSiteLinkedBackendARMResourceModel);
-
 
 }

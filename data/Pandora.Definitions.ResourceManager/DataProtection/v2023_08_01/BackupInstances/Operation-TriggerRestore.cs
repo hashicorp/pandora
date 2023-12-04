@@ -26,8 +26,6 @@ internal class TriggerRestoreOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
-
     public override string? UriSuffix() => "/restore";
 
 

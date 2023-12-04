@@ -26,8 +26,6 @@ internal class ListEffectiveNetworkSecurityGroupsOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new NetworkInterfaceId();
 
-    public override Type? ResponseObject() => typeof(EffectiveNetworkSecurityGroupListResultModel);
-
     public override string? UriSuffix() => "/effectiveNetworkSecurityGroups";
 
 

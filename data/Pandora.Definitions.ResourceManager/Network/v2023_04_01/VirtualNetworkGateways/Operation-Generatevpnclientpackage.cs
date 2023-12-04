@@ -26,8 +26,6 @@ internal class GeneratevpnclientpackageOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(string);
-
     public override string? UriSuffix() => "/generatevpnclientpackage";
 
 

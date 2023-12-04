@@ -20,7 +20,5 @@ internal class TracksCreateOrUpdateOperation : Pandora.Definitions.Operations.Pu
 
     public override ResourceID? ResourceId() => new TrackId();
 
-    public override Type? ResponseObject() => typeof(AssetTrackModel);
-
 
 }

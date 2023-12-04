@@ -26,8 +26,6 @@ internal class CreateIdentityOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ArcSettingId();
 
-    public override Type? ResponseObject() => typeof(ArcIdentityResponseModel);
-
     public override string? UriSuffix() => "/createArcIdentity";
 
 

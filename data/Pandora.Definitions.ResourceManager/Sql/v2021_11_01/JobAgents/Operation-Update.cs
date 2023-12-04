@@ -26,7 +26,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new JobAgentId();
 
-    public override Type? ResponseObject() => typeof(JobAgentModel);
-
 
 }

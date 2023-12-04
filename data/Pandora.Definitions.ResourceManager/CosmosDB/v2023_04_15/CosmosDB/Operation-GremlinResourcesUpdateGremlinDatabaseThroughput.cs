@@ -26,8 +26,6 @@ internal class GremlinResourcesUpdateGremlinDatabaseThroughputOperation : Pandor
 
     public override ResourceID? ResourceId() => new GremlinDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default";
 
 

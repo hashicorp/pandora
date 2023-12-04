@@ -27,7 +27,5 @@ internal class BindingsCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new BindingId();
 
-    public override Type? ResponseObject() => typeof(BindingResourceModel);
-
 
 }

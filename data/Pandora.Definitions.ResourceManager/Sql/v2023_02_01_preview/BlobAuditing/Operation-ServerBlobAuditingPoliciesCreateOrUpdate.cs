@@ -26,8 +26,6 @@ internal class ServerBlobAuditingPoliciesCreateOrUpdateOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new SqlServerId();
 
-    public override Type? ResponseObject() => typeof(ServerBlobAuditingPolicyModel);
-
     public override string? UriSuffix() => "/auditingSettings/default";
 
 

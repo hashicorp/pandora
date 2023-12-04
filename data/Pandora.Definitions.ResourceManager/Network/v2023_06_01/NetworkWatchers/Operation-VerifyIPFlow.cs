@@ -26,8 +26,6 @@ internal class VerifyIPFlowOperation : Pandora.Definitions.Operations.PostOperat
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(VerificationIPFlowResultModel);
-
     public override string? UriSuffix() => "/ipFlowVerify";
 
 

@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SqlServerId();
 
-    public override Type? ResponseObject() => typeof(ServerSecurityAlertPolicyModel);
-
     public override string? UriSuffix() => "/securityAlertPolicies/default";
 
 

@@ -26,8 +26,6 @@ internal class ConfigServersUpdatePutOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(ConfigServerResourceModel);
-
     public override string? UriSuffix() => "/configServers/default";
 
 

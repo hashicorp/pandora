@@ -25,7 +25,5 @@ internal class RestorePointsCreateOperation : Pandora.Definitions.Operations.Put
 
     public override ResourceID? ResourceId() => new RestorePointId();
 
-    public override Type? ResponseObject() => typeof(RestorePointModel);
-
 
 }

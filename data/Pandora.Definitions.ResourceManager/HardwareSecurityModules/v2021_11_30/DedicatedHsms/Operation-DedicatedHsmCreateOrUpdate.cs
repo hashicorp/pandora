@@ -20,7 +20,5 @@ internal class DedicatedHsmCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new DedicatedHSMId();
 
-    public override Type? ResponseObject() => typeof(DedicatedHsmModel);
-
 
 }

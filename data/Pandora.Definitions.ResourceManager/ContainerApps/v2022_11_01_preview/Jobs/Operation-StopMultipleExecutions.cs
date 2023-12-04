@@ -26,8 +26,6 @@ internal class StopMultipleExecutionsOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(ContainerAppJobExecutionsModel);
-
     public override string? UriSuffix() => "/stop";
 
 

@@ -25,7 +25,5 @@ internal class DigitalTwinsDeleteOperation : Pandora.Definitions.Operations.Dele
 
     public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
-
 
 }

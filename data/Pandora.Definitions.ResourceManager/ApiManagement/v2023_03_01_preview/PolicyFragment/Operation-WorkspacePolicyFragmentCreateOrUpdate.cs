@@ -27,8 +27,6 @@ internal class WorkspacePolicyFragmentCreateOrUpdateOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new WorkspacePolicyFragmentId();
 
-    public override Type? ResponseObject() => typeof(PolicyFragmentContractModel);
-
     public override Type? OptionsObject() => typeof(WorkspacePolicyFragmentCreateOrUpdateOperation.WorkspacePolicyFragmentCreateOrUpdateOptions);
 
     internal class WorkspacePolicyFragmentCreateOrUpdateOptions

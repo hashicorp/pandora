@@ -26,7 +26,5 @@ internal class CreateOrUpdateWorkerPoolOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new WorkerPoolId();
 
-    public override Type? ResponseObject() => typeof(WorkerPoolResourceModel);
-
 
 }

@@ -26,7 +26,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new CatalogId();
 
-    public override Type? ResponseObject() => typeof(CatalogModel);
-
 
 }

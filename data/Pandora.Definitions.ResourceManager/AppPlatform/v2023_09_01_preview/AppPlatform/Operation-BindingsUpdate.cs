@@ -26,7 +26,5 @@ internal class BindingsUpdateOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new BindingId();
 
-    public override Type? ResponseObject() => typeof(BindingResourceModel);
-
 
 }

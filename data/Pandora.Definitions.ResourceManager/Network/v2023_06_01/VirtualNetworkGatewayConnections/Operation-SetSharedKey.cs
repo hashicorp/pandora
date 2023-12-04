@@ -20,8 +20,6 @@ internal class SetSharedKeyOperation : Pandora.Definitions.Operations.PutOperati
 
     public override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ConnectionSharedKeyModel);
-
     public override string? UriSuffix() => "/sharedkey";
 
 

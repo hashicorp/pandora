@@ -26,8 +26,6 @@ internal class ReconcileOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new NetworkSecurityPerimeterConfigurationId();
 
-    public override Type? ResponseObject() => typeof(NetworkSecurityPerimeterConfigurationModel);
-
     public override string? UriSuffix() => "/reconcile";
 
 

@@ -27,7 +27,5 @@ internal class ClustersCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
-
 
 }

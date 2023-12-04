@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ServiceEndpointPolicyDefinitionId();
 
-    public override Type? ResponseObject() => typeof(ServiceEndpointPolicyDefinitionModel);
-
 
 }

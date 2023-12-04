@@ -26,8 +26,6 @@ internal class ValidateAtManagementGroupScopeOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new Providers2DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

@@ -26,8 +26,6 @@ internal class WhatIfAtTenantScopeOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
-
     public override string? UriSuffix() => "/whatIf";
 
 

@@ -25,7 +25,5 @@ internal class TracksUpdateOperation : Pandora.Definitions.Operations.PatchOpera
 
     public override ResourceID? ResourceId() => new TrackId();
 
-    public override Type? ResponseObject() => typeof(AssetTrackModel);
-
 
 }

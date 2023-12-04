@@ -26,8 +26,6 @@ internal class FailoverAllowDataLossOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ReplicationLinkId();
 
-    public override Type? ResponseObject() => typeof(ReplicationLinkModel);
-
     public override string? UriSuffix() => "/forceFailoverAllowDataLoss";
 
 

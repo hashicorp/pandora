@@ -26,8 +26,6 @@ internal class GrantAccessOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(AccessUriModel);
-
     public override string? UriSuffix() => "/beginGetAccess";
 
 

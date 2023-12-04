@@ -27,8 +27,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override Type? ResponseObject() => typeof(AzureADAdministratorModel);
-
     public override string? UriSuffix() => "/administrators/ActiveDirectory";
 
 

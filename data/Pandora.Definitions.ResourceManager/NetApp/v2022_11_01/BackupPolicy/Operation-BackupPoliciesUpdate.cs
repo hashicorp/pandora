@@ -26,7 +26,5 @@ internal class BackupPoliciesUpdateOperation : Pandora.Definitions.Operations.Pa
 
     public override ResourceID? ResourceId() => new BackupPolicyId();
 
-    public override Type? ResponseObject() => typeof(BackupPolicyModel);
-
 
 }

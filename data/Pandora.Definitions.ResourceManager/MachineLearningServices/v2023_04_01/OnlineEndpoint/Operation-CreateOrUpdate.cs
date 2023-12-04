@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new OnlineEndpointId();
 
-    public override Type? ResponseObject() => typeof(OnlineEndpointTrackedResourceModel);
-
 
 }

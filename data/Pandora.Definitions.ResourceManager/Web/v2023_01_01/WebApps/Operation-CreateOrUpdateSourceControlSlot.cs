@@ -27,8 +27,6 @@ internal class CreateOrUpdateSourceControlSlotOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new SlotId();
 
-    public override Type? ResponseObject() => typeof(SiteSourceControlModel);
-
     public override string? UriSuffix() => "/sourceControls/web";
 
 

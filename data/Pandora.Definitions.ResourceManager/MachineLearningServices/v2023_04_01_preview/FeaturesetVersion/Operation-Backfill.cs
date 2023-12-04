@@ -26,8 +26,6 @@ internal class BackfillOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new FeatureSetVersionId();
 
-    public override Type? ResponseObject() => typeof(FeaturesetJobModel);
-
     public override string? UriSuffix() => "/backfill";
 
 

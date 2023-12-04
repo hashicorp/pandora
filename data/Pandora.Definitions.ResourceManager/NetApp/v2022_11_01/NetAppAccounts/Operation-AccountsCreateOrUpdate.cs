@@ -20,7 +20,5 @@ internal class AccountsCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(NetAppAccountModel);
-
 
 }

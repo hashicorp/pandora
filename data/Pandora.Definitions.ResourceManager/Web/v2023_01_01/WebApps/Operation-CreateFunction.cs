@@ -25,7 +25,5 @@ internal class CreateFunctionOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new FunctionId();
 
-    public override Type? ResponseObject() => typeof(FunctionEnvelopeModel);
-
 
 }

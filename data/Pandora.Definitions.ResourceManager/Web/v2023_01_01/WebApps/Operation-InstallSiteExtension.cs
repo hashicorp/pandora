@@ -20,7 +20,5 @@ internal class InstallSiteExtensionOperation : Pandora.Definitions.Operations.Pu
 
     public override ResourceID? ResourceId() => new SiteExtensionId();
 
-    public override Type? ResponseObject() => typeof(SiteExtensionInfoModel);
-
 
 }

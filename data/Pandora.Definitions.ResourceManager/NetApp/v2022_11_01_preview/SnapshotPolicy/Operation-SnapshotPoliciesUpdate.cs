@@ -26,7 +26,5 @@ internal class SnapshotPoliciesUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new SnapshotPolicyId();
 
-    public override Type? ResponseObject() => typeof(SnapshotPolicyModel);
-
 
 }

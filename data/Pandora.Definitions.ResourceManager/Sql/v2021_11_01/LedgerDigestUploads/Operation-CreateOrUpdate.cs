@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(LedgerDigestUploadsModel);
-
     public override string? UriSuffix() => "/ledgerDigestUploads/current";
 
 

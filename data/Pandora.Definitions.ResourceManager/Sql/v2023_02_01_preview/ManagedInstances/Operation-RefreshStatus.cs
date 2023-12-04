@@ -26,8 +26,6 @@ internal class RefreshStatusOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
-    public override Type? ResponseObject() => typeof(RefreshExternalGovernanceStatusOperationResultMIModel);
-
     public override string? UriSuffix() => "/refreshExternalGovernanceStatus";
 
 

@@ -26,8 +26,6 @@ internal class UnplannedFailoverOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/unplannedFailover";
 
 

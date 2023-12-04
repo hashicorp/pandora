@@ -25,8 +25,6 @@ internal class RegenerateKeyOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new WebPubSubId();
 
-    public override Type? ResponseObject() => typeof(WebPubSubKeysModel);
-
     public override string? UriSuffix() => "/regenerateKey";
 
 

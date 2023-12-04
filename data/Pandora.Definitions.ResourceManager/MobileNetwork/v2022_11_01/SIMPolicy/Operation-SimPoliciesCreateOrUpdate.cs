@@ -20,7 +20,5 @@ internal class SimPoliciesCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new SimPolicyId();
 
-    public override Type? ResponseObject() => typeof(SimPolicyModel);
-
 
 }

@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineModel);
-
 
 }

@@ -20,7 +20,5 @@ internal class InstallSiteExtensionSlotOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new SlotSiteExtensionId();
 
-    public override Type? ResponseObject() => typeof(SiteExtensionInfoModel);
-
 
 }

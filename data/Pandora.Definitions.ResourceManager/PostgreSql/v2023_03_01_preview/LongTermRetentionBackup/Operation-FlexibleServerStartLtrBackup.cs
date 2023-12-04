@@ -26,8 +26,6 @@ internal class FlexibleServerStartLtrBackupOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override Type? ResponseObject() => typeof(LtrBackupResponseModel);
-
     public override string? UriSuffix() => "/startLtrBackup";
 
 

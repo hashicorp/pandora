@@ -26,8 +26,6 @@ internal class DeployOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(OperationResultContractModel);
-
     public override string? UriSuffix() => "/tenant/configuration/deploy";
 
 

@@ -26,8 +26,6 @@ internal class ExportTemplateOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(ResourceGroupExportResultModel);
-
     public override string? UriSuffix() => "/exportTemplate";
 
 

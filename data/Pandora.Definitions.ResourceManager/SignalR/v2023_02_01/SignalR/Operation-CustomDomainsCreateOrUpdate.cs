@@ -25,7 +25,5 @@ internal class CustomDomainsCreateOrUpdateOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new CustomDomainId();
 
-    public override Type? ResponseObject() => typeof(CustomDomainModel);
-
 
 }

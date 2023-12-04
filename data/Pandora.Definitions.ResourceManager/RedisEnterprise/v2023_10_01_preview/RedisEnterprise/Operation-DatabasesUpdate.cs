@@ -26,7 +26,5 @@ internal class DatabasesUpdateOperation : Pandora.Definitions.Operations.PatchOp
 
     public override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabaseModel);
-
 
 }

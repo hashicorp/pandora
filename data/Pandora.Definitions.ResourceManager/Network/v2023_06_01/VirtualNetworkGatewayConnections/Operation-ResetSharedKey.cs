@@ -26,8 +26,6 @@ internal class ResetSharedKeyOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(ConnectionResetSharedKeyModel);
-
     public override string? UriSuffix() => "/sharedkey/reset";
 
 

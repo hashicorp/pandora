@@ -20,7 +20,5 @@ internal class InboundSecurityRuleCreateOrUpdateOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new InboundSecurityRuleId();
 
-    public override Type? ResponseObject() => typeof(InboundSecurityRuleModel);
-
 
 }

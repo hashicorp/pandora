@@ -25,7 +25,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ExpressRouteCrossConnectionId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteCrossConnectionModel);
-
 
 }

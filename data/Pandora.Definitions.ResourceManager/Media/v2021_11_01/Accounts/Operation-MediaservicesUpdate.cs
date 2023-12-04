@@ -25,7 +25,5 @@ internal class MediaservicesUpdateOperation : Pandora.Definitions.Operations.Pat
 
     public override ResourceID? ResourceId() => new MediaServiceId();
 
-    public override Type? ResponseObject() => typeof(MediaServiceModel);
-
 
 }

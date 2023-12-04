@@ -26,7 +26,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ReplicationProtectionContainerMappingId();
 
-    public override Type? ResponseObject() => typeof(ProtectionContainerMappingModel);
-
 
 }

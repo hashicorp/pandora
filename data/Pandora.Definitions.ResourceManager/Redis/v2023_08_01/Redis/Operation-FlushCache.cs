@@ -26,8 +26,6 @@ internal class FlushCacheOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override ResourceID? ResourceId() => new RediId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusResultModel);
-
     public override string? UriSuffix() => "/flush";
 
 

@@ -26,8 +26,6 @@ internal class GetMetadataOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new SubVolumeId();
 
-    public override Type? ResponseObject() => typeof(SubvolumeModelModel);
-
     public override string? UriSuffix() => "/getMetadata";
 
 

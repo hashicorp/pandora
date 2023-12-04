@@ -25,8 +25,6 @@ internal class CreateMSDeployOperationSlotOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new SlotId();
 
-    public override Type? ResponseObject() => typeof(MSDeployStatusModel);
-
     public override string? UriSuffix() => "/extensions/mSDeploy";
 
 

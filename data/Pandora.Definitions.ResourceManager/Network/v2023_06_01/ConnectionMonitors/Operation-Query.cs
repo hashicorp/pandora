@@ -26,8 +26,6 @@ internal class QueryOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ConnectionMonitorId();
 
-    public override Type? ResponseObject() => typeof(ConnectionMonitorQueryResultModel);
-
     public override string? UriSuffix() => "/query";
 
 

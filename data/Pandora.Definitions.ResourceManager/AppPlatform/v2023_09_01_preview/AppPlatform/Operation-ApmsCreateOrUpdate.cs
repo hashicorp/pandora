@@ -20,7 +20,5 @@ internal class ApmsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutO
 
     public override ResourceID? ResourceId() => new ApmId();
 
-    public override Type? ResponseObject() => typeof(ApmResourceModel);
-
 
 }

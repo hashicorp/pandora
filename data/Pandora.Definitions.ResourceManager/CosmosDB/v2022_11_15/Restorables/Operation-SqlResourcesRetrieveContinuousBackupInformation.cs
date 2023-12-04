@@ -26,8 +26,6 @@ internal class SqlResourcesRetrieveContinuousBackupInformationOperation : Pandor
 
     public override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(BackupInformationModel);
-
     public override string? UriSuffix() => "/retrieveContinuousBackupInformation";
 
 

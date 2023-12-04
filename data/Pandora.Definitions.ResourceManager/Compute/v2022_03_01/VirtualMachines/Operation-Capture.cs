@@ -26,8 +26,6 @@ internal class CaptureOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineCaptureResultModel);
-
     public override string? UriSuffix() => "/capture";
 
 

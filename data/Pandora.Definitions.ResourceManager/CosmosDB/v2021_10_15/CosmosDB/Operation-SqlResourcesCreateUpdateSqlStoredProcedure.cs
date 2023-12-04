@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlStoredProcedureOperation : Pandora.Def
 
     public override ResourceID? ResourceId() => new StoredProcedureId();
 
-    public override Type? ResponseObject() => typeof(SqlStoredProcedureGetResultsModel);
-
 
 }

@@ -20,7 +20,5 @@ internal class CustomCertificatesCreateOrUpdateOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new CustomCertificateId();
 
-    public override Type? ResponseObject() => typeof(CustomCertificateModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class ProviderShareSubscriptionsRevokeOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new ProviderShareSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ProviderShareSubscriptionModel);
-
     public override string? UriSuffix() => "/revoke";
 
 

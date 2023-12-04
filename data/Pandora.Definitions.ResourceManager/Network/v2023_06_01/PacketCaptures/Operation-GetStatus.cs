@@ -26,8 +26,6 @@ internal class GetStatusOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new PacketCaptureId();
 
-    public override Type? ResponseObject() => typeof(PacketCaptureQueryStatusResultModel);
-
     public override string? UriSuffix() => "/queryStatus";
 
 

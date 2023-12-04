@@ -26,8 +26,6 @@ internal class NetworkManagerCommitsPostOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new NetworkManagerId();
 
-    public override Type? ResponseObject() => typeof(NetworkManagerCommitModel);
-
     public override string? UriSuffix() => "/commit";
 
 

@@ -26,8 +26,6 @@ internal class PauseOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(DatabaseModel);
-
     public override string? UriSuffix() => "/pause";
 
 

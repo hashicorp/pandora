@@ -26,7 +26,5 @@ internal class PrivateEndpointConnectionsCreateOrUpdateOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
-
 
 }

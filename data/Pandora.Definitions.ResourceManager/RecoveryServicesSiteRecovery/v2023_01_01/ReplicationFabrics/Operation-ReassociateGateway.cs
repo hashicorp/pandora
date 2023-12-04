@@ -26,8 +26,6 @@ internal class ReassociateGatewayOperation : Pandora.Definitions.Operations.Post
 
     public override ResourceID? ResourceId() => new ReplicationFabricId();
 
-    public override Type? ResponseObject() => typeof(FabricModel);
-
     public override string? UriSuffix() => "/reassociateGateway";
 
 

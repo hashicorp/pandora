@@ -25,8 +25,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SqlManagedInstanceId();
 
-    public override Type? ResponseObject() => typeof(ServerConfigurationOptionModel);
-
     public override string? UriSuffix() => "/serverConfigurationOptions/allowPolybaseExport";
 
 

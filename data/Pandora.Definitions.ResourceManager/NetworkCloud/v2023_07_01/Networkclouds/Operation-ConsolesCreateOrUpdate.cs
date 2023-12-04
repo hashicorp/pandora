@@ -20,7 +20,5 @@ internal class ConsolesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new ConsoleId();
 
-    public override Type? ResponseObject() => typeof(ConsoleModel);
-
 
 }

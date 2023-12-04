@@ -26,8 +26,6 @@ internal class RefreshSecretOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new NamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueContractModel);
-
     public override string? UriSuffix() => "/refreshSecret";
 
 

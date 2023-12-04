@@ -26,8 +26,6 @@ internal class AzureFirewallsListLearnedPrefixesOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new AzureFirewallId();
 
-    public override Type? ResponseObject() => typeof(IPPrefixesListModel);
-
     public override string? UriSuffix() => "/learnedIPPrefixes";
 
 

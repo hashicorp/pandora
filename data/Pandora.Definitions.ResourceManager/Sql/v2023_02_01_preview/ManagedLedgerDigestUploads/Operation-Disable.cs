@@ -26,8 +26,6 @@ internal class DisableOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ManagedLedgerDigestUploadsModel);
-
     public override string? UriSuffix() => "/ledgerDigestUploads/current/disable";
 
 

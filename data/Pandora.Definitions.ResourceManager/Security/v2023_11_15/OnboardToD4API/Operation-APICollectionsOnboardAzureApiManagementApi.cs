@@ -20,7 +20,5 @@ internal class APICollectionsOnboardAzureApiManagementApiOperation : Pandora.Def
 
     public override ResourceID? ResourceId() => new ApiCollectionId();
 
-    public override Type? ResponseObject() => typeof(ApiCollectionModel);
-
 
 }

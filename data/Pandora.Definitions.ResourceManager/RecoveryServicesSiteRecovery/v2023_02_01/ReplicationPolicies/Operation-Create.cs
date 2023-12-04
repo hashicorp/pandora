@@ -26,7 +26,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ReplicationPolicyId();
 
-    public override Type? ResponseObject() => typeof(PolicyModel);
-
 
 }

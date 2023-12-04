@@ -20,7 +20,5 @@ internal class DigitalTwinsEndpointCreateOrUpdateOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new EndpointId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
-
 
 }

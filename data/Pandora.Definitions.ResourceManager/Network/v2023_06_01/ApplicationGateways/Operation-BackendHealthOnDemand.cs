@@ -26,8 +26,6 @@ internal class BackendHealthOnDemandOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ApplicationGatewayId();
 
-    public override Type? ResponseObject() => typeof(ApplicationGatewayBackendHealthOnDemandModel);
-
     public override Type? OptionsObject() => typeof(BackendHealthOnDemandOperation.BackendHealthOnDemandOptions);
 
     public override string? UriSuffix() => "/getBackendHealthOnDemand";

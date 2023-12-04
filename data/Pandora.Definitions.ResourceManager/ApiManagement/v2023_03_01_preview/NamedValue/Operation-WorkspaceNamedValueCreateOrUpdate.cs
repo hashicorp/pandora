@@ -27,8 +27,6 @@ internal class WorkspaceNamedValueCreateOrUpdateOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new WorkspaceNamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueContractModel);
-
     public override Type? OptionsObject() => typeof(WorkspaceNamedValueCreateOrUpdateOperation.WorkspaceNamedValueCreateOrUpdateOptions);
 
     internal class WorkspaceNamedValueCreateOrUpdateOptions

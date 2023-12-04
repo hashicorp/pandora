@@ -26,8 +26,6 @@ internal class GeneratevirtualwanvpnserverconfigurationvpnprofileOperation : Pan
 
     public override ResourceID? ResourceId() => new VirtualWANId();
 
-    public override Type? ResponseObject() => typeof(VpnProfileResponseModel);
-
     public override string? UriSuffix() => "/generateVpnProfile";
 
 

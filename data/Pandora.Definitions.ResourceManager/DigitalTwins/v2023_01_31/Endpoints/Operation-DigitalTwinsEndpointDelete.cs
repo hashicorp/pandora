@@ -25,7 +25,5 @@ internal class DigitalTwinsEndpointDeleteOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new EndpointId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsEndpointResourceModel);
-
 
 }

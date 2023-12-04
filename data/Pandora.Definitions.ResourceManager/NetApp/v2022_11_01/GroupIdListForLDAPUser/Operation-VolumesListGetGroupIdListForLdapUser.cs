@@ -26,8 +26,6 @@ internal class VolumesListGetGroupIdListForLdapUserOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(GetGroupIdListForLDAPUserResponseModel);
-
     public override string? UriSuffix() => "/getGroupIdListForLdapUser";
 
 

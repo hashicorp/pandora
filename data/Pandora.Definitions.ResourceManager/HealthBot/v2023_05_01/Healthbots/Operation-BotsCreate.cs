@@ -20,7 +20,5 @@ internal class BotsCreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new HealthBotId();
 
-    public override Type? ResponseObject() => typeof(HealthBotModel);
-
 
 }

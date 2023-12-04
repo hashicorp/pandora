@@ -26,8 +26,6 @@ internal class ReprotectOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ReplicationRecoveryPlanId();
 
-    public override Type? ResponseObject() => typeof(RecoveryPlanModel);
-
     public override string? UriSuffix() => "/reProtect";
 
 

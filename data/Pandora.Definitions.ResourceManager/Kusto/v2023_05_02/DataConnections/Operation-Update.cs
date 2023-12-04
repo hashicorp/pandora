@@ -27,7 +27,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new DataConnectionId();
 
-    public override Type? ResponseObject() => typeof(DataConnectionModel);
-
 
 }

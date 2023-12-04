@@ -25,7 +25,5 @@ internal class InstancesCreateOperation : Pandora.Definitions.Operations.PutOper
 
     public override ResourceID? ResourceId() => new InstanceId();
 
-    public override Type? ResponseObject() => typeof(InstanceModel);
-
 
 }

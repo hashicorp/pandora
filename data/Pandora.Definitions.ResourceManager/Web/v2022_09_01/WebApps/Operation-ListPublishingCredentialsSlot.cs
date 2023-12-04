@@ -25,8 +25,6 @@ internal class ListPublishingCredentialsSlotOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new SlotId();
 
-    public override Type? ResponseObject() => typeof(UserModel);
-
     public override string? UriSuffix() => "/config/publishingcredentials/list";
 
 

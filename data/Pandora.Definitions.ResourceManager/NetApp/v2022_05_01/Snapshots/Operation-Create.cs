@@ -26,7 +26,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new SnapshotId();
 
-    public override Type? ResponseObject() => typeof(SnapshotModel);
-
 
 }

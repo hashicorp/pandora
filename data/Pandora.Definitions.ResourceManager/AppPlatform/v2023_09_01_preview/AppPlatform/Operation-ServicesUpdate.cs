@@ -26,7 +26,5 @@ internal class ServicesUpdateOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceModel);
-
 
 }

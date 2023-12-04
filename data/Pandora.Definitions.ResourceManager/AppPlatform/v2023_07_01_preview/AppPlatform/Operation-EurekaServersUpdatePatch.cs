@@ -26,8 +26,6 @@ internal class EurekaServersUpdatePatchOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new SpringId();
 
-    public override Type? ResponseObject() => typeof(EurekaServerResourceModel);
-
     public override string? UriSuffix() => "/eurekaServers/default";
 
 

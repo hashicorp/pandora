@@ -20,7 +20,5 @@ internal class VpnSitesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new VpnSiteId();
 
-    public override Type? ResponseObject() => typeof(VpnSiteModel);
-
 
 }

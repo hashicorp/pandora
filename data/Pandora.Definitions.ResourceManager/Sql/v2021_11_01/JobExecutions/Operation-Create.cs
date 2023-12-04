@@ -26,8 +26,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new JobId();
 
-    public override Type? ResponseObject() => typeof(JobExecutionModel);
-
     public override string? UriSuffix() => "/start";
 
 

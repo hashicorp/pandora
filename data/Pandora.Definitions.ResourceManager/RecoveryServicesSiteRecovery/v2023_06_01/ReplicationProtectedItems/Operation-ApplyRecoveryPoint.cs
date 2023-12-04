@@ -26,8 +26,6 @@ internal class ApplyRecoveryPointOperation : Pandora.Definitions.Operations.Post
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/applyRecoveryPoint";
 
 

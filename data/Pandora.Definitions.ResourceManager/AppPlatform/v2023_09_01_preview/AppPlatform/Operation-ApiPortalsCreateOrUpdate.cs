@@ -20,7 +20,5 @@ internal class ApiPortalsCreateOrUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new ApiPortalId();
 
-    public override Type? ResponseObject() => typeof(ApiPortalResourceModel);
-
 
 }

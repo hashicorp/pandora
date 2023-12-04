@@ -26,8 +26,6 @@ internal class ApplyNetworkConfigurationUpdatesOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceResourceModel);
-
     public override string? UriSuffix() => "/applynetworkconfigurationupdates";
 
 

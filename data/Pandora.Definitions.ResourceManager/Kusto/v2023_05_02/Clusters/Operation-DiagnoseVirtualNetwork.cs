@@ -26,8 +26,6 @@ internal class DiagnoseVirtualNetworkOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(DiagnoseVirtualNetworkResultModel);
-
     public override string? UriSuffix() => "/diagnoseVirtualNetwork";
 
 

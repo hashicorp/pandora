@@ -20,7 +20,5 @@ internal class NetworkVirtualApplianceConnectionsCreateOrUpdateOperation : Pando
 
     public override ResourceID? ResourceId() => new NetworkVirtualApplianceConnectionId();
 
-    public override Type? ResponseObject() => typeof(NetworkVirtualApplianceConnectionModel);
-
 
 }
