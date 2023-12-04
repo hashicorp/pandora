@@ -54,7 +54,7 @@ internal class Definition : ResourceDefinition
         typeof(TargetAFSRestoreInfoModel),
         typeof(TargetDiskNetworkAccessSettingsModel),
         typeof(TargetRestoreInfoModel),
-        typeof(UserAssignedIdentityModel),
+        typeof(UserAssignedIdentityPropertiesModel),
         typeof(UserAssignedManagedIdentityDetailsModel),
         typeof(ValidateIaasVMRestoreOperationRequestModel),
         typeof(ValidateOperationRequestModel),
