@@ -14,4 +14,7 @@ type ApiVersionDefinition struct {
 
 	// Resources specifies a list of Api Resource names that exist within this API version.
 	Resources []string `json:"resources"`
+
+	// Source specifies where the definitions originated from
+	Source ApiDefinitionsSource `json:"source"`
 }
