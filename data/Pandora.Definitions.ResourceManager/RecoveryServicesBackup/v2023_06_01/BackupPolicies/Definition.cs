@@ -58,7 +58,7 @@ internal class Definition : ResourceDefinition
         typeof(SnapshotBackupAdditionalDetailsModel),
         typeof(SubProtectionPolicyModel),
         typeof(TieringPolicyModel),
-        typeof(UserAssignedIdentityModel),
+        typeof(UserAssignedIdentityPropertiesModel),
         typeof(UserAssignedManagedIdentityDetailsModel),
         typeof(VaultRetentionPolicyModel),
         typeof(WeeklyRetentionFormatModel),

@@ -10,10 +10,10 @@ using Pandora.Definitions.CustomTypes;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_06_01.Restores;
+namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_06_01.BackupPolicies;
 
 
-internal class UserAssignedIdentityModel
+internal class UserAssignedIdentityPropertiesModel
 {
     [JsonPropertyName("clientId")]
     public string? ClientId { get; set; }

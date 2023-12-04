@@ -22,5 +22,5 @@ internal class UserAssignedManagedIdentityDetailsModel
     public string? IdentityName { get; set; }
 
     [JsonPropertyName("userAssignedIdentityProperties")]
-    public UserAssignedIdentityModel? UserAssignedIdentityProperties { get; set; }
+    public UserAssignedIdentityPropertiesModel? UserAssignedIdentityProperties { get; set; }
 }

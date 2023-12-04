@@ -13,7 +13,7 @@ using Pandora.Definitions.CustomTypes;
 namespace Pandora.Definitions.ResourceManager.RecoveryServicesBackup.v2023_06_01.ValidateOperation;
 
 
-internal class UserAssignedIdentityModel
+internal class UserAssignedIdentityPropertiesModel
 {
     [JsonPropertyName("clientId")]
     public string? ClientId { get; set; }
