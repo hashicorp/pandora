@@ -20,7 +20,5 @@ internal class ComputeCreateOrUpdateOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ComputeId();
 
-    public override Type? ResponseObject() => typeof(ComputeResourceModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new DnsForwardingRulesetId();
 
-    public override Type? ResponseObject() => typeof(DnsForwardingRulesetModel);
-
     public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions

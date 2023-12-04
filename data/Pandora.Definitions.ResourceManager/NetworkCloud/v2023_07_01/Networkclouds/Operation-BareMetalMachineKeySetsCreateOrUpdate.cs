@@ -20,7 +20,5 @@ internal class BareMetalMachineKeySetsCreateOrUpdateOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new BareMetalMachineKeySetId();
 
-    public override Type? ResponseObject() => typeof(BareMetalMachineKeySetModel);
-
 
 }

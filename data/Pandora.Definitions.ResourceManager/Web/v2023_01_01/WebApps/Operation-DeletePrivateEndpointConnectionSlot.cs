@@ -25,7 +25,5 @@ internal class DeletePrivateEndpointConnectionSlotOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new SlotPrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(object);
-
 
 }

@@ -26,8 +26,6 @@ internal class DeploymentsDisableRemoteDebuggingOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(RemoteDebuggingModel);
-
     public override string? UriSuffix() => "/disableRemoteDebugging";
 
 

@@ -20,8 +20,6 @@ internal class CreateAndStartMigrationOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new NamespaceId();
 
-    public override Type? ResponseObject() => typeof(MigrationConfigPropertiesModel);
-
     public override string? UriSuffix() => "/migrationConfigurations/$default";
 
 

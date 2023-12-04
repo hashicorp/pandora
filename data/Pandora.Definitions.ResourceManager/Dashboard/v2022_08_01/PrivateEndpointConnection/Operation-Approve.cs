@@ -25,7 +25,5 @@ internal class ApproveOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
-
 
 }

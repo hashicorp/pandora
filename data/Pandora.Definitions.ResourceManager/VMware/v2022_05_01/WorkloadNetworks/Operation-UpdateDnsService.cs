@@ -26,7 +26,5 @@ internal class UpdateDnsServiceOperation : Pandora.Definitions.Operations.PatchO
 
     public override ResourceID? ResourceId() => new DnsServiceId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsServiceModel);
-
 
 }

@@ -26,7 +26,5 @@ internal class ServerEndpointsCreateOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ServerEndpointId();
 
-    public override Type? ResponseObject() => typeof(ServerEndpointModel);
-
 
 }

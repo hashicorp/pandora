@@ -26,8 +26,6 @@ internal class GetBgpPeerStatusOperation : Pandora.Definitions.Operations.PostOp
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(BgpPeerStatusListResultModel);
-
     public override Type? OptionsObject() => typeof(GetBgpPeerStatusOperation.GetBgpPeerStatusOptions);
 
     public override string? UriSuffix() => "/getBgpPeerStatus";

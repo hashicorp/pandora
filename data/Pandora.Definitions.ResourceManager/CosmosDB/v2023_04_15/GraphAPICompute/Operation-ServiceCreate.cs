@@ -26,7 +26,5 @@ internal class ServiceCreateOperation : Pandora.Definitions.Operations.PutOperat
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceModel);
-
 
 }

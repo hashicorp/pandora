@@ -27,8 +27,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new PolicyFragmentId();
 
-    public override Type? ResponseObject() => typeof(PolicyFragmentContractModel);
-
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions

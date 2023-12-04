@@ -26,7 +26,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new AppServicePlanId();
 
-    public override Type? ResponseObject() => typeof(AppServicePlanModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class SetVpnclientIPsecParametersOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(VpnClientIPsecParametersModel);
-
     public override string? UriSuffix() => "/setvpnclientipsecparameters";
 
 

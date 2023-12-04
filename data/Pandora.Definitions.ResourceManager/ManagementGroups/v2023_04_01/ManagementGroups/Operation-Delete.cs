@@ -24,8 +24,6 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new ManagementGroupId();
 
-    public override Type? ResponseObject() => typeof(AzureAsyncOperationResultsModel);
-
     public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
     internal class DeleteOptions

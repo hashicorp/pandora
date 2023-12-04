@@ -26,8 +26,6 @@ internal class ListAvailableProvidersOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(AvailableProvidersListModel);
-
     public override string? UriSuffix() => "/availableProvidersList";
 
 

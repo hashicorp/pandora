@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtSubscriptionOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new AttestationId();
 
-    public override Type? ResponseObject() => typeof(AttestationModel);
-
 
 }

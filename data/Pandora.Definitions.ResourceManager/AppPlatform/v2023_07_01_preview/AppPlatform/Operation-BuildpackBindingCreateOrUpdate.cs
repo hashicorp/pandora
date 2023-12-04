@@ -20,7 +20,5 @@ internal class BuildpackBindingCreateOrUpdateOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new BuildPackBindingId();
 
-    public override Type? ResponseObject() => typeof(BuildpackBindingResourceModel);
-
 
 }

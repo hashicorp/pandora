@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new KeyVaultId();
 
-    public override Type? ResponseObject() => typeof(VaultModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class BulkUploadEncryptedOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new SimGroupId();
 
-    public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
-
     public override string? UriSuffix() => "/uploadEncryptedSims";
 
 

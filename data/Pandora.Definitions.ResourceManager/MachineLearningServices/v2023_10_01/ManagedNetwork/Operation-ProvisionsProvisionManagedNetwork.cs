@@ -26,8 +26,6 @@ internal class ProvisionsProvisionManagedNetworkOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(ManagedNetworkProvisionStatusModel);
-
     public override string? UriSuffix() => "/provisionManagedNetwork";
 
 

@@ -26,8 +26,6 @@ internal class GremlinResourcesMigrateGremlinDatabaseToAutoscaleOperation : Pand
 
     public override ResourceID? ResourceId() => new GremlinDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToAutoscale";
 
 

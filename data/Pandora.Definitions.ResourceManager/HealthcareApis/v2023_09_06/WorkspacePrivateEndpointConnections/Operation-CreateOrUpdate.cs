@@ -25,7 +25,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new WorkspacePrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionDescriptionModel);
-
 
 }

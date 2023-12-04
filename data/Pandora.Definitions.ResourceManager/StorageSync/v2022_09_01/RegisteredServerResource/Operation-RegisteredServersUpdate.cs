@@ -26,7 +26,5 @@ internal class RegisteredServersUpdateOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new RegisteredServerId();
 
-    public override Type? ResponseObject() => typeof(RegisteredServerModel);
-
 
 }

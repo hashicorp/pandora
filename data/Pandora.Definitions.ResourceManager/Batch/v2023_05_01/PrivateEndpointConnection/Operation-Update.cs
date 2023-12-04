@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new PrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(PrivateEndpointConnectionModel);
-
     public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions

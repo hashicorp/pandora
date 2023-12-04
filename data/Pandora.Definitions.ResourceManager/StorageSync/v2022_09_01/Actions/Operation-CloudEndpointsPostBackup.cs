@@ -26,8 +26,6 @@ internal class CloudEndpointsPostBackupOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new CloudEndpointId();
 
-    public override Type? ResponseObject() => typeof(PostBackupResponseModel);
-
     public override string? UriSuffix() => "/postbackup";
 
 

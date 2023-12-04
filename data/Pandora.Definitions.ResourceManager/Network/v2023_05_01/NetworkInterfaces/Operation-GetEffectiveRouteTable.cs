@@ -26,8 +26,6 @@ internal class GetEffectiveRouteTableOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new NetworkInterfaceId();
 
-    public override Type? ResponseObject() => typeof(EffectiveRouteListResultModel);
-
     public override string? UriSuffix() => "/effectiveRouteTable";
 
 

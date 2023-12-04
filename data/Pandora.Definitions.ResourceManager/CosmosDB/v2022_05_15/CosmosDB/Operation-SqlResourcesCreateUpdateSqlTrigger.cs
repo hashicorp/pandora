@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlTriggerOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new TriggerId();
 
-    public override Type? ResponseObject() => typeof(SqlTriggerGetResultsModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ManagedInstanceRestorableDroppedDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ManagedBackupShortTermRetentionPolicyModel);
-
     public override string? UriSuffix() => "/backupShortTermRetentionPolicies/default";
 
 

@@ -26,8 +26,6 @@ internal class ValidateForBackupOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new BackupVaultId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
-
     public override string? UriSuffix() => "/validateForBackup";
 
 

@@ -27,7 +27,5 @@ internal class DeploymentsCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentResourceModel);
-
 
 }

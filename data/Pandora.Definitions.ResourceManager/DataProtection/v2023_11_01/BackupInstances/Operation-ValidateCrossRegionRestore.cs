@@ -26,8 +26,6 @@ internal class ValidateCrossRegionRestoreOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new ProviderLocationId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
-
     public override string? UriSuffix() => "/validateCrossRegionRestore";
 
 

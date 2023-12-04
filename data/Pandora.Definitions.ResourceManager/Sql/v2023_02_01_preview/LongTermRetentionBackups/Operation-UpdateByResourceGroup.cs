@@ -26,8 +26,6 @@ internal class UpdateByResourceGroupOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new LongTermRetentionDatabaseLongTermRetentionBackupId();
 
-    public override Type? ResponseObject() => typeof(LongTermRetentionBackupOperationResultModel);
-
     public override string? UriSuffix() => "/update";
 
 

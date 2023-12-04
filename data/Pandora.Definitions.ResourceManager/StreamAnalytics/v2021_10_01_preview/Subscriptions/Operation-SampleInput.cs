@@ -25,8 +25,6 @@ internal class SampleInputOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(SampleInputResultModel);
-
     public override string? UriSuffix() => "/sampleInput";
 
 

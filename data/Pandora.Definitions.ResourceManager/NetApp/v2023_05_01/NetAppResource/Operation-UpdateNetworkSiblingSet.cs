@@ -26,8 +26,6 @@ internal class UpdateNetworkSiblingSetOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(NetworkSiblingSetModel);
-
     public override string? UriSuffix() => "/updateNetworkSiblingSet";
 
 

@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateClientEncryptionKeyOperation : Pandora.De
 
     public override ResourceID? ResourceId() => new ClientEncryptionKeyId();
 
-    public override Type? ResponseObject() => typeof(ClientEncryptionKeyGetResultsModel);
-
 
 }

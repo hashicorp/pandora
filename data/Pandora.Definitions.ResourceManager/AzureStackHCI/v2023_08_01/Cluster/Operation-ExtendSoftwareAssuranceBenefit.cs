@@ -26,8 +26,6 @@ internal class ExtendSoftwareAssuranceBenefitOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
-
     public override string? UriSuffix() => "/extendSoftwareAssuranceBenefit";
 
 

@@ -20,7 +20,5 @@ internal class CreateOrUpdateAssociationOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new AccountAssociationId();
 
-    public override Type? ResponseObject() => typeof(CommitmentPlanAccountAssociationModel);
-
 
 }

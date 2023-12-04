@@ -20,7 +20,5 @@ internal class ServiceRegistriesCreateOrUpdateOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new ServiceRegistryId();
 
-    public override Type? ResponseObject() => typeof(ServiceRegistryResourceModel);
-
 
 }

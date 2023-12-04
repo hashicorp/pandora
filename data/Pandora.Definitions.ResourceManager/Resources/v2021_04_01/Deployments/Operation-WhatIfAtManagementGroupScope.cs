@@ -26,8 +26,6 @@ internal class WhatIfAtManagementGroupScopeOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new Providers2DeploymentId();
 
-    public override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
-
     public override string? UriSuffix() => "/whatIf";
 
 

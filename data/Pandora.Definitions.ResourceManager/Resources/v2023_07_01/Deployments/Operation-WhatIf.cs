@@ -26,8 +26,6 @@ internal class WhatIfOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
-
     public override string? UriSuffix() => "/whatIf";
 
 

@@ -20,8 +20,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new UpdateRunId();
 
-    public override Type? ResponseObject() => typeof(UpdateRunModel);
-
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions

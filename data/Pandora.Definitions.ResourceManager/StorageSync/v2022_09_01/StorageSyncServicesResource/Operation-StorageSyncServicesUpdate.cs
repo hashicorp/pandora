@@ -26,7 +26,5 @@ internal class StorageSyncServicesUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new StorageSyncServiceId();
 
-    public override Type? ResponseObject() => typeof(StorageSyncServiceModel);
-
 
 }

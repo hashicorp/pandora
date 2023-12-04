@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new FleetId();
 
-    public override Type? ResponseObject() => typeof(FleetModel);
-
     public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions

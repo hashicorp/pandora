@@ -27,7 +27,5 @@ internal class CreateorUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new MonitoredSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(MonitoredSubscriptionPropertiesModel);
-
 
 }

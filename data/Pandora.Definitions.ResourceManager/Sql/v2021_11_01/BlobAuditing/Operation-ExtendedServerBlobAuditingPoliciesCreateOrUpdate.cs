@@ -26,8 +26,6 @@ internal class ExtendedServerBlobAuditingPoliciesCreateOrUpdateOperation : Pando
 
     public override ResourceID? ResourceId() => new SqlServerId();
 
-    public override Type? ResponseObject() => typeof(ExtendedServerBlobAuditingPolicyModel);
-
     public override string? UriSuffix() => "/extendedAuditingSettings/default";
 
 

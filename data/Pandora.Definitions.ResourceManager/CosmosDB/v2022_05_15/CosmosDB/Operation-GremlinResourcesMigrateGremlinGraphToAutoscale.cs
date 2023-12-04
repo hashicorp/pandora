@@ -26,8 +26,6 @@ internal class GremlinResourcesMigrateGremlinGraphToAutoscaleOperation : Pandora
 
     public override ResourceID? ResourceId() => new GraphId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToAutoscale";
 
 

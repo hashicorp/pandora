@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new EmailServiceId();
 
-    public override Type? ResponseObject() => typeof(EmailServiceResourceModel);
-
 
 }

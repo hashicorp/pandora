@@ -20,7 +20,5 @@ internal class VirtualHubIPConfigurationCreateOrUpdateOperation : Pandora.Defini
 
     public override ResourceID? ResourceId() => new VirtualHubIPConfigurationId();
 
-    public override Type? ResponseObject() => typeof(HubIPConfigurationModel);
-
 
 }

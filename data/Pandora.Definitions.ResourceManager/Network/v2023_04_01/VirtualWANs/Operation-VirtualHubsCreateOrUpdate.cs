@@ -20,7 +20,5 @@ internal class VirtualHubsCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new VirtualHubId();
 
-    public override Type? ResponseObject() => typeof(VirtualHubModel);
-
 
 }

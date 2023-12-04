@@ -26,8 +26,6 @@ internal class PostOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(TieringCostInfoModel);
-
     public override string? UriSuffix() => "/backupTieringCost/default/fetchTieringCost";
 
 

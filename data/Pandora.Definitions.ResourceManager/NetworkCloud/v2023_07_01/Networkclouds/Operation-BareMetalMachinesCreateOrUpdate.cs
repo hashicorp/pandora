@@ -20,7 +20,5 @@ internal class BareMetalMachinesCreateOrUpdateOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new BareMetalMachineId();
 
-    public override Type? ResponseObject() => typeof(BareMetalMachineModel);
-
 
 }

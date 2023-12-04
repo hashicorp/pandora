@@ -26,7 +26,5 @@ internal class ConsolesUpdateOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new ConsoleId();
 
-    public override Type? ResponseObject() => typeof(ConsoleModel);
-
 
 }

@@ -25,7 +25,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ProvisioningServiceId();
 
-    public override Type? ResponseObject() => typeof(ProvisioningServiceDescriptionModel);
-
 
 }

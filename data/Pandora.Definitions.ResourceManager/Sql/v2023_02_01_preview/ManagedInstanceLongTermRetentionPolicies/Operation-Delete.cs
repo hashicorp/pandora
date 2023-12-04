@@ -24,8 +24,6 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new SqlManagedInstanceDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ManagedInstanceLongTermRetentionPolicyModel);
-
     public override string? UriSuffix() => "/backupLongTermRetentionPolicies/default";
 
 

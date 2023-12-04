@@ -26,8 +26,6 @@ internal class StopOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new PacketCaptureId();
 
-    public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
-
     public override string? UriSuffix() => "/stop";
 
 

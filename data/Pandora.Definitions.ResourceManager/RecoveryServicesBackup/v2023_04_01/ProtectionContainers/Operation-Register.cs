@@ -26,7 +26,5 @@ internal class RegisterOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ProtectionContainerId();
 
-    public override Type? ResponseObject() => typeof(ProtectionContainerResourceModel);
-
 
 }

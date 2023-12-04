@@ -20,7 +20,5 @@ internal class ContainerGroupsCreateOrUpdateOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(ContainerGroupModel);
-
 
 }

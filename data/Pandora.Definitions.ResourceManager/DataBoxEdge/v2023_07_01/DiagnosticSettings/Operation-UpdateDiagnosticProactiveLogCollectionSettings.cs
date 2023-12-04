@@ -26,8 +26,6 @@ internal class UpdateDiagnosticProactiveLogCollectionSettingsOperation : Pandora
 
     public override ResourceID? ResourceId() => new DataBoxEdgeDeviceId();
 
-    public override Type? ResponseObject() => typeof(DiagnosticProactiveLogCollectionSettingsModel);
-
     public override string? UriSuffix() => "/diagnosticProactiveLogCollectionSettings/default";
 
 

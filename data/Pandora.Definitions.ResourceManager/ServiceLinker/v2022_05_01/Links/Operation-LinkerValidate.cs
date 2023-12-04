@@ -26,8 +26,6 @@ internal class LinkerValidateOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(ValidateOperationResultModel);
-
     public override string? UriSuffix() => "/validateLinker";
 
 

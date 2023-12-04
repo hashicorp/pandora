@@ -20,7 +20,5 @@ internal class MetricsConfigurationsCreateOrUpdateOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new MetricsConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ClusterMetricsConfigurationModel);
-
 
 }

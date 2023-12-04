@@ -26,8 +26,6 @@ internal class StopPacketCaptureOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new ConnectionId();
 
-    public override Type? ResponseObject() => typeof(string);
-
     public override string? UriSuffix() => "/stopPacketCapture";
 
 

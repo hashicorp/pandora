@@ -26,8 +26,6 @@ internal class ResumeOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ReplicationJobId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
-
     public override string? UriSuffix() => "/resume";
 
 

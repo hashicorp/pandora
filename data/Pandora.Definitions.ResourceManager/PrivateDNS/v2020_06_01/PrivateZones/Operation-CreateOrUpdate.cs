@@ -27,8 +27,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new PrivateDnsZoneId();
 
-    public override Type? ResponseObject() => typeof(PrivateZoneModel);
-
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions

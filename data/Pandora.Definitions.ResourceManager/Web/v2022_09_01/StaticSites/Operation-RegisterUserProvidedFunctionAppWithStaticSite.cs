@@ -26,8 +26,6 @@ internal class RegisterUserProvidedFunctionAppWithStaticSiteOperation : Pandora.
 
     public override ResourceID? ResourceId() => new UserProvidedFunctionAppId();
 
-    public override Type? ResponseObject() => typeof(StaticSiteUserProvidedFunctionAppARMResourceModel);
-
     public override Type? OptionsObject() => typeof(RegisterUserProvidedFunctionAppWithStaticSiteOperation.RegisterUserProvidedFunctionAppWithStaticSiteOptions);
 
     internal class RegisterUserProvidedFunctionAppWithStaticSiteOptions

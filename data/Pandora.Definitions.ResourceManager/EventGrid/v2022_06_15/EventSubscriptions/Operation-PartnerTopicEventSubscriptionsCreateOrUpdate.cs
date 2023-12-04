@@ -20,7 +20,5 @@ internal class PartnerTopicEventSubscriptionsCreateOrUpdateOperation : Pandora.D
 
     public override ResourceID? ResourceId() => new PartnerTopicEventSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(EventSubscriptionModel);
-
 
 }

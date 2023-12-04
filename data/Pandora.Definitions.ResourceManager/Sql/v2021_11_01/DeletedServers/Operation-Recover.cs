@@ -26,8 +26,6 @@ internal class RecoverOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new DeletedServerId();
 
-    public override Type? ResponseObject() => typeof(DeletedServerModel);
-
     public override string? UriSuffix() => "/recover";
 
 

@@ -27,7 +27,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new AdministratorId();
 
-    public override Type? ResponseObject() => typeof(ActiveDirectoryAdministratorModel);
-
 
 }

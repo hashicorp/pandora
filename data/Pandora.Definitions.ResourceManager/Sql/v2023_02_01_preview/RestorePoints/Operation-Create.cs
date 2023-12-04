@@ -27,8 +27,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(RestorePointModel);
-
     public override string? UriSuffix() => "/restorePoints";
 
 

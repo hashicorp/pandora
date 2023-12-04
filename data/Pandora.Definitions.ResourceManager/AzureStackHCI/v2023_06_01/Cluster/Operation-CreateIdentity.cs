@@ -26,8 +26,6 @@ internal class CreateIdentityOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterIdentityResponseModel);
-
     public override string? UriSuffix() => "/createClusterIdentity";
 
 

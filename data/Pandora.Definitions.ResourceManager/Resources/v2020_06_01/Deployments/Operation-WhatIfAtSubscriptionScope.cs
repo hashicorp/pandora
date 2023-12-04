@@ -26,8 +26,6 @@ internal class WhatIfAtSubscriptionScopeOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new ProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(WhatIfOperationResultModel);
-
     public override string? UriSuffix() => "/whatIf";
 
 

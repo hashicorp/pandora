@@ -20,7 +20,5 @@ internal class ConfigurationServicesCreateOrUpdateOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new ConfigurationServiceId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationServiceResourceModel);
-
 
 }

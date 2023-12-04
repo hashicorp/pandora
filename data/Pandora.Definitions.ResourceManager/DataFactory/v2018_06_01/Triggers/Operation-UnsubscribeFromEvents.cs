@@ -26,8 +26,6 @@ internal class UnsubscribeFromEventsOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new TriggerId();
 
-    public override Type? ResponseObject() => typeof(TriggerSubscriptionOperationStatusModel);
-
     public override string? UriSuffix() => "/unsubscribeFromEvents";
 
 

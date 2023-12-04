@@ -26,8 +26,6 @@ internal class GetAdvertisedRoutesOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(GatewayRouteListResultModel);
-
     public override Type? OptionsObject() => typeof(GetAdvertisedRoutesOperation.GetAdvertisedRoutesOptions);
 
     public override string? UriSuffix() => "/getAdvertisedRoutes";

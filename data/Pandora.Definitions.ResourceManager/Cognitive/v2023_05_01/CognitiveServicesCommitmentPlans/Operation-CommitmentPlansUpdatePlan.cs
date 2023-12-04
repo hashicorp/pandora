@@ -26,7 +26,5 @@ internal class CommitmentPlansUpdatePlanOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new CommitmentPlanId();
 
-    public override Type? ResponseObject() => typeof(CommitmentPlanModel);
-
 
 }

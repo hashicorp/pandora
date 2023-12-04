@@ -26,7 +26,5 @@ internal class UpdateSegmentsOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new SegmentId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
-
 
 }

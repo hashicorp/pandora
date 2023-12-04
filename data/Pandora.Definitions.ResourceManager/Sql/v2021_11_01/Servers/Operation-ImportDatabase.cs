@@ -26,8 +26,6 @@ internal class ImportDatabaseOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new SqlServerId();
 
-    public override Type? ResponseObject() => typeof(ImportExportOperationResultModel);
-
     public override string? UriSuffix() => "/import";
 
 

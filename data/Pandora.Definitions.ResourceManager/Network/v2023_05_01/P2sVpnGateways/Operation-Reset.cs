@@ -26,8 +26,6 @@ internal class ResetOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VirtualWANP2SVPNGatewayId();
 
-    public override Type? ResponseObject() => typeof(P2SVpnGatewayModel);
-
     public override string? UriSuffix() => "/reset";
 
 

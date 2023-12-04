@@ -20,7 +20,5 @@ internal class VolumesCreateOrUpdateOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(VolumeModel);
-
 
 }

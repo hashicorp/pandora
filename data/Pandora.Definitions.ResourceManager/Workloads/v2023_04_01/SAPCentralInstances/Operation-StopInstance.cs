@@ -26,8 +26,6 @@ internal class StopInstanceOperation : Pandora.Definitions.Operations.PostOperat
 
     public override ResourceID? ResourceId() => new CentralInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusResultModel);
-
     public override string? UriSuffix() => "/stop";
 
 

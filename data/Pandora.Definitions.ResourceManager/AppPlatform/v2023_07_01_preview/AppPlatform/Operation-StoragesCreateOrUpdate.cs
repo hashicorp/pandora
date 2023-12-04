@@ -27,7 +27,5 @@ internal class StoragesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new StorageId();
 
-    public override Type? ResponseObject() => typeof(StorageResourceModel);
-
 
 }

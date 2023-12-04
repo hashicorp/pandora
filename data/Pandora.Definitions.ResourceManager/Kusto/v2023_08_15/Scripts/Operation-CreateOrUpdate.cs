@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ScriptId();
 
-    public override Type? ResponseObject() => typeof(ScriptModel);
-
 
 }

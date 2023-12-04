@@ -26,7 +26,5 @@ internal class ApproveOrRejectPrivateEndpointConnectionSlotOperation : Pandora.D
 
     public override ResourceID? ResourceId() => new SlotPrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(RemotePrivateEndpointConnectionARMResourceModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class VirtualHubBgpConnectionsListAdvertisedRoutesOperation : Pandora.D
 
     public override ResourceID? ResourceId() => new VirtualHubBGPConnectionId();
 
-    public override Type? ResponseObject() => typeof(Dictionary<string, List<PeerRouteModel>>);
-
     public override string? UriSuffix() => "/advertisedRoutes";
 
 

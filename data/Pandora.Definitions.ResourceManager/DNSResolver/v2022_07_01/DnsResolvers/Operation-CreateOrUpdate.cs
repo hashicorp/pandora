@@ -27,8 +27,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new DnsResolverId();
 
-    public override Type? ResponseObject() => typeof(DnsResolverModel);
-
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions

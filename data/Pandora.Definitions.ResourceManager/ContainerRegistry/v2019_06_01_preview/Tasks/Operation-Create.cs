@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new TaskId();
 
-    public override Type? ResponseObject() => typeof(TaskModel);
-
 
 }

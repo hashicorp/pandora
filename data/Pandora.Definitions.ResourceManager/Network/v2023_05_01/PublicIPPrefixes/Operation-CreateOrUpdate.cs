@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new PublicIPPrefixId();
 
-    public override Type? ResponseObject() => typeof(PublicIPPrefixModel);
-
 
 }

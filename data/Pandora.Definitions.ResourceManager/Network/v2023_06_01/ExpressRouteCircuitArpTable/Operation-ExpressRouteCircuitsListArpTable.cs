@@ -26,7 +26,5 @@ internal class ExpressRouteCircuitsListArpTableOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new ArpTableId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteCircuitsArpTableListResultModel);
-
 
 }

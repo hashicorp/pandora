@@ -26,7 +26,5 @@ internal class MongoDBResourcesCreateUpdateMongoUserDefinitionOperation : Pandor
 
     public override ResourceID? ResourceId() => new MongodbUserDefinitionId();
 
-    public override Type? ResponseObject() => typeof(MongoUserDefinitionGetResultsModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class RefreshOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(VaultHealthDetailsModel);
-
     public override string? UriSuffix() => "/replicationVaultHealth/default/refresh";
 
 

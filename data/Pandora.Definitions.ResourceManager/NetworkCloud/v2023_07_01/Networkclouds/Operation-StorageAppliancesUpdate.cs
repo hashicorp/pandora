@@ -26,7 +26,5 @@ internal class StorageAppliancesUpdateOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new StorageApplianceId();
 
-    public override Type? ResponseObject() => typeof(StorageApplianceModel);
-
 
 }

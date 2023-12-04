@@ -20,7 +20,5 @@ internal class CustomizedAcceleratorsCreateOrUpdateOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new CustomizedAcceleratorId();
 
-    public override Type? ResponseObject() => typeof(CustomizedAcceleratorResourceModel);
-
 
 }

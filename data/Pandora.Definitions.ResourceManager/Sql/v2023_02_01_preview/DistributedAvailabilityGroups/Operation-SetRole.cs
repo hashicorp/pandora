@@ -26,8 +26,6 @@ internal class SetRoleOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new DistributedAvailabilityGroupId();
 
-    public override Type? ResponseObject() => typeof(DistributedAvailabilityGroupModel);
-
     public override string? UriSuffix() => "/setRole";
 
 

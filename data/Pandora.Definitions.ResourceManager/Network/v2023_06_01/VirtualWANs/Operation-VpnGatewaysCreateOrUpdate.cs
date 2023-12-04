@@ -20,7 +20,5 @@ internal class VpnGatewaysCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new VpnGatewayId();
 
-    public override Type? ResponseObject() => typeof(VpnGatewayModel);
-
 
 }

@@ -20,7 +20,5 @@ internal class VirtualNetworkGatewayNatRulesCreateOrUpdateOperation : Pandora.De
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayNatRuleId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkGatewayNatRuleModel);
-
 
 }

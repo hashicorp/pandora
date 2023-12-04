@@ -26,8 +26,6 @@ internal class DeploymentsEnableRemoteDebuggingOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(RemoteDebuggingModel);
-
     public override string? UriSuffix() => "/enableRemoteDebugging";
 
 

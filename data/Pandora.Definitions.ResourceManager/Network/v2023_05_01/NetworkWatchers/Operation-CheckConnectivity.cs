@@ -26,8 +26,6 @@ internal class CheckConnectivityOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(ConnectivityInformationModel);
-
     public override string? UriSuffix() => "/connectivityCheck";
 
 

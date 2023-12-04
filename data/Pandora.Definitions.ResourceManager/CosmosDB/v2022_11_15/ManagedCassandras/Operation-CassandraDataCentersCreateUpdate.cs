@@ -20,7 +20,5 @@ internal class CassandraDataCentersCreateUpdateOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new DataCenterId();
 
-    public override Type? ResponseObject() => typeof(DataCenterResourceModel);
-
 
 }

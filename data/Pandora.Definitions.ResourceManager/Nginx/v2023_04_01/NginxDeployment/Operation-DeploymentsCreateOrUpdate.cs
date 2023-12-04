@@ -20,7 +20,5 @@ internal class DeploymentsCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new NginxDeploymentId();
 
-    public override Type? ResponseObject() => typeof(NginxDeploymentModel);
-
 
 }

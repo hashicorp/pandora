@@ -20,7 +20,5 @@ internal class RegistryEnvironmentVersionsCreateOrUpdateOperation : Pandora.Defi
 
     public override ResourceID? ResourceId() => new RegistryEnvironmentVersionId();
 
-    public override Type? ResponseObject() => typeof(EnvironmentVersionResourceModel);
-
 
 }

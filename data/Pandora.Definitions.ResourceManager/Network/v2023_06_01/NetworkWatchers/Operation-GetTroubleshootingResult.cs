@@ -26,8 +26,6 @@ internal class GetTroubleshootingResultOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(TroubleshootingResultModel);
-
     public override string? UriSuffix() => "/queryTroubleshootResult";
 
 

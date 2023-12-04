@@ -20,7 +20,5 @@ internal class VirtualWansCreateOrUpdateOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new VirtualWANId();
 
-    public override Type? ResponseObject() => typeof(VirtualWANModel);
-
 
 }

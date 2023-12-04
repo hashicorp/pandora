@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ManagedInstanceDnsAliasId();
 
-    public override Type? ResponseObject() => typeof(ManagedServerDnsAliasModel);
-
 
 }

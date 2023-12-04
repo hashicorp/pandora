@@ -26,8 +26,6 @@ internal class AsyncOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ConnectivityCheckResponseModel);
-
     public override string? UriSuffix() => "/connectivityCheck";
 
 

@@ -20,7 +20,5 @@ internal class CreateSegmentsOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SegmentId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkSegmentModel);
-
 
 }

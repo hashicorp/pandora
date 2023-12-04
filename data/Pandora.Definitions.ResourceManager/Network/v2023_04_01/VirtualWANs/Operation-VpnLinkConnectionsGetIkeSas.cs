@@ -26,8 +26,6 @@ internal class VpnLinkConnectionsGetIkeSasOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new VpnLinkConnectionId();
 
-    public override Type? ResponseObject() => typeof(string);
-
     public override string? UriSuffix() => "/getikesas";
 
 

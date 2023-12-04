@@ -26,8 +26,6 @@ internal class TestFailoverCleanupOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new ReplicationRecoveryPlanId();
 
-    public override Type? ResponseObject() => typeof(RecoveryPlanModel);
-
     public override string? UriSuffix() => "/testFailoverCleanup";
 
 

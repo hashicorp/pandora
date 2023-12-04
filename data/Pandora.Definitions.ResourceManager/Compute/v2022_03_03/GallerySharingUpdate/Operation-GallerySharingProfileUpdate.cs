@@ -26,8 +26,6 @@ internal class GallerySharingProfileUpdateOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new SharedImageGalleryId();
 
-    public override Type? ResponseObject() => typeof(SharingUpdateModel);
-
     public override string? UriSuffix() => "/share";
 
 

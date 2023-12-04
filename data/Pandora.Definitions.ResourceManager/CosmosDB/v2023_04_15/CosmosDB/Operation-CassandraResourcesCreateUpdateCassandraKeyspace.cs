@@ -26,7 +26,5 @@ internal class CassandraResourcesCreateUpdateCassandraKeyspaceOperation : Pandor
 
     public override ResourceID? ResourceId() => new CassandraKeyspaceId();
 
-    public override Type? ResponseObject() => typeof(CassandraKeyspaceGetResultsModel);
-
 
 }

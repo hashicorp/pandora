@@ -20,7 +20,5 @@ internal class BuildServiceCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new BuildServiceId();
 
-    public override Type? ResponseObject() => typeof(BuildServiceModel);
-
 
 }

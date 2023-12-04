@@ -20,7 +20,5 @@ internal class GatewayCustomDomainsCreateOrUpdateOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new GatewayDomainId();
 
-    public override Type? ResponseObject() => typeof(GatewayCustomDomainResourceModel);
-
 
 }

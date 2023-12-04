@@ -26,7 +26,5 @@ internal class SettingsCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new DevOpsAuditingSettingId();
 
-    public override Type? ResponseObject() => typeof(ServerDevOpsAuditingSettingsModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class WorkspaceNamedValueRefreshSecretOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new WorkspaceNamedValueId();
 
-    public override Type? ResponseObject() => typeof(NamedValueContractModel);
-
     public override string? UriSuffix() => "/refreshSecret";
 
 

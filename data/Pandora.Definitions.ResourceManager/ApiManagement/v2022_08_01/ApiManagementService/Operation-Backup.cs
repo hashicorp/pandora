@@ -26,8 +26,6 @@ internal class BackupOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(ApiManagementServiceResourceModel);
-
     public override string? UriSuffix() => "/backup";
 
 

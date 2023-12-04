@@ -26,8 +26,6 @@ internal class ContainerRegistriesValidateOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new ContainerRegistryId();
 
-    public override Type? ResponseObject() => typeof(ContainerRegistryValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

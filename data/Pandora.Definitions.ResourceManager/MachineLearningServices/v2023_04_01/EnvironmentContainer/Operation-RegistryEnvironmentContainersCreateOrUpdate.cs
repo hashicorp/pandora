@@ -20,7 +20,5 @@ internal class RegistryEnvironmentContainersCreateOrUpdateOperation : Pandora.De
 
     public override ResourceID? ResourceId() => new RegistryEnvironmentId();
 
-    public override Type? ResponseObject() => typeof(EnvironmentContainerResourceModel);
-
 
 }

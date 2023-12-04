@@ -20,8 +20,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(PartnerConfigurationModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.EventGrid/partnerConfigurations/default";
 
 

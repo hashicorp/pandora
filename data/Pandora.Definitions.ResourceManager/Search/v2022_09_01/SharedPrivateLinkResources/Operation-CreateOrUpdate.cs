@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SharedPrivateLinkResourceId();
 
-    public override Type? ResponseObject() => typeof(SharedPrivateLinkResourceModel);
-
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 
     internal class CreateOrUpdateOptions

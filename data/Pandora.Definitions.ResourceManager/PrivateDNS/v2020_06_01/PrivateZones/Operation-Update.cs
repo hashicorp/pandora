@@ -26,8 +26,6 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new PrivateDnsZoneId();
 
-    public override Type? ResponseObject() => typeof(PrivateZoneModel);
-
     public override Type? OptionsObject() => typeof(UpdateOperation.UpdateOptions);
 
     internal class UpdateOptions

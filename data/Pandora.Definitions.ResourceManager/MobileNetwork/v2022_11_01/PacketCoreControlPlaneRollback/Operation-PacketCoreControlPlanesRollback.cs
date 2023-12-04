@@ -26,8 +26,6 @@ internal class PacketCoreControlPlanesRollbackOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
 
-    public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
-
     public override string? UriSuffix() => "/rollback";
 
 

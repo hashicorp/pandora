@@ -27,8 +27,6 @@ internal class WorkspaceApiCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new WorkspaceApiId();
 
-    public override Type? ResponseObject() => typeof(ApiContractModel);
-
     public override Type? OptionsObject() => typeof(WorkspaceApiCreateOrUpdateOperation.WorkspaceApiCreateOrUpdateOptions);
 
     internal class WorkspaceApiCreateOrUpdateOptions

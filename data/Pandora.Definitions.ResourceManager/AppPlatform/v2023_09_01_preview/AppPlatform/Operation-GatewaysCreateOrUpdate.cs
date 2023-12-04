@@ -20,7 +20,5 @@ internal class GatewaysCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new GatewayId();
 
-    public override Type? ResponseObject() => typeof(GatewayResourceModel);
-
 
 }

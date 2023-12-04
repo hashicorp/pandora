@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new RoleId();
 
-    public override Type? ResponseObject() => typeof(MonitoringMetricConfigurationModel);
-
     public override string? UriSuffix() => "/monitoringConfig/default";
 
 

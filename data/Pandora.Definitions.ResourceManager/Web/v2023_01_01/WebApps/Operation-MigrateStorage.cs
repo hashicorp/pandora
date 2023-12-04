@@ -25,8 +25,6 @@ internal class MigrateStorageOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new AppServiceId();
 
-    public override Type? ResponseObject() => typeof(StorageMigrationResponseModel);
-
     public override Type? OptionsObject() => typeof(MigrateStorageOperation.MigrateStorageOptions);
 
     public override string? UriSuffix() => "/migrate";

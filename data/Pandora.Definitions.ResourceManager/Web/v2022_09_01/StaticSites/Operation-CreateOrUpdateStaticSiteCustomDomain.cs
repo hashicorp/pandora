@@ -26,7 +26,5 @@ internal class CreateOrUpdateStaticSiteCustomDomainOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new CustomDomainId();
 
-    public override Type? ResponseObject() => typeof(StaticSiteCustomDomainOverviewARMResourceModel);
-
 
 }

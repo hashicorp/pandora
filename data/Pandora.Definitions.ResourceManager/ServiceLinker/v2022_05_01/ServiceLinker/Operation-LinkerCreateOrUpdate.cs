@@ -20,7 +20,5 @@ internal class LinkerCreateOrUpdateOperation : Pandora.Definitions.Operations.Pu
 
     public override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(LinkerResourceModel);
-
 
 }

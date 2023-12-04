@@ -26,8 +26,6 @@ internal class PriceSheetDownloadOperation : Pandora.Definitions.Operations.Post
 
     public override ResourceID? ResourceId() => new InvoiceId();
 
-    public override Type? ResponseObject() => typeof(DownloadUrlModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/pricesheets/default/download";
 
 

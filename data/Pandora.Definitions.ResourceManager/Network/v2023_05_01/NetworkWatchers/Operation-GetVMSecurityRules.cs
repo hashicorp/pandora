@@ -26,8 +26,6 @@ internal class GetVMSecurityRulesOperation : Pandora.Definitions.Operations.Post
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(SecurityGroupViewResultModel);
-
     public override string? UriSuffix() => "/securityGroupView";
 
 

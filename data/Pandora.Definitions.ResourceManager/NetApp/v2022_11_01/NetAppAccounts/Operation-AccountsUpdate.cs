@@ -26,7 +26,5 @@ internal class AccountsUpdateOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new NetAppAccountId();
 
-    public override Type? ResponseObject() => typeof(NetAppAccountModel);
-
 
 }

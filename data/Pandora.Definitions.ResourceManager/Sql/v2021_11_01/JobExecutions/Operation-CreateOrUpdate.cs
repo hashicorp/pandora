@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ExecutionId();
 
-    public override Type? ResponseObject() => typeof(JobExecutionModel);
-
 
 }

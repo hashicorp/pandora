@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ServerTrustCertificateId();
 
-    public override Type? ResponseObject() => typeof(ServerTrustCertificateModel);
-
 
 }

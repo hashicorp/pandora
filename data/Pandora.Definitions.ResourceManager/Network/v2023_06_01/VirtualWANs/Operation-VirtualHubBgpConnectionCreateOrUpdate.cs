@@ -20,7 +20,5 @@ internal class VirtualHubBgpConnectionCreateOrUpdateOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new VirtualHubBGPConnectionId();
 
-    public override Type? ResponseObject() => typeof(BgpConnectionModel);
-
 
 }

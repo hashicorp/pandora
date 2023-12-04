@@ -20,8 +20,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(GuestAgentModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.ConnectedVMwarevSphere/virtualMachineInstances/default/guestAgents/default";
 
 

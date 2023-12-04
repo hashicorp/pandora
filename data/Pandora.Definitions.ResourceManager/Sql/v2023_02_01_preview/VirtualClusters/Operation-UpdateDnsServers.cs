@@ -26,8 +26,6 @@ internal class UpdateDnsServersOperation : Pandora.Definitions.Operations.PostOp
 
     public override ResourceID? ResourceId() => new VirtualClusterId();
 
-    public override Type? ResponseObject() => typeof(UpdateVirtualClusterDnsServersOperationModel);
-
     public override string? UriSuffix() => "/updateManagedInstanceDnsServers";
 
 

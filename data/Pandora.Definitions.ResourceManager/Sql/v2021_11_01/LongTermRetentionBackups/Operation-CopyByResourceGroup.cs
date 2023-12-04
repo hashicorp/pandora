@@ -26,8 +26,6 @@ internal class CopyByResourceGroupOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new LongTermRetentionDatabaseLongTermRetentionBackupId();
 
-    public override Type? ResponseObject() => typeof(LongTermRetentionBackupOperationResultModel);
-
     public override string? UriSuffix() => "/copy";
 
 

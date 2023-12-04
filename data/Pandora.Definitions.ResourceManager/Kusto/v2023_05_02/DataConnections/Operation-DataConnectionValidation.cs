@@ -26,8 +26,6 @@ internal class DataConnectionValidationOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(DataConnectionValidationListResultModel);
-
     public override string? UriSuffix() => "/dataConnectionValidation";
 
 

@@ -26,8 +26,6 @@ internal class TriggerCrossRegionRestoreOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new ProviderLocationId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
-
     public override string? UriSuffix() => "/crossRegionRestore";
 
 

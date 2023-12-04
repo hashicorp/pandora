@@ -27,7 +27,5 @@ internal class IotConnectorFhirDestinationCreateOrUpdateOperation : Pandora.Defi
 
     public override ResourceID? ResourceId() => new FhirDestinationId();
 
-    public override Type? ResponseObject() => typeof(IotFhirDestinationModel);
-
 
 }

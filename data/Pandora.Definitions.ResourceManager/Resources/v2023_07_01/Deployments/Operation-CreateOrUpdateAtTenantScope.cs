@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtTenantScopeOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
-
 
 }

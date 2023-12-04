@@ -20,7 +20,5 @@ internal class LedgerCreateOperation : Pandora.Definitions.Operations.PutOperati
 
     public override ResourceID? ResourceId() => new LedgerId();
 
-    public override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
-
 
 }

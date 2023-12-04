@@ -26,8 +26,6 @@ internal class GenerateVpnProfileOperation : Pandora.Definitions.Operations.Post
 
     public override ResourceID? ResourceId() => new VirtualWANP2SVPNGatewayId();
 
-    public override Type? ResponseObject() => typeof(VpnProfileResponseModel);
-
     public override string? UriSuffix() => "/generatevpnprofile";
 
 

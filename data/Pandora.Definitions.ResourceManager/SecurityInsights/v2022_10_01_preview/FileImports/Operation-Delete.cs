@@ -24,7 +24,5 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new FileImportId();
 
-    public override Type? ResponseObject() => typeof(FileImportModel);
-
 
 }

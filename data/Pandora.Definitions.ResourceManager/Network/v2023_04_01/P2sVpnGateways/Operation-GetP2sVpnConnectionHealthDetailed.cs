@@ -26,8 +26,6 @@ internal class GetP2sVpnConnectionHealthDetailedOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new VirtualWANP2SVPNGatewayId();
 
-    public override Type? ResponseObject() => typeof(P2SVpnConnectionHealthModel);
-
     public override string? UriSuffix() => "/getP2sVpnConnectionHealthDetailed";
 
 

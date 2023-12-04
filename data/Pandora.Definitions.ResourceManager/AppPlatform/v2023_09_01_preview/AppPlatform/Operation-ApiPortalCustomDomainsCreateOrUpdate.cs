@@ -20,7 +20,5 @@ internal class ApiPortalCustomDomainsCreateOrUpdateOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new ApiPortalDomainId();
 
-    public override Type? ResponseObject() => typeof(ApiPortalCustomDomainResourceModel);
-
 
 }

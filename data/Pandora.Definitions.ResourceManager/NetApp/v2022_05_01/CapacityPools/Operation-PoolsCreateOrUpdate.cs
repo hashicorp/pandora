@@ -20,7 +20,5 @@ internal class PoolsCreateOrUpdateOperation : Pandora.Definitions.Operations.Put
 
     public override ResourceID? ResourceId() => new CapacityPoolId();
 
-    public override Type? ResponseObject() => typeof(CapacityPoolModel);
-
 
 }

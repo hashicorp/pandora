@@ -26,8 +26,6 @@ internal class RegistriesRemoveRegionsOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new RegistryId();
 
-    public override Type? ResponseObject() => typeof(RegistryTrackedResourceModel);
-
     public override string? UriSuffix() => "/removeRegions";
 
 

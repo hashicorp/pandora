@@ -26,8 +26,6 @@ internal class DdosProtectionStatusOperation : Pandora.Definitions.Operations.Po
 
     public override ResourceID? ResourceId() => new PublicIPAddressId();
 
-    public override Type? ResponseObject() => typeof(PublicIPDdosProtectionStatusResultModel);
-
     public override string? UriSuffix() => "/ddosProtectionStatus";
 
 

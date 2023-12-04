@@ -26,7 +26,5 @@ internal class ApproveOrRejectPrivateEndpointConnectionOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new StaticSitePrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(RemotePrivateEndpointConnectionARMResourceModel);
-
 
 }

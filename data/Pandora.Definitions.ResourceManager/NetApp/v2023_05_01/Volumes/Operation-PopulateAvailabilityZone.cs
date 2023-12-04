@@ -26,8 +26,6 @@ internal class PopulateAvailabilityZoneOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new VolumeId();
 
-    public override Type? ResponseObject() => typeof(VolumeModel);
-
     public override string? UriSuffix() => "/populateAvailabilityZone";
 
 

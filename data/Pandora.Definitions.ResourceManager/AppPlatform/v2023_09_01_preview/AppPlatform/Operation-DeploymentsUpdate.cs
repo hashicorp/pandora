@@ -26,7 +26,5 @@ internal class DeploymentsUpdateOperation : Pandora.Definitions.Operations.Patch
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentResourceModel);
-
 
 }

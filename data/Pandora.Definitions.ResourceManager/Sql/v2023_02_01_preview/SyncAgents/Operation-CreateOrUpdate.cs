@@ -27,7 +27,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new SyncAgentId();
 
-    public override Type? ResponseObject() => typeof(SyncAgentModel);
-
 
 }

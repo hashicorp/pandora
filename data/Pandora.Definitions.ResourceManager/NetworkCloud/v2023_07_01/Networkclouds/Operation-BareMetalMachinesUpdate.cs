@@ -26,7 +26,5 @@ internal class BareMetalMachinesUpdateOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new BareMetalMachineId();
 
-    public override Type? ResponseObject() => typeof(BareMetalMachineModel);
-
 
 }

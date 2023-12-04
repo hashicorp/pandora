@@ -26,8 +26,6 @@ internal class CheckPrivateLinkServiceVisibilityOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkServiceVisibilityModel);
-
     public override string? UriSuffix() => "/checkPrivateLinkServiceVisibility";
 
 

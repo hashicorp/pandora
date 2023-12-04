@@ -20,7 +20,5 @@ internal class L3NetworksCreateOrUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new L3NetworkId();
 
-    public override Type? ResponseObject() => typeof(L3NetworkModel);
-
 
 }

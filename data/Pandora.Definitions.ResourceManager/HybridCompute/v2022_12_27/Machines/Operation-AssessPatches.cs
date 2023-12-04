@@ -26,8 +26,6 @@ internal class AssessPatchesOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new MachineId();
 
-    public override Type? ResponseObject() => typeof(MachineAssessPatchesResultModel);
-
     public override string? UriSuffix() => "/assessPatches";
 
 

@@ -27,7 +27,5 @@ internal class AppsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutO
 
     public override ResourceID? ResourceId() => new AppId();
 
-    public override Type? ResponseObject() => typeof(AppResourceModel);
-
 
 }

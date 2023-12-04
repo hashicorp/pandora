@@ -26,8 +26,6 @@ internal class PacketCoreControlPlanesReinstallOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new PacketCoreControlPlaneId();
 
-    public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
-
     public override string? UriSuffix() => "/reinstall";
 
 

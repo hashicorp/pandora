@@ -26,8 +26,6 @@ internal class RegenerateKeyOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new DatabaseId();
 
-    public override Type? ResponseObject() => typeof(AccessKeysModel);
-
     public override string? UriSuffix() => "/regenerateKey";
 
 

@@ -26,8 +26,6 @@ internal class VpnServerConfigurationsAssociatedWithVirtualWanListOperation : Pa
 
     public override ResourceID? ResourceId() => new VirtualWANId();
 
-    public override Type? ResponseObject() => typeof(VpnServerConfigurationsResponseModel);
-
     public override string? UriSuffix() => "/vpnServerConfigurations";
 
 

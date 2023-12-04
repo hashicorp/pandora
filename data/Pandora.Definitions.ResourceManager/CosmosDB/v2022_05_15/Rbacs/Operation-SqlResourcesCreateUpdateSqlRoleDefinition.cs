@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlRoleDefinitionOperation : Pandora.Defi
 
     public override ResourceID? ResourceId() => new SqlRoleDefinitionId();
 
-    public override Type? ResponseObject() => typeof(SqlRoleDefinitionGetResultsModel);
-
 
 }

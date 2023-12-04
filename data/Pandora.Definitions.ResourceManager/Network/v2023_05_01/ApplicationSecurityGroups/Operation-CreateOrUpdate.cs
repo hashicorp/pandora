@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new ApplicationSecurityGroupId();
 
-    public override Type? ResponseObject() => typeof(ApplicationSecurityGroupModel);
-
 
 }

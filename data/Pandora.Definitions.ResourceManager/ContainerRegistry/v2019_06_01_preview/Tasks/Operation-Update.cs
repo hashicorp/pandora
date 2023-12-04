@@ -20,7 +20,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new TaskId();
 
-    public override Type? ResponseObject() => typeof(TaskModel);
-
 
 }

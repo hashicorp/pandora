@@ -26,7 +26,5 @@ internal class MongoDBResourcesCreateUpdateMongoRoleDefinitionOperation : Pandor
 
     public override ResourceID? ResourceId() => new MongodbRoleDefinitionId();
 
-    public override Type? ResponseObject() => typeof(MongoRoleDefinitionGetResultsModel);
-
 
 }

@@ -26,8 +26,6 @@ internal class AdhocBackupOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new BackupInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationJobExtendedInfoModel);
-
     public override string? UriSuffix() => "/backup";
 
 

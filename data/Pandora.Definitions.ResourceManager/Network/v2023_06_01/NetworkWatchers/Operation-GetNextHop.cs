@@ -26,8 +26,6 @@ internal class GetNextHopOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(NextHopResultModel);
-
     public override string? UriSuffix() => "/nextHop";
 
 

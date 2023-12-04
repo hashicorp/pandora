@@ -26,8 +26,6 @@ internal class ExecuteCommandOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new FactoryId();
 
-    public override Type? ResponseObject() => typeof(DataFlowDebugCommandResponseModel);
-
     public override string? UriSuffix() => "/executeDataFlowDebugCommand";
 
 

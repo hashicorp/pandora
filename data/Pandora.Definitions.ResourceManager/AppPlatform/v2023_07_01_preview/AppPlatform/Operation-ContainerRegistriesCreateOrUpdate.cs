@@ -20,7 +20,5 @@ internal class ContainerRegistriesCreateOrUpdateOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new ContainerRegistryId();
 
-    public override Type? ResponseObject() => typeof(ContainerRegistryResourceModel);
-
 
 }
