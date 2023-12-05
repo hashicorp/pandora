@@ -19,9 +19,6 @@ internal class Fido2AuthenticationMethodConfigurationModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
-    [JsonPropertyName("includeTargets")]
-    public List<AuthenticationMethodTargetModel>? IncludeTargets { get; set; }
-
     [JsonPropertyName("isAttestationEnforced")]
     public bool? IsAttestationEnforced { get; set; }
 

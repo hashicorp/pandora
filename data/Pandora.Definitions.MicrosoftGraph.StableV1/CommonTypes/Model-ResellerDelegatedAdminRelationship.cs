@@ -22,6 +22,9 @@ internal class ResellerDelegatedAdminRelationshipModel
     [JsonPropertyName("activatedDateTime")]
     public DateTime? ActivatedDateTime { get; set; }
 
+    [JsonPropertyName("autoExtendDuration")]
+    public string? AutoExtendDuration { get; set; }
+
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 

@@ -37,6 +37,9 @@ internal class OnPremisesPublishingModel
     [JsonPropertyName("isBackendCertificateValidationEnabled")]
     public bool? IsBackendCertificateValidationEnabled { get; set; }
 
+    [JsonPropertyName("isDnsResolutionEnabled")]
+    public bool? IsDnsResolutionEnabled { get; set; }
+
     [JsonPropertyName("isHttpOnlyCookieEnabled")]
     public bool? IsHttpOnlyCookieEnabled { get; set; }
 

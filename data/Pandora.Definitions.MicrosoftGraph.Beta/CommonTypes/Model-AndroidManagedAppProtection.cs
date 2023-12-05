@@ -196,6 +196,12 @@ internal class AndroidManagedAppProtectionModel
     [JsonPropertyName("maximumWipeOsVersion")]
     public string? MaximumWipeOsVersion { get; set; }
 
+    [JsonPropertyName("messagingRedirectAppDisplayName")]
+    public string? MessagingRedirectAppDisplayName { get; set; }
+
+    [JsonPropertyName("messagingRedirectAppPackageId")]
+    public string? MessagingRedirectAppPackageId { get; set; }
+
     [JsonPropertyName("minimumPinLength")]
     public int? MinimumPinLength { get; set; }
 
@@ -276,6 +282,9 @@ internal class AndroidManagedAppProtectionModel
 
     [JsonPropertyName("printBlocked")]
     public bool? PrintBlocked { get; set; }
+
+    [JsonPropertyName("protectedMessagingRedirectAppType")]
+    public AndroidManagedAppProtectionProtectedMessagingRedirectAppTypeConstant? ProtectedMessagingRedirectAppType { get; set; }
 
     [JsonPropertyName("requireClass3Biometrics")]
     public bool? RequireClass3Biometrics { get; set; }

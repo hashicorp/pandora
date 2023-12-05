@@ -136,6 +136,9 @@ internal class ServicePrincipalModel
     [JsonPropertyName("preferredTokenSigningKeyThumbprint")]
     public string? PreferredTokenSigningKeyThumbprint { get; set; }
 
+    [JsonPropertyName("remoteDesktopSecurityConfiguration")]
+    public RemoteDesktopSecurityConfigurationModel? RemoteDesktopSecurityConfiguration { get; set; }
+
     [JsonPropertyName("replyUrls")]
     public List<string>? ReplyUrls { get; set; }
 

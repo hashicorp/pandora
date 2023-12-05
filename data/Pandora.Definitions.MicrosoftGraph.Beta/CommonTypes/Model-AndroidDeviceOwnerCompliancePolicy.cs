@@ -97,6 +97,9 @@ internal class AndroidDeviceOwnerCompliancePolicyModel
     [JsonPropertyName("passwordRequiredType")]
     public AndroidDeviceOwnerCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
+    [JsonPropertyName("requireNoPendingSystemUpdates")]
+    public bool? RequireNoPendingSystemUpdates { get; set; }
+
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
 

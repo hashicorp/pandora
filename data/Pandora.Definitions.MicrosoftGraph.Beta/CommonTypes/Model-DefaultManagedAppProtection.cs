@@ -208,6 +208,15 @@ internal class DefaultManagedAppProtectionModel
     [JsonPropertyName("maximumWipeOsVersion")]
     public string? MaximumWipeOsVersion { get; set; }
 
+    [JsonPropertyName("messagingRedirectAppDisplayName")]
+    public string? MessagingRedirectAppDisplayName { get; set; }
+
+    [JsonPropertyName("messagingRedirectAppPackageId")]
+    public string? MessagingRedirectAppPackageId { get; set; }
+
+    [JsonPropertyName("messagingRedirectAppUrlScheme")]
+    public string? MessagingRedirectAppUrlScheme { get; set; }
+
     [JsonPropertyName("minimumPinLength")]
     public int? MinimumPinLength { get; set; }
 
@@ -300,6 +309,9 @@ internal class DefaultManagedAppProtectionModel
 
     [JsonPropertyName("protectInboundDataFromUnknownSources")]
     public bool? ProtectInboundDataFromUnknownSources { get; set; }
+
+    [JsonPropertyName("protectedMessagingRedirectAppType")]
+    public DefaultManagedAppProtectionProtectedMessagingRedirectAppTypeConstant? ProtectedMessagingRedirectAppType { get; set; }
 
     [JsonPropertyName("requireClass3Biometrics")]
     public bool? RequireClass3Biometrics { get; set; }

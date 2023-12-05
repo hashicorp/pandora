@@ -25,6 +25,9 @@ internal class ExtensionPropertyModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("isMultiValued")]
+    public bool? IsMultiValued { get; set; }
+
     [JsonPropertyName("isSyncedFromOnPremises")]
     public bool? IsSyncedFromOnPremises { get; set; }
 

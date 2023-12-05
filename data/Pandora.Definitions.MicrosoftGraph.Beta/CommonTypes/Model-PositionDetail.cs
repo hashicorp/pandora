@@ -25,6 +25,12 @@ internal class PositionDetailModel
     [JsonPropertyName("jobTitle")]
     public string? JobTitle { get; set; }
 
+    [JsonPropertyName("layer")]
+    public int? Layer { get; set; }
+
+    [JsonPropertyName("level")]
+    public string? Level { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 

@@ -40,6 +40,8 @@ public partial class Definition : ApiVersionDefinition
         new UserAuthenticationPasswordlessMicrosoftAuthenticatorMethod.Definition(),
         new UserAuthenticationPasswordlessMicrosoftAuthenticatorMethodDevice.Definition(),
         new UserAuthenticationPhoneMethod.Definition(),
+        new UserAuthenticationPlatformCredentialMethod.Definition(),
+        new UserAuthenticationPlatformCredentialMethodDevice.Definition(),
         new UserAuthenticationSoftwareOathMethod.Definition(),
         new UserAuthenticationTemporaryAccessPassMethod.Definition(),
         new UserAuthenticationWindowsHelloForBusinessMethod.Definition(),

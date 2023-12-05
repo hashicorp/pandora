@@ -16,6 +16,9 @@ internal class IpApplicationSegmentModel
     [JsonPropertyName("destinationHost")]
     public string? DestinationHost { get; set; }
 
+    [JsonPropertyName("destinationType")]
+    public IpApplicationSegmentDestinationTypeConstant? DestinationType { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
@@ -27,4 +30,7 @@ internal class IpApplicationSegmentModel
 
     [JsonPropertyName("ports")]
     public List<string>? Ports { get; set; }
+
+    [JsonPropertyName("protocol")]
+    public IpApplicationSegmentProtocolConstant? Protocol { get; set; }
 }

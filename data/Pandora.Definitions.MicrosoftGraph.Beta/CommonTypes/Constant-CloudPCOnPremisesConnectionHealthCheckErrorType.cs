@@ -147,6 +147,9 @@ internal enum CloudPCOnPremisesConnectionHealthCheckErrorTypeConstant
     [Description("ResourceAvailabilityCheckIntuneCustomWindowsRestrictionViolation")]
     @resourceAvailabilityCheckIntuneCustomWindowsRestrictionViolation,
 
+    [Description("ResourceAvailabilityCheckDeploymentQuotaLimitReached")]
+    @resourceAvailabilityCheckDeploymentQuotaLimitReached,
+
     [Description("ResourceAvailabilityCheckTransientServiceError")]
     @resourceAvailabilityCheckTransientServiceError,
 

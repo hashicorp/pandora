@@ -32,4 +32,10 @@ internal enum SecurityEdiscoveryExportOperationActionConstant
 
     [Description("PurgeData")]
     @purgeData,
+
+    [Description("ExportReport")]
+    @exportReport,
+
+    [Description("ExportResult")]
+    @exportResult,
 }

@@ -18,7 +18,6 @@ internal class Definition : ResourceDefinition
         new DeleteGroupByIdPhotoOperation(),
         new GetGroupByIdPhotoByIdOperation(),
         new GetGroupByIdPhotoByIdValueOperation(),
-        new GetGroupByIdPhotoCountOperation(),
         new GetGroupByIdPhotoOperation(),
         new GetGroupByIdPhotoValueOperation(),
         new ListGroupByIdPhotosOperation(),
