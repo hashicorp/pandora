@@ -164,5 +164,5 @@ func mapApiDefinitionSourceType(input dataapimodels.ApiDefinitionsSource) (*ApiD
 		return &v, nil
 	}
 
-	return nil, fmt.Errorf("unmapped Data Source Type %q", string(input))
+	return nil, fmt.Errorf("unmapped Definition Source Type %q", string(input))
 }
