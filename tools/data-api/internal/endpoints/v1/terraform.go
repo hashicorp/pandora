@@ -3,6 +3,7 @@ package v1
 import (
 	"fmt"
 	"net/http"
+	"strings"
 
 	"github.com/go-chi/render"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
@@ -47,7 +48,7 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 			Documentation: models.ResourceDocumentationDefinition{
 				Category:        resource.Documentation.Category,
 				Description:     resource.Documentation.Description,
-				ExampleUsageHcl: resource.Documentation.ExampleUsageHcl,
+				ExampleUsageHcl: strings.TrimPrefix(strings.TrimSuffix(resource.Documentation.ExampleUsageHcl, "\n"), "\n"),
 			},
 			DisplayName:          resource.DisplayName,
 			Generate:             resource.Generate,
@@ -74,6 +75,15 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 				TemplateConfiguration:       resource.Tests.TemplateConfiguration,
 			},
 			UpdateMethod: mapUpdateMethod(resource.UpdateMethod),
+		}
+
+		// todo remove this when https://github.com/hashicorp/pandora/issues/3352 is fixed
+		// tests won't be added unless Generate is true when writing this out in dataapigeneratorjson/helpers.go writeTestsHclToFile
+		// so we can set this to true if BasicConfiguration has been written out
+		if output[resource.Label].Tests.BasicConfiguration != "" {
+			currResource := output[resource.Label]
+			currResource.Tests.Generate = true
+			output[resource.Label] = currResource
 		}
 	}
 
