@@ -3,6 +3,7 @@ package repositories
 import (
 	"fmt"
 	"io"
+	"log"
 	"os"
 	"strconv"
 	"strings"
@@ -80,6 +81,13 @@ func getTerraformDefinitionInfo(fileName string) (string, string, error) {
 
 	definitionName := splitName[0]
 	definitionType := strings.Split(splitName[1], ".")[0]
+
+	// Resource-Schema Files can have multiple files with the model type appended to it (ie. KubernetesFleetManager-Resource-Schema-FleetHubProfile
+	// that final piece of the final name is not used and can be safely ignored
+	if strings.Contains(strings.ToLower(definitionType), "resource-schema") && len(strings.Split(definitionType, "-")) >= 3 {
+		log.Printf("FileName: %s", fileName)
+		definitionType = "Resource-Schema"
+	}
 
 	return definitionName, definitionType, nil
 
