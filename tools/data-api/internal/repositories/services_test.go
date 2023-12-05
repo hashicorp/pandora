@@ -15,7 +15,7 @@ func TestServices_ResourceManager(t *testing.T) {
 	}
 }
 
-func TestServices_Graph(t *testing.T) {
+func TestServices_MicrosoftGraph(t *testing.T) {
 	repo, err := NewServicesRepository("../../../../api-definitions/", MicrosoftGraphV1StableServiceType, nil)
 	if err != nil {
 		t.Fatalf(err.Error())
