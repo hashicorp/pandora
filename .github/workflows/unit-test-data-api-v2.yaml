@@ -1,0 +1,27 @@
+---
+name: Verify Data API V2 API Definitions Can be Mapped
+on:
+  pull_request:
+    types: ['opened', 'synchronize']
+    paths:
+      - '.github/workflows/**'
+      - 'tools/data-api/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+         submodules: recursive
+
+      - uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
+        with:
+          go-version: '1.21.3'
+
+      - name: run unit tests
+        run: |
+          cd ./tools/data-api
+          make test

@@ -9,4 +9,7 @@ fmt:
 run: build
 	./data-api serve
 
+test: build
+	go test -v ./...
+
 .PHONY: build fmt run
