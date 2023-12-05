@@ -1,0 +1,20 @@
+{
+ "name": "ContinuousModeBackupPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "continuousModeProperties",
+   "name": "ContinuousModeProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContinuousModeProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "BackupPolicy",
+ "discriminatedTypeValue": "Continuous",
+ "typeHintIn": "Type"
+}
