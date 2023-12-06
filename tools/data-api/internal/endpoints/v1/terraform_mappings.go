@@ -43,6 +43,29 @@ func mapFields(input map[string]repositories.TerraformSchemaFieldDefinition) map
 	return output
 }
 
+var terraformSchemaObjectDefinitionToTerraformFieldSchemaTypes = map[repositories.TerraformSchemaFieldType]models.TerraformSchemaFieldType{
+	repositories.BooleanTerraformSchemaObjectDefinitionType:                       models.TerraformSchemaFieldTypeBoolean,
+	repositories.DateTimeTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeDateTime,
+	repositories.DictionaryTerraformSchemaObjectDefinitionType:                    models.TerraformSchemaFieldTypeDictionary,
+	repositories.EdgeZoneTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeEdgeZone,
+	repositories.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        models.TerraformSchemaFieldTypeIdentitySystemAssigned,
+	repositories.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: models.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	repositories.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  models.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+	repositories.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          models.TerraformSchemaFieldTypeIdentityUserAssigned,
+	repositories.LocationTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeLocation,
+	repositories.FloatTerraformSchemaObjectDefinitionType:                         models.TerraformSchemaFieldTypeFloat,
+	repositories.IntegerTerraformSchemaObjectDefinitionType:                       models.TerraformSchemaFieldTypeInteger,
+	repositories.ListTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeList,
+	repositories.ReferenceTerraformSchemaObjectDefinitionType:                     models.TerraformSchemaFieldTypeReference,
+	repositories.ResourceGroupTerraformSchemaObjectDefinitionType:                 models.TerraformSchemaFieldTypeResourceGroup,
+	repositories.SetTerraformSchemaObjectDefinitionType:                           models.TerraformSchemaFieldTypeSet,
+	repositories.StringTerraformSchemaFieldType:                                   models.TerraformSchemaFieldTypeString,
+	repositories.TagsTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeTags,
+	repositories.SkuTerraformSchemaObjectDefinitionType:                           models.TerraformSchemaFieldTypeSku,
+	repositories.ZoneTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeZone,
+	repositories.ZonesTerraformSchemaObjectDefinitionType:                         models.TerraformSchemaFieldTypeZones,
+}
+
 func mapTerraformObjectDefinition(input repositories.TerraformSchemaFieldObjectDefinition) models.TerraformSchemaFieldObjectDefinition {
 	output := models.TerraformSchemaFieldObjectDefinition{}
 
@@ -51,6 +74,12 @@ func mapTerraformObjectDefinition(input repositories.TerraformSchemaFieldObjectD
 	}
 	output.ReferenceName = input.ReferenceName
 	output.Type = models.TerraformSchemaFieldType(input.Type)
+
+	// Type could have been modified from the importer-rest-api-specs and will need to be mapped back to what it was originally.
+	// we'll overwrite what is in output.Type if the value exists in terraformSchemaObjectDefinitionToTerraformFieldSchemaTypes
+	if mapped, ok := terraformSchemaObjectDefinitionToTerraformFieldSchemaTypes[input.Type]; ok {
+		output.Type = mapped
+	}
 
 	return output
 }
