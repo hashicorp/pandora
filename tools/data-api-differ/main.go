@@ -11,6 +11,7 @@ import (
 
 func main() {
 	opts := hclog.DefaultOptions
+	opts.Level = hclog.NoLevel
 	if level := os.Getenv("DEBUG"); level != "" {
 		opts.Level = hclog.Debug
 	}
@@ -32,10 +33,9 @@ func run() error {
 	c := cli.NewCLI("data-api-differ", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"detect-breaking-changes":         commands.NewDetectBreakingChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
-		"detect-changes":                  commands.NewDetectChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
-		"dev":                             commands.NewDevCommand(dataApiBinaryPath, initialPath, updatedPath),
-		"output-new-resource-id-segments": commands.NewOutputNewResourceIdSegmentsCommand(dataApiBinaryPath, initialPath, updatedPath),
+		"detect-breaking-changes":     commands.NewDetectBreakingChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
+		"detect-changes":              commands.NewDetectChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
+		"output-resource-id-segments": commands.NewOutputResourceIdSegmentsCommand(dataApiBinaryPath, initialPath, updatedPath),
 	}
 
 	exitStatus, err := c.Run()

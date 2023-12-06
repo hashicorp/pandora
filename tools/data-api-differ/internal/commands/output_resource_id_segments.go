@@ -11,18 +11,18 @@ import (
 	"github.com/mitchellh/cli"
 )
 
-var _ cli.Command = &DetectBreakingChangesCommand{}
+var _ cli.Command = &OutputResourceIdSegmentsCommand{}
 
-type DetectBreakingChangesCommand struct {
+type OutputResourceIdSegmentsCommand struct {
 	dataApiBinaryPath           string
 	pathToInitialApiDefinitions string
 	pathToUpdatedApiDefinitions string
 	logger                      hclog.Logger
 }
 
-func NewDetectBreakingChangesCommand(dataApiBinaryPath, initialPath, updatedPath string) func() (cli.Command, error) {
+func NewOutputResourceIdSegmentsCommand(dataApiBinaryPath, initialPath, updatedPath string) func() (cli.Command, error) {
 	return func() (cli.Command, error) {
-		return &DetectBreakingChangesCommand{
+		return &OutputResourceIdSegmentsCommand{
 			dataApiBinaryPath:           dataApiBinaryPath,
 			pathToInitialApiDefinitions: initialPath,
 			pathToUpdatedApiDefinitions: updatedPath,
@@ -32,15 +32,16 @@ func NewDetectBreakingChangesCommand(dataApiBinaryPath, initialPath, updatedPath
 	}
 }
 
-func (DetectBreakingChangesCommand) Help() string {
-	return `data-api-differ detect-breaking-changes
+func (OutputResourceIdSegmentsCommand) Help() string {
+	return `data-api-differ output-resource-id-segments
 
-This command detects any breaking changes that exist between the existing and an updated set of API Definitions - output as a report.
+This command detects any new Resource IDs that have been added between the existing and updated set of API Definitions
+and then outputs a unique, sorted list of any Static Identifiers found within the Resource ID Segments for review.
 `
 }
 
-func (c DetectBreakingChangesCommand) Run(args []string) int {
-	c.logger.Info("Running `detect-breaking-changes` command..")
+func (c OutputResourceIdSegmentsCommand) Run(args []string) int {
+	c.logger.Info("Running `output-resource-id-segments` command..")
 
 	c.logger.Debug("Performing diff of the two data sources..")
 	result, err := differ.Diff(c.dataApiBinaryPath, c.pathToInitialApiDefinitions, c.pathToUpdatedApiDefinitions)
@@ -50,8 +51,8 @@ func (c DetectBreakingChangesCommand) Run(args []string) int {
 	}
 
 	// then render the output
-	c.logger.Debug("Rendering the Breaking Changes..")
-	view := views.NewBreakingChangesView(result.Changes)
+	c.logger.Debug("Rendering the Changes..")
+	view := views.NewResourceIdSegmentsView(result.Changes)
 	rendered, err := view.RenderMarkdown()
 	if err != nil {
 		c.logger.Error(fmt.Sprintf("rendering markdown: %+v", err))
@@ -62,6 +63,6 @@ func (c DetectBreakingChangesCommand) Run(args []string) int {
 	return 0
 }
 
-func (DetectBreakingChangesCommand) Synopsis() string {
-	return "Retrieves two sets of API Definitions from the Data API and determines if there are any breaking changes"
+func (OutputResourceIdSegmentsCommand) Synopsis() string {
+	return "Determines the new Resource IDs and then outputs a unique, sorted list of Static Identifiers found in the Resource ID Segments for review."
 }
