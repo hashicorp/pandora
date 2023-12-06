@@ -26,7 +26,7 @@ type ResourceIdSegmentsChangedLength struct {
 }
 
 // IsBreaking returns whether this Change is considered a Breaking Change.
-func (r ResourceIdSegmentsChangedLength) IsBreaking() bool {
+func (ResourceIdSegmentsChangedLength) IsBreaking() bool {
 	// If an existing Resource ID has added/removed a Segment this is a breaking change
 	// which requires additional investigation/understanding.
 	return true
