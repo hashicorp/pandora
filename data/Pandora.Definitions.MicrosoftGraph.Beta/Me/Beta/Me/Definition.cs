@@ -17,6 +17,7 @@ internal class Definition : ResourceDefinition
         new CheckMeMemberGroupOperation(),
         new CheckMeMemberObjectOperation(),
         new CreateMeChangePasswordOperation(),
+        new CreateMeDeletePasswordSingleSignOnCredentialOperation(),
         new CreateMeExportPersonalDataOperation(),
         new CreateMeFindMeetingTimeOperation(),
         new CreateMeInvalidateAllRefreshTokenOperation(),
@@ -34,6 +35,7 @@ internal class Definition : ResourceDefinition
         new GetMeMemberGroupOperation(),
         new GetMeMemberObjectOperation(),
         new GetMeOperation(),
+        new GetMePasswordSingleSignOnCredentialOperation(),
         new RemoveMeAllDevicesFromManagementOperation(),
         new RestoreMeOperation(),
         new UpdateMeOperation()
@@ -52,6 +54,7 @@ internal class Definition : ResourceDefinition
         typeof(CheckMeMemberGroupRequestModel),
         typeof(CheckMeMemberObjectRequestModel),
         typeof(CreateMeChangePasswordRequestModel),
+        typeof(CreateMeDeletePasswordSingleSignOnCredentialRequestModel),
         typeof(CreateMeExportPersonalDataRequestModel),
         typeof(CreateMeFindMeetingTimeRequestModel),
         typeof(CreateMeSendMailRequestModel),

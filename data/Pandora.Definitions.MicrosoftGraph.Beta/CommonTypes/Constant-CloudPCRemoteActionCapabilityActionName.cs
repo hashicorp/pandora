@@ -35,4 +35,16 @@ internal enum CloudPCRemoteActionCapabilityActionNameConstant
 
     [Description("PlaceUnderReview")]
     @placeUnderReview,
+
+    [Description("CreateSnapshot")]
+    @createSnapshot,
+
+    [Description("PowerOn")]
+    @powerOn,
+
+    [Description("PowerOff")]
+    @powerOff,
+
+    [Description("MoveRegion")]
+    @moveRegion,
 }

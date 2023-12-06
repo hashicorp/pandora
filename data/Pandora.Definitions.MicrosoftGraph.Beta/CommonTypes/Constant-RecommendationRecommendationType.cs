@@ -101,4 +101,19 @@ internal enum RecommendationRecommendationTypeConstant
 
     [Description("OverprivilegedApps")]
     @overprivilegedApps,
+
+    [Description("LongLivedCredentials")]
+    @longLivedCredentials,
+
+    [Description("AadConnectDeprecated")]
+    @aadConnectDeprecated,
+
+    [Description("AdalToMsalMigration")]
+    @adalToMsalMigration,
+
+    [Description("OwnerlessApps")]
+    @ownerlessApps,
+
+    [Description("InactiveGuests")]
+    @inactiveGuests,
 }

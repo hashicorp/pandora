@@ -19,6 +19,9 @@ internal class ExternalConnectorsExternalConnectionModel
     [JsonPropertyName("configuration")]
     public ExternalConnectorsConfigurationModel? Configuration { get; set; }
 
+    [JsonPropertyName("connectorId")]
+    public string? ConnectorId { get; set; }
+
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 

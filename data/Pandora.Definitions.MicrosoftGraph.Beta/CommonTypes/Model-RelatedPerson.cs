@@ -22,6 +22,9 @@ internal class RelatedPersonModel
     [JsonPropertyName("relationship")]
     public RelatedPersonRelationshipConstant? Relationship { get; set; }
 
+    [JsonPropertyName("userId")]
+    public string? UserId { get; set; }
+
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }
 }

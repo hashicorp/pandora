@@ -14,4 +14,7 @@ internal enum CloudPCPartnerAgentInstallResultPartnerAgentNameConstant
 
     [Description("VMware")]
     @vMware,
+
+    [Description("Hp")]
+    @hp,
 }

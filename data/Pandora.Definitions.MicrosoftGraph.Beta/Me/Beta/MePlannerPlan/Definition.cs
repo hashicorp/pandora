@@ -13,6 +13,7 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new CreateMePlannerPlanByIdMoveToContainerOperation(),
         new CreateMePlannerPlanOperation(),
         new DeleteMePlannerPlanByIdOperation(),
         new GetMePlannerPlanByIdOperation(),
@@ -28,6 +29,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-
+        typeof(CreateMePlannerPlanByIdMoveToContainerRequestModel)
     };
 }

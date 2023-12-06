@@ -23,4 +23,7 @@ internal enum SignInCrossTenantAccessTypeConstant
 
     [Description("ServiceProvider")]
     @serviceProvider,
+
+    [Description("Passthrough")]
+    @passthrough,
 }

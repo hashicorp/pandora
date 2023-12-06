@@ -28,6 +28,9 @@ internal class SecurityThreatIntelligenceModel
     [JsonPropertyName("hostPairs")]
     public List<SecurityHostPairModel>? HostPairs { get; set; }
 
+    [JsonPropertyName("hostPorts")]
+    public List<SecurityHostPortModel>? HostPorts { get; set; }
+
     [JsonPropertyName("hostSslCertificates")]
     public List<SecurityHostSslCertificateModel>? HostSslCertificates { get; set; }
 

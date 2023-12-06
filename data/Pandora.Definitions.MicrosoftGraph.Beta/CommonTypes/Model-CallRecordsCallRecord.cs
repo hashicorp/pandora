@@ -34,8 +34,14 @@ internal class CallRecordsCallRecordModel
     [JsonPropertyName("organizer")]
     public IdentitySetModel? Organizer { get; set; }
 
+    [JsonPropertyName("organizer_v2")]
+    public CallRecordsOrganizerModel? Organizerv2 { get; set; }
+
     [JsonPropertyName("participants")]
     public List<IdentitySetModel>? Participants { get; set; }
+
+    [JsonPropertyName("participants_v2")]
+    public List<CallRecordsParticipantModel>? Participantsv2 { get; set; }
 
     [JsonPropertyName("sessions")]
     public List<CallRecordsSessionModel>? Sessions { get; set; }
