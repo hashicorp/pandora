@@ -16,3 +16,13 @@ func (r Result) ContainsBreakingChanges() bool {
 
 	return false
 }
+
+func (r Result) ContainsNonBreakingChanges() bool {
+	for _, change := range r.Changes {
+		if !change.IsBreaking() {
+			return true
+		}
+	}
+
+	return false
+}

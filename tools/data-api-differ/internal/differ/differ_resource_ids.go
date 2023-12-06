@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -40,12 +41,14 @@ func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resou
 	}
 	if !isInOld && isInUpdated {
 		log.Logger.Trace(fmt.Sprintf("Resource ID %q was added", resourceIdName))
+		staticIdentifiers := d.staticIdentifiersInResourceIdSegments(updatedData.Segments)
 		output = append(output, changes.ResourceIdAdded{
-			ServiceName:     serviceName,
-			ApiVersion:      apiVersion,
-			ResourceName:    apiResource,
-			ResourceIdName:  resourceIdName,
-			ResourceIdValue: updatedData.Id,
+			ServiceName:                 serviceName,
+			ApiVersion:                  apiVersion,
+			ResourceName:                apiResource,
+			ResourceIdName:              resourceIdName,
+			ResourceIdValue:             updatedData.Id,
+			StaticIdentifiersInNewValue: staticIdentifiers,
 		})
 		return output
 	}
@@ -114,13 +117,17 @@ func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResourc
 
 	if len(initial.Segments) != len(updated.Segments) {
 		log.Logger.Trace(fmt.Sprintf("The Resource ID has a different set of segments (old %d segments / new %d segments)", len(initial.Segments), len(updated.Segments)))
+
+		staticIdentifiersInSegments := d.staticIdentifiersInResourceIdSegments(updated.Segments)
+
 		output = append(output, changes.ResourceIdSegmentsChangedLength{
-			ServiceName:    serviceName,
-			ApiVersion:     apiVersion,
-			ResourceName:   apiResource,
-			ResourceIdName: resourceIdName,
-			OldValue:       oldStringified,
-			NewValue:       updatedStringified,
+			ServiceName:                 serviceName,
+			ApiVersion:                  apiVersion,
+			ResourceName:                apiResource,
+			ResourceIdName:              resourceIdName,
+			OldValue:                    oldStringified,
+			NewValue:                    updatedStringified,
+			StaticIdentifiersInNewValue: staticIdentifiersInSegments,
 		})
 		return output
 	}
@@ -130,20 +137,30 @@ func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResourc
 		updatedValue := updatedStringified[i]
 		if oldValue != updatedValue {
 			log.Logger.Trace(fmt.Sprintf("Resource ID Segment Index %d differs", i))
+			staticIdentifiers := d.staticIdentifiersInResourceIdSegments([]resourcemanager.ResourceIdSegment{
+				updated.Segments[i], // only the changed Resource ID Segment
+			})
+			var staticIdentifier *string
+			if len(staticIdentifiers) > 0 {
+				staticIdentifier = pointer.To(staticIdentifiers[0])
+			}
+
 			output = append(output, changes.ResourceIdSegmentChangedValue{
-				ServiceName:    serviceName,
-				ApiVersion:     apiVersion,
-				ResourceName:   apiResource,
-				ResourceIdName: resourceIdName,
-				SegmentIndex:   i,
-				OldValue:       oldValue,
-				NewValue:       updatedValue,
+				ServiceName:                serviceName,
+				ApiVersion:                 apiVersion,
+				ResourceName:               apiResource,
+				ResourceIdName:             resourceIdName,
+				SegmentIndex:               i,
+				OldValue:                   oldValue,
+				NewValue:                   updatedValue,
+				StaticIdentifierInNewValue: staticIdentifier,
 			})
 		}
 	}
 	return output
 }
 
+// stringifyResourceIdSegments builds up a stringified version of the Resource ID segments for human understanding of the diff
 func (d differ) stringifyResourceIdSegments(input []resourcemanager.ResourceIdSegment) []string {
 	output := make([]string, 0)
 
@@ -163,6 +180,27 @@ func (d differ) stringifyResourceIdSegments(input []resourcemanager.ResourceIdSe
 		output = append(output, strings.Join(components, " / "))
 	}
 
+	return output
+}
+
+// staticIdentifiersInResourceIdSegments retrieves a unique, sorted list of the static identifiers within the Resource ID Segments
+// This comes from both Static Segments, Resource Provider Segments,
+func (d differ) staticIdentifiersInResourceIdSegments(input []resourcemanager.ResourceIdSegment) []string {
+	segments := make(map[string]struct{})
+
+	// first pull out a unique list of fixed values from the different segment types
+	for _, item := range input {
+		if item.FixedValue != nil {
+			segments[*item.FixedValue] = struct{}{}
+		}
+	}
+
+	// then sort it
+	output := make([]string, 0)
+	for k := range segments {
+		output = append(output, k)
+	}
+	sort.Strings(output)
 	return output
 }
 

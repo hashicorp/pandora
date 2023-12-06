@@ -15,14 +15,18 @@ type ResourceIdSegmentsChangedLength struct {
 	// ResourceName specifies the name of the API Resource which contains this Resource ID.
 	ResourceName string
 
-	// ResourceIdName specifies the name of the Resource ID which contains the Segment that has changed.
+	// ResourceIdName specifies the name of the Resource ID which contains the Segments that has changed.
 	ResourceIdName string
 
-	// OldValue specifies the old/existing value for this Resource ID Segment.
+	// OldValue specifies the old/existing value for this Resource ID.
 	OldValue []string
 
-	// NewValue specifies the new/updated value for this Resource ID Segment.
+	// NewValue specifies the new/updated value for this Resource ID.
 	NewValue []string
+
+	// StaticIdentifiersInNewValue specifies a unique, sorted list of Static Identifiers (such as Resource
+	// Provider Name and any Static Values) present within the new/updated value for this Resource ID Segment.
+	StaticIdentifiersInNewValue []string
 }
 
 // IsBreaking returns whether this Change is considered a Breaking Change.

@@ -21,6 +21,10 @@ type ResourceIdAdded struct {
 
 	// ResourceIdValue specifies the value used for this Resource ID e.g. `/foo/{bar}`
 	ResourceIdValue string
+
+	// StaticIdentifiersInNewValue specifies a unique, sorted list of Static Identifiers (such as Resource
+	// Provider Name and any Static Values) present within the new/updated value for this Resource ID.
+	StaticIdentifiersInNewValue []string
 }
 
 // IsBreaking returns whether this Change is considered a Breaking Change.

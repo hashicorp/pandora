@@ -26,6 +26,9 @@ type ResourceIdSegmentChangedValue struct {
 
 	// NewValue specifies the new/updated value for this Resource ID Segment.
 	NewValue string
+
+	// StaticIdentifierInNewValue specifies any static identifier present in the updated Resource ID Segment.
+	StaticIdentifierInNewValue *string
 }
 
 // IsBreaking returns whether this Change is considered a Breaking Change.

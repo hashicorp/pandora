@@ -279,7 +279,7 @@ func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiRes
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
-		if oldStringified != updatedStringified {
+		if *oldStringified != *updatedStringified {
 			log.Logger.Trace("The updated Operation has a different Request Object")
 			output = append(output, changes.OperationRequestObjectChanged{
 				ServiceName:      serviceName,
@@ -401,7 +401,7 @@ func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiRe
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
-		if oldStringified != updatedStringified {
+		if *oldStringified != *updatedStringified {
 			log.Logger.Trace("The updated Operation has a different Response Object")
 			output = append(output, changes.OperationResponseObjectChanged{
 				ServiceName:       serviceName,

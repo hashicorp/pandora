@@ -740,6 +740,16 @@ func TestDiff_ResourceManager_ResourceIdAdded(t *testing.T) {
 								ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
 									"First": {
 										Id: "/example",
+										Segments: []resourcemanager.ResourceIdSegment{
+											{
+												// NOTE: it's not strictly representative to have 3 static segments and no user configurable
+												// segments in a Resource ID - but its worth it in this instance for a simpler/shorter testcase.
+												Name:         "staticExample",
+												Type:         resourcemanager.StaticSegment,
+												FixedValue:   pointer.To("example"),
+												ExampleValue: "example",
+											},
+										},
 									},
 								},
 							},
@@ -756,6 +766,9 @@ func TestDiff_ResourceManager_ResourceIdAdded(t *testing.T) {
 			ResourceName:    "Instances",
 			ResourceIdName:  "First",
 			ResourceIdValue: "/example",
+			StaticIdentifiersInNewValue: []string{
+				"example",
+			},
 		},
 	}
 	containsBreakingChanges := false

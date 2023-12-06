@@ -30,6 +30,28 @@ func TestDiff_ResourceIdAdded(t *testing.T) {
 	newIds := map[string]resourcemanager.ResourceIdDefinition{
 		"SomeId": {
 			Id: "/some/resource/id",
+			Segments: []resourcemanager.ResourceIdSegment{
+				{
+					// NOTE: it's not strictly representative to have 3 static segments and no user configurable
+					// segments in a Resource ID - but its worth it in this instance for a simpler/shorter testcase.
+					Name:         "staticSome",
+					Type:         resourcemanager.StaticSegment,
+					FixedValue:   pointer.To("some"),
+					ExampleValue: "some",
+				},
+				{
+					Name:         "staticResource",
+					Type:         resourcemanager.StaticSegment,
+					FixedValue:   pointer.To("resource"),
+					ExampleValue: "resource",
+				},
+				{
+					Name:         "staticId",
+					Type:         resourcemanager.StaticSegment,
+					FixedValue:   pointer.To("id"),
+					ExampleValue: "id",
+				},
+			},
 		},
 	}
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
@@ -40,6 +62,12 @@ func TestDiff_ResourceIdAdded(t *testing.T) {
 			ResourceName:    "Example",
 			ResourceIdName:  "SomeId",
 			ResourceIdValue: "/some/resource/id",
+			StaticIdentifiersInNewValue: []string{
+				// this list is ordered
+				"id",
+				"resource",
+				"some",
+			},
 		},
 	}
 	assertChanges(t, expected, actual)
@@ -176,6 +204,9 @@ func TestDiff_ResourceIdSegmentsAdded(t *testing.T) {
 				`Name "staticExample" / Type "Static" / FixedValue "example" / ExampleValue "example"`,
 				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
 			},
+			StaticIdentifiersInNewValue: []string{
+				"example",
+			},
 		},
 	}
 	assertChanges(t, expected, actual)
@@ -212,13 +243,14 @@ func TestDiff_ResourceIdSegmentsChangedFixedValue(t *testing.T) {
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
 	expected := []changes.Change{
 		changes.ResourceIdSegmentChangedValue{
-			ServiceName:    "Computer",
-			ApiVersion:     "2020-01-01",
-			ResourceName:   "Example",
-			ResourceIdName: "SomeId",
-			SegmentIndex:   0,
-			OldValue:       `Name "staticExample" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
-			NewValue:       `Name "staticExample" / Type "Static" / FixedValue "second" / ExampleValue "second"`,
+			ServiceName:                "Computer",
+			ApiVersion:                 "2020-01-01",
+			ResourceName:               "Example",
+			ResourceIdName:             "SomeId",
+			SegmentIndex:               0,
+			OldValue:                   `Name "staticExample" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
+			NewValue:                   `Name "staticExample" / Type "Static" / FixedValue "second" / ExampleValue "second"`,
+			StaticIdentifierInNewValue: pointer.To("second"),
 		},
 	}
 	assertChanges(t, expected, actual)
@@ -255,13 +287,14 @@ func TestDiff_ResourceIdSegmentsChangedName(t *testing.T) {
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
 	expected := []changes.Change{
 		changes.ResourceIdSegmentChangedValue{
-			ServiceName:    "Computer",
-			ApiVersion:     "2020-01-01",
-			ResourceName:   "Example",
-			ResourceIdName: "SomeId",
-			SegmentIndex:   0,
-			OldValue:       `Name "staticExample" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
-			NewValue:       `Name "updatedName" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
+			ServiceName:                "Computer",
+			ApiVersion:                 "2020-01-01",
+			ResourceName:               "Example",
+			ResourceIdName:             "SomeId",
+			SegmentIndex:               0,
+			OldValue:                   `Name "staticExample" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
+			NewValue:                   `Name "updatedName" / Type "Static" / FixedValue "first" / ExampleValue "first"`,
+			StaticIdentifierInNewValue: pointer.To("first"),
 		},
 	}
 	assertChanges(t, expected, actual)
@@ -359,6 +392,7 @@ func TestDiff_ResourceIdSegmentsRemoved(t *testing.T) {
 			NewValue: []string{
 				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
 			},
+			StaticIdentifiersInNewValue: []string{},
 		},
 	}
 	assertChanges(t, expected, actual)
