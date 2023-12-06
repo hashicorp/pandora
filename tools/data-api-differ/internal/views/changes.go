@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 )
@@ -43,7 +42,11 @@ func NewChangesView(input []changes.Change) ChangesView {
 // in a Terminal and to be output as a GitHub Comment.
 func (v ChangesView) RenderMarkdown() (*string, error) {
 	if len(v.breakingChanges) == 0 && len(v.nonBreakingChanges) == 0 {
-		return pointer.To("No Breaking or Non-Breaking Changes were found 👍"), nil
+		return trimSpaceAround(`
+## Summary of Changes
+
+No Breaking or Non-Breaking Changes were found 👍
+`)
 	}
 
 	summaryLines := make([]string, 0)
@@ -60,7 +63,7 @@ func (v ChangesView) RenderMarkdown() (*string, error) {
 
 	sections := []string{
 		fmt.Sprintf(`
-## Result of Diffing the API Definitions
+## Summary of Changes
 
 %s
 `, strings.Join(summaryLines, "\n")),
@@ -109,6 +112,5 @@ func (v ChangesView) RenderMarkdown() (*string, error) {
 	}
 
 	output := strings.Join(sections, "\n---\n\n")
-	output = strings.TrimSpace(output)
-	return pointer.To(output), nil
+	return trimSpaceAround(output)
 }

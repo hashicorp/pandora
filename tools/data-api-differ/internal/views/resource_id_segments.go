@@ -84,6 +84,7 @@ Please review the following list of Static Identifiers:
 
 > Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 `, strings.Join(lines, "\n"))
+	output = strings.ReplaceAll(output, "'", "`")
 	//TODO: add a "see the link for how to fix this" to the comment above when the associated documentation is available
 	return trimSpaceAround(output)
 }

@@ -4,7 +4,6 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 )
@@ -35,7 +34,11 @@ func NewBreakingChangesView(input []changes.Change) BreakingChangeView {
 // in a Terminal and to be output as a GitHub Comment.
 func (v BreakingChangeView) RenderMarkdown() (*string, error) {
 	if len(v.breakingChanges) == 0 {
-		return pointer.To("No Breaking Changes were found 👍"), nil
+		return trimSpaceAround(`
+## Breaking Changes
+
+No Breaking Changes were found 👍
+`)
 	}
 
 	diff := make([]string, 0)
@@ -51,7 +54,7 @@ func (v BreakingChangeView) RenderMarkdown() (*string, error) {
 	output := fmt.Sprintf(`
 ## Breaking Changes
 
-🛑 **%d Breaking Changes** were detected:
+🛑 **%d Breaking Changes** were detected.
 
 ---
 
@@ -60,6 +63,5 @@ Summary of changes:
 %s
 
 `, len(v.breakingChanges), strings.Join(diff, "\n"))
-	output = strings.TrimSpace(output)
-	return pointer.To(output), nil
+	return trimSpaceAround(output)
 }

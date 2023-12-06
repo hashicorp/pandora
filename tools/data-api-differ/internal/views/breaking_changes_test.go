@@ -1,6 +1,7 @@
 package views
 
 import (
+	"strings"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
@@ -14,6 +15,88 @@ func TestBreakingChangeView_Markdown_NoChanges(t *testing.T) {
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
-	expected := "No Breaking Changes were found 👍"
+	expected := "## Breaking Changes\n\nNo Breaking Changes were found 👍"
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestBreakingChangeView_Markdown_WithOnlyBreakingChanges(t *testing.T) {
+	diff := []changes.Change{
+		changes.ServiceRemoved{
+			ServiceName: "First",
+		},
+		changes.ServiceRemoved{
+			ServiceName: "Second",
+		},
+		changes.ServiceRemoved{
+			ServiceName: "Third",
+		},
+	}
+	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := strings.ReplaceAll(`
+ ## Breaking Changes
+
+🛑 **3 Breaking Changes** were detected.
+
+---
+
+Summary of changes:
+
+* ❌ **Removed Service:** 'First'.
+* ❌ **Removed Service:** 'Second'.
+* ❌ **Removed Service:** 'Third'.
+`, "'", "`")
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestBreakingChangeView_Markdown_WithOnlyNonBreakingChanges(t *testing.T) {
+	diff := []changes.Change{
+		// Non-breaking changes should be filtered out
+		changes.ServiceAdded{
+			ServiceName: "Example",
+		},
+	}
+	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := `
+## Breaking Changes
+
+No Breaking Changes were found 👍
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestBreakingChangeView_Markdown_WithBreakingAndNonBreakingChanges(t *testing.T) {
+	diff := []changes.Change{
+		changes.ServiceRemoved{
+			ServiceName: "First",
+		},
+		changes.ServiceAdded{ // the non-breaking change should be filtered out
+			ServiceName: "Second",
+		},
+		changes.ServiceRemoved{
+			ServiceName: "Third",
+		},
+	}
+	actual, err := NewBreakingChangesView(diff).RenderMarkdown()
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := strings.ReplaceAll(`
+ ## Breaking Changes
+
+🛑 **2 Breaking Changes** were detected.
+
+---
+
+Summary of changes:
+
+* ❌ **Removed Service:** 'First'.
+* ❌ **Removed Service:** 'Third'.
+`, "'", "`")
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
