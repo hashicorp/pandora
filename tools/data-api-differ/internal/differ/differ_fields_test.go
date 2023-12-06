@@ -8,6 +8,30 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestDiff_FieldNoChanges(t *testing.T) {
+	initial := map[string]resourcemanager.FieldDetails{
+		"First": {
+			ObjectDefinition: resourcemanager.ApiObjectDefinition{
+				Type: resourcemanager.StringApiObjectDefinitionType,
+			},
+		},
+	}
+	updated := map[string]resourcemanager.FieldDetails{
+		"First": {
+			ObjectDefinition: resourcemanager.ApiObjectDefinition{
+				Type: resourcemanager.StringApiObjectDefinitionType,
+			},
+		},
+	}
+	actual, err := differ{}.changesForFields("Computer", "2020-01-01", "Example", "SomeModel", initial, updated)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, *actual)
+	assertContainsNoBreakingChanges(t, *actual)
+}
+
 func TestDiff_FieldAdded(t *testing.T) {
 	initial := map[string]resourcemanager.FieldDetails{
 		"First": {

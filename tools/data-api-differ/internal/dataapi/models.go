@@ -14,7 +14,7 @@ type ServiceData struct {
 	Generate bool
 
 	// ResourceProvider is the Resource Provider this service represents
-	ResourceProvider string
+	ResourceProvider *string
 
 	// TerraformPackageName is the name of the Service Package within
 	// the Terraform Provider associated with this service.

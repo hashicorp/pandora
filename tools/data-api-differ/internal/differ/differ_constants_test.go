@@ -7,6 +7,33 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestDiff_ConstantNoChanges(t *testing.T) {
+	initial := map[string]resourcemanager.ConstantDetails{
+		"First": {
+			Type: resourcemanager.IntegerConstant,
+			Values: map[string]string{
+				"One":   "1",
+				"Two":   "2",
+				"Three": "3",
+			},
+		},
+	}
+	updated := map[string]resourcemanager.ConstantDetails{
+		"First": {
+			Type: resourcemanager.IntegerConstant,
+			Values: map[string]string{
+				"One":   "1",
+				"Two":   "2",
+				"Three": "3",
+			},
+		},
+	}
+	actual := differ{}.changesForConstants("Computer", "2020-01-01", "Example", initial, updated)
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, actual)
+	assertContainsNoBreakingChanges(t, actual)
+}
+
 func TestDiff_ConstantAdded(t *testing.T) {
 	initial := map[string]resourcemanager.ConstantDetails{
 		"First": {},

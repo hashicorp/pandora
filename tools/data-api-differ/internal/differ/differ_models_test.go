@@ -8,6 +8,40 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestDiff_ModelNoChanges(t *testing.T) {
+	initial := map[string]resourcemanager.ModelDetails{
+		"First": {
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Example": {
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.StringApiObjectDefinitionType,
+					},
+					Required: true,
+				},
+			},
+		},
+	}
+	updated := map[string]resourcemanager.ModelDetails{
+		"First": {
+			Fields: map[string]resourcemanager.FieldDetails{
+				"Example": {
+					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+						Type: resourcemanager.StringApiObjectDefinitionType,
+					},
+					Required: true,
+				},
+			},
+		},
+	}
+	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, *actual)
+	assertContainsNoBreakingChanges(t, *actual)
+}
+
 func TestDiff_ModelAdded(t *testing.T) {
 	initial := map[string]resourcemanager.ModelDetails{
 		"First": {},

@@ -7,6 +7,22 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
 )
 
+func TestDiff_ServiceNoChanges(t *testing.T) {
+	initial := map[string]dataapi.ServiceData{
+		"Computer": {},
+	}
+	updated := map[string]dataapi.ServiceData{
+		"Computer": {},
+	}
+	actual, err := differ{}.changesForService("Computer", initial, updated)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, *actual)
+	assertContainsNoBreakingChanges(t, *actual)
+}
+
 func TestDiff_ServiceAdded(t *testing.T) {
 	initial := map[string]dataapi.ServiceData{
 		// intentionally empty

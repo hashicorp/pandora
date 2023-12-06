@@ -8,6 +8,23 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestDiff_ResourceIdNoChanges(t *testing.T) {
+	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+		"SomeId": {
+			Id: "/some/resource/id",
+		},
+	}
+	newIds := map[string]resourcemanager.ResourceIdDefinition{
+		"SomeId": {
+			Id: "/some/resource/id",
+		},
+	}
+	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, actual)
+	assertContainsNoBreakingChanges(t, actual)
+}
+
 func TestDiff_ResourceIdAdded(t *testing.T) {
 	oldIds := make(map[string]resourcemanager.ResourceIdDefinition)
 	newIds := map[string]resourcemanager.ResourceIdDefinition{

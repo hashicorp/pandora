@@ -14,6 +14,66 @@ import (
 // are high-level tests to ensure we're touching the main code paths, rather than necessarily
 // testing every bit of functionality.
 
+func TestDiff_ResourceManager_NoChanges(t *testing.T) {
+	initial := dataapi.Data{
+		ResourceManagerServices: map[string]dataapi.ServiceData{
+			"Computer": {
+				Generate:         true,
+				ResourceProvider: pointer.To("Microsoft.Computer"),
+				ApiVersions: map[string]dataapi.ApiVersionData{
+					"2020-01-01": {
+						Generate: true,
+						Preview:  false,
+						Resources: map[string]dataapi.ApiResourceData{
+							"VirtualMachines": {
+								Constants:   make(map[string]resourcemanager.ConstantDetails),
+								Models:      make(map[string]resourcemanager.ModelDetails),
+								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
+								Operations: map[string]resourcemanager.ApiOperation{
+									"Example": {
+										UriSuffix: pointer.To("/doSomething"),
+									},
+								},
+							},
+						},
+						Source: resourcemanager.ApiDefinitionsSourceHandWritten,
+					},
+				},
+			},
+		},
+	}
+	updated := dataapi.Data{
+		ResourceManagerServices: map[string]dataapi.ServiceData{
+			"Computer": {
+				Generate:         true,
+				ResourceProvider: pointer.To("Microsoft.Computer"),
+				ApiVersions: map[string]dataapi.ApiVersionData{
+					"2020-01-01": {
+						Generate: true,
+						Preview:  false,
+						Resources: map[string]dataapi.ApiResourceData{
+							"VirtualMachines": {
+								Constants:   make(map[string]resourcemanager.ConstantDetails),
+								Models:      make(map[string]resourcemanager.ModelDetails),
+								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
+								Operations: map[string]resourcemanager.ApiOperation{
+									"Example": {
+										UriSuffix: pointer.To("/doSomething"),
+									},
+								},
+							},
+						},
+						Source: resourcemanager.ApiDefinitionsSourceHandWritten,
+					},
+				},
+			},
+		},
+	}
+	expected := make([]changes.Change, 0)
+	containsBreakingChanges := false
+	determineAndValidateDiff(t, initial, updated, expected, containsBreakingChanges)
+}
+
 func TestDiff_ResourceManager_ServiceAdded(t *testing.T) {
 	initial := dataapi.Data{
 		ResourceManagerServices: map[string]dataapi.ServiceData{

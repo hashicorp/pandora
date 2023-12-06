@@ -2,9 +2,11 @@ package dataapi
 
 import (
 	"fmt"
+	"math/rand"
+
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"math/rand"
 )
 
 // ParseDataFromPath launches the Data API using inputPath as the API Definitions directory.
@@ -74,7 +76,7 @@ func populateServiceDetails(client resourcemanager.Client, summary resourcemanag
 	return &ServiceData{
 		ApiVersions:          apiVersions,
 		Generate:             summary.Generate,
-		ResourceProvider:     serviceDetails.ResourceProvider,
+		ResourceProvider:     pointer.To(serviceDetails.ResourceProvider),
 		TerraformPackageName: serviceDetails.TerraformPackageName,
 	}, nil
 }

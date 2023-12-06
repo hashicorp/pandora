@@ -9,6 +9,27 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+func TestDiff_OperationNoChanges(t *testing.T) {
+	initial := map[string]resourcemanager.ApiOperation{
+		"First": {},
+	}
+	updated := map[string]resourcemanager.ApiOperation{
+		"First": {},
+	}
+	ids := map[string]resourcemanager.ResourceIdDefinition{
+		"SomeId": {
+			Id: "/some/resource/id",
+		},
+	}
+	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := make([]changes.Change, 0)
+	assertChanges(t, expected, *actual)
+	assertContainsNoBreakingChanges(t, *actual)
+}
+
 func TestDiff_OperationAddedWithResourceId(t *testing.T) {
 	initial := map[string]resourcemanager.ApiOperation{
 		"First": {},
