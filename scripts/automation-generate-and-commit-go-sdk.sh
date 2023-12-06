@@ -115,7 +115,7 @@ function main {
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="git@github.com:hashicorp/go-azure-sdk.git"
   local sha
-  local useV2Generator=false
+  local useV2Generator=true
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")

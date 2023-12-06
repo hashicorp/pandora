@@ -33,6 +33,8 @@ jobs:
         run: |
           cd ./data
           make build
+          cd ../tools/data-api
+          make build
 
       - name: "Launch SSH Agent"
         run: |
