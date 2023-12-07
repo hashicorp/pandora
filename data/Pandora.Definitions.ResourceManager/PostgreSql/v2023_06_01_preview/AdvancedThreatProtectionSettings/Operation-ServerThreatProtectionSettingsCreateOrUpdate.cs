@@ -14,6 +14,13 @@ namespace Pandora.Definitions.ResourceManager.PostgreSql.v2023_06_01_preview.Adv
 
 internal class ServerThreatProtectionSettingsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+        {
+                HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
+                HttpStatusCode.OK,
+        };
+
     public override bool LongRunning() => true;
 
     public override Type? RequestObject() => typeof(ServerThreatProtectionSettingsModelModel);
