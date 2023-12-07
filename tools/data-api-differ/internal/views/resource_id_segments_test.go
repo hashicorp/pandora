@@ -1,10 +1,10 @@
 package views
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )

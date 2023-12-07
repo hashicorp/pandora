@@ -1,11 +1,12 @@
 package main
 
 import (
+	"os"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/commands"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/mitchellh/cli"
-	"os"
 )
 
 const binaryName = "data-api-differ"

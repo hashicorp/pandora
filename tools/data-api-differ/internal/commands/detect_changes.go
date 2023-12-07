@@ -2,12 +2,13 @@ package commands
 
 import (
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/differ"
 	internalLog "github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/views"
-	"log"
-	"os"
 
 	"github.com/mitchellh/cli"
 )
