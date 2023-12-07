@@ -1,0 +1,29 @@
+{
+ "name": "ExportDataset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configuration",
+   "name": "Configuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExportDatasetConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "granularity",
+   "name": "Granularity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GranularityType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
