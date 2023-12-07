@@ -80,6 +80,7 @@ func (c ServeCommand) Run(args []string) int {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 	r.Route("/", endpoints.Router(dataDirectory, serviceNames))
+	c.Log.Info(fmt.Sprintf("Data API launched at http://localhost:%d", port))
 	http.ListenAndServe(fmt.Sprintf(":%d", port), r)
 	return 0
 }
