@@ -14,19 +14,12 @@ import (
 var _ cli.Command = &OutputResourceIdSegmentsCommand{}
 
 type OutputResourceIdSegmentsCommand struct {
-	dataApiBinaryPath           string
-	pathToInitialApiDefinitions string
-	pathToUpdatedApiDefinitions string
-	logger                      hclog.Logger
+	logger hclog.Logger
 }
 
-func NewOutputResourceIdSegmentsCommand(dataApiBinaryPath, initialPath, updatedPath string) func() (cli.Command, error) {
+func NewOutputResourceIdSegmentsCommand() func() (cli.Command, error) {
 	return func() (cli.Command, error) {
 		return &OutputResourceIdSegmentsCommand{
-			dataApiBinaryPath:           dataApiBinaryPath,
-			pathToInitialApiDefinitions: initialPath,
-			pathToUpdatedApiDefinitions: updatedPath,
-
 			logger: internalLog.Logger,
 		}, nil
 	}
@@ -43,10 +36,26 @@ and then outputs a unique, sorted list of any Static Identifiers found within th
 func (c OutputResourceIdSegmentsCommand) Run(args []string) int {
 	c.logger.Info("Running `output-resource-id-segments` command..")
 
+	a := arguments{}
+	c.logger.Debug("Parsing arguments..")
+	if err := a.parse(args); err != nil {
+		c.logger.Error(fmt.Sprintf("parsing arguments: %+v", err))
+		return 1
+	}
+
+	if err := a.validate(); err != nil {
+		c.logger.Error(fmt.Sprintf("validating arguments: %+v", err))
+		return 1
+	}
+
+	c.logger.Info(fmt.Sprintf("Data API Binary located at %q", a.dataApiBinaryPath))
+	c.logger.Info(fmt.Sprintf("Initial API Definitions located at: %q", a.initialApiDefinitionsPath))
+	c.logger.Info(fmt.Sprintf("Updated API Definitions located at: %q", a.updatedApiDefinitionsPath))
+
 	c.logger.Debug("Performing diff of the two data sources..")
-	result, err := differ.Diff(c.dataApiBinaryPath, c.pathToInitialApiDefinitions, c.pathToUpdatedApiDefinitions)
+	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath)
 	if err != nil {
-		c.logger.Error("performing diff: %+v", err)
+		c.logger.Error(fmt.Sprintf("performing diff: %+v", err))
 		return 1
 	}
 

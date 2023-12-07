@@ -1,19 +1,20 @@
 package main
 
 import (
-	"os"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/commands"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/mitchellh/cli"
+	"os"
 )
+
+const binaryName = "data-api-differ"
 
 func main() {
 	opts := hclog.DefaultOptions
-	opts.Level = hclog.NoLevel
-	if level := os.Getenv("DEBUG"); level != "" {
-		opts.Level = hclog.Debug
+	opts.Level = hclog.Info
+	if level := os.Getenv("LOG_LEVEL"); level != "" {
+		opts.Level = hclog.LevelFromString(level)
 	}
 	log.Logger = hclog.New(opts)
 
@@ -26,16 +27,12 @@ func main() {
 func run() error {
 	log.Logger.Info("Data API Differ launched..")
 
-	dataApiBinaryPath := "..."
-	initialPath := "..."
-	updatedPath := "..."
-
-	c := cli.NewCLI("data-api-differ", "1.0.0")
+	c := cli.NewCLI(binaryName, "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"detect-breaking-changes":     commands.NewDetectBreakingChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
-		"detect-changes":              commands.NewDetectChangesCommand(dataApiBinaryPath, initialPath, updatedPath),
-		"output-resource-id-segments": commands.NewOutputResourceIdSegmentsCommand(dataApiBinaryPath, initialPath, updatedPath),
+		"detect-breaking-changes":     commands.NewDetectBreakingChangesCommand(),
+		"detect-changes":              commands.NewDetectChangesCommand(),
+		"output-resource-id-segments": commands.NewOutputResourceIdSegmentsCommand(),
 	}
 
 	exitStatus, err := c.Run()
