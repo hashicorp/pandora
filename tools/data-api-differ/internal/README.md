@@ -30,6 +30,7 @@ All the subcommands support the same set of arguments:
 * (Required) `--initial-path` specifies the path to the directory containing the initial/existing set of API Definitions.
 * (Required) `--updated-path` specifies the path to the directory containing the updated set of API Definitions.
 * (Optional) `--data-api-binary-path` specifies the path to the Data API (V2) binary. If unspecified, it's assumed this exists on the PATH (e.g. sourced from `$GOPATH/bin`).
+* (Optional) `--output-file-path` specifies the path where the result should be output to. If unspecified, this is output to the terminal.
 
 Logging can be configured using the `LOG_LEVEL` environment variable (e.g. `LOG_LEVEL=trace`).
 
@@ -43,24 +44,25 @@ Command:
 $ go build . && ./data-api-differ detect-breaking-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
-This command supports all of the arguments defined under `Supported Arguments` above.
+This command supports each of the arguments defined under `Supported Arguments` above.
 
 Example output:
 
 ```
-2023-12-07T12:01:58.083+0100 [INFO]  Data API Differ launched..
-2023-12-07T12:01:58.084+0100 [INFO]  Running `detect-breaking-changes` command..
-2023-12-07T12:01:58.084+0100 [INFO]  Data API Binary located at "data-api"
-2023-12-07T12:01:58.084+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
-2023-12-07T12:01:58.084+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
-2023-12-07T12:01:58.084+0100 [INFO]  Launching Data API..
-2023-12-07T12:01:59.097+0100 [INFO]  Retrieving Services..
-2023-12-07T12:01:59.233+0100 [INFO]  Launching Data API..
-2023-12-07T12:02:00.239+0100 [INFO]  Retrieving Services..
-2023-12-07T12:02:00.240+0100 [INFO]  Identifying a unique list of Service Names..
-2023-12-07T12:02:00.240+0100 [INFO]  Detecting changes in Service "AADB2C"..
-2023-12-07T12:02:00.240+0100 [INFO]  Detecting changes in Service "Compute"..
-2023/12/07 12:02:00 ## Breaking Changes
+2023-12-07T12:32:07.937+0100 [INFO]  Data API Differ launched..
+2023-12-07T12:32:07.937+0100 [INFO]  Running `detect-breaking-changes` command..
+2023-12-07T12:32:07.941+0100 [INFO]  Data API Binary located at "data-api"
+2023-12-07T12:32:07.941+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
+2023-12-07T12:32:07.941+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
+2023-12-07T12:32:07.941+0100 [INFO]  Output will be rendered to the console since no output file was specified
+2023-12-07T12:32:07.941+0100 [INFO]  Launching Data API..
+2023-12-07T12:32:08.952+0100 [INFO]  Retrieving Services..
+2023-12-07T12:32:09.086+0100 [INFO]  Launching Data API..
+2023-12-07T12:32:10.096+0100 [INFO]  Retrieving Services..
+2023-12-07T12:32:10.098+0100 [INFO]  Identifying a unique list of Service Names..
+2023-12-07T12:32:10.098+0100 [INFO]  Detecting changes in Service "AADB2C"..
+2023-12-07T12:32:10.098+0100 [INFO]  Detecting changes in Service "Compute"..
+2023/12/07 12:32:10## Breaking Changes
 
 🛑 **2 Breaking Changes** were detected.
 
@@ -97,24 +99,25 @@ Command:
 $ go build . && ./data-api-differ detect-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
-This command supports all of the arguments defined under `Supported Arguments` above.
+This command supports each of the arguments defined under `Supported Arguments` above.
 
 Example output:
 
 ```
-2023-12-07T12:10:36.006+0100 [INFO]  Data API Differ launched..
-2023-12-07T12:10:36.007+0100 [INFO]  Running `detect-changes` command..
-2023-12-07T12:10:36.007+0100 [INFO]  Data API Binary located at "data-api"
-2023-12-07T12:10:36.007+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
-2023-12-07T12:10:36.007+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
-2023-12-07T12:10:36.007+0100 [INFO]  Launching Data API..
-2023-12-07T12:10:37.021+0100 [INFO]  Retrieving Services..
-2023-12-07T12:10:37.152+0100 [INFO]  Launching Data API..
-2023-12-07T12:10:38.160+0100 [INFO]  Retrieving Services..
-2023-12-07T12:10:38.291+0100 [INFO]  Identifying a unique list of Service Names..
-2023-12-07T12:10:38.291+0100 [INFO]  Detecting changes in Service "AADB2C"..
-2023-12-07T12:10:38.291+0100 [INFO]  Detecting changes in Service "Compute"..
-2023/12/07 12:10:38 ## Summary of Changes
+2023-12-07T12:31:01.837+0100 [INFO]  Data API Differ launched..
+2023-12-07T12:31:01.837+0100 [INFO]  Running `detect-changes` command..
+2023-12-07T12:31:01.837+0100 [INFO]  Data API Binary located at "data-api"
+2023-12-07T12:31:01.837+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
+2023-12-07T12:31:01.837+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
+2023-12-07T12:31:01.837+0100 [INFO]  Output will be rendered to the console since no output file was specified
+2023-12-07T12:31:01.837+0100 [INFO]  Launching Data API..
+2023-12-07T12:31:02.847+0100 [INFO]  Retrieving Services..
+2023-12-07T12:31:02.983+0100 [INFO]  Launching Data API..
+2023-12-07T12:31:03.989+0100 [INFO]  Retrieving Services..
+2023-12-07T12:31:04.117+0100 [INFO]  Identifying a unique list of Service Names..
+2023-12-07T12:31:04.117+0100 [INFO]  Detecting changes in Service "AADB2C"..
+2023-12-07T12:31:04.117+0100 [INFO]  Detecting changes in Service "Compute"..
+2023/12/07 12:31:04 ## Summary of Change## Summary of Changes
 
 * 👍 No Breaking Changes were detected.
 * 👀 1 Non-Breaking Changes were detected.
@@ -149,29 +152,33 @@ Example of the Markdown Comment (rendered as Markdown):
 
 ### Example Usage: Outputting the list of new Static Identifiers found within any new Resource IDs
 
+This command detects any new Resource IDs or Resource ID Segments which are new/have been updated between the two sets of API Definitions, identifies any Static Identifiers (e.g. the Fixed Value for a Resource Provider or Static Resource ID Segment) and then outputs a unique, sorted list of these for review.
+
 Command:
 
 ```
 $ go build . && ./data-api-differ output-resource-id-segments --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
+This command supports each of the arguments defined under `Supported Arguments` above.
+
 Example output:
 
 ```
-
-2023-12-07T12:14:26.410+0100 [INFO]  Data API Differ launched..
-2023-12-07T12:14:26.411+0100 [INFO]  Running `output-resource-id-segments` command..
-2023-12-07T12:14:26.411+0100 [INFO]  Data API Binary located at "data-api"
-2023-12-07T12:14:26.411+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
-2023-12-07T12:14:26.411+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
-2023-12-07T12:14:26.411+0100 [INFO]  Launching Data API..
-2023-12-07T12:14:27.421+0100 [INFO]  Retrieving Services..
-2023-12-07T12:14:27.550+0100 [INFO]  Launching Data API..
-2023-12-07T12:14:28.561+0100 [INFO]  Retrieving Services..
-2023-12-07T12:14:28.712+0100 [INFO]  Identifying a unique list of Service Names..
-2023-12-07T12:14:28.712+0100 [INFO]  Detecting changes in Service "AADB2C"..
-2023-12-07T12:14:28.712+0100 [INFO]  Detecting changes in Service "Compute"..
-2023/12/07 12:14:28 ## New Resource ID Segments containing Static Identifiers
+2023-12-07T12:29:36.823+0100 [INFO]  Data API Differ launched..
+2023-12-07T12:29:36.823+0100 [INFO]  Running `output-resource-id-segments` command..
+2023-12-07T12:29:36.823+0100 [INFO]  Data API Binary located at "data-api"
+2023-12-07T12:29:36.823+0100 [INFO]  Initial API Definitions located at: "/path/to/initial-api-definitions"
+2023-12-07T12:29:36.823+0100 [INFO]  Updated API Definitions located at: "/path/to/updated-api-definitions"
+2023-12-07T12:29:36.823+0100 [INFO]  Output will be rendered to the console since no output file was specified
+2023-12-07T12:29:36.823+0100 [INFO]  Launching Data API..
+2023-12-07T12:29:37.845+0100 [INFO]  Retrieving Services..
+2023-12-07T12:29:38.007+0100 [INFO]  Launching Data API..
+2023-12-07T12:29:39.021+0100 [INFO]  Retrieving Services..
+2023-12-07T12:29:39.176+0100 [INFO]  Identifying a unique list of Service Names..
+2023-12-07T12:29:39.176+0100 [INFO]  Detecting changes in Service "AADB2C"..
+2023-12-07T12:29:39.177+0100 [INFO]  Detecting changes in Service "Compute"..
+2023/12/07 12:29:39 ## New Resource ID Segments containing Static Identifiers
 
 The following new Static Identifiers were detected from the set of changes (new/updated Resource IDs).
 

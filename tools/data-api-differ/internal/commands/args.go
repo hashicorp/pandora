@@ -19,6 +19,9 @@ type arguments struct {
 	// initialApiDefinitionsPath specifies the path to the initial set of API Definitions which should be compared against those within updatedPath.
 	initialApiDefinitionsPath string
 
+	// outputFilePath specifies the path to the output file where the Result should be rendered.
+	outputFilePath *string
+
 	// updatedApiDefinitionsPath specifies the path to the updated set of API Definitions which should be compared against those within initialPath.
 	updatedApiDefinitionsPath string
 }
@@ -30,12 +33,17 @@ func (a *arguments) parse(input []string) error {
 	f.StringVar(&a.dataApiBinaryPath, "data-api-binary-path", "", "--data-api-binary-path=/path/to/the/data-api-binary")
 	f.StringVar(&a.initialApiDefinitionsPath, "initial-path", "", "--initial-path=/path/to/the/initial-api-definitions")
 	f.StringVar(&a.updatedApiDefinitionsPath, "updated-path", "", "--updated-path=/path/to/the/updated-api-definitions")
+	var outputFilePath string
+	f.StringVar(&outputFilePath, "output-file-path", "", "--output-file=/path/to/the/output/file")
 	if err := f.Parse(input); err != nil {
 		return err
 	}
 
-	var err error
+	if outputFilePath != "" {
+		a.outputFilePath = &outputFilePath
+	}
 
+	var err error
 	if a.dataApiBinaryPath != "" {
 		log.Logger.Debug(fmt.Sprintf("Determining the absolute path to %q", a.dataApiBinaryPath))
 		a.dataApiBinaryPath, err = filepath.Abs(a.dataApiBinaryPath)
@@ -53,7 +61,7 @@ func (a *arguments) parse(input []string) error {
 	log.Logger.Debug(fmt.Sprintf("Determining the absolute path to %q", a.initialApiDefinitionsPath))
 	a.initialApiDefinitionsPath, err = filepath.Abs(a.initialApiDefinitionsPath)
 	if err != nil {
-		return fmt.Errorf("determining absolute path to %q: %+v", a.initialApiDefinitionsPath, err)
+		return fmt.Errorf("determining the absolute path to %q: %+v", a.initialApiDefinitionsPath, err)
 	}
 
 	if a.updatedApiDefinitionsPath == "" {
@@ -62,7 +70,16 @@ func (a *arguments) parse(input []string) error {
 	log.Logger.Debug(fmt.Sprintf("Determining the absolute path to %q", a.updatedApiDefinitionsPath))
 	a.updatedApiDefinitionsPath, err = filepath.Abs(a.updatedApiDefinitionsPath)
 	if err != nil {
-		return fmt.Errorf("determining absolute path to %q: %+v", a.updatedApiDefinitionsPath, err)
+		return fmt.Errorf("determining the absolute path to %q: %+v", a.updatedApiDefinitionsPath, err)
+	}
+
+	if a.outputFilePath != nil {
+		log.Logger.Debug(fmt.Sprintf("Determining the absolute path to %q", *a.outputFilePath))
+		path, err := filepath.Abs(*a.outputFilePath)
+		if err != nil {
+			return fmt.Errorf("determining the absolute path to %q: %+v", *a.outputFilePath, err)
+		}
+		a.outputFilePath = &path
 	}
 
 	return nil

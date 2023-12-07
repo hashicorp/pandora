@@ -7,6 +7,7 @@ import (
 	internalLog "github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/views"
 	"log"
+	"os"
 
 	"github.com/mitchellh/cli"
 )
@@ -53,6 +54,12 @@ func (c DetectChangesCommand) Run(args []string) int {
 	c.logger.Info(fmt.Sprintf("Initial API Definitions located at: %q", a.initialApiDefinitionsPath))
 	c.logger.Info(fmt.Sprintf("Updated API Definitions located at: %q", a.updatedApiDefinitionsPath))
 
+	if a.outputFilePath != nil {
+		c.logger.Info(fmt.Sprintf("Output will be rendered to the file located at: %q", *a.outputFilePath))
+	} else {
+		c.logger.Info("Output will be rendered to the console since no output file was specified")
+	}
+
 	c.logger.Debug("Performing diff of the two data sources..")
 	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath)
 	if err != nil {
@@ -68,7 +75,17 @@ func (c DetectChangesCommand) Run(args []string) int {
 		c.logger.Error(fmt.Sprintf("rendering markdown: %+v", err))
 		return 1
 	}
-	log.Print(*rendered)
+
+	// Finally determine how to output that
+	if a.outputFilePath != nil {
+		c.logger.Trace(fmt.Sprintf("Writing output to %q..", *a.outputFilePath))
+		if err := os.WriteFile(*a.outputFilePath, []byte(*rendered), 0644); err != nil {
+			c.logger.Error(fmt.Sprintf("writing output to %q: %+v", *a.outputFilePath, err))
+		}
+	} else {
+		c.logger.Trace("Rendering output to Terminal since no output file was specified..")
+		log.Print(*rendered)
+	}
 
 	return 0
 }
