@@ -15,25 +15,14 @@ namespace Pandora.Definitions.ResourceManager.ContainerApps.v2022_11_01_preview.
 
 internal class JobExecutionModel
 {
-    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("endTime")]
-    public DateTime? EndTime { get; set; }
-
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
 
-    [DateFormat(DateFormatAttribute.DateFormat.RFC3339)]
-    [JsonPropertyName("startTime")]
-    public DateTime? StartTime { get; set; }
-
-    [JsonPropertyName("status")]
-    public JobExecutionRunningStateConstant? Status { get; set; }
-
-    [JsonPropertyName("template")]
-    public JobExecutionTemplateModel? Template { get; set; }
+    [JsonPropertyName("properties")]
+    public JobExecutionPropertiesModel? Properties { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }
