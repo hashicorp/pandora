@@ -1,13 +1,14 @@
 {
- "name": "JobExecution",
+ "name": "JobExecutionProperties",
  "fields": [
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
+   "jsonName": "endTime",
+   "name": "EndTime",
    "objectDefinition": {
-    "type": "String",
-    "referenceName": null
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
    },
    "optional": true,
    "required": false,
@@ -15,11 +16,12 @@
   },
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
+   "jsonName": "startTime",
+   "name": "StartTime",
    "objectDefinition": {
-    "type": "String",
-    "referenceName": null
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
    },
    "optional": true,
    "required": false,
@@ -27,11 +29,11 @@
   },
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
+   "jsonName": "status",
+   "name": "Status",
    "objectDefinition": {
     "type": "Reference",
-    "referenceName": "JobExecutionProperties"
+    "referenceName": "JobExecutionRunningState"
    },
    "optional": true,
    "required": false,
@@ -39,11 +41,11 @@
   },
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
+   "jsonName": "template",
+   "name": "Template",
    "objectDefinition": {
-    "type": "String",
-    "referenceName": null
+    "type": "Reference",
+    "referenceName": "JobExecutionTemplate"
    },
    "optional": true,
    "required": false,
