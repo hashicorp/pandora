@@ -264,7 +264,7 @@ service "hybridcompute" {
 }
 service "hybridkubernetes" {
   name      = "HybridKubernetes"
-  available = ["2021-10-01"]
+  available = ["2021-10-01", "2024-01-01"]
 }
 service "iotcentral" {
   name      = "IoTCentral"
