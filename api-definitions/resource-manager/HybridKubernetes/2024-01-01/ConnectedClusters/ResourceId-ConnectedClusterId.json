@@ -1,0 +1,43 @@
+{
+ "name": "ConnectedClusterId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Kubernetes/connectedClusters/{connectedClusterName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftKubernetes",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Kubernetes"
+  },
+  {
+   "name": "staticConnectedClusters",
+   "type": "Static",
+   "value": "connectedClusters"
+  },
+  {
+   "name": "connectedClusterName",
+   "type": "UserSpecified"
+  }
+ ]
+}
