@@ -19,7 +19,11 @@ func (api Api) terraform(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	resources := mapTerraformResources(service.TerraformDetails.Resources)
+	resources, err := mapTerraformResources(service.TerraformDetails.Resources)
+	if err != nil {
+		internalServerError(w, err)
+		return
+	}
 
 	payload := models.TerraformDetails{
 		DataSources: map[string]models.TerraformDataSourceDetails{},
@@ -29,11 +33,11 @@ func (api Api) terraform(w http.ResponseWriter, r *http.Request) {
 	render.JSON(w, r, payload)
 }
 
-func mapTerraformResources(input map[string]repositories.TerraformResourceDetails) map[string]models.TerraformResourceDetails {
+func mapTerraformResources(input map[string]repositories.TerraformResourceDetails) (map[string]models.TerraformResourceDetails, error) {
 	output := make(map[string]models.TerraformResourceDetails, 0)
 
 	for _, resource := range input {
-		output[resource.Label] = models.TerraformResourceDetails{
+		resourceDetails := models.TerraformResourceDetails{
 			ApiVersion: resource.ApiVersion,
 			CreateMethod: models.MethodDefinition{
 				Generate:         resource.CreateMethod.Generate,
@@ -65,7 +69,6 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 			ResourceIdName:  resource.ResourceIdName,
 			ResourceName:    resource.ResourceName,
 			SchemaModelName: resource.SchemaModelName,
-			SchemaModels:    mapSchemaModels(&resource.SchemaModels),
 			Tests: models.TerraformResourceTestsDefinition{
 				BasicConfiguration:          resource.Tests.BasicConfiguration,
 				RequiresImportConfiguration: resource.Tests.RequiresImportConfiguration,
@@ -77,15 +80,21 @@ func mapTerraformResources(input map[string]repositories.TerraformResourceDetail
 			UpdateMethod: mapUpdateMethod(resource.UpdateMethod),
 		}
 
+		schemaModels, err := mapSchemaModels(&resource.SchemaModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping schema models for %s: %+v", resource.ResourceName, err)
+		}
+		resourceDetails.SchemaModels = schemaModels
+
 		// todo remove this when https://github.com/hashicorp/pandora/issues/3352 is fixed
 		// tests won't be added unless Generate is true when writing this out in dataapigeneratorjson/helpers.go writeTestsHclToFile
 		// so we can set this to true if BasicConfiguration has been written out
-		if output[resource.Label].Tests.BasicConfiguration != "" {
-			currResource := output[resource.Label]
-			currResource.Tests.Generate = true
-			output[resource.Label] = currResource
+		if resourceDetails.Tests.BasicConfiguration != "" {
+			resourceDetails.Tests.Generate = true
 		}
+
+		output[resource.Label] = resourceDetails
 	}
 
-	return output
+	return output, nil
 }
