@@ -19,7 +19,7 @@ func (workaroundOperationalinsights26678) Name() string {
 }
 
 func (workaroundOperationalinsights26678) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
-	resource, ok := apiDefinition.Resources["Cluster"]
+	resource, ok := apiDefinition.Resources["Clusters"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `Cluster` but didn't get one")
 	}
