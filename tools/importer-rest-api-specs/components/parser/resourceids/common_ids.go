@@ -62,6 +62,9 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSqlManagedInstanceDatabase{},
 	commonIdSqlServer{},
 
+  // Spring Cloud
+	commonIdSpringCloudService{},
+
 	// Storage
 	commonIdStorageAccount{},
 	commonIdStorageContainer{},
