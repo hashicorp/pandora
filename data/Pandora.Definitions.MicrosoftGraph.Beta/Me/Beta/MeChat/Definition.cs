@@ -23,6 +23,7 @@ internal class Definition : ResourceDefinition
         new GetMeChatByIdOperation(),
         new GetMeChatCountOperation(),
         new ListMeChatsOperation(),
+        new RemoveMeChatByIdAllAccessForUserOperation(),
         new UpdateMeChatByIdOperation()
     };
 
@@ -37,6 +38,7 @@ internal class Definition : ResourceDefinition
         typeof(CreateMeChatByIdMarkChatReadForUserRequestModel),
         typeof(CreateMeChatByIdMarkChatUnreadForUserRequestModel),
         typeof(CreateMeChatByIdSendActivityNotificationRequestModel),
-        typeof(CreateMeChatByIdUnhideForUserRequestModel)
+        typeof(CreateMeChatByIdUnhideForUserRequestModel),
+        typeof(RemoveMeChatByIdAllAccessForUserRequestModel)
     };
 }

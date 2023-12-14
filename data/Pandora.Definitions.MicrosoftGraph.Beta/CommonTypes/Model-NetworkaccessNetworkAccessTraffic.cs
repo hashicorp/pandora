@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class NetworkaccessNetworkAccessTrafficModel
 {
+    [JsonPropertyName("action")]
+    public NetworkaccessNetworkAccessTrafficActionConstant? Action { get; set; }
+
     [JsonPropertyName("agentVersion")]
     public string? AgentVersion { get; set; }
 
@@ -30,6 +33,9 @@ internal class NetworkaccessNetworkAccessTrafficModel
 
     [JsonPropertyName("destinationPort")]
     public int? DestinationPort { get; set; }
+
+    [JsonPropertyName("destinationWebCategory")]
+    public NetworkaccessWebCategoryModel? DestinationWebCategory { get; set; }
 
     [JsonPropertyName("deviceCategory")]
     public NetworkaccessNetworkAccessTrafficDeviceCategoryConstant? DeviceCategory { get; set; }

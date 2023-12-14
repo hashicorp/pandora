@@ -52,6 +52,9 @@ internal class CloudPCOnPremisesConnectionModel
     [JsonPropertyName("resourceGroupId")]
     public string? ResourceGroupId { get; set; }
 
+    [JsonPropertyName("scopeIds")]
+    public List<string>? ScopeIds { get; set; }
+
     [JsonPropertyName("subnetId")]
     public string? SubnetId { get; set; }
 

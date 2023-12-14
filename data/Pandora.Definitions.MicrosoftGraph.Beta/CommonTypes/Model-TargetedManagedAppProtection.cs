@@ -172,6 +172,9 @@ internal class TargetedManagedAppProtectionModel
     [JsonPropertyName("printBlocked")]
     public bool? PrintBlocked { get; set; }
 
+    [JsonPropertyName("protectedMessagingRedirectAppType")]
+    public TargetedManagedAppProtectionProtectedMessagingRedirectAppTypeConstant? ProtectedMessagingRedirectAppType { get; set; }
+
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
 

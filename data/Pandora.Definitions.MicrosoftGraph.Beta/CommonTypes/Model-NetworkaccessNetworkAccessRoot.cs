@@ -16,6 +16,12 @@ internal class NetworkaccessNetworkAccessRootModel
     [JsonPropertyName("connectivity")]
     public NetworkaccessConnectivityModel? Connectivity { get; set; }
 
+    [JsonPropertyName("filteringPolicies")]
+    public List<NetworkaccessFilteringPolicyModel>? FilteringPolicies { get; set; }
+
+    [JsonPropertyName("filteringProfiles")]
+    public List<NetworkaccessFilteringProfileModel>? FilteringProfiles { get; set; }
+
     [JsonPropertyName("forwardingPolicies")]
     public List<NetworkaccessForwardingPolicyModel>? ForwardingPolicies { get; set; }
 

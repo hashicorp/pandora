@@ -40,6 +40,15 @@ internal class OpenShiftModel
     [JsonPropertyName("schedulingGroupId")]
     public string? SchedulingGroupId { get; set; }
 
+    [JsonPropertyName("schedulingGroupName")]
+    public string? SchedulingGroupName { get; set; }
+
     [JsonPropertyName("sharedOpenShift")]
     public OpenShiftItemModel? SharedOpenShift { get; set; }
+
+    [JsonPropertyName("teamId")]
+    public string? TeamId { get; set; }
+
+    [JsonPropertyName("teamName")]
+    public string? TeamName { get; set; }
 }

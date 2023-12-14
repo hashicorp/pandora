@@ -196,6 +196,9 @@ internal class DeviceManagementModel
     [JsonPropertyName("userExperienceAnalyticsWorkFromAnywhereModelPerformance")]
     public List<UserExperienceAnalyticsWorkFromAnywhereModelPerformanceModel>? UserExperienceAnalyticsWorkFromAnywhereModelPerformance { get; set; }
 
+    [JsonPropertyName("virtualEndpoint")]
+    public VirtualEndpointModel? VirtualEndpoint { get; set; }
+
     [JsonPropertyName("windowsAutopilotDeviceIdentities")]
     public List<WindowsAutopilotDeviceIdentityModel>? WindowsAutopilotDeviceIdentities { get; set; }
 

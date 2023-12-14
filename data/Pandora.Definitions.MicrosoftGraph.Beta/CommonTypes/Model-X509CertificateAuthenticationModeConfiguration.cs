@@ -21,4 +21,7 @@ internal class X509CertificateAuthenticationModeConfigurationModel
 
     [JsonPropertyName("x509CertificateAuthenticationDefaultMode")]
     public X509CertificateAuthenticationModeConfigurationX509CertificateAuthenticationDefaultModeConstant? X509CertificateAuthenticationDefaultMode { get; set; }
+
+    [JsonPropertyName("x509CertificateDefaultRequiredAffinityLevel")]
+    public X509CertificateAuthenticationModeConfigurationX509CertificateDefaultRequiredAffinityLevelConstant? X509CertificateDefaultRequiredAffinityLevel { get; set; }
 }

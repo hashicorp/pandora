@@ -20,4 +20,7 @@ internal enum PlannerPlanContainerTypeConstant
 
     [Description("DriveItem")]
     @driveItem,
+
+    [Description("User")]
+    @user,
 }

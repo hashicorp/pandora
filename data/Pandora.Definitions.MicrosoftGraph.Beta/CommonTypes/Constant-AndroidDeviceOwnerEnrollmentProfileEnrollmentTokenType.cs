@@ -14,4 +14,7 @@ internal enum AndroidDeviceOwnerEnrollmentProfileEnrollmentTokenTypeConstant
 
     [Description("CorporateOwnedDedicatedDeviceWithAzureADSharedMode")]
     @corporateOwnedDedicatedDeviceWithAzureADSharedMode,
+
+    [Description("DeviceStaging")]
+    @deviceStaging,
 }

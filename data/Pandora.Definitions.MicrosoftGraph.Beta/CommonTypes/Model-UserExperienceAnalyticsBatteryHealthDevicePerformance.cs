@@ -16,6 +16,9 @@ internal class UserExperienceAnalyticsBatteryHealthDevicePerformanceModel
     [JsonPropertyName("batteryAgeInDays")]
     public int? BatteryAgeInDays { get; set; }
 
+    [JsonPropertyName("deviceBatteriesDetails")]
+    public List<UserExperienceAnalyticsDeviceBatteryDetailModel>? DeviceBatteriesDetails { get; set; }
+
     [JsonPropertyName("deviceBatteryCount")]
     public int? DeviceBatteryCount { get; set; }
 

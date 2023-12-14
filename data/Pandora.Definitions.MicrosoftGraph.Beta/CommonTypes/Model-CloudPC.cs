@@ -76,6 +76,9 @@ internal class CloudPCModel
     [JsonPropertyName("provisioningType")]
     public CloudPCProvisioningTypeConstant? ProvisioningType { get; set; }
 
+    [JsonPropertyName("scopeIds")]
+    public List<string>? ScopeIds { get; set; }
+
     [JsonPropertyName("servicePlanId")]
     public string? ServicePlanId { get; set; }
 

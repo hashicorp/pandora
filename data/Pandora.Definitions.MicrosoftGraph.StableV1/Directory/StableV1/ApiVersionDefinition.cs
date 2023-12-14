@@ -23,6 +23,7 @@ public partial class Definition : ApiVersionDefinition
         new DirectoryCustomSecurityAttributeDefinition.Definition(),
         new DirectoryCustomSecurityAttributeDefinitionAllowedValue.Definition(),
         new DirectoryDeletedItem.Definition(),
+        new DirectoryDeviceLocalCredential.Definition(),
         new DirectoryFederationConfiguration.Definition(),
         new DirectoryOnPremisesSynchronization.Definition()
     };

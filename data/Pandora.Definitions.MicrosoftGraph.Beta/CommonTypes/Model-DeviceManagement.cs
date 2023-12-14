@@ -184,6 +184,9 @@ internal class DeviceManagementModel
     [JsonPropertyName("domainJoinConnectors")]
     public List<DeviceManagementDomainJoinConnectorModel>? DomainJoinConnectors { get; set; }
 
+    [JsonPropertyName("elevationRequests")]
+    public List<PrivilegeManagementElevationRequestModel>? ElevationRequests { get; set; }
+
     [JsonPropertyName("embeddedSIMActivationCodePools")]
     public List<EmbeddedSIMActivationCodePoolModel>? EmbeddedSIMActivationCodePools { get; set; }
 
