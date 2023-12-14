@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.AppPlatform.v2023_09_01_preview.Ap
 
 internal class ConfigServersGetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override Type? ResponseObject() => typeof(ConfigServerResourceModel);
 

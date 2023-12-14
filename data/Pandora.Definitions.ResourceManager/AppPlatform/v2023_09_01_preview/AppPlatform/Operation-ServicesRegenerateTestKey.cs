@@ -21,7 +21,7 @@ internal class ServicesRegenerateTestKeyOperation : Pandora.Definitions.Operatio
 
     public override Type? RequestObject() => typeof(RegenerateTestKeyRequestPayloadModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override Type? ResponseObject() => typeof(TestKeysModel);
 

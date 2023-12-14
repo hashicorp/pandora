@@ -24,7 +24,7 @@ internal class MonitoringSettingsUpdatePatchOperation : Pandora.Definitions.Oper
 
     public override Type? RequestObject() => typeof(MonitoringSettingResourceModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/monitoringSettings/default";
 

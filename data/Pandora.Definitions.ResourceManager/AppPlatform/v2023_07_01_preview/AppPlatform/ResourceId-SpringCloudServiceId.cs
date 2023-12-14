@@ -8,9 +8,9 @@ using Pandora.Definitions.Interfaces;
 
 namespace Pandora.Definitions.ResourceManager.AppPlatform.v2023_07_01_preview.AppPlatform;
 
-internal class SpringId : ResourceID
+internal class SpringCloudServiceId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "SpringCloudService";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AppPlatform/spring/{springName}";
 

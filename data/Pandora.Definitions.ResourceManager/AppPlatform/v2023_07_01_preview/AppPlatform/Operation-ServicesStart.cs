@@ -23,7 +23,7 @@ internal class ServicesStartOperation : Pandora.Definitions.Operations.PostOpera
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/start";
 

@@ -24,7 +24,7 @@ internal class ServicesDisableApmGloballyOperation : Pandora.Definitions.Operati
 
     public override Type? RequestObject() => typeof(ApmReferenceModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/disableApmGlobally";
 

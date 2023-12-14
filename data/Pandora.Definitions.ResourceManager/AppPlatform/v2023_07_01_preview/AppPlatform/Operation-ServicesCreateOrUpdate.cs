@@ -25,7 +25,7 @@ internal class ServicesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => typeof(ServiceResourceModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
 
 }
