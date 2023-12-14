@@ -24,7 +24,7 @@ internal class UpdateAutoScaleConfigurationOperation : Pandora.Definitions.Opera
 
     public override Type? RequestObject() => typeof(AutoscaleConfigurationUpdateParameterModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/roles/workernode/autoscale";
 

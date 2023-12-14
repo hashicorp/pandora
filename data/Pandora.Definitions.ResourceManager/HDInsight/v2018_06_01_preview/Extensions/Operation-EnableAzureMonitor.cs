@@ -24,7 +24,7 @@ internal class EnableAzureMonitorOperation : Pandora.Definitions.Operations.PutO
 
     public override Type? RequestObject() => typeof(AzureMonitorRequestModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/extensions/azureMonitor";
 
