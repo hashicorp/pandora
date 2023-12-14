@@ -1,58 +1,105 @@
 package v1
 
 import (
+	"fmt"
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func mapSchemaModels(input *map[string]repositories.TerraformSchemaModelDefinition) map[string]models.TerraformSchemaModelDefinition {
+func mapSchemaModels(input *map[string]repositories.TerraformSchemaModelDefinition) (map[string]models.TerraformSchemaModelDefinition, error) {
 	if input == nil {
-		return nil
+		return nil, nil
 	}
 
 	output := make(map[string]models.TerraformSchemaModelDefinition, 0)
 
 	for name, model := range *input {
-		output[name] = models.TerraformSchemaModelDefinition{
-			Fields: mapFields(model.Fields),
+		var modelDefinition models.TerraformSchemaModelDefinition
+
+		fields, err := mapFields(model.Fields)
+		if err != nil {
+			return nil, fmt.Errorf("mapping fields for %s: %+v", name, err)
 		}
+		modelDefinition.Fields = fields
+
+		output[name] = modelDefinition
 	}
 
-	return output
+	return output, nil
 }
 
-func mapFields(input map[string]repositories.TerraformSchemaFieldDefinition) map[string]models.TerraformSchemaFieldDefinition {
+func mapFields(input map[string]repositories.TerraformSchemaFieldDefinition) (map[string]models.TerraformSchemaFieldDefinition, error) {
 	output := make(map[string]models.TerraformSchemaFieldDefinition, 0)
 
 	for name, field := range input {
-		output[name] = models.TerraformSchemaFieldDefinition{
-			ObjectDefinition: mapTerraformObjectDefinition(field.ObjectDefinition),
-			Computed:         field.Computed,
-			ForceNew:         field.ForceNew,
-			HclName:          field.HclName,
-			Optional:         field.Optional,
-			Required:         field.Required,
+		fieldDefinition := models.TerraformSchemaFieldDefinition{
+			Computed: field.Computed,
+			ForceNew: field.ForceNew,
+			HclName:  field.HclName,
+			Optional: field.Optional,
+			Required: field.Required,
 			Documentation: models.TerraformSchemaDocumentationDefinition{
 				Markdown: field.Documentation.Markdown,
 			},
 			Validation: mapValidation(field.Validation),
 		}
+
+		objectDefinition, err := mapTerraformObjectDefinition(field.ObjectDefinition)
+		if err != nil {
+			return output, fmt.Errorf("mapping object definition for %s: %+v", name, err)
+		}
+		fieldDefinition.ObjectDefinition = objectDefinition
+
+		output[name] = fieldDefinition
 	}
 
-	return output
+	return output, nil
 }
 
-func mapTerraformObjectDefinition(input repositories.TerraformSchemaFieldObjectDefinition) models.TerraformSchemaFieldObjectDefinition {
+var terraformSchemaObjectDefinitionToTerraformFieldSchemaTypes = map[repositories.TerraformSchemaFieldType]models.TerraformSchemaFieldType{
+	repositories.BooleanTerraformSchemaObjectDefinitionType:                       models.TerraformSchemaFieldTypeBoolean,
+	repositories.DateTimeTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeDateTime,
+	repositories.DictionaryTerraformSchemaObjectDefinitionType:                    models.TerraformSchemaFieldTypeDictionary,
+	repositories.EdgeZoneTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeEdgeZone,
+	repositories.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        models.TerraformSchemaFieldTypeIdentitySystemAssigned,
+	repositories.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: models.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+	repositories.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  models.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+	repositories.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          models.TerraformSchemaFieldTypeIdentityUserAssigned,
+	repositories.LocationTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeLocation,
+	repositories.FloatTerraformSchemaObjectDefinitionType:                         models.TerraformSchemaFieldTypeFloat,
+	repositories.IntegerTerraformSchemaObjectDefinitionType:                       models.TerraformSchemaFieldTypeInteger,
+	repositories.ListTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeList,
+	repositories.ReferenceTerraformSchemaObjectDefinitionType:                     models.TerraformSchemaFieldTypeReference,
+	repositories.ResourceGroupTerraformSchemaObjectDefinitionType:                 models.TerraformSchemaFieldTypeResourceGroup,
+	repositories.SetTerraformSchemaObjectDefinitionType:                           models.TerraformSchemaFieldTypeSet,
+	repositories.StringTerraformSchemaFieldType:                                   models.TerraformSchemaFieldTypeString,
+	repositories.TagsTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeTags,
+	repositories.SkuTerraformSchemaObjectDefinitionType:                           models.TerraformSchemaFieldTypeSku,
+	repositories.ZoneTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeZone,
+	repositories.ZonesTerraformSchemaObjectDefinitionType:                         models.TerraformSchemaFieldTypeZones,
+}
+
+func mapTerraformObjectDefinition(input repositories.TerraformSchemaFieldObjectDefinition) (models.TerraformSchemaFieldObjectDefinition, error) {
 	output := models.TerraformSchemaFieldObjectDefinition{}
 
 	if input.NestedObject != nil {
-		output.NestedObject = pointer.To(mapTerraformObjectDefinition(*input.NestedObject))
+		nestedObject, err := mapTerraformObjectDefinition(*input.NestedObject)
+		if err != nil {
+			return output, err
+		}
+		output.NestedObject = pointer.To(nestedObject)
 	}
 	output.ReferenceName = input.ReferenceName
 	output.Type = models.TerraformSchemaFieldType(input.Type)
 
-	return output
+	mapped, ok := terraformSchemaObjectDefinitionToTerraformFieldSchemaTypes[input.Type]
+	if !ok {
+		return output, fmt.Errorf("internal-error: missing mapping for Terraform Schema Field Type %q", string(input.Type))
+	}
+	output.Type = mapped
+
+	return output, nil
 }
 
 func mapUpdateMethod(input *repositories.MethodDefinition) *models.MethodDefinition {

@@ -3,6 +3,7 @@ package dataapigeneratorjson
 import (
 	"fmt"
 	"sort"
+	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
@@ -30,7 +31,8 @@ func mapTerraformSchemaModelDefinition(modelName string, schemaModel resourceman
 
 	return &dataapimodels.TerraformSchemaModel{
 		Fields: schemaFields,
-		Name:   modelName,
+		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+		Name: fmt.Sprintf("%sSchema", modelName),
 	}, nil
 }
 
@@ -111,6 +113,12 @@ func mapTerraformSchemaObjectDefinition(input resourcemanager.TerraformSchemaFie
 	objectDefinition := dataapimodels.TerraformSchemaObjectDefinition{
 		ReferenceName: input.ReferenceName,
 		Type:          mapped,
+	}
+
+	if input.ReferenceName != nil && !strings.HasSuffix(*input.ReferenceName, "Schema") {
+		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+		referenceName := fmt.Sprintf("%sSchema", *input.ReferenceName)
+		objectDefinition.ReferenceName = &referenceName
 	}
 
 	if input.NestedObject != nil {

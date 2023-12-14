@@ -115,17 +115,17 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 
 func mapTerraformSchemaResourceIdMappings(input []resourcemanager.ResourceIdMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
 	// we need the ordering to be consistent else to avoid noisy regenerations, so let's order this on one of the keys
-	schemaFieldNames := make([]string, 0)
-	schemaFieldNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)
+	segmentNames := make([]string, 0)
+	segmentNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)
 	for _, item := range input {
-		schemaFieldNames = append(schemaFieldNames, item.SchemaFieldName)
-		schemaFieldNamesToResourceIdMappings[item.SchemaFieldName] = item
+		segmentNames = append(segmentNames, item.SegmentName)
+		segmentNamesToResourceIdMappings[item.SegmentName] = item
 	}
-	sort.Strings(schemaFieldNames)
+	sort.Strings(segmentNames)
 
 	output := make([]dataapimodels.TerraformResourceIdMappingDefinition, 0)
-	for _, schemaFieldName := range schemaFieldNames {
-		resourceIdMapping := schemaFieldNamesToResourceIdMappings[schemaFieldName]
+	for _, schemaFieldName := range segmentNames {
+		resourceIdMapping := segmentNamesToResourceIdMappings[schemaFieldName]
 		output = append(output, dataapimodels.TerraformResourceIdMappingDefinition{
 			SchemaFieldName:    resourceIdMapping.SchemaFieldName,
 			SegmentName:        resourceIdMapping.SegmentName,
