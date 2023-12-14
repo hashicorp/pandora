@@ -21,4 +21,7 @@ internal class PeopleAdminSettingsModel
 
     [JsonPropertyName("profileCardProperties")]
     public List<ProfileCardPropertyModel>? ProfileCardProperties { get; set; }
+
+    [JsonPropertyName("pronouns")]
+    public PronounsSettingsModel? Pronouns { get; set; }
 }

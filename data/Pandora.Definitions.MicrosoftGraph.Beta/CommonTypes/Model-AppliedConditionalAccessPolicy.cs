@@ -17,10 +17,10 @@ internal class AppliedConditionalAccessPolicyModel
     public AuthenticationStrengthModel? AuthenticationStrength { get; set; }
 
     [JsonPropertyName("conditionsNotSatisfied")]
-    public List<AppliedConditionalAccessPolicyConditionsNotSatisfiedConstant>? ConditionsNotSatisfied { get; set; }
+    public AppliedConditionalAccessPolicyConditionsNotSatisfiedConstant? ConditionsNotSatisfied { get; set; }
 
     [JsonPropertyName("conditionsSatisfied")]
-    public List<AppliedConditionalAccessPolicyConditionsSatisfiedConstant>? ConditionsSatisfied { get; set; }
+    public AppliedConditionalAccessPolicyConditionsSatisfiedConstant? ConditionsSatisfied { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

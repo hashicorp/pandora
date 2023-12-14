@@ -433,6 +433,7 @@ public partial class Definition : ApiVersionDefinition
         new GroupTeamPrimaryChannelTab.Definition(),
         new GroupTeamPrimaryChannelTabTeamsApp.Definition(),
         new GroupTeamSchedule.Definition(),
+        new GroupTeamScheduleDayNote.Definition(),
         new GroupTeamScheduleOfferShiftRequest.Definition(),
         new GroupTeamScheduleOpenShift.Definition(),
         new GroupTeamScheduleOpenShiftChangeRequest.Definition(),

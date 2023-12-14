@@ -49,6 +49,12 @@ internal class MobileAppContentFileModel
     [JsonPropertyName("sizeEncrypted")]
     public int? SizeEncrypted { get; set; }
 
+    [JsonPropertyName("sizeEncryptedInBytes")]
+    public int? SizeEncryptedInBytes { get; set; }
+
+    [JsonPropertyName("sizeInBytes")]
+    public int? SizeInBytes { get; set; }
+
     [JsonPropertyName("uploadState")]
     public MobileAppContentFileUploadStateConstant? UploadState { get; set; }
 }

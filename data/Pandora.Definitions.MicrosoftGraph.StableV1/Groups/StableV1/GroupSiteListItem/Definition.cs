@@ -13,6 +13,7 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new CreateGroupByIdSiteByIdListByIdItemByIdCreateLinkOperation(),
         new CreateGroupByIdSiteByIdListByIdItemOperation(),
         new DeleteGroupByIdSiteByIdListByIdItemByIdOperation(),
         new GetGroupByIdSiteByIdListByIdItemByIdOperation(),
@@ -27,6 +28,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-
+        typeof(CreateGroupByIdSiteByIdListByIdItemByIdCreateLinkRequestModel)
     };
 }

@@ -28,6 +28,8 @@ public partial class Definition : ApiVersionDefinition
         new ServicePrincipalOauth2PermissionGrant.Definition(),
         new ServicePrincipalOwnedObject.Definition(),
         new ServicePrincipalOwner.Definition(),
+        new ServicePrincipalRemoteDesktopSecurityConfiguration.Definition(),
+        new ServicePrincipalRemoteDesktopSecurityConfigurationTargetDeviceGroup.Definition(),
         new ServicePrincipalSynchronization.Definition(),
         new ServicePrincipalSynchronizationJob.Definition(),
         new ServicePrincipalSynchronizationJobSchema.Definition(),

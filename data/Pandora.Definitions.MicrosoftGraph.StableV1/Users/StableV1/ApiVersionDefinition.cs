@@ -257,6 +257,8 @@ public partial class Definition : ApiVersionDefinition
         new UserOnlineMeetingAttendanceReport.Definition(),
         new UserOnlineMeetingAttendanceReportAttendanceRecord.Definition(),
         new UserOnlineMeetingAttendeeReport.Definition(),
+        new UserOnlineMeetingRecording.Definition(),
+        new UserOnlineMeetingRecordingContent.Definition(),
         new UserOnlineMeetingTranscript.Definition(),
         new UserOnlineMeetingTranscriptContent.Definition(),
         new UserOnlineMeetingTranscriptMetadataContent.Definition(),

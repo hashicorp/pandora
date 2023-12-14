@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class EmployeeExperienceModel
 {
+    [JsonPropertyName("goals")]
+    public GoalsModel? Goals { get; set; }
+
     [JsonPropertyName("learningCourseActivities")]
     public List<LearningCourseActivityModel>? LearningCourseActivities { get; set; }
 

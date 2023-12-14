@@ -24,4 +24,7 @@ internal class NetworkaccessWebCategoriesSummaryModel
 
     [JsonPropertyName("userCount")]
     public int? UserCount { get; set; }
+
+    [JsonPropertyName("webCategory")]
+    public NetworkaccessWebCategoryModel? WebCategory { get; set; }
 }

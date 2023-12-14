@@ -76,6 +76,9 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     [JsonPropertyName("detailedHelpText")]
     public AndroidDeviceOwnerUserFacingMessageModel? DetailedHelpText { get; set; }
 
+    [JsonPropertyName("deviceLocationMode")]
+    public AndroidDeviceOwnerGeneralDeviceConfigurationDeviceLocationModeConstant? DeviceLocationMode { get; set; }
+
     [JsonPropertyName("deviceManagementApplicabilityRuleDeviceMode")]
     public DeviceManagementApplicabilityRuleDeviceModeModel? DeviceManagementApplicabilityRuleDeviceMode { get; set; }
 
@@ -378,6 +381,9 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
 
     [JsonPropertyName("securityRequireVerifyApps")]
     public bool? SecurityRequireVerifyApps { get; set; }
+
+    [JsonPropertyName("shareDeviceLocationDisabled")]
+    public bool? ShareDeviceLocationDisabled { get; set; }
 
     [JsonPropertyName("shortHelpText")]
     public AndroidDeviceOwnerUserFacingMessageModel? ShortHelpText { get; set; }

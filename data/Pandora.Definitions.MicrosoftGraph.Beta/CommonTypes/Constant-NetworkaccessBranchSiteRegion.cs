@@ -65,4 +65,40 @@ internal enum NetworkaccessBranchSiteRegionConstant
 
     [Description("UaeNorth")]
     @uaeNorth,
+
+    [Description("AustraliaEast")]
+    @australiaEast,
+
+    [Description("WestCentralUS")]
+    @westCentralUS,
+
+    [Description("CentralIndia")]
+    @centralIndia,
+
+    [Description("SouthEastAsia")]
+    @southEastAsia,
+
+    [Description("SwedenCentral")]
+    @swedenCentral,
+
+    [Description("SouthIndia")]
+    @southIndia,
+
+    [Description("AustraliaSouthEast")]
+    @australiaSouthEast,
+
+    [Description("KoreaCentral")]
+    @koreaCentral,
+
+    [Description("PolandCentral")]
+    @polandCentral,
+
+    [Description("BrazilSouth")]
+    @brazilSouth,
+
+    [Description("JapanEast")]
+    @japanEast,
+
+    [Description("JapanWest")]
+    @japanWest,
 }

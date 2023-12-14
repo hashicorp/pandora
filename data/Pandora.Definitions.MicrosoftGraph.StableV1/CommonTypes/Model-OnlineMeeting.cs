@@ -85,6 +85,9 @@ internal class OnlineMeetingModel
     [JsonPropertyName("recordAutomatically")]
     public bool? RecordAutomatically { get; set; }
 
+    [JsonPropertyName("recordings")]
+    public List<CallRecordingModel>? Recordings { get; set; }
+
     [JsonPropertyName("shareMeetingChatHistoryDefault")]
     public OnlineMeetingShareMeetingChatHistoryDefaultConstant? ShareMeetingChatHistoryDefault { get; set; }
 

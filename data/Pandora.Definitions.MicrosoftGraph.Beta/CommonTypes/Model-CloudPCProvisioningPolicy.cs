@@ -73,6 +73,9 @@ internal class CloudPCProvisioningPolicyModel
     [JsonPropertyName("provisioningType")]
     public CloudPCProvisioningPolicyProvisioningTypeConstant? ProvisioningType { get; set; }
 
+    [JsonPropertyName("scopeIds")]
+    public List<string>? ScopeIds { get; set; }
+
     [JsonPropertyName("windowsSettings")]
     public CloudPCWindowsSettingsModel? WindowsSettings { get; set; }
 }

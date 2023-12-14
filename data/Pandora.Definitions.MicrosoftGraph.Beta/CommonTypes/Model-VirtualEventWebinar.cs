@@ -23,7 +23,7 @@ internal class VirtualEventWebinarModel
     public CommunicationsIdentitySetModel? CreatedBy { get; set; }
 
     [JsonPropertyName("description")]
-    public string? Description { get; set; }
+    public ItemBodyModel? Description { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -41,7 +41,7 @@ internal class VirtualEventWebinarModel
     public List<VirtualEventPresenterModel>? Presenters { get; set; }
 
     [JsonPropertyName("registrationConfiguration")]
-    public VirtualEventRegistrationConfigurationModel? RegistrationConfiguration { get; set; }
+    public VirtualEventWebinarRegistrationConfigurationModel? RegistrationConfiguration { get; set; }
 
     [JsonPropertyName("registrations")]
     public List<VirtualEventRegistrationModel>? Registrations { get; set; }

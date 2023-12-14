@@ -19,6 +19,9 @@ internal class X509CertificateUserBindingModel
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
 
+    [JsonPropertyName("trustAffinityLevel")]
+    public X509CertificateUserBindingTrustAffinityLevelConstant? TrustAffinityLevel { get; set; }
+
     [JsonPropertyName("userProperty")]
     public string? UserProperty { get; set; }
 

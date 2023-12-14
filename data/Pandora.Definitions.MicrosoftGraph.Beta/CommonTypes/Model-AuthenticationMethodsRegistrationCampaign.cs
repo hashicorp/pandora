@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class AuthenticationMethodsRegistrationCampaignModel
 {
+    [JsonPropertyName("enforceRegistrationAfterAllowedSnoozes")]
+    public bool? EnforceRegistrationAfterAllowedSnoozes { get; set; }
+
     [JsonPropertyName("excludeTargets")]
     public List<ExcludeTargetModel>? ExcludeTargets { get; set; }
 

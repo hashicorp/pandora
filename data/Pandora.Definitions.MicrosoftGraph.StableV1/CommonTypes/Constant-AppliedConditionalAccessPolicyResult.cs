@@ -23,4 +23,16 @@ internal enum AppliedConditionalAccessPolicyResultConstant
 
     [Description("Unknown")]
     @unknown,
+
+    [Description("ReportOnlySuccess")]
+    @reportOnlySuccess,
+
+    [Description("ReportOnlyFailure")]
+    @reportOnlyFailure,
+
+    [Description("ReportOnlyNotApplied")]
+    @reportOnlyNotApplied,
+
+    [Description("ReportOnlyInterrupted")]
+    @reportOnlyInterrupted,
 }

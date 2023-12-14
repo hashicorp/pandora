@@ -41,4 +41,7 @@ internal enum CloudPCExportJobReportNameConstant
 
     [Description("RawRemoteConnectionReports")]
     @rawRemoteConnectionReports,
+
+    [Description("CloudPCUsageCategoryReports")]
+    @cloudPcUsageCategoryReports,
 }

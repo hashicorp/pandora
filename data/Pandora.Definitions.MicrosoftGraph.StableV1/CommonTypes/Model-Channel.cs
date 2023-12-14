@@ -49,6 +49,9 @@ internal class ChannelModel
     [JsonPropertyName("sharedWithTeams")]
     public List<SharedWithChannelTeamInfoModel>? SharedWithTeams { get; set; }
 
+    [JsonPropertyName("summary")]
+    public ChannelSummaryModel? Summary { get; set; }
+
     [JsonPropertyName("tabs")]
     public List<TeamsTabModel>? Tabs { get; set; }
 
