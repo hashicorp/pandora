@@ -23,7 +23,7 @@ internal class MobileAppTroubleshootingAppPolicyCreationHistoryModel
     public DateTime? OccurrenceDateTime { get; set; }
 
     [JsonPropertyName("runState")]
-    public RunStateConstant? RunState { get; set; }
+    public MobileAppTroubleshootingAppPolicyCreationHistoryRunStateConstant? RunState { get; set; }
 
     [JsonPropertyName("troubleshootingErrorDetails")]
     public DeviceManagementTroubleshootingErrorDetailsModel? TroubleshootingErrorDetails { get; set; }

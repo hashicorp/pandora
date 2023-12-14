@@ -20,7 +20,5 @@ internal class CreatePublicIPOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new PublicIPId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPublicIPModel);
-
 
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AndroidWorkProfileCompliancePolicyModel
 {
     [JsonPropertyName("advancedThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidWorkProfileCompliancePolicyAdvancedThreatProtectionRequiredSecurityLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceCompliancePolicyAssignmentModel>? Assignments { get; set; }
@@ -38,7 +38,7 @@ internal class AndroidWorkProfileCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidWorkProfileCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -77,13 +77,13 @@ internal class AndroidWorkProfileCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidWorkProfileCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
 
     [JsonPropertyName("requiredPasswordComplexity")]
-    public AndroidRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
+    public AndroidWorkProfileCompliancePolicyRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -119,7 +119,7 @@ internal class AndroidWorkProfileCompliancePolicyModel
     public bool? SecurityRequireVerifyApps { get; set; }
 
     [JsonPropertyName("securityRequiredAndroidSafetyNetEvaluationType")]
-    public AndroidSafetyNetEvaluationTypeConstant? SecurityRequiredAndroidSafetyNetEvaluationType { get; set; }
+    public AndroidWorkProfileCompliancePolicySecurityRequiredAndroidSafetyNetEvaluationTypeConstant? SecurityRequiredAndroidSafetyNetEvaluationType { get; set; }
 
     [JsonPropertyName("storageRequireEncryption")]
     public bool? StorageRequireEncryption { get; set; }

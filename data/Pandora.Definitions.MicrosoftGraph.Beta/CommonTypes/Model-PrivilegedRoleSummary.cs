@@ -29,7 +29,7 @@ internal class PrivilegedRoleSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public RoleSummaryStatusConstant? Status { get; set; }
+    public PrivilegedRoleSummaryStatusConstant? Status { get; set; }
 
     [JsonPropertyName("usersCount")]
     public int? UsersCount { get; set; }

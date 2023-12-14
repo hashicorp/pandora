@@ -20,5 +20,5 @@ internal class SecurityRetentionEventStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public EventStatusTypeConstant? Status { get; set; }
+    public SecurityRetentionEventStatusStatusConstant? Status { get; set; }
 }

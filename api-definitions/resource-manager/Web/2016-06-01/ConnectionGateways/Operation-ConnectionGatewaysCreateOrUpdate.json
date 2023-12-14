@@ -1,0 +1,19 @@
+{
+ "name": "ConnectionGatewaysCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ConnectionGatewayId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionGatewayDefinition"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionGatewayDefinition"
+ }
+}

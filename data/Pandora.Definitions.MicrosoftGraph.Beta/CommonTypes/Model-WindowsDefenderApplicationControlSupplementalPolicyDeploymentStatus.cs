@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusModel
 {
     [JsonPropertyName("deploymentStatus")]
-    public WindowsDefenderApplicationControlSupplementalPolicyStatusesConstant? DeploymentStatus { get; set; }
+    public WindowsDefenderApplicationControlSupplementalPolicyDeploymentStatusDeploymentStatusConstant? DeploymentStatus { get; set; }
 
     [JsonPropertyName("deviceId")]
     public string? DeviceId { get; set; }

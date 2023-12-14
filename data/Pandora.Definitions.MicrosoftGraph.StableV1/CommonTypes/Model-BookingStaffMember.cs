@@ -32,7 +32,7 @@ internal class BookingStaffMemberModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("role")]
-    public BookingStaffRoleConstant? Role { get; set; }
+    public BookingStaffMemberRoleConstant? Role { get; set; }
 
     [JsonPropertyName("timeZone")]
     public string? TimeZone { get; set; }

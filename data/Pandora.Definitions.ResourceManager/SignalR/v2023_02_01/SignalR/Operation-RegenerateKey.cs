@@ -25,8 +25,6 @@ internal class RegenerateKeyOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new SignalRId();
 
-    public override Type? ResponseObject() => typeof(SignalRKeysModel);
-
     public override string? UriSuffix() => "/regenerateKey";
 
 

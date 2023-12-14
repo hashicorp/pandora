@@ -70,6 +70,9 @@ internal class TeamModel
     [JsonPropertyName("operations")]
     public List<TeamsAsyncOperationModel>? Operations { get; set; }
 
+    [JsonPropertyName("permissionGrants")]
+    public List<ResourceSpecificPermissionGrantModel>? PermissionGrants { get; set; }
+
     [JsonPropertyName("photo")]
     public ProfilePhotoModel? Photo { get; set; }
 
@@ -95,7 +98,7 @@ internal class TeamModel
     public string? TenantId { get; set; }
 
     [JsonPropertyName("visibility")]
-    public TeamVisibilityTypeConstant? Visibility { get; set; }
+    public TeamVisibilityConstant? Visibility { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

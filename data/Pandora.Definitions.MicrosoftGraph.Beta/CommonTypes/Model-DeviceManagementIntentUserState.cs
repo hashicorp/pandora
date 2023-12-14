@@ -26,7 +26,7 @@ internal class DeviceManagementIntentUserStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public DeviceManagementIntentUserStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userName")]
     public string? UserName { get; set; }

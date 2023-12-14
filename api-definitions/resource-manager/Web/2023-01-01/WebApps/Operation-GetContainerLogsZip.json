@@ -1,0 +1,16 @@
+{
+ "name": "GetContainerLogsZip",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AppServiceId",
+ "responseObject": {
+  "type": "RawFile",
+  "referenceName": null
+ },
+ "uriSuffix": "/containerlogs/zip/download"
+}

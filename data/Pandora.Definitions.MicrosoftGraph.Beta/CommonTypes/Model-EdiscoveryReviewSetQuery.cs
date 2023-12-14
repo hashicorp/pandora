@@ -13,17 +13,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class EdiscoveryReviewSetQueryModel
 {
-    [JsonPropertyName("contentQuery")]
-    public string? ContentQuery { get; set; }
-
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
-
-    [JsonPropertyName("description")]
-    public string? Description { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -39,4 +33,7 @@ internal class EdiscoveryReviewSetQueryModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("query")]
+    public string? Query { get; set; }
 }

@@ -1,0 +1,16 @@
+{
+ "name": "L3NetworksListBySubscription",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "L3Network"
+ },
+ "uriSuffix": "/providers/Microsoft.NetworkCloud/l3Networks"
+}

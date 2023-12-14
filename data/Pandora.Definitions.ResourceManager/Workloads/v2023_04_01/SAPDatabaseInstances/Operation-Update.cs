@@ -20,7 +20,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new DatabaseInstanceId();
 
-    public override Type? ResponseObject() => typeof(SAPDatabaseInstanceModel);
-
 
 }

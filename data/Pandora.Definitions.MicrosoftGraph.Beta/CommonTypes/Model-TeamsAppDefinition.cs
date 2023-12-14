@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TeamsAppDefinitionModel
 {
     [JsonPropertyName("allowedInstallationScopes")]
-    public TeamsAppInstallationScopesConstant? AllowedInstallationScopes { get; set; }
+    public TeamsAppDefinitionAllowedInstallationScopesConstant? AllowedInstallationScopes { get; set; }
 
     [JsonPropertyName("authorization")]
     public TeamsAppAuthorizationModel? Authorization { get; set; }
@@ -50,7 +50,7 @@ internal class TeamsAppDefinitionModel
     public TeamsAppIconModel? OutlineIcon { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public TeamsAppPublishingStateConstant? PublishingState { get; set; }
+    public TeamsAppDefinitionPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("shortdescription")]
     public string? Shortdescription { get; set; }

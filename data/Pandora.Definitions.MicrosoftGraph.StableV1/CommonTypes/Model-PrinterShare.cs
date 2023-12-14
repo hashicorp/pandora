@@ -60,4 +60,7 @@ internal class PrinterShareModel
 
     [JsonPropertyName("status")]
     public PrinterStatusModel? Status { get; set; }
+
+    [JsonPropertyName("viewPoint")]
+    public PrinterShareViewpointModel? ViewPoint { get; set; }
 }

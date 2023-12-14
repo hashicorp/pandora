@@ -17,31 +17,31 @@ internal class SynchronizationTaskExecutionModel
     public string? ActivityIdentifier { get; set; }
 
     [JsonPropertyName("countEntitled")]
-    public long? CountEntitled { get; set; }
+    public int? CountEntitled { get; set; }
 
     [JsonPropertyName("countEntitledForProvisioning")]
-    public long? CountEntitledForProvisioning { get; set; }
+    public int? CountEntitledForProvisioning { get; set; }
 
     [JsonPropertyName("countEscrowed")]
-    public long? CountEscrowed { get; set; }
+    public int? CountEscrowed { get; set; }
 
     [JsonPropertyName("countEscrowedRaw")]
-    public long? CountEscrowedRaw { get; set; }
+    public int? CountEscrowedRaw { get; set; }
 
     [JsonPropertyName("countExported")]
-    public long? CountExported { get; set; }
+    public int? CountExported { get; set; }
 
     [JsonPropertyName("countExports")]
-    public long? CountExports { get; set; }
+    public int? CountExports { get; set; }
 
     [JsonPropertyName("countImported")]
-    public long? CountImported { get; set; }
+    public int? CountImported { get; set; }
 
     [JsonPropertyName("countImportedDeltas")]
-    public long? CountImportedDeltas { get; set; }
+    public int? CountImportedDeltas { get; set; }
 
     [JsonPropertyName("countImportedReferenceDeltas")]
-    public long? CountImportedReferenceDeltas { get; set; }
+    public int? CountImportedReferenceDeltas { get; set; }
 
     [JsonPropertyName("error")]
     public SynchronizationErrorModel? Error { get; set; }
@@ -50,7 +50,7 @@ internal class SynchronizationTaskExecutionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public SynchronizationTaskExecutionResultConstant? State { get; set; }
+    public SynchronizationTaskExecutionStateConstant? State { get; set; }
 
     [JsonPropertyName("timeBegan")]
     public DateTime? TimeBegan { get; set; }

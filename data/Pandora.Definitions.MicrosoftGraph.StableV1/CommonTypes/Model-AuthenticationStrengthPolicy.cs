@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AuthenticationStrengthPolicyModel
 {
     [JsonPropertyName("allowedCombinations")]
-    public List<AuthenticationMethodModesConstant>? AllowedCombinations { get; set; }
+    public List<AuthenticationStrengthPolicyAllowedCombinationsConstant>? AllowedCombinations { get; set; }
 
     [JsonPropertyName("combinationConfigurations")]
     public List<AuthenticationCombinationConfigurationModel>? CombinationConfigurations { get; set; }
@@ -38,8 +38,8 @@ internal class AuthenticationStrengthPolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyType")]
-    public AuthenticationStrengthPolicyTypeConstant? PolicyType { get; set; }
+    public AuthenticationStrengthPolicyPolicyTypeConstant? PolicyType { get; set; }
 
     [JsonPropertyName("requirementsSatisfied")]
-    public AuthenticationStrengthRequirementsConstant? RequirementsSatisfied { get; set; }
+    public AuthenticationStrengthPolicyRequirementsSatisfiedConstant? RequirementsSatisfied { get; set; }
 }

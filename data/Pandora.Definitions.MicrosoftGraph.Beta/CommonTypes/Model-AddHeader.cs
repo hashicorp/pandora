@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AddHeaderModel
 {
     [JsonPropertyName("alignment")]
-    public AlignmentConstant? Alignment { get; set; }
+    public AddHeaderAlignmentConstant? Alignment { get; set; }
 
     [JsonPropertyName("fontColor")]
     public string? FontColor { get; set; }
 
     [JsonPropertyName("fontSize")]
-    public long? FontSize { get; set; }
+    public int? FontSize { get; set; }
 
     [JsonPropertyName("margin")]
     public int? Margin { get; set; }

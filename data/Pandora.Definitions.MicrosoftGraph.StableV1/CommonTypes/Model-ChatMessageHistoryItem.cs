@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ChatMessageHistoryItemModel
 {
     [JsonPropertyName("actions")]
-    public ChatMessageActionsConstant? Actions { get; set; }
+    public ChatMessageHistoryItemActionsConstant? Actions { get; set; }
 
     [JsonPropertyName("modifiedDateTime")]
     public DateTime? ModifiedDateTime { get; set; }

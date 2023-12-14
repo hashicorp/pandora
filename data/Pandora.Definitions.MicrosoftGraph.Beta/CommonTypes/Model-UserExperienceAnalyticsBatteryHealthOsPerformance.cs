@@ -28,11 +28,29 @@ internal class UserExperienceAnalyticsBatteryHealthOsPerformanceModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("meanFullBatteryDrainCount")]
+    public int? MeanFullBatteryDrainCount { get; set; }
+
+    [JsonPropertyName("medianEstimatedRuntimeInMinutes")]
+    public int? MedianEstimatedRuntimeInMinutes { get; set; }
+
+    [JsonPropertyName("medianFullBatteryDrainCount")]
+    public int? MedianFullBatteryDrainCount { get; set; }
+
+    [JsonPropertyName("medianMaxCapacityPercentage")]
+    public int? MedianMaxCapacityPercentage { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("osBatteryHealthScore")]
+    public int? OsBatteryHealthScore { get; set; }
+
     [JsonPropertyName("osBuildNumber")]
     public string? OsBuildNumber { get; set; }
+
+    [JsonPropertyName("osHealthStatus")]
+    public UserExperienceAnalyticsBatteryHealthOsPerformanceOsHealthStatusConstant? OsHealthStatus { get; set; }
 
     [JsonPropertyName("osVersion")]
     public string? OsVersion { get; set; }

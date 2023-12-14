@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ExternalConnectorsComplianceSettingsModel
 {
     [JsonPropertyName("eDiscoveryResultTemplates")]
-    public List<DisplayTemplateModel>? EDiscoveryResultTemplates { get; set; }
+    public List<ExternalConnectorsDisplayTemplateModel>? EDiscoveryResultTemplates { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

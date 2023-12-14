@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ChangeNotificationModel
 {
     [JsonPropertyName("changeType")]
-    public ChangeTypeConstant? ChangeType { get; set; }
+    public ChangeNotificationChangeTypeConstant? ChangeType { get; set; }
 
     [JsonPropertyName("clientState")]
     public string? ClientState { get; set; }
@@ -26,7 +26,7 @@ internal class ChangeNotificationModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lifecycleEvent")]
-    public LifecycleEventTypeConstant? LifecycleEvent { get; set; }
+    public ChangeNotificationLifecycleEventConstant? LifecycleEvent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -26,8 +26,6 @@ internal class StartWebSiteNetworkTraceOperationSlotOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new SlotId();
 
-    public override Type? ResponseObject() => typeof(List<NetworkTraceModel>);
-
     public override Type? OptionsObject() => typeof(StartWebSiteNetworkTraceOperationSlotOperation.StartWebSiteNetworkTraceOperationSlotOptions);
 
     public override string? UriSuffix() => "/networkTrace/startOperation";

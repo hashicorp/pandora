@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class VpnOnDemandRuleModel
 {
     [JsonPropertyName("action")]
-    public VpnOnDemandRuleConnectionActionConstant? Action { get; set; }
+    public VpnOnDemandRuleActionConstant? Action { get; set; }
 
     [JsonPropertyName("dnsSearchDomains")]
     public List<string>? DnsSearchDomains { get; set; }
@@ -23,7 +23,7 @@ internal class VpnOnDemandRuleModel
     public List<string>? DnsServerAddressMatch { get; set; }
 
     [JsonPropertyName("domainAction")]
-    public VpnOnDemandRuleConnectionDomainActionConstant? DomainAction { get; set; }
+    public VpnOnDemandRuleDomainActionConstant? DomainAction { get; set; }
 
     [JsonPropertyName("domains")]
     public List<string>? Domains { get; set; }

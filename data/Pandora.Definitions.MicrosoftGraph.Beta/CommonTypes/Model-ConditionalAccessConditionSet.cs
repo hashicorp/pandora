@@ -17,7 +17,7 @@ internal class ConditionalAccessConditionSetModel
     public ConditionalAccessApplicationsModel? Applications { get; set; }
 
     [JsonPropertyName("clientAppTypes")]
-    public List<ConditionalAccessClientAppConstant>? ClientAppTypes { get; set; }
+    public List<ConditionalAccessConditionSetClientAppTypesConstant>? ClientAppTypes { get; set; }
 
     [JsonPropertyName("clientApplications")]
     public ConditionalAccessClientApplicationsModel? ClientApplications { get; set; }
@@ -38,13 +38,13 @@ internal class ConditionalAccessConditionSetModel
     public ConditionalAccessPlatformsModel? Platforms { get; set; }
 
     [JsonPropertyName("servicePrincipalRiskLevels")]
-    public List<RiskLevelConstant>? ServicePrincipalRiskLevels { get; set; }
+    public List<ConditionalAccessConditionSetServicePrincipalRiskLevelsConstant>? ServicePrincipalRiskLevels { get; set; }
 
     [JsonPropertyName("signInRiskLevels")]
-    public List<RiskLevelConstant>? SignInRiskLevels { get; set; }
+    public List<ConditionalAccessConditionSetSignInRiskLevelsConstant>? SignInRiskLevels { get; set; }
 
     [JsonPropertyName("userRiskLevels")]
-    public List<RiskLevelConstant>? UserRiskLevels { get; set; }
+    public List<ConditionalAccessConditionSetUserRiskLevelsConstant>? UserRiskLevels { get; set; }
 
     [JsonPropertyName("users")]
     public ConditionalAccessUsersModel? Users { get; set; }

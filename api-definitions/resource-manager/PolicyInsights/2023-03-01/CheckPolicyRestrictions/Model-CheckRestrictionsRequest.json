@@ -1,0 +1,45 @@
+{
+ "name": "CheckRestrictionsRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeAuditEffect",
+   "name": "IncludeAuditEffect",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pendingFields",
+   "name": "PendingFields",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PendingField"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceDetails",
+   "name": "ResourceDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CheckRestrictionsResourceDetails"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

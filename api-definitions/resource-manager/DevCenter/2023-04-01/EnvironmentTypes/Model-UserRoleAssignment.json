@@ -1,0 +1,21 @@
+{
+ "name": "UserRoleAssignment",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roles",
+   "name": "Roles",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EnvironmentRole"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

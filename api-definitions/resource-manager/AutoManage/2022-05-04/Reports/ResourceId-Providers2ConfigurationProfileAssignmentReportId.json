@@ -1,0 +1,71 @@
+{
+ "name": "Providers2ConfigurationProfileAssignmentReportId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/virtualMachines/{virtualMachineName}/providers/Microsoft.AutoManage/configurationProfileAssignments/{configurationProfileAssignmentName}/reports/{reportName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCompute",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Compute"
+  },
+  {
+   "name": "staticVirtualMachines",
+   "type": "Static",
+   "value": "virtualMachines"
+  },
+  {
+   "name": "virtualMachineName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProviders2",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAutoManage",
+   "type": "ResourceProvider",
+   "value": "Microsoft.AutoManage"
+  },
+  {
+   "name": "staticConfigurationProfileAssignments",
+   "type": "Static",
+   "value": "configurationProfileAssignments"
+  },
+  {
+   "name": "configurationProfileAssignmentName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticReports",
+   "type": "Static",
+   "value": "reports"
+  },
+  {
+   "name": "reportName",
+   "type": "UserSpecified"
+  }
+ ]
+}

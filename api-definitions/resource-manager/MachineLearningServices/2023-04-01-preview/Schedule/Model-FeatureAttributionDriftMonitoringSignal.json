@@ -1,0 +1,56 @@
+{
+ "name": "FeatureAttributionDriftMonitoringSignal",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baselineData",
+   "name": "BaselineData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricThreshold",
+   "name": "MetricThreshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FeatureAttributionMetricThreshold"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "modelType",
+   "name": "ModelType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringModelType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetData",
+   "name": "TargetData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MonitoringSignalBase",
+ "discriminatedTypeValue": "FeatureAttributionDrift",
+ "typeHintIn": "SignalType"
+}

@@ -17,7 +17,7 @@ internal class WindowsUpdatesUpdatableAssetGroupModel
     public string? Id { get; set; }
 
     [JsonPropertyName("members")]
-    public List<UpdatableAssetModel>? Members { get; set; }
+    public List<WindowsUpdatesUpdatableAssetModel>? Members { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

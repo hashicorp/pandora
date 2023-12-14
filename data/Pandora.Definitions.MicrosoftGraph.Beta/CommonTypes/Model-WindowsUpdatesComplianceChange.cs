@@ -29,5 +29,5 @@ internal class WindowsUpdatesComplianceChangeModel
     public DateTime? RevokedDateTime { get; set; }
 
     [JsonPropertyName("updatePolicy")]
-    public UpdatePolicyModel? UpdatePolicy { get; set; }
+    public WindowsUpdatesUpdatePolicyModel? UpdatePolicy { get; set; }
 }

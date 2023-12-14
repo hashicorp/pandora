@@ -1,0 +1,20 @@
+{
+ "name": "SingleServerFullResourceNames",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachine",
+   "name": "VirtualMachine",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineResourceNames"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "SingleServerCustomResourceNames",
+ "discriminatedTypeValue": "FullResourceName",
+ "typeHintIn": "NamingPatternType"
+}

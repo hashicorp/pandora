@@ -1,0 +1,43 @@
+{
+ "name": "SnapshotId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/snapshots/{snapshotName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCompute",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Compute"
+  },
+  {
+   "name": "staticSnapshots",
+   "type": "Static",
+   "value": "snapshots"
+  },
+  {
+   "name": "snapshotName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "TritonInferencingServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inferenceConfiguration",
+   "name": "InferenceConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OnlineInferenceConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "InferencingServer",
+ "discriminatedTypeValue": "Triton",
+ "typeHintIn": "ServerType"
+}

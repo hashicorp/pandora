@@ -15,7 +15,12 @@ func run(args Arguments) error {
 	}
 
 	// 1: Launch the Data API
-	dataApi := exec.Command("dotnet", args.DataApiAssemblyPath)
+	var dataApi *exec.Cmd
+	if args.UseV2Generator {
+		dataApi = exec.Command(args.DataApiAssemblyPath, "serve")
+	} else {
+		dataApi = exec.Command("dotnet", args.DataApiAssemblyPath)
+	}
 	env := os.Environ()
 	env = append(env, fmt.Sprintf("PANDORA_API_PORT=%d", args.DataApiPort))
 	dataApi.Env = env
@@ -63,7 +68,7 @@ func run(args Arguments) error {
 	if args.RunTerraformGenerator {
 		log.Printf("Running the Terraform Generator..")
 		if err := runTerraformGenerator(dataApiUri, args.OutputDirectory); err != nil {
-			return fmt.Errorf("running the Go SDK Generator: %+v", err)
+			return fmt.Errorf("running the Terraform Generator: %+v", err)
 		}
 		log.Printf("Terraform Generator has been run.")
 	}

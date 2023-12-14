@@ -24,4 +24,7 @@ internal class PresenceModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("statusMessage")]
+    public PresenceStatusMessageModel? StatusMessage { get; set; }
 }

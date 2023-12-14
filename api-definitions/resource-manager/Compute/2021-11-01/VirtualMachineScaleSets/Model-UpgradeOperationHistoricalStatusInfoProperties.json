@@ -1,0 +1,77 @@
+{
+ "name": "UpgradeOperationHistoricalStatusInfoProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiError"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "progress",
+   "name": "Progress",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingUpgradeProgressInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rollbackInfo",
+   "name": "RollbackInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollbackStatusInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runningStatus",
+   "name": "RunningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UpgradeOperationHistoryStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startedBy",
+   "name": "StartedBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UpgradeOperationInvoker"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetImageReference",
+   "name": "TargetImageReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

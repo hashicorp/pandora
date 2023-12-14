@@ -29,7 +29,7 @@ internal class IdentityGovernanceTaskReportModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("processingStatus")]
-    public LifecycleWorkflowProcessingStatusConstant? ProcessingStatus { get; set; }
+    public IdentityGovernanceTaskReportProcessingStatusConstant? ProcessingStatus { get; set; }
 
     [JsonPropertyName("runId")]
     public string? RunId { get; set; }
@@ -41,13 +41,13 @@ internal class IdentityGovernanceTaskReportModel
     public int? SuccessfulUsersCount { get; set; }
 
     [JsonPropertyName("task")]
-    public TaskModel? Task { get; set; }
+    public IdentityGovernanceTaskModel? Task { get; set; }
 
     [JsonPropertyName("taskDefinition")]
-    public TaskDefinitionModel? TaskDefinition { get; set; }
+    public IdentityGovernanceTaskDefinitionModel? TaskDefinition { get; set; }
 
     [JsonPropertyName("taskProcessingResults")]
-    public List<TaskProcessingResultModel>? TaskProcessingResults { get; set; }
+    public List<IdentityGovernanceTaskProcessingResultModel>? TaskProcessingResults { get; set; }
 
     [JsonPropertyName("totalUsersCount")]
     public int? TotalUsersCount { get; set; }

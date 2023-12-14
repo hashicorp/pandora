@@ -17,7 +17,7 @@ internal class SecurityFormattedContentModel
     public string? Content { get; set; }
 
     [JsonPropertyName("format")]
-    public ContentFormatConstant? Format { get; set; }
+    public SecurityFormattedContentFormatConstant? Format { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

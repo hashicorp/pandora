@@ -58,6 +58,9 @@ internal class SiteModel
     [JsonPropertyName("informationProtection")]
     public InformationProtectionModel? InformationProtection { get; set; }
 
+    [JsonPropertyName("isPersonalSite")]
+    public bool? IsPersonalSite { get; set; }
+
     [JsonPropertyName("items")]
     public List<BaseItemModel>? Items { get; set; }
 
@@ -86,13 +89,16 @@ internal class SiteModel
     public List<RichLongRunningOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("pages")]
-    public List<SitePageModel>? Pages { get; set; }
+    public List<BaseSitePageModel>? Pages { get; set; }
 
     [JsonPropertyName("parentReference")]
     public ItemReferenceModel? ParentReference { get; set; }
 
     [JsonPropertyName("permissions")]
     public List<PermissionModel>? Permissions { get; set; }
+
+    [JsonPropertyName("recycleBin")]
+    public RecycleBinModel? RecycleBin { get; set; }
 
     [JsonPropertyName("root")]
     public RootModel? Root { get; set; }
@@ -110,7 +116,7 @@ internal class SiteModel
     public List<SiteModel>? Sites { get; set; }
 
     [JsonPropertyName("termStore")]
-    public StoreModel? TermStore { get; set; }
+    public TermStoreStoreModel? TermStore { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

@@ -1,0 +1,29 @@
+{
+ "name": "Twitter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registration",
+   "name": "Registration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TwitterRegistration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

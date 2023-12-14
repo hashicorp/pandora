@@ -1,0 +1,260 @@
+{
+ "name": "MigrationResourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cancel",
+   "name": "Cancel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CancelEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentStatus",
+   "name": "CurrentStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dbsToCancelMigrationOn",
+   "name": "DbsToCancelMigrationOn",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dbsToMigrate",
+   "name": "DbsToMigrate",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null,
+     "maxItems": 50
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dbsToTriggerCutoverOn",
+   "name": "DbsToTriggerCutoverOn",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationId",
+   "name": "MigrationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationMode",
+   "name": "MigrationMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrationMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationWindowEndTimeInUtc",
+   "name": "MigrationWindowEndTimeInUtc",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationWindowStartTimeInUtc",
+   "name": "MigrationWindowStartTimeInUtc",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overwriteDbsInTarget",
+   "name": "OverwriteDbsInTarget",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OverwriteDbsInTargetEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secretParameters",
+   "name": "SecretParameters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrationSecretParameters"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "setupLogicalReplicationOnSourceDbIfNeeded",
+   "name": "SetupLogicalReplicationOnSourceDbIfNeeded",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogicalReplicationOnSourceDbEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDbServerFullyQualifiedDomainName",
+   "name": "SourceDbServerFullyQualifiedDomainName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDbServerMetadata",
+   "name": "SourceDbServerMetadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DbServerMetadata"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceDbServerResourceId",
+   "name": "SourceDbServerResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startDataMigration",
+   "name": "StartDataMigration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StartDataMigrationEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDbServerFullyQualifiedDomainName",
+   "name": "TargetDbServerFullyQualifiedDomainName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDbServerMetadata",
+   "name": "TargetDbServerMetadata",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DbServerMetadata"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDbServerResourceId",
+   "name": "TargetDbServerResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "triggerCutover",
+   "name": "TriggerCutover",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TriggerCutoverEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

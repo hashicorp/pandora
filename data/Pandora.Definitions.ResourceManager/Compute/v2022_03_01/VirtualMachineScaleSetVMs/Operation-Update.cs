@@ -26,7 +26,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new VirtualMachineScaleSetVirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineScaleSetVMModel);
-
 
 }

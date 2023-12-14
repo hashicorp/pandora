@@ -65,7 +65,7 @@ internal class IosiPadOSWebClipModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public IosiPadOSWebClipPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("useManagedBrowser")]
     public bool? UseManagedBrowser { get; set; }

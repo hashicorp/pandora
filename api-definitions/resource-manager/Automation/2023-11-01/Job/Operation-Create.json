@@ -1,0 +1,30 @@
+{
+ "name": "Create",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "clientRequestId",
+   "optional": true,
+   "required": false,
+   "field": "ClientRequestId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "JobId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "JobCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Job"
+ }
+}

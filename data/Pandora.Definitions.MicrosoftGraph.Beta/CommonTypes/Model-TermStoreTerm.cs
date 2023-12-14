@@ -14,19 +14,19 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TermStoreTermModel
 {
     [JsonPropertyName("children")]
-    public List<TermModel>? Children { get; set; }
+    public List<TermStoreTermModel>? Children { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("descriptions")]
-    public List<LocalizedDescriptionModel>? Descriptions { get; set; }
+    public List<TermStoreLocalizedDescriptionModel>? Descriptions { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("labels")]
-    public List<LocalizedLabelModel>? Labels { get; set; }
+    public List<TermStoreLocalizedLabelModel>? Labels { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -38,8 +38,8 @@ internal class TermStoreTermModel
     public List<KeyValueModel>? Properties { get; set; }
 
     [JsonPropertyName("relations")]
-    public List<RelationModel>? Relations { get; set; }
+    public List<TermStoreRelationModel>? Relations { get; set; }
 
     [JsonPropertyName("set")]
-    public SetModel? Set { get; set; }
+    public TermStoreSetModel? Set { get; set; }
 }

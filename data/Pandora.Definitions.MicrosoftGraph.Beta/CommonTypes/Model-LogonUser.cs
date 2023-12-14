@@ -20,7 +20,7 @@ internal class LogonUserModel
     public string? AccountName { get; set; }
 
     [JsonPropertyName("accountType")]
-    public UserAccountSecurityTypeConstant? AccountType { get; set; }
+    public LogonUserAccountTypeConstant? AccountType { get; set; }
 
     [JsonPropertyName("firstSeenDateTime")]
     public DateTime? FirstSeenDateTime { get; set; }
@@ -32,7 +32,7 @@ internal class LogonUserModel
     public string? LogonId { get; set; }
 
     [JsonPropertyName("logonTypes")]
-    public List<LogonTypeConstant>? LogonTypes { get; set; }
+    public List<LogonUserLogonTypesConstant>? LogonTypes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

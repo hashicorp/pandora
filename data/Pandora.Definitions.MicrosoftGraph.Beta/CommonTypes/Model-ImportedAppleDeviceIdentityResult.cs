@@ -20,10 +20,10 @@ internal class ImportedAppleDeviceIdentityResultModel
     public string? Description { get; set; }
 
     [JsonPropertyName("discoverySource")]
-    public DiscoverySourceConstant? DiscoverySource { get; set; }
+    public ImportedAppleDeviceIdentityResultDiscoverySourceConstant? DiscoverySource { get; set; }
 
     [JsonPropertyName("enrollmentState")]
-    public EnrollmentStateConstant? EnrollmentState { get; set; }
+    public ImportedAppleDeviceIdentityResultEnrollmentStateConstant? EnrollmentState { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -41,7 +41,7 @@ internal class ImportedAppleDeviceIdentityResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public PlatformConstant? Platform { get; set; }
+    public ImportedAppleDeviceIdentityResultPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("requestedEnrollmentProfileAssignmentDateTime")]
     public DateTime? RequestedEnrollmentProfileAssignmentDateTime { get; set; }

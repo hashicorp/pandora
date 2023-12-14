@@ -1,0 +1,30 @@
+{
+ "name": "AdvancedFilter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "key",
+   "name": "Key",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "operatorType",
+   "name": "OperatorType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AdvancedFilterOperatorType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "OperatorType"
+}

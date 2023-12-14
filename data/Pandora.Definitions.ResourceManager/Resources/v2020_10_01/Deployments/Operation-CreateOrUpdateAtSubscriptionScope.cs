@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtSubscriptionScopeOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new ProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
-
 
 }

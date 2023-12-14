@@ -1,0 +1,149 @@
+{
+ "name": "ServerPropertiesForUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLoginPassword",
+   "name": "AdministratorLoginPassword",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authConfig",
+   "name": "AuthConfig",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthConfig"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backup",
+   "name": "Backup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Backup"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createMode",
+   "name": "CreateMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreateModeForUpdate"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataEncryption",
+   "name": "DataEncryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataEncryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "highAvailability",
+   "name": "HighAvailability",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HighAvailability"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maintenanceWindow",
+   "name": "MaintenanceWindow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MaintenanceWindow"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "network",
+   "name": "Network",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Network"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replica",
+   "name": "Replica",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Replica"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationRole",
+   "name": "ReplicationRole",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationRole"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storage",
+   "name": "Storage",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Storage"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

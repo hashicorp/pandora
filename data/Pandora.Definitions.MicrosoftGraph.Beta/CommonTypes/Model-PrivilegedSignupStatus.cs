@@ -23,5 +23,5 @@ internal class PrivilegedSignupStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public SetupStatusConstant? Status { get; set; }
+    public PrivilegedSignupStatusStatusConstant? Status { get; set; }
 }

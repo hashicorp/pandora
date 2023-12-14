@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AuthenticationMethodModeDetailModel
 {
     [JsonPropertyName("authenticationMethod")]
-    public BaseAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AuthenticationMethodModeDetailAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

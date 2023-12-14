@@ -44,7 +44,7 @@ internal class EdiscoveryCaseModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("legalHolds")]
-    public List<EdiscoveryHoldPolicyModel>? LegalHolds { get; set; }
+    public List<EdiscoveryLegalHoldModel>? LegalHolds { get; set; }
 
     [JsonPropertyName("noncustodialDataSources")]
     public List<EdiscoveryNoncustodialDataSourceModel>? NoncustodialDataSources { get; set; }
@@ -53,20 +53,20 @@ internal class EdiscoveryCaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operations")]
-    public List<CaseOperationModel>? Operations { get; set; }
+    public List<EdiscoveryCaseOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("reviewSets")]
     public List<EdiscoveryReviewSetModel>? ReviewSets { get; set; }
 
-    [JsonPropertyName("searches")]
-    public List<EdiscoverySearchModel>? Searches { get; set; }
-
     [JsonPropertyName("settings")]
     public EdiscoveryCaseSettingsModel? Settings { get; set; }
 
+    [JsonPropertyName("sourceCollections")]
+    public List<EdiscoverySourceCollectionModel>? SourceCollections { get; set; }
+
     [JsonPropertyName("status")]
-    public CaseStatusConstant? Status { get; set; }
+    public EdiscoveryCaseStatusConstant? Status { get; set; }
 
     [JsonPropertyName("tags")]
-    public List<EdiscoveryReviewTagModel>? Tags { get; set; }
+    public List<EdiscoveryTagModel>? Tags { get; set; }
 }

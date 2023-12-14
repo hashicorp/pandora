@@ -1,0 +1,19 @@
+{
+ "name": "PolicyRestrictionsCheckAtSubscriptionScope",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CheckRestrictionsRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CheckRestrictionsResult"
+ },
+ "uriSuffix": "/providers/Microsoft.PolicyInsights/checkPolicyRestrictions"
+}

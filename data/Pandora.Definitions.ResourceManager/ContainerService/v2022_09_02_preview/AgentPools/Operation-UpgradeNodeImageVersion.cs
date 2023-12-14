@@ -26,8 +26,6 @@ internal class UpgradeNodeImageVersionOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolModel);
-
     public override string? UriSuffix() => "/upgradeNodeImageVersion";
 
 

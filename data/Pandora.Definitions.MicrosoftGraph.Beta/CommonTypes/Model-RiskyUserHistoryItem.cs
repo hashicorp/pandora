@@ -35,16 +35,16 @@ internal class RiskyUserHistoryItemModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public RiskyUserHistoryItemRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskLastUpdatedDateTime")]
     public DateTime? RiskLastUpdatedDateTime { get; set; }
 
     [JsonPropertyName("riskLevel")]
-    public RiskLevelConstant? RiskLevel { get; set; }
+    public RiskyUserHistoryItemRiskLevelConstant? RiskLevel { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public RiskyUserHistoryItemRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }

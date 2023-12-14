@@ -26,8 +26,6 @@ internal class GenerateCredentialsOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new RegistryId();
 
-    public override Type? ResponseObject() => typeof(GenerateCredentialsResultModel);
-
     public override string? UriSuffix() => "/generateCredentials";
 
 

@@ -26,7 +26,7 @@ internal class LocationConstraintItemModel
     public string? LocationEmailAddress { get; set; }
 
     [JsonPropertyName("locationType")]
-    public LocationTypeConstant? LocationType { get; set; }
+    public LocationConstraintItemLocationTypeConstant? LocationType { get; set; }
 
     [JsonPropertyName("locationUri")]
     public string? LocationUri { get; set; }
@@ -41,5 +41,5 @@ internal class LocationConstraintItemModel
     public string? UniqueId { get; set; }
 
     [JsonPropertyName("uniqueIdType")]
-    public LocationUniqueIdTypeConstant? UniqueIdType { get; set; }
+    public LocationConstraintItemUniqueIdTypeConstant? UniqueIdType { get; set; }
 }

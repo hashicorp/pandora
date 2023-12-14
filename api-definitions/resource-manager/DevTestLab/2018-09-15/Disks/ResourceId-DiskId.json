@@ -1,0 +1,61 @@
+{
+ "name": "DiskId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DevTestLab/labs/{labName}/users/{userName}/disks/{diskName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDevTestLab",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DevTestLab"
+  },
+  {
+   "name": "staticLabs",
+   "type": "Static",
+   "value": "labs"
+  },
+  {
+   "name": "labName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticUsers",
+   "type": "Static",
+   "value": "users"
+  },
+  {
+   "name": "userName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticDisks",
+   "type": "Static",
+   "value": "disks"
+  },
+  {
+   "name": "diskName",
+   "type": "UserSpecified"
+  }
+ ]
+}

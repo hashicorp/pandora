@@ -20,11 +20,11 @@ internal class RegisterOperation : Pandora.Definitions.Operations.PutOperation
                 HttpStatusCode.OK,
         };
 
+    public override bool LongRunning() => true;
+
     public override Type? RequestObject() => typeof(ProtectionContainerResourceModel);
 
     public override ResourceID? ResourceId() => new ProtectionContainerId();
-
-    public override Type? ResponseObject() => typeof(ProtectionContainerResourceModel);
 
 
 }

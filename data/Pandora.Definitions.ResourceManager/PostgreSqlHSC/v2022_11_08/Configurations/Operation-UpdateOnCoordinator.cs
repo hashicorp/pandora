@@ -20,7 +20,5 @@ internal class UpdateOnCoordinatorOperation : Pandora.Definitions.Operations.Put
 
     public override ResourceID? ResourceId() => new CoordinatorConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ServerConfigurationModel);
-
 
 }

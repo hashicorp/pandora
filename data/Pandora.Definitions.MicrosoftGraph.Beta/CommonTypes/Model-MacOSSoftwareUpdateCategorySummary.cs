@@ -38,7 +38,7 @@ internal class MacOSSoftwareUpdateCategorySummaryModel
     public int? TotalUpdateCount { get; set; }
 
     [JsonPropertyName("updateCategory")]
-    public MacOSSoftwareUpdateCategoryConstant? UpdateCategory { get; set; }
+    public MacOSSoftwareUpdateCategorySummaryUpdateCategoryConstant? UpdateCategory { get; set; }
 
     [JsonPropertyName("updateStateSummaries")]
     public List<MacOSSoftwareUpdateStateSummaryModel>? UpdateStateSummaries { get; set; }

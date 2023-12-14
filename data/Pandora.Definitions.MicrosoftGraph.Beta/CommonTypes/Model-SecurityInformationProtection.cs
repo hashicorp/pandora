@@ -17,11 +17,11 @@ internal class SecurityInformationProtectionModel
     public string? Id { get; set; }
 
     [JsonPropertyName("labelPolicySettings")]
-    public InformationProtectionPolicySettingModel? LabelPolicySettings { get; set; }
+    public SecurityInformationProtectionPolicySettingModel? LabelPolicySettings { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sensitivityLabels")]
-    public List<SensitivityLabelModel>? SensitivityLabels { get; set; }
+    public List<SecuritySensitivityLabelModel>? SensitivityLabels { get; set; }
 }

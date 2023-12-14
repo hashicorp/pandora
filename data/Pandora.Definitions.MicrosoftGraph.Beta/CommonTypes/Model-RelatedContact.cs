@@ -32,5 +32,5 @@ internal class RelatedContactModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("relationship")]
-    public ContactRelationshipConstant? Relationship { get; set; }
+    public RelatedContactRelationshipConstant? Relationship { get; set; }
 }

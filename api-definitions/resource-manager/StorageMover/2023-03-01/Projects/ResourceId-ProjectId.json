@@ -1,0 +1,52 @@
+{
+ "name": "ProjectId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageMover/storageMovers/{storageMoverName}/projects/{projectName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftStorageMover",
+   "type": "ResourceProvider",
+   "value": "Microsoft.StorageMover"
+  },
+  {
+   "name": "staticStorageMovers",
+   "type": "Static",
+   "value": "storageMovers"
+  },
+  {
+   "name": "storageMoverName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProjects",
+   "type": "Static",
+   "value": "projects"
+  },
+  {
+   "name": "projectName",
+   "type": "UserSpecified"
+  }
+ ]
+}

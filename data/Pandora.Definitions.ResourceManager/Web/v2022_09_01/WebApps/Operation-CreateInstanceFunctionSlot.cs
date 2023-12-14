@@ -25,7 +25,5 @@ internal class CreateInstanceFunctionSlotOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new SlotFunctionId();
 
-    public override Type? ResponseObject() => typeof(FunctionEnvelopeModel);
-
 
 }

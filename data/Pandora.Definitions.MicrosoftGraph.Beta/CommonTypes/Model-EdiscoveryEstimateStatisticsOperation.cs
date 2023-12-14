@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryEstimateStatisticsOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public EdiscoveryEstimateStatisticsOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("completedDateTime")]
     public DateTime? CompletedDateTime { get; set; }
@@ -29,10 +29,10 @@ internal class EdiscoveryEstimateStatisticsOperationModel
     public string? Id { get; set; }
 
     [JsonPropertyName("indexedItemCount")]
-    public long? IndexedItemCount { get; set; }
+    public int? IndexedItemCount { get; set; }
 
     [JsonPropertyName("indexedItemsSize")]
-    public long? IndexedItemsSize { get; set; }
+    public int? IndexedItemsSize { get; set; }
 
     [JsonPropertyName("mailboxCount")]
     public int? MailboxCount { get; set; }
@@ -50,14 +50,14 @@ internal class EdiscoveryEstimateStatisticsOperationModel
     public int? SiteCount { get; set; }
 
     [JsonPropertyName("sourceCollection")]
-    public SourceCollectionModel? SourceCollection { get; set; }
+    public EdiscoverySourceCollectionModel? SourceCollection { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public EdiscoveryEstimateStatisticsOperationStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unindexedItemCount")]
-    public long? UnindexedItemCount { get; set; }
+    public int? UnindexedItemCount { get; set; }
 
     [JsonPropertyName("unindexedItemsSize")]
-    public long? UnindexedItemsSize { get; set; }
+    public int? UnindexedItemsSize { get; set; }
 }

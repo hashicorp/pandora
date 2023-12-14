@@ -1,0 +1,104 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+				"schemaFieldPath": "DnsPrefix",
+				"sdkModelName": "FleetHubProfile",
+				"sdkFieldPath": "DnsPrefix"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+				"schemaFieldPath": "Fqdn",
+				"sdkModelName": "FleetHubProfile",
+				"sdkFieldPath": "Fqdn"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+				"schemaFieldPath": "KubernetesVersion",
+				"sdkModelName": "FleetHubProfile",
+				"sdkFieldPath": "KubernetesVersion"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceSchema",
+				"schemaFieldPath": "HubProfile",
+				"sdkModelName": "FleetProperties",
+				"sdkFieldPath": "HubProfile"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceSchema",
+				"schemaFieldPath": "Location",
+				"sdkModelName": "Fleet",
+				"sdkFieldPath": "Location"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetManagerResourceSchema",
+				"schemaFieldPath": "Tags",
+				"sdkModelName": "Fleet",
+				"sdkFieldPath": "Tags"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+				"sdkModelName": "FleetProperties",
+				"sdkFieldName": "HubProfile"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "KubernetesFleetManagerResourceSchema",
+				"sdkModelName": "Fleet",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+			"sdkModelName": "FleetHubProfile"
+		},
+		{
+			"schemaModelName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+			"sdkModelName": "FleetProperties"
+		},
+		{
+			"schemaModelName": "KubernetesFleetManagerResourceSchema",
+			"sdkModelName": "Fleet"
+		},
+		{
+			"schemaModelName": "KubernetesFleetManagerResourceSchema",
+			"sdkModelName": "FleetProperties"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "fleetName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "ResourceGroupName",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

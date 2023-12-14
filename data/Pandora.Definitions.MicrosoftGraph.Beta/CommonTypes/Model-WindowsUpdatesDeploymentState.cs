@@ -14,14 +14,14 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesDeploymentStateModel
 {
     [JsonPropertyName("effectiveValue")]
-    public DeploymentStateValueConstant? EffectiveValue { get; set; }
+    public WindowsUpdatesDeploymentStateEffectiveValueConstant? EffectiveValue { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("reasons")]
-    public List<DeploymentStateReasonModel>? Reasons { get; set; }
+    public List<WindowsUpdatesDeploymentStateReasonModel>? Reasons { get; set; }
 
     [JsonPropertyName("requestedValue")]
-    public RequestedDeploymentStateValueConstant? RequestedValue { get; set; }
+    public WindowsUpdatesDeploymentStateRequestedValueConstant? RequestedValue { get; set; }
 }

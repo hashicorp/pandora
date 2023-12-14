@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TeamworkConnectionModel
 {
     [JsonPropertyName("connectionStatus")]
-    public TeamworkConnectionStatusConstant? ConnectionStatus { get; set; }
+    public TeamworkConnectionConnectionStatusConstant? ConnectionStatus { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

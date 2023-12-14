@@ -20,8 +20,8 @@ internal class X509CertificateRuleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("x509CertificateAuthenticationMode")]
-    public X509CertificateAuthenticationModeConstant? X509CertificateAuthenticationMode { get; set; }
+    public X509CertificateRuleX509CertificateAuthenticationModeConstant? X509CertificateAuthenticationMode { get; set; }
 
     [JsonPropertyName("x509CertificateRuleType")]
-    public X509CertificateRuleTypeConstant? X509CertificateRuleType { get; set; }
+    public X509CertificateRuleX509CertificateRuleTypeConstant? X509CertificateRuleType { get; set; }
 }

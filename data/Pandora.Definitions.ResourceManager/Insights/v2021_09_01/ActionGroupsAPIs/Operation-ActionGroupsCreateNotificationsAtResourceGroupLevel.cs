@@ -26,8 +26,6 @@ internal class ActionGroupsCreateNotificationsAtResourceGroupLevelOperation : Pa
 
     public override ResourceID? ResourceId() => new ResourceGroupId();
 
-    public override Type? ResponseObject() => typeof(TestNotificationDetailsResponseModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.Insights/createNotifications";
 
 

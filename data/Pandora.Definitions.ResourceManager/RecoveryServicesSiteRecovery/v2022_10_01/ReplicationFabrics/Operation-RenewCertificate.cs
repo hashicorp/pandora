@@ -26,8 +26,6 @@ internal class RenewCertificateOperation : Pandora.Definitions.Operations.PostOp
 
     public override ResourceID? ResourceId() => new ReplicationFabricId();
 
-    public override Type? ResponseObject() => typeof(FabricModel);
-
     public override string? UriSuffix() => "/renewCertificate";
 
 

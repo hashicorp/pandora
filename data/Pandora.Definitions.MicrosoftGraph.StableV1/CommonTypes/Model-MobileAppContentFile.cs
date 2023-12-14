@@ -38,10 +38,10 @@ internal class MobileAppContentFileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("sizeEncrypted")]
-    public long? SizeEncrypted { get; set; }
+    public int? SizeEncrypted { get; set; }
 
     [JsonPropertyName("uploadState")]
     public MobileAppContentFileUploadStateConstant? UploadState { get; set; }

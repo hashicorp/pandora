@@ -26,7 +26,5 @@ internal class MongoDBResourcesCreateUpdateMongoDBCollectionOperation : Pandora.
 
     public override ResourceID? ResourceId() => new MongodbDatabaseCollectionId();
 
-    public override Type? ResponseObject() => typeof(MongoDBCollectionGetResultsModel);
-
 
 }

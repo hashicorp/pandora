@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlContainerOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new ContainerId();
 
-    public override Type? ResponseObject() => typeof(SqlContainerGetResultsModel);
-
 
 }

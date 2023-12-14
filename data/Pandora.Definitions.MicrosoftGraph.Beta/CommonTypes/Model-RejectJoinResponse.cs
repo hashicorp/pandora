@@ -17,5 +17,5 @@ internal class RejectJoinResponseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("reason")]
-    public RejectReasonConstant? Reason { get; set; }
+    public RejectJoinResponseReasonConstant? Reason { get; set; }
 }

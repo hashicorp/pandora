@@ -26,8 +26,6 @@ internal class ScheduleRunOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new RegistryId();
 
-    public override Type? ResponseObject() => typeof(RunModel);
-
     public override string? UriSuffix() => "/scheduleRun";
 
 

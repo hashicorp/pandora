@@ -26,8 +26,6 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new DataBoxEdgeDeviceId();
 
-    public override Type? ResponseObject() => typeof(OrderModel);
-
     public override string? UriSuffix() => "/orders/default";
 
 

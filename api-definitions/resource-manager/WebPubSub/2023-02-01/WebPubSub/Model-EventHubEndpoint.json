@@ -1,0 +1,32 @@
+{
+ "name": "EventHubEndpoint",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubName",
+   "name": "EventHubName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fullyQualifiedNamespace",
+   "name": "FullyQualifiedNamespace",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EventListenerEndpoint",
+ "discriminatedTypeValue": "EventHub",
+ "typeHintIn": "Type"
+}

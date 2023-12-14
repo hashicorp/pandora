@@ -43,14 +43,14 @@ func (p pipelineTask) templateModelsForService(commonTypesDirectoryName string, 
 		}
 
 		for modelName, model := range serviceModels {
-			if model.Common {
+			if !model.IsValid() || model.Common {
 				continue
 			}
 
 			namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s.%[3]s.%[4]s", definitionsDirectory(p.apiVersion), cleanName(p.service), cleanVersion(p.apiVersion), category)
 			filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(p.apiVersion)), cleanName(p.service), cleanVersion(p.apiVersion), category, fmt.Sprintf("Model-%s.cs", modelName))
 			modelsNamespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(p.apiVersion), commonTypesDirectoryName)
-			modelFiles[filename] = templateModel(namespace, modelsNamespace, modelName, model)
+			modelFiles[filename] = templateModel(namespace, modelsNamespace, modelName, model, models)
 		}
 
 	}
@@ -69,7 +69,7 @@ func templateCommonModels(files *Tree, commonTypesDirectoryName, apiVersion stri
 	modelFiles := make(map[string]string)
 
 	for modelName, model := range models {
-		if !model.Common {
+		if !model.IsValid() || !model.Common {
 			continue
 		}
 
@@ -82,7 +82,7 @@ func templateCommonModels(files *Tree, commonTypesDirectoryName, apiVersion stri
 
 		namespace := fmt.Sprintf("Pandora.Definitions.%[1]s.%[2]s", definitionsDirectory(apiVersion), commonTypesDirectoryName)
 		filename := path.Join(fmt.Sprintf("Pandora.Definitions.%s", definitionsDirectory(apiVersion)), commonTypesDirectoryName, fmt.Sprintf("Model-%s.cs", modelName))
-		modelFiles[filename] = templateModel(namespace, "", modelName, model)
+		modelFiles[filename] = templateModel(namespace, "", modelName, model, models)
 	}
 
 	modelFileNames := sortedKeys(modelFiles)
@@ -95,7 +95,7 @@ func templateCommonModels(files *Tree, commonTypesDirectoryName, apiVersion stri
 	return nil
 }
 
-func templateModel(namespace, modelsNamespace, modelName string, model *Model) string {
+func templateModel(namespace, modelsNamespace, modelName string, model *Model, models Models) string {
 	modelsImportCode := ""
 	if modelsNamespace != "" {
 		modelsImportCode = fmt.Sprintf("using %s;", modelsNamespace)
@@ -110,7 +110,7 @@ func templateModel(namespace, modelsNamespace, modelName string, model *Model) s
 
 	fieldsCode := make([]string, 0, len(fieldNames)*2)
 	for _, fieldName := range fieldNames {
-		if fType := model.Fields[fieldName].CSType(); fType != nil {
+		if fType := model.Fields[fieldName].CSType(models); fType != nil {
 			field := []string{
 				fmt.Sprintf(`[JsonPropertyName("%s")]`, model.Fields[fieldName].JsonField),
 				fmt.Sprintf("public %s? %s { get; set; }", *fType, fieldName),

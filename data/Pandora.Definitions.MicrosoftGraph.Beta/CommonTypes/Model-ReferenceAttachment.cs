@@ -41,7 +41,7 @@ internal class ReferenceAttachmentModel
     public string? PreviewUrl { get; set; }
 
     [JsonPropertyName("providerType")]
-    public ReferenceAttachmentProviderConstant? ProviderType { get; set; }
+    public ReferenceAttachmentProviderTypeConstant? ProviderType { get; set; }
 
     [JsonPropertyName("size")]
     public int? Size { get; set; }

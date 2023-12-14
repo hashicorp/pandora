@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Office365ActiveUserCountsModel
 {
     [JsonPropertyName("exchange")]
-    public long? Exchange { get; set; }
+    public int? Exchange { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -23,10 +23,10 @@ internal class Office365ActiveUserCountsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("office365")]
-    public long? Office365 { get; set; }
+    public int? Office365 { get; set; }
 
     [JsonPropertyName("oneDrive")]
-    public long? OneDrive { get; set; }
+    public int? OneDrive { get; set; }
 
     [JsonPropertyName("reportDate")]
     public DateTime? ReportDate { get; set; }
@@ -38,14 +38,14 @@ internal class Office365ActiveUserCountsModel
     public DateTime? ReportRefreshDate { get; set; }
 
     [JsonPropertyName("sharePoint")]
-    public long? SharePoint { get; set; }
+    public int? SharePoint { get; set; }
 
     [JsonPropertyName("skypeForBusiness")]
-    public long? SkypeForBusiness { get; set; }
+    public int? SkypeForBusiness { get; set; }
 
     [JsonPropertyName("teams")]
-    public long? Teams { get; set; }
+    public int? Teams { get; set; }
 
     [JsonPropertyName("yammer")]
-    public long? Yammer { get; set; }
+    public int? Yammer { get; set; }
 }

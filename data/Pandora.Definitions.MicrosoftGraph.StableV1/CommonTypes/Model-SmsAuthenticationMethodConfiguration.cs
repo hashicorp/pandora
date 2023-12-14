@@ -26,5 +26,5 @@ internal class SmsAuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public SmsAuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

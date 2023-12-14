@@ -1,0 +1,20 @@
+{
+ "name": "AzureTableOutputDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureTableOutputDataSourceProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "OutputDataSource",
+ "discriminatedTypeValue": "Microsoft.Storage/Table",
+ "typeHintIn": "Type"
+}

@@ -1,0 +1,60 @@
+{
+ "name": "VideoAnalyzerPreset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "audioLanguage",
+   "name": "AudioLanguage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "experimentalOptions",
+   "name": "ExperimentalOptions",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "insightsToExtract",
+   "name": "InsightsToExtract",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InsightsType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AudioAnalysisMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Preset",
+ "discriminatedTypeValue": "#Microsoft.Media.VideoAnalyzerPreset",
+ "typeHintIn": "OdataType"
+}

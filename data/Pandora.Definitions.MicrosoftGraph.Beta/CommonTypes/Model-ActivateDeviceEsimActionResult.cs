@@ -17,7 +17,7 @@ internal class ActivateDeviceEsimActionResultModel
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public ActivateDeviceEsimActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("carrierUrl")]
     public string? CarrierUrl { get; set; }

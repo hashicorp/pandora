@@ -20,13 +20,13 @@ internal class EnrollmentTroubleshootingEventModel
     public string? DeviceId { get; set; }
 
     [JsonPropertyName("enrollmentType")]
-    public DeviceEnrollmentTypeConstant? EnrollmentType { get; set; }
+    public EnrollmentTroubleshootingEventEnrollmentTypeConstant? EnrollmentType { get; set; }
 
     [JsonPropertyName("eventDateTime")]
     public DateTime? EventDateTime { get; set; }
 
     [JsonPropertyName("failureCategory")]
-    public DeviceEnrollmentFailureReasonConstant? FailureCategory { get; set; }
+    public EnrollmentTroubleshootingEventFailureCategoryConstant? FailureCategory { get; set; }
 
     [JsonPropertyName("failureReason")]
     public string? FailureReason { get; set; }

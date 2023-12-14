@@ -32,5 +32,5 @@ internal class OnPremisesAgentGroupModel
     public List<PublishedResourceModel>? PublishedResources { get; set; }
 
     [JsonPropertyName("publishingType")]
-    public OnPremisesPublishingTypeConstant? PublishingType { get; set; }
+    public OnPremisesAgentGroupPublishingTypeConstant? PublishingType { get; set; }
 }

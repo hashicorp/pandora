@@ -2,12 +2,12 @@ package repositories
 
 type ApiDefinitionSourceType string
 type ConstantType string
+type DateFormat string
 type FieldValidationType string
 type ObjectDefinitionType string
+type OptionObjectDefinitionType string
 type ResourceIdSegmentType string
 type ServiceType string
-
-type DateFormat string
 
 const (
 	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"
@@ -18,15 +18,64 @@ const (
 	MicrosoftGraphMetadataApiDefinitionsSource      ApiDefinitionSourceType = "MicrosoftGraphMetadata"
 	ResourceManagerRestApiSpecsApiDefinitionsSource ApiDefinitionSourceType = "ResourceManagerRestApiSpecs"
 
-	ReferenceObjectDefinitionType ObjectDefinitionType = "Reference"
-	StringObjectDefinitionType    ObjectDefinitionType = "String"
+	ReferenceObjectDefinitionType  ObjectDefinitionType = "Reference"
+	StringObjectDefinitionType     ObjectDefinitionType = "String"
+	BooleanObjectDefinitionType    ObjectDefinitionType = "Boolean"
+	DateTimeObjectDefinitionType   ObjectDefinitionType = "DateTime"
+	IntegerObjectDefinitionType    ObjectDefinitionType = "Integer"
+	FloatObjectDefinitionType      ObjectDefinitionType = "Float"
+	RawFileObjectDefinitionType    ObjectDefinitionType = "RawFile"
+	RawObjectObjectDefinitionType  ObjectDefinitionType = "RawObject"
+	CsvObjectDefinitionType        ObjectDefinitionType = "Csv"
+	DictionaryObjectDefinitionType ObjectDefinitionType = "Dictionary"
+	ListObjectDefinitionType       ObjectDefinitionType = "List"
+
+	BooleanOptionObjectDefinition       OptionObjectDefinitionType = "Boolean"
+	IntegerOptionObjectDefinition       OptionObjectDefinitionType = "Integer"
+	FloatOptionObjectDefinitionType     OptionObjectDefinitionType = "Float"
+	StringOptionObjectDefinitionType    OptionObjectDefinitionType = "String"
+	CsvOptionObjectDefinitionType       OptionObjectDefinitionType = "Csv"
+	ListOptionObjectDefinitionType      OptionObjectDefinitionType = "List"
+	ReferenceOptionObjectDefinitionType OptionObjectDefinitionType = "Reference"
+
+	EdgeZoneObjectDefinitionType                                ObjectDefinitionType = "EdgeZone"
+	LocationObjectDefinitionType                                ObjectDefinitionType = "Location"
+	TagsObjectDefinitionType                                    ObjectDefinitionType = "Tags"
+	SystemAssignedIdentityObjectDefinitionType                  ObjectDefinitionType = "SystemAssignedIdentity"
+	SystemAndUserAssignedIdentityListObjectDefinitionType       ObjectDefinitionType = "SystemAndUserAssignedIdentityList"
+	SystemAndUserAssignedIdentityMapObjectDefinitionType        ObjectDefinitionType = "SystemAndUserAssignedIdentityMap"
+	LegacySystemAndUserAssignedIdentityListObjectDefinitionType ObjectDefinitionType = "LegacySystemAndUserAssignedIdentityList"
+	LegacySystemAndUserAssignedIdentityMapObjectDefinitionType  ObjectDefinitionType = "LegacySystemAndUserAssignedIdentityMap"
+	SystemOrUserAssignedIdentityListObjectDefinitionType        ObjectDefinitionType = "SystemOrUserAssignedIdentityList"
+	SystemOrUserAssignedIdentityMapObjectDefinitionType         ObjectDefinitionType = "SystemOrUserAssignedIdentityMap"
+	UserAssignedIdentityListObjectDefinitionType                ObjectDefinitionType = "UserAssignedIdentityList"
+	UserAssignedIdentityMapObjectDefinitionType                 ObjectDefinitionType = "UserAssignedIdentityMap"
+	SystemDataObjectDefinitionType                              ObjectDefinitionType = "SystemData"
+	ZoneObjectDefinitionType                                    ObjectDefinitionType = "Zone"
+	ZonesObjectDefinitionType                                   ObjectDefinitionType = "Zones"
+
+	RangeFieldValidationType FieldValidationType = "Range"
+
+	FloatConstant   ConstantType = "Float"
+	IntegerConstant ConstantType = "Integer"
+	StringConstant  ConstantType = "String"
+
+	ConstantResourceIdSegmentType         ResourceIdSegmentType = "Constant"
+	ResourceGroupResourceIdSegmentType    ResourceIdSegmentType = "ResourceGroup"
+	ResourceProviderResourceIdSegmentType ResourceIdSegmentType = "ResourceProvider"
+	ScopeResourceIdSegmentType            ResourceIdSegmentType = "Scope"
+	StaticResourceIdSegmentType           ResourceIdSegmentType = "Static"
+	SubscriptionIdResourceIdSegmentType   ResourceIdSegmentType = "SubscriptionId"
+	UserSpecifiedResourceIdSegmentType    ResourceIdSegmentType = "UserSpecified"
+
+	RFC3339DateFormat DateFormat = "RFC3339"
 )
 
 type ServiceDetails struct {
 	Name                 string
 	ApiVersions          map[string]*ServiceApiVersionDetails
 	Generate             bool
-	ResourceProvider     string
+	ResourceProvider     *string
 	TerraformPackageName *string
 	TerraformDetails     TerraformDetails
 }
@@ -71,14 +120,19 @@ type ObjectDefinition struct {
 type OperationOptions struct {
 	HeaderName       *string
 	QueryStringName  *string
-	ObjectDefinition *ObjectDefinition
+	ObjectDefinition *OptionObjectDefinition
 	Required         bool
 }
 
+type OptionObjectDefinition struct {
+	Type          OptionObjectDefinitionType
+	ReferenceName *string
+	NestedItem    *OptionObjectDefinition
+}
+
 type ConstantDetails struct {
-	CaseInsensitive bool
-	Type            ConstantType
-	Values          map[string]string
+	Type   ConstantType
+	Values map[string]string
 }
 
 type FieldValidationDetails struct {
@@ -87,7 +141,6 @@ type FieldValidationDetails struct {
 }
 
 type FieldDetails struct {
-	Default          *interface{}
 	DateFormat       *DateFormat
 	ForceNew         bool
 	IsTypeHint       bool

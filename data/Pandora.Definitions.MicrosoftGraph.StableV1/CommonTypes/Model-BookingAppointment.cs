@@ -59,7 +59,7 @@ internal class BookingAppointmentModel
     public string? PreBuffer { get; set; }
 
     [JsonPropertyName("priceType")]
-    public BookingPriceTypeConstant? PriceType { get; set; }
+    public BookingAppointmentPriceTypeConstant? PriceType { get; set; }
 
     [JsonPropertyName("reminders")]
     public List<BookingReminderModel>? Reminders { get; set; }

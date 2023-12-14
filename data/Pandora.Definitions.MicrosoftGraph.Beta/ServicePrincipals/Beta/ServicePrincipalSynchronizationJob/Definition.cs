@@ -13,17 +13,18 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateSynchronizationJobOperation(),
-        new DeleteSynchronizationJobOperation(),
-        new GetSynchronizationJobOperation(),
-        new GetSynchronizationJobsCountOperation(),
-        new ListSynchronizationJobsOperation(),
-        new PauseSynchronizationJobOperation(),
-        new ProvisionSynchronizationJobOnDemandOperation(),
-        new RestartSynchronizationJobOperation(),
-        new StartSynchronizationJobOperation(),
-        new UpdateSynchronizationJobOperation(),
-        new ValidateSynchronizationJobCredentialsOperation()
+        new CreateServicePrincipalByIdSynchronizationJobOperation(),
+        new DeleteServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationJobCountOperation(),
+        new ListServicePrincipalByIdSynchronizationJobsOperation(),
+        new PauseServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new ProvisionServicePrincipalByIdSynchronizationJobByIdOnDemandOperation(),
+        new RestartServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new StartServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new UpdateServicePrincipalByIdSynchronizationJobByIdOperation(),
+        new ValidateServicePrincipalByIdSynchronizationJobByIdCredentialOperation(),
+        new ValidateServicePrincipalByIdSynchronizationJobsCredentialOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -33,8 +34,9 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(ProvisionSynchronizationJobOnDemandRequestModel),
-        typeof(RestartSynchronizationJobRequestModel),
-        typeof(ValidateSynchronizationJobCredentialsRequestModel)
+        typeof(ProvisionServicePrincipalByIdSynchronizationJobByIdOnDemandRequestModel),
+        typeof(RestartServicePrincipalByIdSynchronizationJobByIdRequestModel),
+        typeof(ValidateServicePrincipalByIdSynchronizationJobByIdCredentialRequestModel),
+        typeof(ValidateServicePrincipalByIdSynchronizationJobsCredentialRequestModel)
     };
 }

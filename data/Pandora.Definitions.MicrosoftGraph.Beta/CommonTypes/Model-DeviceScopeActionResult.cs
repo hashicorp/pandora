@@ -26,5 +26,5 @@ internal class DeviceScopeActionResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceScopeActionStatusConstant? Status { get; set; }
+    public DeviceScopeActionResultStatusConstant? Status { get; set; }
 }

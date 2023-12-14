@@ -26,8 +26,6 @@ internal class VirtualHubsGetInboundRoutesOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new VirtualHubId();
 
-    public override Type? ResponseObject() => typeof(EffectiveRouteMapRouteListModel);
-
     public override string? UriSuffix() => "/inboundRoutes";
 
 

@@ -1,0 +1,41 @@
+{
+ "name": "FeatureStoreSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeRuntime",
+   "name": "ComputeRuntime",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ComputeRuntimeDto"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "offlineStoreConnectionName",
+   "name": "OfflineStoreConnectionName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "onlineStoreConnectionName",
+   "name": "OnlineStoreConnectionName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,52 @@
+{
+ "name": "EdgeModuleId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/videoAnalyzers/{videoAnalyzerName}/edgeModules/{edgeModuleName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftMedia",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Media"
+  },
+  {
+   "name": "staticVideoAnalyzers",
+   "type": "Static",
+   "value": "videoAnalyzers"
+  },
+  {
+   "name": "videoAnalyzerName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticEdgeModules",
+   "type": "Static",
+   "value": "edgeModules"
+  },
+  {
+   "name": "edgeModuleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

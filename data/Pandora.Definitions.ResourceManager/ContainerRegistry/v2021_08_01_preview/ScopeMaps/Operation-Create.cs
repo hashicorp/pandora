@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ScopeMapId();
 
-    public override Type? ResponseObject() => typeof(ScopeMapModel);
-
 
 }

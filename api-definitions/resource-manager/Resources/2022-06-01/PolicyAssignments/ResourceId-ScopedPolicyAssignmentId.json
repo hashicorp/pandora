@@ -1,0 +1,29 @@
+{
+ "name": "ScopedPolicyAssignmentId",
+ "id": "/{scope}/providers/Microsoft.Authorization/policyAssignments/{policyAssignmentName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPolicyAssignments",
+   "type": "Static",
+   "value": "policyAssignments"
+  },
+  {
+   "name": "policyAssignmentName",
+   "type": "UserSpecified"
+  }
+ ]
+}

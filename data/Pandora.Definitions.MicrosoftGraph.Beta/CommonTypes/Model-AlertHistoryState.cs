@@ -23,13 +23,13 @@ internal class AlertHistoryStateModel
     public List<string>? Comments { get; set; }
 
     [JsonPropertyName("feedback")]
-    public AlertFeedbackConstant? Feedback { get; set; }
+    public AlertHistoryStateFeedbackConstant? Feedback { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public AlertStatusConstant? Status { get; set; }
+    public AlertHistoryStateStatusConstant? Status { get; set; }
 
     [JsonPropertyName("updatedDateTime")]
     public DateTime? UpdatedDateTime { get; set; }

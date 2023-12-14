@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class BookingCustomQuestionModel
 {
     [JsonPropertyName("answerInputType")]
-    public AnswerInputTypeConstant? AnswerInputType { get; set; }
+    public BookingCustomQuestionAnswerInputTypeConstant? AnswerInputType { get; set; }
 
     [JsonPropertyName("answerOptions")]
     public List<string>? AnswerOptions { get; set; }

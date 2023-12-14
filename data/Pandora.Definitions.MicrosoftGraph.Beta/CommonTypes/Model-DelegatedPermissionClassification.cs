@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DelegatedPermissionClassificationModel
 {
     [JsonPropertyName("classification")]
-    public PermissionClassificationTypeConstant? Classification { get; set; }
+    public DelegatedPermissionClassificationClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

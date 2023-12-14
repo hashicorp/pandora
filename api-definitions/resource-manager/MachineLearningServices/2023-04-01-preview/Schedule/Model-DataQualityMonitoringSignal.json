@@ -1,0 +1,60 @@
+{
+ "name": "DataQualityMonitoringSignal",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baselineData",
+   "name": "BaselineData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringFeatureFilterBase"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricThresholds",
+   "name": "MetricThresholds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataQualityMetricThresholdBase"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetData",
+   "name": "TargetData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MonitoringSignalBase",
+ "discriminatedTypeValue": "DataQuality",
+ "typeHintIn": "SignalType"
+}

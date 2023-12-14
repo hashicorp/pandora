@@ -32,7 +32,7 @@ internal class ManagedDeviceMobileAppConfigurationDeviceStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ComplianceStatusConstant? Status { get; set; }
+    public ManagedDeviceMobileAppConfigurationDeviceStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userName")]
     public string? UserName { get; set; }

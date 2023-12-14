@@ -17,8 +17,8 @@ internal class PlannerRelationshipBasedUserTypeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("role")]
-    public PlannerRelationshipUserRolesConstant? Role { get; set; }
+    public PlannerRelationshipBasedUserTypeRoleConstant? Role { get; set; }
 
     [JsonPropertyName("roleKind")]
-    public PlannerUserRoleKindConstant? RoleKind { get; set; }
+    public PlannerRelationshipBasedUserTypeRoleKindConstant? RoleKind { get; set; }
 }

@@ -1,0 +1,16 @@
+{
+ "name": "ListCertificates",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "CertificateOrderId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AppServiceCertificateResource"
+ },
+ "uriSuffix": "/certificates"
+}

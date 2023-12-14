@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class EducationAssignmentResourceModel
 {
+    [JsonPropertyName("dependentResources")]
+    public List<EducationAssignmentResourceModel>? DependentResources { get; set; }
+
     [JsonPropertyName("distributeForStudentWork")]
     public bool? DistributeForStudentWork { get; set; }
 

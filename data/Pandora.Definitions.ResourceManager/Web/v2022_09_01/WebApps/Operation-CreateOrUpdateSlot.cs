@@ -26,7 +26,5 @@ internal class CreateOrUpdateSlotOperation : Pandora.Definitions.Operations.PutO
 
     public override ResourceID? ResourceId() => new SlotId();
 
-    public override Type? ResponseObject() => typeof(SiteModel);
-
 
 }

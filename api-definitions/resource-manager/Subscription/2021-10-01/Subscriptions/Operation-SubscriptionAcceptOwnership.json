@@ -1,0 +1,15 @@
+{
+ "name": "SubscriptionAcceptOwnership",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "ProviderSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AcceptOwnershipRequest"
+ },
+ "uriSuffix": "/acceptOwnership"
+}

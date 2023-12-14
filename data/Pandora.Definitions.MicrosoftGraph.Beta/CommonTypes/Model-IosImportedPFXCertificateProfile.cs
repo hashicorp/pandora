@@ -50,7 +50,7 @@ internal class IosImportedPFXCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intendedPurpose")]
-    public IntendedPurposeConstant? IntendedPurpose { get; set; }
+    public IosImportedPFXCertificateProfileIntendedPurposeConstant? IntendedPurpose { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

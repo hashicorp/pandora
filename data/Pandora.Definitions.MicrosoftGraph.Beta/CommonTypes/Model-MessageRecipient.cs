@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MessageRecipientModel
 {
     [JsonPropertyName("deliveryStatus")]
-    public MessageStatusConstant? DeliveryStatus { get; set; }
+    public MessageRecipientDeliveryStatusConstant? DeliveryStatus { get; set; }
 
     [JsonPropertyName("events")]
     public List<MessageEventModel>? Events { get; set; }

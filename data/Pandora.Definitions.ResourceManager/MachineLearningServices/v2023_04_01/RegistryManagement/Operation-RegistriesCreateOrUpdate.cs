@@ -27,7 +27,5 @@ internal class RegistriesCreateOrUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new RegistryId();
 
-    public override Type? ResponseObject() => typeof(RegistryTrackedResourceModel);
-
 
 }

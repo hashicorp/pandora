@@ -26,8 +26,6 @@ internal class SubscribeToEventsOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new TriggerId();
 
-    public override Type? ResponseObject() => typeof(TriggerSubscriptionOperationStatusModel);
-
     public override string? UriSuffix() => "/subscribeToEvents";
 
 

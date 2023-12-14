@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "CommunicationServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateKeyParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CommunicationServiceKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

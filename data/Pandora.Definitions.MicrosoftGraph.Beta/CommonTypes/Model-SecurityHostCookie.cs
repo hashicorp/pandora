@@ -20,7 +20,7 @@ internal class SecurityHostCookieModel
     public DateTime? FirstSeenDateTime { get; set; }
 
     [JsonPropertyName("host")]
-    public HostModel? Host { get; set; }
+    public SecurityHostModel? Host { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

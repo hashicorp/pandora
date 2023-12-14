@@ -29,7 +29,7 @@ internal class IdentityGovernanceTaskProcessingResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("processingStatus")]
-    public LifecycleWorkflowProcessingStatusConstant? ProcessingStatus { get; set; }
+    public IdentityGovernanceTaskProcessingResultProcessingStatusConstant? ProcessingStatus { get; set; }
 
     [JsonPropertyName("startedDateTime")]
     public DateTime? StartedDateTime { get; set; }
@@ -38,5 +38,5 @@ internal class IdentityGovernanceTaskProcessingResultModel
     public UserModel? Subject { get; set; }
 
     [JsonPropertyName("task")]
-    public TaskModel? Task { get; set; }
+    public IdentityGovernanceTaskModel? Task { get; set; }
 }

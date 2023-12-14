@@ -1,0 +1,65 @@
+{
+ "name": "FluidRelayServerProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fluidRelayEndpoints",
+   "name": "FluidRelayEndpoints",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FluidRelayEndpoints"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frsTenantId",
+   "name": "FrsTenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storagesku",
+   "name": "Storagesku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageSKU"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

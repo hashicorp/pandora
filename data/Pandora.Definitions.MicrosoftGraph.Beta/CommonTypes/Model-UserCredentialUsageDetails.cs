@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserCredentialUsageDetailsModel
 {
     [JsonPropertyName("authMethod")]
-    public UsageAuthMethodConstant? AuthMethod { get; set; }
+    public UserCredentialUsageDetailsAuthMethodConstant? AuthMethod { get; set; }
 
     [JsonPropertyName("eventDateTime")]
     public DateTime? EventDateTime { get; set; }
@@ -23,7 +23,7 @@ internal class UserCredentialUsageDetailsModel
     public string? FailureReason { get; set; }
 
     [JsonPropertyName("feature")]
-    public FeatureTypeConstant? Feature { get; set; }
+    public UserCredentialUsageDetailsFeatureConstant? Feature { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -17,5 +17,5 @@ internal class WindowsUpdatesUpdateManagementEnrollmentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("updateCategory")]
-    public UpdateCategoryConstant? UpdateCategory { get; set; }
+    public WindowsUpdatesUpdateManagementEnrollmentUpdateCategoryConstant? UpdateCategory { get; set; }
 }

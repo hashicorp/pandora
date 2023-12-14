@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SensitivityLabelModel
 {
     [JsonPropertyName("applicableTo")]
-    public SensitivityLabelTargetConstant? ApplicableTo { get; set; }
+    public SensitivityLabelApplicableToConstant? ApplicableTo { get; set; }
 
     [JsonPropertyName("applicationMode")]
-    public ApplicationModeConstant? ApplicationMode { get; set; }
+    public SensitivityLabelApplicationModeConstant? ApplicationMode { get; set; }
 
     [JsonPropertyName("assignedPolicies")]
     public List<LabelPolicyModel>? AssignedPolicies { get; set; }

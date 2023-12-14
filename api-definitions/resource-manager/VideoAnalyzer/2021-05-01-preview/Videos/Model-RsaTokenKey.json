@@ -1,0 +1,44 @@
+{
+ "name": "RsaTokenKey",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alg",
+   "name": "Alg",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessPolicyRsaAlgo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "e",
+   "name": "E",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "n",
+   "name": "N",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "TokenKey",
+ "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.RsaTokenKey",
+ "typeHintIn": "Type"
+}

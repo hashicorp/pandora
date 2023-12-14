@@ -20,7 +20,7 @@ internal class SharedPCConfigurationModel
     public bool? AllowLocalStorage { get; set; }
 
     [JsonPropertyName("allowedAccounts")]
-    public SharedPCAllowedAccountTypeConstant? AllowedAccounts { get; set; }
+    public SharedPCConfigurationAllowedAccountsConstant? AllowedAccounts { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
@@ -68,7 +68,7 @@ internal class SharedPCConfigurationModel
     public bool? Enabled { get; set; }
 
     [JsonPropertyName("fastFirstSignIn")]
-    public EnablementConstant? FastFirstSignIn { get; set; }
+    public SharedPCConfigurationFastFirstSignInConstant? FastFirstSignIn { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -89,7 +89,7 @@ internal class SharedPCConfigurationModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("localStorage")]
-    public EnablementConstant? LocalStorage { get; set; }
+    public SharedPCConfigurationLocalStorageConstant? LocalStorage { get; set; }
 
     [JsonPropertyName("maintenanceStartTime")]
     public DateTime? MaintenanceStartTime { get; set; }
@@ -101,16 +101,16 @@ internal class SharedPCConfigurationModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("setAccountManager")]
-    public EnablementConstant? SetAccountManager { get; set; }
+    public SharedPCConfigurationSetAccountManagerConstant? SetAccountManager { get; set; }
 
     [JsonPropertyName("setEduPolicies")]
-    public EnablementConstant? SetEduPolicies { get; set; }
+    public SharedPCConfigurationSetEduPoliciesConstant? SetEduPolicies { get; set; }
 
     [JsonPropertyName("setPowerPolicies")]
-    public EnablementConstant? SetPowerPolicies { get; set; }
+    public SharedPCConfigurationSetPowerPoliciesConstant? SetPowerPolicies { get; set; }
 
     [JsonPropertyName("signInOnResume")]
-    public EnablementConstant? SignInOnResume { get; set; }
+    public SharedPCConfigurationSignInOnResumeConstant? SignInOnResume { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }

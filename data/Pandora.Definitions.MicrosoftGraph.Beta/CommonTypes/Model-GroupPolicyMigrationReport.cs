@@ -38,7 +38,7 @@ internal class GroupPolicyMigrationReportModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("migrationReadiness")]
-    public GroupPolicyMigrationReadinessConstant? MigrationReadiness { get; set; }
+    public GroupPolicyMigrationReportMigrationReadinessConstant? MigrationReadiness { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

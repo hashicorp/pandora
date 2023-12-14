@@ -20,7 +20,5 @@ internal class CreateDnsServiceOperation : Pandora.Definitions.Operations.PutOpe
 
     public override ResourceID? ResourceId() => new DnsServiceId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsServiceModel);
-
 
 }

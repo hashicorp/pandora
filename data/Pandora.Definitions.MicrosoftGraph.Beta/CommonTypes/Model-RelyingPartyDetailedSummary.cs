@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RelyingPartyDetailedSummaryModel
 {
     [JsonPropertyName("failedSignInCount")]
-    public long? FailedSignInCount { get; set; }
+    public int? FailedSignInCount { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("migrationStatus")]
-    public MigrationStatusConstant? MigrationStatus { get; set; }
+    public RelyingPartyDetailedSummaryMigrationStatusConstant? MigrationStatus { get; set; }
 
     [JsonPropertyName("migrationValidationDetails")]
     public List<KeyValuePairModel>? MigrationValidationDetails { get; set; }
@@ -41,11 +41,11 @@ internal class RelyingPartyDetailedSummaryModel
     public string? ServiceId { get; set; }
 
     [JsonPropertyName("successfulSignInCount")]
-    public long? SuccessfulSignInCount { get; set; }
+    public int? SuccessfulSignInCount { get; set; }
 
     [JsonPropertyName("totalSignInCount")]
-    public long? TotalSignInCount { get; set; }
+    public int? TotalSignInCount { get; set; }
 
     [JsonPropertyName("uniqueUserCount")]
-    public long? UniqueUserCount { get; set; }
+    public int? UniqueUserCount { get; set; }
 }

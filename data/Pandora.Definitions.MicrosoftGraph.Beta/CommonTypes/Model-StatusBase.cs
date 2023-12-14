@@ -17,5 +17,5 @@ internal class StatusBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ProvisioningResultConstant? Status { get; set; }
+    public StatusBaseStatusConstant? Status { get; set; }
 }

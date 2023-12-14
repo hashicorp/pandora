@@ -20,7 +20,5 @@ internal class AccountsCreateAndUpdateOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(AccountResourceModel);
-
 
 }

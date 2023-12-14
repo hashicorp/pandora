@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesScheduleSettingsModel
 {
     [JsonPropertyName("gradualRollout")]
-    public GradualRolloutSettingsModel? GradualRollout { get; set; }
+    public WindowsUpdatesGradualRolloutSettingsModel? GradualRollout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

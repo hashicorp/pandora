@@ -1,0 +1,44 @@
+{
+ "name": "SelectVideoTrackByAttribute",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "attribute",
+   "name": "Attribute",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrackAttribute"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AttributeFilter"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filterValue",
+   "name": "FilterValue",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "TrackDescriptor",
+ "discriminatedTypeValue": "#Microsoft.Media.SelectVideoTrackByAttribute",
+ "typeHintIn": "OdataType"
+}

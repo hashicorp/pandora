@@ -26,5 +26,5 @@ internal class CommsOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public CommsOperationStatusConstant? Status { get; set; }
 }

@@ -1,0 +1,36 @@
+{
+ "name": "VMVMPlacementPolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "affinityType",
+   "name": "AffinityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AffinityType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmMembers",
+   "name": "VMMembers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "PlacementPolicyProperties",
+ "discriminatedTypeValue": "VmVm",
+ "typeHintIn": "Type"
+}

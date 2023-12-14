@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeliveryOptimizationMaxCacheSizeAbsoluteModel
 {
     [JsonPropertyName("maximumCacheSizeInGigabytes")]
-    public long? MaximumCacheSizeInGigabytes { get; set; }
+    public int? MaximumCacheSizeInGigabytes { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

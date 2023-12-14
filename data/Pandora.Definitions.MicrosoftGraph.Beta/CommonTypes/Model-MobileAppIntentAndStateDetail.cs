@@ -23,10 +23,10 @@ internal class MobileAppIntentAndStateDetailModel
     public string? DisplayVersion { get; set; }
 
     [JsonPropertyName("installState")]
-    public ResultantAppStateConstant? InstallState { get; set; }
+    public MobileAppIntentAndStateDetailInstallStateConstant? InstallState { get; set; }
 
     [JsonPropertyName("mobileAppIntent")]
-    public MobileAppIntentConstant? MobileAppIntent { get; set; }
+    public MobileAppIntentAndStateDetailMobileAppIntentConstant? MobileAppIntent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -32,7 +32,7 @@ internal class TeamsAsyncOperationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationType")]
-    public TeamsAsyncOperationTypeConstant? OperationType { get; set; }
+    public TeamsAsyncOperationOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("status")]
     public TeamsAsyncOperationStatusConstant? Status { get; set; }

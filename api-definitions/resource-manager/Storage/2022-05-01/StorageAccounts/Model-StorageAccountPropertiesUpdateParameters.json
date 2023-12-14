@@ -1,0 +1,257 @@
+{
+ "name": "StorageAccountPropertiesUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accessTier",
+   "name": "AccessTier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessTier"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowBlobPublicAccess",
+   "name": "AllowBlobPublicAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowCrossTenantReplication",
+   "name": "AllowCrossTenantReplication",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowSharedKeyAccess",
+   "name": "AllowSharedKeyAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedCopyScope",
+   "name": "AllowedCopyScope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AllowedCopyScope"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureFilesIdentityBasedAuthentication",
+   "name": "AzureFilesIdentityBasedAuthentication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureFilesIdentityBasedAuthentication"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customDomain",
+   "name": "CustomDomain",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomDomain"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultToOAuthAuthentication",
+   "name": "DefaultToOAuthAuthentication",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsEndpointType",
+   "name": "DnsEndpointType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DnsEndpointType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Encryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "immutableStorageWithVersioning",
+   "name": "ImmutableStorageWithVersioning",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImmutableStorageAccount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isLocalUserEnabled",
+   "name": "IsLocalUserEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isSftpEnabled",
+   "name": "IsSftpEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyPolicy",
+   "name": "KeyPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "largeFileSharesState",
+   "name": "LargeFileSharesState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LargeFileSharesState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimumTlsVersion",
+   "name": "MinimumTlsVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MinimumTlsVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkAcls",
+   "name": "NetworkAcls",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkRuleSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingPreference",
+   "name": "RoutingPreference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingPreference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sasPolicy",
+   "name": "SasPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SasPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportsHttpsTrafficOnly",
+   "name": "SupportsHTTPSTrafficOnly",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

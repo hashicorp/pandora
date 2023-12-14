@@ -20,11 +20,11 @@ internal class IdentityGovernanceCustomTaskExtensionCalloutDataModel
     public UserModel? Subject { get; set; }
 
     [JsonPropertyName("task")]
-    public TaskModel? Task { get; set; }
+    public IdentityGovernanceTaskModel? Task { get; set; }
 
     [JsonPropertyName("taskProcessingresult")]
-    public TaskProcessingResultModel? TaskProcessingresult { get; set; }
+    public IdentityGovernanceTaskProcessingResultModel? TaskProcessingresult { get; set; }
 
     [JsonPropertyName("workflow")]
-    public WorkflowModel? Workflow { get; set; }
+    public IdentityGovernanceWorkflowModel? Workflow { get; set; }
 }

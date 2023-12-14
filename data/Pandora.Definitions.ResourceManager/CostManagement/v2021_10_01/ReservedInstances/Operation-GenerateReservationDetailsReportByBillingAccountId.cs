@@ -26,8 +26,6 @@ internal class GenerateReservationDetailsReportByBillingAccountIdOperation : Pan
 
     public override ResourceID? ResourceId() => new BillingAccountId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusModel);
-
     public override Type? OptionsObject() => typeof(GenerateReservationDetailsReportByBillingAccountIdOperation.GenerateReservationDetailsReportByBillingAccountIdOptions);
 
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateReservationDetailsReport";

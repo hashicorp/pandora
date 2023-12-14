@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SignInFrequencySessionControlModel
 {
     [JsonPropertyName("authenticationType")]
-    public SignInFrequencyAuthenticationTypeConstant? AuthenticationType { get; set; }
+    public SignInFrequencySessionControlAuthenticationTypeConstant? AuthenticationType { get; set; }
 
     [JsonPropertyName("frequencyInterval")]
-    public SignInFrequencyIntervalConstant? FrequencyInterval { get; set; }
+    public SignInFrequencySessionControlFrequencyIntervalConstant? FrequencyInterval { get; set; }
 
     [JsonPropertyName("isEnabled")]
     public bool? IsEnabled { get; set; }
@@ -26,7 +26,7 @@ internal class SignInFrequencySessionControlModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public SigninFrequencyTypeConstant? Type { get; set; }
+    public SignInFrequencySessionControlTypeConstant? Type { get; set; }
 
     [JsonPropertyName("value")]
     public int? Value { get; set; }

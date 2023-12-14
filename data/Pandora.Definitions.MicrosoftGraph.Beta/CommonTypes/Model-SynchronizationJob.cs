@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class SynchronizationJobModel
 {
+    [JsonPropertyName("bulkUpload")]
+    public BulkUploadModel? BulkUpload { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

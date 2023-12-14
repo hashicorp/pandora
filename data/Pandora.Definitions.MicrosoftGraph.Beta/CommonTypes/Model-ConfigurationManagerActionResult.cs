@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ConfigurationManagerActionResultModel
 {
     [JsonPropertyName("actionDeliveryStatus")]
-    public ConfigurationManagerActionDeliveryStatusConstant? ActionDeliveryStatus { get; set; }
+    public ConfigurationManagerActionResultActionDeliveryStatusConstant? ActionDeliveryStatus { get; set; }
 
     [JsonPropertyName("actionName")]
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public ConfigurationManagerActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("errorCode")]
     public int? ErrorCode { get; set; }

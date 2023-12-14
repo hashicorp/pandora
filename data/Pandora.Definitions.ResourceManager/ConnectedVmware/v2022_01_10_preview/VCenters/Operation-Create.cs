@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new VCenterId();
 
-    public override Type? ResponseObject() => typeof(VCenterModel);
-
 
 }

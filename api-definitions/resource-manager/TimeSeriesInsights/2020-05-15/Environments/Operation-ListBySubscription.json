@@ -1,0 +1,15 @@
+{
+ "name": "ListBySubscription",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EnvironmentListResponse"
+ },
+ "uriSuffix": "/providers/Microsoft.TimeSeriesInsights/environments"
+}

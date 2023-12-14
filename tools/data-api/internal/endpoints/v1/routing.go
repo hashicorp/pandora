@@ -21,35 +21,43 @@ type Options struct {
 	UsesCommonTypes bool
 }
 
-func Router(router chi.Router, options Options) {
+type Api struct {
+	servicesRepository repositories.ServicesRepository
+}
+
+func Router(router chi.Router, options Options, servicesRepository repositories.ServicesRepository) {
+	api := Api{
+		servicesRepository: servicesRepository,
+	}
+
 	router.Use(optionsContext(options))
 
-	router.Get("/commonTypes", commonTypes)
+	router.Get("/commonTypes", api.commonTypes)
 
 	router.Route("/services", func(r chi.Router) {
 		r.Route("/{serviceName}", func(r chi.Router) {
-			r.Use(serviceRouteContext)
+			r.Use(api.serviceRouteContext)
 
-			r.Get("/", serviceDetails)
+			r.Get("/", api.serviceDetails)
 
 			r.Route("/{serviceApiVersion}", func(r chi.Router) {
 				r.Use(serviceApiVersionRouteContext)
-				r.Get("/", detailsForApiVersion)
+				r.Get("/", api.detailsForApiVersion)
 
 				r.Route("/{resourceName}", func(r chi.Router) {
 					r.Use(apiResourceNameRouteContext)
 
-					r.Get("/operations", operationsForApiResource)
-					r.Get("/schema", schemaForApiResource)
+					r.Get("/operations", api.operationsForApiResource)
+					r.Get("/schema", api.schemaForApiResource)
 				})
 			})
 
-			r.Get("/terraform", terraform)
+			r.Get("/terraform", api.terraform)
 		})
 		r.NotFound(func(w http.ResponseWriter, r *http.Request) {
 			w.WriteHeader(http.StatusNotFound)
 		})
-		r.Get("/", services)
+		r.Get("/", api.services)
 	})
 }
 
@@ -62,7 +70,7 @@ func optionsContext(options Options) func(http.Handler) http.Handler {
 	}
 }
 
-func serviceRouteContext(next http.Handler) http.Handler {
+func (api Api) serviceRouteContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		opts, ok := r.Context().Value("options").(Options)
 		if !ok {
@@ -76,7 +84,7 @@ func serviceRouteContext(next http.Handler) http.Handler {
 			http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 		}
 
-		service, err := servicesRepository.GetByName(serviceName, opts.ServiceType)
+		service, err := api.servicesRepository.GetByName(serviceName, opts.ServiceType)
 		if err != nil {
 			internalServerError(w, fmt.Errorf("retrieving service %q: %+v", serviceName, err))
 			return

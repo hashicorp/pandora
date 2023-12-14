@@ -13,13 +13,13 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateSchemaDirectoryOperation(),
-        new DeleteSchemaDirectoryOperation(),
-        new DiscoverSchemaDirectoryOperation(),
-        new GetSchemaDirectoriesCountOperation(),
-        new GetSchemaDirectoryOperation(),
-        new ListSchemaDirectoriesOperation(),
-        new UpdateSchemaDirectoryOperation()
+        new CreateServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryOperation(),
+        new DeleteServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryByIdOperation(),
+        new DiscoverServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryByIdOperation(),
+        new GetServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryCountOperation(),
+        new ListServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoriesOperation(),
+        new UpdateServicePrincipalByIdSynchronizationTemplateByIdSchemaDirectoryByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

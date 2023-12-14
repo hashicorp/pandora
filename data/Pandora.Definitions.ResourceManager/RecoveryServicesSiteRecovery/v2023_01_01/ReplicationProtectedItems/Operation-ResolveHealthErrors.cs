@@ -26,8 +26,6 @@ internal class ResolveHealthErrorsOperation : Pandora.Definitions.Operations.Pos
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/resolveHealthErrors";
 
 

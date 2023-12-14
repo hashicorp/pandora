@@ -47,5 +47,5 @@ internal class UnifiedRoleManagementAlertDefinitionModel
     public string? SecurityImpact { get; set; }
 
     [JsonPropertyName("severityLevel")]
-    public AlertSeverityConstant? SeverityLevel { get; set; }
+    public UnifiedRoleManagementAlertDefinitionSeverityLevelConstant? SeverityLevel { get; set; }
 }

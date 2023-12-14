@@ -20,7 +20,7 @@ internal class ManagedTenantsManagementActionTenantDeploymentStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("statuses")]
-    public List<ManagementActionDeploymentStatusModel>? Statuses { get; set; }
+    public List<ManagedTenantsManagementActionDeploymentStatusModel>? Statuses { get; set; }
 
     [JsonPropertyName("tenantGroupId")]
     public string? TenantGroupId { get; set; }

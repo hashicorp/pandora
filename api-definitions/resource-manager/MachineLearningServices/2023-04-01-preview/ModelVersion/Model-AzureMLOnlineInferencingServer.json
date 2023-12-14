@@ -1,0 +1,20 @@
+{
+ "name": "AzureMLOnlineInferencingServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "codeConfiguration",
+   "name": "CodeConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CodeConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "InferencingServer",
+ "discriminatedTypeValue": "AzureMLOnline",
+ "typeHintIn": "ServerType"
+}

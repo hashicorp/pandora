@@ -20,5 +20,5 @@ internal class LobbyBypassSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("scope")]
-    public LobbyBypassScopeConstant? Scope { get; set; }
+    public LobbyBypassSettingsScopeConstant? Scope { get; set; }
 }

@@ -1,0 +1,81 @@
+{
+ "name": "PlatformConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureStackEdgeDevice",
+   "name": "AzureStackEdgeDevice",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureStackEdgeDeviceResourceId"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureStackEdgeDevices",
+   "name": "AzureStackEdgeDevices",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AzureStackEdgeDeviceResourceId"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureStackHciCluster",
+   "name": "AzureStackHciCluster",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureStackHCIClusterResourceId"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectedCluster",
+   "name": "ConnectedCluster",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectedClusterResourceId"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customLocation",
+   "name": "CustomLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomLocationResourceId"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlatformType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

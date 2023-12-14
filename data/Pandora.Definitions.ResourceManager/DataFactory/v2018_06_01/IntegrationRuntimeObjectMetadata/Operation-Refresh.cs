@@ -26,8 +26,6 @@ internal class RefreshOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new IntegrationRuntimeId();
 
-    public override Type? ResponseObject() => typeof(SsisObjectMetadataStatusResponseModel);
-
     public override string? UriSuffix() => "/refreshObjectMetadata";
 
 

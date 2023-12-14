@@ -26,5 +26,5 @@ internal class AuthenticationMethodsRegistrationCampaignModel
     public int? SnoozeDurationInDays { get; set; }
 
     [JsonPropertyName("state")]
-    public AdvancedConfigStateConstant? State { get; set; }
+    public AuthenticationMethodsRegistrationCampaignStateConstant? State { get; set; }
 }

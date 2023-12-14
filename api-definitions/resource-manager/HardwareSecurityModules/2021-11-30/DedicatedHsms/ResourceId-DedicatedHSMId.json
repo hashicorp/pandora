@@ -1,0 +1,43 @@
+{
+ "name": "DedicatedHSMId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HardwareSecurityModules/dedicatedHSMs/{dedicatedHSMName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftHardwareSecurityModules",
+   "type": "ResourceProvider",
+   "value": "Microsoft.HardwareSecurityModules"
+  },
+  {
+   "name": "staticDedicatedHSMs",
+   "type": "Static",
+   "value": "dedicatedHSMs"
+  },
+  {
+   "name": "dedicatedHSMName",
+   "type": "UserSpecified"
+  }
+ ]
+}

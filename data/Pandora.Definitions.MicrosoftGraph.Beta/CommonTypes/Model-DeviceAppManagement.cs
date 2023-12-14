@@ -65,7 +65,7 @@ internal class DeviceAppManagementModel
     public DateTime? MicrosoftStoreForBusinessLastSuccessfulSyncDateTime { get; set; }
 
     [JsonPropertyName("microsoftStoreForBusinessPortalSelection")]
-    public MicrosoftStoreForBusinessPortalSelectionOptionsConstant? MicrosoftStoreForBusinessPortalSelection { get; set; }
+    public DeviceAppManagementMicrosoftStoreForBusinessPortalSelectionConstant? MicrosoftStoreForBusinessPortalSelection { get; set; }
 
     [JsonPropertyName("mobileAppCategories")]
     public List<MobileAppCategoryModel>? MobileAppCategories { get; set; }

@@ -1,0 +1,20 @@
+{
+ "name": "ServicePrincipalAuthTypeWorkspaceConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceConnectionServicePrincipal"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+ "discriminatedTypeValue": "ServicePrincipal",
+ "typeHintIn": "AuthType"
+}

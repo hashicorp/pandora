@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagedTenantAlertLogModel
 {
     [JsonPropertyName("alert")]
-    public ManagedTenantAlertModel? Alert { get; set; }
+    public ManagedTenantsManagedTenantAlertModel? Alert { get; set; }
 
     [JsonPropertyName("content")]
-    public AlertLogContentModel? Content { get; set; }
+    public ManagedTenantsAlertLogContentModel? Content { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }

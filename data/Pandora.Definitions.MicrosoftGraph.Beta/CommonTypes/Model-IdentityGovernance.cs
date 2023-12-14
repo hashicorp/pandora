@@ -23,10 +23,13 @@ internal class IdentityGovernanceModel
     public EntitlementManagementModel? EntitlementManagement { get; set; }
 
     [JsonPropertyName("lifecycleWorkflows")]
-    public LifecycleWorkflowsContainerModel? LifecycleWorkflows { get; set; }
+    public IdentityGovernanceLifecycleWorkflowsContainerModel? LifecycleWorkflows { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("permissionsManagement")]
+    public PermissionsManagementModel? PermissionsManagement { get; set; }
 
     [JsonPropertyName("privilegedAccess")]
     public PrivilegedAccessRootModel? PrivilegedAccess { get; set; }

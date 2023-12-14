@@ -1,0 +1,41 @@
+{
+ "name": "GremlinDatabaseResource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createMode",
+   "name": "CreateMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreateMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "id",
+   "name": "Id",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restoreParameters",
+   "name": "RestoreParameters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestoreParametersBase"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

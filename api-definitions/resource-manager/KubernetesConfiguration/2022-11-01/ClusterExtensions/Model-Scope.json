@@ -1,0 +1,29 @@
+{
+ "name": "Scope",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cluster",
+   "name": "Cluster",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScopeCluster"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "namespace",
+   "name": "Namespace",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScopeNamespace"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

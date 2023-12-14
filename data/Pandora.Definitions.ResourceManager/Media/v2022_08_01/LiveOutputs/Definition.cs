@@ -18,7 +18,6 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new GetOperation(),
         new ListOperation(),
-        new OperationLocationOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {

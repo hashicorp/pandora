@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class SharePointOneDriveOptionsModel
 {
     [JsonPropertyName("includeContent")]
-    public SearchContentConstant? IncludeContent { get; set; }
+    public SharePointOneDriveOptionsIncludeContentConstant? IncludeContent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

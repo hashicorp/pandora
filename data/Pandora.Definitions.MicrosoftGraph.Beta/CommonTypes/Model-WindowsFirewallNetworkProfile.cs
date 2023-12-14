@@ -26,7 +26,7 @@ internal class WindowsFirewallNetworkProfileModel
     public bool? ConnectionSecurityRulesFromGroupPolicyNotMerged { get; set; }
 
     [JsonPropertyName("firewallEnabled")]
-    public StateManagementSettingConstant? FirewallEnabled { get; set; }
+    public WindowsFirewallNetworkProfileFirewallEnabledConstant? FirewallEnabled { get; set; }
 
     [JsonPropertyName("globalPortRulesFromGroupPolicyMerged")]
     public bool? GlobalPortRulesFromGroupPolicyMerged { get; set; }

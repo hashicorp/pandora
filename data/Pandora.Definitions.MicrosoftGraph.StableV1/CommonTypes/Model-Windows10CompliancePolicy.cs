@@ -89,7 +89,7 @@ internal class Windows10CompliancePolicyModel
     public bool? PasswordRequiredToUnlockFromIdle { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows10CompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("requireHealthyDeviceReport")]
     public bool? RequireHealthyDeviceReport { get; set; }

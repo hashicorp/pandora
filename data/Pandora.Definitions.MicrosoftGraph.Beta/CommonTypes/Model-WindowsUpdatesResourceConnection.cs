@@ -20,5 +20,5 @@ internal class WindowsUpdatesResourceConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ResourceConnectionStateConstant? State { get; set; }
+    public WindowsUpdatesResourceConnectionStateConstant? State { get; set; }
 }

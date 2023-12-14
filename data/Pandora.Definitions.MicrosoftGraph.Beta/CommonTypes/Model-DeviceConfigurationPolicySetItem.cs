@@ -20,7 +20,7 @@ internal class DeviceConfigurationPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public DeviceConfigurationPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -41,5 +41,5 @@ internal class DeviceConfigurationPolicySetItemModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public DeviceConfigurationPolicySetItemStatusConstant? Status { get; set; }
 }

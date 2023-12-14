@@ -1,0 +1,103 @@
+{
+ "name": "Delete",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "certificate.created",
+   "required": false,
+   "field": "CertificateCreated",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.hasPrivateKey",
+   "required": false,
+   "field": "CertificateHasPrivateKey",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.isVerified",
+   "required": false,
+   "field": "CertificateIsVerified",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.lastUpdated",
+   "required": false,
+   "field": "CertificateLastUpdated",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.name",
+   "required": false,
+   "field": "CertificateName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.nonce",
+   "required": false,
+   "field": "CertificateNonce",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.purpose",
+   "required": false,
+   "field": "CertificatePurpose",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "CertificatePurpose"
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "certificate.rawBytes",
+   "required": false,
+   "field": "CertificateRawBytes",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "headerName": "If-Match",
+   "optional": false,
+   "required": true,
+   "field": "IfMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "CertificateId"
+}

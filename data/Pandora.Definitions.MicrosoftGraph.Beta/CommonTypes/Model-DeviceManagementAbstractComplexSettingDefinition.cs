@@ -53,5 +53,5 @@ internal class DeviceManagementAbstractComplexSettingDefinitionModel
     public string? PlaceholderText { get; set; }
 
     [JsonPropertyName("valueType")]
-    public DeviceManangementIntentValueTypeConstant? ValueType { get; set; }
+    public DeviceManagementAbstractComplexSettingDefinitionValueTypeConstant? ValueType { get; set; }
 }

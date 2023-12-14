@@ -17,7 +17,7 @@ internal class FormattedContentModel
     public string? Content { get; set; }
 
     [JsonPropertyName("format")]
-    public ContentFormatConstant? Format { get; set; }
+    public FormattedContentFormatConstant? Format { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -41,5 +41,5 @@ internal class ExternalConnectionModel
     public SchemaModel? Schema { get; set; }
 
     [JsonPropertyName("state")]
-    public ConnectionStateConstant? State { get; set; }
+    public ExternalConnectionStateConstant? State { get; set; }
 }

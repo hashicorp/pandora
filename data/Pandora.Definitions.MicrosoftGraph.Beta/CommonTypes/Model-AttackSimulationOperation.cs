@@ -32,7 +32,7 @@ internal class AttackSimulationOperationModel
     public string? ResourceLocation { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public AttackSimulationOperationStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusDetail")]
     public string? StatusDetail { get; set; }

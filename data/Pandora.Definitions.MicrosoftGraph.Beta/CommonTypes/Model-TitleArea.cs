@@ -23,7 +23,7 @@ internal class TitleAreaModel
     public string? ImageWebUrl { get; set; }
 
     [JsonPropertyName("layout")]
-    public TitleAreaLayoutTypeConstant? Layout { get; set; }
+    public TitleAreaLayoutConstant? Layout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -44,5 +44,5 @@ internal class TitleAreaModel
     public string? TextAboveTitle { get; set; }
 
     [JsonPropertyName("textAlignment")]
-    public TitleAreaTextAlignmentTypeConstant? TextAlignment { get; set; }
+    public TitleAreaTextAlignmentConstant? TextAlignment { get; set; }
 }

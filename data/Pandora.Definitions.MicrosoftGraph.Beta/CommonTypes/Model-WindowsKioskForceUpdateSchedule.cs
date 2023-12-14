@@ -17,13 +17,13 @@ internal class WindowsKioskForceUpdateScheduleModel
     public int? DayofMonth { get; set; }
 
     [JsonPropertyName("dayofWeek")]
-    public DayOfWeekConstant? DayofWeek { get; set; }
+    public WindowsKioskForceUpdateScheduleDayofWeekConstant? DayofWeek { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("recurrence")]
-    public Windows10AppsUpdateRecurrenceConstant? Recurrence { get; set; }
+    public WindowsKioskForceUpdateScheduleRecurrenceConstant? Recurrence { get; set; }
 
     [JsonPropertyName("runImmediatelyIfAfterStartDateTime")]
     public bool? RunImmediatelyIfAfterStartDateTime { get; set; }

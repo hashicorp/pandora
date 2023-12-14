@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ConditionalAccessFilterModel
 {
     [JsonPropertyName("mode")]
-    public FilterModeConstant? Mode { get; set; }
+    public ConditionalAccessFilterModeConstant? Mode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

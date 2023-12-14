@@ -29,10 +29,10 @@ internal class Win32LobAppRegistryRuleModel
     public Win32LobAppRegistryRuleOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppRuleOperatorConstant? Operator { get; set; }
+    public Win32LobAppRegistryRuleOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public Win32LobAppRuleTypeConstant? RuleType { get; set; }
+    public Win32LobAppRegistryRuleRuleTypeConstant? RuleType { get; set; }
 
     [JsonPropertyName("valueName")]
     public string? ValueName { get; set; }

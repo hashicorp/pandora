@@ -1,0 +1,53 @@
+{
+ "name": "DiskEncryptionSetUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeKey",
+   "name": "ActiveKey",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyForDiskEncryptionSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionType",
+   "name": "EncryptionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskEncryptionSetType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "federatedClientId",
+   "name": "FederatedClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rotationToLatestKeyVersionEnabled",
+   "name": "RotationToLatestKeyVersionEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

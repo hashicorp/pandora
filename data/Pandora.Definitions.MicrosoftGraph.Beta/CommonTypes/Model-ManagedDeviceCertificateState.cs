@@ -26,7 +26,7 @@ internal class ManagedDeviceCertificateStateModel
     public DateTime? CertificateIssuanceDateTime { get; set; }
 
     [JsonPropertyName("certificateIssuanceState")]
-    public CertificateIssuanceStatesConstant? CertificateIssuanceState { get; set; }
+    public ManagedDeviceCertificateStateCertificateIssuanceStateConstant? CertificateIssuanceState { get; set; }
 
     [JsonPropertyName("certificateIssuer")]
     public string? CertificateIssuer { get; set; }
@@ -35,10 +35,10 @@ internal class ManagedDeviceCertificateStateModel
     public int? CertificateKeyLength { get; set; }
 
     [JsonPropertyName("certificateKeyStorageProvider")]
-    public KeyStorageProviderOptionConstant? CertificateKeyStorageProvider { get; set; }
+    public ManagedDeviceCertificateStateCertificateKeyStorageProviderConstant? CertificateKeyStorageProvider { get; set; }
 
     [JsonPropertyName("certificateKeyUsage")]
-    public KeyUsagesConstant? CertificateKeyUsage { get; set; }
+    public ManagedDeviceCertificateStateCertificateKeyUsageConstant? CertificateKeyUsage { get; set; }
 
     [JsonPropertyName("certificateLastIssuanceStateChangedDateTime")]
     public DateTime? CertificateLastIssuanceStateChangedDateTime { get; set; }
@@ -47,19 +47,19 @@ internal class ManagedDeviceCertificateStateModel
     public string? CertificateProfileDisplayName { get; set; }
 
     [JsonPropertyName("certificateRevokeStatus")]
-    public CertificateRevocationStatusConstant? CertificateRevokeStatus { get; set; }
+    public ManagedDeviceCertificateStateCertificateRevokeStatusConstant? CertificateRevokeStatus { get; set; }
 
     [JsonPropertyName("certificateSerialNumber")]
     public string? CertificateSerialNumber { get; set; }
 
     [JsonPropertyName("certificateSubjectAlternativeNameFormat")]
-    public SubjectAlternativeNameTypeConstant? CertificateSubjectAlternativeNameFormat { get; set; }
+    public ManagedDeviceCertificateStateCertificateSubjectAlternativeNameFormatConstant? CertificateSubjectAlternativeNameFormat { get; set; }
 
     [JsonPropertyName("certificateSubjectAlternativeNameFormatString")]
     public string? CertificateSubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("certificateSubjectNameFormat")]
-    public SubjectNameFormatConstant? CertificateSubjectNameFormat { get; set; }
+    public ManagedDeviceCertificateStateCertificateSubjectNameFormatConstant? CertificateSubjectNameFormat { get; set; }
 
     [JsonPropertyName("certificateSubjectNameFormatString")]
     public string? CertificateSubjectNameFormatString { get; set; }
@@ -71,13 +71,13 @@ internal class ManagedDeviceCertificateStateModel
     public int? CertificateValidityPeriod { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodUnits")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodUnits { get; set; }
+    public ManagedDeviceCertificateStateCertificateValidityPeriodUnitsConstant? CertificateValidityPeriodUnits { get; set; }
 
     [JsonPropertyName("deviceDisplayName")]
     public string? DeviceDisplayName { get; set; }
 
     [JsonPropertyName("devicePlatform")]
-    public DevicePlatformTypeConstant? DevicePlatform { get; set; }
+    public ManagedDeviceCertificateStateDevicePlatformConstant? DevicePlatform { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -17,7 +17,7 @@ internal class LocateDeviceActionResultModel
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public LocateDeviceActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("deviceLocation")]
     public DeviceGeoLocationModel? DeviceLocation { get; set; }

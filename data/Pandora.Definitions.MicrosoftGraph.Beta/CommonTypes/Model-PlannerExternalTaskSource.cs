@@ -17,10 +17,10 @@ internal class PlannerExternalTaskSourceModel
     public string? ContextScenarioId { get; set; }
 
     [JsonPropertyName("creationSourceKind")]
-    public PlannerCreationSourceKindConstant? CreationSourceKind { get; set; }
+    public PlannerExternalTaskSourceCreationSourceKindConstant? CreationSourceKind { get; set; }
 
     [JsonPropertyName("displayLinkType")]
-    public PlannerExternalTaskSourceDisplayTypeConstant? DisplayLinkType { get; set; }
+    public PlannerExternalTaskSourceDisplayLinkTypeConstant? DisplayLinkType { get; set; }
 
     [JsonPropertyName("displayNameSegments")]
     public List<string>? DisplayNameSegments { get; set; }

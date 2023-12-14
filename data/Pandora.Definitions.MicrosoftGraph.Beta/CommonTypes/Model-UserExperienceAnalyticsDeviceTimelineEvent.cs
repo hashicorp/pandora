@@ -23,7 +23,7 @@ internal class UserExperienceAnalyticsDeviceTimelineEventModel
     public string? EventDetails { get; set; }
 
     [JsonPropertyName("eventLevel")]
-    public DeviceEventLevelConstant? EventLevel { get; set; }
+    public UserExperienceAnalyticsDeviceTimelineEventEventLevelConstant? EventLevel { get; set; }
 
     [JsonPropertyName("eventName")]
     public string? EventName { get; set; }

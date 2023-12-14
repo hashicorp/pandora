@@ -148,7 +148,8 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	}
 
 	// first get the object definition
-	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, result)
+	parsingModel := false
+	objectDefinition, nestedResult, err := d.parseObjectDefinition(modelName, propertyName, &value, result, parsingModel)
 	if err != nil {
 		return nil, nil, fmt.Errorf("parsing object definition: %+v", err)
 	}
@@ -386,8 +387,11 @@ func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.
 
 		// check that there's at least one implementation of this type - otherwise this this isn't a discriminated type
 		// but bad data we should ignore
-		implementations := d.findModelNamesWhichImplement(modelName)
-		hasAtLeastOneImplementation := len(implementations) > 0
+		implementations, err := d.findModelNamesWhichImplement(modelName)
+		if err != nil {
+			return nil, fmt.Errorf("finding models which implement %q: %+v", modelName, err)
+		}
+		hasAtLeastOneImplementation := len(*implementations) > 0
 		if !hasAtLeastOneImplementation {
 			details.TypeHintIn = nil
 		}
@@ -448,7 +452,13 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 	return nil, nil, nil
 }
 
-func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string, input *spec.Schema, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
+// if `inputForModel` is false, it means the `input` schema cannot be used to parse the model of `modelName`
+func (d SwaggerDefinition) parseObjectDefinition(
+	modelName, propertyName string,
+	input *spec.Schema,
+	known internal.ParseResult,
+	parsingModel bool,
+) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := internal.ParseResult{
@@ -506,7 +516,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		}
 
 		// then call ourselves to work out what to do with it
-		objectDefinition, nestedResult, err := d.parseObjectDefinition(*objectName, propertyName, topLevelObject, knownIncludingPlaceholder)
+		objectDefinition, nestedResult, err := d.parseObjectDefinition(*objectName, propertyName, topLevelObject, knownIncludingPlaceholder, true)
 		if err != nil {
 			return nil, nil, err
 		}
@@ -516,18 +526,18 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 		return objectDefinition, nestedResult, nil
 	}
 
-	// if it's an inlined model, pull it out and return that
-	// note: some models can just be references to other models
+	// however we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
 		if len(input.Properties) == 0 && len(input.AllOf) == 1 {
 			inheritedModel := input.AllOf[0]
-			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result)
+			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
 		}
 
-		// check for / avoid circular references
-		if _, ok := result.Models[modelName]; !ok {
+		// check for / avoid circular references,
+		// however, we should only do this when we're parsing a model (`parsingModel`) directly rather than when parsing a model from a field - and only if we haven't already parsed this model
+		if _, ok := result.Models[modelName]; !ok && parsingModel {
 			nestedResult, err := d.parseModel(modelName, *input)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing object from inlined model %q: %+v", modelName, err)
@@ -565,7 +575,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			innerModelName = input.AdditionalProperties.Schema.Title
 		}
 
-		nestedItem, nestedResult, err := d.parseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result)
+		nestedItem, nestedResult, err := d.parseObjectDefinition(innerModelName, propertyName, input.AdditionalProperties.Schema, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for dictionary: %+v", err)
 		}
@@ -588,7 +598,7 @@ func (d SwaggerDefinition) parseObjectDefinition(modelName, propertyName string,
 			inlinedName = fmt.Sprintf("%s%sInlined", cleanup.NormalizeName(modelName), cleanup.NormalizeName(propertyName))
 		}
 
-		nestedItem, nestedResult, err := d.parseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result)
+		nestedItem, nestedResult, err := d.parseObjectDefinition(inlinedName, propertyName, input.Items.Schema, result, true)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing nested item for array: %+v", err)
 		}

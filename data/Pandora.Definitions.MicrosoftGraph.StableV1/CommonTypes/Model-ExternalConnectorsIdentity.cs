@@ -20,5 +20,5 @@ internal class ExternalConnectorsIdentityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public IdentityTypeConstant? Type { get; set; }
+    public ExternalConnectorsIdentityTypeConstant? Type { get; set; }
 }

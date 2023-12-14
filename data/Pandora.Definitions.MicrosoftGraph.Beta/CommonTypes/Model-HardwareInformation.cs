@@ -29,13 +29,13 @@ internal class HardwareInformationModel
     public string? DeviceFullQualifiedDomainName { get; set; }
 
     [JsonPropertyName("deviceGuardLocalSystemAuthorityCredentialGuardState")]
-    public DeviceGuardLocalSystemAuthorityCredentialGuardStateConstant? DeviceGuardLocalSystemAuthorityCredentialGuardState { get; set; }
+    public HardwareInformationDeviceGuardLocalSystemAuthorityCredentialGuardStateConstant? DeviceGuardLocalSystemAuthorityCredentialGuardState { get; set; }
 
     [JsonPropertyName("deviceGuardVirtualizationBasedSecurityHardwareRequirementState")]
-    public DeviceGuardVirtualizationBasedSecurityHardwareRequirementStateConstant? DeviceGuardVirtualizationBasedSecurityHardwareRequirementState { get; set; }
+    public HardwareInformationDeviceGuardVirtualizationBasedSecurityHardwareRequirementStateConstant? DeviceGuardVirtualizationBasedSecurityHardwareRequirementState { get; set; }
 
     [JsonPropertyName("deviceGuardVirtualizationBasedSecurityState")]
-    public DeviceGuardVirtualizationBasedSecurityStateConstant? DeviceGuardVirtualizationBasedSecurityState { get; set; }
+    public HardwareInformationDeviceGuardVirtualizationBasedSecurityStateConstant? DeviceGuardVirtualizationBasedSecurityState { get; set; }
 
     [JsonPropertyName("deviceLicensingLastErrorCode")]
     public int? DeviceLicensingLastErrorCode { get; set; }
@@ -44,13 +44,13 @@ internal class HardwareInformationModel
     public string? DeviceLicensingLastErrorDescription { get; set; }
 
     [JsonPropertyName("deviceLicensingStatus")]
-    public DeviceLicensingStatusConstant? DeviceLicensingStatus { get; set; }
+    public HardwareInformationDeviceLicensingStatusConstant? DeviceLicensingStatus { get; set; }
 
     [JsonPropertyName("esimIdentifier")]
     public string? EsimIdentifier { get; set; }
 
     [JsonPropertyName("freeStorageSpace")]
-    public long? FreeStorageSpace { get; set; }
+    public int? FreeStorageSpace { get; set; }
 
     [JsonPropertyName("imei")]
     public string? Imei { get; set; }
@@ -116,7 +116,7 @@ internal class HardwareInformationModel
     public string? SystemManagementBIOSVersion { get; set; }
 
     [JsonPropertyName("totalStorageSpace")]
-    public long? TotalStorageSpace { get; set; }
+    public int? TotalStorageSpace { get; set; }
 
     [JsonPropertyName("tpmManufacturer")]
     public string? TpmManufacturer { get; set; }

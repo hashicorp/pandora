@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ManagedAppModel
 {
     [JsonPropertyName("appAvailability")]
-    public ManagedAppAvailabilityConstant? AppAvailability { get; set; }
+    public ManagedAppAppAvailabilityConstant? AppAvailability { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<MobileAppAssignmentModel>? Assignments { get; set; }
@@ -65,7 +65,7 @@ internal class ManagedAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public ManagedAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

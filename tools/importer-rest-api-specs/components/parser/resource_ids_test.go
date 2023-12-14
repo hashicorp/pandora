@@ -1347,6 +1347,95 @@ func TestParseResourceIdContainingTheSegmentsNamedTheSame(t *testing.T) {
 	}
 }
 
+func TestParseResourceIdsWhereTheSameUriContainsDifferentConstantValuesPerOperation(t *testing.T) {
+	// Whilst a URI may contain Constants, the values for those constants can differ per HTTP Operation
+	// as such we need to ensure that these are output as different Resource ID types
+	//
+	// In this case there are 2 constants defined, `PlanetNames` and `PlanetEarth` - however `PlanetEarth` is a constant
+	// with a single value - therefore `PlanetEarth` will be removed.
+	// The Operation `HEAD /galaxies/{galaxyName}/hello/{planetName}` should remain as-is
+	// The Operation `DELETE /galaxies/{galaxyName}/hello/{planetName}` should be transformed to `/galaxies/{galaxyName}/hello/Earth`
+	// This means we should end up with 2 IDs, GalaxyId and PlanetId (with Earth and Mars the Constant PlanetNames in PlanetId)
+	//
+	// Experience has shown this is eventually consistent, maybe 100x is overkill, but it'll do for now.
+	for i := 0; i < 100; i++ {
+		t.Logf("iteration %d", i)
+
+		result, err := ParseSwaggerFileForTesting(t, "resource_ids_same_uri_different_constant_values_per_operation.json")
+		if err != nil {
+			t.Fatalf("parsing: %+v", err)
+		}
+		if result == nil {
+			t.Fatal("result was nil")
+		}
+		if len(result.Resources) != 1 {
+			t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+		}
+
+		hello, ok := result.Resources["Hello"]
+		if !ok {
+			t.Fatalf("no resources were output with the tag `Hello`")
+		}
+
+		if len(hello.Constants) != 1 {
+			t.Fatalf("expected 1 Constant but got %d", len(hello.Constants))
+		}
+		if len(hello.Models) != 0 {
+			t.Fatalf("expected No Models but got %d", len(hello.Models))
+		}
+		if len(hello.Operations) != 2 {
+			t.Fatalf("expected 2 Operations but got %d", len(hello.Operations))
+		}
+		if len(hello.ResourceIds) != 2 {
+			t.Fatalf("expected 2 ResourceIds but got %d", len(hello.ResourceIds))
+		}
+
+		// sanity check we're pulling out both values
+		planetNamesConst, ok := hello.Constants["PlanetNames"]
+		if !ok {
+			t.Fatalf("expected a Constant named `PlanetNames` but didn't get one")
+		}
+		expected := map[string]string{
+			"Earth": "Earth",
+			"Mars":  "Mars",
+		}
+		if !reflect.DeepEqual(expected, planetNamesConst.Values) {
+			t.Fatalf("expected the Constant `PlanetNames` to have 2 values but got %+v", planetNamesConst.Values)
+		}
+
+		headOperation, ok := hello.Operations["Head"]
+		if !ok {
+			t.Fatalf("expected an operation `Head` but didn't get one")
+		}
+		if headOperation.UriSuffix != nil {
+			t.Fatalf("expected UriSuffix to be nil for the Head operation but got %q", *headOperation.UriSuffix)
+		}
+		if headOperation.ResourceIdName == nil {
+			t.Fatalf("expected the ResourceIdName for the Head operation to be `PlanetId` but got nil")
+		}
+		if *headOperation.ResourceIdName != "PlanetId" {
+			t.Fatalf("expected the ResourceIdName for the Head operation to be `PlanetId` but got %q", *headOperation.ResourceIdName)
+		}
+
+		deleteOperation, ok := hello.Operations["Delete"]
+		if !ok {
+			t.Fatalf("expected an operation `Delete` but didn't get one")
+		}
+		if deleteOperation.UriSuffix == nil {
+			t.Fatalf("expected UriSuffix to be `/hello/Earth` for the Delete operation but got nil")
+		}
+		if *deleteOperation.UriSuffix != "/hello/Earth" {
+			t.Fatalf("expected UriSuffix to be `/hello/Earth` for the Delete operation but got %q", *deleteOperation.UriSuffix)
+		}
+		if deleteOperation.ResourceIdName == nil {
+			t.Fatalf("expected the ResourceIdName for the Head operation to be `GalaxyId` but got nil")
+		}
+		if *deleteOperation.ResourceIdName != "GalaxyId" {
+			t.Fatalf("expected the ResourceIdName for the Head operation to be `GalaxyId` but got %q", *deleteOperation.ResourceIdName)
+		}
+	}
+}
+
 func TestParseResourceIdsCommon(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "resource_ids_common.json")
 	if err != nil {

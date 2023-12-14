@@ -29,5 +29,5 @@ internal class SecurityEdiscoveryReviewSetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("queries")]
-    public List<EdiscoveryReviewSetQueryModel>? Queries { get; set; }
+    public List<SecurityEdiscoveryReviewSetQueryModel>? Queries { get; set; }
 }

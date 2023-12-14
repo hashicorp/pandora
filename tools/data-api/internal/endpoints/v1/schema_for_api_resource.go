@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
+func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
@@ -23,18 +23,28 @@ func schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 	resourceIds := make(map[string]models.ResourceIdDefinition, 0)
 
 	for k, constant := range resource.Schema.Constants {
+		constantType, err := mapConstantType(constant.Type)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping constant %q: %+v", k, err))
+			return
+		}
 		constants[k] = models.ConstantDetails{
-			CaseInsensitive: constant.CaseInsensitive,
-			Type:            models.ConstantType(constant.Type),
-			Values:          constant.Values,
+			Type:   *constantType,
+			Values: constant.Values,
 		}
 	}
 
 	for k, schemaModel := range resource.Schema.Models {
+		fields, err := mapSchemaFields(schemaModel.Fields)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping fields for model %q: %+v", k, err))
+			return
+		}
 		schemaModels[k] = models.ModelDetails{
-			Fields:        mapSchemaFields(schemaModel.Fields),
-			TypeHintIn:    schemaModel.TypeHintIn,
-			TypeHintValue: schemaModel.TypeHintValue,
+			Fields:         fields,
+			ParentTypeName: schemaModel.ParentTypeName,
+			TypeHintIn:     schemaModel.TypeHintIn,
+			TypeHintValue:  schemaModel.TypeHintValue,
 		}
 	}
 

@@ -1,0 +1,24 @@
+{
+ "name": "MetricAlertMultipleResourceMultipleMetricCriteria",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allOf",
+   "name": "AllOf",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MultiMetricCriteria"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MetricAlertCriteria",
+ "discriminatedTypeValue": "Microsoft.Azure.Monitor.MultipleResourceMultipleMetricCriteria",
+ "typeHintIn": "OdataType"
+}

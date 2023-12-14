@@ -17,7 +17,7 @@ internal class AppConfigurationSettingItemModel
     public string? AppConfigKey { get; set; }
 
     [JsonPropertyName("appConfigKeyType")]
-    public MdmAppConfigKeyTypeConstant? AppConfigKeyType { get; set; }
+    public AppConfigurationSettingItemAppConfigKeyTypeConstant? AppConfigKeyType { get; set; }
 
     [JsonPropertyName("appConfigKeyValue")]
     public string? AppConfigKeyValue { get; set; }

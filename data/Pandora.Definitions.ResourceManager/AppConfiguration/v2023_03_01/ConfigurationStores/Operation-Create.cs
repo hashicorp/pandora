@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ConfigurationStoreId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationStoreModel);
-
 
 }

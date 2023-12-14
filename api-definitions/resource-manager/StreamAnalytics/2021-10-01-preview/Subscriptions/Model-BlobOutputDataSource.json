@@ -1,0 +1,20 @@
+{
+ "name": "BlobOutputDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlobOutputDataSourceProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "OutputDataSource",
+ "discriminatedTypeValue": "Microsoft.Storage/Blob",
+ "typeHintIn": "Type"
+}

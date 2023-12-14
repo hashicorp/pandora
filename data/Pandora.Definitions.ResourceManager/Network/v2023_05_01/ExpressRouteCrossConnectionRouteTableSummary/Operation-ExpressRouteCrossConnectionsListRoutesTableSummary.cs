@@ -26,7 +26,5 @@ internal class ExpressRouteCrossConnectionsListRoutesTableSummaryOperation : Pan
 
     public override ResourceID? ResourceId() => new PeeringRouteTablesSummaryId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteCrossConnectionsRoutesTableSummaryListResultModel);
-
 
 }

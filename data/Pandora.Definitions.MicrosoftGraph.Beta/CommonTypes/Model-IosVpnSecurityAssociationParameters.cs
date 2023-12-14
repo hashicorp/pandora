@@ -23,8 +23,8 @@ internal class IosVpnSecurityAssociationParametersModel
     public int? SecurityDiffieHellmanGroup { get; set; }
 
     [JsonPropertyName("securityEncryptionAlgorithm")]
-    public VpnEncryptionAlgorithmTypeConstant? SecurityEncryptionAlgorithm { get; set; }
+    public IosVpnSecurityAssociationParametersSecurityEncryptionAlgorithmConstant? SecurityEncryptionAlgorithm { get; set; }
 
     [JsonPropertyName("securityIntegrityAlgorithm")]
-    public VpnIntegrityAlgorithmTypeConstant? SecurityIntegrityAlgorithm { get; set; }
+    public IosVpnSecurityAssociationParametersSecurityIntegrityAlgorithmConstant? SecurityIntegrityAlgorithm { get; set; }
 }

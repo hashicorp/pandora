@@ -1,0 +1,61 @@
+{
+ "name": "EnrichmentDomainWhoisDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contacts",
+   "name": "Contacts",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnrichmentDomainWhoisContacts"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nameServers",
+   "name": "NameServers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrar",
+   "name": "Registrar",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnrichmentDomainWhoisRegistrarDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statuses",
+   "name": "Statuses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

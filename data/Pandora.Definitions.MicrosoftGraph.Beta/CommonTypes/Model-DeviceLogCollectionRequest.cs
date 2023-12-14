@@ -20,5 +20,5 @@ internal class DeviceLogCollectionRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("templateType")]
-    public DeviceLogCollectionTemplateTypeConstant? TemplateType { get; set; }
+    public DeviceLogCollectionRequestTemplateTypeConstant? TemplateType { get; set; }
 }

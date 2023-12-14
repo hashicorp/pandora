@@ -1,0 +1,125 @@
+{
+ "name": "AS2ValidationSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "checkCertificateRevocationListOnReceive",
+   "name": "CheckCertificateRevocationListOnReceive",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "checkCertificateRevocationListOnSend",
+   "name": "CheckCertificateRevocationListOnSend",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "checkDuplicateMessage",
+   "name": "CheckDuplicateMessage",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "compressMessage",
+   "name": "CompressMessage",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptMessage",
+   "name": "EncryptMessage",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionAlgorithm",
+   "name": "EncryptionAlgorithm",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionAlgorithm"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "interchangeDuplicatesValidityDays",
+   "name": "InterchangeDuplicatesValidityDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overrideMessageProperties",
+   "name": "OverrideMessageProperties",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signMessage",
+   "name": "SignMessage",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signingAlgorithm",
+   "name": "SigningAlgorithm",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SigningAlgorithm"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

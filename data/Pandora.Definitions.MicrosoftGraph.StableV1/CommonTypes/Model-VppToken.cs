@@ -35,7 +35,7 @@ internal class VppTokenModel
     public DateTime? LastSyncDateTime { get; set; }
 
     [JsonPropertyName("lastSyncStatus")]
-    public VppTokenSyncStatusConstant? LastSyncStatus { get; set; }
+    public VppTokenLastSyncStatusConstant? LastSyncStatus { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -50,5 +50,5 @@ internal class VppTokenModel
     public string? Token { get; set; }
 
     [JsonPropertyName("vppTokenAccountType")]
-    public VppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
+    public VppTokenVppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
 }

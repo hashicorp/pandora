@@ -20,7 +20,7 @@ internal class MdmWindowsInformationProtectionPolicyPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public MdmWindowsInformationProtectionPolicyPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -41,5 +41,5 @@ internal class MdmWindowsInformationProtectionPolicyPolicySetItemModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public MdmWindowsInformationProtectionPolicyPolicySetItemStatusConstant? Status { get; set; }
 }

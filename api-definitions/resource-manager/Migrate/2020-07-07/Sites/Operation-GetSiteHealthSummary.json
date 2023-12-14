@@ -1,0 +1,16 @@
+{
+ "name": "GetSiteHealthSummary",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "VMwareSiteId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteHealthSummary"
+ },
+ "uriSuffix": "/healthSummary"
+}

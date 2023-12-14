@@ -284,7 +284,7 @@ internal class DeviceManagementModel
     public List<MobileThreatDefenseConnectorModel>? MobileThreatDefenseConnectors { get; set; }
 
     [JsonPropertyName("monitoring")]
-    public MonitoringModel? Monitoring { get; set; }
+    public DeviceManagementMonitoringModel? Monitoring { get; set; }
 
     [JsonPropertyName("ndesConnectors")]
     public List<NdesConnectorModel>? NdesConnectors { get; set; }
@@ -294,6 +294,9 @@ internal class DeviceManagementModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("privilegeManagementElevations")]
+    public List<PrivilegeManagementElevationModel>? PrivilegeManagementElevations { get; set; }
 
     [JsonPropertyName("remoteActionAudits")]
     public List<RemoteActionAuditModel>? RemoteActionAudits { get; set; }
@@ -372,6 +375,9 @@ internal class DeviceManagementModel
 
     [JsonPropertyName("userExperienceAnalyticsAnomaly")]
     public List<UserExperienceAnalyticsAnomalyModel>? UserExperienceAnalyticsAnomaly { get; set; }
+
+    [JsonPropertyName("userExperienceAnalyticsAnomalyCorrelationGroupOverview")]
+    public List<UserExperienceAnalyticsAnomalyCorrelationGroupOverviewModel>? UserExperienceAnalyticsAnomalyCorrelationGroupOverview { get; set; }
 
     [JsonPropertyName("userExperienceAnalyticsAnomalyDevice")]
     public List<UserExperienceAnalyticsAnomalyDeviceModel>? UserExperienceAnalyticsAnomalyDevice { get; set; }

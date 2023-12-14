@@ -17,14 +17,14 @@ internal class DeviceManagementConfigurationApplicationSettingApplicabilityModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceMode")]
-    public DeviceManagementConfigurationDeviceModeConstant? DeviceMode { get; set; }
+    public DeviceManagementConfigurationApplicationSettingApplicabilityDeviceModeConstant? DeviceMode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DeviceManagementConfigurationPlatformsConstant? Platform { get; set; }
+    public DeviceManagementConfigurationApplicationSettingApplicabilityPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementConfigurationApplicationSettingApplicabilityTechnologiesConstant? Technologies { get; set; }
 }

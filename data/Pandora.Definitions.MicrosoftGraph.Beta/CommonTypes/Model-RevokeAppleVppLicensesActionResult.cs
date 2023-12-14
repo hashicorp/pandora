@@ -17,7 +17,7 @@ internal class RevokeAppleVppLicensesActionResultModel
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public RevokeAppleVppLicensesActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("failedLicensesCount")]
     public int? FailedLicensesCount { get; set; }

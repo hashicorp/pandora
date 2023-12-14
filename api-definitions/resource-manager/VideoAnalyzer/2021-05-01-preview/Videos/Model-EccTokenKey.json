@@ -1,0 +1,44 @@
+{
+ "name": "EccTokenKey",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alg",
+   "name": "Alg",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessPolicyEccAlgo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "x",
+   "name": "X",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "y",
+   "name": "Y",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "TokenKey",
+ "discriminatedTypeValue": "#Microsoft.VideoAnalyzer.EccTokenKey",
+ "typeHintIn": "Type"
+}

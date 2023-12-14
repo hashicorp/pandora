@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementAlertRuleModel
 {
     [JsonPropertyName("alertRuleTemplate")]
-    public AlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
+    public DeviceManagementAlertRuleAlertRuleTemplateConstant? AlertRuleTemplate { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -32,14 +32,14 @@ internal class DeviceManagementAlertRuleModel
     public bool? IsSystemRule { get; set; }
 
     [JsonPropertyName("notificationChannels")]
-    public List<NotificationChannelModel>? NotificationChannels { get; set; }
+    public List<DeviceManagementNotificationChannelModel>? NotificationChannels { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("severity")]
-    public RuleSeverityTypeConstant? Severity { get; set; }
+    public DeviceManagementAlertRuleSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("threshold")]
-    public RuleThresholdModel? Threshold { get; set; }
+    public DeviceManagementRuleThresholdModel? Threshold { get; set; }
 }

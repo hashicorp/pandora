@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AuthenticationAppPolicyDetailsModel
 {
     [JsonPropertyName("adminConfiguration")]
-    public AuthenticationAppAdminConfigurationConstant? AdminConfiguration { get; set; }
+    public AuthenticationAppPolicyDetailsAdminConfigurationConstant? AdminConfiguration { get; set; }
 
     [JsonPropertyName("authenticationEvaluation")]
-    public AuthenticationAppEvaluationConstant? AuthenticationEvaluation { get; set; }
+    public AuthenticationAppPolicyDetailsAuthenticationEvaluationConstant? AuthenticationEvaluation { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -26,5 +26,5 @@ internal class AuthenticationAppPolicyDetailsModel
     public string? PolicyName { get; set; }
 
     [JsonPropertyName("status")]
-    public AuthenticationAppPolicyStatusConstant? Status { get; set; }
+    public AuthenticationAppPolicyDetailsStatusConstant? Status { get; set; }
 }

@@ -26,8 +26,6 @@ internal class TableResourcesRetrieveContinuousBackupInformationOperation : Pand
 
     public override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(BackupInformationModel);
-
     public override string? UriSuffix() => "/retrieveContinuousBackupInformation";
 
 

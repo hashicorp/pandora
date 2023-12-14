@@ -22,6 +22,9 @@ internal class TeamworkModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("teamsAppSettings")]
+    public TeamsAppSettingsModel? TeamsAppSettings { get; set; }
+
     [JsonPropertyName("workforceIntegrations")]
     public List<WorkforceIntegrationModel>? WorkforceIntegrations { get; set; }
 }

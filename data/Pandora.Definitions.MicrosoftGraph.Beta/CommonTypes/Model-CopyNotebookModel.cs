@@ -59,5 +59,5 @@ internal class CopyNotebookModelModel
     public string? Self { get; set; }
 
     [JsonPropertyName("userRole")]
-    public OnenoteUserRoleConstant? UserRole { get; set; }
+    public CopyNotebookModelUserRoleConstant? UserRole { get; set; }
 }

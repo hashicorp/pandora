@@ -17,7 +17,7 @@ internal class ItemEmailModel
     public string? Address { get; set; }
 
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public ItemEmailAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -50,5 +50,5 @@ internal class ItemEmailModel
     public PersonDataSourcesModel? Source { get; set; }
 
     [JsonPropertyName("type")]
-    public EmailTypeConstant? Type { get; set; }
+    public ItemEmailTypeConstant? Type { get; set; }
 }

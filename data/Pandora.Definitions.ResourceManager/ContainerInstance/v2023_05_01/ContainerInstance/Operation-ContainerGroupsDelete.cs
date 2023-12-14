@@ -25,7 +25,5 @@ internal class ContainerGroupsDeleteOperation : Pandora.Definitions.Operations.D
 
     public override ResourceID? ResourceId() => new ContainerGroupId();
 
-    public override Type? ResponseObject() => typeof(ContainerGroupModel);
-
 
 }

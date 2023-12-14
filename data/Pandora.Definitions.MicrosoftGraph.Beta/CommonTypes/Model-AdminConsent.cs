@@ -17,8 +17,8 @@ internal class AdminConsentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("shareAPNSData")]
-    public AdminConsentStateConstant? ShareAPNSData { get; set; }
+    public AdminConsentShareAPNSDataConstant? ShareAPNSData { get; set; }
 
     [JsonPropertyName("shareUserExperienceAnalyticsData")]
-    public AdminConsentStateConstant? ShareUserExperienceAnalyticsData { get; set; }
+    public AdminConsentShareUserExperienceAnalyticsDataConstant? ShareUserExperienceAnalyticsData { get; set; }
 }

@@ -49,6 +49,9 @@ internal class ManagedTenantsCredentialUserRegistrationsSummaryModel
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }
 
+    [JsonPropertyName("tenantLicenseType")]
+    public string? TenantLicenseType { get; set; }
+
     [JsonPropertyName("totalUserCount")]
     public int? TotalUserCount { get; set; }
 }

@@ -1,0 +1,33 @@
+{
+ "name": "Quota",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostsRemaining",
+   "name": "HostsRemaining",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Integer",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "quotaEnabled",
+   "name": "QuotaEnabled",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QuotaEnabled"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "VMwareCbtResumeReplicationInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deleteMigrationResources",
+   "name": "DeleteMigrationResources",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ResumeReplicationProviderSpecificInput",
+ "discriminatedTypeValue": "VMwareCbt",
+ "typeHintIn": "InstanceType"
+}

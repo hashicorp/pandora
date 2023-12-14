@@ -1,0 +1,30 @@
+{
+ "name": "DataImportSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connection",
+   "name": "Connection",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "sourceType",
+   "name": "SourceType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataImportSourceType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "SourceType"
+}

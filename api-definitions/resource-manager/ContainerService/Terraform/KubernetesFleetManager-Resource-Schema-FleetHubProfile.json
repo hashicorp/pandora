@@ -1,0 +1,32 @@
+{
+	"fields": [
+		{
+			"hclName": "dns_prefix",
+			"name": "DnsPrefix",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		},
+		{
+			"computed": true,
+			"hclName": "fqdn",
+			"name": "Fqdn",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			}
+		},
+		{
+			"computed": true,
+			"hclName": "kubernetes_version",
+			"name": "KubernetesVersion",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			}
+		}
+	],
+	"name": "KubernetesFleetManagerResourceFleetHubProfile"
+}

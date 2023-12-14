@@ -1,0 +1,21 @@
+{
+ "name": "CapacityReservationUtilization",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachinesAllocated",
+   "name": "VirtualMachinesAllocated",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResourceReadOnly"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

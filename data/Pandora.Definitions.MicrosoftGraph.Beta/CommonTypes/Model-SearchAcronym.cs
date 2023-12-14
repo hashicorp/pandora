@@ -23,7 +23,7 @@ internal class SearchAcronymModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
-    public IdentitySetModel? LastModifiedBy { get; set; }
+    public SearchIdentitySetModel? LastModifiedBy { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -35,7 +35,7 @@ internal class SearchAcronymModel
     public string? StandsFor { get; set; }
 
     [JsonPropertyName("state")]
-    public AnswerStateConstant? State { get; set; }
+    public SearchAcronymStateConstant? State { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

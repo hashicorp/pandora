@@ -59,7 +59,7 @@ internal class MacOSDeviceFeaturesConfigurationModel
     public List<IpRangeModel>? ContentCachingClientListenRanges { get; set; }
 
     [JsonPropertyName("contentCachingClientPolicy")]
-    public MacOSContentCachingClientPolicyConstant? ContentCachingClientPolicy { get; set; }
+    public MacOSDeviceFeaturesConfigurationContentCachingClientPolicyConstant? ContentCachingClientPolicy { get; set; }
 
     [JsonPropertyName("contentCachingDataPath")]
     public string? ContentCachingDataPath { get; set; }
@@ -80,10 +80,10 @@ internal class MacOSDeviceFeaturesConfigurationModel
     public bool? ContentCachingLogClientIdentities { get; set; }
 
     [JsonPropertyName("contentCachingMaxSizeBytes")]
-    public long? ContentCachingMaxSizeBytes { get; set; }
+    public int? ContentCachingMaxSizeBytes { get; set; }
 
     [JsonPropertyName("contentCachingParentSelectionPolicy")]
-    public MacOSContentCachingParentSelectionPolicyConstant? ContentCachingParentSelectionPolicy { get; set; }
+    public MacOSDeviceFeaturesConfigurationContentCachingParentSelectionPolicyConstant? ContentCachingParentSelectionPolicy { get; set; }
 
     [JsonPropertyName("contentCachingParents")]
     public List<string>? ContentCachingParents { get; set; }
@@ -95,7 +95,7 @@ internal class MacOSDeviceFeaturesConfigurationModel
     public List<IpRangeModel>? ContentCachingPeerListenRanges { get; set; }
 
     [JsonPropertyName("contentCachingPeerPolicy")]
-    public MacOSContentCachingPeerPolicyConstant? ContentCachingPeerPolicy { get; set; }
+    public MacOSDeviceFeaturesConfigurationContentCachingPeerPolicyConstant? ContentCachingPeerPolicy { get; set; }
 
     [JsonPropertyName("contentCachingPort")]
     public int? ContentCachingPort { get; set; }
@@ -107,7 +107,7 @@ internal class MacOSDeviceFeaturesConfigurationModel
     public bool? ContentCachingShowAlerts { get; set; }
 
     [JsonPropertyName("contentCachingType")]
-    public MacOSContentCachingTypeConstant? ContentCachingType { get; set; }
+    public MacOSDeviceFeaturesConfigurationContentCachingTypeConstant? ContentCachingType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

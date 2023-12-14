@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityTenantAllowOrBlockListActionModel
 {
     [JsonPropertyName("action")]
-    public TenantAllowBlockListActionConstant? Action { get; set; }
+    public SecurityTenantAllowOrBlockListActionActionConstant? Action { get; set; }
 
     [JsonPropertyName("expirationDateTime")]
     public DateTime? ExpirationDateTime { get; set; }
@@ -26,5 +26,5 @@ internal class SecurityTenantAllowOrBlockListActionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("results")]
-    public List<TenantAllowBlockListEntryResultModel>? Results { get; set; }
+    public List<SecurityTenantAllowBlockListEntryResultModel>? Results { get; set; }
 }

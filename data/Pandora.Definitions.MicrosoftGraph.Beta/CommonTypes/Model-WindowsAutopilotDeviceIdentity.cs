@@ -29,10 +29,10 @@ internal class WindowsAutopilotDeviceIdentityModel
     public DateTime? DeploymentProfileAssignedDateTime { get; set; }
 
     [JsonPropertyName("deploymentProfileAssignmentDetailedStatus")]
-    public WindowsAutopilotProfileAssignmentDetailedStatusConstant? DeploymentProfileAssignmentDetailedStatus { get; set; }
+    public WindowsAutopilotDeviceIdentityDeploymentProfileAssignmentDetailedStatusConstant? DeploymentProfileAssignmentDetailedStatus { get; set; }
 
     [JsonPropertyName("deploymentProfileAssignmentStatus")]
-    public WindowsAutopilotProfileAssignmentStatusConstant? DeploymentProfileAssignmentStatus { get; set; }
+    public WindowsAutopilotDeviceIdentityDeploymentProfileAssignmentStatusConstant? DeploymentProfileAssignmentStatus { get; set; }
 
     [JsonPropertyName("deviceAccountPassword")]
     public string? DeviceAccountPassword { get; set; }
@@ -47,7 +47,7 @@ internal class WindowsAutopilotDeviceIdentityModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enrollmentState")]
-    public EnrollmentStateConstant? EnrollmentState { get; set; }
+    public WindowsAutopilotDeviceIdentityEnrollmentStateConstant? EnrollmentState { get; set; }
 
     [JsonPropertyName("groupTag")]
     public string? GroupTag { get; set; }
@@ -80,7 +80,7 @@ internal class WindowsAutopilotDeviceIdentityModel
     public string? PurchaseOrderIdentifier { get; set; }
 
     [JsonPropertyName("remediationState")]
-    public WindowsAutopilotDeviceRemediationStateConstant? RemediationState { get; set; }
+    public WindowsAutopilotDeviceIdentityRemediationStateConstant? RemediationState { get; set; }
 
     [JsonPropertyName("remediationStateLastModifiedDateTime")]
     public DateTime? RemediationStateLastModifiedDateTime { get; set; }
@@ -99,4 +99,7 @@ internal class WindowsAutopilotDeviceIdentityModel
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }
+
+    [JsonPropertyName("userlessEnrollmentStatus")]
+    public WindowsAutopilotDeviceIdentityUserlessEnrollmentStatusConstant? UserlessEnrollmentStatus { get; set; }
 }

@@ -26,7 +26,5 @@ internal class KubernetesClustersUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new KubernetesClusterId();
 
-    public override Type? ResponseObject() => typeof(KubernetesClusterModel);
-
 
 }

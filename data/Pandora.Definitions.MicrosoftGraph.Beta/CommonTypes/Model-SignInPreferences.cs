@@ -20,5 +20,5 @@ internal class SignInPreferencesModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userPreferredMethodForSecondaryAuthentication")]
-    public UserDefaultAuthenticationMethodTypeConstant? UserPreferredMethodForSecondaryAuthentication { get; set; }
+    public SignInPreferencesUserPreferredMethodForSecondaryAuthenticationConstant? UserPreferredMethodForSecondaryAuthentication { get; set; }
 }

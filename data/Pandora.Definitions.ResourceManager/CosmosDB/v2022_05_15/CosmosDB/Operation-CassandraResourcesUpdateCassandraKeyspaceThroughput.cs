@@ -26,8 +26,6 @@ internal class CassandraResourcesUpdateCassandraKeyspaceThroughputOperation : Pa
 
     public override ResourceID? ResourceId() => new CassandraKeyspaceId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default";
 
 

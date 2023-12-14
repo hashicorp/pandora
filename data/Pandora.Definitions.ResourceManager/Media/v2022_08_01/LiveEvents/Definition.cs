@@ -19,7 +19,6 @@ internal class Definition : ResourceDefinition
         new DeleteOperation(),
         new GetOperation(),
         new ListOperation(),
-        new OperationLocationOperation(),
         new ResetOperation(),
         new StartOperation(),
         new StopOperation(),

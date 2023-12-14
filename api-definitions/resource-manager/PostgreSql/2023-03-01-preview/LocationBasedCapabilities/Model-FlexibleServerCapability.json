@@ -1,0 +1,173 @@
+{
+ "name": "FlexibleServerCapability",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fastProvisioningSupported",
+   "name": "FastProvisioningSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FastProvisioningSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "geoBackupSupported",
+   "name": "GeoBackupSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GeoBackupSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "onlineResizeSupported",
+   "name": "OnlineResizeSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OnlineResizeSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reason",
+   "name": "Reason",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "restricted",
+   "name": "Restricted",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RestrictedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CapabilityStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAutoGrowthSupported",
+   "name": "StorageAutoGrowthSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAutoGrowthSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedFastProvisioningEditions",
+   "name": "SupportedFastProvisioningEditions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FastProvisioningEditionCapability"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedServerEditions",
+   "name": "SupportedServerEditions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FlexibleServerEditionCapability"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedServerVersions",
+   "name": "SupportedServerVersions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServerVersionCapability"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zoneRedundantHaAndGeoBackupSupported",
+   "name": "ZoneRedundantHaAndGeoBackupSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ZoneRedundantHaAndGeoBackupSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zoneRedundantHaSupported",
+   "name": "ZoneRedundantHaSupported",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ZoneRedundantHaSupportedEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -26,8 +26,6 @@ internal class ExportLabelsOperation : Pandora.Definitions.Operations.PostOperat
 
     public override ResourceID? ResourceId() => new LabelingJobId();
 
-    public override Type? ResponseObject() => typeof(ExportSummaryModel);
-
     public override string? UriSuffix() => "/exportLabels";
 
 

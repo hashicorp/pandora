@@ -1,0 +1,29 @@
+{
+ "name": "AssetTrackProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "track",
+   "name": "Track",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrackBase"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

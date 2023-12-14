@@ -26,8 +26,6 @@ internal class BulkUploadOperation : Pandora.Definitions.Operations.PostOperatio
 
     public override ResourceID? ResourceId() => new SimGroupId();
 
-    public override Type? ResponseObject() => typeof(AsyncOperationStatusModel);
-
     public override string? UriSuffix() => "/uploadSims";
 
 

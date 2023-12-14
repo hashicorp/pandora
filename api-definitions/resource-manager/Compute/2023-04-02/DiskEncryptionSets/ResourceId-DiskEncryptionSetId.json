@@ -1,0 +1,43 @@
+{
+ "name": "DiskEncryptionSetId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftCompute",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Compute"
+  },
+  {
+   "name": "staticDiskEncryptionSets",
+   "type": "Static",
+   "value": "diskEncryptionSets"
+  },
+  {
+   "name": "diskEncryptionSetName",
+   "type": "UserSpecified"
+  }
+ ]
+}

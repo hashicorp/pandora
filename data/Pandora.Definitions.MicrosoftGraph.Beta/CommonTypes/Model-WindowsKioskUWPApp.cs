@@ -17,7 +17,7 @@ internal class WindowsKioskUWPAppModel
     public string? AppId { get; set; }
 
     [JsonPropertyName("appType")]
-    public WindowsKioskAppTypeConstant? AppType { get; set; }
+    public WindowsKioskUWPAppAppTypeConstant? AppType { get; set; }
 
     [JsonPropertyName("appUserModelId")]
     public string? AppUserModelId { get; set; }
@@ -35,5 +35,5 @@ internal class WindowsKioskUWPAppModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("startLayoutTileSize")]
-    public WindowsAppStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
+    public WindowsKioskUWPAppStartLayoutTileSizeConstant? StartLayoutTileSize { get; set; }
 }

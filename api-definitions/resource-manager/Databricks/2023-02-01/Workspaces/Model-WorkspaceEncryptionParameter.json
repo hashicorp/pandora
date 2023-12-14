@@ -1,0 +1,29 @@
+{
+ "name": "WorkspaceEncryptionParameter",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomParameterType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Encryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

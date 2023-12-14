@@ -12,11 +12,13 @@ using System.Net;
 
 namespace Pandora.Definitions.ResourceManager.ServiceFabric.v2021_06_01.Service;
 
-internal class ListOperation : Pandora.Definitions.Operations.GetOperation
+internal class ListOperation : Pandora.Definitions.Operations.ListOperation
 {
+    public override string? FieldContainingPaginationDetails() => "nextLink";
+
     public override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type? ResponseObject() => typeof(ServiceResourceListModel);
+    public override Type NestedItemType() => typeof(ServiceResourceModel);
 
     public override string? UriSuffix() => "/services";
 

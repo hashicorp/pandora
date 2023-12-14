@@ -23,5 +23,5 @@ internal class ExternalConnectorsConnectionOperationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ConnectionOperationStatusConstant? Status { get; set; }
+    public ExternalConnectorsConnectionOperationStatusConstant? Status { get; set; }
 }

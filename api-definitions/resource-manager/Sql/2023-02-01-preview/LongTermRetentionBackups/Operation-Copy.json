@@ -1,0 +1,16 @@
+{
+ "name": "Copy",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LongTermRetentionBackupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CopyLongTermRetentionBackupParameters"
+ },
+ "uriSuffix": "/copy"
+}

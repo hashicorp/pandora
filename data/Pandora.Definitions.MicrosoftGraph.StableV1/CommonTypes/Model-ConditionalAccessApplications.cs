@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class ConditionalAccessApplicationsModel
 {
+    [JsonPropertyName("applicationFilter")]
+    public ConditionalAccessFilterModel? ApplicationFilter { get; set; }
+
     [JsonPropertyName("excludeApplications")]
     public List<string>? ExcludeApplications { get; set; }
 

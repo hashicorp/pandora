@@ -1,0 +1,77 @@
+{
+ "name": "ForecastDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataset",
+   "name": "Dataset",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastDataset"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeActualCost",
+   "name": "IncludeActualCost",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeFreshPartialCost",
+   "name": "IncludeFreshPartialCost",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timePeriod",
+   "name": "TimePeriod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastTimePeriod"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeframe",
+   "name": "Timeframe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastTimeframe"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

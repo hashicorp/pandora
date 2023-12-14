@@ -20,5 +20,5 @@ internal class SecurityEventQueryModel
     public string? Query { get; set; }
 
     [JsonPropertyName("queryType")]
-    public QueryTypeConstant? QueryType { get; set; }
+    public SecurityEventQueryQueryTypeConstant? QueryType { get; set; }
 }

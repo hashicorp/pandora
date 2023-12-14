@@ -20,7 +20,5 @@ internal class VirtualHubRouteTableV2sCreateOrUpdateOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new VirtualHubRouteTableId();
 
-    public override Type? ResponseObject() => typeof(VirtualHubRouteTableV2Model);
-
 
 }

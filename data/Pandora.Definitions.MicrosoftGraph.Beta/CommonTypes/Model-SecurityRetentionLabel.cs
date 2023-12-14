@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityRetentionLabelModel
 {
     [JsonPropertyName("actionAfterRetentionPeriod")]
-    public ActionAfterRetentionPeriodConstant? ActionAfterRetentionPeriod { get; set; }
+    public SecurityRetentionLabelActionAfterRetentionPeriodConstant? ActionAfterRetentionPeriod { get; set; }
 
     [JsonPropertyName("behaviorDuringRetentionPeriod")]
-    public BehaviorDuringRetentionPeriodConstant? BehaviorDuringRetentionPeriod { get; set; }
+    public SecurityRetentionLabelBehaviorDuringRetentionPeriodConstant? BehaviorDuringRetentionPeriod { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -26,7 +26,7 @@ internal class SecurityRetentionLabelModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("defaultRecordBehavior")]
-    public DefaultRecordBehaviorConstant? DefaultRecordBehavior { get; set; }
+    public SecurityRetentionLabelDefaultRecordBehaviorConstant? DefaultRecordBehavior { get; set; }
 
     [JsonPropertyName("descriptionForAdmins")]
     public string? DescriptionForAdmins { get; set; }
@@ -34,11 +34,14 @@ internal class SecurityRetentionLabelModel
     [JsonPropertyName("descriptionForUsers")]
     public string? DescriptionForUsers { get; set; }
 
+    [JsonPropertyName("descriptors")]
+    public SecurityFilePlanDescriptorModel? Descriptors { get; set; }
+
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("dispositionReviewStages")]
-    public List<DispositionReviewStageModel>? DispositionReviewStages { get; set; }
+    public List<SecurityDispositionReviewStageModel>? DispositionReviewStages { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -59,11 +62,11 @@ internal class SecurityRetentionLabelModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("retentionDuration")]
-    public RetentionDurationModel? RetentionDuration { get; set; }
+    public SecurityRetentionDurationModel? RetentionDuration { get; set; }
 
     [JsonPropertyName("retentionEventType")]
-    public RetentionEventTypeModel? RetentionEventType { get; set; }
+    public SecurityRetentionEventTypeModel? RetentionEventType { get; set; }
 
     [JsonPropertyName("retentionTrigger")]
-    public RetentionTriggerConstant? RetentionTrigger { get; set; }
+    public SecurityRetentionLabelRetentionTriggerConstant? RetentionTrigger { get; set; }
 }

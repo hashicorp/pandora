@@ -17,10 +17,10 @@ internal class Windows81SCEPCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public Windows81SCEPCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public Windows81SCEPCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -62,19 +62,19 @@ internal class Windows81SCEPCertificateProfileModel
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
 
     [JsonPropertyName("hashAlgorithm")]
-    public HashAlgorithmsConstant? HashAlgorithm { get; set; }
+    public Windows81SCEPCertificateProfileHashAlgorithmConstant? HashAlgorithm { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("keySize")]
-    public KeySizeConstant? KeySize { get; set; }
+    public Windows81SCEPCertificateProfileKeySizeConstant? KeySize { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public Windows81SCEPCertificateProfileKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("keyUsage")]
-    public KeyUsagesConstant? KeyUsage { get; set; }
+    public Windows81SCEPCertificateProfileKeyUsageConstant? KeyUsage { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -101,10 +101,10 @@ internal class Windows81SCEPCertificateProfileModel
     public string? SubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public Windows81SCEPCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public Windows81SCEPCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("subjectNameFormatString")]
     public string? SubjectNameFormatString { get; set; }

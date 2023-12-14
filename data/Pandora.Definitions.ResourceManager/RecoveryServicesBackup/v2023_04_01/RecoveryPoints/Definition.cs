@@ -35,6 +35,7 @@ internal class Definition : ResourceDefinition
         typeof(AzureWorkloadSQLRecoveryPointExtendedInfoModel),
         typeof(BEKDetailsModel),
         typeof(DiskInformationModel),
+        typeof(ExtendedLocationModel),
         typeof(GenericRecoveryPointModel),
         typeof(IaasVMRecoveryPointModel),
         typeof(KEKDetailsModel),

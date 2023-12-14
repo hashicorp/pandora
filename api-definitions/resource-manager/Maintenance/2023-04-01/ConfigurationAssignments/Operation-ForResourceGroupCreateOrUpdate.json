@@ -1,0 +1,19 @@
+{
+ "name": "ForResourceGroupCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderConfigurationAssignmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationAssignment"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConfigurationAssignment"
+ }
+}

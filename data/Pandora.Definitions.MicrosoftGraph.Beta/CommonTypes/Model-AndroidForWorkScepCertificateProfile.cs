@@ -17,10 +17,10 @@ internal class AndroidForWorkScepCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public AndroidForWorkScepCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public AndroidForWorkScepCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -62,16 +62,16 @@ internal class AndroidForWorkScepCertificateProfileModel
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
 
     [JsonPropertyName("hashAlgorithm")]
-    public HashAlgorithmsConstant? HashAlgorithm { get; set; }
+    public AndroidForWorkScepCertificateProfileHashAlgorithmConstant? HashAlgorithm { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("keySize")]
-    public KeySizeConstant? KeySize { get; set; }
+    public AndroidForWorkScepCertificateProfileKeySizeConstant? KeySize { get; set; }
 
     [JsonPropertyName("keyUsage")]
-    public KeyUsagesConstant? KeyUsage { get; set; }
+    public AndroidForWorkScepCertificateProfileKeyUsageConstant? KeyUsage { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -98,10 +98,10 @@ internal class AndroidForWorkScepCertificateProfileModel
     public string? SubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public AndroidForWorkScepCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public AndroidForWorkScepCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("subjectNameFormatString")]
     public string? SubjectNameFormatString { get; set; }

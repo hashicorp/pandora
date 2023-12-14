@@ -26,7 +26,5 @@ internal class CreateOrUpdateStaticSiteOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new StaticSiteId();
 
-    public override Type? ResponseObject() => typeof(StaticSiteARMResourceModel);
-
 
 }

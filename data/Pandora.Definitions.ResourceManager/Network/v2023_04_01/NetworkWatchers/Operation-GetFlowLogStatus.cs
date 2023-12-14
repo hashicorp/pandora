@@ -26,8 +26,6 @@ internal class GetFlowLogStatusOperation : Pandora.Definitions.Operations.PostOp
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(FlowLogInformationModel);
-
     public override string? UriSuffix() => "/queryFlowLogStatus";
 
 

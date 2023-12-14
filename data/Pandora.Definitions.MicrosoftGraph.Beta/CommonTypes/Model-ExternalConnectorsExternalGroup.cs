@@ -23,7 +23,7 @@ internal class ExternalConnectorsExternalGroupModel
     public string? Id { get; set; }
 
     [JsonPropertyName("members")]
-    public List<IdentityModel>? Members { get; set; }
+    public List<ExternalConnectorsIdentityModel>? Members { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -1,0 +1,52 @@
+{
+ "name": "OuContainerId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AAD/domainServices/{domainServiceName}/ouContainer/{ouContainerName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAAD",
+   "type": "ResourceProvider",
+   "value": "Microsoft.AAD"
+  },
+  {
+   "name": "staticDomainServices",
+   "type": "Static",
+   "value": "domainServices"
+  },
+  {
+   "name": "domainServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticOuContainer",
+   "type": "Static",
+   "value": "ouContainer"
+  },
+  {
+   "name": "ouContainerName",
+   "type": "UserSpecified"
+  }
+ ]
+}

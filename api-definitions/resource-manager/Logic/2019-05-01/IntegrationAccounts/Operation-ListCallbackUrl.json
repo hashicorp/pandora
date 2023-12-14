@@ -1,0 +1,19 @@
+{
+ "name": "ListCallbackUrl",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "IntegrationAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "GetCallbackUrlParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CallbackUrl"
+ },
+ "uriSuffix": "/listCallbackUrl"
+}

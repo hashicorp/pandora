@@ -26,5 +26,5 @@ internal class ThreatAssessmentResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("resultType")]
-    public ThreatAssessmentResultTypeConstant? ResultType { get; set; }
+    public ThreatAssessmentResultResultTypeConstant? ResultType { get; set; }
 }

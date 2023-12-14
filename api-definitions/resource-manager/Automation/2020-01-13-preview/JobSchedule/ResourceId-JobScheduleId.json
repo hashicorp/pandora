@@ -1,0 +1,52 @@
+{
+ "name": "JobScheduleId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/jobSchedules/{jobScheduleId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAutomation",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Automation"
+  },
+  {
+   "name": "staticAutomationAccounts",
+   "type": "Static",
+   "value": "automationAccounts"
+  },
+  {
+   "name": "automationAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticJobSchedules",
+   "type": "Static",
+   "value": "jobSchedules"
+  },
+  {
+   "name": "jobScheduleId",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -17,19 +17,19 @@ internal class Windows10DeviceFirmwareConfigurationInterfaceModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("bluetooth")]
-    public EnablementConstant? Bluetooth { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceBluetoothConstant? Bluetooth { get; set; }
 
     [JsonPropertyName("bootFromBuiltInNetworkAdapters")]
-    public EnablementConstant? BootFromBuiltInNetworkAdapters { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceBootFromBuiltInNetworkAdaptersConstant? BootFromBuiltInNetworkAdapters { get; set; }
 
     [JsonPropertyName("bootFromExternalMedia")]
-    public EnablementConstant? BootFromExternalMedia { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceBootFromExternalMediaConstant? BootFromExternalMedia { get; set; }
 
     [JsonPropertyName("cameras")]
-    public EnablementConstant? Cameras { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceCamerasConstant? Cameras { get; set; }
 
     [JsonPropertyName("changeUefiSettingsPermission")]
-    public ChangeUefiSettingsPermissionConstant? ChangeUefiSettingsPermission { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceChangeUefiSettingsPermissionConstant? ChangeUefiSettingsPermission { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -59,7 +59,7 @@ internal class Windows10DeviceFirmwareConfigurationInterfaceModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("frontCamera")]
-    public EnablementConstant? FrontCamera { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceFrontCameraConstant? FrontCamera { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -68,43 +68,43 @@ internal class Windows10DeviceFirmwareConfigurationInterfaceModel
     public string? Id { get; set; }
 
     [JsonPropertyName("infraredCamera")]
-    public EnablementConstant? InfraredCamera { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceInfraredCameraConstant? InfraredCamera { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("microphone")]
-    public EnablementConstant? Microphone { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceMicrophoneConstant? Microphone { get; set; }
 
     [JsonPropertyName("microphonesAndSpeakers")]
-    public EnablementConstant? MicrophonesAndSpeakers { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceMicrophonesAndSpeakersConstant? MicrophonesAndSpeakers { get; set; }
 
     [JsonPropertyName("nearFieldCommunication")]
-    public EnablementConstant? NearFieldCommunication { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceNearFieldCommunicationConstant? NearFieldCommunication { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("radios")]
-    public EnablementConstant? Radios { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceRadiosConstant? Radios { get; set; }
 
     [JsonPropertyName("rearCamera")]
-    public EnablementConstant? RearCamera { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceRearCameraConstant? RearCamera { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("sdCard")]
-    public EnablementConstant? SdCard { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceSdCardConstant? SdCard { get; set; }
 
     [JsonPropertyName("simultaneousMultiThreading")]
-    public EnablementConstant? SimultaneousMultiThreading { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceSimultaneousMultiThreadingConstant? SimultaneousMultiThreading { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("usbTypeAPort")]
-    public EnablementConstant? UsbTypeAPort { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceUsbTypeAPortConstant? UsbTypeAPort { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -116,20 +116,20 @@ internal class Windows10DeviceFirmwareConfigurationInterfaceModel
     public int? Version { get; set; }
 
     [JsonPropertyName("virtualizationOfCpuAndIO")]
-    public EnablementConstant? VirtualizationOfCpuAndIO { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceVirtualizationOfCpuAndIOConstant? VirtualizationOfCpuAndIO { get; set; }
 
     [JsonPropertyName("wakeOnLAN")]
-    public EnablementConstant? WakeOnLAN { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceWakeOnLANConstant? WakeOnLAN { get; set; }
 
     [JsonPropertyName("wakeOnPower")]
-    public EnablementConstant? WakeOnPower { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceWakeOnPowerConstant? WakeOnPower { get; set; }
 
     [JsonPropertyName("wiFi")]
-    public EnablementConstant? WiFi { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceWiFiConstant? WiFi { get; set; }
 
     [JsonPropertyName("windowsPlatformBinaryTable")]
-    public EnablementConstant? WindowsPlatformBinaryTable { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceWindowsPlatformBinaryTableConstant? WindowsPlatformBinaryTable { get; set; }
 
     [JsonPropertyName("wirelessWideAreaNetwork")]
-    public EnablementConstant? WirelessWideAreaNetwork { get; set; }
+    public Windows10DeviceFirmwareConfigurationInterfaceWirelessWideAreaNetworkConstant? WirelessWideAreaNetwork { get; set; }
 }

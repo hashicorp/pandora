@@ -20,8 +20,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new LiveEventId();
 
-    public override Type? ResponseObject() => typeof(LiveEventModel);
-
     public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions

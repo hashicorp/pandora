@@ -1,0 +1,57 @@
+{
+ "name": "VaultHealthProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containersHealth",
+   "name": "ContainersHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceHealthSummary"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "fabricsHealth",
+   "name": "FabricsHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceHealthSummary"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectedItemsHealth",
+   "name": "ProtectedItemsHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceHealthSummary"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vaultErrors",
+   "name": "VaultErrors",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HealthError"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

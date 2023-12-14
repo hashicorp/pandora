@@ -44,7 +44,7 @@ internal class IosManagedAppRegistrationModel
     public string? DeviceType { get; set; }
 
     [JsonPropertyName("flaggedReasons")]
-    public List<ManagedAppFlaggedReasonConstant>? FlaggedReasons { get; set; }
+    public List<IosManagedAppRegistrationFlaggedReasonsConstant>? FlaggedReasons { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AutomationAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AgentRegistrationRegenerateKeyParameter"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AgentRegistration"
+ },
+ "uriSuffix": "/agentRegistrationInformation/regenerateKey"
+}

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PrivilegedAccessGroupEligibilityScheduleModel
 {
     [JsonPropertyName("accessId")]
-    public PrivilegedAccessGroupRelationshipsConstant? AccessId { get; set; }
+    public PrivilegedAccessGroupEligibilityScheduleAccessIdConstant? AccessId { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -32,7 +32,7 @@ internal class PrivilegedAccessGroupEligibilityScheduleModel
     public string? Id { get; set; }
 
     [JsonPropertyName("memberType")]
-    public PrivilegedAccessGroupMemberTypeConstant? MemberType { get; set; }
+    public PrivilegedAccessGroupEligibilityScheduleMemberTypeConstant? MemberType { get; set; }
 
     [JsonPropertyName("modifiedDateTime")]
     public DateTime? ModifiedDateTime { get; set; }

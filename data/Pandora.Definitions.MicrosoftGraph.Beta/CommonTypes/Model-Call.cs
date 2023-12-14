@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallModel
 {
     [JsonPropertyName("activeModalities")]
-    public List<ModalityConstant>? ActiveModalities { get; set; }
+    public List<CallActiveModalitiesConstant>? ActiveModalities { get; set; }
 
     [JsonPropertyName("answeredBy")]
     public ParticipantInfoModel? AnsweredBy { get; set; }
@@ -74,7 +74,7 @@ internal class CallModel
     public List<ParticipantModel>? Participants { get; set; }
 
     [JsonPropertyName("requestedModalities")]
-    public List<ModalityConstant>? RequestedModalities { get; set; }
+    public List<CallRequestedModalitiesConstant>? RequestedModalities { get; set; }
 
     [JsonPropertyName("resultInfo")]
     public ResultInfoModel? ResultInfo { get; set; }
@@ -83,7 +83,7 @@ internal class CallModel
     public int? RingingTimeoutInSeconds { get; set; }
 
     [JsonPropertyName("routingPolicies")]
-    public List<RoutingPolicyConstant>? RoutingPolicies { get; set; }
+    public List<CallRoutingPoliciesConstant>? RoutingPolicies { get; set; }
 
     [JsonPropertyName("source")]
     public ParticipantInfoModel? Source { get; set; }

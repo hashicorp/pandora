@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IosManagedAppProtectionModel
 {
     [JsonPropertyName("allowedDataIngestionLocations")]
-    public List<ManagedAppDataIngestionLocationConstant>? AllowedDataIngestionLocations { get; set; }
+    public List<IosManagedAppProtectionAllowedDataIngestionLocationsConstant>? AllowedDataIngestionLocations { get; set; }
 
     [JsonPropertyName("allowedDataStorageLocations")]
-    public List<ManagedAppDataStorageLocationConstant>? AllowedDataStorageLocations { get; set; }
+    public List<IosManagedAppProtectionAllowedDataStorageLocationsConstant>? AllowedDataStorageLocations { get; set; }
 
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public ManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public IosManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedIosDeviceModels")]
     public string? AllowedIosDeviceModels { get; set; }
@@ -29,28 +29,28 @@ internal class IosManagedAppProtectionModel
     public int? AllowedOutboundClipboardSharingExceptionLength { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public ManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public IosManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public ManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public IosManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("appActionIfDeviceComplianceRequired")]
-    public ManagedAppRemediationActionConstant? AppActionIfDeviceComplianceRequired { get; set; }
+    public IosManagedAppProtectionAppActionIfDeviceComplianceRequiredConstant? AppActionIfDeviceComplianceRequired { get; set; }
 
     [JsonPropertyName("appActionIfIosDeviceModelNotAllowed")]
-    public ManagedAppRemediationActionConstant? AppActionIfIosDeviceModelNotAllowed { get; set; }
+    public IosManagedAppProtectionAppActionIfIosDeviceModelNotAllowedConstant? AppActionIfIosDeviceModelNotAllowed { get; set; }
 
     [JsonPropertyName("appActionIfMaximumPinRetriesExceeded")]
-    public ManagedAppRemediationActionConstant? AppActionIfMaximumPinRetriesExceeded { get; set; }
+    public IosManagedAppProtectionAppActionIfMaximumPinRetriesExceededConstant? AppActionIfMaximumPinRetriesExceeded { get; set; }
 
     [JsonPropertyName("appActionIfUnableToAuthenticateUser")]
-    public ManagedAppRemediationActionConstant? AppActionIfUnableToAuthenticateUser { get; set; }
+    public IosManagedAppProtectionAppActionIfUnableToAuthenticateUserConstant? AppActionIfUnableToAuthenticateUser { get; set; }
 
     [JsonPropertyName("appDataEncryptionType")]
-    public ManagedAppDataEncryptionTypeConstant? AppDataEncryptionType { get; set; }
+    public IosManagedAppProtectionAppDataEncryptionTypeConstant? AppDataEncryptionType { get; set; }
 
     [JsonPropertyName("appGroupType")]
-    public TargetedManagedAppGroupTypeConstant? AppGroupType { get; set; }
+    public IosManagedAppProtectionAppGroupTypeConstant? AppGroupType { get; set; }
 
     [JsonPropertyName("apps")]
     public List<ManagedMobileAppModel>? Apps { get; set; }
@@ -89,7 +89,7 @@ internal class IosManagedAppProtectionModel
     public bool? DeviceComplianceRequired { get; set; }
 
     [JsonPropertyName("dialerRestrictionLevel")]
-    public ManagedAppPhoneNumberRedirectLevelConstant? DialerRestrictionLevel { get; set; }
+    public IosManagedAppProtectionDialerRestrictionLevelConstant? DialerRestrictionLevel { get; set; }
 
     [JsonPropertyName("disableAppPinIfDevicePinIsSet")]
     public bool? DisableAppPinIfDevicePinIsSet { get; set; }
@@ -128,7 +128,7 @@ internal class IosManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("managedBrowser")]
-    public ManagedBrowserTypeConstant? ManagedBrowser { get; set; }
+    public IosManagedAppProtectionManagedBrowserConstant? ManagedBrowser { get; set; }
 
     [JsonPropertyName("managedBrowserToOpenLinksRequired")]
     public bool? ManagedBrowserToOpenLinksRequired { get; set; }
@@ -137,7 +137,7 @@ internal class IosManagedAppProtectionModel
     public List<string>? ManagedUniversalLinks { get; set; }
 
     [JsonPropertyName("maximumAllowedDeviceThreatLevel")]
-    public ManagedAppDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
+    public IosManagedAppProtectionMaximumAllowedDeviceThreatLevelConstant? MaximumAllowedDeviceThreatLevel { get; set; }
 
     [JsonPropertyName("maximumPinRetries")]
     public int? MaximumPinRetries { get; set; }
@@ -182,13 +182,13 @@ internal class IosManagedAppProtectionModel
     public string? MinimumWipeSdkVersion { get; set; }
 
     [JsonPropertyName("mobileThreatDefensePartnerPriority")]
-    public MobileThreatDefensePartnerPriorityConstant? MobileThreatDefensePartnerPriority { get; set; }
+    public IosManagedAppProtectionMobileThreatDefensePartnerPriorityConstant? MobileThreatDefensePartnerPriority { get; set; }
 
     [JsonPropertyName("mobileThreatDefenseRemediationAction")]
-    public ManagedAppRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
+    public IosManagedAppProtectionMobileThreatDefenseRemediationActionConstant? MobileThreatDefenseRemediationAction { get; set; }
 
     [JsonPropertyName("notificationRestriction")]
-    public ManagedAppNotificationRestrictionConstant? NotificationRestriction { get; set; }
+    public IosManagedAppProtectionNotificationRestrictionConstant? NotificationRestriction { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -209,7 +209,7 @@ internal class IosManagedAppProtectionModel
     public string? PeriodOnlineBeforeAccessCheck { get; set; }
 
     [JsonPropertyName("pinCharacterSet")]
-    public ManagedAppPinCharacterSetConstant? PinCharacterSet { get; set; }
+    public IosManagedAppProtectionPinCharacterSetConstant? PinCharacterSet { get; set; }
 
     [JsonPropertyName("pinRequired")]
     public bool? PinRequired { get; set; }
@@ -236,7 +236,7 @@ internal class IosManagedAppProtectionModel
     public bool? SimplePinBlocked { get; set; }
 
     [JsonPropertyName("targetedAppManagementLevels")]
-    public AppManagementLevelConstant? TargetedAppManagementLevels { get; set; }
+    public IosManagedAppProtectionTargetedAppManagementLevelsConstant? TargetedAppManagementLevels { get; set; }
 
     [JsonPropertyName("thirdPartyKeyboardsBlocked")]
     public bool? ThirdPartyKeyboardsBlocked { get; set; }

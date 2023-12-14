@@ -32,10 +32,10 @@ internal class DeviceManagementPartnerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("partnerAppType")]
-    public DeviceManagementPartnerAppTypeConstant? PartnerAppType { get; set; }
+    public DeviceManagementPartnerPartnerAppTypeConstant? PartnerAppType { get; set; }
 
     [JsonPropertyName("partnerState")]
-    public DeviceManagementPartnerTenantStateConstant? PartnerState { get; set; }
+    public DeviceManagementPartnerPartnerStateConstant? PartnerState { get; set; }
 
     [JsonPropertyName("singleTenantAppId")]
     public string? SingleTenantAppId { get; set; }

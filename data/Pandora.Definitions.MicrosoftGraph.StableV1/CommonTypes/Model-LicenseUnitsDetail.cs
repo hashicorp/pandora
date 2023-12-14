@@ -16,6 +16,9 @@ internal class LicenseUnitsDetailModel
     [JsonPropertyName("enabled")]
     public int? Enabled { get; set; }
 
+    [JsonPropertyName("lockedOut")]
+    public int? LockedOut { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 

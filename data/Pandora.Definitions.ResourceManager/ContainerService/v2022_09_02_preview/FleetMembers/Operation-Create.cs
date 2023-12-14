@@ -20,8 +20,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new MemberId();
 
-    public override Type? ResponseObject() => typeof(FleetMemberModel);
-
     public override Type? OptionsObject() => typeof(CreateOperation.CreateOptions);
 
     internal class CreateOptions

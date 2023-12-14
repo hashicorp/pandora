@@ -53,7 +53,7 @@ internal class UserActivityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public StatusConstant? Status { get; set; }
+    public UserActivityStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userTimezone")]
     public string? UserTimezone { get; set; }

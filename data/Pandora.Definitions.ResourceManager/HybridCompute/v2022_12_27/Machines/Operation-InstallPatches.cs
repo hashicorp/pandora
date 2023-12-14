@@ -26,8 +26,6 @@ internal class InstallPatchesOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new MachineId();
 
-    public override Type? ResponseObject() => typeof(MachineInstallPatchesResultModel);
-
     public override string? UriSuffix() => "/installPatches";
 
 

@@ -17,7 +17,7 @@ internal class PrintJobConfigurationModel
     public bool? Collate { get; set; }
 
     [JsonPropertyName("colorMode")]
-    public PrintColorModeConstant? ColorMode { get; set; }
+    public PrintJobConfigurationColorModeConstant? ColorMode { get; set; }
 
     [JsonPropertyName("copies")]
     public int? Copies { get; set; }
@@ -26,13 +26,13 @@ internal class PrintJobConfigurationModel
     public int? Dpi { get; set; }
 
     [JsonPropertyName("duplexMode")]
-    public PrintDuplexModeConstant? DuplexMode { get; set; }
+    public PrintJobConfigurationDuplexModeConstant? DuplexMode { get; set; }
 
     [JsonPropertyName("feedOrientation")]
-    public PrinterFeedOrientationConstant? FeedOrientation { get; set; }
+    public PrintJobConfigurationFeedOrientationConstant? FeedOrientation { get; set; }
 
     [JsonPropertyName("finishings")]
-    public List<PrintFinishingConstant>? Finishings { get; set; }
+    public List<PrintJobConfigurationFinishingsConstant>? Finishings { get; set; }
 
     [JsonPropertyName("fitPdfToPage")]
     public bool? FitPdfToPage { get; set; }
@@ -50,13 +50,13 @@ internal class PrintJobConfigurationModel
     public string? MediaType { get; set; }
 
     [JsonPropertyName("multipageLayout")]
-    public PrintMultipageLayoutConstant? MultipageLayout { get; set; }
+    public PrintJobConfigurationMultipageLayoutConstant? MultipageLayout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientation")]
-    public PrintOrientationConstant? Orientation { get; set; }
+    public PrintJobConfigurationOrientationConstant? Orientation { get; set; }
 
     [JsonPropertyName("outputBin")]
     public string? OutputBin { get; set; }
@@ -68,8 +68,8 @@ internal class PrintJobConfigurationModel
     public int? PagesPerSheet { get; set; }
 
     [JsonPropertyName("quality")]
-    public PrintQualityConstant? Quality { get; set; }
+    public PrintJobConfigurationQualityConstant? Quality { get; set; }
 
     [JsonPropertyName("scaling")]
-    public PrintScalingConstant? Scaling { get; set; }
+    public PrintJobConfigurationScalingConstant? Scaling { get; set; }
 }

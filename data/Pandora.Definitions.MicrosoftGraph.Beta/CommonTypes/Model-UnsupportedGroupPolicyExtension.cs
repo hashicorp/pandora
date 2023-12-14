@@ -29,5 +29,5 @@ internal class UnsupportedGroupPolicyExtensionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("settingScope")]
-    public GroupPolicySettingScopeConstant? SettingScope { get; set; }
+    public UnsupportedGroupPolicyExtensionSettingScopeConstant? SettingScope { get; set; }
 }

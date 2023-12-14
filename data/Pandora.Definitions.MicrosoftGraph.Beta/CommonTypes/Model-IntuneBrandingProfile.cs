@@ -53,7 +53,7 @@ internal class IntuneBrandingProfileModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enrollmentAvailability")]
-    public EnrollmentAvailabilityOptionsConstant? EnrollmentAvailability { get; set; }
+    public IntuneBrandingProfileEnrollmentAvailabilityConstant? EnrollmentAvailability { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

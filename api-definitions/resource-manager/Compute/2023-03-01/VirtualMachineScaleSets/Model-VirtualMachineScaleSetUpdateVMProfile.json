@@ -1,0 +1,137 @@
+{
+ "name": "VirtualMachineScaleSetUpdateVMProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingProfile",
+   "name": "BillingProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BillingProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diagnosticsProfile",
+   "name": "DiagnosticsProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiagnosticsProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extensionProfile",
+   "name": "ExtensionProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetExtensionProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hardwareProfile",
+   "name": "HardwareProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetHardwareProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "licenseType",
+   "name": "LicenseType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkProfile",
+   "name": "NetworkProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetUpdateNetworkProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osProfile",
+   "name": "OsProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetUpdateOSProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheduledEventsProfile",
+   "name": "ScheduledEventsProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScheduledEventsProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securityProfile",
+   "name": "SecurityProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageProfile",
+   "name": "StorageProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetUpdateStorageProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userData",
+   "name": "UserData",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

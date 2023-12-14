@@ -29,7 +29,7 @@ internal class PropertyModel
     public bool? IsSearchable { get; set; }
 
     [JsonPropertyName("labels")]
-    public List<LabelConstant>? Labels { get; set; }
+    public List<PropertyLabelsConstant>? Labels { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

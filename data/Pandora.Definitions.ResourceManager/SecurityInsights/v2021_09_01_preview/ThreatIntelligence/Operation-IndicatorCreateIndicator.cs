@@ -14,6 +14,11 @@ namespace Pandora.Definitions.ResourceManager.SecurityInsights.v2021_09_01_previ
 
 internal class IndicatorCreateIndicatorOperation : Pandora.Definitions.Operations.PostOperation
 {
+    public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
+        {
+                HttpStatusCode.OK,
+        };
+
     public override Type? RequestObject() => typeof(ThreatIntelligenceIndicatorModelForRequestBodyModel);
 
     public override ResourceID? ResourceId() => new WorkspaceId();

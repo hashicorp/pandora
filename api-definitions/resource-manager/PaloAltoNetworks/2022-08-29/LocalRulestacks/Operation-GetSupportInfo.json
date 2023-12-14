@@ -1,0 +1,27 @@
+{
+ "name": "GetSupportInfo",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "email",
+   "required": false,
+   "field": "Email",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LocalRulestackId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SupportInfo"
+ },
+ "uriSuffix": "/getSupportInfo"
+}

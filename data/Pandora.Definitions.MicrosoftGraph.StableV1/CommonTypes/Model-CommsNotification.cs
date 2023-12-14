@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CommsNotificationModel
 {
     [JsonPropertyName("changeType")]
-    public ChangeTypeConstant? ChangeType { get; set; }
+    public CommsNotificationChangeTypeConstant? ChangeType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -23,8 +23,8 @@ internal class ChannelModerationSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("replyRestriction")]
-    public ReplyRestrictionConstant? ReplyRestriction { get; set; }
+    public ChannelModerationSettingsReplyRestrictionConstant? ReplyRestriction { get; set; }
 
     [JsonPropertyName("userNewMessageRestriction")]
-    public UserNewMessageRestrictionConstant? UserNewMessageRestriction { get; set; }
+    public ChannelModerationSettingsUserNewMessageRestrictionConstant? UserNewMessageRestriction { get; set; }
 }

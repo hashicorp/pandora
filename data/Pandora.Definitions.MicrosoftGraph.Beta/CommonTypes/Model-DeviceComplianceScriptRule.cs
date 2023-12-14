@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceComplianceScriptRuleModel
 {
     [JsonPropertyName("dataType")]
-    public DataTypeConstant? DataType { get; set; }
+    public DeviceComplianceScriptRuleDataTypeConstant? DataType { get; set; }
 
     [JsonPropertyName("deviceComplianceScriptRulOperator")]
-    public DeviceComplianceScriptRulOperatorConstant? DeviceComplianceScriptRulOperator { get; set; }
+    public DeviceComplianceScriptRuleDeviceComplianceScriptRulOperatorConstant? DeviceComplianceScriptRulOperator { get; set; }
 
     [JsonPropertyName("deviceComplianceScriptRuleDataType")]
-    public DeviceComplianceScriptRuleDataTypeConstant? DeviceComplianceScriptRuleDataType { get; set; }
+    public DeviceComplianceScriptRuleDeviceComplianceScriptRuleDataTypeConstant? DeviceComplianceScriptRuleDataType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -29,7 +29,7 @@ internal class DeviceComplianceScriptRuleModel
     public string? Operand { get; set; }
 
     [JsonPropertyName("operator")]
-    public OperatorConstant? Operator { get; set; }
+    public DeviceComplianceScriptRuleOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("settingName")]
     public string? SettingName { get; set; }

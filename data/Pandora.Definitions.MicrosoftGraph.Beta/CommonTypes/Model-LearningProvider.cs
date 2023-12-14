@@ -19,6 +19,9 @@ internal class LearningProviderModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("isCourseActivitySyncEnabled")]
+    public bool? IsCourseActivitySyncEnabled { get; set; }
+
     [JsonPropertyName("learningContents")]
     public List<LearningContentModel>? LearningContents { get; set; }
 

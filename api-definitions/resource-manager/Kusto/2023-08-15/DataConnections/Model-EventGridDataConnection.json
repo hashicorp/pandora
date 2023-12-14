@@ -1,0 +1,20 @@
+{
+ "name": "EventGridDataConnection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventGridConnectionProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataConnection",
+ "discriminatedTypeValue": "EventGrid",
+ "typeHintIn": "Kind"
+}

@@ -20,7 +20,5 @@ internal class LinkedServerCreateOperation : Pandora.Definitions.Operations.PutO
 
     public override ResourceID? ResourceId() => new LinkedServerId();
 
-    public override Type? ResponseObject() => typeof(RedisLinkedServerWithPropertiesModel);
-
 
 }

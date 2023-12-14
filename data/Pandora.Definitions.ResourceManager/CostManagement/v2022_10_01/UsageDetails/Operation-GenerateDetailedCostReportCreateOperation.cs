@@ -26,8 +26,6 @@ internal class GenerateDetailedCostReportCreateOperationOperation : Pandora.Defi
 
     public override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(GenerateDetailedCostReportOperationResultModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateDetailedCostReport";
 
 

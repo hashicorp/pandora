@@ -25,8 +25,6 @@ internal class DeleteOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new TimeSeriesDatabaseConnectionId();
 
-    public override Type? ResponseObject() => typeof(TimeSeriesDatabaseConnectionModel);
-
     public override Type? OptionsObject() => typeof(DeleteOperation.DeleteOptions);
 
     internal class DeleteOptions

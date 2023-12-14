@@ -1,0 +1,35 @@
+{
+ "name": "SettingId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/settings/{settingName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticSettings",
+   "type": "Static",
+   "value": "settings"
+  },
+  {
+   "constantName": "SettingName",
+   "name": "settingName",
+   "type": "Constant"
+  }
+ ]
+}

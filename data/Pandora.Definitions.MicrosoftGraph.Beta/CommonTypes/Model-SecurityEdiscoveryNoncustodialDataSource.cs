@@ -17,19 +17,19 @@ internal class SecurityEdiscoveryNoncustodialDataSourceModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("dataSource")]
-    public DataSourceModel? DataSource { get; set; }
+    public SecurityDataSourceModel? DataSource { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public SecurityEdiscoveryNoncustodialDataSourceHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("lastIndexOperation")]
-    public EdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
+    public SecurityEdiscoveryIndexOperationModel? LastIndexOperation { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -41,5 +41,5 @@ internal class SecurityEdiscoveryNoncustodialDataSourceModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryNoncustodialDataSourceStatusConstant? Status { get; set; }
 }

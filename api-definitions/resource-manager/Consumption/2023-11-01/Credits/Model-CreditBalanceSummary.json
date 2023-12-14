@@ -1,0 +1,41 @@
+{
+ "name": "CreditBalanceSummary",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentBalance",
+   "name": "CurrentBalance",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "estimatedBalance",
+   "name": "EstimatedBalance",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "estimatedBalanceInBillingCurrency",
+   "name": "EstimatedBalanceInBillingCurrency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmountWithExchangeRate"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementExchangeAccessRuleModel
 {
     [JsonPropertyName("accessLevel")]
-    public DeviceManagementExchangeAccessLevelConstant? AccessLevel { get; set; }
+    public DeviceManagementExchangeAccessRuleAccessLevelConstant? AccessLevel { get; set; }
 
     [JsonPropertyName("deviceClass")]
     public DeviceManagementExchangeDeviceClassModel? DeviceClass { get; set; }

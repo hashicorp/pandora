@@ -26,8 +26,6 @@ internal class ExportRequestRateByIntervalOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(LogAnalyticsOperationResultModel);
-
     public override string? UriSuffix() => "/logAnalytics/apiAccess/getRequestRateByInterval";
 
 

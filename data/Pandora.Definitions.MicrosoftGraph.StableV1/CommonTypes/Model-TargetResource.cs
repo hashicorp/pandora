@@ -17,7 +17,7 @@ internal class TargetResourceModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("groupType")]
-    public GroupTypeConstant? GroupType { get; set; }
+    public TargetResourceGroupTypeConstant? GroupType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -1,0 +1,43 @@
+{
+ "name": "ActionRuleId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.AlertsManagement/actionRules/{actionRuleName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAlertsManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.AlertsManagement"
+  },
+  {
+   "name": "staticActionRules",
+   "type": "Static",
+   "value": "actionRules"
+  },
+  {
+   "name": "actionRuleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

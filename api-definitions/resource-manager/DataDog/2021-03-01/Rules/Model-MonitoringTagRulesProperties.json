@@ -1,0 +1,41 @@
+{
+ "name": "MonitoringTagRulesProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logRules",
+   "name": "LogRules",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogRules"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricRules",
+   "name": "MetricRules",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MetricRules"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

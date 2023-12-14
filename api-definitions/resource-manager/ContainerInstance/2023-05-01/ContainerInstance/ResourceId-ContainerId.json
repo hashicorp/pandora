@@ -1,0 +1,52 @@
+{
+ "name": "ContainerId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerInstance/containerGroups/{containerGroupName}/containers/{containerName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftContainerInstance",
+   "type": "ResourceProvider",
+   "value": "Microsoft.ContainerInstance"
+  },
+  {
+   "name": "staticContainerGroups",
+   "type": "Static",
+   "value": "containerGroups"
+  },
+  {
+   "name": "containerGroupName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticContainers",
+   "type": "Static",
+   "value": "containers"
+  },
+  {
+   "name": "containerName",
+   "type": "UserSpecified"
+  }
+ ]
+}

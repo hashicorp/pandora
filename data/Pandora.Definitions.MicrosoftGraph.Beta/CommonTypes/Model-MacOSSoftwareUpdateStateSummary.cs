@@ -29,10 +29,10 @@ internal class MacOSSoftwareUpdateStateSummaryModel
     public string? ProductKey { get; set; }
 
     [JsonPropertyName("state")]
-    public MacOSSoftwareUpdateStateConstant? State { get; set; }
+    public MacOSSoftwareUpdateStateSummaryStateConstant? State { get; set; }
 
     [JsonPropertyName("updateCategory")]
-    public MacOSSoftwareUpdateCategoryConstant? UpdateCategory { get; set; }
+    public MacOSSoftwareUpdateStateSummaryUpdateCategoryConstant? UpdateCategory { get; set; }
 
     [JsonPropertyName("updateVersion")]
     public string? UpdateVersion { get; set; }

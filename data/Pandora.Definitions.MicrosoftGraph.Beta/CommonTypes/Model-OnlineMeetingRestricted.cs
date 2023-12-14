@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class OnlineMeetingRestrictedModel
 {
     [JsonPropertyName("contentSharingDisabled")]
-    public OnlineMeetingContentSharingDisabledReasonConstant? ContentSharingDisabled { get; set; }
+    public OnlineMeetingRestrictedContentSharingDisabledConstant? ContentSharingDisabled { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("videoDisabled")]
-    public OnlineMeetingVideoDisabledReasonConstant? VideoDisabled { get; set; }
+    public OnlineMeetingRestrictedVideoDisabledConstant? VideoDisabled { get; set; }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ExternalConnectorsRankingHintModel
 {
     [JsonPropertyName("importanceScore")]
-    public ImportanceScoreConstant? ImportanceScore { get; set; }
+    public ExternalConnectorsRankingHintImportanceScoreConstant? ImportanceScore { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

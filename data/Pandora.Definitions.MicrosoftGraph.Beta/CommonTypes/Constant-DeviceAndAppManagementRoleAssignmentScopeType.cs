@@ -1,0 +1,23 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum DeviceAndAppManagementRoleAssignmentScopeTypeConstant
+{
+    [Description("ResourceScope")]
+    @resourceScope,
+
+    [Description("AllDevices")]
+    @allDevices,
+
+    [Description("AllLicensedUsers")]
+    @allLicensedUsers,
+
+    [Description("AllDevicesAndLicensedUsers")]
+    @allDevicesAndLicensedUsers,
+}

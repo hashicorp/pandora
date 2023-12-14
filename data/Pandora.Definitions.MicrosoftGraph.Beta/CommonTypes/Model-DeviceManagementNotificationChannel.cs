@@ -14,14 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementNotificationChannelModel
 {
     [JsonPropertyName("notificationChannelType")]
-    public NotificationChannelTypeConstant? NotificationChannelType { get; set; }
+    public DeviceManagementNotificationChannelNotificationChannelTypeConstant? NotificationChannelType { get; set; }
 
     [JsonPropertyName("notificationReceivers")]
-    public List<NotificationReceiverModel>? NotificationReceivers { get; set; }
+    public List<DeviceManagementNotificationReceiverModel>? NotificationReceivers { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
-
-    [JsonPropertyName("receivers")]
-    public List<string>? Receivers { get; set; }
 }

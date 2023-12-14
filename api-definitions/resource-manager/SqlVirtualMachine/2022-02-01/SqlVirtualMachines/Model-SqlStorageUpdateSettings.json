@@ -1,0 +1,41 @@
+{
+ "name": "SqlStorageUpdateSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskConfigurationType",
+   "name": "DiskConfigurationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskConfigurationType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskCount",
+   "name": "DiskCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startingDeviceId",
+   "name": "StartingDeviceId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

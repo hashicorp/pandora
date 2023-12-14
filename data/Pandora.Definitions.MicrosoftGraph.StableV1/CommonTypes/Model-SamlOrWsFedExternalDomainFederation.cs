@@ -35,7 +35,7 @@ internal class SamlOrWsFedExternalDomainFederationModel
     public string? PassiveSignInUri { get; set; }
 
     [JsonPropertyName("preferredAuthenticationProtocol")]
-    public AuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
+    public SamlOrWsFedExternalDomainFederationPreferredAuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
 
     [JsonPropertyName("signingCertificate")]
     public string? SigningCertificate { get; set; }

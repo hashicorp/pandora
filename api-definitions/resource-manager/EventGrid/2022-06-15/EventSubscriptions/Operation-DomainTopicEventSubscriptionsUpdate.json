@@ -1,0 +1,14 @@
+{
+ "name": "DomainTopicEventSubscriptionsUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "TopicEventSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EventSubscriptionUpdateParameters"
+ }
+}

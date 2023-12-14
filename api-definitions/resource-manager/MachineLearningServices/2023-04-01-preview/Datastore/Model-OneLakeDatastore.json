@@ -1,0 +1,56 @@
+{
+ "name": "OneLakeDatastore",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifact",
+   "name": "Artifact",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OneLakeArtifact"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpoint",
+   "name": "Endpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "oneLakeWorkspaceName",
+   "name": "OneLakeWorkspaceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceDataAccessAuthIdentity",
+   "name": "ServiceDataAccessAuthIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceDataAccessAuthIdentity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Datastore",
+ "discriminatedTypeValue": "OneLake",
+ "typeHintIn": "DatastoreType"
+}

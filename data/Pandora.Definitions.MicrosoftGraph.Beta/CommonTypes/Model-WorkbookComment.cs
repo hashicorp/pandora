@@ -27,4 +27,7 @@ internal class WorkbookCommentModel
 
     [JsonPropertyName("replies")]
     public List<WorkbookCommentReplyModel>? Replies { get; set; }
+
+    [JsonPropertyName("task")]
+    public WorkbookDocumentTaskModel? Task { get; set; }
 }

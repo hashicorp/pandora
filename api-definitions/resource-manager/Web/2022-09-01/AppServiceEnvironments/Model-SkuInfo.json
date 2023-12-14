@@ -1,0 +1,41 @@
+{
+ "name": "SkuInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "capacity",
+   "name": "Capacity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuCapacity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceType",
+   "name": "ResourceType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuDescription"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -27,7 +27,5 @@ internal class ServicesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new ServiceId();
 
-    public override Type? ResponseObject() => typeof(DataMigrationServiceModel);
-
 
 }

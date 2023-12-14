@@ -32,7 +32,7 @@ internal class DeviceRegistrationPolicyModel
     public LocalAdminPasswordSettingsModel? LocalAdminPassword { get; set; }
 
     [JsonPropertyName("multiFactorAuthConfiguration")]
-    public MultiFactorAuthConfigurationConstant? MultiFactorAuthConfiguration { get; set; }
+    public DeviceRegistrationPolicyMultiFactorAuthConfigurationConstant? MultiFactorAuthConfiguration { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

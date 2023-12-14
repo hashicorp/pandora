@@ -38,7 +38,7 @@ internal class DeviceComplianceSettingStateModel
     public string? SettingName { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public DeviceComplianceSettingStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userEmail")]
     public string? UserEmail { get; set; }

@@ -17,7 +17,7 @@ internal class AuthenticationStrengthRootModel
     public List<AuthenticationMethodModeDetailModel>? AuthenticationMethodModes { get; set; }
 
     [JsonPropertyName("combinations")]
-    public List<AuthenticationMethodModesConstant>? Combinations { get; set; }
+    public List<AuthenticationStrengthRootCombinationsConstant>? Combinations { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

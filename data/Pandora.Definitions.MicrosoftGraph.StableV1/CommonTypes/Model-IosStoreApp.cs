@@ -74,5 +74,5 @@ internal class IosStoreAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public IosStoreAppPublishingStateConstant? PublishingState { get; set; }
 }

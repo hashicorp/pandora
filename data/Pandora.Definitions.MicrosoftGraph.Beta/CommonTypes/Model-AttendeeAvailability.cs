@@ -17,7 +17,7 @@ internal class AttendeeAvailabilityModel
     public AttendeeBaseModel? Attendee { get; set; }
 
     [JsonPropertyName("availability")]
-    public FreeBusyStatusConstant? Availability { get; set; }
+    public AttendeeAvailabilityAvailabilityConstant? Availability { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

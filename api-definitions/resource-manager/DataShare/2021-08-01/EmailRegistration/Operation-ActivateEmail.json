@@ -1,0 +1,19 @@
+{
+ "name": "ActivateEmail",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EmailRegistration"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EmailRegistration"
+ },
+ "uriSuffix": "/activateEmail"
+}

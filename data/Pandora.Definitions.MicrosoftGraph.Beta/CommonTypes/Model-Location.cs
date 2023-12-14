@@ -26,7 +26,7 @@ internal class LocationModel
     public string? LocationEmailAddress { get; set; }
 
     [JsonPropertyName("locationType")]
-    public LocationTypeConstant? LocationType { get; set; }
+    public LocationLocationTypeConstant? LocationType { get; set; }
 
     [JsonPropertyName("locationUri")]
     public string? LocationUri { get; set; }

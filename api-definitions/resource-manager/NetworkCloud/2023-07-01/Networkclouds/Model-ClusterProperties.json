@@ -1,0 +1,293 @@
+{
+ "name": "ClusterProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aggregatorOrSingleRackDefinition",
+   "name": "AggregatorOrSingleRackDefinition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RackDefinition"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "analyticsWorkspaceId",
+   "name": "AnalyticsWorkspaceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availableUpgradeVersions",
+   "name": "AvailableUpgradeVersions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ClusterAvailableUpgradeVersion"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterCapacity",
+   "name": "ClusterCapacity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterCapacity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterConnectionStatus",
+   "name": "ClusterConnectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterConnectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterExtendedLocation",
+   "name": "ClusterExtendedLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExtendedLocation"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterLocation",
+   "name": "ClusterLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterManagerConnectionStatus",
+   "name": "ClusterManagerConnectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterManagerConnectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterManagerId",
+   "name": "ClusterManagerId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterServicePrincipal",
+   "name": "ClusterServicePrincipal",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServicePrincipalInformation"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterType",
+   "name": "ClusterType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterVersion",
+   "name": "ClusterVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeDeploymentThreshold",
+   "name": "ComputeDeploymentThreshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidationThreshold"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeRackDefinitions",
+   "name": "ComputeRackDefinitions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RackDefinition"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "detailedStatus",
+   "name": "DetailedStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterDetailedStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "detailedStatusMessage",
+   "name": "DetailedStatusMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hybridAksExtendedLocation",
+   "name": "HybridAksExtendedLocation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExtendedLocation"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedResourceGroupConfiguration",
+   "name": "ManagedResourceGroupConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedResourceGroupConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "manualActionCount",
+   "name": "ManualActionCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkFabricId",
+   "name": "NetworkFabricId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportExpiryDate",
+   "name": "SupportExpiryDate",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workloadResourceIds",
+   "name": "WorkloadResourceIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

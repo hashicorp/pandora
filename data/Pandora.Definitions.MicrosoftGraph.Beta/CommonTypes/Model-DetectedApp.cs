@@ -29,13 +29,13 @@ internal class DetectedAppModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DetectedAppPlatformTypeConstant? Platform { get; set; }
+    public DetectedAppPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("publisher")]
     public string? Publisher { get; set; }
 
     [JsonPropertyName("sizeInByte")]
-    public long? SizeInByte { get; set; }
+    public int? SizeInByte { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

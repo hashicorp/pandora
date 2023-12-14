@@ -20,5 +20,5 @@ internal class AddressBookAccountTargetContentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public AccountTargetContentTypeConstant? Type { get; set; }
+    public AddressBookAccountTargetContentTypeConstant? Type { get; set; }
 }

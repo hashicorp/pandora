@@ -1,0 +1,19 @@
+{
+ "name": "ProactiveDetectionConfigurationsList",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ComponentId",
+ "responseObject": {
+  "type": "List",
+  "referenceName": null,
+  "nestedItem": {
+   "type": "Reference",
+   "referenceName": "ApplicationInsightsComponentProactiveDetectionConfiguration"
+  }
+ },
+ "uriSuffix": "/proactiveDetectionConfigs"
+}

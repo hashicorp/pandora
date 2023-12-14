@@ -1,0 +1,19 @@
+{
+ "name": "MarketplaceAgreementsCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatadogAgreementResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatadogAgreementResource"
+ },
+ "uriSuffix": "/providers/Microsoft.Datadog/agreements/default"
+}

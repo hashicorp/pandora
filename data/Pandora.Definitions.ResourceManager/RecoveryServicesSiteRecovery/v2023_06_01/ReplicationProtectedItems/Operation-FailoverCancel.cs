@@ -26,8 +26,6 @@ internal class FailoverCancelOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/failoverCancel";
 
 

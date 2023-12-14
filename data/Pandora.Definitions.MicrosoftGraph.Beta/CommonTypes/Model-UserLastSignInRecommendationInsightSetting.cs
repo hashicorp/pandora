@@ -20,5 +20,5 @@ internal class UserLastSignInRecommendationInsightSettingModel
     public string? RecommendationLookBackDuration { get; set; }
 
     [JsonPropertyName("signInScope")]
-    public UserSignInRecommendationScopeConstant? SignInScope { get; set; }
+    public UserLastSignInRecommendationInsightSettingSignInScopeConstant? SignInScope { get; set; }
 }

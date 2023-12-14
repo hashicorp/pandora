@@ -26,7 +26,7 @@ internal class Windows81TrustedRootCertificateModel
     public string? Description { get; set; }
 
     [JsonPropertyName("destinationStore")]
-    public CertificateDestinationStoreConstant? DestinationStore { get; set; }
+    public Windows81TrustedRootCertificateDestinationStoreConstant? DestinationStore { get; set; }
 
     [JsonPropertyName("deviceManagementApplicabilityRuleDeviceMode")]
     public DeviceManagementApplicabilityRuleDeviceModeModel? DeviceManagementApplicabilityRuleDeviceMode { get; set; }

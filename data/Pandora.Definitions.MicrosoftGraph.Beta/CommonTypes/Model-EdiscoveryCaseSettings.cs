@@ -20,11 +20,11 @@ internal class EdiscoveryCaseSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ocr")]
-    public OcrSettingsModel? Ocr { get; set; }
+    public EdiscoveryOcrSettingsModel? Ocr { get; set; }
 
     [JsonPropertyName("redundancyDetection")]
-    public RedundancyDetectionSettingsModel? RedundancyDetection { get; set; }
+    public EdiscoveryRedundancyDetectionSettingsModel? RedundancyDetection { get; set; }
 
     [JsonPropertyName("topicModeling")]
-    public TopicModelingSettingsModel? TopicModeling { get; set; }
+    public EdiscoveryTopicModelingSettingsModel? TopicModeling { get; set; }
 }

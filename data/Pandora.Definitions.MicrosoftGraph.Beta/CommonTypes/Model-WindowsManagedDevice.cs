@@ -41,19 +41,19 @@ internal class WindowsManagedDeviceModel
     public bool? BootstrapTokenEscrowed { get; set; }
 
     [JsonPropertyName("chassisType")]
-    public ChassisTypeConstant? ChassisType { get; set; }
+    public WindowsManagedDeviceChassisTypeConstant? ChassisType { get; set; }
 
     [JsonPropertyName("chromeOSDeviceInfo")]
     public List<ChromeOSDevicePropertyModel>? ChromeOSDeviceInfo { get; set; }
 
     [JsonPropertyName("cloudPcRemoteActionResults")]
-    public List<CloudPcRemoteActionResultModel>? CloudPcRemoteActionResults { get; set; }
+    public List<CloudPCRemoteActionResultModel>? CloudPCRemoteActionResults { get; set; }
 
     [JsonPropertyName("complianceGracePeriodExpirationDateTime")]
     public DateTime? ComplianceGracePeriodExpirationDateTime { get; set; }
 
     [JsonPropertyName("complianceState")]
-    public ComplianceStateConstant? ComplianceState { get; set; }
+    public WindowsManagedDeviceComplianceStateConstant? ComplianceState { get; set; }
 
     [JsonPropertyName("configurationManagerClientEnabledFeatures")]
     public ConfigurationManagerClientEnabledFeaturesModel? ConfigurationManagerClientEnabledFeatures { get; set; }
@@ -83,7 +83,7 @@ internal class WindowsManagedDeviceModel
     public List<DeviceConfigurationStateModel>? DeviceConfigurationStates { get; set; }
 
     [JsonPropertyName("deviceEnrollmentType")]
-    public DeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
+    public WindowsManagedDeviceDeviceEnrollmentTypeConstant? DeviceEnrollmentType { get; set; }
 
     [JsonPropertyName("deviceFirmwareConfigurationInterfaceManaged")]
     public bool? DeviceFirmwareConfigurationInterfaceManaged { get; set; }
@@ -98,10 +98,10 @@ internal class WindowsManagedDeviceModel
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("deviceRegistrationState")]
-    public DeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
+    public WindowsManagedDeviceDeviceRegistrationStateConstant? DeviceRegistrationState { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public DeviceTypeConstant? DeviceType { get; set; }
+    public WindowsManagedDeviceDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("easActivated")]
     public bool? EasActivated { get; set; }
@@ -125,16 +125,16 @@ internal class WindowsManagedDeviceModel
     public string? EthernetMacAddress { get; set; }
 
     [JsonPropertyName("exchangeAccessState")]
-    public DeviceManagementExchangeAccessStateConstant? ExchangeAccessState { get; set; }
+    public WindowsManagedDeviceExchangeAccessStateConstant? ExchangeAccessState { get; set; }
 
     [JsonPropertyName("exchangeAccessStateReason")]
-    public DeviceManagementExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
+    public WindowsManagedDeviceExchangeAccessStateReasonConstant? ExchangeAccessStateReason { get; set; }
 
     [JsonPropertyName("exchangeLastSuccessfulSyncDateTime")]
     public DateTime? ExchangeLastSuccessfulSyncDateTime { get; set; }
 
     [JsonPropertyName("freeStorageSpaceInBytes")]
-    public long? FreeStorageSpaceInBytes { get; set; }
+    public int? FreeStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("hardwareInformation")]
     public HardwareInformationModel? HardwareInformation { get; set; }
@@ -158,7 +158,7 @@ internal class WindowsManagedDeviceModel
     public string? JailBroken { get; set; }
 
     [JsonPropertyName("joinType")]
-    public JoinTypeConstant? JoinType { get; set; }
+    public WindowsManagedDeviceJoinTypeConstant? JoinType { get; set; }
 
     [JsonPropertyName("lastSyncDateTime")]
     public DateTime? LastSyncDateTime { get; set; }
@@ -167,7 +167,7 @@ internal class WindowsManagedDeviceModel
     public List<DeviceLogCollectionResponseModel>? LogCollectionRequests { get; set; }
 
     [JsonPropertyName("lostModeState")]
-    public LostModeStateConstant? LostModeState { get; set; }
+    public WindowsManagedDeviceLostModeStateConstant? LostModeState { get; set; }
 
     [JsonPropertyName("managedDeviceMobileAppConfigurationStates")]
     public List<ManagedDeviceMobileAppConfigurationStateModel>? ManagedDeviceMobileAppConfigurationStates { get; set; }
@@ -176,19 +176,19 @@ internal class WindowsManagedDeviceModel
     public string? ManagedDeviceName { get; set; }
 
     [JsonPropertyName("managedDeviceOwnerType")]
-    public ManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
+    public WindowsManagedDeviceManagedDeviceOwnerTypeConstant? ManagedDeviceOwnerType { get; set; }
 
     [JsonPropertyName("managementAgent")]
-    public ManagementAgentTypeConstant? ManagementAgent { get; set; }
+    public WindowsManagedDeviceManagementAgentConstant? ManagementAgent { get; set; }
 
     [JsonPropertyName("managementCertificateExpirationDate")]
     public DateTime? ManagementCertificateExpirationDate { get; set; }
 
     [JsonPropertyName("managementFeatures")]
-    public ManagedDeviceManagementFeaturesConstant? ManagementFeatures { get; set; }
+    public WindowsManagedDeviceManagementFeaturesConstant? ManagementFeatures { get; set; }
 
     [JsonPropertyName("managementState")]
-    public ManagementStateConstant? ManagementState { get; set; }
+    public WindowsManagedDeviceManagementStateConstant? ManagementState { get; set; }
 
     [JsonPropertyName("manufacturer")]
     public string? Manufacturer { get; set; }
@@ -212,22 +212,22 @@ internal class WindowsManagedDeviceModel
     public string? OsVersion { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public OwnerTypeConstant? OwnerType { get; set; }
+    public WindowsManagedDeviceOwnerTypeConstant? OwnerType { get; set; }
 
     [JsonPropertyName("partnerReportedThreatState")]
-    public ManagedDevicePartnerReportedHealthStateConstant? PartnerReportedThreatState { get; set; }
+    public WindowsManagedDevicePartnerReportedThreatStateConstant? PartnerReportedThreatState { get; set; }
 
     [JsonPropertyName("phoneNumber")]
     public string? PhoneNumber { get; set; }
 
     [JsonPropertyName("physicalMemoryInBytes")]
-    public long? PhysicalMemoryInBytes { get; set; }
+    public int? PhysicalMemoryInBytes { get; set; }
 
     [JsonPropertyName("preferMdmOverGroupPolicyAppliedDateTime")]
     public DateTime? PreferMdmOverGroupPolicyAppliedDateTime { get; set; }
 
     [JsonPropertyName("processorArchitecture")]
-    public ManagedDeviceArchitectureConstant? ProcessorArchitecture { get; set; }
+    public WindowsManagedDeviceProcessorArchitectureConstant? ProcessorArchitecture { get; set; }
 
     [JsonPropertyName("remoteAssistanceSessionErrorDetails")]
     public string? RemoteAssistanceSessionErrorDetails { get; set; }
@@ -247,6 +247,9 @@ internal class WindowsManagedDeviceModel
     [JsonPropertyName("securityBaselineStates")]
     public List<SecurityBaselineStateModel>? SecurityBaselineStates { get; set; }
 
+    [JsonPropertyName("securityPatchLevel")]
+    public string? SecurityPatchLevel { get; set; }
+
     [JsonPropertyName("serialNumber")]
     public string? SerialNumber { get; set; }
 
@@ -263,7 +266,7 @@ internal class WindowsManagedDeviceModel
     public string? SubscriberCarrier { get; set; }
 
     [JsonPropertyName("totalStorageSpaceInBytes")]
-    public long? TotalStorageSpaceInBytes { get; set; }
+    public int? TotalStorageSpaceInBytes { get; set; }
 
     [JsonPropertyName("udid")]
     public string? Udid { get; set; }

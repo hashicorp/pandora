@@ -26,8 +26,6 @@ internal class StartInstanceOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new DatabaseInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusResultModel);
-
     public override string? UriSuffix() => "/start";
 
 

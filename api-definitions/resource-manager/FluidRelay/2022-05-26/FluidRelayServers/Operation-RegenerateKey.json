@@ -1,0 +1,19 @@
+{
+ "name": "RegenerateKey",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "FluidRelayServerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RegenerateKeyRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FluidRelayServerKeys"
+ },
+ "uriSuffix": "/regenerateKey"
+}

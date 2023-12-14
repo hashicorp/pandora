@@ -1,0 +1,20 @@
+{
+ "name": "KubernetesOnlineDeployment",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerResourceRequirements",
+   "name": "ContainerResourceRequirements",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerResourceRequirements"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "OnlineDeployment",
+ "discriminatedTypeValue": "Kubernetes",
+ "typeHintIn": "EndpointComputeType"
+}

@@ -23,28 +23,28 @@ internal class IndustryDataInboundActivityResultsModel
     public int? Errors { get; set; }
 
     [JsonPropertyName("groups")]
-    public IndustryDataRunEntityCountMetricModel? Groups { get; set; }
+    public IndustryDataIndustryDataRunEntityCountMetricModel? Groups { get; set; }
 
     [JsonPropertyName("matchedPeopleByRole")]
-    public List<IndustryDataRunRoleCountMetricModel>? MatchedPeopleByRole { get; set; }
+    public List<IndustryDataIndustryDataRunRoleCountMetricModel>? MatchedPeopleByRole { get; set; }
 
     [JsonPropertyName("memberships")]
-    public IndustryDataRunEntityCountMetricModel? Memberships { get; set; }
+    public IndustryDataIndustryDataRunEntityCountMetricModel? Memberships { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("organizations")]
-    public IndustryDataRunEntityCountMetricModel? Organizations { get; set; }
+    public IndustryDataIndustryDataRunEntityCountMetricModel? Organizations { get; set; }
 
     [JsonPropertyName("people")]
-    public IndustryDataRunEntityCountMetricModel? People { get; set; }
+    public IndustryDataIndustryDataRunEntityCountMetricModel? People { get; set; }
 
     [JsonPropertyName("status")]
-    public IndustryDataActivityStatusConstant? Status { get; set; }
+    public IndustryDataInboundActivityResultsStatusConstant? Status { get; set; }
 
     [JsonPropertyName("unmatchedPeopleByRole")]
-    public List<IndustryDataRunRoleCountMetricModel>? UnmatchedPeopleByRole { get; set; }
+    public List<IndustryDataIndustryDataRunRoleCountMetricModel>? UnmatchedPeopleByRole { get; set; }
 
     [JsonPropertyName("warnings")]
     public int? Warnings { get; set; }

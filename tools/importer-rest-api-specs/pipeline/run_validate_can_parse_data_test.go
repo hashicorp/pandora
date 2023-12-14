@@ -12,7 +12,8 @@ import (
 )
 
 const (
-	outputDirectory       = "../../../data/"
+	outputDirectoryCS     = "../../../data/"
+	outputDirectoryJson   = "../../../api-definitions/"
 	swaggerDirectory      = "../../../submodules/rest-api-specs"
 	resourceManagerConfig = "../../../config/resource-manager.hcl"
 )
@@ -22,10 +23,10 @@ func TestConfigContainsValidServiceNames(t *testing.T) {
 		Services: map[string]definitions.ServiceDefinition{},
 	}
 	input := discovery.FindServiceInput{
-		SwaggerDirectory: swaggerDirectory,
-		ConfigFilePath:   resourceManagerConfig,
-		OutputDirectory:  outputDirectory,
-		Logger:           hclog.New(hclog.DefaultOptions),
+		SwaggerDirectory:  swaggerDirectory,
+		ConfigFilePath:    resourceManagerConfig,
+		OutputDirectoryCS: outputDirectoryCS,
+		Logger:            hclog.New(hclog.DefaultOptions),
 	}
 	generationData, err := discovery.FindServices(input, resources)
 	if err != nil {
@@ -56,10 +57,10 @@ func TestExistingDataCanBeGenerated(t *testing.T) {
 		Services: map[string]definitions.ServiceDefinition{},
 	}
 	input := discovery.FindServiceInput{
-		SwaggerDirectory: swaggerDirectory,
-		ConfigFilePath:   resourceManagerConfig,
-		OutputDirectory:  outputDirectory,
-		Logger:           hclog.New(hclog.DefaultOptions),
+		SwaggerDirectory:  swaggerDirectory,
+		ConfigFilePath:    resourceManagerConfig,
+		OutputDirectoryCS: outputDirectoryCS,
+		Logger:            hclog.New(hclog.DefaultOptions),
 	}
 	generationData, err := discovery.FindServices(input, resources)
 	if err != nil {

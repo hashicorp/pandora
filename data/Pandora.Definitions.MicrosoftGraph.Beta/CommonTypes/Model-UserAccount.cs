@@ -32,5 +32,5 @@ internal class UserAccountModel
     public string? SigninName { get; set; }
 
     [JsonPropertyName("status")]
-    public AccountStatusConstant? Status { get; set; }
+    public UserAccountStatusConstant? Status { get; set; }
 }

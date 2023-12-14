@@ -80,7 +80,7 @@ internal class IosWiFiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySettings")]
-    public WiFiProxySettingConstant? ProxySettings { get; set; }
+    public IosWiFiConfigurationProxySettingsConstant? ProxySettings { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -101,5 +101,5 @@ internal class IosWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public WiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public IosWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

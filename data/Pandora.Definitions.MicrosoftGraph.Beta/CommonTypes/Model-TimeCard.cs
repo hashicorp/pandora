@@ -23,7 +23,7 @@ internal class TimeCardModel
     public TimeCardEventModel? ClockOutEvent { get; set; }
 
     [JsonPropertyName("confirmedBy")]
-    public ConfirmedByConstant? ConfirmedBy { get; set; }
+    public TimeCardConfirmedByConstant? ConfirmedBy { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }

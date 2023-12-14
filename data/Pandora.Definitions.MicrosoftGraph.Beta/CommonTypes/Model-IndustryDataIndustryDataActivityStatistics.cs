@@ -23,5 +23,5 @@ internal class IndustryDataIndustryDataActivityStatisticsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public IndustryDataActivityStatusConstant? Status { get; set; }
+    public IndustryDataIndustryDataActivityStatisticsStatusConstant? Status { get; set; }
 }

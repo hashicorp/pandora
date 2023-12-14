@@ -1,0 +1,19 @@
+{
+ "name": "Validate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "ScopedRoleAssignmentScheduleRequestId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RoleAssignmentScheduleRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RoleAssignmentScheduleRequest"
+ },
+ "uriSuffix": "/validate"
+}

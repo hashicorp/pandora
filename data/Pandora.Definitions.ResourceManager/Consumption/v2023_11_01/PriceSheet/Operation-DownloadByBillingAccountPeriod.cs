@@ -26,8 +26,6 @@ internal class DownloadByBillingAccountPeriodOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new BillingAccountBillingPeriodId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.Consumption/pricesheets/download";
 
 

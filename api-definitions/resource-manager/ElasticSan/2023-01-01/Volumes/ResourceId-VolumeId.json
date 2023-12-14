@@ -1,0 +1,61 @@
+{
+ "name": "VolumeId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ElasticSan/elasticSans/{elasticSanName}/volumeGroups/{volumeGroupName}/volumes/{volumeName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftElasticSan",
+   "type": "ResourceProvider",
+   "value": "Microsoft.ElasticSan"
+  },
+  {
+   "name": "staticElasticSans",
+   "type": "Static",
+   "value": "elasticSans"
+  },
+  {
+   "name": "elasticSanName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVolumeGroups",
+   "type": "Static",
+   "value": "volumeGroups"
+  },
+  {
+   "name": "volumeGroupName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticVolumes",
+   "type": "Static",
+   "value": "volumes"
+  },
+  {
+   "name": "volumeName",
+   "type": "UserSpecified"
+  }
+ ]
+}

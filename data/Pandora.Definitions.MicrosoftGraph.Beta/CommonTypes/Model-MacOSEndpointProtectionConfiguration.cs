@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MacOSEndpointProtectionConfigurationModel
 {
     [JsonPropertyName("advancedThreatProtectionAutomaticSampleSubmission")]
-    public EnablementConstant? AdvancedThreatProtectionAutomaticSampleSubmission { get; set; }
+    public MacOSEndpointProtectionConfigurationAdvancedThreatProtectionAutomaticSampleSubmissionConstant? AdvancedThreatProtectionAutomaticSampleSubmission { get; set; }
 
     [JsonPropertyName("advancedThreatProtectionCloudDelivered")]
-    public EnablementConstant? AdvancedThreatProtectionCloudDelivered { get; set; }
+    public MacOSEndpointProtectionConfigurationAdvancedThreatProtectionCloudDeliveredConstant? AdvancedThreatProtectionCloudDelivered { get; set; }
 
     [JsonPropertyName("advancedThreatProtectionDiagnosticDataCollection")]
-    public EnablementConstant? AdvancedThreatProtectionDiagnosticDataCollection { get; set; }
+    public MacOSEndpointProtectionConfigurationAdvancedThreatProtectionDiagnosticDataCollectionConstant? AdvancedThreatProtectionDiagnosticDataCollection { get; set; }
 
     [JsonPropertyName("advancedThreatProtectionExcludedExtensions")]
     public List<string>? AdvancedThreatProtectionExcludedExtensions { get; set; }
@@ -35,7 +35,7 @@ internal class MacOSEndpointProtectionConfigurationModel
     public List<string>? AdvancedThreatProtectionExcludedProcesses { get; set; }
 
     [JsonPropertyName("advancedThreatProtectionRealTime")]
-    public EnablementConstant? AdvancedThreatProtectionRealTime { get; set; }
+    public MacOSEndpointProtectionConfigurationAdvancedThreatProtectionRealTimeConstant? AdvancedThreatProtectionRealTime { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
@@ -95,7 +95,7 @@ internal class MacOSEndpointProtectionConfigurationModel
     public int? FileVaultPersonalRecoveryKeyRotationInMonths { get; set; }
 
     [JsonPropertyName("fileVaultSelectedRecoveryKeyTypes")]
-    public MacOSFileVaultRecoveryKeyTypesConstant? FileVaultSelectedRecoveryKeyTypes { get; set; }
+    public MacOSEndpointProtectionConfigurationFileVaultSelectedRecoveryKeyTypesConstant? FileVaultSelectedRecoveryKeyTypes { get; set; }
 
     [JsonPropertyName("firewallApplications")]
     public List<MacOSFirewallApplicationModel>? FirewallApplications { get; set; }
@@ -110,7 +110,7 @@ internal class MacOSEndpointProtectionConfigurationModel
     public bool? FirewallEnabled { get; set; }
 
     [JsonPropertyName("gatekeeperAllowedAppSource")]
-    public MacOSGatekeeperAppSourcesConstant? GatekeeperAllowedAppSource { get; set; }
+    public MacOSEndpointProtectionConfigurationGatekeeperAllowedAppSourceConstant? GatekeeperAllowedAppSource { get; set; }
 
     [JsonPropertyName("gatekeeperBlockOverride")]
     public bool? GatekeeperBlockOverride { get; set; }

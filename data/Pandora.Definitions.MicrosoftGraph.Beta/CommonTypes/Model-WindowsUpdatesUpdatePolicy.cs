@@ -14,19 +14,19 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesUpdatePolicyModel
 {
     [JsonPropertyName("audience")]
-    public DeploymentAudienceModel? Audience { get; set; }
+    public WindowsUpdatesDeploymentAudienceModel? Audience { get; set; }
 
     [JsonPropertyName("complianceChangeRules")]
-    public List<ComplianceChangeRuleModel>? ComplianceChangeRules { get; set; }
+    public List<WindowsUpdatesComplianceChangeRuleModel>? ComplianceChangeRules { get; set; }
 
     [JsonPropertyName("complianceChanges")]
-    public List<ComplianceChangeModel>? ComplianceChanges { get; set; }
+    public List<WindowsUpdatesComplianceChangeModel>? ComplianceChanges { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("deploymentSettings")]
-    public DeploymentSettingsModel? DeploymentSettings { get; set; }
+    public WindowsUpdatesDeploymentSettingsModel? DeploymentSettings { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -122,7 +122,7 @@ internal class DriveItemModel
     public SharepointIdsModel? SharepointIds { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("specialFolder")]
     public SpecialFolderModel? SpecialFolder { get; set; }

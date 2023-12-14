@@ -20,7 +20,5 @@ internal class CreateDnsZoneOperation : Pandora.Definitions.Operations.PutOperat
 
     public override ResourceID? ResourceId() => new DnsZoneId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDnsZoneModel);
-
 
 }

@@ -20,7 +20,7 @@ internal class AndroidEasEmailProfileConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public EasAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidEasEmailProfileConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -53,13 +53,13 @@ internal class AndroidEasEmailProfileConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public AndroidEasEmailProfileConfigurationDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public AndroidEasEmailProfileConfigurationEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("emailSyncSchedule")]
-    public EmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
+    public AndroidEasEmailProfileConfigurationEmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -107,7 +107,7 @@ internal class AndroidEasEmailProfileConfigurationModel
     public bool? SyncTasks { get; set; }
 
     [JsonPropertyName("userDomainNameSource")]
-    public DomainNameSourceConstant? UserDomainNameSource { get; set; }
+    public AndroidEasEmailProfileConfigurationUserDomainNameSourceConstant? UserDomainNameSource { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -116,7 +116,7 @@ internal class AndroidEasEmailProfileConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public AndroidUsernameSourceConstant? UsernameSource { get; set; }
+    public AndroidEasEmailProfileConfigurationUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

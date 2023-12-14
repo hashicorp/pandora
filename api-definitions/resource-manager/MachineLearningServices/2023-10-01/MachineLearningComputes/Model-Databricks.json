@@ -1,0 +1,20 @@
+{
+ "name": "Databricks",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatabricksProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Compute",
+ "discriminatedTypeValue": "Databricks",
+ "typeHintIn": "ComputeType"
+}

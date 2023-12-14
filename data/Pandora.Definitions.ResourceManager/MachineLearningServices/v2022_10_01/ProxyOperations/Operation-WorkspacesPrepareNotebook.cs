@@ -26,8 +26,6 @@ internal class WorkspacesPrepareNotebookOperation : Pandora.Definitions.Operatio
 
     public override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(NotebookResourceInfoModel);
-
     public override string? UriSuffix() => "/prepareNotebook";
 
 

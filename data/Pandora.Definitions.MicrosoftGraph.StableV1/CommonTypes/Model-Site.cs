@@ -55,6 +55,9 @@ internal class SiteModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("isPersonalSite")]
+    public bool? IsPersonalSite { get; set; }
+
     [JsonPropertyName("items")]
     public List<BaseItemModel>? Items { get; set; }
 
@@ -101,10 +104,10 @@ internal class SiteModel
     public List<SiteModel>? Sites { get; set; }
 
     [JsonPropertyName("termStore")]
-    public StoreModel? TermStore { get; set; }
+    public TermStoreStoreModel? TermStore { get; set; }
 
     [JsonPropertyName("termStores")]
-    public List<StoreModel>? TermStores { get; set; }
+    public List<TermStoreStoreModel>? TermStores { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

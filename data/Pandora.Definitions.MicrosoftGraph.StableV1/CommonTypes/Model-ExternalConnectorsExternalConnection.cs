@@ -14,22 +14,22 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ExternalConnectorsExternalConnectionModel
 {
     [JsonPropertyName("activitySettings")]
-    public ActivitySettingsModel? ActivitySettings { get; set; }
+    public ExternalConnectorsActivitySettingsModel? ActivitySettings { get; set; }
 
     [JsonPropertyName("configuration")]
-    public ConfigurationModel? Configuration { get; set; }
+    public ExternalConnectorsConfigurationModel? Configuration { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
 
     [JsonPropertyName("groups")]
-    public List<ExternalGroupModel>? Groups { get; set; }
+    public List<ExternalConnectorsExternalGroupModel>? Groups { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("items")]
-    public List<ExternalItemModel>? Items { get; set; }
+    public List<ExternalConnectorsExternalItemModel>? Items { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -38,14 +38,14 @@ internal class ExternalConnectorsExternalConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operations")]
-    public List<ConnectionOperationModel>? Operations { get; set; }
+    public List<ExternalConnectorsConnectionOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("schema")]
-    public SchemaModel? Schema { get; set; }
+    public ExternalConnectorsSchemaModel? Schema { get; set; }
 
     [JsonPropertyName("searchSettings")]
-    public SearchSettingsModel? SearchSettings { get; set; }
+    public ExternalConnectorsSearchSettingsModel? SearchSettings { get; set; }
 
     [JsonPropertyName("state")]
-    public ConnectionStateConstant? State { get; set; }
+    public ExternalConnectorsExternalConnectionStateConstant? State { get; set; }
 }

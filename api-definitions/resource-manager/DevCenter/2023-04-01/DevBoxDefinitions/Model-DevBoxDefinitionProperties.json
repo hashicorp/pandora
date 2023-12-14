@@ -1,0 +1,101 @@
+{
+ "name": "DevBoxDefinitionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeImageReference",
+   "name": "ActiveImageReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hibernateSupport",
+   "name": "HibernateSupport",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HibernateSupport"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageReference",
+   "name": "ImageReference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageReference"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageValidationErrorDetails",
+   "name": "ImageValidationErrorDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageValidationErrorDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageValidationStatus",
+   "name": "ImageValidationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageValidationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osStorageType",
+   "name": "OsStorageType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Sku"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

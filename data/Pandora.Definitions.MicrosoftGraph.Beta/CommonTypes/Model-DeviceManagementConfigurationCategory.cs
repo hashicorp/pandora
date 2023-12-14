@@ -41,14 +41,14 @@ internal class DeviceManagementConfigurationCategoryModel
     public string? ParentCategoryId { get; set; }
 
     [JsonPropertyName("platforms")]
-    public DeviceManagementConfigurationPlatformsConstant? Platforms { get; set; }
+    public DeviceManagementConfigurationCategoryPlatformsConstant? Platforms { get; set; }
 
     [JsonPropertyName("rootCategoryId")]
     public string? RootCategoryId { get; set; }
 
     [JsonPropertyName("settingUsage")]
-    public DeviceManagementConfigurationSettingUsageConstant? SettingUsage { get; set; }
+    public DeviceManagementConfigurationCategorySettingUsageConstant? SettingUsage { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementConfigurationCategoryTechnologiesConstant? Technologies { get; set; }
 }

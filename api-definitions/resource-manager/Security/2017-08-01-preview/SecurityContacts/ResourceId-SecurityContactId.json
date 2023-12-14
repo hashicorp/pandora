@@ -1,0 +1,34 @@
+{
+ "name": "SecurityContactId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/securityContacts/{securityContactName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticSecurityContacts",
+   "type": "Static",
+   "value": "securityContacts"
+  },
+  {
+   "name": "securityContactName",
+   "type": "UserSpecified"
+  }
+ ]
+}

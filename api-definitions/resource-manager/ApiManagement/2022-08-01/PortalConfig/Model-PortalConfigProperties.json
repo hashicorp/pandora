@@ -1,0 +1,77 @@
+{
+ "name": "PortalConfigProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cors",
+   "name": "Cors",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PortalConfigCorsProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "csp",
+   "name": "Csp",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PortalConfigCspProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "delegation",
+   "name": "Delegation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PortalConfigDelegationProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableBasicAuth",
+   "name": "EnableBasicAuth",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signin",
+   "name": "Signin",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PortalConfigPropertiesSignin"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signup",
+   "name": "Signup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PortalConfigPropertiesSignup"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "FrontendConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipAddressType",
+   "name": "IPAddressType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPAddressType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerBackendAddressPoolId",
+   "name": "LoadBalancerBackendAddressPoolId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerInboundNatPoolId",
+   "name": "LoadBalancerInboundNatPoolId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

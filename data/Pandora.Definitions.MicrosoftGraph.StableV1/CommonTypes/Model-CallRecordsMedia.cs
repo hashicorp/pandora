@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CallRecordsMediaModel
 {
     [JsonPropertyName("calleeDevice")]
-    public DeviceInfoModel? CalleeDevice { get; set; }
+    public CallRecordsDeviceInfoModel? CalleeDevice { get; set; }
 
     [JsonPropertyName("calleeNetwork")]
-    public NetworkInfoModel? CalleeNetwork { get; set; }
+    public CallRecordsNetworkInfoModel? CalleeNetwork { get; set; }
 
     [JsonPropertyName("callerDevice")]
-    public DeviceInfoModel? CallerDevice { get; set; }
+    public CallRecordsDeviceInfoModel? CallerDevice { get; set; }
 
     [JsonPropertyName("callerNetwork")]
-    public NetworkInfoModel? CallerNetwork { get; set; }
+    public CallRecordsNetworkInfoModel? CallerNetwork { get; set; }
 
     [JsonPropertyName("label")]
     public string? Label { get; set; }
@@ -32,5 +32,5 @@ internal class CallRecordsMediaModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("streams")]
-    public List<MediaStreamModel>? Streams { get; set; }
+    public List<CallRecordsMediaStreamModel>? Streams { get; set; }
 }

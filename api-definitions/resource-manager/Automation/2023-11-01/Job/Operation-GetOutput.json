@@ -1,0 +1,27 @@
+{
+ "name": "GetOutput",
+ "contentType": "text/plain",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "clientRequestId",
+   "optional": true,
+   "required": false,
+   "field": "ClientRequestId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "JobId",
+ "responseObject": {
+  "type": "String",
+  "referenceName": null
+ },
+ "uriSuffix": "/output"
+}

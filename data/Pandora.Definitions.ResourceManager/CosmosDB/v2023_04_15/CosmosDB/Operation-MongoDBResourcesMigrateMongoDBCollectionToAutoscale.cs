@@ -26,8 +26,6 @@ internal class MongoDBResourcesMigrateMongoDBCollectionToAutoscaleOperation : Pa
 
     public override ResourceID? ResourceId() => new MongodbDatabaseCollectionId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToAutoscale";
 
 

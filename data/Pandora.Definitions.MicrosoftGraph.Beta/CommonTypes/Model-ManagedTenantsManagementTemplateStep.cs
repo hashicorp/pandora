@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagementTemplateStepModel
 {
     [JsonPropertyName("acceptedVersion")]
-    public ManagementTemplateStepVersionModel? AcceptedVersion { get; set; }
+    public ManagedTenantsManagementTemplateStepVersionModel? AcceptedVersion { get; set; }
 
     [JsonPropertyName("category")]
-    public ManagementCategoryConstant? Category { get; set; }
+    public ManagedTenantsManagementTemplateStepCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }
@@ -41,7 +41,7 @@ internal class ManagedTenantsManagementTemplateStepModel
     public DateTime? LastActionDateTime { get; set; }
 
     [JsonPropertyName("managementTemplate")]
-    public ManagementTemplateModel? ManagementTemplate { get; set; }
+    public ManagedTenantsManagementTemplateModel? ManagementTemplate { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -53,5 +53,5 @@ internal class ManagedTenantsManagementTemplateStepModel
     public int? Priority { get; set; }
 
     [JsonPropertyName("versions")]
-    public List<ManagementTemplateStepVersionModel>? Versions { get; set; }
+    public List<ManagedTenantsManagementTemplateStepVersionModel>? Versions { get; set; }
 }

@@ -1,0 +1,16 @@
+{
+ "name": "ListBySubscription",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "FeatureProviderId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SubscriptionFeatureRegistration"
+ },
+ "uriSuffix": "/subscriptionFeatureRegistrations"
+}

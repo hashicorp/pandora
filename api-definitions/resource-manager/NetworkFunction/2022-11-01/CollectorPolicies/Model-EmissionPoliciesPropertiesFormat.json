@@ -1,0 +1,33 @@
+{
+ "name": "EmissionPoliciesPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "emissionDestinations",
+   "name": "EmissionDestinations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EmissionPolicyDestination"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "emissionType",
+   "name": "EmissionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EmissionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

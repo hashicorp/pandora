@@ -62,10 +62,10 @@ internal class CalendarSharingMessageModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public CalendarSharingMessageImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("inferenceClassification")]
-    public InferenceClassificationTypeConstant? InferenceClassification { get; set; }
+    public CalendarSharingMessageInferenceClassificationConstant? InferenceClassification { get; set; }
 
     [JsonPropertyName("internetMessageHeaders")]
     public List<InternetMessageHeaderModel>? InternetMessageHeaders { get; set; }

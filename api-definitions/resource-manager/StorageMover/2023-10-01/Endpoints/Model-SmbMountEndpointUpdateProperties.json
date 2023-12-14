@@ -1,0 +1,20 @@
+{
+ "name": "SmbMountEndpointUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureKeyVaultSmbCredentials"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EndpointBaseUpdateProperties",
+ "discriminatedTypeValue": "SmbMount",
+ "typeHintIn": "EndpointType"
+}

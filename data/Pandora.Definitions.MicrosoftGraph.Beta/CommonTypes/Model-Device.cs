@@ -109,6 +109,9 @@ internal class DeviceModel
     [JsonPropertyName("onPremisesLastSyncDateTime")]
     public DateTime? OnPremisesLastSyncDateTime { get; set; }
 
+    [JsonPropertyName("onPremisesSecurityIdentifier")]
+    public string? OnPremisesSecurityIdentifier { get; set; }
+
     [JsonPropertyName("onPremisesSyncEnabled")]
     public bool? OnPremisesSyncEnabled { get; set; }
 

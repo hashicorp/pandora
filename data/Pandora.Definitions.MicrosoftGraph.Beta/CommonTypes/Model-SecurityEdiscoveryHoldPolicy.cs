@@ -47,11 +47,11 @@ internal class SecurityEdiscoveryHoldPolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("siteSources")]
-    public List<SiteSourceModel>? SiteSources { get; set; }
+    public List<SecuritySiteSourceModel>? SiteSources { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicyStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryHoldPolicyStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userSources")]
-    public List<UserSourceModel>? UserSources { get; set; }
+    public List<SecurityUserSourceModel>? UserSources { get; set; }
 }

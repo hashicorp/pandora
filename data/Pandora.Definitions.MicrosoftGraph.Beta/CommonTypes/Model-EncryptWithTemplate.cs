@@ -17,7 +17,7 @@ internal class EncryptWithTemplateModel
     public bool? AvailableForEncryption { get; set; }
 
     [JsonPropertyName("encryptWith")]
-    public EncryptWithConstant? EncryptWith { get; set; }
+    public EncryptWithTemplateEncryptWithConstant? EncryptWith { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

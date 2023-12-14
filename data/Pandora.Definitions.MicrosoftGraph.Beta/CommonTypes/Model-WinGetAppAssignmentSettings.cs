@@ -17,7 +17,7 @@ internal class WinGetAppAssignmentSettingsModel
     public WinGetAppInstallTimeSettingsModel? InstallTimeSettings { get; set; }
 
     [JsonPropertyName("notifications")]
-    public WinGetAppNotificationConstant? Notifications { get; set; }
+    public WinGetAppAssignmentSettingsNotificationsConstant? Notifications { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

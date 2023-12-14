@@ -1,0 +1,19 @@
+{
+ "name": "DataConnectorsCheckRequirementsPost",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "WorkspaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataConnectorsCheckRequirements"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DataConnectorRequirementsState"
+ },
+ "uriSuffix": "/providers/Microsoft.SecurityInsights/dataConnectorsCheckRequirements"
+}

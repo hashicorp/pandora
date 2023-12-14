@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementApplicabilityRuleDeviceModeModel
 {
     [JsonPropertyName("deviceMode")]
-    public Windows10DeviceModeTypeConstant? DeviceMode { get; set; }
+    public DeviceManagementApplicabilityRuleDeviceModeDeviceModeConstant? DeviceMode { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -23,5 +23,5 @@ internal class DeviceManagementApplicabilityRuleDeviceModeModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public DeviceManagementApplicabilityRuleTypeConstant? RuleType { get; set; }
+    public DeviceManagementApplicabilityRuleDeviceModeRuleTypeConstant? RuleType { get; set; }
 }

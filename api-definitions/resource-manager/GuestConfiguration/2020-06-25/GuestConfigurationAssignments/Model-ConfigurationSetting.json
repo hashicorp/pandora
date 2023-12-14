@@ -1,0 +1,77 @@
+{
+ "name": "ConfigurationSetting",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionAfterReboot",
+   "name": "ActionAfterReboot",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActionAfterReboot"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowModuleOverwrite",
+   "name": "AllowModuleOverwrite",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurationMode",
+   "name": "ConfigurationMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConfigurationMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurationModeFrequencyMins",
+   "name": "ConfigurationModeFrequencyMins",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rebootIfNeeded",
+   "name": "RebootIfNeeded",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "refreshFrequencyMins",
+   "name": "RefreshFrequencyMins",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

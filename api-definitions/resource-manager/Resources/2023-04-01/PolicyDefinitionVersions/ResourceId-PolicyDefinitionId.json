@@ -1,0 +1,25 @@
+{
+ "name": "PolicyDefinitionId",
+ "id": "/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPolicyDefinitions",
+   "type": "Static",
+   "value": "policyDefinitions"
+  },
+  {
+   "name": "policyDefinitionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

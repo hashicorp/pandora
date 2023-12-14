@@ -20,7 +20,7 @@ internal class WindowsPhone81VpnConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public WindowsPhone81VpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("bypassVpnOnCompanyWifi")]
     public bool? BypassVpnOnCompanyWifi { get; set; }
@@ -32,7 +32,7 @@ internal class WindowsPhone81VpnConfigurationModel
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public WindowsVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public WindowsPhone81VpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

@@ -20,7 +20,5 @@ internal class UpdateOnNodeOperation : Pandora.Definitions.Operations.PutOperati
 
     public override ResourceID? ResourceId() => new NodeConfigurationId();
 
-    public override Type? ResponseObject() => typeof(ServerConfigurationModel);
-
 
 }

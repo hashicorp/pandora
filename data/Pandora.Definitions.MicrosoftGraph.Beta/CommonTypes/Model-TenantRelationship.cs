@@ -20,7 +20,10 @@ internal class TenantRelationshipModel
     public List<DelegatedAdminRelationshipModel>? DelegatedAdminRelationships { get; set; }
 
     [JsonPropertyName("managedTenants")]
-    public ManagedTenantModel? ManagedTenants { get; set; }
+    public ManagedTenantsManagedTenantModel? ManagedTenants { get; set; }
+
+    [JsonPropertyName("multiTenantOrganization")]
+    public MultiTenantOrganizationModel? MultiTenantOrganization { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

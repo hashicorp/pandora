@@ -32,7 +32,7 @@ internal class MessageRulePredicatesModel
     public List<string>? HeaderContains { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public MessageRulePredicatesImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("isApprovalRequest")]
     public bool? IsApprovalRequest { get; set; }
@@ -68,7 +68,7 @@ internal class MessageRulePredicatesModel
     public bool? IsVoicemail { get; set; }
 
     [JsonPropertyName("messageActionFlag")]
-    public MessageActionFlagConstant? MessageActionFlag { get; set; }
+    public MessageRulePredicatesMessageActionFlagConstant? MessageActionFlag { get; set; }
 
     [JsonPropertyName("notSentToMe")]
     public bool? NotSentToMe { get; set; }
@@ -83,7 +83,7 @@ internal class MessageRulePredicatesModel
     public List<string>? SenderContains { get; set; }
 
     [JsonPropertyName("sensitivity")]
-    public SensitivityConstant? Sensitivity { get; set; }
+    public MessageRulePredicatesSensitivityConstant? Sensitivity { get; set; }
 
     [JsonPropertyName("sentCcMe")]
     public bool? SentCcMe { get; set; }

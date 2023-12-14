@@ -74,7 +74,7 @@ internal class IosVppAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public IosVppAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("releaseDateTime")]
     public DateTime? ReleaseDateTime { get; set; }
@@ -86,7 +86,7 @@ internal class IosVppAppModel
     public int? UsedLicenseCount { get; set; }
 
     [JsonPropertyName("vppTokenAccountType")]
-    public VppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
+    public IosVppAppVppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
 
     [JsonPropertyName("vppTokenAppleId")]
     public string? VppTokenAppleId { get; set; }

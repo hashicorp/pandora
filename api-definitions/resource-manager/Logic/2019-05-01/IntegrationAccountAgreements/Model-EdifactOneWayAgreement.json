@@ -1,0 +1,41 @@
+{
+ "name": "EdifactOneWayAgreement",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocolSettings",
+   "name": "ProtocolSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdifactProtocolSettings"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "receiverBusinessIdentity",
+   "name": "ReceiverBusinessIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BusinessIdentity"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "senderBusinessIdentity",
+   "name": "SenderBusinessIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BusinessIdentity"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

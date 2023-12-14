@@ -26,5 +26,5 @@ internal class AttributeMappingParameterSchemaModel
     public bool? Required { get; set; }
 
     [JsonPropertyName("type")]
-    public AttributeTypeConstant? Type { get; set; }
+    public AttributeMappingParameterSchemaTypeConstant? Type { get; set; }
 }

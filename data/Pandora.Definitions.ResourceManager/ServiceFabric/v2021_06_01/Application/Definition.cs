@@ -28,7 +28,6 @@ internal class Definition : ResourceDefinition
     {
         typeof(ApplicationMetricDescriptionModel),
         typeof(ApplicationResourceModel),
-        typeof(ApplicationResourceListModel),
         typeof(ApplicationResourcePropertiesModel),
         typeof(ApplicationResourceUpdateModel),
         typeof(ApplicationResourceUpdatePropertiesModel),

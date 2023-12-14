@@ -26,13 +26,13 @@ internal class EdiscoveryUnifiedGroupSourceModel
     public GroupModel? Group { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public EdiscoveryUnifiedGroupSourceHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("includedSources")]
-    public SourceTypeConstant? IncludedSources { get; set; }
+    public EdiscoveryUnifiedGroupSourceIncludedSourcesConstant? IncludedSources { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

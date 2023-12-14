@@ -17,12 +17,12 @@ import (
 )
 
 type operationsParser struct {
-	operations        []parsedOperation
-	urisToResourceIds map[string]resourceids.ParsedOperation
-	swaggerDefinition *SwaggerDefinition
+	operations                     []parsedOperation
+	operationIdsToParsedOperations map[string]resourceids.ParsedOperation
+	swaggerDefinition              *SwaggerDefinition
 }
 
-func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResourceIds map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, operationIdsToParsedOperations map[string]resourceids.ParsedOperation, resourceProvider *string, found internal.ParseResult) (*map[string]models.OperationDetails, *internal.ParseResult, error) {
 	logger := d.logger.Named("Operations Parser")
 	operations := make(map[string]models.OperationDetails, 0)
 	result := internal.ParseResult{
@@ -32,8 +32,8 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 	result.Append(found)
 
 	parser := operationsParser{
-		urisToResourceIds: urisToResourceIds,
-		swaggerDefinition: d,
+		operationIdsToParsedOperations: operationIdsToParsedOperations,
+		swaggerDefinition:              d,
 	}
 
 	// first find the operations then pull out everything we can
@@ -57,7 +57,7 @@ func (d *SwaggerDefinition) parseOperationsWithinTag(tag *string, urisToResource
 		}
 
 		if existing, hasExisting := operations[operation.name]; hasExisting {
-			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.Uri, parsedOperation.Method, parsedOperation.Uri)
+			return nil, nil, fmt.Errorf("conflicting operations with the Name %q - first %q %q - second %q %q", operation.name, existing.Method, existing.OperationId, parsedOperation.Method, parsedOperation.OperationId)
 		}
 
 		if parsedOperation == nil {
@@ -76,16 +76,12 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		Models:    map[string]models.ModelDetails{},
 	}
 
-	normalizedUri, err := p.normalizedUriForOperation(operation)
-	if err != nil {
-		return nil, nil, fmt.Errorf("determining the normalized uri: %+v", err)
-	}
 	contentType := p.determineContentType(operation)
 	expectedStatusCodes := p.expectedStatusCodesForOperation(operation)
 	paginationField := p.fieldContainingPaginationDetailsForOperation(operation)
 	requestObject, nestedResult, err := p.requestObjectForOperation(operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
+		return nil, nil, fmt.Errorf("determining request operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -95,7 +91,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 	isAListOperation := p.isListOperation(operation)
 	responseResult, nestedResult, err := p.responseObjectForOperation(operation, result)
 	if err != nil {
-		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / uri %q): %+v", operation.name, operation.httpMethod, *normalizedUri, err)
+		return nil, nil, fmt.Errorf("determining response operation for %q (method %q / ID %q): %+v", operation.name, operation.httpMethod, operation.operation.ID, err)
 	}
 	if nestedResult != nil {
 		if err := result.Append(*nestedResult); err != nil {
@@ -117,7 +113,7 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		}
 	}
 
-	resourceId := p.urisToResourceIds[*normalizedUri]
+	resourceId := p.operationIdsToParsedOperations[operation.operation.ID]
 	usesADifferentResourceProvider, err := resourceIdUsesAResourceProviderOtherThan(resourceId.ResourceId, resourceProvider)
 	if err != nil {
 		return nil, nil, err
@@ -133,11 +129,11 @@ func (p operationsParser) parseOperation(operation parsedOperation, resourceProv
 		IsListOperation:                  isAListOperation,
 		LongRunning:                      longRunning,
 		Method:                           strings.ToUpper(operation.httpMethod),
+		OperationId:                      operation.operation.ID,
 		Options:                          *options,
 		RequestObject:                    requestObject,
 		ResourceIdName:                   resourceId.ResourceIdName,
 		ResponseObject:                   responseResult.objectDefinition,
-		Uri:                              *normalizedUri,
 		UriSuffix:                        resourceId.UriSuffix,
 	}
 
@@ -256,6 +252,32 @@ func (p operationsParser) expectedStatusCodesForOperation(input parsedOperation)
 		}
 	}
 
+	if !usesNonDefaultStatusCodes(input, statusCodes) {
+		if p.operationIsLongRunning(input) {
+			if strings.EqualFold(input.httpMethod, "delete") {
+				statusCodes = []int{200, 202}
+			}
+			if strings.EqualFold(input.httpMethod, "post") {
+				statusCodes = []int{201, 202}
+			}
+			if strings.EqualFold(input.httpMethod, "put") {
+				statusCodes = []int{201, 202}
+			}
+		}
+		if p.isListOperation(input) {
+			if strings.EqualFold(input.httpMethod, "get") {
+				statusCodes = []int{200}
+			}
+		}
+		if strings.EqualFold(input.httpMethod, "delete") || strings.EqualFold(input.httpMethod, "get") || strings.EqualFold(input.httpMethod, "post") || strings.EqualFold(input.httpMethod, "head") {
+			statusCodes = []int{200}
+		}
+		if strings.EqualFold(input.httpMethod, "put") || strings.EqualFold(input.httpMethod, "patch") {
+			statusCodes = []int{200, 201}
+		}
+	}
+	sort.Ints(statusCodes)
+
 	return statusCodes
 }
 
@@ -346,11 +368,11 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 
 			// looks like these can be dates etc too
 			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "name": "reportedEndTime",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "in": "query",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "required": true,
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
-			//./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "in": "query",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "required": true,
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "type": "string",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json:            "format": "date-time",
+			// ./commerce/resource-manager/Microsoft.Commerce/preview/2015-06-01-preview/commerce.json-            "description": "The end of the time range to retrieve data for."
 			objectDefinition, err := p.determineObjectDefinitionForOption(param)
 			if err != nil {
 				return nil, nil, fmt.Errorf("determining field type for operation: %+v", err)
@@ -396,16 +418,6 @@ func (p operationsParser) operationShouldBeIgnored(input models.OperationDetails
 	return false
 }
 
-func (p operationsParser) normalizedUriForOperation(input parsedOperation) (*string, error) {
-	for key := range p.urisToResourceIds {
-		if strings.EqualFold(key, input.uri) {
-			return &key, nil
-		}
-	}
-
-	return nil, fmt.Errorf("%q was not found in the normalized uri list", input.uri)
-}
-
 func (p operationsParser) requestObjectForOperation(input parsedOperation, known internal.ParseResult) (*models.ObjectDefinition, *internal.ParseResult, error) {
 	// all we should parse out is the top level object - nothing more.
 
@@ -417,7 +429,8 @@ func (p operationsParser) requestObjectForOperation(input parsedOperation, known
 
 	for _, param := range unexpandedOperation.Parameters {
 		if strings.EqualFold(param.In, "body") {
-			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known)
+			parsingModel := true
+			objectDefinition, result, err := p.swaggerDefinition.parseObjectDefinition(param.Schema.Title, param.Schema.Title, param.Schema, known, parsingModel)
 			if err != nil {
 				return nil, nil, fmt.Errorf("parsing request object for parameter %q: %+v", param.Name, err)
 			}
@@ -473,7 +486,8 @@ func (p operationsParser) responseObjectForOperation(input parsedOperation, know
 			continue
 		}
 
-		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result)
+		parsingModel := true
+		objectDefinition, nestedResult, err := p.swaggerDefinition.parseObjectDefinition(details.ResponseProps.Schema.Title, details.ResponseProps.Schema.Title, details.ResponseProps.Schema, result, parsingModel)
 		if err != nil {
 			return nil, nil, fmt.Errorf("parsing response object from status code %d: %+v", statusCode, err)
 		}
@@ -520,7 +534,7 @@ type parsedOperation struct {
 func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOperation {
 	result := make([]parsedOperation, 0)
 	for httpMethod, operation := range d.swaggerSpecExpanded.Operations() {
-		//operation = inferMissingTags(operation, tag)
+		// operation = inferMissingTags(operation, tag)
 		for uri, operationDetails := range operation {
 			if !operationMatchesTag(operationDetails, tag) {
 				continue
@@ -537,4 +551,34 @@ func (d *SwaggerDefinition) findOperationsMatchingTag(tag *string) *[]parsedOper
 	}
 
 	return &result
+}
+
+func usesNonDefaultStatusCodes(input parsedOperation, statusCodes []int) bool {
+	defaultStatusCodes := map[string][]int{
+		"get":    {200},
+		"post":   {200, 201},
+		"put":    {200, 201},
+		"delete": {200, 201},
+		"patch":  {200, 201},
+	}
+	expected, ok := defaultStatusCodes[strings.ToLower(input.httpMethod)]
+	if !ok {
+		// potentially an unsupported use-case but fine for now
+		return true
+	}
+
+	if len(expected) != len(statusCodes) {
+		return true
+	}
+
+	sort.Ints(expected)
+	sort.Ints(statusCodes)
+	for i, ev := range expected {
+		av := statusCodes[i]
+		if ev != av {
+			return true
+		}
+	}
+
+	return false
 }

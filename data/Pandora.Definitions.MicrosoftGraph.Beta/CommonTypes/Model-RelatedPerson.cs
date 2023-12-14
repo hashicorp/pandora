@@ -20,7 +20,7 @@ internal class RelatedPersonModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("relationship")]
-    public PersonRelationshipConstant? Relationship { get; set; }
+    public RelatedPersonRelationshipConstant? Relationship { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }

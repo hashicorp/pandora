@@ -17,5 +17,5 @@ internal class IncludeAllAccountTargetContentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public AccountTargetContentTypeConstant? Type { get; set; }
+    public IncludeAllAccountTargetContentTypeConstant? Type { get; set; }
 }

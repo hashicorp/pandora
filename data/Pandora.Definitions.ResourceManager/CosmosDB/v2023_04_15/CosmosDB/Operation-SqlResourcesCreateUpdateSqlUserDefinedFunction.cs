@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlUserDefinedFunctionOperation : Pandora
 
     public override ResourceID? ResourceId() => new UserDefinedFunctionId();
 
-    public override Type? ResponseObject() => typeof(SqlUserDefinedFunctionGetResultsModel);
-
 
 }

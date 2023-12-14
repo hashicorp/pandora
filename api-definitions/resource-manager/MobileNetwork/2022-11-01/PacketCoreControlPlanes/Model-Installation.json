@@ -1,0 +1,29 @@
+{
+ "name": "Installation",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operation",
+   "name": "Operation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AsyncOperationId"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstallationState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

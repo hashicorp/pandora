@@ -20,7 +20,5 @@ internal class RouteMapsCreateOrUpdateOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new RouteMapId();
 
-    public override Type? ResponseObject() => typeof(RouteMapModel);
-
 
 }

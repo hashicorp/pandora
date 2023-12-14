@@ -9,7 +9,7 @@ type workaroundRedis22407 struct {
 
 func (w workaroundRedis22407) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "Redis"
-	apiVersionMatches := apiDefinition.ApiVersion == "2022-06-01" || apiDefinition.ApiVersion == "2023-04-01"
+	apiVersionMatches := apiDefinition.ApiVersion == "2022-06-01" || apiDefinition.ApiVersion == "2023-04-01" || apiDefinition.ApiVersion == "2023-08-01"
 	return serviceMatches && apiVersionMatches
 }
 

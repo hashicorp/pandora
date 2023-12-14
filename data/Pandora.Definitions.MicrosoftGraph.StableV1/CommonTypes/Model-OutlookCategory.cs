@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class OutlookCategoryModel
 {
     [JsonPropertyName("color")]
-    public CategoryColorConstant? Color { get; set; }
+    public OutlookCategoryColorConstant? Color { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

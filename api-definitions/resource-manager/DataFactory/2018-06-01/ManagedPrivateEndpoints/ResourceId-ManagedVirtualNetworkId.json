@@ -1,0 +1,52 @@
+{
+ "name": "ManagedVirtualNetworkId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/managedVirtualNetworks/{managedVirtualNetworkName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftDataFactory",
+   "type": "ResourceProvider",
+   "value": "Microsoft.DataFactory"
+  },
+  {
+   "name": "staticFactories",
+   "type": "Static",
+   "value": "factories"
+  },
+  {
+   "name": "factoryName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticManagedVirtualNetworks",
+   "type": "Static",
+   "value": "managedVirtualNetworks"
+  },
+  {
+   "name": "managedVirtualNetworkName",
+   "type": "UserSpecified"
+  }
+ ]
+}

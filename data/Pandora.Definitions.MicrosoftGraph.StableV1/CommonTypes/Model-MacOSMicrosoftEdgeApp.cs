@@ -20,7 +20,7 @@ internal class MacOSMicrosoftEdgeAppModel
     public List<MobileAppCategoryModel>? Categories { get; set; }
 
     [JsonPropertyName("channel")]
-    public MicrosoftEdgeChannelConstant? Channel { get; set; }
+    public MacOSMicrosoftEdgeAppChannelConstant? Channel { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -65,5 +65,5 @@ internal class MacOSMicrosoftEdgeAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MacOSMicrosoftEdgeAppPublishingStateConstant? PublishingState { get; set; }
 }

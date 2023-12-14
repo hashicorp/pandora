@@ -1,0 +1,41 @@
+{
+ "name": "EnableProtectionInputProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyId",
+   "name": "PolicyId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectableItemId",
+   "name": "ProtectableItemId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "providerSpecificDetails",
+   "name": "ProviderSpecificDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnableProtectionProviderSpecificInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

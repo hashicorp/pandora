@@ -23,5 +23,5 @@ internal class CallRouteModel
     public IdentitySetModel? Original { get; set; }
 
     [JsonPropertyName("routingType")]
-    public RoutingTypeConstant? RoutingType { get; set; }
+    public CallRouteRoutingTypeConstant? RoutingType { get; set; }
 }

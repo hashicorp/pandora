@@ -20,5 +20,5 @@ internal class WindowsUpdatesContentApplicabilitySettingsModel
     public List<string>? OfferWhileRecommendedBy { get; set; }
 
     [JsonPropertyName("safeguard")]
-    public SafeguardSettingsModel? Safeguard { get; set; }
+    public WindowsUpdatesSafeguardSettingsModel? Safeguard { get; set; }
 }

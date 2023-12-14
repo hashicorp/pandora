@@ -1,0 +1,43 @@
+{
+ "name": "SimGroupId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/simGroups/{simGroupName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftMobileNetwork",
+   "type": "ResourceProvider",
+   "value": "Microsoft.MobileNetwork"
+  },
+  {
+   "name": "staticSimGroups",
+   "type": "Static",
+   "value": "simGroups"
+  },
+  {
+   "name": "simGroupName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -26,8 +26,6 @@ internal class RegisterUserProvidedFunctionAppWithStaticSiteBuildOperation : Pan
 
     public override ResourceID? ResourceId() => new BuildUserProvidedFunctionAppId();
 
-    public override Type? ResponseObject() => typeof(StaticSiteUserProvidedFunctionAppARMResourceModel);
-
     public override Type? OptionsObject() => typeof(RegisterUserProvidedFunctionAppWithStaticSiteBuildOperation.RegisterUserProvidedFunctionAppWithStaticSiteBuildOptions);
 
     internal class RegisterUserProvidedFunctionAppWithStaticSiteBuildOptions

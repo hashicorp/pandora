@@ -1,0 +1,30 @@
+{
+ "name": "ModelPerformanceMetricThresholdBase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "modelType",
+   "name": "ModelType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringModelType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "threshold",
+   "name": "Threshold",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringThreshold"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "ModelType"
+}

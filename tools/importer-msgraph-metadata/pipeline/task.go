@@ -45,42 +45,47 @@ func (p pipelineTask) runImportForService(serviceTags []string, models Models) e
 			if len(resource.Paths) > 0 {
 				path = resource.Paths[0].ID()
 			}
-			p.logger.Warn(spew.Sprintf("resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
+			p.logger.Warn(spew.Sprintf("Resource with no category was encountered for %q at %q: %#v", p.service, path, *resource))
 		}
 	}
 
+	p.logger.Info(fmt.Sprintf("Deleting any exsting directory for %q", p.service))
+	if err = p.removeDirectoryForService(resources); err != nil {
+		return err
+	}
+
 	p.logger.Info(fmt.Sprintf("Templating resource IDs for %q", p.service))
-	if err := p.templateResourceIdsForService(resources); err != nil {
+	if err = p.templateResourceIdsForService(resources); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating models for %q", p.service))
-	if err := p.templateModelsForService(p.commonTypesDirectoryName, resources, models); err != nil {
+	if err = p.templateModelsForService(p.commonTypesDirectoryName, resources, models); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating constants for %q", p.service))
-	if err := p.templateConstantsForService(resources, models); err != nil {
+	if err = p.templateConstantsForService(resources, models); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating operations for %q", p.service))
-	if err := p.templateOperationsForService(p.commonTypesDirectoryName, resources); err != nil {
+	if err = p.templateOperationsForService(p.commonTypesDirectoryName, resources); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating definitions for %q", p.service))
-	if err := p.templateDefinitionsForService(p.commonTypesDirectoryName, resources, models); err != nil {
+	if err = p.templateDefinitionsForService(p.commonTypesDirectoryName, resources, models); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating service definition for %q", p.service))
-	if err := p.templateServiceDefinitionForService(resources); err != nil {
+	if err = p.templateServiceDefinitionForService(resources); err != nil {
 		return err
 	}
 
 	p.logger.Info(fmt.Sprintf("Templating API version definition for %q", p.service))
-	if err := p.templateApiVersionDefinitionForService(resources); err != nil {
+	if err = p.templateApiVersionDefinitionForService(resources); err != nil {
 		return err
 	}
 

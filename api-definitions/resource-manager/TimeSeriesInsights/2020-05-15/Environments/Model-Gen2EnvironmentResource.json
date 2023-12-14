@@ -1,0 +1,20 @@
+{
+ "name": "Gen2EnvironmentResource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Gen2EnvironmentResourceProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EnvironmentResource",
+ "discriminatedTypeValue": "Gen2",
+ "typeHintIn": "Kind"
+}

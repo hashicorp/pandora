@@ -16,6 +16,9 @@ internal class EducationSubmissionResourceModel
     [JsonPropertyName("assignmentResourceUrl")]
     public string? AssignmentResourceUrl { get; set; }
 
+    [JsonPropertyName("dependentResources")]
+    public List<EducationSubmissionResourceModel>? DependentResources { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

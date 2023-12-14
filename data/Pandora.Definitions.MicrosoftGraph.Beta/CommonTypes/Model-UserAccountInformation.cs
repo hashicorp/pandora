@@ -17,7 +17,7 @@ internal class UserAccountInformationModel
     public string? AgeGroup { get; set; }
 
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public UserAccountInformationAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("countryCode")]
     public string? CountryCode { get; set; }

@@ -25,8 +25,6 @@ internal class NotebookWorkspacesCreateOrUpdateOperation : Pandora.Definitions.O
 
     public override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(NotebookWorkspaceModel);
-
     public override string? UriSuffix() => "/notebookWorkspaces/default";
 
 

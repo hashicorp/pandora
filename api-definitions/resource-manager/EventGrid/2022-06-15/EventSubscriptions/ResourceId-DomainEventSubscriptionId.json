@@ -1,0 +1,52 @@
+{
+ "name": "DomainEventSubscriptionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.EventGrid/domains/{domainName}/eventSubscriptions/{eventSubscriptionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftEventGrid",
+   "type": "ResourceProvider",
+   "value": "Microsoft.EventGrid"
+  },
+  {
+   "name": "staticDomains",
+   "type": "Static",
+   "value": "domains"
+  },
+  {
+   "name": "domainName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticEventSubscriptions",
+   "type": "Static",
+   "value": "eventSubscriptions"
+  },
+  {
+   "name": "eventSubscriptionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

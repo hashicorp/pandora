@@ -14,14 +14,14 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RgbColorModel
 {
     [JsonPropertyName("b")]
-    public byte? B { get; set; }
+    public uint? B { get; set; }
 
     [JsonPropertyName("g")]
-    public byte? G { get; set; }
+    public uint? G { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("r")]
-    public byte? R { get; set; }
+    public uint? R { get; set; }
 }

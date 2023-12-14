@@ -44,7 +44,7 @@ internal class DirectoryAuditModel
     public string? OperationType { get; set; }
 
     [JsonPropertyName("result")]
-    public OperationResultConstant? Result { get; set; }
+    public DirectoryAuditResultConstant? Result { get; set; }
 
     [JsonPropertyName("resultReason")]
     public string? ResultReason { get; set; }

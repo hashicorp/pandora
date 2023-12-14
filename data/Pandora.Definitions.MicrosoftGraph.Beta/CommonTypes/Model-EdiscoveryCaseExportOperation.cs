@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryCaseExportOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public EdiscoveryCaseExportOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("azureBlobContainer")]
     public string? AzureBlobContainer { get; set; }
@@ -35,10 +35,10 @@ internal class EdiscoveryCaseExportOperationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("exportOptions")]
-    public ExportOptionsConstant? ExportOptions { get; set; }
+    public EdiscoveryCaseExportOperationExportOptionsConstant? ExportOptions { get; set; }
 
     [JsonPropertyName("exportStructure")]
-    public ExportFileStructureConstant? ExportStructure { get; set; }
+    public EdiscoveryCaseExportOperationExportStructureConstant? ExportStructure { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -59,8 +59,8 @@ internal class EdiscoveryCaseExportOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("reviewSet")]
-    public ReviewSetModel? ReviewSet { get; set; }
+    public EdiscoveryReviewSetModel? ReviewSet { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public EdiscoveryCaseExportOperationStatusConstant? Status { get; set; }
 }

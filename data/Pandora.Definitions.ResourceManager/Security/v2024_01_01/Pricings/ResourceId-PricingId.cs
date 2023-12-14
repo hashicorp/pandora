@@ -1,0 +1,25 @@
+using System.Collections.Generic;
+using Pandora.Definitions.Interfaces;
+
+
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT License. See NOTICE.txt in the project root for license information.
+
+
+namespace Pandora.Definitions.ResourceManager.Security.v2024_01_01.Pricings;
+
+internal class PricingId : ResourceID
+{
+    public string? CommonAlias => null;
+
+    public string ID => "/{scopeId}/providers/Microsoft.Security/pricings/{pricingName}";
+
+    public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
+    {
+        ResourceIDSegment.UserSpecified("scopeId"),
+        ResourceIDSegment.Static("staticProviders", "providers"),
+        ResourceIDSegment.ResourceProvider("staticMicrosoftSecurity", "Microsoft.Security"),
+        ResourceIDSegment.Static("staticPricings", "pricings"),
+        ResourceIDSegment.UserSpecified("pricingName"),
+    };
+}

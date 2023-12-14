@@ -1,0 +1,19 @@
+{
+ "name": "SubscriptionRename",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SubscriptionName"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RenamedSubscriptionId"
+ },
+ "uriSuffix": "/providers/Microsoft.Subscription/rename"
+}

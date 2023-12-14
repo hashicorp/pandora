@@ -26,5 +26,5 @@ internal class PlayPromptOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public PlayPromptOperationStatusConstant? Status { get; set; }
 }

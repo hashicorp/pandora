@@ -1,0 +1,34 @@
+{
+ "name": "LocationId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.StreamAnalytics/locations/{locationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftStreamAnalytics",
+   "type": "ResourceProvider",
+   "value": "Microsoft.StreamAnalytics"
+  },
+  {
+   "name": "staticLocations",
+   "type": "Static",
+   "value": "locations"
+  },
+  {
+   "name": "locationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

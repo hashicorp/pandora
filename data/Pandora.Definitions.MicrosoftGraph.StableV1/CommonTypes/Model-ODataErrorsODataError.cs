@@ -14,5 +14,5 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ODataErrorsODataErrorModel
 {
     [JsonPropertyName("error")]
-    public ErrorModel? Error { get; set; }
+    public ODataErrorsMainErrorModel? Error { get; set; }
 }

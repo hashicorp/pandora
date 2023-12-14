@@ -20,5 +20,5 @@ internal class IncludeTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public IncludeTargetTargetTypeConstant? TargetType { get; set; }
 }

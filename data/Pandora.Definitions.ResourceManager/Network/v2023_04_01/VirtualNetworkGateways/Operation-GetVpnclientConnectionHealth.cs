@@ -26,8 +26,6 @@ internal class GetVpnclientConnectionHealthOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(VpnClientConnectionHealthDetailListResultModel);
-
     public override string? UriSuffix() => "/getVpnClientConnectionHealth";
 
 

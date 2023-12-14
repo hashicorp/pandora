@@ -14,16 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserExperienceAnalyticsDeviceStartupProcessPerformanceModel
 {
     [JsonPropertyName("deviceCount")]
-    public long? DeviceCount { get; set; }
+    public int? DeviceCount { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("medianImpactInMs")]
     public int? MedianImpactInMs { get; set; }
-
-    [JsonPropertyName("medianImpactInMs2")]
-    public long? MedianImpactInMs2 { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -39,7 +36,4 @@ internal class UserExperienceAnalyticsDeviceStartupProcessPerformanceModel
 
     [JsonPropertyName("totalImpactInMs")]
     public int? TotalImpactInMs { get; set; }
-
-    [JsonPropertyName("totalImpactInMs2")]
-    public long? TotalImpactInMs2 { get; set; }
 }

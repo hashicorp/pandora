@@ -1,0 +1,29 @@
+{
+ "name": "ServiceMeshProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "istio",
+   "name": "Istio",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IstioServiceMesh"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceMeshMode"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

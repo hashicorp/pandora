@@ -17,7 +17,7 @@ internal class RecordOperationModel
     public string? ClientContext { get; set; }
 
     [JsonPropertyName("completionReason")]
-    public RecordCompletionReasonConstant? CompletionReason { get; set; }
+    public RecordOperationCompletionReasonConstant? CompletionReason { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,5 +35,5 @@ internal class RecordOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public RecordOperationStatusConstant? Status { get; set; }
 }

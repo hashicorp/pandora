@@ -1,0 +1,33 @@
+{
+ "name": "AutomationSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventSource",
+   "name": "EventSource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventSource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ruleSets",
+   "name": "RuleSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AutomationRuleSet"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

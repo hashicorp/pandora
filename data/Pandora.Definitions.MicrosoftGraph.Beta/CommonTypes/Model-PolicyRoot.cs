@@ -64,6 +64,9 @@ internal class PolicyRootModel
     [JsonPropertyName("featureRolloutPolicies")]
     public List<FeatureRolloutPolicyModel>? FeatureRolloutPolicies { get; set; }
 
+    [JsonPropertyName("federatedTokenValidationPolicy")]
+    public FederatedTokenValidationPolicyModel? FederatedTokenValidationPolicy { get; set; }
+
     [JsonPropertyName("homeRealmDiscoveryPolicies")]
     public List<HomeRealmDiscoveryPolicyModel>? HomeRealmDiscoveryPolicies { get; set; }
 

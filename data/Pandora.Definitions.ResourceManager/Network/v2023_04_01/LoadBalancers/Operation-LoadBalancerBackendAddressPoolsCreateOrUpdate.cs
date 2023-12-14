@@ -20,7 +20,5 @@ internal class LoadBalancerBackendAddressPoolsCreateOrUpdateOperation : Pandora.
 
     public override ResourceID? ResourceId() => new LoadBalancerBackendAddressPoolId();
 
-    public override Type? ResponseObject() => typeof(BackendAddressPoolModel);
-
 
 }

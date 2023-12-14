@@ -26,7 +26,5 @@ internal class UpdateVMGroupOperation : Pandora.Definitions.Operations.PatchOper
 
     public override ResourceID? ResourceId() => new VMGroupId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkVMGroupModel);
-
 
 }

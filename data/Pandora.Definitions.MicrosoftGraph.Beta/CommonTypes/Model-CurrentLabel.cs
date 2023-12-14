@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CurrentLabelModel
 {
     [JsonPropertyName("applicationMode")]
-    public ApplicationModeConstant? ApplicationMode { get; set; }
+    public CurrentLabelApplicationModeConstant? ApplicationMode { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

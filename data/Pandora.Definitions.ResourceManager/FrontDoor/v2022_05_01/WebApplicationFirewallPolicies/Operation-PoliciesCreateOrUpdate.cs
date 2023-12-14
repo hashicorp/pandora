@@ -27,7 +27,5 @@ internal class PoliciesCreateOrUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new FrontDoorWebApplicationFirewallPolicyId();
 
-    public override Type? ResponseObject() => typeof(WebApplicationFirewallPolicyModel);
-
 
 }

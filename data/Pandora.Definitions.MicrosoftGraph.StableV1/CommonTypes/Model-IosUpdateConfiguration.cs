@@ -50,7 +50,7 @@ internal class IosUpdateConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("scheduledInstallDays")]
-    public List<DayOfWeekConstant>? ScheduledInstallDays { get; set; }
+    public List<IosUpdateConfigurationScheduledInstallDaysConstant>? ScheduledInstallDays { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }

@@ -26,8 +26,6 @@ internal class TestMigrateOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new ReplicationMigrationItemId();
 
-    public override Type? ResponseObject() => typeof(MigrationItemModel);
-
     public override string? UriSuffix() => "/testMigrate";
 
 

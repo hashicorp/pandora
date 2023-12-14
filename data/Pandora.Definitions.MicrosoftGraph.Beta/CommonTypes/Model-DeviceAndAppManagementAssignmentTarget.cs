@@ -17,7 +17,7 @@ internal class DeviceAndAppManagementAssignmentTargetModel
     public string? DeviceAndAppManagementAssignmentFilterId { get; set; }
 
     [JsonPropertyName("deviceAndAppManagementAssignmentFilterType")]
-    public DeviceAndAppManagementAssignmentFilterTypeConstant? DeviceAndAppManagementAssignmentFilterType { get; set; }
+    public DeviceAndAppManagementAssignmentTargetDeviceAndAppManagementAssignmentFilterTypeConstant? DeviceAndAppManagementAssignmentFilterType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

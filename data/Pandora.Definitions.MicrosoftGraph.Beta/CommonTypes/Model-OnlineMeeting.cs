@@ -20,7 +20,7 @@ internal class OnlineMeetingModel
     public bool? AllowAttendeeToEnableMic { get; set; }
 
     [JsonPropertyName("allowMeetingChat")]
-    public MeetingChatModeConstant? AllowMeetingChat { get; set; }
+    public OnlineMeetingAllowMeetingChatConstant? AllowMeetingChat { get; set; }
 
     [JsonPropertyName("allowParticipantsToChangeName")]
     public bool? AllowParticipantsToChangeName { get; set; }
@@ -35,13 +35,13 @@ internal class OnlineMeetingModel
     public bool? AllowTranscription { get; set; }
 
     [JsonPropertyName("allowedPresenters")]
-    public OnlineMeetingPresentersConstant? AllowedPresenters { get; set; }
+    public OnlineMeetingAllowedPresentersConstant? AllowedPresenters { get; set; }
 
     [JsonPropertyName("alternativeRecording")]
     public string? AlternativeRecording { get; set; }
 
     [JsonPropertyName("anonymizeIdentityForRoles")]
-    public List<OnlineMeetingRoleConstant>? AnonymizeIdentityForRoles { get; set; }
+    public List<OnlineMeetingAnonymizeIdentityForRolesConstant>? AnonymizeIdentityForRoles { get; set; }
 
     [JsonPropertyName("attendanceReports")]
     public List<MeetingAttendanceReportModel>? AttendanceReports { get; set; }
@@ -59,10 +59,13 @@ internal class OnlineMeetingModel
     public BroadcastMeetingSettingsModel? BroadcastSettings { get; set; }
 
     [JsonPropertyName("capabilities")]
-    public List<MeetingCapabilitiesConstant>? Capabilities { get; set; }
+    public List<OnlineMeetingCapabilitiesConstant>? Capabilities { get; set; }
 
     [JsonPropertyName("chatInfo")]
     public ChatInfoModel? ChatInfo { get; set; }
+
+    [JsonPropertyName("chatRestrictions")]
+    public ChatRestrictionsModel? ChatRestrictions { get; set; }
 
     [JsonPropertyName("creationDateTime")]
     public DateTime? CreationDateTime { get; set; }
@@ -78,6 +81,9 @@ internal class OnlineMeetingModel
 
     [JsonPropertyName("isBroadcast")]
     public bool? IsBroadcast { get; set; }
+
+    [JsonPropertyName("isEndToEndEncryptionEnabled")]
+    public bool? IsEndToEndEncryptionEnabled { get; set; }
 
     [JsonPropertyName("isEntryExitAnnounced")]
     public bool? IsEntryExitAnnounced { get; set; }
@@ -119,7 +125,7 @@ internal class OnlineMeetingModel
     public MeetingRegistrationModel? Registration { get; set; }
 
     [JsonPropertyName("shareMeetingChatHistoryDefault")]
-    public MeetingChatHistoryDefaultModeConstant? ShareMeetingChatHistoryDefault { get; set; }
+    public OnlineMeetingShareMeetingChatHistoryDefaultConstant? ShareMeetingChatHistoryDefault { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }
@@ -132,9 +138,6 @@ internal class OnlineMeetingModel
 
     [JsonPropertyName("videoTeleconferenceId")]
     public string? VideoTeleconferenceId { get; set; }
-
-    [JsonPropertyName("virtualAppointment")]
-    public VirtualAppointmentModel? VirtualAppointment { get; set; }
 
     [JsonPropertyName("watermarkProtection")]
     public WatermarkProtectionValuesModel? WatermarkProtection { get; set; }

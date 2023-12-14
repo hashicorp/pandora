@@ -1,0 +1,61 @@
+{
+ "name": "ReportId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Automation/automationAccounts/{automationAccountName}/nodes/{nodeId}/reports/{reportId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAutomation",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Automation"
+  },
+  {
+   "name": "staticAutomationAccounts",
+   "type": "Static",
+   "value": "automationAccounts"
+  },
+  {
+   "name": "automationAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticNodes",
+   "type": "Static",
+   "value": "nodes"
+  },
+  {
+   "name": "nodeId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticReports",
+   "type": "Static",
+   "value": "reports"
+  },
+  {
+   "name": "reportId",
+   "type": "UserSpecified"
+  }
+ ]
+}

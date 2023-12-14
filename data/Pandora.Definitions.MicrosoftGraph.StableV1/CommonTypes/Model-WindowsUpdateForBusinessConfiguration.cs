@@ -20,13 +20,13 @@ internal class WindowsUpdateForBusinessConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("autoRestartNotificationDismissal")]
-    public AutoRestartNotificationDismissalMethodConstant? AutoRestartNotificationDismissal { get; set; }
+    public WindowsUpdateForBusinessConfigurationAutoRestartNotificationDismissalConstant? AutoRestartNotificationDismissal { get; set; }
 
     [JsonPropertyName("automaticUpdateMode")]
-    public AutomaticUpdateModeConstant? AutomaticUpdateMode { get; set; }
+    public WindowsUpdateForBusinessConfigurationAutomaticUpdateModeConstant? AutomaticUpdateMode { get; set; }
 
     [JsonPropertyName("businessReadyUpdatesOnly")]
-    public WindowsUpdateTypeConstant? BusinessReadyUpdatesOnly { get; set; }
+    public WindowsUpdateForBusinessConfigurationBusinessReadyUpdatesOnlyConstant? BusinessReadyUpdatesOnly { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -41,7 +41,7 @@ internal class WindowsUpdateForBusinessConfigurationModel
     public int? DeadlineGracePeriodInDays { get; set; }
 
     [JsonPropertyName("deliveryOptimizationMode")]
-    public WindowsDeliveryOptimizationModeConstant? DeliveryOptimizationMode { get; set; }
+    public WindowsUpdateForBusinessConfigurationDeliveryOptimizationModeConstant? DeliveryOptimizationMode { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -110,7 +110,7 @@ internal class WindowsUpdateForBusinessConfigurationModel
     public bool? PostponeRebootUntilAfterDeadline { get; set; }
 
     [JsonPropertyName("prereleaseFeatures")]
-    public PrereleaseFeaturesConstant? PrereleaseFeatures { get; set; }
+    public WindowsUpdateForBusinessConfigurationPrereleaseFeaturesConstant? PrereleaseFeatures { get; set; }
 
     [JsonPropertyName("qualityUpdatesDeferralPeriodInDays")]
     public int? QualityUpdatesDeferralPeriodInDays { get; set; }
@@ -140,13 +140,13 @@ internal class WindowsUpdateForBusinessConfigurationModel
     public bool? SkipChecksBeforeRestart { get; set; }
 
     [JsonPropertyName("updateNotificationLevel")]
-    public WindowsUpdateNotificationDisplayOptionConstant? UpdateNotificationLevel { get; set; }
+    public WindowsUpdateForBusinessConfigurationUpdateNotificationLevelConstant? UpdateNotificationLevel { get; set; }
 
     [JsonPropertyName("updateWeeks")]
-    public WindowsUpdateForBusinessUpdateWeeksConstant? UpdateWeeks { get; set; }
+    public WindowsUpdateForBusinessConfigurationUpdateWeeksConstant? UpdateWeeks { get; set; }
 
     [JsonPropertyName("userPauseAccess")]
-    public EnablementConstant? UserPauseAccess { get; set; }
+    public WindowsUpdateForBusinessConfigurationUserPauseAccessConstant? UserPauseAccess { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -155,7 +155,7 @@ internal class WindowsUpdateForBusinessConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("userWindowsUpdateScanAccess")]
-    public EnablementConstant? UserWindowsUpdateScanAccess { get; set; }
+    public WindowsUpdateForBusinessConfigurationUserWindowsUpdateScanAccessConstant? UserWindowsUpdateScanAccess { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

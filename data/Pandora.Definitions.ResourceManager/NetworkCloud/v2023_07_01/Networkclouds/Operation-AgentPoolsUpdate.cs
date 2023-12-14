@@ -26,7 +26,5 @@ internal class AgentPoolsUpdateOperation : Pandora.Definitions.Operations.PatchO
 
     public override ResourceID? ResourceId() => new AgentPoolId();
 
-    public override Type? ResponseObject() => typeof(AgentPoolModel);
-
 
 }

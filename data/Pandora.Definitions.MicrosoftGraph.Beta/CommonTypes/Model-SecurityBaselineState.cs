@@ -29,7 +29,7 @@ internal class SecurityBaselineStateModel
     public List<SecurityBaselineSettingStateModel>? SettingStates { get; set; }
 
     [JsonPropertyName("state")]
-    public SecurityBaselineComplianceStateConstant? State { get; set; }
+    public SecurityBaselineStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }

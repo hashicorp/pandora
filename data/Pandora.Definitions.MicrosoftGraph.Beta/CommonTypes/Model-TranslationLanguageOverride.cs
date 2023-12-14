@@ -20,5 +20,5 @@ internal class TranslationLanguageOverrideModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("translationBehavior")]
-    public TranslationBehaviorConstant? TranslationBehavior { get; set; }
+    public TranslationLanguageOverrideTranslationBehaviorConstant? TranslationBehavior { get; set; }
 }

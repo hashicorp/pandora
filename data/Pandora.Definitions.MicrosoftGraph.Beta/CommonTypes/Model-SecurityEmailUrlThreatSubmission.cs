@@ -14,22 +14,22 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityEmailUrlThreatSubmissionModel
 {
     [JsonPropertyName("adminReview")]
-    public SubmissionAdminReviewModel? AdminReview { get; set; }
+    public SecuritySubmissionAdminReviewModel? AdminReview { get; set; }
 
     [JsonPropertyName("attackSimulationInfo")]
-    public AttackSimulationInfoModel? AttackSimulationInfo { get; set; }
+    public SecurityAttackSimulationInfoModel? AttackSimulationInfo { get; set; }
 
     [JsonPropertyName("category")]
-    public SubmissionCategoryConstant? Category { get; set; }
+    public SecurityEmailUrlThreatSubmissionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("clientSource")]
-    public SubmissionClientSourceConstant? ClientSource { get; set; }
+    public SecurityEmailUrlThreatSubmissionClientSourceConstant? ClientSource { get; set; }
 
     [JsonPropertyName("contentType")]
-    public SubmissionContentTypeConstant? ContentType { get; set; }
+    public SecurityEmailUrlThreatSubmissionContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
-    public SubmissionUserIdentityModel? CreatedBy { get; set; }
+    public SecuritySubmissionUserIdentityModel? CreatedBy { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -47,7 +47,7 @@ internal class SecurityEmailUrlThreatSubmissionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("originalCategory")]
-    public SubmissionCategoryConstant? OriginalCategory { get; set; }
+    public SecurityEmailUrlThreatSubmissionOriginalCategoryConstant? OriginalCategory { get; set; }
 
     [JsonPropertyName("receivedDateTime")]
     public DateTime? ReceivedDateTime { get; set; }
@@ -56,7 +56,7 @@ internal class SecurityEmailUrlThreatSubmissionModel
     public string? RecipientEmailAddress { get; set; }
 
     [JsonPropertyName("result")]
-    public SubmissionResultModel? Result { get; set; }
+    public SecuritySubmissionResultModel? Result { get; set; }
 
     [JsonPropertyName("sender")]
     public string? Sender { get; set; }
@@ -65,16 +65,16 @@ internal class SecurityEmailUrlThreatSubmissionModel
     public string? SenderIP { get; set; }
 
     [JsonPropertyName("source")]
-    public SubmissionSourceConstant? Source { get; set; }
+    public SecurityEmailUrlThreatSubmissionSourceConstant? Source { get; set; }
 
     [JsonPropertyName("status")]
-    public LongRunningOperationStatusConstant? Status { get; set; }
+    public SecurityEmailUrlThreatSubmissionStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }
 
     [JsonPropertyName("tenantAllowOrBlockListAction")]
-    public TenantAllowOrBlockListActionModel? TenantAllowOrBlockListAction { get; set; }
+    public SecurityTenantAllowOrBlockListActionModel? TenantAllowOrBlockListAction { get; set; }
 
     [JsonPropertyName("tenantId")]
     public string? TenantId { get; set; }

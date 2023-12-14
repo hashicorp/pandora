@@ -32,7 +32,7 @@ internal class EmbeddedSIMDeviceStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public EmbeddedSIMDeviceStateValueConstant? State { get; set; }
+    public EmbeddedSIMDeviceStateStateConstant? State { get; set; }
 
     [JsonPropertyName("stateDetails")]
     public string? StateDetails { get; set; }

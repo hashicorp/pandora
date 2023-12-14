@@ -26,7 +26,7 @@ internal class CallRecordsPstnBlockedUsersLogRowModel
     public string? RemediationId { get; set; }
 
     [JsonPropertyName("userBlockMode")]
-    public PstnUserBlockModeConstant? UserBlockMode { get; set; }
+    public CallRecordsPstnBlockedUsersLogRowUserBlockModeConstant? UserBlockMode { get; set; }
 
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }

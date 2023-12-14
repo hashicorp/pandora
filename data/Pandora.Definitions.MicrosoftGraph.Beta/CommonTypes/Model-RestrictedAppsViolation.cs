@@ -32,13 +32,13 @@ internal class RestrictedAppsViolationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public RestrictedAppsViolationPlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("restrictedApps")]
     public List<ManagedDeviceReportedAppModel>? RestrictedApps { get; set; }
 
     [JsonPropertyName("restrictedAppsState")]
-    public RestrictedAppsStateConstant? RestrictedAppsState { get; set; }
+    public RestrictedAppsViolationRestrictedAppsStateConstant? RestrictedAppsState { get; set; }
 
     [JsonPropertyName("userId")]
     public string? UserId { get; set; }

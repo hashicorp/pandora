@@ -17,5 +17,5 @@ internal class BusinessScenarioTaskTargetBaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("taskTargetKind")]
-    public PlannerTaskTargetKindConstant? TaskTargetKind { get; set; }
+    public BusinessScenarioTaskTargetBaseTaskTargetKindConstant? TaskTargetKind { get; set; }
 }

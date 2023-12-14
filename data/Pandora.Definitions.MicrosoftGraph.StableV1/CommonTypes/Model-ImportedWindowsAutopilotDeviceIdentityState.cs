@@ -20,7 +20,7 @@ internal class ImportedWindowsAutopilotDeviceIdentityStateModel
     public string? DeviceErrorName { get; set; }
 
     [JsonPropertyName("deviceImportStatus")]
-    public ImportedWindowsAutopilotDeviceIdentityImportStatusConstant? DeviceImportStatus { get; set; }
+    public ImportedWindowsAutopilotDeviceIdentityStateDeviceImportStatusConstant? DeviceImportStatus { get; set; }
 
     [JsonPropertyName("deviceRegistrationId")]
     public string? DeviceRegistrationId { get; set; }

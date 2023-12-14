@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ManagedIOSStoreAppModel
 {
     [JsonPropertyName("appAvailability")]
-    public ManagedAppAvailabilityConstant? AppAvailability { get; set; }
+    public ManagedIOSStoreAppAppAvailabilityConstant? AppAvailability { get; set; }
 
     [JsonPropertyName("appStoreUrl")]
     public string? AppStoreUrl { get; set; }
@@ -77,7 +77,7 @@ internal class ManagedIOSStoreAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public ManagedIOSStoreAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

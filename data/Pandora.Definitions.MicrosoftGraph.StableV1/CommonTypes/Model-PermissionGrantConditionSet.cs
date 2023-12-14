@@ -35,7 +35,7 @@ internal class PermissionGrantConditionSetModel
     public string? PermissionClassification { get; set; }
 
     [JsonPropertyName("permissionType")]
-    public PermissionTypeConstant? PermissionType { get; set; }
+    public PermissionGrantConditionSetPermissionTypeConstant? PermissionType { get; set; }
 
     [JsonPropertyName("permissions")]
     public List<string>? Permissions { get; set; }

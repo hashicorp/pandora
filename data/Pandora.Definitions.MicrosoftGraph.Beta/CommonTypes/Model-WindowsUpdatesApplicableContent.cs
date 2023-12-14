@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesApplicableContentModel
 {
     [JsonPropertyName("catalogEntry")]
-    public CatalogEntryModel? CatalogEntry { get; set; }
+    public WindowsUpdatesCatalogEntryModel? CatalogEntry { get; set; }
 
     [JsonPropertyName("matchedDevices")]
-    public List<ApplicableContentDeviceMatchModel>? MatchedDevices { get; set; }
+    public List<WindowsUpdatesApplicableContentDeviceMatchModel>? MatchedDevices { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

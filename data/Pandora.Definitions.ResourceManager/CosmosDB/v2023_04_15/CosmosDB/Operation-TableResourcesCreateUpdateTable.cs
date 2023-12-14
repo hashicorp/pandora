@@ -26,7 +26,5 @@ internal class TableResourcesCreateUpdateTableOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(TableGetResultsModel);
-
 
 }

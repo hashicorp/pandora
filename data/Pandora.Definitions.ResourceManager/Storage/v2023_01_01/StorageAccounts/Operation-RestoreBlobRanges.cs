@@ -26,8 +26,6 @@ internal class RestoreBlobRangesOperation : Pandora.Definitions.Operations.PostO
 
     public override ResourceID? ResourceId() => new StorageAccountId();
 
-    public override Type? ResponseObject() => typeof(BlobRestoreStatusModel);
-
     public override string? UriSuffix() => "/restoreBlobRanges";
 
 

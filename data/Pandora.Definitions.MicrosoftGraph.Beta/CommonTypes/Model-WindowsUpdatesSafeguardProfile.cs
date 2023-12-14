@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesSafeguardProfileModel
 {
     [JsonPropertyName("category")]
-    public SafeguardCategoryConstant? Category { get; set; }
+    public WindowsUpdatesSafeguardProfileCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

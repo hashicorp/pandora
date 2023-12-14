@@ -56,7 +56,7 @@ internal class OrganizationModel
     public List<string>? MarketingNotificationEmails { get; set; }
 
     [JsonPropertyName("mobileDeviceManagementAuthority")]
-    public MdmAuthorityConstant? MobileDeviceManagementAuthority { get; set; }
+    public OrganizationMobileDeviceManagementAuthorityConstant? MobileDeviceManagementAuthority { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -68,7 +68,7 @@ internal class OrganizationModel
     public bool? OnPremisesSyncEnabled { get; set; }
 
     [JsonPropertyName("partnerTenantType")]
-    public PartnerTenantTypeConstant? PartnerTenantType { get; set; }
+    public OrganizationPartnerTenantTypeConstant? PartnerTenantType { get; set; }
 
     [JsonPropertyName("postalCode")]
     public string? PostalCode { get; set; }

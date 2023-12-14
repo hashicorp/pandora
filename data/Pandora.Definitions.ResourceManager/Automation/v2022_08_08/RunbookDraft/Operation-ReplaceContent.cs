@@ -28,8 +28,6 @@ internal class ReplaceContentOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new RunbookId();
 
-    public override Type? ResponseObject() => typeof(CustomTypes.RawFile);
-
     public override string? UriSuffix() => "/draft/content";
 
 

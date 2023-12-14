@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PrivilegedAccessGroupAssignmentScheduleRequestModel
 {
     [JsonPropertyName("accessId")]
-    public PrivilegedAccessGroupRelationshipsConstant? AccessId { get; set; }
+    public PrivilegedAccessGroupAssignmentScheduleRequestAccessIdConstant? AccessId { get; set; }
 
     [JsonPropertyName("action")]
-    public ScheduleRequestActionsConstant? Action { get; set; }
+    public PrivilegedAccessGroupAssignmentScheduleRequestActionConstant? Action { get; set; }
 
     [JsonPropertyName("activatedUsing")]
     public PrivilegedAccessGroupEligibilityScheduleModel? ActivatedUsing { get; set; }

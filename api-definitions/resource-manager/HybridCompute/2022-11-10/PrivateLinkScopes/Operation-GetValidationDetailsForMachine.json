@@ -1,0 +1,15 @@
+{
+ "name": "GetValidationDetailsForMachine",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "MachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkScopeValidationDetails"
+ },
+ "uriSuffix": "/privateLinkScopes/current"
+}

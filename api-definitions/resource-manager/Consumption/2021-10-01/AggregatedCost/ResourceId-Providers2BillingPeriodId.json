@@ -1,0 +1,44 @@
+{
+ "name": "Providers2BillingPeriodId",
+ "id": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Management"
+  },
+  {
+   "name": "staticManagementGroups",
+   "type": "Static",
+   "value": "managementGroups"
+  },
+  {
+   "name": "managementGroupId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProviders2",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBilling",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Billing"
+  },
+  {
+   "name": "staticBillingPeriods",
+   "type": "Static",
+   "value": "billingPeriods"
+  },
+  {
+   "name": "billingPeriodName",
+   "type": "UserSpecified"
+  }
+ ]
+}

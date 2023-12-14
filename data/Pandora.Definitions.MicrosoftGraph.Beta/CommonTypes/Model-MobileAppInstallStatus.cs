@@ -32,16 +32,16 @@ internal class MobileAppInstallStatusModel
     public string? Id { get; set; }
 
     [JsonPropertyName("installState")]
-    public ResultantAppStateConstant? InstallState { get; set; }
+    public MobileAppInstallStatusInstallStateConstant? InstallState { get; set; }
 
     [JsonPropertyName("installStateDetail")]
-    public ResultantAppStateDetailConstant? InstallStateDetail { get; set; }
+    public MobileAppInstallStatusInstallStateDetailConstant? InstallStateDetail { get; set; }
 
     [JsonPropertyName("lastSyncDateTime")]
     public DateTime? LastSyncDateTime { get; set; }
 
     [JsonPropertyName("mobileAppInstallStatusValue")]
-    public ResultantAppStateConstant? MobileAppInstallStatusValue { get; set; }
+    public MobileAppInstallStatusMobileAppInstallStatusValueConstant? MobileAppInstallStatusValue { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

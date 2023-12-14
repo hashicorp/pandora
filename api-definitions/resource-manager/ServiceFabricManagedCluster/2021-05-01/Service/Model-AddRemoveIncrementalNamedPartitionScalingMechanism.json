@@ -1,0 +1,44 @@
+{
+ "name": "AddRemoveIncrementalNamedPartitionScalingMechanism",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxPartitionCount",
+   "name": "MaxPartitionCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minPartitionCount",
+   "name": "MinPartitionCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleIncrement",
+   "name": "ScaleIncrement",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ScalingMechanism",
+ "discriminatedTypeValue": "AddRemoveIncrementalNamedPartition",
+ "typeHintIn": "Kind"
+}

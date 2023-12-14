@@ -1,0 +1,27 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "headerName": "Cache-Control",
+   "optional": true,
+   "required": false,
+   "field": "CacheControl",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ManagementGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CreateManagementGroupRequest"
+ }
+}

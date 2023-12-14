@@ -1,0 +1,57 @@
+{
+ "name": "Notification",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isEnabled",
+   "name": "IsEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationCategory",
+   "name": "NotificationCategory",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationCategory"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationLevel",
+   "name": "NotificationLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationLevel"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationTargets",
+   "name": "NotificationTargets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NotificationTarget"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

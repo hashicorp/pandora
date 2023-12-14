@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class WindowsAppXModel
 {
     [JsonPropertyName("applicableArchitectures")]
-    public WindowsArchitectureConstant? ApplicableArchitectures { get; set; }
+    public WindowsAppXApplicableArchitecturesConstant? ApplicableArchitectures { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<MobileAppAssignmentModel>? Assignments { get; set; }
@@ -92,8 +92,8 @@ internal class WindowsAppXModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public WindowsAppXPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 }

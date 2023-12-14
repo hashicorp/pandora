@@ -1,0 +1,53 @@
+{
+ "name": "ModelPackageInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputType",
+   "name": "InputType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PackageInputType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PackageInputDeliveryMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mountPath",
+   "name": "MountPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PackageInputPathBase"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

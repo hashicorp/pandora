@@ -26,8 +26,6 @@ internal class StopOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new SapVirtualInstanceId();
 
-    public override Type? ResponseObject() => typeof(OperationStatusResultModel);
-
     public override string? UriSuffix() => "/stop";
 
 

@@ -26,7 +26,7 @@ internal class SearchAnswerVariantModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DevicePlatformTypeConstant? Platform { get; set; }
+    public SearchAnswerVariantPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

@@ -34,6 +34,9 @@ internal class InvitationModel
     [JsonPropertyName("invitedUserMessageInfo")]
     public InvitedUserMessageInfoModel? InvitedUserMessageInfo { get; set; }
 
+    [JsonPropertyName("invitedUserSponsors")]
+    public List<DirectoryObjectModel>? InvitedUserSponsors { get; set; }
+
     [JsonPropertyName("invitedUserType")]
     public string? InvitedUserType { get; set; }
 

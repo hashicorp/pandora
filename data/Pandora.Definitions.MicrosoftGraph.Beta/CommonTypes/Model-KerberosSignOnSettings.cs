@@ -17,7 +17,7 @@ internal class KerberosSignOnSettingsModel
     public string? KerberosServicePrincipalName { get; set; }
 
     [JsonPropertyName("kerberosSignOnMappingAttributeType")]
-    public KerberosSignOnMappingAttributeTypeConstant? KerberosSignOnMappingAttributeType { get; set; }
+    public KerberosSignOnSettingsKerberosSignOnMappingAttributeTypeConstant? KerberosSignOnMappingAttributeType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

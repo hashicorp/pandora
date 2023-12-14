@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagementActionModel
 {
     [JsonPropertyName("category")]
-    public ManagementCategoryConstant? Category { get; set; }
+    public ManagedTenantsManagementActionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -35,5 +35,5 @@ internal class ManagedTenantsManagementActionModel
     public int? ReferenceTemplateVersion { get; set; }
 
     [JsonPropertyName("workloadActions")]
-    public List<WorkloadActionModel>? WorkloadActions { get; set; }
+    public List<ManagedTenantsWorkloadActionModel>? WorkloadActions { get; set; }
 }

@@ -20,7 +20,7 @@ internal class CredentialUserRegistrationCountModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("totalUserCount")]
-    public long? TotalUserCount { get; set; }
+    public int? TotalUserCount { get; set; }
 
     [JsonPropertyName("userRegistrationCounts")]
     public List<UserRegistrationCountModel>? UserRegistrationCounts { get; set; }

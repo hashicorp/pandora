@@ -1,0 +1,109 @@
+{
+ "name": "VirtualMachineImageProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "architecture",
+   "name": "Architecture",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ArchitectureTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "automaticOSUpgradeProperties",
+   "name": "AutomaticOSUpgradeProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomaticOSUpgradeProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataDiskImages",
+   "name": "DataDiskImages",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataDiskImage"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "disallowed",
+   "name": "Disallowed",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DisallowedConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "VirtualMachineImageFeature"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVGeneration",
+   "name": "HyperVGeneration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HyperVGenerationTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osDiskImage",
+   "name": "OsDiskImage",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OSDiskImage"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "plan",
+   "name": "Plan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PurchasePlan"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

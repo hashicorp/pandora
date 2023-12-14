@@ -32,7 +32,7 @@ internal class MessageRuleActionsModel
     public bool? MarkAsRead { get; set; }
 
     [JsonPropertyName("markImportance")]
-    public ImportanceConstant? MarkImportance { get; set; }
+    public MessageRuleActionsMarkImportanceConstant? MarkImportance { get; set; }
 
     [JsonPropertyName("moveToFolder")]
     public string? MoveToFolder { get; set; }

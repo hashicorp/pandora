@@ -26,8 +26,6 @@ internal class ValidateAtTenantScopeOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new DeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

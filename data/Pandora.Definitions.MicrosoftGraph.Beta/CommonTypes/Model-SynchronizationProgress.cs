@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SynchronizationProgressModel
 {
     [JsonPropertyName("completedUnits")]
-    public long? CompletedUnits { get; set; }
+    public int? CompletedUnits { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -23,7 +23,7 @@ internal class SynchronizationProgressModel
     public DateTime? ProgressObservationDateTime { get; set; }
 
     [JsonPropertyName("totalUnits")]
-    public long? TotalUnits { get; set; }
+    public int? TotalUnits { get; set; }
 
     [JsonPropertyName("units")]
     public string? Units { get; set; }

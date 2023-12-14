@@ -26,8 +26,6 @@ internal class TableResourcesMigrateTableToManualThroughputOperation : Pandora.D
 
     public override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToManualThroughput";
 
 

@@ -56,7 +56,7 @@ internal class GroupPolicyDefinitionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyType")]
-    public GroupPolicyTypeConstant? PolicyType { get; set; }
+    public GroupPolicyDefinitionPolicyTypeConstant? PolicyType { get; set; }
 
     [JsonPropertyName("presentations")]
     public List<GroupPolicyPresentationModel>? Presentations { get; set; }

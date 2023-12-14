@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class NotificationMessageTemplateModel
 {
     [JsonPropertyName("brandingOptions")]
-    public NotificationTemplateBrandingOptionsConstant? BrandingOptions { get; set; }
+    public NotificationMessageTemplateBrandingOptionsConstant? BrandingOptions { get; set; }
 
     [JsonPropertyName("defaultLocale")]
     public string? DefaultLocale { get; set; }

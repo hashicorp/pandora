@@ -17,8 +17,8 @@ internal class SecurityHuntingQueryResultsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("results")]
-    public List<HuntingRowResultModel>? Results { get; set; }
+    public List<SecurityHuntingRowResultModel>? Results { get; set; }
 
     [JsonPropertyName("schema")]
-    public List<SinglePropertySchemaModel>? Schema { get; set; }
+    public List<SecuritySinglePropertySchemaModel>? Schema { get; set; }
 }

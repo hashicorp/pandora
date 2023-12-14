@@ -23,7 +23,7 @@ internal class DeviceCustomAttributeShellScriptModel
     public string? CustomAttributeName { get; set; }
 
     [JsonPropertyName("customAttributeType")]
-    public DeviceCustomAttributeValueTypeConstant? CustomAttributeType { get; set; }
+    public DeviceCustomAttributeShellScriptCustomAttributeTypeConstant? CustomAttributeType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -53,7 +53,7 @@ internal class DeviceCustomAttributeShellScriptModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public DeviceCustomAttributeShellScriptRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("runSummary")]
     public DeviceManagementScriptRunSummaryModel? RunSummary { get; set; }

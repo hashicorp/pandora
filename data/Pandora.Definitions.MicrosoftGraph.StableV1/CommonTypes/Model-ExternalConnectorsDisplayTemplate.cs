@@ -26,5 +26,5 @@ internal class ExternalConnectorsDisplayTemplateModel
     public int? Priority { get; set; }
 
     [JsonPropertyName("rules")]
-    public List<PropertyRuleModel>? Rules { get; set; }
+    public List<ExternalConnectorsPropertyRuleModel>? Rules { get; set; }
 }

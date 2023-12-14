@@ -1,0 +1,137 @@
+{
+ "name": "AnalysisServicesServerProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "asAdministrators",
+   "name": "AsAdministrators",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerAdministrators"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupBlobContainerUri",
+   "name": "BackupBlobContainerUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gatewayDetails",
+   "name": "GatewayDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GatewayDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipV4FirewallSettings",
+   "name": "IPV4FirewallSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPv4FirewallSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedMode",
+   "name": "ManagedMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "querypoolConnectionMode",
+   "name": "QuerypoolConnectionMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverFullName",
+   "name": "ServerFullName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverMonitorMode",
+   "name": "ServerMonitorMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerMonitorMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sku",
+   "name": "Sku",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceSku"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "State"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

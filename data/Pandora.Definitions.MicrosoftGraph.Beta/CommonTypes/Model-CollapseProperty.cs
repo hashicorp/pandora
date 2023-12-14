@@ -17,7 +17,7 @@ internal class CollapsePropertyModel
     public List<string>? Fields { get; set; }
 
     [JsonPropertyName("limit")]
-    public short? Limit { get; set; }
+    public int? Limit { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

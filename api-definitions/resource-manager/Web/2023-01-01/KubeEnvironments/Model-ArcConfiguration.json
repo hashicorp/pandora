@@ -1,0 +1,89 @@
+{
+ "name": "ArcConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactStorageAccessMode",
+   "name": "ArtifactStorageAccessMode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactStorageClassName",
+   "name": "ArtifactStorageClassName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactStorageMountPath",
+   "name": "ArtifactStorageMountPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactStorageNodeName",
+   "name": "ArtifactStorageNodeName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "artifactsStorageType",
+   "name": "ArtifactsStorageType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontEndServiceConfiguration",
+   "name": "FrontEndServiceConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontEndConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kubeConfig",
+   "name": "KubeConfig",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

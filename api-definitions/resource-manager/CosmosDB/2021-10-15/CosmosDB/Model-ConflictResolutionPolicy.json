@@ -1,0 +1,41 @@
+{
+ "name": "ConflictResolutionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "conflictResolutionPath",
+   "name": "ConflictResolutionPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "conflictResolutionProcedure",
+   "name": "ConflictResolutionProcedure",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConflictResolutionMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

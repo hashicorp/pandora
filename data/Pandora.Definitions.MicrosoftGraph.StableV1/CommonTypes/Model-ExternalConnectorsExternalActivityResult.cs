@@ -23,11 +23,11 @@ internal class ExternalConnectorsExternalActivityResultModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("performedBy")]
-    public IdentityModel? PerformedBy { get; set; }
+    public ExternalConnectorsIdentityModel? PerformedBy { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("type")]
-    public ExternalActivityTypeConstant? Type { get; set; }
+    public ExternalConnectorsExternalActivityResultTypeConstant? Type { get; set; }
 }

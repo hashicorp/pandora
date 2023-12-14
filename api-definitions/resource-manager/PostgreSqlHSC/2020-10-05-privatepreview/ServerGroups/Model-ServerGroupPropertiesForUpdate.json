@@ -1,0 +1,119 @@
+{
+ "name": "ServerGroupPropertiesForUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "administratorLoginPassword",
+   "name": "AdministratorLoginPassword",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availabilityZone",
+   "name": "AvailabilityZone",
+   "objectDefinition": {
+    "type": "Zone",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupRetentionDays",
+   "name": "BackupRetentionDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "citusVersion",
+   "name": "CitusVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CitusVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableShardsOnCoordinator",
+   "name": "EnableShardsOnCoordinator",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maintenanceWindow",
+   "name": "MaintenanceWindow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MaintenanceWindow"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "postgresqlVersion",
+   "name": "PostgresqlVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PostgreSQLVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverRoleGroups",
+   "name": "ServerRoleGroups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServerRoleGroup",
+     "maxItems": 2,
+     "minItems": 1
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "standbyAvailabilityZone",
+   "name": "StandbyAvailabilityZone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -38,7 +38,7 @@ internal class SubjectRightsRequestModel
     public DataSubjectModel? DataSubject { get; set; }
 
     [JsonPropertyName("dataSubjectType")]
-    public DataSubjectTypeConstant? DataSubjectType { get; set; }
+    public SubjectRightsRequestDataSubjectTypeConstant? DataSubjectType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -73,8 +73,8 @@ internal class SubjectRightsRequestModel
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
 
-    [JsonPropertyName("mailboxlocations")]
-    public SubjectRightsRequestMailboxLocationModel? Mailboxlocations { get; set; }
+    [JsonPropertyName("mailboxLocations")]
+    public SubjectRightsRequestMailboxLocationModel? MailboxLocations { get; set; }
 
     [JsonPropertyName("notes")]
     public List<AuthoredNoteModel>? Notes { get; set; }
@@ -88,8 +88,8 @@ internal class SubjectRightsRequestModel
     [JsonPropertyName("regulations")]
     public List<string>? Regulations { get; set; }
 
-    [JsonPropertyName("sitelocations")]
-    public SubjectRightsRequestSiteLocationModel? Sitelocations { get; set; }
+    [JsonPropertyName("siteLocations")]
+    public SubjectRightsRequestSiteLocationModel? SiteLocations { get; set; }
 
     [JsonPropertyName("stages")]
     public List<SubjectRightsRequestStageDetailModel>? Stages { get; set; }

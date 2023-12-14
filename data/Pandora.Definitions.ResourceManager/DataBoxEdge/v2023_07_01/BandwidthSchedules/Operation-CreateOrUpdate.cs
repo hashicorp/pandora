@@ -26,7 +26,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new BandwidthScheduleId();
 
-    public override Type? ResponseObject() => typeof(BandwidthScheduleModel);
-
 
 }

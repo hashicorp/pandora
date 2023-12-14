@@ -26,8 +26,6 @@ internal class DiscoverProtectableItemOperation : Pandora.Definitions.Operations
 
     public override ResourceID? ResourceId() => new ReplicationProtectionContainerId();
 
-    public override Type? ResponseObject() => typeof(ProtectionContainerModel);
-
     public override string? UriSuffix() => "/discoverProtectableItem";
 
 

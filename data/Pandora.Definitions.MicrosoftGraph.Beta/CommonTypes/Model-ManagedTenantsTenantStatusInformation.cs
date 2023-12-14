@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsTenantStatusInformationModel
 {
     [JsonPropertyName("delegatedPrivilegeStatus")]
-    public DelegatedPrivilegeStatusConstant? DelegatedPrivilegeStatus { get; set; }
+    public ManagedTenantsTenantStatusInformationDelegatedPrivilegeStatusConstant? DelegatedPrivilegeStatus { get; set; }
 
     [JsonPropertyName("lastDelegatedPrivilegeRefreshDateTime")]
     public DateTime? LastDelegatedPrivilegeRefreshDateTime { get; set; }
@@ -35,11 +35,11 @@ internal class ManagedTenantsTenantStatusInformationModel
     public DateTime? OnboardedDateTime { get; set; }
 
     [JsonPropertyName("onboardingStatus")]
-    public TenantOnboardingStatusConstant? OnboardingStatus { get; set; }
+    public ManagedTenantsTenantStatusInformationOnboardingStatusConstant? OnboardingStatus { get; set; }
 
     [JsonPropertyName("tenantOnboardingEligibilityReason")]
-    public TenantOnboardingEligibilityReasonConstant? TenantOnboardingEligibilityReason { get; set; }
+    public ManagedTenantsTenantStatusInformationTenantOnboardingEligibilityReasonConstant? TenantOnboardingEligibilityReason { get; set; }
 
     [JsonPropertyName("workloadStatuses")]
-    public List<WorkloadStatusModel>? WorkloadStatuses { get; set; }
+    public List<ManagedTenantsWorkloadStatusModel>? WorkloadStatuses { get; set; }
 }

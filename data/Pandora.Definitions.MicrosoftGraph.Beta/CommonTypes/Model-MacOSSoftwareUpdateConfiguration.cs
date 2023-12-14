@@ -14,19 +14,19 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MacOSSoftwareUpdateConfigurationModel
 {
     [JsonPropertyName("allOtherUpdateBehavior")]
-    public MacOSSoftwareUpdateBehaviorConstant? AllOtherUpdateBehavior { get; set; }
+    public MacOSSoftwareUpdateConfigurationAllOtherUpdateBehaviorConstant? AllOtherUpdateBehavior { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("configDataUpdateBehavior")]
-    public MacOSSoftwareUpdateBehaviorConstant? ConfigDataUpdateBehavior { get; set; }
+    public MacOSSoftwareUpdateConfigurationConfigDataUpdateBehaviorConstant? ConfigDataUpdateBehavior { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("criticalUpdateBehavior")]
-    public MacOSSoftwareUpdateBehaviorConstant? CriticalUpdateBehavior { get; set; }
+    public MacOSSoftwareUpdateConfigurationCriticalUpdateBehaviorConstant? CriticalUpdateBehavior { get; set; }
 
     [JsonPropertyName("customUpdateTimeWindows")]
     public List<CustomUpdateTimeWindowModel>? CustomUpdateTimeWindows { get; set; }
@@ -56,7 +56,7 @@ internal class MacOSSoftwareUpdateConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("firmwareUpdateBehavior")]
-    public MacOSSoftwareUpdateBehaviorConstant? FirmwareUpdateBehavior { get; set; }
+    public MacOSSoftwareUpdateConfigurationFirmwareUpdateBehaviorConstant? FirmwareUpdateBehavior { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -74,7 +74,7 @@ internal class MacOSSoftwareUpdateConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("priority")]
-    public MacOSPriorityConstant? Priority { get; set; }
+    public MacOSSoftwareUpdateConfigurationPriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -83,7 +83,7 @@ internal class MacOSSoftwareUpdateConfigurationModel
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("updateScheduleType")]
-    public MacOSSoftwareUpdateScheduleTypeConstant? UpdateScheduleType { get; set; }
+    public MacOSSoftwareUpdateConfigurationUpdateScheduleTypeConstant? UpdateScheduleType { get; set; }
 
     [JsonPropertyName("updateTimeWindowUtcOffsetInMinutes")]
     public int? UpdateTimeWindowUtcOffsetInMinutes { get; set; }

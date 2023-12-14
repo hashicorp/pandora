@@ -26,8 +26,6 @@ internal class PackageOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ModelVersionId();
 
-    public override Type? ResponseObject() => typeof(PackageResponseModel);
-
     public override string? UriSuffix() => "/package";
 
 

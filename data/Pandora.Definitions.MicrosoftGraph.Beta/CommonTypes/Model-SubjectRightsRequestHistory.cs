@@ -23,10 +23,10 @@ internal class SubjectRightsRequestHistoryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("stage")]
-    public SubjectRightsRequestStageConstant? Stage { get; set; }
+    public SubjectRightsRequestHistoryStageConstant? Stage { get; set; }
 
     [JsonPropertyName("stageStatus")]
-    public SubjectRightsRequestStageStatusConstant? StageStatus { get; set; }
+    public SubjectRightsRequestHistoryStageStatusConstant? StageStatus { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

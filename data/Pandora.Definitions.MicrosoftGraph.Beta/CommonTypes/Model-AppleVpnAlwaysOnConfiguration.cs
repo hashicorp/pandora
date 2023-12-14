@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AppleVpnAlwaysOnConfigurationModel
 {
     [JsonPropertyName("airPrintExceptionAction")]
-    public VpnServiceExceptionActionConstant? AirPrintExceptionAction { get; set; }
+    public AppleVpnAlwaysOnConfigurationAirPrintExceptionActionConstant? AirPrintExceptionAction { get; set; }
 
     [JsonPropertyName("allowAllCaptiveNetworkPlugins")]
     public bool? AllowAllCaptiveNetworkPlugins { get; set; }
@@ -26,7 +26,7 @@ internal class AppleVpnAlwaysOnConfigurationModel
     public SpecifiedCaptiveNetworkPluginsModel? AllowedCaptiveNetworkPlugins { get; set; }
 
     [JsonPropertyName("cellularExceptionAction")]
-    public VpnServiceExceptionActionConstant? CellularExceptionAction { get; set; }
+    public AppleVpnAlwaysOnConfigurationCellularExceptionActionConstant? CellularExceptionAction { get; set; }
 
     [JsonPropertyName("natKeepAliveIntervalInSeconds")]
     public int? NatKeepAliveIntervalInSeconds { get; set; }
@@ -38,11 +38,11 @@ internal class AppleVpnAlwaysOnConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("tunnelConfiguration")]
-    public VpnTunnelConfigurationTypeConstant? TunnelConfiguration { get; set; }
+    public AppleVpnAlwaysOnConfigurationTunnelConfigurationConstant? TunnelConfiguration { get; set; }
 
     [JsonPropertyName("userToggleEnabled")]
     public bool? UserToggleEnabled { get; set; }
 
     [JsonPropertyName("voicemailExceptionAction")]
-    public VpnServiceExceptionActionConstant? VoicemailExceptionAction { get; set; }
+    public AppleVpnAlwaysOnConfigurationVoicemailExceptionActionConstant? VoicemailExceptionAction { get; set; }
 }

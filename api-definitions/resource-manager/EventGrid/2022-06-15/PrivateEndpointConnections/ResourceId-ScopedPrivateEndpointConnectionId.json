@@ -1,0 +1,19 @@
+{
+ "name": "ScopedPrivateEndpointConnectionId",
+ "id": "/{scope}/privateEndpointConnections/{privateEndpointConnectionName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticPrivateEndpointConnections",
+   "type": "Static",
+   "value": "privateEndpointConnections"
+  },
+  {
+   "name": "privateEndpointConnectionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserExperienceAnalyticsWorkFromAnywhereModelPerformanceModel
 {
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsWorkFromAnywhereModelPerformanceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

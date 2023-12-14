@@ -17,7 +17,7 @@ internal class NetworkLocationDetailModel
     public List<string>? NetworkNames { get; set; }
 
     [JsonPropertyName("networkType")]
-    public NetworkTypeConstant? NetworkType { get; set; }
+    public NetworkLocationDetailNetworkTypeConstant? NetworkType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

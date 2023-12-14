@@ -32,7 +32,7 @@ internal class TeamworkTagModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("tagType")]
-    public TeamworkTagTypeConstant? TagType { get; set; }
+    public TeamworkTagTagTypeConstant? TagType { get; set; }
 
     [JsonPropertyName("teamId")]
     public string? TeamId { get; set; }

@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ExternalConnectorsExternalConnectionModel
 {
     [JsonPropertyName("activitySettings")]
-    public ActivitySettingsModel? ActivitySettings { get; set; }
+    public ExternalConnectorsActivitySettingsModel? ActivitySettings { get; set; }
 
     [JsonPropertyName("complianceSettings")]
-    public ComplianceSettingsModel? ComplianceSettings { get; set; }
+    public ExternalConnectorsComplianceSettingsModel? ComplianceSettings { get; set; }
 
     [JsonPropertyName("configuration")]
-    public ConfigurationModel? Configuration { get; set; }
+    public ExternalConnectorsConfigurationModel? Configuration { get; set; }
 
     [JsonPropertyName("connectorId")]
     public string? ConnectorId { get; set; }
@@ -29,19 +29,19 @@ internal class ExternalConnectorsExternalConnectionModel
     public string? Description { get; set; }
 
     [JsonPropertyName("enabledContentExperiences")]
-    public ContentExperienceTypeConstant? EnabledContentExperiences { get; set; }
+    public ExternalConnectorsExternalConnectionEnabledContentExperiencesConstant? EnabledContentExperiences { get; set; }
 
     [JsonPropertyName("groups")]
-    public List<ExternalGroupModel>? Groups { get; set; }
+    public List<ExternalConnectorsExternalGroupModel>? Groups { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("ingestedItemsCount")]
-    public long? IngestedItemsCount { get; set; }
+    public int? IngestedItemsCount { get; set; }
 
     [JsonPropertyName("items")]
-    public List<ExternalItemModel>? Items { get; set; }
+    public List<ExternalConnectorsExternalItemModel>? Items { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -50,17 +50,17 @@ internal class ExternalConnectorsExternalConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operations")]
-    public List<ConnectionOperationModel>? Operations { get; set; }
+    public List<ExternalConnectorsConnectionOperationModel>? Operations { get; set; }
 
     [JsonPropertyName("quota")]
-    public ConnectionQuotaModel? Quota { get; set; }
+    public ExternalConnectorsConnectionQuotaModel? Quota { get; set; }
 
     [JsonPropertyName("schema")]
-    public SchemaModel? Schema { get; set; }
+    public ExternalConnectorsSchemaModel? Schema { get; set; }
 
     [JsonPropertyName("searchSettings")]
-    public SearchSettingsModel? SearchSettings { get; set; }
+    public ExternalConnectorsSearchSettingsModel? SearchSettings { get; set; }
 
     [JsonPropertyName("state")]
-    public ConnectionStateConstant? State { get; set; }
+    public ExternalConnectorsExternalConnectionStateConstant? State { get; set; }
 }

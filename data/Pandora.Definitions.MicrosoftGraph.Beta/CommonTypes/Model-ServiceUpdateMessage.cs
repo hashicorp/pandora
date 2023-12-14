@@ -26,7 +26,7 @@ internal class ServiceUpdateMessageModel
     public ItemBodyModel? Body { get; set; }
 
     [JsonPropertyName("category")]
-    public ServiceUpdateCategoryConstant? Category { get; set; }
+    public ServiceUpdateMessageCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("details")]
     public List<KeyValuePairModel>? Details { get; set; }
@@ -53,7 +53,7 @@ internal class ServiceUpdateMessageModel
     public List<string>? Services { get; set; }
 
     [JsonPropertyName("severity")]
-    public ServiceUpdateSeverityConstant? Severity { get; set; }
+    public ServiceUpdateMessageSeverityConstant? Severity { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }

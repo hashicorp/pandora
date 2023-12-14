@@ -26,7 +26,5 @@ internal class SqlResourcesCreateUpdateSqlDatabaseOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(SqlDatabaseGetResultsModel);
-
 
 }

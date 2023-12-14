@@ -29,7 +29,7 @@ internal class ScheduleItemModel
     public DateTimeTimeZoneModel? Start { get; set; }
 
     [JsonPropertyName("status")]
-    public FreeBusyStatusConstant? Status { get; set; }
+    public ScheduleItemStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }

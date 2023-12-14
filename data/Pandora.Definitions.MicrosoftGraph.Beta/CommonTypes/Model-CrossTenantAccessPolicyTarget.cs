@@ -20,5 +20,5 @@ internal class CrossTenantAccessPolicyTargetModel
     public string? Target { get; set; }
 
     [JsonPropertyName("targetType")]
-    public CrossTenantAccessPolicyTargetTypeConstant? TargetType { get; set; }
+    public CrossTenantAccessPolicyTargetTargetTypeConstant? TargetType { get; set; }
 }

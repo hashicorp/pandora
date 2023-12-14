@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SearchEntityModel
 {
     [JsonPropertyName("acronyms")]
-    public List<AcronymModel>? Acronyms { get; set; }
+    public List<SearchAcronymModel>? Acronyms { get; set; }
 
     [JsonPropertyName("bookmarks")]
-    public List<BookmarkModel>? Bookmarks { get; set; }
+    public List<SearchBookmarkModel>? Bookmarks { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -26,5 +26,5 @@ internal class SearchEntityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("qnas")]
-    public List<QnaModel>? Qnas { get; set; }
+    public List<SearchQnaModel>? Qnas { get; set; }
 }

@@ -20,7 +20,5 @@ internal class ScriptExecutionsCreateOrUpdateOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new ScriptExecutionId();
 
-    public override Type? ResponseObject() => typeof(ScriptExecutionModel);
-
 
 }

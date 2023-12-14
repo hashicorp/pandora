@@ -1,0 +1,29 @@
+{
+ "name": "LocalTimestamp",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "format",
+   "name": "Format",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LocalTimestampFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZoneOffset",
+   "name": "TimeZoneOffset",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LocalTimestampTimeZoneOffset"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

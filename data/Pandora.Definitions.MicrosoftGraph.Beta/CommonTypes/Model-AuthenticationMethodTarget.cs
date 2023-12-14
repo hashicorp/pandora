@@ -23,5 +23,5 @@ internal class AuthenticationMethodTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public AuthenticationMethodTargetTargetTypeConstant? TargetType { get; set; }
 }

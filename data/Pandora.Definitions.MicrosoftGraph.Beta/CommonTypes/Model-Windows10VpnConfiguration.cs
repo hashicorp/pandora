@@ -20,13 +20,13 @@ internal class Windows10VpnConfigurationModel
     public List<Windows10AssociatedAppsModel>? AssociatedApps { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public Windows10VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public Windows10VpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectionName")]
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public Windows10VpnConnectionTypeConstant? ConnectionType { get; set; }
+    public Windows10VpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -110,7 +110,7 @@ internal class Windows10VpnConfigurationModel
     public bool? OnlyAssociatedAppsCanUseConnection { get; set; }
 
     [JsonPropertyName("profileTarget")]
-    public Windows10VpnProfileTargetConstant? ProfileTarget { get; set; }
+    public Windows10VpnConfigurationProfileTargetConstant? ProfileTarget { get; set; }
 
     [JsonPropertyName("proxyServer")]
     public Windows10VpnProxyServerModel? ProxyServer { get; set; }

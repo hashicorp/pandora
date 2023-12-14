@@ -25,7 +25,7 @@ internal class ListKeysForKeyNameOperation : Pandora.Definitions.Operations.Post
 
     public override Type? ResponseObject() => typeof(SharedAccessSignatureAuthorizationRuleAccessRightsDescriptionModel);
 
-    public override string? UriSuffix() => "/listkeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
 }

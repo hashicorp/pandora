@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new DiskPoolId();
 
-    public override Type? ResponseObject() => typeof(DiskPoolModel);
-
 
 }

@@ -1,0 +1,45 @@
+{
+ "name": "LabelCategory",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "classes",
+   "name": "Classes",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "LabelClass"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "multiSelect",
+   "name": "MultiSelect",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MultiSelect"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

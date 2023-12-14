@@ -38,7 +38,7 @@ internal class TeamworkDeviceOperationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationType")]
-    public TeamworkDeviceOperationTypeConstant? OperationType { get; set; }
+    public TeamworkDeviceOperationOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("startedDateTime")]
     public DateTime? StartedDateTime { get; set; }

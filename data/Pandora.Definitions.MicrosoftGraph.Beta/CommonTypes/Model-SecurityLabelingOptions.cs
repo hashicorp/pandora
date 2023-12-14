@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityLabelingOptionsModel
 {
     [JsonPropertyName("assignmentMethod")]
-    public AssignmentMethodConstant? AssignmentMethod { get; set; }
+    public SecurityLabelingOptionsAssignmentMethodConstant? AssignmentMethod { get; set; }
 
     [JsonPropertyName("downgradeJustification")]
-    public DowngradeJustificationModel? DowngradeJustification { get; set; }
+    public SecurityDowngradeJustificationModel? DowngradeJustification { get; set; }
 
     [JsonPropertyName("extendedProperties")]
-    public List<KeyValuePairModel>? ExtendedProperties { get; set; }
+    public List<SecurityKeyValuePairModel>? ExtendedProperties { get; set; }
 
     [JsonPropertyName("labelId")]
     public string? LabelId { get; set; }

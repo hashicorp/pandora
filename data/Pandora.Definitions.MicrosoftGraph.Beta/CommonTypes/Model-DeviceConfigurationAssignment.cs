@@ -17,13 +17,13 @@ internal class DeviceConfigurationAssignmentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intent")]
-    public DeviceConfigAssignmentIntentConstant? Intent { get; set; }
+    public DeviceConfigurationAssignmentIntentConstant? Intent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("source")]
-    public DeviceAndAppManagementAssignmentSourceConstant? Source { get; set; }
+    public DeviceConfigurationAssignmentSourceConstant? Source { get; set; }
 
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }

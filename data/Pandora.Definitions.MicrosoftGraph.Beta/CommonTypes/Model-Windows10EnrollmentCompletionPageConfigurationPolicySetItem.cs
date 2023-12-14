@@ -20,7 +20,7 @@ internal class Windows10EnrollmentCompletionPageConfigurationPolicySetItemModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public Windows10EnrollmentCompletionPageConfigurationPolicySetItemErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }
@@ -44,5 +44,5 @@ internal class Windows10EnrollmentCompletionPageConfigurationPolicySetItemModel
     public int? Priority { get; set; }
 
     [JsonPropertyName("status")]
-    public PolicySetStatusConstant? Status { get; set; }
+    public Windows10EnrollmentCompletionPageConfigurationPolicySetItemStatusConstant? Status { get; set; }
 }

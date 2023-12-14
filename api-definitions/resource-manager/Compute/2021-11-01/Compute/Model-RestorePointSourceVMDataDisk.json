@@ -1,0 +1,77 @@
+{
+ "name": "RestorePointSourceVMDataDisk",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "caching",
+   "name": "Caching",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CachingTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskRestorePoint",
+   "name": "DiskRestorePoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiEntityReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskSizeGB",
+   "name": "DiskSizeGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lun",
+   "name": "Lun",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedDisk",
+   "name": "ManagedDisk",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedDiskParameters"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

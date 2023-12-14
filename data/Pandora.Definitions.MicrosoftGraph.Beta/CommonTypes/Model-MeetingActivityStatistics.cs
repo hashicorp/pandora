@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MeetingActivityStatisticsModel
 {
     [JsonPropertyName("activity")]
-    public AnalyticsActivityTypeConstant? Activity { get; set; }
+    public MeetingActivityStatisticsActivityConstant? Activity { get; set; }
 
     [JsonPropertyName("afterHours")]
     public string? AfterHours { get; set; }

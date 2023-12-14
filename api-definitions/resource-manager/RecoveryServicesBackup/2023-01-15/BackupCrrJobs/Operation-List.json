@@ -1,0 +1,32 @@
+{
+ "name": "List",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CrrJobRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "JobResource"
+ },
+ "uriSuffix": "/backupCrrJobs"
+}

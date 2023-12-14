@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ManagedIOSLobAppModel
 {
     [JsonPropertyName("appAvailability")]
-    public ManagedAppAvailabilityConstant? AppAvailability { get; set; }
+    public ManagedIOSLobAppAppAvailabilityConstant? AppAvailability { get; set; }
 
     [JsonPropertyName("applicableDeviceType")]
     public IosDeviceTypeModel? ApplicableDeviceType { get; set; }
@@ -89,10 +89,10 @@ internal class ManagedIOSLobAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public ManagedIOSLobAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

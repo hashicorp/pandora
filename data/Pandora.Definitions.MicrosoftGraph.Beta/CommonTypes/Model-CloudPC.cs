@@ -16,11 +16,14 @@ internal class CloudPCModel
     [JsonPropertyName("aadDeviceId")]
     public string? AadDeviceId { get; set; }
 
+    [JsonPropertyName("connectionSettings")]
+    public CloudPCConnectionSettingsModel? ConnectionSettings { get; set; }
+
     [JsonPropertyName("connectivityResult")]
-    public CloudPcConnectivityResultModel? ConnectivityResult { get; set; }
+    public CloudPCConnectivityResultModel? ConnectivityResult { get; set; }
 
     [JsonPropertyName("diskEncryptionState")]
-    public CloudPcDiskEncryptionStateConstant? DiskEncryptionState { get; set; }
+    public CloudPCDiskEncryptionStateConstant? DiskEncryptionState { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -35,13 +38,13 @@ internal class CloudPCModel
     public string? ImageDisplayName { get; set; }
 
     [JsonPropertyName("lastLoginResult")]
-    public CloudPcLoginResultModel? LastLoginResult { get; set; }
+    public CloudPCLoginResultModel? LastLoginResult { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("lastRemoteActionResult")]
-    public CloudPcRemoteActionResultModel? LastRemoteActionResult { get; set; }
+    public CloudPCRemoteActionResultModel? LastRemoteActionResult { get; set; }
 
     [JsonPropertyName("managedDeviceId")]
     public string? ManagedDeviceId { get; set; }
@@ -56,13 +59,13 @@ internal class CloudPCModel
     public string? OnPremisesConnectionName { get; set; }
 
     [JsonPropertyName("osVersion")]
-    public CloudPcOperatingSystemConstant? OsVersion { get; set; }
+    public CloudPCOsVersionConstant? OsVersion { get; set; }
 
     [JsonPropertyName("partnerAgentInstallResults")]
-    public List<CloudPcPartnerAgentInstallResultModel>? PartnerAgentInstallResults { get; set; }
+    public List<CloudPCPartnerAgentInstallResultModel>? PartnerAgentInstallResults { get; set; }
 
     [JsonPropertyName("powerState")]
-    public CloudPcPowerStateConstant? PowerState { get; set; }
+    public CloudPCPowerStateConstant? PowerState { get; set; }
 
     [JsonPropertyName("provisioningPolicyId")]
     public string? ProvisioningPolicyId { get; set; }
@@ -71,7 +74,7 @@ internal class CloudPCModel
     public string? ProvisioningPolicyName { get; set; }
 
     [JsonPropertyName("provisioningType")]
-    public CloudPcProvisioningTypeConstant? ProvisioningType { get; set; }
+    public CloudPCProvisioningTypeConstant? ProvisioningType { get; set; }
 
     [JsonPropertyName("servicePlanId")]
     public string? ServicePlanId { get; set; }
@@ -80,16 +83,16 @@ internal class CloudPCModel
     public string? ServicePlanName { get; set; }
 
     [JsonPropertyName("servicePlanType")]
-    public CloudPcServicePlanTypeConstant? ServicePlanType { get; set; }
+    public CloudPCServicePlanTypeConstant? ServicePlanType { get; set; }
 
     [JsonPropertyName("status")]
-    public CloudPcStatusConstant? Status { get; set; }
+    public CloudPCStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusDetails")]
-    public CloudPcStatusDetailsModel? StatusDetails { get; set; }
+    public CloudPCStatusDetailsModel? StatusDetails { get; set; }
 
     [JsonPropertyName("userAccountType")]
-    public CloudPcUserAccountTypeConstant? UserAccountType { get; set; }
+    public CloudPCUserAccountTypeConstant? UserAccountType { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }

@@ -44,7 +44,7 @@ internal class OutlookTaskModel
     public string? Id { get; set; }
 
     [JsonPropertyName("importance")]
-    public ImportanceConstant? Importance { get; set; }
+    public OutlookTaskImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("isReminderOn")]
     public bool? IsReminderOn { get; set; }
@@ -71,7 +71,7 @@ internal class OutlookTaskModel
     public DateTimeTimeZoneModel? ReminderDateTime { get; set; }
 
     [JsonPropertyName("sensitivity")]
-    public SensitivityConstant? Sensitivity { get; set; }
+    public OutlookTaskSensitivityConstant? Sensitivity { get; set; }
 
     [JsonPropertyName("singleValueExtendedProperties")]
     public List<SingleValueLegacyExtendedPropertyModel>? SingleValueExtendedProperties { get; set; }
@@ -80,7 +80,7 @@ internal class OutlookTaskModel
     public DateTimeTimeZoneModel? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public TaskStatusConstant? Status { get; set; }
+    public OutlookTaskStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }

@@ -50,13 +50,13 @@ internal class Windows10EasEmailProfileConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public Windows10EasEmailProfileConfigurationDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public Windows10EasEmailProfileConfigurationEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("emailSyncSchedule")]
-    public EmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
+    public Windows10EasEmailProfileConfigurationEmailSyncScheduleConstant? EmailSyncSchedule { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -92,7 +92,7 @@ internal class Windows10EasEmailProfileConfigurationModel
     public bool? SyncTasks { get; set; }
 
     [JsonPropertyName("userDomainNameSource")]
-    public DomainNameSourceConstant? UserDomainNameSource { get; set; }
+    public Windows10EasEmailProfileConfigurationUserDomainNameSourceConstant? UserDomainNameSource { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -101,10 +101,10 @@ internal class Windows10EasEmailProfileConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameAADSource")]
-    public UsernameSourceConstant? UsernameAADSource { get; set; }
+    public Windows10EasEmailProfileConfigurationUsernameAADSourceConstant? UsernameAADSource { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public UserEmailSourceConstant? UsernameSource { get; set; }
+    public Windows10EasEmailProfileConfigurationUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

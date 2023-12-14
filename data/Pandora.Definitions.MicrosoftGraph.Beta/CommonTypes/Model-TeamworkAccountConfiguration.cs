@@ -20,5 +20,5 @@ internal class TeamworkAccountConfigurationModel
     public TeamworkOnPremisesCalendarSyncConfigurationModel? OnPremisesCalendarSyncConfiguration { get; set; }
 
     [JsonPropertyName("supportedClient")]
-    public TeamworkSupportedClientConstant? SupportedClient { get; set; }
+    public TeamworkAccountConfigurationSupportedClientConstant? SupportedClient { get; set; }
 }

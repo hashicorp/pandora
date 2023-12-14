@@ -1,0 +1,53 @@
+{
+ "name": "PatchSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "assessmentMode",
+   "name": "AssessmentMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WindowsPatchAssessmentMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "automaticByPlatformSettings",
+   "name": "AutomaticByPlatformSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WindowsVMGuestPatchAutomaticByPlatformSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableHotpatching",
+   "name": "EnableHotpatching",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "patchMode",
+   "name": "PatchMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WindowsVMGuestPatchMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,29 @@
+{
+ "name": "ScalingPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scalingMechanism",
+   "name": "ScalingMechanism",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScalingMechanism"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scalingTrigger",
+   "name": "ScalingTrigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ScalingTrigger"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

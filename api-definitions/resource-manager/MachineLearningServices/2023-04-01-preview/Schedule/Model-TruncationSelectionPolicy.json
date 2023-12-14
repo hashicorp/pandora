@@ -1,0 +1,20 @@
+{
+ "name": "TruncationSelectionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "truncationPercentage",
+   "name": "TruncationPercentage",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EarlyTerminationPolicy",
+ "discriminatedTypeValue": "TruncationSelection",
+ "typeHintIn": "PolicyType"
+}

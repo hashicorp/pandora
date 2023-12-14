@@ -46,6 +46,9 @@ internal class AgedAccountsPayableModel
     [JsonPropertyName("periodLengthFilter")]
     public string? PeriodLengthFilter { get; set; }
 
+    [JsonPropertyName("vendorId")]
+    public string? VendorId { get; set; }
+
     [JsonPropertyName("vendorNumber")]
     public string? VendorNumber { get; set; }
 }

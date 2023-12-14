@@ -12,6 +12,6 @@ internal class ListServicePrincipalsOperation : Operations.ListOperation
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
     public override ResourceID? ResourceId() => null;
-    public override Type NestedItemType() => typeof(ServicePrincipalModel);
+    public override Type NestedItemType() => typeof(ServicePrincipalCollectionResponseModel);
     public override string? UriSuffix() => "/servicePrincipals";
 }

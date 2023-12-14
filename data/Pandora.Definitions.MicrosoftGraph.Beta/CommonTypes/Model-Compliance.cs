@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ComplianceModel
 {
     [JsonPropertyName("ediscovery")]
-    public EdiscoveryrootModel? Ediscovery { get; set; }
+    public EdiscoveryEdiscoveryrootModel? Ediscovery { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

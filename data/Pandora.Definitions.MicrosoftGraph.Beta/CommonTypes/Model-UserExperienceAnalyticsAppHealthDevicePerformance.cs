@@ -22,9 +22,6 @@ internal class UserExperienceAnalyticsAppHealthDevicePerformanceModel
     [JsonPropertyName("crashedAppCount")]
     public int? CrashedAppCount { get; set; }
 
-    [JsonPropertyName("deviceAppHealthStatus")]
-    public string? DeviceAppHealthStatus { get; set; }
-
     [JsonPropertyName("deviceDisplayName")]
     public string? DeviceDisplayName { get; set; }
 
@@ -38,7 +35,7 @@ internal class UserExperienceAnalyticsAppHealthDevicePerformanceModel
     public string? DeviceModel { get; set; }
 
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsAppHealthDevicePerformanceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

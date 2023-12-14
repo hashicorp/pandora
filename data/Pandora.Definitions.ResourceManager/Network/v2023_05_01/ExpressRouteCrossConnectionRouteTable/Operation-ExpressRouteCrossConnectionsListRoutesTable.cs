@@ -26,7 +26,5 @@ internal class ExpressRouteCrossConnectionsListRoutesTableOperation : Pandora.De
 
     public override ResourceID? ResourceId() => new ExpressRouteCrossConnectionPeeringRouteTableId();
 
-    public override Type? ResponseObject() => typeof(ExpressRouteCircuitsRoutesTableListResultModel);
-
 
 }

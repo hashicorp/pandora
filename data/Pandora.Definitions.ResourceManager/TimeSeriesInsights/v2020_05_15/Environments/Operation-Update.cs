@@ -25,7 +25,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new EnvironmentId();
 
-    public override Type? ResponseObject() => typeof(EnvironmentResourceModel);
-
 
 }

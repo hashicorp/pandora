@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new DeleteSchemaOperation(),
-        new GetSchemaOperation(),
-        new ParseSchemaExpressionOperation(),
-        new UpdateSchemaOperation()
+        new DeleteApplicationByIdSynchronizationJobByIdSchemaOperation(),
+        new GetApplicationByIdSynchronizationJobByIdSchemaOperation(),
+        new ParseApplicationByIdSynchronizationJobByIdSchemaExpressionOperation(),
+        new UpdateApplicationByIdSynchronizationJobByIdSchemaOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -26,6 +26,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(ParseSchemaExpressionRequestModel)
+        typeof(ParseApplicationByIdSynchronizationJobByIdSchemaExpressionRequestModel)
     };
 }

@@ -20,7 +20,7 @@ internal class MacOSMicrosoftEdgeAppModel
     public List<MobileAppCategoryModel>? Categories { get; set; }
 
     [JsonPropertyName("channel")]
-    public MicrosoftEdgeChannelConstant? Channel { get; set; }
+    public MacOSMicrosoftEdgeAppChannelConstant? Channel { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -34,9 +34,6 @@ internal class MacOSMicrosoftEdgeAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -45,9 +42,6 @@ internal class MacOSMicrosoftEdgeAppModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -77,7 +71,7 @@ internal class MacOSMicrosoftEdgeAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MacOSMicrosoftEdgeAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -93,7 +87,4 @@ internal class MacOSMicrosoftEdgeAppModel
 
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

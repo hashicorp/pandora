@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ComanagementEligibleDeviceModel
 {
     [JsonPropertyName("clientRegistrationStatus")]
-    public DeviceRegistrationStateConstant? ClientRegistrationStatus { get; set; }
+    public ComanagementEligibleDeviceClientRegistrationStatusConstant? ClientRegistrationStatus { get; set; }
 
     [JsonPropertyName("deviceName")]
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public DeviceTypeConstant? DeviceType { get; set; }
+    public ComanagementEligibleDeviceDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("entitySource")]
     public int? EntitySource { get; set; }
@@ -29,10 +29,10 @@ internal class ComanagementEligibleDeviceModel
     public string? Id { get; set; }
 
     [JsonPropertyName("managementAgents")]
-    public ManagementAgentTypeConstant? ManagementAgents { get; set; }
+    public ComanagementEligibleDeviceManagementAgentsConstant? ManagementAgents { get; set; }
 
     [JsonPropertyName("managementState")]
-    public ManagementStateConstant? ManagementState { get; set; }
+    public ComanagementEligibleDeviceManagementStateConstant? ManagementState { get; set; }
 
     [JsonPropertyName("manufacturer")]
     public string? Manufacturer { get; set; }
@@ -53,7 +53,7 @@ internal class ComanagementEligibleDeviceModel
     public string? OsVersion { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public OwnerTypeConstant? OwnerType { get; set; }
+    public ComanagementEligibleDeviceOwnerTypeConstant? OwnerType { get; set; }
 
     [JsonPropertyName("referenceId")]
     public string? ReferenceId { get; set; }
@@ -62,7 +62,7 @@ internal class ComanagementEligibleDeviceModel
     public string? SerialNumber { get; set; }
 
     [JsonPropertyName("status")]
-    public ComanagementEligibleTypeConstant? Status { get; set; }
+    public ComanagementEligibleDeviceStatusConstant? Status { get; set; }
 
     [JsonPropertyName("upn")]
     public string? Upn { get; set; }

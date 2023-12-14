@@ -1,0 +1,113 @@
+{
+ "name": "AmlFilesystemProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientInfo",
+   "name": "ClientInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemClientInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionSettings",
+   "name": "EncryptionSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemEncryptionSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filesystemSubnet",
+   "name": "FilesystemSubnet",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "health",
+   "name": "Health",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemHealth"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hsm",
+   "name": "Hsm",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemPropertiesHsm"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maintenanceWindow",
+   "name": "MaintenanceWindow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemPropertiesMaintenanceWindow"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AmlFilesystemProvisioningStateType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageCapacityTiB",
+   "name": "StorageCapacityTiB",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "throughputProvisionedMBps",
+   "name": "ThroughputProvisionedMBps",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

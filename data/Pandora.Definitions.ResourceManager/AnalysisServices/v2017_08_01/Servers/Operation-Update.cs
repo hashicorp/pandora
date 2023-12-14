@@ -26,7 +26,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(AnalysisServicesServerModel);
-
 
 }

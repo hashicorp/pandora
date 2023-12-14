@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class BitLockerFixedDrivePolicyModel
 {
     [JsonPropertyName("encryptionMethod")]
-    public BitLockerEncryptionMethodConstant? EncryptionMethod { get; set; }
+    public BitLockerFixedDrivePolicyEncryptionMethodConstant? EncryptionMethod { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

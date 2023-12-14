@@ -20,7 +20,7 @@ internal class WindowsManagementAppHealthStateModel
     public string? DeviceOSVersion { get; set; }
 
     [JsonPropertyName("healthState")]
-    public HealthStateConstant? HealthState { get; set; }
+    public WindowsManagementAppHealthStateHealthStateConstant? HealthState { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class Win32LobAppModel
 {
     [JsonPropertyName("applicableArchitectures")]
-    public WindowsArchitectureConstant? ApplicableArchitectures { get; set; }
+    public Win32LobAppApplicableArchitecturesConstant? ApplicableArchitectures { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<MobileAppAssignmentModel>? Assignments { get; set; }
@@ -98,7 +98,7 @@ internal class Win32LobAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public Win32LobAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("returnCodes")]
     public List<Win32LobAppReturnCodeModel>? ReturnCodes { get; set; }
@@ -110,7 +110,7 @@ internal class Win32LobAppModel
     public string? SetupFilePath { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("uninstallCommandLine")]
     public string? UninstallCommandLine { get; set; }

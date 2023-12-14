@@ -23,5 +23,5 @@ internal class CallRecordsServiceUserAgentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("role")]
-    public ServiceRoleConstant? Role { get; set; }
+    public CallRecordsServiceUserAgentRoleConstant? Role { get; set; }
 }

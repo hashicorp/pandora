@@ -1,0 +1,77 @@
+{
+ "name": "SubnetOverride",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labSubnetName",
+   "name": "LabSubnetName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharedPublicIpAddressConfiguration",
+   "name": "SharedPublicIPAddressConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubnetSharedPublicIPAddressConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "useInVmCreationPermission",
+   "name": "UseInVMCreationPermission",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UsagePermissionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "usePublicIpAddressPermission",
+   "name": "UsePublicIPAddressPermission",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UsagePermissionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkPoolName",
+   "name": "VirtualNetworkPoolName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -17,7 +17,7 @@ internal class DeviceManagementResourceAccessProfileAssignmentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("intent")]
-    public DeviceManagementResourceAccessProfileIntentConstant? Intent { get; set; }
+    public DeviceManagementResourceAccessProfileAssignmentIntentConstant? Intent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -17,8 +17,8 @@ internal class ToneInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sequenceId")]
-    public long? SequenceId { get; set; }
+    public int? SequenceId { get; set; }
 
     [JsonPropertyName("tone")]
-    public ToneConstant? Tone { get; set; }
+    public ToneInfoToneConstant? Tone { get; set; }
 }

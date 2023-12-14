@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "SshPublicKeyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "SshPublicKeyResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SshPublicKeyResource"
+ }
+}

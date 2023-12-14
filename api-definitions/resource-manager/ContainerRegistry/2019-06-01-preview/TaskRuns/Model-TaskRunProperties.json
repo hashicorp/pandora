@@ -1,0 +1,53 @@
+{
+ "name": "TaskRunProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forceUpdateTag",
+   "name": "ForceUpdateTag",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runRequest",
+   "name": "RunRequest",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunRequest"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runResult",
+   "name": "RunResult",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Run"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

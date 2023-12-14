@@ -32,7 +32,7 @@ internal class OnPremisesCurrentExportDataModel
     public string? ServiceAccount { get; set; }
 
     [JsonPropertyName("successfulLinksProvisioningCount")]
-    public long? SuccessfulLinksProvisioningCount { get; set; }
+    public int? SuccessfulLinksProvisioningCount { get; set; }
 
     [JsonPropertyName("successfulObjectsProvisioningCount")]
     public int? SuccessfulObjectsProvisioningCount { get; set; }

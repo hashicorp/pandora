@@ -1,0 +1,52 @@
+{
+ "name": "SavedSearchId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/savedSearches/{savedSearchId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftOperationalInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.OperationalInsights"
+  },
+  {
+   "name": "staticWorkspaces",
+   "type": "Static",
+   "value": "workspaces"
+  },
+  {
+   "name": "workspaceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSavedSearches",
+   "type": "Static",
+   "value": "savedSearches"
+  },
+  {
+   "name": "savedSearchId",
+   "type": "UserSpecified"
+  }
+ ]
+}

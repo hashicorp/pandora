@@ -53,6 +53,7 @@ internal class Definition : ResourceDefinition
         typeof(JobExecutionBaseModel),
         typeof(JobExecutionContainerModel),
         typeof(JobExecutionNamesCollectionModel),
+        typeof(JobExecutionPropertiesModel),
         typeof(JobExecutionTemplateModel),
         typeof(JobPatchPropertiesModel),
         typeof(JobPatchPropertiesPropertiesModel),

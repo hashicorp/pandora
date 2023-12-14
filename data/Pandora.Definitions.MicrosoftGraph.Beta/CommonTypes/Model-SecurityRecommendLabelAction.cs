@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityRecommendLabelActionModel
 {
     [JsonPropertyName("actionSource")]
-    public ActionSourceConstant? ActionSource { get; set; }
+    public SecurityRecommendLabelActionActionSourceConstant? ActionSource { get; set; }
 
     [JsonPropertyName("actions")]
-    public List<InformationProtectionActionModel>? Actions { get; set; }
+    public List<SecurityInformationProtectionActionModel>? Actions { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

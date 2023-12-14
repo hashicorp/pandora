@@ -1,0 +1,56 @@
+{
+ "name": "AveragePartitionLoadScalingTrigger",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lowerLoadThreshold",
+   "name": "LowerLoadThreshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricName",
+   "name": "MetricName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleInterval",
+   "name": "ScaleInterval",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upperLoadThreshold",
+   "name": "UpperLoadThreshold",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ScalingTrigger",
+ "discriminatedTypeValue": "AveragePartitionLoadTrigger",
+ "typeHintIn": "Kind"
+}

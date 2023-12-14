@@ -1,0 +1,19 @@
+{
+ "name": "MarketplaceAgreementsCreate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "OfferPlanId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AgreementTerms"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AgreementTerms"
+ },
+ "uriSuffix": "/agreements/current"
+}

@@ -26,7 +26,5 @@ internal class GremlinResourcesCreateUpdateGremlinGraphOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new GraphId();
 
-    public override Type? ResponseObject() => typeof(GremlinGraphGetResultsModel);
-
 
 }

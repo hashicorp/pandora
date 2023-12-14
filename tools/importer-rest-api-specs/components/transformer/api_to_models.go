@@ -184,7 +184,6 @@ func MapApiOperationsToOperationDetails(input map[string]resourcemanager.ApiOper
 			RequestObject:                    requestObject,
 			ResourceIdName:                   v.ResourceIdName,
 			ResponseObject:                   responseObject,
-			Uri:                              "", // intentionally not mapped, since this should probably be removed in time
 			UriSuffix:                        v.UriSuffix,
 		}
 	}

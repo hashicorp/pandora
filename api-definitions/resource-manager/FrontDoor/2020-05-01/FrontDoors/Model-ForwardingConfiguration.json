@@ -1,0 +1,56 @@
+{
+ "name": "ForwardingConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendPool",
+   "name": "BackendPool",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cacheConfiguration",
+   "name": "CacheConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CacheConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customForwardingPath",
+   "name": "CustomForwardingPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forwardingProtocol",
+   "name": "ForwardingProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorForwardingProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "RouteConfiguration",
+ "discriminatedTypeValue": "#Microsoft.Azure.FrontDoor.Models.FrontdoorForwardingConfiguration",
+ "typeHintIn": "OdataType"
+}

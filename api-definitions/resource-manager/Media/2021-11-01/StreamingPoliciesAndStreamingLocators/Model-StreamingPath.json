@@ -1,0 +1,45 @@
+{
+ "name": "StreamingPath",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionScheme",
+   "name": "EncryptionScheme",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionScheme"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "paths",
+   "name": "Paths",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "streamingProtocol",
+   "name": "StreamingProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StreamingPolicyStreamingProtocol"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

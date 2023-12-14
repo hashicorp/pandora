@@ -17,7 +17,7 @@ internal class ManagedEBookAssignmentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("installIntent")]
-    public InstallIntentConstant? InstallIntent { get; set; }
+    public ManagedEBookAssignmentInstallIntentConstant? InstallIntent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

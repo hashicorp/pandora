@@ -17,7 +17,7 @@ internal class ConditionalAccessGrantControlsModel
     public AuthenticationStrengthPolicyModel? AuthenticationStrength { get; set; }
 
     [JsonPropertyName("builtInControls")]
-    public List<ConditionalAccessGrantControlConstant>? BuiltInControls { get; set; }
+    public List<ConditionalAccessGrantControlsBuiltInControlsConstant>? BuiltInControls { get; set; }
 
     [JsonPropertyName("customAuthenticationFactors")]
     public List<string>? CustomAuthenticationFactors { get; set; }

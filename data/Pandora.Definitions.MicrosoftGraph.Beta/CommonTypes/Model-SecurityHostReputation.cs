@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityHostReputationModel
 {
     [JsonPropertyName("classification")]
-    public HostReputationClassificationConstant? Classification { get; set; }
+    public SecurityHostReputationClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -23,7 +23,7 @@ internal class SecurityHostReputationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("rules")]
-    public List<HostReputationRuleModel>? Rules { get; set; }
+    public List<SecurityHostReputationRuleModel>? Rules { get; set; }
 
     [JsonPropertyName("score")]
     public int? Score { get; set; }

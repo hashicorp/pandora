@@ -1,0 +1,137 @@
+{
+ "name": "DeploymentSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "addonConfigs",
+   "name": "AddonConfigs",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "RawObject",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "apms",
+   "name": "Apms",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ApmReference"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerProbeSettings",
+   "name": "ContainerProbeSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerProbeSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentVariables",
+   "name": "EnvironmentVariables",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "livenessProbe",
+   "name": "LivenessProbe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Probe"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readinessProbe",
+   "name": "ReadinessProbe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Probe"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceRequests",
+   "name": "ResourceRequests",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceRequests"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scale",
+   "name": "Scale",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Scale"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startupProbe",
+   "name": "StartupProbe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Probe"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "terminationGracePeriodSeconds",
+   "name": "TerminationGracePeriodSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

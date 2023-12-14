@@ -1,0 +1,60 @@
+{
+ "name": "FaceDetectorPreset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blurType",
+   "name": "BlurType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlurType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "experimentalOptions",
+   "name": "ExperimentalOptions",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FaceRedactorMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resolution",
+   "name": "Resolution",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AnalysisResolution"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Preset",
+ "discriminatedTypeValue": "#Microsoft.Media.FaceDetectorPreset",
+ "typeHintIn": "OdataType"
+}

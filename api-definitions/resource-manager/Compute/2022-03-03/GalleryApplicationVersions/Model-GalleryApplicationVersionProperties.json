@@ -1,0 +1,53 @@
+{
+ "name": "GalleryApplicationVersionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishingProfile",
+   "name": "PublishingProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryApplicationVersionPublishingProfile"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationStatus",
+   "name": "ReplicationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "safetyProfile",
+   "name": "SafetyProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GalleryArtifactSafetyProfileBase"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

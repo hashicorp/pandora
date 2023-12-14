@@ -17,7 +17,7 @@ internal class Win32LobAppFileSystemDetectionModel
     public bool? Check32BitOn64System { get; set; }
 
     [JsonPropertyName("detectionType")]
-    public Win32LobAppFileSystemDetectionTypeConstant? DetectionType { get; set; }
+    public Win32LobAppFileSystemDetectionDetectionTypeConstant? DetectionType { get; set; }
 
     [JsonPropertyName("detectionValue")]
     public string? DetectionValue { get; set; }
@@ -29,7 +29,7 @@ internal class Win32LobAppFileSystemDetectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppDetectionOperatorConstant? Operator { get; set; }
+    public Win32LobAppFileSystemDetectionOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("path")]
     public string? Path { get; set; }

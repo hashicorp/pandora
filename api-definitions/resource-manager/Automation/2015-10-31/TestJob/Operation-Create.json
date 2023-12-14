@@ -1,0 +1,19 @@
+{
+ "name": "Create",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "RunbookId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TestJobCreateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TestJob"
+ },
+ "uriSuffix": "/draft/testJob"
+}

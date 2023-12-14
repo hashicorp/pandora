@@ -1,0 +1,16 @@
+{
+ "name": "FhirDestinationsListByIotConnector",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "IotConnectorId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IotFhirDestination"
+ },
+ "uriSuffix": "/fhirDestinations"
+}

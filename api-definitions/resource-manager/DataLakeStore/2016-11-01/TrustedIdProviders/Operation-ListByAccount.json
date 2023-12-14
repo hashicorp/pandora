@@ -1,0 +1,16 @@
+{
+ "name": "ListByAccount",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TrustedIdProvider"
+ },
+ "uriSuffix": "/trustedIdProviders"
+}

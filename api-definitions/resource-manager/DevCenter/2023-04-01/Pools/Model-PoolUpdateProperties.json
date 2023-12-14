@@ -1,0 +1,65 @@
+{
+ "name": "PoolUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "devBoxDefinitionName",
+   "name": "DevBoxDefinitionName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "licenseType",
+   "name": "LicenseType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LicenseType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "localAdministrator",
+   "name": "LocalAdministrator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LocalAdminStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkConnectionName",
+   "name": "NetworkConnectionName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "stopOnDisconnect",
+   "name": "StopOnDisconnect",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StopOnDisconnectConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

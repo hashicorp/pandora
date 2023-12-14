@@ -1,0 +1,77 @@
+{
+ "name": "ApplicationUpgradePolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "applicationHealthPolicy",
+   "name": "ApplicationHealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ArmApplicationHealthPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "forceRestart",
+   "name": "ForceRestart",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recreateApplication",
+   "name": "RecreateApplication",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rollingUpgradeMonitoringPolicy",
+   "name": "RollingUpgradeMonitoringPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ArmRollingUpgradeMonitoringPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeMode",
+   "name": "UpgradeMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RollingUpgradeMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "upgradeReplicaSetCheckTimeout",
+   "name": "UpgradeReplicaSetCheckTimeout",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

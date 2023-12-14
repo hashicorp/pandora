@@ -1,0 +1,29 @@
+{
+ "name": "OsProfileUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linuxConfiguration",
+   "name": "LinuxConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsProfileUpdateLinuxConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "windowsConfiguration",
+   "name": "WindowsConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsProfileUpdateWindowsConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

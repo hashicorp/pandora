@@ -20,7 +20,7 @@ internal class WindowsAutopilotDeploymentProfileAssignmentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("source")]
-    public DeviceAndAppManagementAssignmentSourceConstant? Source { get; set; }
+    public WindowsAutopilotDeploymentProfileAssignmentSourceConstant? Source { get; set; }
 
     [JsonPropertyName("sourceId")]
     public string? SourceId { get; set; }

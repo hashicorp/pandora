@@ -1,0 +1,45 @@
+{
+ "name": "AzureTrafficCollectorPropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "collectorPolicies",
+   "name": "CollectorPolicies",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ResourceReference"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualHub",
+   "name": "VirtualHub",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

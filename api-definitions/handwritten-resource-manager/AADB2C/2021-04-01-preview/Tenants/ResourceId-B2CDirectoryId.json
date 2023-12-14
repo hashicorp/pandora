@@ -1,0 +1,43 @@
+{
+  "name": "B2CDirectoryId",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/Microsoft.AzureActiveDirectory/b2cDirectories/{directoryName}",
+  "segments": [
+    {
+      "name": "subscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "resourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroup",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "providers",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "microsoftAzureActiveDirectory",
+      "type": "ResourceProvider",
+      "value": "Microsoft.AzureActiveDirectory"
+    },
+    {
+      "name": "b2cDirectories",
+      "type": "Static",
+      "value": "b2cDirectories"
+    },
+    {
+      "name": "directoryName",
+      "type": "UserSpecified"
+    }
+  ]
+}

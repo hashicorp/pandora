@@ -1,0 +1,29 @@
+{
+ "name": "ManagedHsmLifetimeAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "action",
+   "name": "Action",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmAction"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trigger",
+   "name": "Trigger",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmTrigger"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

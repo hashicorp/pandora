@@ -58,6 +58,9 @@ internal class ServicePrincipalModel
     [JsonPropertyName("createdObjects")]
     public List<DirectoryObjectModel>? CreatedObjects { get; set; }
 
+    [JsonPropertyName("customSecurityAttributes")]
+    public CustomSecurityAttributeValueModel? CustomSecurityAttributes { get; set; }
+
     [JsonPropertyName("delegatedPermissionClassifications")]
     public List<DelegatedPermissionClassificationModel>? DelegatedPermissionClassifications { get; set; }
 

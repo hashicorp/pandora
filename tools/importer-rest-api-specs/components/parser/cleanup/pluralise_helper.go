@@ -2,7 +2,6 @@ package cleanup
 
 import (
 	"fmt"
-	"log"
 	"strings"
 
 	"github.com/gertd/go-pluralize"
@@ -31,7 +30,6 @@ func GetSingular(input string) string {
 	}
 	for _, v := range invariablePlurals() {
 		if strings.EqualFold(input, v) {
-			log.Printf("got %q returning %q", input, returnCased(v, casing))
 			return returnCased(v, casing)
 		}
 	}

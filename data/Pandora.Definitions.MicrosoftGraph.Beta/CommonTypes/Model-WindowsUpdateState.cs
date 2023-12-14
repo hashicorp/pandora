@@ -38,7 +38,7 @@ internal class WindowsUpdateStateModel
     public string? QualityUpdateVersion { get; set; }
 
     [JsonPropertyName("status")]
-    public WindowsUpdateStatusConstant? Status { get; set; }
+    public WindowsUpdateStateStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userId")]
     public string? UserId { get; set; }

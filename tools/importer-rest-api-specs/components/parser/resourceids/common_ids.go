@@ -55,7 +55,14 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdKeyVaultKeyVersion{},
 	commonIdKeyVaultPrivateEndpointConnection{},
 
-	// Spring Cloud
+	// SQL
+	commonIdSqlDatabase{},
+	commonIdSqlElasticPool{},
+	commonIdSqlManagedInstance{},
+	commonIdSqlManagedInstanceDatabase{},
+	commonIdSqlServer{},
+
+  // Spring Cloud
 	commonIdSpringCloudService{},
 
 	// Storage
@@ -69,6 +76,9 @@ var commonIdTypes = []commonIdMatcher{
 
 	// Parent IDs
 	commonIdKubernetesCluster{},
+
+	// Shared Image Gallery
+	commonIdSharedImageGallery{},
 }
 
 func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {

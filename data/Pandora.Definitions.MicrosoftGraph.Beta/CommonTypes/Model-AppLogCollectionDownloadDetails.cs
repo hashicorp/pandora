@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AppLogCollectionDownloadDetailsModel
 {
     [JsonPropertyName("appLogDecryptionAlgorithm")]
-    public AppLogDecryptionAlgorithmConstant? AppLogDecryptionAlgorithm { get; set; }
+    public AppLogCollectionDownloadDetailsAppLogDecryptionAlgorithmConstant? AppLogDecryptionAlgorithm { get; set; }
 
     [JsonPropertyName("decryptionKey")]
     public string? DecryptionKey { get; set; }

@@ -25,12 +25,14 @@ function buildAndInstallDependencies {
 function runWrapper {
   local dataApiAssemblyPath=$1
   local outputDirectory=$2
+  local useV2Generator=$3
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"
+    -output-dir="../../$outputDirectory"\
+    -use-v2-generator="$useV2Generator"
 
   cd "${DIR}"
 
@@ -109,12 +111,19 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
+  local dataApiV2Path="tools/data-api/data-api"
   local outputDirectory="tmp/provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
+  local useV2Generator=false
 
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory"
+  if [ "$useV2Generator" = true ]
+  then
+    runWrapper "$dataApiV2Path" "$outputDirectory" "$useV2Generator"
+  else
+    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$useV2Generator"
+  fi
   runFmtImportsAndGenerate "$outputDirectory"
   runTerraformProviderUnitTests "$outputDirectory"
   cleanup "$outputDirectory"

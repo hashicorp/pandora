@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ExternalConnectorsAclModel
 {
     [JsonPropertyName("accessType")]
-    public AccessTypeConstant? AccessType { get; set; }
+    public ExternalConnectorsAclAccessTypeConstant? AccessType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public AclTypeConstant? Type { get; set; }
+    public ExternalConnectorsAclTypeConstant? Type { get; set; }
 
     [JsonPropertyName("value")]
     public string? Value { get; set; }

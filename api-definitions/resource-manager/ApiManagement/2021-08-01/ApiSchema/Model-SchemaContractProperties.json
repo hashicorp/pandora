@@ -1,0 +1,29 @@
+{
+ "name": "SchemaContractProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "contentType",
+   "name": "ContentType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "document",
+   "name": "Document",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SchemaDocumentProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

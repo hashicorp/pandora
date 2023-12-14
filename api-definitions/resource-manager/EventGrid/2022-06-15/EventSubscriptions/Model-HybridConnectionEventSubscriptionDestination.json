@@ -1,0 +1,20 @@
+{
+ "name": "HybridConnectionEventSubscriptionDestination",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HybridConnectionEventSubscriptionDestinationProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EventSubscriptionDestination",
+ "discriminatedTypeValue": "HybridConnection",
+ "typeHintIn": "EndpointType"
+}

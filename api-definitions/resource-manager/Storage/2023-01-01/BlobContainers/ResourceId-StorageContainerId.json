@@ -1,0 +1,63 @@
+{
+ "name": "StorageContainerId",
+ "commonAlias": "StorageContainer",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName}/blobServices/default/containers/{containerName}",
+ "segments": [
+  {
+   "name": "subscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "resourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "providers",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "resourceProvider",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Storage"
+  },
+  {
+   "name": "storageAccounts",
+   "type": "Static",
+   "value": "storageAccounts"
+  },
+  {
+   "name": "storageAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "blobServices",
+   "type": "Static",
+   "value": "blobServices"
+  },
+  {
+   "name": "default",
+   "type": "Static",
+   "value": "default"
+  },
+  {
+   "name": "containers",
+   "type": "Static",
+   "value": "containers"
+  },
+  {
+   "name": "containerName",
+   "type": "UserSpecified"
+  }
+ ]
+}

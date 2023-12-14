@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationHealthPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultServiceTypeHealthPolicy",
+   "name": "DefaultServiceTypeHealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceTypeHealthPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceTypeHealthPolicies",
+   "name": "ServiceTypeHealthPolicies",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServiceTypeHealthPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

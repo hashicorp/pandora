@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUniversalAppXModel
 {
     [JsonPropertyName("applicableArchitectures")]
-    public WindowsArchitectureConstant? ApplicableArchitectures { get; set; }
+    public WindowsUniversalAppXApplicableArchitecturesConstant? ApplicableArchitectures { get; set; }
 
     [JsonPropertyName("applicableDeviceTypes")]
-    public WindowsDeviceTypeConstant? ApplicableDeviceTypes { get; set; }
+    public WindowsUniversalAppXApplicableDeviceTypesConstant? ApplicableDeviceTypes { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<MobileAppAssignmentModel>? Assignments { get; set; }
@@ -46,9 +46,6 @@ internal class WindowsUniversalAppXModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -72,9 +69,6 @@ internal class WindowsUniversalAppXModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -110,7 +104,7 @@ internal class WindowsUniversalAppXModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public WindowsUniversalAppXPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -119,7 +113,7 @@ internal class WindowsUniversalAppXModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("supersededAppCount")]
     public int? SupersededAppCount { get; set; }
@@ -129,7 +123,4 @@ internal class WindowsUniversalAppXModel
 
     [JsonPropertyName("uploadState")]
     public int? UploadState { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

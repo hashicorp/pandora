@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ChatMessagePolicyViolationModel
 {
     [JsonPropertyName("dlpAction")]
-    public ChatMessagePolicyViolationDlpActionTypesConstant? DlpAction { get; set; }
+    public ChatMessagePolicyViolationDlpActionConstant? DlpAction { get; set; }
 
     [JsonPropertyName("justificationText")]
     public string? JustificationText { get; set; }
@@ -26,8 +26,8 @@ internal class ChatMessagePolicyViolationModel
     public ChatMessagePolicyViolationPolicyTipModel? PolicyTip { get; set; }
 
     [JsonPropertyName("userAction")]
-    public ChatMessagePolicyViolationUserActionTypesConstant? UserAction { get; set; }
+    public ChatMessagePolicyViolationUserActionConstant? UserAction { get; set; }
 
     [JsonPropertyName("verdictDetails")]
-    public ChatMessagePolicyViolationVerdictDetailsTypesConstant? VerdictDetails { get; set; }
+    public ChatMessagePolicyViolationVerdictDetailsConstant? VerdictDetails { get; set; }
 }

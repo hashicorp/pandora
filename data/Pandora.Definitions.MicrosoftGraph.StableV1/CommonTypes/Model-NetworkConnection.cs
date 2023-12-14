@@ -32,7 +32,7 @@ internal class NetworkConnectionModel
     public string? DestinationUrl { get; set; }
 
     [JsonPropertyName("direction")]
-    public ConnectionDirectionConstant? Direction { get; set; }
+    public NetworkConnectionDirectionConstant? Direction { get; set; }
 
     [JsonPropertyName("domainRegisteredDateTime")]
     public DateTime? DomainRegisteredDateTime { get; set; }
@@ -56,7 +56,7 @@ internal class NetworkConnectionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("protocol")]
-    public SecurityNetworkProtocolConstant? Protocol { get; set; }
+    public NetworkConnectionProtocolConstant? Protocol { get; set; }
 
     [JsonPropertyName("riskScore")]
     public string? RiskScore { get; set; }
@@ -71,7 +71,7 @@ internal class NetworkConnectionModel
     public string? SourcePort { get; set; }
 
     [JsonPropertyName("status")]
-    public ConnectionStatusConstant? Status { get; set; }
+    public NetworkConnectionStatusConstant? Status { get; set; }
 
     [JsonPropertyName("urlParameters")]
     public string? UrlParameters { get; set; }
