@@ -24,7 +24,7 @@ internal class ExecuteScriptActionsOperation : Pandora.Definitions.Operations.Po
 
     public override Type? RequestObject() => typeof(ExecuteScriptActionParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/executeScriptActions";
 

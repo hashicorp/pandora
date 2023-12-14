@@ -21,7 +21,7 @@ internal class ListHostsOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override Type? ResponseObject() => typeof(List<HostInfoModel>);
 

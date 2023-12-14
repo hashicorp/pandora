@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.HDInsight.v2018_06_01_preview.Exte
 
 internal class GetAzureMonitorStatusOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override Type? ResponseObject() => typeof(AzureMonitorResponseModel);
 

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.HDInsight.v2021_06_01.PrivateLinkR
 
 internal class ListByClusterOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 
