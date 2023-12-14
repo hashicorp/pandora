@@ -24,7 +24,7 @@ internal class ServicesEnableApmGloballyOperation : Pandora.Definitions.Operatio
 
     public override Type? RequestObject() => typeof(ApmReferenceModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/enableApmGlobally";
 

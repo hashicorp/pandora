@@ -24,7 +24,7 @@ internal class ConfigServersValidateOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => typeof(ConfigServerSettingsModel);
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/configServers/validate";
 

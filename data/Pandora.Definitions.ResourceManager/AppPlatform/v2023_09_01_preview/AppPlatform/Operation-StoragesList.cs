@@ -16,7 +16,7 @@ internal class StoragesListOperation : Pandora.Definitions.Operations.ListOperat
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override Type NestedItemType() => typeof(StorageResourceModel);
 

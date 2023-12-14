@@ -21,7 +21,7 @@ internal class ServicesListGloballyEnabledApmsOperation : Pandora.Definitions.Op
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override Type? ResponseObject() => typeof(GloballyEnabledApmsModel);
 

@@ -23,7 +23,7 @@ internal class ServicesDeleteOperation : Pandora.Definitions.Operations.DeleteOp
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
 
 }
