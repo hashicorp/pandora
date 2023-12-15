@@ -80,7 +80,7 @@ function runStaticIdentifierDetector {
 }
 
 function main {
-  local tempDirectory="${TMPDIR}/pandora-from-main"
+  local tempDirectory="./pandora-from-main"
   local initialApiDefinitionsDirectory="${DIR}/api-definitions"
   local updatedApiDefinitionsDirectory="${tempDirectory}/api-definitions"
   local outputDirectory="$1"
