@@ -24,6 +24,9 @@ function checkoutAPIDefinitionsFromMainInto {
 
   cd "${DIR}"
 
+  echo "Fetching the current 'main'.."
+  git fetch origin main
+
   echo "Outputting the available branches.."
   git branch
 
