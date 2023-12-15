@@ -7,7 +7,7 @@ on:
       - 'tools/data-api/**' # to detect changes when the Data API is updated
       - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
       - 'tools/importer-rest-api-specs/**' # to detect changes when the Importer is updated
-    types: ['opened', 'edited']
+    types: ['opened', 'synchronize']
 
 jobs:
   detect-changes-to-the-api-definitions:
