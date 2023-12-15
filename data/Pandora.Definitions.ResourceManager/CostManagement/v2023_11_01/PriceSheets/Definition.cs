@@ -13,15 +13,21 @@ internal class Definition : ResourceDefinition
     public string Name => "PriceSheets";
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new PriceSheetDownloadOperation(),
+        new PriceSheetDownloadByBillingAccountOperation(),
         new PriceSheetDownloadByBillingProfileOperation(),
+        new PriceSheetDownloadByInvoiceOperation(),
     };
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-
+        typeof(OperationStatusTypeConstant),
     };
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
         typeof(DownloadUrlModel),
+        typeof(EAPriceSheetPropertiesModel),
+        typeof(EAPricesheetDownloadPropertiesModel),
+        typeof(MCAPriceSheetPropertiesModel),
+        typeof(OperationStatusModel),
+        typeof(PricesheetDownloadPropertiesModel),
     };
 }

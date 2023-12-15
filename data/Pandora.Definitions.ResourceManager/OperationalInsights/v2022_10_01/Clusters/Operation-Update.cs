@@ -10,23 +10,20 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.CostManagement.v2023_11_01.PriceSheets;
+namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2022_10_01.Clusters;
 
-internal class PriceSheetDownloadOperation : Pandora.Definitions.Operations.PostOperation
+internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
-                HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => null;
+    public override Type? RequestObject() => typeof(ClusterPatchModel);
 
-    public override ResourceID? ResourceId() => new InvoiceId();
-
-    public override string? UriSuffix() => "/providers/Microsoft.CostManagement/pricesheets/default/download";
+    public override ResourceID? ResourceId() => new ClusterId();
 
 
 }
