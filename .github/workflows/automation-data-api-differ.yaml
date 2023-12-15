@@ -1,13 +1,14 @@
 ---
 name: Detect changes to the API Definitions
 on:
-  pull_request_target:
+  pull_request:
+    types: ['opened', 'synchronize']
     paths:
       - 'api-definitions/**' # to detect changes when the API Definitions are updated
+      - 'scripts/automation-determine-changes-to-api-definitions.sh' # to handle changes to the script
       - 'tools/data-api/**' # to detect changes when the Data API is updated
       - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
       - 'tools/importer-rest-api-specs/**' # to detect changes when the Importer is updated
-    types: ['opened', 'synchronize']
 
 jobs:
   detect-changes-to-the-api-definitions:
