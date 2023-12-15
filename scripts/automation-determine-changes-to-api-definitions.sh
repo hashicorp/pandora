@@ -92,8 +92,8 @@ function runStaticIdentifierDetector {
 
 function main {
   local tempDirectory="./pandora-from-main"
-  local initialApiDefinitionsDirectory="${DIR}/api-definitions"
-  local updatedApiDefinitionsDirectory="${tempDirectory}/api-definitions"
+  local initialApiDefinitionsDirectory="${tempDirectory}/api-definitions"
+  local updatedApiDefinitionsDirectory="${DIR}/api-definitions"
   local outputDirectory="$1"
 
   buildAndInstallDependencies
