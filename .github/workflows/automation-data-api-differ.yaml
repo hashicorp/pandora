@@ -1,0 +1,44 @@
+---
+name: Detect changes to the API Definitions
+on:
+  pull_request_target:
+    paths:
+      - 'api-definitions/**' # to detect changes when the API Definitions are updated
+      - 'tools/data-api/**' # to detect changes when the Data API is updated
+      - 'tools/data-api-differ/**' # to detect changes when the Data API Differ is updated
+      - 'tools/importer-rest-api-specs/**' # to detect changes when the Importer is updated
+    types: ['opened', 'edited']
+
+jobs:
+  detect-changes-to-the-api-definitions:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-go@93397bea11091df50f3d7e59dc26a7711a8bcfbe # v4.1.0
+        with:
+          go-version: '1.21.3'
+
+      - name: Detect Changes
+        run: |
+          ./scripts/automation-determine-changes-to-api-definitions.sh outputs/
+
+      - name: Post Comment containing Breaking Changes
+        uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308
+        with:
+          filePath: outputs/breaking-changes.md
+
+      - name: Post Comment containing Changes
+        uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308
+        with:
+          filePath: outputs/changes.md
+
+      - name: Post Comment with New Static Identifiers
+        uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308
+        with:
+          filePath: outputs/static-identifiers.md
