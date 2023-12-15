@@ -33,7 +33,7 @@ service "applicationinsights" {
 }
 service "appplatform" {
   name      = "AppPlatform"
-  available = ["2023-07-01-preview", "2023-09-01-preview"]
+  available = ["2023-07-01-preview", "2023-09-01-preview", "2023-12-01"]
 }
 service "attestation" {
   name      = "Attestation"
@@ -385,7 +385,7 @@ service "notificationhubs" {
 }
 service "operationalinsights" {
   name      = "OperationalInsights"
-  available = ["2019-09-01", "2020-08-01", "2021-06-01", "2022-10-01"]
+  available = ["2019-09-01", "2020-08-01", "2021-06-01", "2022-10-01", "2023-09-01"]
 }
 service "operationsmanagement" {
   name      = "OperationsManagement"
