@@ -27,6 +27,12 @@ function checkoutAPIDefinitionsFromMainInto {
   echo "Fetching the current 'main'.."
   git fetch origin main
 
+  # This is to enable running this script locally as well as in automation
+  echo "Removing any temporary existing 'upstream-main' branch.."
+  git branch -D upstream-main || true
+  echo "Creating a temporary 'upstream-main' branch tracking 'origin/main'.."
+  git branch upstream-main origin/main
+
   echo "Outputting the available branches.."
   git branch
 
@@ -37,7 +43,7 @@ function checkoutAPIDefinitionsFromMainInto {
   rm -rf "$workingDirectory"
 
   echo "Checking out a secondary copy of hashicorp/pandora from this repository.."
-  git clone --depth 1 --branch main "file://$existingPandoraDirectory" "$workingDirectory"
+  git clone --depth 1 --branch upstream-main "file://$existingPandoraDirectory" "$workingDirectory"
   cd "$workingDirectory"
 
   echo "Resetting the secondary working directory"
