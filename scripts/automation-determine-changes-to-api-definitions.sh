@@ -24,6 +24,12 @@ function checkoutAPIDefinitionsFromMainInto {
 
   cd "${DIR}"
 
+  echo "Outputting the available branches.."
+  git branch
+
+  echo "Outputting git status.."
+  git status
+
   echo "Removing any existing directory at ${workingDirectory}.."
   rm -rf "$workingDirectory"
 
@@ -33,10 +39,6 @@ function checkoutAPIDefinitionsFromMainInto {
 
   echo "Resetting the secondary working directory"
   git reset --hard
-  git clean -xdf
-
-  echo "Checking out the 'main' branch in the copy"
-  git checkout main
 
   echo "Returning to the original working directory.."
   cd "${DIR}"
