@@ -11,7 +11,6 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new ApplyUpdate.Definition(),
         new ApplyUpdates.Definition(),
         new ConfigurationAssignments.Definition(),
         new MaintenanceConfigurations.Definition(),

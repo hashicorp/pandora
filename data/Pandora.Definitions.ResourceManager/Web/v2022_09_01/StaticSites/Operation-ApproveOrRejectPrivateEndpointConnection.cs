@@ -22,7 +22,7 @@ internal class ApproveOrRejectPrivateEndpointConnectionOperation : Pandora.Defin
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(PrivateLinkConnectionApprovalRequestResourceModel);
+    public override Type? RequestObject() => typeof(RemotePrivateEndpointConnectionARMResourceModel);
 
     public override ResourceID? ResourceId() => new StaticSitePrivateEndpointConnectionId();
 
