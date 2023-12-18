@@ -108,8 +108,6 @@ internal class Definition : ResourceDefinition
         typeof(DatabaseConnectionPatchRequestPropertiesModel),
         typeof(DatabaseConnectionPropertiesModel),
         typeof(ErrorEntityModel),
-        typeof(PrivateLinkConnectionApprovalRequestModel),
-        typeof(PrivateLinkConnectionApprovalRequestResourceModel),
         typeof(PrivateLinkConnectionStateModel),
         typeof(PrivateLinkResourceModel),
         typeof(PrivateLinkResourcePropertiesModel),

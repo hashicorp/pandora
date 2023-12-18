@@ -610,8 +610,6 @@ internal class Definition : ResourceDefinition
         typeof(PrivateAccessPropertiesModel),
         typeof(PrivateAccessSubnetModel),
         typeof(PrivateAccessVirtualNetworkModel),
-        typeof(PrivateLinkConnectionApprovalRequestModel),
-        typeof(PrivateLinkConnectionApprovalRequestResourceModel),
         typeof(PrivateLinkConnectionStateModel),
         typeof(PrivateLinkResourceModel),
         typeof(PrivateLinkResourcePropertiesModel),
