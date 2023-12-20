@@ -1,0 +1,41 @@
+{
+ "name": "SecuritySettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "immutabilitySettings",
+   "name": "ImmutabilitySettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImmutabilitySettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "multiUserAuthorization",
+   "name": "MultiUserAuthorization",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MultiUserAuthorization"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "softDeleteSettings",
+   "name": "SoftDeleteSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SoftDeleteSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
