@@ -134,8 +134,6 @@ internal class Definition : ResourceDefinition
         typeof(NameValuePairModel),
         typeof(OperationModel),
         typeof(OutboundEnvironmentEndpointModel),
-        typeof(PrivateLinkConnectionApprovalRequestModel),
-        typeof(PrivateLinkConnectionApprovalRequestResourceModel),
         typeof(PrivateLinkConnectionStateModel),
         typeof(PrivateLinkResourceModel),
         typeof(PrivateLinkResourcePropertiesModel),

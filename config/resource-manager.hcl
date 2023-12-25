@@ -361,7 +361,7 @@ service "mysql" {
 }
 service "netapp" {
   name      = "NetApp"
-  available = ["2023-05-01"]
+  available = ["2023-05-01", "2023-07-01"]
 }
 service "network" {
   name      = "Network"
@@ -433,7 +433,7 @@ service "purview" {
 }
 service "recoveryservices" {
   name      = "RecoveryServices"
-  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01", "2023-06-01"]
+  available = ["2021-08-01", "2021-12-01", "2022-03-01", "2022-08-01", "2022-09-10", "2022-10-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01"]
   ignore    = ["2023-01-01"]
 }
 service "recoveryservicesbackup" {
