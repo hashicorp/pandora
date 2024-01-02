@@ -1,0 +1,89 @@
+{
+ "name": "ConnectionMonitorEndpoint",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "coverageLevel",
+   "name": "CoverageLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CoverageLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMonitorEndpointFilter"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceId",
+   "name": "ResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scope",
+   "name": "Scope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionMonitorEndpointScope"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EndpointType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

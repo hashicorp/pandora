@@ -1,0 +1,16 @@
+{
+ "name": "SwapPublicIPAddresses",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "LocationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "LoadBalancerVipSwapRequest"
+ },
+ "uriSuffix": "/setLoadBalancerFrontendPublicIpAddresses"
+}

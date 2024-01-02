@@ -1,0 +1,57 @@
+{
+ "name": "AutomationRulePropertyValuesChangedCondition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "changeType",
+   "name": "ChangeType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomationRulePropertyChangedConditionSupportedChangedType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operator",
+   "name": "Operator",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomationRulePropertyConditionSupportedOperator"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyName",
+   "name": "PropertyName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutomationRulePropertyChangedConditionSupportedPropertyType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propertyValues",
+   "name": "PropertyValues",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
