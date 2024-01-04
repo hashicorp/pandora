@@ -1,0 +1,105 @@
+{
+ "name": "ManagedClusterLoadBalancerProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocatedOutboundPorts",
+   "name": "AllocatedOutboundPorts",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendPoolType",
+   "name": "BackendPoolType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackendPoolType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "effectiveOutboundIPs",
+   "name": "EffectiveOutboundIPs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ResourceReference"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableMultipleStandardLoadBalancers",
+   "name": "EnableMultipleStandardLoadBalancers",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "idleTimeoutInMinutes",
+   "name": "IdleTimeoutInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "managedOutboundIPs",
+   "name": "ManagedOutboundIPs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterLoadBalancerProfileManagedOutboundIPs"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundIPPrefixes",
+   "name": "OutboundIPPrefixes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outboundIPs",
+   "name": "OutboundIPs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterLoadBalancerProfileOutboundIPs"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
