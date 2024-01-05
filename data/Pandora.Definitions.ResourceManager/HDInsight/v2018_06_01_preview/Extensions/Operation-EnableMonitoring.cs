@@ -24,7 +24,7 @@ internal class EnableMonitoringOperation : Pandora.Definitions.Operations.PutOpe
 
     public override Type? RequestObject() => typeof(ClusterMonitoringRequestModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/extensions/clustermonitoring";
 

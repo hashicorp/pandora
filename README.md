@@ -60,6 +60,7 @@ More information on [how to import a new Resource Manager Service/API Version fo
 - `./docs` - contains documentation.
 - `./submodules/msgraph-metadata` - contains the Git Submodule to [the `microsoftgraph/msgraph-metadata` repository](https://github.com/microsoftgraph/msgraph-metadata) - containing the OpenAPI/Swagger definitions for Microsoft Graph.
 - `./submodules/rest-api-specs` - contains the Git Submodule to [the `Azure/azure-rest-api-specs` repository](https://github.com/Azure/azure-rest-api-specs) - containing the OpenAPI/Swagger definitions for Azure Resource Manager.
+- `./tools/data-api-differ` - contains the Data API Differ which detects changes to the API Definitions.
 - `./tools/generator-go-sdk` - contains the Go SDK Generator, pulling information from the Data API.
 - `./tools/generator-terraform` - contains the Terraform Generator, pulling information from the Data API.
 - `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.

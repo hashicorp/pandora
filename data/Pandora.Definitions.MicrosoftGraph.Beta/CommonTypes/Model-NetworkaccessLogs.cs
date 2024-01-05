@@ -19,6 +19,9 @@ internal class NetworkaccessLogsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("remoteNetworks")]
+    public List<NetworkaccessRemoteNetworkHealthEventModel>? RemoteNetworks { get; set; }
+
     [JsonPropertyName("traffic")]
     public List<NetworkaccessNetworkAccessTrafficModel>? Traffic { get; set; }
 }

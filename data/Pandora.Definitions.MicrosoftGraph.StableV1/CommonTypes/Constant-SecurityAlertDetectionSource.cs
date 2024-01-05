@@ -62,4 +62,52 @@ internal enum SecurityAlertDetectionSourceConstant
 
     [Description("MicrosoftDefenderForCloud")]
     @microsoftDefenderForCloud,
+
+    [Description("MicrosoftDefenderForIoT")]
+    @microsoftDefenderForIoT,
+
+    [Description("MicrosoftDefenderForServers")]
+    @microsoftDefenderForServers,
+
+    [Description("MicrosoftDefenderForStorage")]
+    @microsoftDefenderForStorage,
+
+    [Description("MicrosoftDefenderForDNS")]
+    @microsoftDefenderForDNS,
+
+    [Description("MicrosoftDefenderForDatabases")]
+    @microsoftDefenderForDatabases,
+
+    [Description("MicrosoftDefenderForContainers")]
+    @microsoftDefenderForContainers,
+
+    [Description("MicrosoftDefenderForNetwork")]
+    @microsoftDefenderForNetwork,
+
+    [Description("MicrosoftDefenderForAppService")]
+    @microsoftDefenderForAppService,
+
+    [Description("MicrosoftDefenderForKeyVault")]
+    @microsoftDefenderForKeyVault,
+
+    [Description("MicrosoftDefenderForResourceManager")]
+    @microsoftDefenderForResourceManager,
+
+    [Description("MicrosoftDefenderForApiManagement")]
+    @microsoftDefenderForApiManagement,
+
+    [Description("NrtAlerts")]
+    @nrtAlerts,
+
+    [Description("ScheduledAlerts")]
+    @scheduledAlerts,
+
+    [Description("MicrosoftDefenderThreatIntelligenceAnalytics")]
+    @microsoftDefenderThreatIntelligenceAnalytics,
+
+    [Description("BuiltInMl")]
+    @builtInMl,
+
+    [Description("MicrosoftSentinel")]
+    @microsoftSentinel,
 }

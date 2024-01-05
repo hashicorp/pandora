@@ -21,4 +21,7 @@ internal class NetworkaccessConnectivityModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("webCategories")]
+    public List<NetworkaccessWebCategoryModel>? WebCategories { get; set; }
 }

@@ -23,7 +23,7 @@ internal class ServicesStopOperation : Pandora.Definitions.Operations.PostOperat
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override string? UriSuffix() => "/stop";
 

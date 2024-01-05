@@ -16,7 +16,7 @@ internal class BuildpackBindingListForClusterOperation : Pandora.Definitions.Ope
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new SpringId();
+    public override ResourceID? ResourceId() => new SpringCloudServiceId();
 
     public override Type NestedItemType() => typeof(BuildpackBindingResourceModel);
 

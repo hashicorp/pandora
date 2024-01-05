@@ -23,7 +23,7 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override Type? RequestObject() => typeof(ClusterCreateParametersExtendedModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
 
 }

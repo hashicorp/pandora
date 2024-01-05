@@ -1,0 +1,16 @@
+{
+ "name": "DeploymentsGetLogFileUrl",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "DeploymentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LogFileUrlResponse"
+ },
+ "uriSuffix": "/getLogFileUrl"
+}

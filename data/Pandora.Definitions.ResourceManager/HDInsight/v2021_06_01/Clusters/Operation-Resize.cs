@@ -24,7 +24,7 @@ internal class ResizeOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ClusterResizeParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/roles/workernode/resize";
 

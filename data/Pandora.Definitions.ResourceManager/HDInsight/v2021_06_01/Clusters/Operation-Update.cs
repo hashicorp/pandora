@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(ClusterPatchParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override Type? ResponseObject() => typeof(ClusterModel);
 

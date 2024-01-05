@@ -37,6 +37,12 @@ internal class ParticipantModel
     [JsonPropertyName("recordingInfo")]
     public RecordingInfoModel? RecordingInfo { get; set; }
 
+    [JsonPropertyName("removedState")]
+    public RemovedStateModel? RemovedState { get; set; }
+
     [JsonPropertyName("restrictedExperience")]
     public OnlineMeetingRestrictedModel? RestrictedExperience { get; set; }
+
+    [JsonPropertyName("rosterSequenceNumber")]
+    public int? RosterSequenceNumber { get; set; }
 }

@@ -588,7 +588,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file, resource.SchemaModels)
 			if err != nil {
 				return nil, err
 			}
@@ -832,17 +832,20 @@ func parseTerraformTestFromFilePath(resourcePath string, file os.DirEntry) (stri
 	return contents, nil
 }
 
-func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
-	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
+func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry, input map[string]TerraformSchemaModelDefinition) (map[string]TerraformSchemaModelDefinition, error) {
+	if input == nil {
+		input = make(map[string]TerraformSchemaModelDefinition)
+	}
+
 	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
-		return schemaModelDefinition, err
+		return input, err
 	}
 
 	var schemaModel dataapimodels.TerraformSchemaModel
 
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
-		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+		return input, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
 
 	fields := make(map[string]TerraformSchemaFieldDefinition)
@@ -878,15 +881,11 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 		fields[field.Name] = fieldDefinition
 	}
 
-	// todo do we take the file name and strip it of these pieces or is this information somewhere else
-	// the v1 data api has this value as `LoadTestResourceSchema` which is the filename (LoadTest-Resource-Schema.json) with the following stripped
-	modelDefinitionName := strings.Replace(strings.Replace(file.Name(), "-", "", -1), ".json", "", -1)
-
-	schemaModelDefinition[modelDefinitionName] = TerraformSchemaModelDefinition{
+	input[schemaModel.Name] = TerraformSchemaModelDefinition{
 		Fields: fields,
 	}
 
-	return schemaModelDefinition, nil
+	return input, nil
 }
 
 func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {

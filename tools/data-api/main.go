@@ -14,6 +14,8 @@ func main() {
 	logger := hclog.New(hclog.DefaultOptions)
 	logger.SetLevel(hclog.Trace)
 
+	logger.Info("Data API launched")
+
 	c := cli.NewCLI("data-api", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{

@@ -21,4 +21,7 @@ internal class SolutionsRootModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("virtualEvents")]
+    public VirtualEventsRootModel? VirtualEvents { get; set; }
 }

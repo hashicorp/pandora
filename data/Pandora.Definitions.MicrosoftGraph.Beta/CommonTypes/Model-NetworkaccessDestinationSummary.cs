@@ -21,4 +21,7 @@ internal class NetworkaccessDestinationSummaryModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("trafficType")]
+    public NetworkaccessDestinationSummaryTrafficTypeConstant? TrafficType { get; set; }
 }

@@ -23,7 +23,7 @@ internal class VirtualEventRegistrationConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("questions")]
-    public List<VirtualEventRegistrationQuestionModel>? Questions { get; set; }
+    public List<VirtualEventRegistrationQuestionBaseModel>? Questions { get; set; }
 
     [JsonPropertyName("registrationWebUrl")]
     public string? RegistrationWebUrl { get; set; }

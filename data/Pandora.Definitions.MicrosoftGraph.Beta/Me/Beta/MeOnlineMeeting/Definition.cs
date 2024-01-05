@@ -13,6 +13,8 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
+        new CreateMeOnlineMeetingByIdSendVirtualAppointmentReminderSmOperation(),
+        new CreateMeOnlineMeetingByIdSendVirtualAppointmentSmOperation(),
         new CreateMeOnlineMeetingCreateOrGetOperation(),
         new CreateMeOnlineMeetingOperation(),
         new DeleteMeOnlineMeetingByIdOperation(),
@@ -24,11 +26,14 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
     {
-
+        typeof(CreateMeOnlineMeetingByIdSendVirtualAppointmentReminderSmRequestRemindBeforeTimeInMinutesTypeConstant),
+        typeof(CreateMeOnlineMeetingByIdSendVirtualAppointmentSmRequestSmsTypeConstant)
     };
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
+        typeof(CreateMeOnlineMeetingByIdSendVirtualAppointmentReminderSmRequestModel),
+        typeof(CreateMeOnlineMeetingByIdSendVirtualAppointmentSmRequestModel),
         typeof(CreateMeOnlineMeetingCreateOrGetRequestModel)
     };
 }

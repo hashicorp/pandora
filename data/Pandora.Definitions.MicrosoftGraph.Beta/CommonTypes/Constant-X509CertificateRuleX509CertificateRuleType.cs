@@ -14,4 +14,7 @@ internal enum X509CertificateRuleX509CertificateRuleTypeConstant
 
     [Description("PolicyOID")]
     @policyOID,
+
+    [Description("IssuerSubjectAndPolicyOID")]
+    @issuerSubjectAndPolicyOID,
 }

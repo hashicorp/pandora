@@ -22,6 +22,9 @@ internal class VirtualEventsRootModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("townhalls")]
+    public List<VirtualEventTownhallModel>? Townhalls { get; set; }
+
     [JsonPropertyName("webinars")]
     public List<VirtualEventWebinarModel>? Webinars { get; set; }
 }

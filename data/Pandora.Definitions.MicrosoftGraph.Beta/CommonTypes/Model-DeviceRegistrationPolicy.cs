@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceRegistrationPolicyModel
 {
     [JsonPropertyName("azureADJoin")]
-    public AzureAdJoinPolicyModel? AzureADJoin { get; set; }
+    public AzureADJoinPolicyModel? AzureADJoin { get; set; }
 
     [JsonPropertyName("azureADRegistration")]
     public AzureADRegistrationPolicyModel? AzureADRegistration { get; set; }

@@ -70,6 +70,21 @@ internal class AospDeviceOwnerWiFiConfigurationModel
     [JsonPropertyName("preSharedKeyIsSet")]
     public bool? PreSharedKeyIsSet { get; set; }
 
+    [JsonPropertyName("proxyAutomaticConfigurationUrl")]
+    public string? ProxyAutomaticConfigurationUrl { get; set; }
+
+    [JsonPropertyName("proxyExclusionList")]
+    public List<string>? ProxyExclusionList { get; set; }
+
+    [JsonPropertyName("proxyManualAddress")]
+    public string? ProxyManualAddress { get; set; }
+
+    [JsonPropertyName("proxyManualPort")]
+    public int? ProxyManualPort { get; set; }
+
+    [JsonPropertyName("proxySetting")]
+    public AospDeviceOwnerWiFiConfigurationProxySettingConstant? ProxySetting { get; set; }
+
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
 

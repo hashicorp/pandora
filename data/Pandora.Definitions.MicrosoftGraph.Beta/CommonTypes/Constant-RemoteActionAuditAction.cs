@@ -110,4 +110,7 @@ internal enum RemoteActionAuditActionConstant
 
     [Description("RemoveDeviceFirmwareConfigurationInterfaceManagement")]
     @removeDeviceFirmwareConfigurationInterfaceManagement,
+
+    [Description("PauseConfigurationRefresh")]
+    @pauseConfigurationRefresh,
 }

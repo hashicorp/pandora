@@ -24,7 +24,7 @@ internal class RotateDiskEncryptionKeyOperation : Pandora.Definitions.Operations
 
     public override Type? RequestObject() => typeof(ClusterDiskEncryptionParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/rotatediskencryptionkey";
 

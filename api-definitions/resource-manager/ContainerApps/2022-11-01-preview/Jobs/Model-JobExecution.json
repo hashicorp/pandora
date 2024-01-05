@@ -3,19 +3,6 @@
  "fields": [
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "endTime",
-   "name": "EndTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
    "jsonName": "id",
    "name": "Id",
    "objectDefinition": {
@@ -40,36 +27,11 @@
   },
   {
    "containsDiscriminatedTypeValue": false,
-   "jsonName": "startTime",
-   "name": "StartTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
+   "jsonName": "properties",
+   "name": "Properties",
    "objectDefinition": {
     "type": "Reference",
-    "referenceName": "JobExecutionRunningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "template",
-   "name": "Template",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JobExecutionTemplate"
+    "referenceName": "JobExecutionProperties"
    },
    "optional": true,
    "required": false,

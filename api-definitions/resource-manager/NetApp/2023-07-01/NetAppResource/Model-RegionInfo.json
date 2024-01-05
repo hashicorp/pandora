@@ -1,0 +1,33 @@
+{
+ "name": "RegionInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "availabilityZoneMappings",
+   "name": "AvailabilityZoneMappings",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RegionInfoAvailabilityZoneMappingsInlined"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageToNetworkProximity",
+   "name": "StorageToNetworkProximity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RegionStorageToNetworkProximity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

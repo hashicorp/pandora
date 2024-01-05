@@ -109,6 +109,9 @@ internal class DriveItemModel
     [JsonPropertyName("remoteItem")]
     public RemoteItemModel? RemoteItem { get; set; }
 
+    [JsonPropertyName("retentionLabel")]
+    public ItemRetentionLabelModel? RetentionLabel { get; set; }
+
     [JsonPropertyName("root")]
     public RootModel? Root { get; set; }
 
