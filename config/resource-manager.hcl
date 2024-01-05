@@ -158,7 +158,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2023-05-01", "2023-11-01"]
+  available = ["2022-04-01", "2023-05-01", "2023-11-01", "2023-12-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -361,7 +361,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-04-01", "2023-05-01", "2023-06-01"]
+  available = ["2023-04-01", "2023-05-01", "2023-06-01", "2023-09-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -434,7 +434,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01"]
+  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -482,7 +482,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01"]
+  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"
