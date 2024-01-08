@@ -1,0 +1,41 @@
+{
+ "name": "SnapshotBackupAdditionalDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instantRPDetails",
+   "name": "InstantRPDetails",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instantRpRetentionRangeInDays",
+   "name": "InstantRpRetentionRangeInDays",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userAssignedManagedIdentityDetails",
+   "name": "UserAssignedManagedIdentityDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UserAssignedManagedIdentityDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

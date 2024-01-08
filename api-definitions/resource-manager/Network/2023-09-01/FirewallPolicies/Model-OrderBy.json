@@ -1,0 +1,29 @@
+{
+ "name": "OrderBy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "field",
+   "name": "Field",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "order",
+   "name": "Order",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIDPSQuerySortOrder"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
