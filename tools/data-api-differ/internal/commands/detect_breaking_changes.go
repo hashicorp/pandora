@@ -59,7 +59,8 @@ func (c DetectBreakingChangesCommand) Run(args []string) int {
 	}
 
 	c.logger.Debug("Performing diff of the two data sources..")
-	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath)
+	includeNestedChangesWhenNew := false // not necessary since this is only tracking breaking changes
+	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
 	if err != nil {
 		c.logger.Error(fmt.Sprintf("performing diff: %+v", err))
 		return 1

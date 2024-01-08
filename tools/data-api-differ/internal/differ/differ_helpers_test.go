@@ -17,7 +17,7 @@ func init() {
 // determineAndValidateDiff runs a full diff of the two sets of data.
 // This is intended to be used by tests covering the entire `diff` code path, simulating a real-world usage.
 func determineAndValidateDiff(t *testing.T, initial, updated dataapi.Data, expected []changes.Change, breakingChanges bool) {
-	actual, err := performDiff(initial, updated)
+	actual, err := performDiff(initial, updated, true)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}

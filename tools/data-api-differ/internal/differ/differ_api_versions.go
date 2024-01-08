@@ -10,12 +10,12 @@ import (
 )
 
 // changesForApiVersions determines the changes between the different API versions for the provided Service.
-func (d differ) changesForApiVersions(serviceName string, initial map[string]dataapi.ApiVersionData, updated map[string]dataapi.ApiVersionData) (*[]changes.Change, error) {
+func (d differ) changesForApiVersions(serviceName string, initial map[string]dataapi.ApiVersionData, updated map[string]dataapi.ApiVersionData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	apiVersions := d.uniqueApiVersions(initial, updated)
 	for _, apiVersion := range apiVersions {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in API Version %q..", apiVersion))
-		changesForApiVersion, err := d.changesForApiVersion(serviceName, apiVersion, initial, updated)
+		changesForApiVersion, err := d.changesForApiVersion(serviceName, apiVersion, initial, updated, includeNestedChangesWhenNew)
 		if err != nil {
 			return nil, fmt.Errorf("detecting changes to API Version %q: %+v", apiVersion, err)
 		}
@@ -25,7 +25,7 @@ func (d differ) changesForApiVersions(serviceName string, initial map[string]dat
 }
 
 // changesForApiVersion determines the changes between two different API Versions within a given Service.
-func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiVersionData) (*[]changes.Change, error) {
+func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiVersionData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[apiVersion]
@@ -55,7 +55,7 @@ func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, up
 	if inOldData {
 		initialResources = oldData.Resources
 	}
-	changesInApiResources, err := d.changesForApiResources(serviceName, apiVersion, initialResources, updatedData.Resources)
+	changesInApiResources, err := d.changesForApiResources(serviceName, apiVersion, initialResources, updatedData.Resources, includeNestedChangesWhenNew)
 	if err != nil {
 		return nil, fmt.Errorf("detecting changes to the API Resources: %+v", err)
 	}

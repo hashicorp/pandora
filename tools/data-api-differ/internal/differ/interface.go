@@ -8,7 +8,7 @@ import (
 )
 
 // Diff returns information about the changes between `initialPath` and `updatedPath`.
-func Diff(dataApiBinaryPath, initialPath, updatedPath string) (*Result, error) {
+func Diff(dataApiBinaryPath, initialPath, updatedPath string, includeNestedChangesWhenNew bool) (*Result, error) {
 	log.Logger.Trace(fmt.Sprintf("Parsing the Initial Data Set from %q..", initialPath))
 	initialData, err := dataapi.ParseDataFromPath(dataApiBinaryPath, initialPath)
 	if err != nil {
@@ -22,5 +22,5 @@ func Diff(dataApiBinaryPath, initialPath, updatedPath string) (*Result, error) {
 	}
 
 	log.Logger.Trace("Performing the diff..")
-	return performDiff(*initialData, *updatedData)
+	return performDiff(*initialData, *updatedData, includeNestedChangesWhenNew)
 }
