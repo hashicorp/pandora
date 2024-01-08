@@ -62,7 +62,8 @@ func (c DetectChangesCommand) Run(args []string) int {
 	}
 
 	c.logger.Debug("Performing diff of the two data sources..")
-	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath)
+	includeNestedChangesWhenNew := false // TODO: expose this as a `--full` flag
+	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
 	if err != nil {
 		c.logger.Error(fmt.Sprintf("performing diff: %+v", err))
 		return 1
