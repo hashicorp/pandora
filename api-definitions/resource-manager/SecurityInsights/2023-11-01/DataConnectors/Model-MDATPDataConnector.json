@@ -1,0 +1,20 @@
+{
+ "name": "MDATPDataConnector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MDATPDataConnectorProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataConnector",
+ "discriminatedTypeValue": "MicrosoftDefenderAdvancedThreatProtection",
+ "typeHintIn": "Kind"
+}

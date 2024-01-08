@@ -1,0 +1,41 @@
+{
+ "name": "CrossRegionRestoreJobRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobId",
+   "name": "JobId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceBackupVaultId",
+   "name": "SourceBackupVaultId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceRegion",
+   "name": "SourceRegion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

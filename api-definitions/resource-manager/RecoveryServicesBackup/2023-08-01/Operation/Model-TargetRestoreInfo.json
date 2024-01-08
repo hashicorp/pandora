@@ -1,0 +1,53 @@
+{
+ "name": "TargetRestoreInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerId",
+   "name": "ContainerId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseName",
+   "name": "DatabaseName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "overwriteOption",
+   "name": "OverwriteOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OverwriteOptions"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetDirectoryForFileRestore",
+   "name": "TargetDirectoryForFileRestore",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

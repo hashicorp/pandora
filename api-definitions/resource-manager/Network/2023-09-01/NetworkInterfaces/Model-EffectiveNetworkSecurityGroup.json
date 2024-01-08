@@ -1,0 +1,65 @@
+{
+ "name": "EffectiveNetworkSecurityGroup",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "association",
+   "name": "Association",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EffectiveNetworkSecurityGroupAssociation"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "effectiveSecurityRules",
+   "name": "EffectiveSecurityRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EffectiveNetworkSecurityRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkSecurityGroup",
+   "name": "NetworkSecurityGroup",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tagMap",
+   "name": "TagMap",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "List",
+     "referenceName": null,
+     "nestedItem": {
+      "type": "String",
+      "referenceName": null
+     }
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

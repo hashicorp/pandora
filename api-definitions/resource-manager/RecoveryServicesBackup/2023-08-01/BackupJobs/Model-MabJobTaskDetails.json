@@ -1,0 +1,67 @@
+{
+ "name": "MabJobTaskDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "duration",
+   "name": "Duration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taskId",
+   "name": "TaskId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

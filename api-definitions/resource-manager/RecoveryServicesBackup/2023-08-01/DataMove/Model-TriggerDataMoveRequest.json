@@ -1,0 +1,81 @@
+{
+ "name": "TriggerDataMoveRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "correlationId",
+   "name": "CorrelationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataMoveLevel",
+   "name": "DataMoveLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataMoveLevel"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "pauseGC",
+   "name": "PauseGC",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceContainerArmIds",
+   "name": "SourceContainerArmIds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceRegion",
+   "name": "SourceRegion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

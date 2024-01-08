@@ -1,0 +1,78 @@
+{
+ "name": "ProtectionIntent",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backupManagementType",
+   "name": "BackupManagementType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackupManagementType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "itemId",
+   "name": "ItemId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "policyId",
+   "name": "PolicyId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "protectionIntentItemType",
+   "name": "ProtectionIntentItemType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProtectionIntentItemType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protectionState",
+   "name": "ProtectionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProtectionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceResourceId",
+   "name": "SourceResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "ProtectionIntentItemType"
+}
