@@ -1,0 +1,15 @@
+{
+ "name": "GetSharedKey",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "ConnectionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ConnectionSharedKey"
+ },
+ "uriSuffix": "/sharedkey"
+}

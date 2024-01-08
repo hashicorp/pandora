@@ -1,0 +1,16 @@
+{
+ "name": "GetNetworkConfigurationDiagnostic",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "NetworkWatcherId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NetworkConfigurationDiagnosticParameters"
+ },
+ "uriSuffix": "/networkConfigurationDiagnostic"
+}
