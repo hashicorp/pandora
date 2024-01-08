@@ -51,7 +51,7 @@ To show the workflow with examples:
 3. Once that Pull Request is merged that generates a Go SDK PR ([example](https://github.com/hashicorp/go-azure-sdk/pull/20)).
 4. Once that Pull Request is merged the SDK is automatically released (e.g. we add a new git tag).
 
-More information on [how to import a new Resource Manager Service/API Version for an existing Service](./docs/resource-manager-service-import) can be found in the `./docs` folder.
+For information and guides and on how to contribute, add services, service versions or resources, see the overview of guides located in the [`./docs`](https://github.com/hashicorp/pandora/tree/main/docs).
 
 ## Project Structure
 
