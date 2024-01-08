@@ -29,6 +29,6 @@ func (workaroundOperationalinsights26678) Process(apiDefinition models.AzureApiD
 	}
 	operation.ExpectedStatusCodes = append(operation.ExpectedStatusCodes, 202)
 	resource.Operations["Update"] = operation
-	apiDefinition.Resources["Cluster"] = resource
+	apiDefinition.Resources["Clusters"] = resource
 	return &apiDefinition, nil
 }
