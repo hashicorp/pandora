@@ -51,8 +51,9 @@ func (d differ) changesForApiResource(serviceName, apiVersion, apiResource strin
 		if !includeNestedChangesWhenNew {
 			return &output, nil
 		}
-		// Otherwise we intentionally don't returning here to return the full output - needed to detect any new
-		// Static Identifiers found within the Resource ID Segments
+		// Otherwise we'll include the full list of nested changes (for example any new Constants, Models,
+		// Operations and Resource IDs contained within the [new] API Resource) - which will be a large
+		// number of changes - but is needed for certain kinds of diff's (e.g. detecting new Static Identifiers).
 	}
 
 	// we then need to diff each of the individual components - however note that the old version may not exist
