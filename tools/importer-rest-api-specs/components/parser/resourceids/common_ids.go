@@ -49,6 +49,10 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdAutomationCompilationJob{}, // (@stephybun) CompilationJobId segment is defined in three different ways `jobId`, `compilationJobId` and `compilationJobName`
 	commonIdProvisioningService{},      // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
 
+	// Bot Service
+	commonIdBotService{},
+	commonIdBotServiceChannel{},
+
 	// HDInsight
 	commonIdHDInsightCluster{},
 
@@ -65,7 +69,7 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSqlManagedInstanceDatabase{},
 	commonIdSqlServer{},
 
-  // Spring Cloud
+	// Spring Cloud
 	commonIdSpringCloudService{},
 
 	// Storage
