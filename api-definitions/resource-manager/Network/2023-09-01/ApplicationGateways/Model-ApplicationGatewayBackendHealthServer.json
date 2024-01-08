@@ -1,0 +1,53 @@
+{
+ "name": "ApplicationGatewayBackendHealthServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "address",
+   "name": "Address",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "health",
+   "name": "Health",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApplicationGatewayBackendHealthServerHealth"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthProbeLog",
+   "name": "HealthProbeLog",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipConfiguration",
+   "name": "IPConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkInterfaceIPConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

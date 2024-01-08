@@ -1,0 +1,29 @@
+{
+ "name": "StaticRoutesConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "propagateStaticRoutes",
+   "name": "PropagateStaticRoutes",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vnetLocalRouteOverrideCriteria",
+   "name": "VnetLocalRouteOverrideCriteria",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VnetLocalRouteOverrideCriteria"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

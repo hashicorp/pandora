@@ -1,0 +1,15 @@
+{
+ "name": "Provision",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RecoveryPointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ILRRequestResource"
+ },
+ "uriSuffix": "/provisionInstantItemRecovery"
+}
