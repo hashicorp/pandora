@@ -5,6 +5,11 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
+    echo "Installing the Data API V2 onto the GOBIN.."
+    cd "${DIR}/tools/data-api"
+    go install .
+    cd "${DIR}"
+
     echo "Installing the Go SDK Generator into the GOBIN.."
     cd "${DIR}/tools/generator-go-sdk"
     go install .
@@ -90,22 +95,16 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
-  local dataApiV2Path="tools/data-api/data-api"
   local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="https://github.com/hashicorp/go-azure-sdk.git"
   local sha
-  local useV2Generator=false
+  local useV2Generator=true
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareGoSdk "$outputDirectory" "$sdkRepo"
-  if [ "$useV2Generator" = true ]
-  then
-    runWrapper "$dataApiV2Path" "$outputDirectory" "$sha" "$useV2Generator"
-  else
-    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
-  fi
+  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
   runGoSDKUnitTests "$outputDirectory"
   cleanup "$outputDirectory"
 }

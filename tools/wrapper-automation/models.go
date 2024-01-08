@@ -16,16 +16,18 @@ type Arguments struct {
 }
 
 func (a Arguments) Validate() error {
-	if a.DataApiAssemblyPath == "" {
-		return fmt.Errorf("missing 'data-api-assembly-path'")
-	}
-
-	if _, err := os.Stat(a.DataApiAssemblyPath); err != nil {
-		if os.IsNotExist(err) {
-			return fmt.Errorf("the Data API Assembly doesn't exist at %q", a.DataApiAssemblyPath)
+	if !a.UseV2Generator {
+		if a.DataApiAssemblyPath == "" {
+			return fmt.Errorf("missing 'data-api-assembly-path'")
 		}
 
-		return fmt.Errorf("validating Data API Assembly exists: %+v", err)
+		if _, err := os.Stat(a.DataApiAssemblyPath); err != nil {
+			if os.IsNotExist(err) {
+				return fmt.Errorf("the Data API Assembly doesn't exist at %q", a.DataApiAssemblyPath)
+			}
+
+			return fmt.Errorf("validating Data API Assembly exists: %+v", err)
+		}
 	}
 
 	return nil

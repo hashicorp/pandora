@@ -11,6 +11,11 @@ function buildAndInstallDependencies {
     echo "Outputting .net Version.."
     dotnet --version
 
+    echo "Installing the Data API into the GOBIN.."
+    cd "${DIR}/tools/data-api"
+    go install .
+    cd "${DIR}"
+
     echo "Installing the Terraform Generator into the GOBIN.."
     cd "${DIR}/tools/generator-terraform"
     go install .
@@ -142,7 +147,6 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
-  local dataApiV2Path="tools/data-api/data-api"
   local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/terraform-provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
@@ -152,12 +156,7 @@ function main {
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  if [ "$useV2Generator" = true ]
-  then
-    runWrapper "$dataApiV2Path" "$outputDirectory" "$sha" "$useV2Generator"
-  else
-    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
-  fi
+  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"

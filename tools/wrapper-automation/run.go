@@ -17,7 +17,7 @@ func run(args Arguments) error {
 	// 1: Launch the Data API
 	var dataApi *exec.Cmd
 	if args.UseV2Generator {
-		dataApi = exec.Command(args.DataApiAssemblyPath, "serve")
+		dataApi = exec.Command("data-api", "serve")
 	} else {
 		dataApi = exec.Command("dotnet", args.DataApiAssemblyPath)
 	}

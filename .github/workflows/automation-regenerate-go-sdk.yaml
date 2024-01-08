@@ -29,11 +29,9 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: "Build Data API"
+      - name: "Build Data API (V1)"
         run: |
           cd ./data
-          make build
-          cd ../tools/data-api
           make build
 
       - name: "Launch SSH Agent"
