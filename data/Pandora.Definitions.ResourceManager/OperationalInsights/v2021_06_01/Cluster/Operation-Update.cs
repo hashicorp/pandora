@@ -10,7 +10,7 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2021_06_01.Clusters;
+namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2021_06_01.Cluster;
 
 internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 {

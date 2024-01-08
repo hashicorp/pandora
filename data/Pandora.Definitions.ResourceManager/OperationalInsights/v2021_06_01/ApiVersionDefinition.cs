@@ -11,6 +11,7 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
+        new Cluster.Definition(),
         new Clusters.Definition(),
         new DeletedWorkspaces.Definition(),
         new Workspaces.Definition(),

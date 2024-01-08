@@ -1,15 +1,14 @@
 {
- "name": "Update",
+ "name": "Get",
  "contentType": "application/json; charset=utf-8",
  "expectedStatusCodes": [
-  200,
-  202
+  200
  ],
- "longRunning": true,
- "httpMethod": "PATCH",
+ "longRunning": false,
+ "httpMethod": "GET",
  "resourceIdName": "ClusterId",
- "requestObject": {
+ "responseObject": {
   "type": "Reference",
-  "referenceName": "ClusterPatch"
+  "referenceName": "Cluster"
  }
 }

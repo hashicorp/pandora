@@ -10,19 +10,20 @@ using System.Net;
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
 
 
-namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2021_06_01.Clusters;
+namespace Pandora.Definitions.ResourceManager.OperationalInsights.v2021_06_01.Cluster;
 
-internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
+internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
                 HttpStatusCode.Accepted,
+                HttpStatusCode.Created,
                 HttpStatusCode.OK,
         };
 
     public override bool LongRunning() => true;
 
-    public override Type? RequestObject() => typeof(ClusterPatchModel);
+    public override Type? RequestObject() => typeof(ClusterModel);
 
     public override ResourceID? ResourceId() => new ClusterId();
 

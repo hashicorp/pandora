@@ -1,15 +1,16 @@
 {
- "name": "Update",
+ "name": "CreateOrUpdate",
  "contentType": "application/json; charset=utf-8",
  "expectedStatusCodes": [
   200,
+  201,
   202
  ],
  "longRunning": true,
- "httpMethod": "PATCH",
+ "httpMethod": "PUT",
  "resourceIdName": "ClusterId",
  "requestObject": {
   "type": "Reference",
-  "referenceName": "ClusterPatch"
+  "referenceName": "Cluster"
  }
 }
