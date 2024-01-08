@@ -87,12 +87,10 @@ In addition to the properties above there are also several options that are avai
 
 ### Workflow
 
-1. A new Service gets imported into Pandora, and the Data API generated for it (which is reviewed/merged).
-2. A PR is sent either automatically/manually to add any new resources to the configs in this directory.
-3. The Importer runs again, generating the Schema and Mappings for these new Resources based on the available information, sending a PR with new definitions for the Data API.
-4. Once merged, a PR is sent to the Terraform Provider repository, both updating to the latest version of the Go SDK and then generating the new resources based off of that information.
-
-When running the Importer connects to the Data API to find any existing Models and Schema for these resources, and patches them as required - allowing (for example) overrides and schema changes to be applied.
+1. A new Service is imported into Pandora, by the Configuration being updated in a PR. Once merged, the API Definitions are regenerated, sending a PR containing any changes which is then reviewed/merged.
+2. A PR is sent to add any new resources to the configs in this directory.
+3. The Importer runs again, generating the Schema and Mappings for these new Resources based on the available information. It will apply any patches and/or overrides for this Resource, resulting in a PR containing the updated Terraform Resource Definitions.
+4. Once merged, a PR is sent to regenerate the existing Terraform Resources into `hashicorp/terraform-provider-azurerm` based off of that information.
 
 This also allows fields to be ignored, manually mapped by pushing to the branch created at step 3 above - which then remain as required etc.
 
