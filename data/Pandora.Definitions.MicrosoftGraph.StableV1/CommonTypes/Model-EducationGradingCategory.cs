@@ -11,10 +11,10 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
-internal class EducationAssignmentSettingsModel
+internal class EducationGradingCategoryModel
 {
-    [JsonPropertyName("gradingCategories")]
-    public List<EducationGradingCategoryModel>? GradingCategories { get; set; }
+    [JsonPropertyName("displayName")]
+    public string? DisplayName { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -22,6 +22,6 @@ internal class EducationAssignmentSettingsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("submissionAnimationDisabled")]
-    public bool? SubmissionAnimationDisabled { get; set; }
+    [JsonPropertyName("percentageWeight")]
+    public int? PercentageWeight { get; set; }
 }

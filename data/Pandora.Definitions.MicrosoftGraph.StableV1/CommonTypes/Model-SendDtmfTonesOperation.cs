@@ -11,10 +11,13 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
-internal class EducationAssignmentSettingsModel
+internal class SendDtmfTonesOperationModel
 {
-    [JsonPropertyName("gradingCategories")]
-    public List<EducationGradingCategoryModel>? GradingCategories { get; set; }
+    [JsonPropertyName("clientContext")]
+    public string? ClientContext { get; set; }
+
+    [JsonPropertyName("completionReason")]
+    public SendDtmfTonesOperationCompletionReasonConstant? CompletionReason { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -22,6 +25,9 @@ internal class EducationAssignmentSettingsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("submissionAnimationDisabled")]
-    public bool? SubmissionAnimationDisabled { get; set; }
+    [JsonPropertyName("resultInfo")]
+    public ResultInfoModel? ResultInfo { get; set; }
+
+    [JsonPropertyName("status")]
+    public SendDtmfTonesOperationStatusConstant? Status { get; set; }
 }

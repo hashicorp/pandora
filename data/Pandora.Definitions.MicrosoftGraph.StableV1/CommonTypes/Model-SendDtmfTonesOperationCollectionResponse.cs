@@ -11,17 +11,14 @@ using Pandora.Definitions.CustomTypes;
 
 namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
-internal class InnerErrorModel
+internal class SendDtmfTonesOperationCollectionResponseModel
 {
-    [JsonPropertyName("client-request-id")]
-    public string? ClientRequestId { get; set; }
+    [JsonPropertyName("@odata.count")]
+    public int? ODataCount { get; set; }
 
-    [JsonPropertyName("date")]
-    public DateTime? Date { get; set; }
+    [JsonPropertyName("@odata.nextLink")]
+    public string? ODataNextLink { get; set; }
 
-    [JsonPropertyName("@odata.type")]
-    public string? ODataType { get; set; }
-
-    [JsonPropertyName("request-id")]
-    public string? RequestId { get; set; }
+    [JsonPropertyName("value")]
+    public List<SendDtmfTonesOperationModel>? Value { get; set; }
 }
