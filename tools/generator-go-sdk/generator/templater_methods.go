@@ -373,7 +373,7 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 	}
 
 	result = %[2]sCompleteResult{
-		LatestHttpResponse: resp.Response,
+		LatestHttpResponse: resp.HttpResponse,
 		Items:		  items,
 	}
 	return

@@ -326,7 +326,120 @@ func (c pandaClient) RebootThenPoll(ctx context.Context , id PandaPop) error {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
-func TestTemplateMethodsNonBaseTypePredicates(t *testing.T) {
+// NOTE: List Operations differ slightly depending on the Response Object.
+// * When the Response Object is a Model or a List (of a Model) we include support for predicate filtering.
+// * When the Response Object is a Simple Type (e.g. int/string) we don't.
+// As such these tests (whilst similar) cover the two different code paths.
+
+func TestTemplateMethodsListWithSimpleType(t *testing.T) {
+
+	input := ServiceGeneratorData{
+		packageName:       "chubbyPandas",
+		serviceClientName: "pandaClient",
+		source:            AccTestLicenceType,
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"PandaPop": {
+				Id: "LingLing",
+			},
+		},
+	}
+
+	actual, err := methodsPandoraTemplater{
+		operation: resourcemanager.ApiOperation{
+			ExpectedStatusCodes:              []int{200},
+			FieldContainingPaginationDetails: stringPointer("nextLink"),
+			Method:                           "GET",
+			ResponseObject: &resourcemanager.ApiObjectDefinition{
+				Type: resourcemanager.StringApiObjectDefinitionType,
+			},
+			ResourceIdName: stringPointer("PandaPop"),
+			UriSuffix:      stringPointer("/pandas"),
+		},
+		operationName: "List",
+	}.listOperationTemplate(input)
+
+	if err != nil {
+		t.Fatalf("err %+v", err)
+	}
+
+	expected := fmt.Sprintf(`
+type ListOperationResponse struct {
+	HttpResponse *http.Response
+    OData *odata.OData
+	Model *[]string
+}
+
+type ListCompleteResult struct {
+	LatestHttpResponse *http.Response
+	Items []string
+}
+
+// List ...
+func (c pandaClient) List(ctx context.Context , id PandaPop) (result ListOperationResponse, err error) {
+	opts := client.RequestOptions{
+		ContentType: "application/json",
+		ExpectedStatusCodes: []int{
+			http.StatusOK,
+		},
+		HttpMethod: http.MethodGet,
+		Path: fmt.Sprintf("%%s/pandas", id.ID()),
+	}
+
+	req, err := c.Client.NewRequest(ctx, opts)
+	if err != nil {
+		return
+	}
+
+	var resp *client.Response
+	resp, err = req.ExecutePaged(ctx)
+	if resp != nil {
+		result.OData = resp.OData
+		result.HttpResponse = resp.Response
+	}
+
+	if err != nil {
+		return
+	}
+
+	var values struct {
+		Values *[]string %[1]s
+	}
+	if err = resp.Unmarshal(&values); err != nil {
+		return
+	}
+
+	result.Model = values.Values
+
+	return
+}
+
+// ListComplete retrieves all the results into a single object
+func (c pandaClient) ListComplete(ctx context.Context, id PandaPop) (result ListCompleteResult, err error) {
+	items := make([]string, 0)
+
+	resp, err := c.List(ctx, id)
+	if err != nil {
+		err = fmt.Errorf("loading results: %%+v", err)
+		return
+	}
+	if resp.Model != nil {
+		for _, v := range *resp.Model {
+			items = append(items, v)
+		}
+	}
+
+	result = ListCompleteResult{
+		LatestHttpResponse: resp.HttpResponse,
+		Items:    items,
+	}
+	return
+}
+`, "`json:\"value\"`")
+
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestTemplateMethodsListWithObject(t *testing.T) {
 	input := ServiceGeneratorData{
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
@@ -439,7 +552,6 @@ func (c pandaClient) ListCompleteMatchingPredicate(ctx context.Context, id Panda
 `, "`json:\"value\"`")
 
 	assertTemplatedCodeMatches(t, expected, *actual)
-
 }
 
 func TestTemplateMethodsTopLevelDiscriminatorReferencingParentType(t *testing.T) {
