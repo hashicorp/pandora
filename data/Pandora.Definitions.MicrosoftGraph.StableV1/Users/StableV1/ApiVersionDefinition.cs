@@ -267,6 +267,7 @@ public partial class Definition : ApiVersionDefinition
         new UserOwnedDevice.Definition(),
         new UserOwnedObject.Definition(),
         new UserPeople.Definition(),
+        new UserPermissionGrant.Definition(),
         new UserPhoto.Definition(),
         new UserPlanner.Definition(),
         new UserPlannerPlan.Definition(),
