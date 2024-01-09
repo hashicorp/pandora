@@ -326,12 +326,10 @@ func (c pandaClient) RebootThenPoll(ctx context.Context , id PandaPop) error {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
-// NOTE: List Operations differ slightly depending on the Response Object, where most
-// operations will return a Model or a List of a Model - and so we can offer predicate
-// filtering on fields within the Model.
-//
-// However, when the Response Object is a Simple Type, we can't - as such we're
-// intentionally testing both code paths below.
+// NOTE: List Operations differ slightly depending on the Response Object.
+// * When the Response Object is a Model or a List (of a Model) we include support for predicate filtering.
+// * When the Response Object is a Simple Type (e.g. int/string) we don't.
+// As such these tests (whilst similar) cover the two different code paths.
 
 func TestTemplateMethodsListWithSimpleType(t *testing.T) {
 
