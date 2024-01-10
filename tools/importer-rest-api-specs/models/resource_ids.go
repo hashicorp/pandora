@@ -64,9 +64,10 @@ func (pri ParsedResourceId) Matches(other ParsedResourceId) bool {
 			if first.ConstantReference == nil && second.ConstantReference != nil {
 				return false
 			}
-			if first.ConstantReference != nil && second.ConstantReference != nil && *first.ConstantReference != *second.ConstantReference {
-				return false
-			}
+
+			// We're intentionally not checking the constants involved, since both the name and values could differ
+			// between different operations due to data issues - however when either happens we'd end up using a
+			// Common ID to resolve this - therefore presuming the rest of the Resource ID matches we should be good.
 
 			continue
 		}
