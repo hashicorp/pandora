@@ -31,7 +31,7 @@ function runWrapper {
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation go-sdk \
-    --api-definitions-directory="../../$apiDefinitionsDirectory"\
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
   cd "${DIR}"

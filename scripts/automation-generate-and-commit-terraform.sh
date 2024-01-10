@@ -31,7 +31,7 @@ function runWrapper {
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
-    --api-definitions-directory="../../$apiDefinitionsDirectory"\
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
   cd "${DIR}"

@@ -23,7 +23,7 @@ func (c RestApiSpecsImporterCmd) Run(args []string) int {
 	}
 
 	f := flag.NewFlagSet("wrapper-automation", flag.ExitOnError)
-	f.StringVar(&arguments.ApiDefinitionsDirectory, "api-definitions-directory", "", "--api-definitions-directory=./api-definitions")
+	f.StringVar(&arguments.ApiDefinitionsDirectory, "api-definitions-dir", "", "--api-definitions-dir=./api-definitions")
 	f.StringVar(&arguments.DataApiAssemblyPath, "data-api-assembly-path", "", "-data-api-assembly-path=../data/Pandora.Api.dll")
 	f.StringVar(&arguments.OutputDirectory, "output-dir", "", "-output-dir=../output")
 

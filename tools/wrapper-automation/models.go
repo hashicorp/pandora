@@ -43,7 +43,7 @@ func (a Arguments) Validate() error {
 	}
 
 	if a.ApiDefinitionsDirectory == "" && a.DataApiAssemblyPath == "" {
-		return fmt.Errorf("one of either 'api-definitions-directory' or 'data-api-assembly-path' must be specified")
+		return fmt.Errorf("one of either 'api-definitions-dir' or 'data-api-assembly-path' must be specified")
 	}
 
 	return nil
