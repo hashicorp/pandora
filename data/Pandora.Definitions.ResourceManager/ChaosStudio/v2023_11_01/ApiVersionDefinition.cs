@@ -11,7 +11,6 @@ public partial class Definition : ApiVersionDefinition
 
     public IEnumerable<ResourceDefinition> Resources => new List<ResourceDefinition>
     {
-        new AsyncOperations.Definition(),
         new Capabilities.Definition(),
         new CapabilityTypes.Definition(),
         new Experiments.Definition(),
