@@ -24,7 +24,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(DiskUpdateModel);
 
-    public override ResourceID? ResourceId() => new DiskId();
+    public override ResourceID? ResourceId() => new ManagedDiskId();
 
 
 }

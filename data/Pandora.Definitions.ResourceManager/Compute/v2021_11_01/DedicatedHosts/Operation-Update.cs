@@ -23,7 +23,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(DedicatedHostUpdateModel);
 
-    public override ResourceID? ResourceId() => new HostId();
+    public override ResourceID? ResourceId() => new DedicatedHostId();
 
 
 }

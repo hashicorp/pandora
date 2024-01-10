@@ -21,7 +21,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override Type? RequestObject() => typeof(DedicatedHostGroupUpdateModel);
 
-    public override ResourceID? ResourceId() => new HostGroupId();
+    public override ResourceID? ResourceId() => new DedicatedHostGroupId();
 
     public override Type? ResponseObject() => typeof(DedicatedHostGroupModel);
 

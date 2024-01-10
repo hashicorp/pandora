@@ -1,9 +1,10 @@
 {
  "name": "AvailabilitySetId",
+ "commonAlias": "AvailabilitySet",
  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}",
  "segments": [
   {
-   "name": "staticSubscriptions",
+   "name": "subscriptions",
    "type": "Static",
    "value": "subscriptions"
   },
@@ -12,7 +13,7 @@
    "type": "SubscriptionId"
   },
   {
-   "name": "staticResourceGroups",
+   "name": "resourceGroups",
    "type": "Static",
    "value": "resourceGroups"
   },
@@ -21,17 +22,17 @@
    "type": "ResourceGroup"
   },
   {
-   "name": "staticProviders",
+   "name": "providers",
    "type": "Static",
    "value": "providers"
   },
   {
-   "name": "staticMicrosoftCompute",
+   "name": "resourceProvider",
    "type": "ResourceProvider",
    "value": "Microsoft.Compute"
   },
   {
-   "name": "staticAvailabilitySets",
+   "name": "availabilitySets",
    "type": "Static",
    "value": "availabilitySets"
   },
