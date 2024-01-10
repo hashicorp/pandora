@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MediaStreamModel
 {
     [JsonPropertyName("direction")]
-    public MediaDirectionConstant? Direction { get; set; }
+    public MediaStreamDirectionConstant? Direction { get; set; }
 
     [JsonPropertyName("label")]
     public string? Label { get; set; }
 
     [JsonPropertyName("mediaType")]
-    public ModalityConstant? MediaType { get; set; }
+    public MediaStreamMediaTypeConstant? MediaType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

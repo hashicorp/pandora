@@ -1,0 +1,89 @@
+{
+ "name": "KafkaConfigurationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "consumerGroup",
+   "name": "ConsumerGroup",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Credentials"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubPartitionId",
+   "name": "EventHubPartitionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubResourceId",
+   "name": "EventHubResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubType",
+   "name": "EventHubType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventHubType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventStreamingState",
+   "name": "EventStreamingState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventStreamingState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventStreamingType",
+   "name": "EventStreamingType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventStreamingType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

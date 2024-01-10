@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AssignmentReviewSettingsModel
 {
     [JsonPropertyName("accessReviewTimeoutBehavior")]
-    public AccessReviewTimeoutBehaviorConstant? AccessReviewTimeoutBehavior { get; set; }
+    public AssignmentReviewSettingsAccessReviewTimeoutBehaviorConstant? AccessReviewTimeoutBehavior { get; set; }
 
     [JsonPropertyName("durationInDays")]
     public int? DurationInDays { get; set; }

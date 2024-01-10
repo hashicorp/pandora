@@ -26,5 +26,5 @@ internal class TypedEmailAddressModel
     public string? OtherLabel { get; set; }
 
     [JsonPropertyName("type")]
-    public EmailTypeConstant? Type { get; set; }
+    public TypedEmailAddressTypeConstant? Type { get; set; }
 }

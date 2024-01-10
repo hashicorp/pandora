@@ -1,0 +1,17 @@
+{
+ "name": "GetSourceControl",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "AppServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SiteSourceControl"
+ },
+ "uriSuffix": "/sourceControls/web"
+}

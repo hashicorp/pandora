@@ -1,0 +1,41 @@
+{
+ "name": "CustomerManagedKeyEncryptionKeyEncryptionKeyIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "delegatedIdentityClientId",
+   "name": "DelegatedIdentityClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identityType",
+   "name": "IdentityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userAssignedIdentityResourceId",
+   "name": "UserAssignedIdentityResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

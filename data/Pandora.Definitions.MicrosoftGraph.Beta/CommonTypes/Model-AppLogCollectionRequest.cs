@@ -29,5 +29,5 @@ internal class AppLogCollectionRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public AppLogUploadStateConstant? Status { get; set; }
+    public AppLogCollectionRequestStatusConstant? Status { get; set; }
 }

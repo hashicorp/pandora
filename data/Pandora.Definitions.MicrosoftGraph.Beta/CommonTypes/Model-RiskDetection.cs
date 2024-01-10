@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RiskDetectionModel
 {
     [JsonPropertyName("activity")]
-    public ActivityTypeConstant? Activity { get; set; }
+    public RiskDetectionActivityConstant? Activity { get; set; }
 
     [JsonPropertyName("activityDateTime")]
     public DateTime? ActivityDateTime { get; set; }
@@ -29,7 +29,7 @@ internal class RiskDetectionModel
     public DateTime? DetectedDateTime { get; set; }
 
     [JsonPropertyName("detectionTimingType")]
-    public RiskDetectionTimingTypeConstant? DetectionTimingType { get; set; }
+    public RiskDetectionDetectionTimingTypeConstant? DetectionTimingType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -43,6 +43,9 @@ internal class RiskDetectionModel
     [JsonPropertyName("location")]
     public SignInLocationModel? Location { get; set; }
 
+    [JsonPropertyName("mitreTechniqueId")]
+    public string? MitreTechniqueId { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
@@ -50,25 +53,25 @@ internal class RiskDetectionModel
     public string? RequestId { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public RiskDetectionRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskEventType")]
     public string? RiskEventType { get; set; }
 
     [JsonPropertyName("riskLevel")]
-    public RiskLevelConstant? RiskLevel { get; set; }
+    public RiskDetectionRiskLevelConstant? RiskLevel { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public RiskDetectionRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("riskType")]
-    public RiskEventTypeConstant? RiskType { get; set; }
+    public RiskDetectionRiskTypeConstant? RiskType { get; set; }
 
     [JsonPropertyName("source")]
     public string? Source { get; set; }
 
     [JsonPropertyName("tokenIssuerType")]
-    public TokenIssuerTypeConstant? TokenIssuerType { get; set; }
+    public RiskDetectionTokenIssuerTypeConstant? TokenIssuerType { get; set; }
 
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }

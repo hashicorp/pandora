@@ -10,6 +10,7 @@ type testDependencies struct {
 	// NOTE: use the Set methods
 	needsApplicationInsights      bool
 	needsClientConfig             bool
+	needsDevCenter                bool
 	needsEdgeZone                 bool
 	needsKeyVault                 bool
 	needsKeyVaultAccessPolicy     bool
@@ -43,6 +44,13 @@ func (d *testDependencies) setNeedsApplicationInsights() {
 
 func (d *testDependencies) setNeedsClientConfig() {
 	d.needsClientConfig = true
+}
+
+func (d *testDependencies) setNeedsDevCenter() {
+	d.setNeedsResourceGroup()
+	d.needsDevCenter = true
+
+	d.variables.needsRandomString = true
 }
 
 func (d *testDependencies) setNeedsEdgeZones() {
@@ -151,6 +159,7 @@ type dependencyDefinition struct {
 func DetermineDependencies(field, providerPrefix string, dependencies *testDependencies) (*string, *testDependencies, error) {
 	dependencyMapping := map[string]dependencyDefinition{
 		"application_insights_id":       {dependencies.setNeedsApplicationInsights, fmt.Sprintf("%s_application_insights.test.id", providerPrefix)},
+		"dev_center_id":                 {dependencies.setNeedsDevCenter, fmt.Sprintf("azurerm_dev_center.test.id")},
 		"key_vault_id":                  {dependencies.setNeedsKeyVault, fmt.Sprintf("%s_key_vault.test.id", providerPrefix)},
 		"key_vault_access_policy_id":    {dependencies.setNeedsKeyVaultAccessPolicy, fmt.Sprintf("%s_key_vault_access_policy.test.id", providerPrefix)},
 		"key_vault_key_id":              {dependencies.setNeedsKeyVaultKey, fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)},

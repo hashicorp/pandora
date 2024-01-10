@@ -1,0 +1,27 @@
+{
+ "name": "ChangeState",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "newState",
+   "required": true,
+   "field": "NewState",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertState"
+   }
+  }
+ ],
+ "resourceIdName": "SmartGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SmartGroup"
+ },
+ "uriSuffix": "/changeState"
+}

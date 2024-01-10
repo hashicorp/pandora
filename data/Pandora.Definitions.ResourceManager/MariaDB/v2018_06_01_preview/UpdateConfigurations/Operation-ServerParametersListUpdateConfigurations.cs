@@ -26,8 +26,6 @@ internal class ServerParametersListUpdateConfigurationsOperation : Pandora.Defin
 
     public override ResourceID? ResourceId() => new ServerId();
 
-    public override Type? ResponseObject() => typeof(ConfigurationListResultModel);
-
     public override string? UriSuffix() => "/updateConfigurations";
 
 

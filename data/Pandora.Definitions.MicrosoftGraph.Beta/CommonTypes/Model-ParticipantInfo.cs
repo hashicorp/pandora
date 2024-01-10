@@ -17,7 +17,7 @@ internal class ParticipantInfoModel
     public string? CountryCode { get; set; }
 
     [JsonPropertyName("endpointType")]
-    public EndpointTypeConstant? EndpointType { get; set; }
+    public ParticipantInfoEndpointTypeConstant? EndpointType { get; set; }
 
     [JsonPropertyName("identity")]
     public IdentitySetModel? Identity { get; set; }

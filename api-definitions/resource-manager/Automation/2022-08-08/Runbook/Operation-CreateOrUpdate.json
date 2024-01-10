@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "RunbookId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RunbookCreateOrUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Runbook"
+ }
+}

@@ -1,0 +1,27 @@
+{
+ "name": "GetByManagementGroup",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ManagementGroupId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagementGroupAggregatedCostResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Consumption/aggregatedcost"
+}

@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateAtResource",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopedRemediationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Remediation"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Remediation"
+ }
+}

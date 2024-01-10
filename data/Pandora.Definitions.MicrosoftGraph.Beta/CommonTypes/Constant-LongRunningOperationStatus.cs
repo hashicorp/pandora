@@ -20,7 +20,4 @@ internal enum LongRunningOperationStatusConstant
 
     [Description("Failed")]
     @failed,
-
-    [Description("Skipped")]
-    @skipped,
 }

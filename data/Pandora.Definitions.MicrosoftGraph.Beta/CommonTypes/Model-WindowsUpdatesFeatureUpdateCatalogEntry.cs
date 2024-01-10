@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class WindowsUpdatesFeatureUpdateCatalogEntryModel
 {
+    [JsonPropertyName("buildNumber")]
+    public string? BuildNumber { get; set; }
+
     [JsonPropertyName("deployableUntilDateTime")]
     public DateTime? DeployableUntilDateTime { get; set; }
 

@@ -1,0 +1,24 @@
+{
+ "name": "HyperVSiteDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVHosts",
+   "name": "HyperVHosts",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "HyperVHostDetails"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "FabricSpecificDetails",
+ "discriminatedTypeValue": "HyperVSite",
+ "typeHintIn": "InstanceType"
+}

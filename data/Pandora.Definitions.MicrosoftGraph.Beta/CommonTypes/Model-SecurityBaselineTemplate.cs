@@ -47,7 +47,7 @@ internal class SecurityBaselineTemplateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public SecurityBaselineTemplatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("publishedDateTime")]
     public DateTime? PublishedDateTime { get; set; }
@@ -56,10 +56,10 @@ internal class SecurityBaselineTemplateModel
     public List<DeviceManagementSettingInstanceModel>? Settings { get; set; }
 
     [JsonPropertyName("templateSubtype")]
-    public DeviceManagementTemplateSubtypeConstant? TemplateSubtype { get; set; }
+    public SecurityBaselineTemplateTemplateSubtypeConstant? TemplateSubtype { get; set; }
 
     [JsonPropertyName("templateType")]
-    public DeviceManagementTemplateTypeConstant? TemplateType { get; set; }
+    public SecurityBaselineTemplateTemplateTypeConstant? TemplateType { get; set; }
 
     [JsonPropertyName("versionInfo")]
     public string? VersionInfo { get; set; }

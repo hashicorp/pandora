@@ -17,7 +17,7 @@ internal class SecurityAnalyzedMessageEvidenceModel
     public string? AntiSpamDirection { get; set; }
 
     [JsonPropertyName("attachmentsCount")]
-    public long? AttachmentsCount { get; set; }
+    public int? AttachmentsCount { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -44,10 +44,10 @@ internal class SecurityAnalyzedMessageEvidenceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("p1Sender")]
-    public EmailSenderModel? P1Sender { get; set; }
+    public SecurityEmailSenderModel? P1Sender { get; set; }
 
     [JsonPropertyName("p2Sender")]
-    public EmailSenderModel? P2Sender { get; set; }
+    public SecurityEmailSenderModel? P2Sender { get; set; }
 
     [JsonPropertyName("receivedDateTime")]
     public DateTime? ReceivedDateTime { get; set; }
@@ -56,13 +56,13 @@ internal class SecurityAnalyzedMessageEvidenceModel
     public string? RecipientEmailAddress { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityAnalyzedMessageEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityAnalyzedMessageEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("senderIp")]
     public string? SenderIp { get; set; }
@@ -80,7 +80,7 @@ internal class SecurityAnalyzedMessageEvidenceModel
     public List<string>? Threats { get; set; }
 
     [JsonPropertyName("urlCount")]
-    public long? UrlCount { get; set; }
+    public int? UrlCount { get; set; }
 
     [JsonPropertyName("urls")]
     public List<string>? Urls { get; set; }
@@ -89,5 +89,5 @@ internal class SecurityAnalyzedMessageEvidenceModel
     public string? Urn { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityAnalyzedMessageEvidenceVerdictConstant? Verdict { get; set; }
 }

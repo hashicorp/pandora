@@ -20,5 +20,5 @@ internal class CustomSubjectAlternativeNameModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sanType")]
-    public SubjectAlternativeNameTypeConstant? SanType { get; set; }
+    public CustomSubjectAlternativeNameSanTypeConstant? SanType { get; set; }
 }

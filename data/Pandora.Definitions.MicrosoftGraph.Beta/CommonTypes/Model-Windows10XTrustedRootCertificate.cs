@@ -26,7 +26,7 @@ internal class Windows10XTrustedRootCertificateModel
     public string? Description { get; set; }
 
     [JsonPropertyName("destinationStore")]
-    public CertificateDestinationStoreConstant? DestinationStore { get; set; }
+    public Windows10XTrustedRootCertificateDestinationStoreConstant? DestinationStore { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

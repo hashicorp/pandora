@@ -17,7 +17,7 @@ internal class EducationItemBodyModel
     public string? Content { get; set; }
 
     [JsonPropertyName("contentType")]
-    public BodyTypeConstant? ContentType { get; set; }
+    public EducationItemBodyContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

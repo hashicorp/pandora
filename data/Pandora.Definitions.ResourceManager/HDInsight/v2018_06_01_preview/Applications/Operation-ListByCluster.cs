@@ -16,7 +16,7 @@ internal class ListByClusterOperation : Pandora.Definitions.Operations.ListOpera
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override Type NestedItemType() => typeof(ApplicationModel);
 

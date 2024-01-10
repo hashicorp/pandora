@@ -20,7 +20,5 @@ internal class TrunkedNetworksCreateOrUpdateOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new TrunkedNetworkId();
 
-    public override Type? ResponseObject() => typeof(TrunkedNetworkModel);
-
 
 }

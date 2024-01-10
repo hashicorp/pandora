@@ -1,0 +1,52 @@
+{
+ "name": "InputId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StreamAnalytics/streamingJobs/{streamingJobName}/inputs/{inputName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftStreamAnalytics",
+   "type": "ResourceProvider",
+   "value": "Microsoft.StreamAnalytics"
+  },
+  {
+   "name": "staticStreamingJobs",
+   "type": "Static",
+   "value": "streamingJobs"
+  },
+  {
+   "name": "streamingJobName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticInputs",
+   "type": "Static",
+   "value": "inputs"
+  },
+  {
+   "name": "inputName",
+   "type": "UserSpecified"
+  }
+ ]
+}

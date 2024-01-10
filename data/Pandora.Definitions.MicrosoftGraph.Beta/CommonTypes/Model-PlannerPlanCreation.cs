@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PlannerPlanCreationModel
 {
     [JsonPropertyName("creationSourceKind")]
-    public PlannerCreationSourceKindConstant? CreationSourceKind { get; set; }
+    public PlannerPlanCreationCreationSourceKindConstant? CreationSourceKind { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

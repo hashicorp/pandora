@@ -9,9 +9,15 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum MediaStreamDirectionConstant
 {
-    [Description("CallerToCallee")]
-    @callerToCallee,
+    [Description("Inactive")]
+    @inactive,
 
-    [Description("CalleeToCaller")]
-    @calleeToCaller,
+    [Description("SendOnly")]
+    @sendOnly,
+
+    [Description("ReceiveOnly")]
+    @receiveOnly,
+
+    [Description("SendReceive")]
+    @sendReceive,
 }

@@ -20,5 +20,5 @@ internal class IdentityGovernanceTriggerAndScopeBasedConditionsModel
     public SubjectSetModel? Scope { get; set; }
 
     [JsonPropertyName("trigger")]
-    public WorkflowExecutionTriggerModel? Trigger { get; set; }
+    public IdentityGovernanceWorkflowExecutionTriggerModel? Trigger { get; set; }
 }

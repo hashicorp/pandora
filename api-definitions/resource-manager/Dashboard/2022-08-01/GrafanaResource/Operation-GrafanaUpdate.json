@@ -1,0 +1,19 @@
+{
+ "name": "GrafanaUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "GrafanaId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ManagedGrafanaUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ManagedGrafana"
+ }
+}

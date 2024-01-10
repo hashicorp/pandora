@@ -1,0 +1,19 @@
+{
+ "name": "TasksCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "TaskId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProjectTask"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProjectTask"
+ }
+}

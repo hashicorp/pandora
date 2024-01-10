@@ -25,7 +25,5 @@ internal class DatabaseAccountsUpdateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(DatabaseAccountGetResultsModel);
-
 
 }

@@ -1,0 +1,20 @@
+{
+ "name": "StaticDeliveryAttributeMapping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StaticDeliveryAttributeMappingProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DeliveryAttributeMapping",
+ "discriminatedTypeValue": "Static",
+ "typeHintIn": "Type"
+}

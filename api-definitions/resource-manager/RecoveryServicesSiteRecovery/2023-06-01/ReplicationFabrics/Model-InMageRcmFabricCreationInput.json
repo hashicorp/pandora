@@ -1,0 +1,44 @@
+{
+ "name": "InMageRcmFabricCreationInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "physicalSiteId",
+   "name": "PhysicalSiteId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceAgentIdentity",
+   "name": "SourceAgentIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IdentityProviderInput"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmwareSiteId",
+   "name": "VMwareSiteId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "FabricSpecificCreationInput",
+ "discriminatedTypeValue": "InMageRcm",
+ "typeHintIn": "InstanceType"
+}

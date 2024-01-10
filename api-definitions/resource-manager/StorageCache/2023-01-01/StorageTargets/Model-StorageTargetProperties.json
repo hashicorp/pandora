@@ -1,0 +1,117 @@
+{
+ "name": "StorageTargetProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allocationPercentage",
+   "name": "AllocationPercentage",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobNfs",
+   "name": "BlobNfs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlobNfsTarget"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clfs",
+   "name": "Clfs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClfsTarget"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "junctions",
+   "name": "Junctions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NamespaceJunction"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "nfs3",
+   "name": "Nfs3",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Nfs3Target"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningStateType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperationalStateType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetType",
+   "name": "TargetType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageTargetType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unknown",
+   "name": "Unknown",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UnknownTarget"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

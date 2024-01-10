@@ -11,10 +11,11 @@ import (
 )
 
 type FindServiceInput struct {
-	ConfigFilePath   string
-	OutputDirectory  string
-	SwaggerDirectory string
-	Logger           hclog.Logger
+	ConfigFilePath      string
+	OutputDirectoryCS   string
+	OutputDirectoryJson string
+	SwaggerDirectory    string
+	Logger              hclog.Logger
 }
 
 func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*[]ServiceInput, error) {
@@ -59,7 +60,8 @@ func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*
 					ApiVersion:                 version,
 					ResourceProvider:           &serviceDetails.ResourceProvider,
 					ResourceProviderToFilterTo: service.ResourceProvider,
-					OutputDirectory:            input.OutputDirectory,
+					OutputDirectoryCS:          input.OutputDirectoryCS,
+					OutputDirectoryJson:        input.OutputDirectoryJson,
 					SwaggerDirectory:           versionDirectory,
 					SwaggerFiles:               filesForVersion,
 				}
@@ -127,7 +129,8 @@ func FindServicesByName(input FindServiceInput, terraformConfig definitions.Conf
 					ApiVersion:                 version,
 					ResourceProvider:           &serviceDetails.ResourceProvider,
 					ResourceProviderToFilterTo: service.ResourceProvider,
-					OutputDirectory:            input.OutputDirectory,
+					OutputDirectoryCS:          input.OutputDirectoryCS,
+					OutputDirectoryJson:        input.OutputDirectoryJson,
 					SwaggerDirectory:           versionDirectory,
 					SwaggerFiles:               filesForVersion,
 				}

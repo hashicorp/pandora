@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AttachmentItemModel
 {
     [JsonPropertyName("attachmentType")]
-    public AttachmentTypeConstant? AttachmentType { get; set; }
+    public AttachmentItemAttachmentTypeConstant? AttachmentType { get; set; }
 
     [JsonPropertyName("contentId")]
     public string? ContentId { get; set; }
@@ -32,5 +32,5 @@ internal class AttachmentItemModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 }

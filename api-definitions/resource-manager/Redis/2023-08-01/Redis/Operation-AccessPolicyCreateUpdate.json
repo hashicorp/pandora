@@ -1,0 +1,15 @@
+{
+ "name": "AccessPolicyCreateUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "AccessPolicyId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RedisCacheAccessPolicy"
+ }
+}

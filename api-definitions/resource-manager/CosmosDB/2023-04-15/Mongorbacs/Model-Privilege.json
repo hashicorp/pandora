@@ -1,0 +1,33 @@
+{
+ "name": "Privilege",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actions",
+   "name": "Actions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resource",
+   "name": "Resource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PrivilegeResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

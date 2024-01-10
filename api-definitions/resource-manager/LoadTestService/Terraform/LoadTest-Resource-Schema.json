@@ -1,0 +1,93 @@
+{
+	"fields": [
+		{
+			"computed": true,
+			"documentation": {
+				"markdown": "Resource data plane URI."
+			},
+			"hclName": "data_plane_uri",
+			"name": "DataPlaneURI",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			}
+		},
+		{
+			"documentation": {
+				"markdown": "Description of the resource."
+			},
+			"forceNew": true,
+			"hclName": "description",
+			"optional": true,
+			"name": "Description",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			}
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the Managed Identity which should be assigned to this Load Test."
+			},
+			"hclName": "identity",
+			"optional": true,
+			"name": "Identity",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "SystemAndUserAssignedIdentity"
+			}
+		},
+		{
+			"documentation": {
+				"markdown": "The Azure Region where the Load Test should exist."
+			},
+			"forceNew": true,
+			"hclName": "location",
+			"name": "Location",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "Location"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the name of this Load Test."
+			},
+			"forceNew": true,
+			"hclName": "name",
+			"name": "Name",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the name of the Resource Group within which this Load Test should exist."
+			},
+			"forceNew": true,
+			"hclName": "resource_group_name",
+			"name": "ResourceGroupName",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "ResourceGroup"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "A mapping of tags which should be assigned to the Load Test."
+			},
+			"hclName": "tags",
+			"optional": true,
+			"name": "Tags",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "Tags"
+			}
+		}
+	],
+	"name": "LoadTestResourceSchema"
+}

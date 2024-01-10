@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtResourceGroupOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new ProviderAttestationId();
 
-    public override Type? ResponseObject() => typeof(AttestationModel);
-
 
 }

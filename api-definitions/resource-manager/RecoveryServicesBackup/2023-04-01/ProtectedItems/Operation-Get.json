@@ -1,0 +1,26 @@
+{
+ "name": "Get",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ProtectedItemId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProtectedItemResource"
+ }
+}

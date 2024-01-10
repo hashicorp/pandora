@@ -18,6 +18,12 @@ func writeToFile(config services.Config, filePath string) error {
 	newFile := hclwrite.NewEmptyFile()
 	gohcl.EncodeIntoBody(&config, newFile.Body())
 	bytes := hclwrite.Format(newFile.Bytes())
+	filePlusHeader := strings.TrimSpace(fmt.Sprintf(`
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+%s
+`, string(bytes)))
+	bytes = []byte(filePlusHeader)
 	os.Remove(filePath)
 	file, err := os.Create(filePath)
 	if err != nil {

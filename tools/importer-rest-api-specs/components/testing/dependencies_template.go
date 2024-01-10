@@ -33,6 +33,20 @@ data "%[1]s_client_config" "test" {}
 `, tb.providerPrefix))
 	}
 
+	if dependencies.needsDevCenter {
+		components = append(components, fmt.Sprintf(`
+resource "%[1]s_dev_center" "test" {
+  name                = "acctestdc-${var.random_string}"
+  resource_group_name = %[1]s_resource_group.test.name
+  location            = %[1]s_resource_group.test.location
+
+  identity {
+    type = "SystemAssigned"
+  }
+}
+`, tb.providerPrefix))
+	}
+
 	if dependencies.needsEdgeZone {
 		components = append(components, fmt.Sprintf(`
 data "%[1]s_extended_locations" "test" {

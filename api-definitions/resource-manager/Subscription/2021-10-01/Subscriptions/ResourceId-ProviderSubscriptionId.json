@@ -1,0 +1,25 @@
+{
+ "name": "ProviderSubscriptionId",
+ "id": "/providers/Microsoft.Subscription/subscriptions/{subscriptionId}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSubscription",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Subscription"
+  },
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  }
+ ]
+}

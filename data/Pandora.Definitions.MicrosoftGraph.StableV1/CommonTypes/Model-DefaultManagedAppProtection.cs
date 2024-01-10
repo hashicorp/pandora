@@ -14,19 +14,19 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class DefaultManagedAppProtectionModel
 {
     [JsonPropertyName("allowedDataStorageLocations")]
-    public List<ManagedAppDataStorageLocationConstant>? AllowedDataStorageLocations { get; set; }
+    public List<DefaultManagedAppProtectionAllowedDataStorageLocationsConstant>? AllowedDataStorageLocations { get; set; }
 
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public ManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public DefaultManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public ManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public DefaultManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public ManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public DefaultManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("appDataEncryptionType")]
-    public ManagedAppDataEncryptionTypeConstant? AppDataEncryptionType { get; set; }
+    public DefaultManagedAppProtectionAppDataEncryptionTypeConstant? AppDataEncryptionType { get; set; }
 
     [JsonPropertyName("apps")]
     public List<ManagedMobileAppModel>? Apps { get; set; }
@@ -80,7 +80,7 @@ internal class DefaultManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("managedBrowser")]
-    public ManagedBrowserTypeConstant? ManagedBrowser { get; set; }
+    public DefaultManagedAppProtectionManagedBrowserConstant? ManagedBrowser { get; set; }
 
     [JsonPropertyName("managedBrowserToOpenLinksRequired")]
     public bool? ManagedBrowserToOpenLinksRequired { get; set; }
@@ -131,7 +131,7 @@ internal class DefaultManagedAppProtectionModel
     public string? PeriodOnlineBeforeAccessCheck { get; set; }
 
     [JsonPropertyName("pinCharacterSet")]
-    public ManagedAppPinCharacterSetConstant? PinCharacterSet { get; set; }
+    public DefaultManagedAppProtectionPinCharacterSetConstant? PinCharacterSet { get; set; }
 
     [JsonPropertyName("pinRequired")]
     public bool? PinRequired { get; set; }

@@ -32,10 +32,10 @@ internal class AndroidDeviceOwnerEnrollmentProfileModel
     public int? EnrolledDeviceCount { get; set; }
 
     [JsonPropertyName("enrollmentMode")]
-    public AndroidDeviceOwnerEnrollmentModeConstant? EnrollmentMode { get; set; }
+    public AndroidDeviceOwnerEnrollmentProfileEnrollmentModeConstant? EnrollmentMode { get; set; }
 
     [JsonPropertyName("enrollmentTokenType")]
-    public AndroidDeviceOwnerEnrollmentTokenTypeConstant? EnrollmentTokenType { get; set; }
+    public AndroidDeviceOwnerEnrollmentProfileEnrollmentTokenTypeConstant? EnrollmentTokenType { get; set; }
 
     [JsonPropertyName("enrollmentTokenUsageCount")]
     public int? EnrollmentTokenUsageCount { get; set; }
@@ -77,7 +77,7 @@ internal class AndroidDeviceOwnerEnrollmentProfileModel
     public string? WifiPassword { get; set; }
 
     [JsonPropertyName("wifiSecurityType")]
-    public AospWifiSecurityTypeConstant? WifiSecurityType { get; set; }
+    public AndroidDeviceOwnerEnrollmentProfileWifiSecurityTypeConstant? WifiSecurityType { get; set; }
 
     [JsonPropertyName("wifiSsid")]
     public string? WifiSsid { get; set; }

@@ -41,7 +41,7 @@ internal class ActivityHistoryItemModel
     public DateTime? StartedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public StatusConstant? Status { get; set; }
+    public ActivityHistoryItemStatusConstant? Status { get; set; }
 
     [JsonPropertyName("userTimezone")]
     public string? UserTimezone { get; set; }

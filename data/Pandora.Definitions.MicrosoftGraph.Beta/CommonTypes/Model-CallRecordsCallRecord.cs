@@ -26,7 +26,7 @@ internal class CallRecordsCallRecordModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("modalities")]
-    public List<ModalityConstant>? Modalities { get; set; }
+    public List<CallRecordsCallRecordModalitiesConstant>? Modalities { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -34,18 +34,24 @@ internal class CallRecordsCallRecordModel
     [JsonPropertyName("organizer")]
     public IdentitySetModel? Organizer { get; set; }
 
+    [JsonPropertyName("organizer_v2")]
+    public CallRecordsOrganizerModel? Organizerv2 { get; set; }
+
     [JsonPropertyName("participants")]
     public List<IdentitySetModel>? Participants { get; set; }
 
+    [JsonPropertyName("participants_v2")]
+    public List<CallRecordsParticipantModel>? Participantsv2 { get; set; }
+
     [JsonPropertyName("sessions")]
-    public List<SessionModel>? Sessions { get; set; }
+    public List<CallRecordsSessionModel>? Sessions { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("type")]
-    public CallTypeConstant? Type { get; set; }
+    public CallRecordsCallRecordTypeConstant? Type { get; set; }
 
     [JsonPropertyName("version")]
-    public long? Version { get; set; }
+    public int? Version { get; set; }
 }

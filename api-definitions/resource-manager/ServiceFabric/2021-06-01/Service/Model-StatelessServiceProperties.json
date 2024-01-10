@@ -1,0 +1,32 @@
+{
+ "name": "StatelessServiceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceCloseDelayDuration",
+   "name": "InstanceCloseDelayDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceCount",
+   "name": "InstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ServiceResourceProperties",
+ "discriminatedTypeValue": "Stateless",
+ "typeHintIn": "ServiceKind"
+}

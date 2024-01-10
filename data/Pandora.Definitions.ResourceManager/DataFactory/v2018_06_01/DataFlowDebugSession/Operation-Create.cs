@@ -26,8 +26,6 @@ internal class CreateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new FactoryId();
 
-    public override Type? ResponseObject() => typeof(CreateDataFlowDebugSessionResponseModel);
-
     public override string? UriSuffix() => "/createDataFlowDebugSession";
 
 

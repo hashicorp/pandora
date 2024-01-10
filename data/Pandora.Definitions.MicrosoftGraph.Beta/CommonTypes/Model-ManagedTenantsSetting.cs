@@ -29,5 +29,5 @@ internal class ManagedTenantsSettingModel
     public string? SettingId { get; set; }
 
     [JsonPropertyName("valueType")]
-    public ManagementParameterValueTypeConstant? ValueType { get; set; }
+    public ManagedTenantsSettingValueTypeConstant? ValueType { get; set; }
 }

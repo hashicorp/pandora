@@ -1,0 +1,69 @@
+{
+ "name": "Volume",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mountOptions",
+   "name": "MountOptions",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secrets",
+   "name": "Secrets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SecretVolumeItem"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageName",
+   "name": "StorageName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageType",
+   "name": "StorageType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

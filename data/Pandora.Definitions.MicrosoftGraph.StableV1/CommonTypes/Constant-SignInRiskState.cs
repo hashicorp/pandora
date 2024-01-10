@@ -1,0 +1,29 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+using Pandora.Definitions.Attributes;
+using System.ComponentModel;
+
+namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
+
+[ConstantType(ConstantTypeAttribute.ConstantType.String)]
+internal enum SignInRiskStateConstant
+{
+    [Description("None")]
+    @none,
+
+    [Description("ConfirmedSafe")]
+    @confirmedSafe,
+
+    [Description("Remediated")]
+    @remediated,
+
+    [Description("Dismissed")]
+    @dismissed,
+
+    [Description("AtRisk")]
+    @atRisk,
+
+    [Description("ConfirmedCompromised")]
+    @confirmedCompromised,
+}

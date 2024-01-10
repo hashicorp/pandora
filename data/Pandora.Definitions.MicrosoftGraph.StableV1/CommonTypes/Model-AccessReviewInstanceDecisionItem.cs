@@ -31,6 +31,9 @@ internal class AccessReviewInstanceDecisionItemModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("insights")]
+    public List<GovernanceInsightModel>? Insights { get; set; }
+
     [JsonPropertyName("justification")]
     public string? Justification { get; set; }
 

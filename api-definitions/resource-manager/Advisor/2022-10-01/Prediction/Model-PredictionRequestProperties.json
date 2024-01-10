@@ -1,0 +1,29 @@
+{
+ "name": "PredictionRequestProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extendedProperties",
+   "name": "ExtendedProperties",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "predictionType",
+   "name": "PredictionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PredictionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

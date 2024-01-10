@@ -1,0 +1,29 @@
+{
+ "name": "QueueSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobTier",
+   "name": "JobTier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobTier"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

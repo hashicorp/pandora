@@ -30,10 +30,4 @@ internal class OrganizationSettingsModel
 
     [JsonPropertyName("peopleInsights")]
     public InsightsSettingsModel? PeopleInsights { get; set; }
-
-    [JsonPropertyName("profileCardProperties")]
-    public List<ProfileCardPropertyModel>? ProfileCardProperties { get; set; }
-
-    [JsonPropertyName("pronouns")]
-    public PronounsSettingsModel? Pronouns { get; set; }
 }

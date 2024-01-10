@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class MobileAppContentFileCollectionResponseModel
 {
     [JsonPropertyName("@odata.count")]
-    public long? ODataCount { get; set; }
+    public int? ODataCount { get; set; }
 
     [JsonPropertyName("@odata.nextLink")]
     public string? ODataNextLink { get; set; }

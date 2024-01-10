@@ -1,0 +1,89 @@
+{
+ "name": "RunbookCreateOrUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "draft",
+   "name": "Draft",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunbookDraft"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logActivityTrace",
+   "name": "LogActivityTrace",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logProgress",
+   "name": "LogProgress",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logVerbose",
+   "name": "LogVerbose",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publishContentLink",
+   "name": "PublishContentLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContentLink"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runbookType",
+   "name": "RunbookType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunbookTypeEnum"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

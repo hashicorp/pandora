@@ -26,8 +26,6 @@ internal class ValidateAtScopeOperation : Pandora.Definitions.Operations.PostOpe
 
     public override ResourceID? ResourceId() => new ScopedDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

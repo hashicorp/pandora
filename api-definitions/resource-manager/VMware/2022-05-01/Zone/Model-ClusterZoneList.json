@@ -1,0 +1,21 @@
+{
+ "name": "ClusterZoneList",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "zones",
+   "name": "Zones",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ClusterZone"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -35,7 +35,7 @@ internal class SymantecCodeSigningCertificateModel
     public string? Password { get; set; }
 
     [JsonPropertyName("status")]
-    public CertificateStatusConstant? Status { get; set; }
+    public SymantecCodeSigningCertificateStatusConstant? Status { get; set; }
 
     [JsonPropertyName("subject")]
     public string? Subject { get; set; }

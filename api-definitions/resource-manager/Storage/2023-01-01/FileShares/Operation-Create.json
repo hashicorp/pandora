@@ -1,0 +1,31 @@
+{
+ "name": "Create",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ShareId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "FileShare"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "FileShare"
+ }
+}

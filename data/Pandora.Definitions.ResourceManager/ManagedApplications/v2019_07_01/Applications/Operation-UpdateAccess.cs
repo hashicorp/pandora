@@ -26,8 +26,6 @@ internal class UpdateAccessOperation : Pandora.Definitions.Operations.PostOperat
 
     public override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type? ResponseObject() => typeof(UpdateAccessDefinitionModel);
-
     public override string? UriSuffix() => "/updateAccess";
 
 

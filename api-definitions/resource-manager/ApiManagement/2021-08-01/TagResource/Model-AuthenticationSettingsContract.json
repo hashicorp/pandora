@@ -1,0 +1,29 @@
+{
+ "name": "AuthenticationSettingsContract",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "oAuth2",
+   "name": "OAuth2",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OAuth2AuthenticationSettingsContract"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "openid",
+   "name": "Openid",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OpenIdAuthenticationSettingsContract"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

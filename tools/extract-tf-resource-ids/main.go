@@ -3,13 +3,14 @@ package main
 import (
 	"context"
 	"fmt"
+	"io"
 	"log"
 	"os"
 	"sort"
 	"strconv"
 	"strings"
 
-	"github.com/google/go-github/github"
+	"github.com/google/go-github/v56/github"
 	"golang.org/x/oauth2"
 )
 
@@ -27,17 +28,22 @@ func (r Repo) getPullRequest(ctx context.Context, client *github.Client, id int)
 	return pr, nil
 }
 
-func (r Repo) getPullRequestDiff(ctx context.Context, client *github.Client, id int) (string, error) {
-	opts := github.RawOptions{
-		Type: github.Diff,
-	}
-
-	pr, _, err := client.PullRequests.GetRaw(ctx, r.Owner, r.Name, id, opts)
+func (r Repo) getPullRequestDiff(client *github.Client, organisation, repository string, pullRequestId int) (string, error) {
+	// Whilst the GitHub API supports pagination for the files within a PR
+	// we don't need to access the files individually, we just want the diff
+	// so we can just pull that directly here, using the authorized client
+	prDiffUri := fmt.Sprintf("https://github.com/%s/%s/pull/%d.diff", organisation, repository, pullRequestId)
+	diffResp, err := client.Client().Get(prDiffUri)
 	if err != nil {
-		return "", err
+		return "", fmt.Errorf("retrieving diff for PR from %q: %+v", prDiffUri, err)
 	}
 
-	return pr, nil
+	result, err := io.ReadAll(diffResp.Body)
+	if err != nil {
+		return "", fmt.Errorf("reading diff from %q: %+v", prDiffUri, err)
+	}
+
+	return string(result), nil
 }
 
 func (r Repo) createCommentOnPullRequest(ctx context.Context, client *github.Client, id int, body *string) error {
@@ -103,7 +109,7 @@ func run(ctx context.Context) error {
 	repo := Repo{owner, name}
 	client := newGitHubClient(ctx, token)
 
-	prDiff, err := repo.getPullRequestDiff(ctx, client, prId)
+	prDiff, err := repo.getPullRequestDiff(client, owner, name, prId)
 	if err != nil {
 		return err
 	}

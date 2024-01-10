@@ -1,0 +1,15 @@
+{
+ "name": "UpdatePortMirroring",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "PortMirroringProfileId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkloadNetworkPortMirroring"
+ }
+}

@@ -1,0 +1,57 @@
+{
+ "name": "MonitorDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alertNotificationSettings",
+   "name": "AlertNotificationSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitorNotificationSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeConfiguration",
+   "name": "ComputeConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitorComputeConfigurationBase"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "monitoringTarget",
+   "name": "MonitoringTarget",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringTarget"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signals",
+   "name": "Signals",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MonitoringSignalBase"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

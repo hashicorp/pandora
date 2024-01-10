@@ -1,0 +1,19 @@
+{
+ "name": "AddDataFlow",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "FactoryId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DataFlowDebugPackage"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AddDataFlowToDebugSessionResponse"
+ },
+ "uriSuffix": "/addDataFlowToDebugSession"
+}

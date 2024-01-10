@@ -26,8 +26,6 @@ internal class SqlResourcesUpdateSqlDatabaseThroughputOperation : Pandora.Defini
 
     public override ResourceID? ResourceId() => new SqlDatabaseId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default";
 
 

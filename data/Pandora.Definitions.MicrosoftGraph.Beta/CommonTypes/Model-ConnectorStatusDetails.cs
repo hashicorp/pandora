@@ -17,7 +17,7 @@ internal class ConnectorStatusDetailsModel
     public string? ConnectorInstanceId { get; set; }
 
     [JsonPropertyName("connectorName")]
-    public ConnectorNameConstant? ConnectorName { get; set; }
+    public ConnectorStatusDetailsConnectorNameConstant? ConnectorName { get; set; }
 
     [JsonPropertyName("eventDateTime")]
     public DateTime? EventDateTime { get; set; }
@@ -26,5 +26,5 @@ internal class ConnectorStatusDetailsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ConnectorHealthStateConstant? Status { get; set; }
+    public ConnectorStatusDetailsStatusConstant? Status { get; set; }
 }

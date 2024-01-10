@@ -44,7 +44,7 @@ internal class EditionUpgradeConfigurationModel
     public string? License { get; set; }
 
     [JsonPropertyName("licenseType")]
-    public EditionUpgradeLicenseTypeConstant? LicenseType { get; set; }
+    public EditionUpgradeConfigurationLicenseTypeConstant? LicenseType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -53,7 +53,7 @@ internal class EditionUpgradeConfigurationModel
     public string? ProductKey { get; set; }
 
     [JsonPropertyName("targetEdition")]
-    public Windows10EditionTypeConstant? TargetEdition { get; set; }
+    public EditionUpgradeConfigurationTargetEditionConstant? TargetEdition { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }

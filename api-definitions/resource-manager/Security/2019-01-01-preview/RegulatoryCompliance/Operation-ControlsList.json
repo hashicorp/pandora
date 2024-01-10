@@ -1,0 +1,28 @@
+{
+ "name": "ControlsList",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "RegulatoryComplianceStandardId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RegulatoryComplianceControl"
+ },
+ "uriSuffix": "/regulatoryComplianceControls"
+}

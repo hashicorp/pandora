@@ -1,0 +1,15 @@
+{
+ "name": "CreateOrUpdateAtResourceGroup",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ProviderAttestationId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Attestation"
+ }
+}

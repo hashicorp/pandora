@@ -18,4 +18,7 @@ internal class SubjectRightsRequestEnumeratedMailboxLocationModel
 
     [JsonPropertyName("upns")]
     public List<string>? Upns { get; set; }
+
+    [JsonPropertyName("userPrincipalNames")]
+    public List<string>? UserPrincipalNames { get; set; }
 }

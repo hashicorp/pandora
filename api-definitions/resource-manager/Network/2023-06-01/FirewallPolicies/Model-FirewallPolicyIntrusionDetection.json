@@ -1,0 +1,41 @@
+{
+ "name": "FirewallPolicyIntrusionDetection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configuration",
+   "name": "Configuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIntrusionDetectionConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIntrusionDetectionStateType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "profile",
+   "name": "Profile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyIntrusionDetectionProfileType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "ImportDataAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataImportDefinition",
+   "name": "DataImportDefinition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataImport"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ScheduleActionBase",
+ "discriminatedTypeValue": "ImportData",
+ "typeHintIn": "ActionType"
+}

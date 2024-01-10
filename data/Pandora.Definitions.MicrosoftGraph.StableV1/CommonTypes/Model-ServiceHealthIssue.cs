@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ServiceHealthIssueModel
 {
     [JsonPropertyName("classification")]
-    public ServiceHealthClassificationTypeConstant? Classification { get; set; }
+    public ServiceHealthIssueClassificationConstant? Classification { get; set; }
 
     [JsonPropertyName("details")]
     public List<KeyValuePairModel>? Details { get; set; }
@@ -44,7 +44,7 @@ internal class ServiceHealthIssueModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("origin")]
-    public ServiceHealthOriginConstant? Origin { get; set; }
+    public ServiceHealthIssueOriginConstant? Origin { get; set; }
 
     [JsonPropertyName("posts")]
     public List<ServiceHealthIssuePostModel>? Posts { get; set; }
@@ -56,7 +56,7 @@ internal class ServiceHealthIssueModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public ServiceHealthStatusConstant? Status { get; set; }
+    public ServiceHealthIssueStatusConstant? Status { get; set; }
 
     [JsonPropertyName("title")]
     public string? Title { get; set; }

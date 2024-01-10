@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class StandardWebPartModel
 {
+    [JsonPropertyName("containerTextWebPartId")]
+    public string? ContainerTextWebPartId { get; set; }
+
     [JsonPropertyName("data")]
     public WebPartDataModel? Data { get; set; }
 

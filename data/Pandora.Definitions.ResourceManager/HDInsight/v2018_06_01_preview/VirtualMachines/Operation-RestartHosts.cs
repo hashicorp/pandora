@@ -24,7 +24,7 @@ internal class RestartHostsOperation : Pandora.Definitions.Operations.PostOperat
 
     public override Type? RequestObject() => typeof(List<string>);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/restartHosts";
 

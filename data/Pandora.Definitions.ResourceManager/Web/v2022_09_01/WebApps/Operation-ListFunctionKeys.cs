@@ -25,7 +25,7 @@ internal class ListFunctionKeysOperation : Pandora.Definitions.Operations.PostOp
 
     public override Type? ResponseObject() => typeof(StringDictionaryModel);
 
-    public override string? UriSuffix() => "/listkeys";
+    public override string? UriSuffix() => "/listKeys";
 
 
 }

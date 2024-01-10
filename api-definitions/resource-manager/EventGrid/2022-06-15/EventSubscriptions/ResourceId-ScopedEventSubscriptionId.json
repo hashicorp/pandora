@@ -1,0 +1,29 @@
+{
+ "name": "ScopedEventSubscriptionId",
+ "id": "/{scope}/providers/Microsoft.EventGrid/eventSubscriptions/{eventSubscriptionName}",
+ "segments": [
+  {
+   "name": "scope",
+   "type": "Scope"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftEventGrid",
+   "type": "ResourceProvider",
+   "value": "Microsoft.EventGrid"
+  },
+  {
+   "name": "staticEventSubscriptions",
+   "type": "Static",
+   "value": "eventSubscriptions"
+  },
+  {
+   "name": "eventSubscriptionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

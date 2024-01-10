@@ -1,0 +1,41 @@
+{
+ "name": "WebAppMinorVersion",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayText",
+   "name": "DisplayText",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "stackSettings",
+   "name": "StackSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebAppRuntimes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -62,5 +62,5 @@ internal class MacOSOfficeSuiteAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MacOSOfficeSuiteAppPublishingStateConstant? PublishingState { get; set; }
 }

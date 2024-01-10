@@ -32,8 +32,8 @@ internal class TermStoreGroupModel
     public string? ParentSiteId { get; set; }
 
     [JsonPropertyName("scope")]
-    public TermGroupScopeConstant? Scope { get; set; }
+    public TermStoreGroupScopeConstant? Scope { get; set; }
 
     [JsonPropertyName("sets")]
-    public List<SetModel>? Sets { get; set; }
+    public List<TermStoreSetModel>? Sets { get; set; }
 }

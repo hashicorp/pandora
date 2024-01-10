@@ -1,0 +1,52 @@
+{
+ "name": "FrontendEndpointId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Network/frontDoors/{frontDoorName}/frontendEndpoints/{frontendEndpointName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftNetwork",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Network"
+  },
+  {
+   "name": "staticFrontDoors",
+   "type": "Static",
+   "value": "frontDoors"
+  },
+  {
+   "name": "frontDoorName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticFrontendEndpoints",
+   "type": "Static",
+   "value": "frontendEndpoints"
+  },
+  {
+   "name": "frontendEndpointName",
+   "type": "UserSpecified"
+  }
+ ]
+}

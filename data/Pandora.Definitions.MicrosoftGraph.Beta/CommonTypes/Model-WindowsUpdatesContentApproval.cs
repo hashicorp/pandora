@@ -20,10 +20,10 @@ internal class WindowsUpdatesContentApprovalModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("deploymentSettings")]
-    public DeploymentSettingsModel? DeploymentSettings { get; set; }
+    public WindowsUpdatesDeploymentSettingsModel? DeploymentSettings { get; set; }
 
     [JsonPropertyName("deployments")]
-    public List<DeploymentModel>? Deployments { get; set; }
+    public List<WindowsUpdatesDeploymentModel>? Deployments { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -38,5 +38,5 @@ internal class WindowsUpdatesContentApprovalModel
     public DateTime? RevokedDateTime { get; set; }
 
     [JsonPropertyName("updatePolicy")]
-    public UpdatePolicyModel? UpdatePolicy { get; set; }
+    public WindowsUpdatesUpdatePolicyModel? UpdatePolicy { get; set; }
 }

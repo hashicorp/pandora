@@ -26,8 +26,6 @@ internal class ListInboundNatRulePortMappingsOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new BackendAddressPoolId();
 
-    public override Type? ResponseObject() => typeof(BackendAddressInboundNatRulePortMappingsModel);
-
     public override string? UriSuffix() => "/queryInboundNatRulePortMapping";
 
 

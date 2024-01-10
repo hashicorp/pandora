@@ -1,0 +1,53 @@
+{
+ "name": "PortalDelegationSettingsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subscriptions",
+   "name": "Subscriptions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubscriptionsDelegationSettingsProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "url",
+   "name": "Url",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userRegistration",
+   "name": "UserRegistration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RegistrationDelegationSettingsProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationKey",
+   "name": "ValidationKey",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

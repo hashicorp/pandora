@@ -1,0 +1,20 @@
+{
+ "name": "IoTHubEventSourceResource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IoTHubEventSourceCommonProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "EventSourceResource",
+ "discriminatedTypeValue": "Microsoft.IoTHub",
+ "typeHintIn": "Kind"
+}

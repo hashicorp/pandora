@@ -43,9 +43,6 @@ internal class IosVppAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -54,9 +51,6 @@ internal class IosVppAppModel
 
     [JsonPropertyName("informationUrl")]
     public string? InformationUrl { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -89,7 +83,7 @@ internal class IosVppAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public IosVppAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -118,11 +112,8 @@ internal class IosVppAppModel
     [JsonPropertyName("usedLicenseCount")]
     public int? UsedLicenseCount { get; set; }
 
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
-
     [JsonPropertyName("vppTokenAccountType")]
-    public VppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
+    public IosVppAppVppTokenAccountTypeConstant? VppTokenAccountType { get; set; }
 
     [JsonPropertyName("vppTokenAppleId")]
     public string? VppTokenAppleId { get; set; }

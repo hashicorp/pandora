@@ -1,0 +1,52 @@
+{
+ "name": "QueryId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/queryPacks/{queryPackName}/queries/{queryName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftOperationalInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.OperationalInsights"
+  },
+  {
+   "name": "staticQueryPacks",
+   "type": "Static",
+   "value": "queryPacks"
+  },
+  {
+   "name": "queryPackName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticQueries",
+   "type": "Static",
+   "value": "queries"
+  },
+  {
+   "name": "queryName",
+   "type": "UserSpecified"
+  }
+ ]
+}

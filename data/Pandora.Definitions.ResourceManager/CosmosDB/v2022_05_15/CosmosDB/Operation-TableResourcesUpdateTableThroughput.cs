@@ -26,8 +26,6 @@ internal class TableResourcesUpdateTableThroughputOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new TableId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default";
 
 

@@ -13,10 +13,10 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateUpdateApplicationConnectorGroupOperation(),
-        new GetApplicationConnectorGroupOperation(),
-        new GetConnectorGroupOperation(),
-        new RemoveApplicationConnectorGroupOperation()
+        new CreateUpdateApplicationByIdConnectorGroupRefOperation(),
+        new GetApplicationByIdConnectorGroupOperation(),
+        new GetApplicationByIdConnectorGroupRefOperation(),
+        new RemoveApplicationByIdConnectorGroupRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -26,6 +26,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(CreateUpdateApplicationConnectorGroupRequestModel)
+
     };
 }

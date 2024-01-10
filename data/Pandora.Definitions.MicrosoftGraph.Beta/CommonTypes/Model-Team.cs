@@ -110,7 +110,7 @@ internal class TeamModel
     public string? TenantId { get; set; }
 
     [JsonPropertyName("visibility")]
-    public TeamVisibilityTypeConstant? Visibility { get; set; }
+    public TeamVisibilityConstant? Visibility { get; set; }
 
     [JsonPropertyName("webUrl")]
     public string? WebUrl { get; set; }

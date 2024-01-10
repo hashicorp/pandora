@@ -1,0 +1,77 @@
+{
+ "name": "KubernetesRoleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostPlatform",
+   "name": "HostPlatform",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlatformType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostPlatformType",
+   "name": "HostPlatformType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HostPlatformType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kubernetesClusterInfo",
+   "name": "KubernetesClusterInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesClusterInfo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kubernetesRoleResources",
+   "name": "KubernetesRoleResources",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesRoleResources"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KubernetesState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roleStatus",
+   "name": "RoleStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleStatus"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

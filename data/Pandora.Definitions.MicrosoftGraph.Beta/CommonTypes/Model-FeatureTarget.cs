@@ -20,5 +20,5 @@ internal class FeatureTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public FeatureTargetTypeConstant? TargetType { get; set; }
+    public FeatureTargetTargetTypeConstant? TargetType { get; set; }
 }

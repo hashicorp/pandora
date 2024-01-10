@@ -1,0 +1,53 @@
+{
+ "name": "SourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "branch",
+   "name": "Branch",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "repositoryUrl",
+   "name": "RepositoryUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceControlAuthProperties",
+   "name": "SourceControlAuthProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AuthInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceControlType",
+   "name": "SourceControlType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SourceControlType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

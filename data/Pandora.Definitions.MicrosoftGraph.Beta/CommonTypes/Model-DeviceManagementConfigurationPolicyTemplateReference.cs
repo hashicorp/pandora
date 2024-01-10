@@ -23,7 +23,7 @@ internal class DeviceManagementConfigurationPolicyTemplateReferenceModel
     public string? TemplateDisplayVersion { get; set; }
 
     [JsonPropertyName("templateFamily")]
-    public DeviceManagementConfigurationTemplateFamilyConstant? TemplateFamily { get; set; }
+    public DeviceManagementConfigurationPolicyTemplateReferenceTemplateFamilyConstant? TemplateFamily { get; set; }
 
     [JsonPropertyName("templateId")]
     public string? TemplateId { get; set; }

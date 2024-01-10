@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class Windows10EndpointProtectionConfigurationModel
 {
     [JsonPropertyName("appLockerApplicationControl")]
-    public AppLockerApplicationControlTypeConstant? AppLockerApplicationControl { get; set; }
+    public Windows10EndpointProtectionConfigurationAppLockerApplicationControlConstant? AppLockerApplicationControl { get; set; }
 
     [JsonPropertyName("applicationGuardAllowPersistence")]
     public bool? ApplicationGuardAllowPersistence { get; set; }
@@ -32,10 +32,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? ApplicationGuardAllowPrintToXPS { get; set; }
 
     [JsonPropertyName("applicationGuardBlockClipboardSharing")]
-    public ApplicationGuardBlockClipboardSharingTypeConstant? ApplicationGuardBlockClipboardSharing { get; set; }
+    public Windows10EndpointProtectionConfigurationApplicationGuardBlockClipboardSharingConstant? ApplicationGuardBlockClipboardSharing { get; set; }
 
     [JsonPropertyName("applicationGuardBlockFileTransfer")]
-    public ApplicationGuardBlockFileTransferTypeConstant? ApplicationGuardBlockFileTransfer { get; set; }
+    public Windows10EndpointProtectionConfigurationApplicationGuardBlockFileTransferConstant? ApplicationGuardBlockFileTransfer { get; set; }
 
     [JsonPropertyName("applicationGuardBlockNonEnterpriseContent")]
     public bool? ApplicationGuardBlockNonEnterpriseContent { get; set; }
@@ -101,7 +101,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? FirewallBlockStatefulFTP { get; set; }
 
     [JsonPropertyName("firewallCertificateRevocationListCheckMethod")]
-    public FirewallCertificateRevocationListCheckMethodTypeConstant? FirewallCertificateRevocationListCheckMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallCertificateRevocationListCheckMethodConstant? FirewallCertificateRevocationListCheckMethod { get; set; }
 
     [JsonPropertyName("firewallIPSecExemptionsAllowDHCP")]
     public bool? FirewallIPSecExemptionsAllowDHCP { get; set; }
@@ -122,10 +122,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? FirewallMergeKeyingModuleSettings { get; set; }
 
     [JsonPropertyName("firewallPacketQueueingMethod")]
-    public FirewallPacketQueueingMethodTypeConstant? FirewallPacketQueueingMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallPacketQueueingMethodConstant? FirewallPacketQueueingMethod { get; set; }
 
     [JsonPropertyName("firewallPreSharedKeyEncodingMethod")]
-    public FirewallPreSharedKeyEncodingMethodTypeConstant? FirewallPreSharedKeyEncodingMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallPreSharedKeyEncodingMethodConstant? FirewallPreSharedKeyEncodingMethod { get; set; }
 
     [JsonPropertyName("firewallProfileDomain")]
     public WindowsFirewallNetworkProfileModel? FirewallProfileDomain { get; set; }

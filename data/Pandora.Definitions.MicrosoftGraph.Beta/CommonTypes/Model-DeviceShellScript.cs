@@ -56,7 +56,7 @@ internal class DeviceShellScriptModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public DeviceShellScriptRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("runSummary")]
     public DeviceManagementScriptRunSummaryModel? RunSummary { get; set; }

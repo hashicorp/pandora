@@ -26,8 +26,6 @@ internal class UpdateDiagnosticRemoteSupportSettingsOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new DataBoxEdgeDeviceId();
 
-    public override Type? ResponseObject() => typeof(DiagnosticRemoteSupportSettingsModel);
-
     public override string? UriSuffix() => "/diagnosticRemoteSupportSettings/default";
 
 

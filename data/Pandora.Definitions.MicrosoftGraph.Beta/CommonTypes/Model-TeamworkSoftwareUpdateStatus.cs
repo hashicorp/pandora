@@ -23,5 +23,5 @@ internal class TeamworkSoftwareUpdateStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("softwareFreshness")]
-    public TeamworkSoftwareFreshnessConstant? SoftwareFreshness { get; set; }
+    public TeamworkSoftwareUpdateStatusSoftwareFreshnessConstant? SoftwareFreshness { get; set; }
 }

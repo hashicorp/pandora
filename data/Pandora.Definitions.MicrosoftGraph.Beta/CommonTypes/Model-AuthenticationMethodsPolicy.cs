@@ -32,7 +32,7 @@ internal class AuthenticationMethodsPolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyMigrationState")]
-    public AuthenticationMethodsPolicyMigrationStateConstant? PolicyMigrationState { get; set; }
+    public AuthenticationMethodsPolicyPolicyMigrationStateConstant? PolicyMigrationState { get; set; }
 
     [JsonPropertyName("policyVersion")]
     public string? PolicyVersion { get; set; }
@@ -42,6 +42,9 @@ internal class AuthenticationMethodsPolicyModel
 
     [JsonPropertyName("registrationEnforcement")]
     public RegistrationEnforcementModel? RegistrationEnforcement { get; set; }
+
+    [JsonPropertyName("reportSuspiciousActivitySettings")]
+    public ReportSuspiciousActivitySettingsModel? ReportSuspiciousActivitySettings { get; set; }
 
     [JsonPropertyName("systemCredentialPreferences")]
     public SystemCredentialPreferencesModel? SystemCredentialPreferences { get; set; }

@@ -23,7 +23,7 @@ internal class TeamFunSettingsModel
     public bool? AllowStickersAndMemes { get; set; }
 
     [JsonPropertyName("giphyContentRating")]
-    public GiphyRatingTypeConstant? GiphyContentRating { get; set; }
+    public TeamFunSettingsGiphyContentRatingConstant? GiphyContentRating { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -17,7 +17,7 @@ internal class AndroidForWorkGmailEasConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public EasAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidForWorkGmailEasConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -47,10 +47,10 @@ internal class AndroidForWorkGmailEasConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("durationOfEmailToSync")]
-    public EmailSyncDurationConstant? DurationOfEmailToSync { get; set; }
+    public AndroidForWorkGmailEasConfigurationDurationOfEmailToSyncConstant? DurationOfEmailToSync { get; set; }
 
     [JsonPropertyName("emailAddressSource")]
-    public UserEmailSourceConstant? EmailAddressSource { get; set; }
+    public AndroidForWorkGmailEasConfigurationEmailAddressSourceConstant? EmailAddressSource { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -86,7 +86,7 @@ internal class AndroidForWorkGmailEasConfigurationModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public AndroidUsernameSourceConstant? UsernameSource { get; set; }
+    public AndroidForWorkGmailEasConfigurationUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

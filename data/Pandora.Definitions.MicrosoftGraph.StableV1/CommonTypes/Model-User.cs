@@ -91,6 +91,9 @@ internal class UserModel
     [JsonPropertyName("creationType")]
     public string? CreationType { get; set; }
 
+    [JsonPropertyName("customSecurityAttributes")]
+    public CustomSecurityAttributeValueModel? CustomSecurityAttributes { get; set; }
+
     [JsonPropertyName("deletedDateTime")]
     public DateTime? DeletedDateTime { get; set; }
 
@@ -114,6 +117,9 @@ internal class UserModel
 
     [JsonPropertyName("drives")]
     public List<DriveModel>? Drives { get; set; }
+
+    [JsonPropertyName("employeeExperience")]
+    public EmployeeExperienceUserModel? EmployeeExperience { get; set; }
 
     [JsonPropertyName("employeeHireDate")]
     public DateTime? EmployeeHireDate { get; set; }
@@ -295,6 +301,9 @@ internal class UserModel
     [JsonPropertyName("people")]
     public List<PersonModel>? People { get; set; }
 
+    [JsonPropertyName("permissionGrants")]
+    public List<ResourceSpecificPermissionGrantModel>? PermissionGrants { get; set; }
+
     [JsonPropertyName("photo")]
     public ProfilePhotoModel? Photo { get; set; }
 
@@ -319,6 +328,9 @@ internal class UserModel
     [JsonPropertyName("presence")]
     public PresenceModel? Presence { get; set; }
 
+    [JsonPropertyName("print")]
+    public UserPrintModel? Print { get; set; }
+
     [JsonPropertyName("provisionedPlans")]
     public List<ProvisionedPlanModel>? ProvisionedPlans { get; set; }
 
@@ -339,6 +351,9 @@ internal class UserModel
 
     [JsonPropertyName("securityIdentifier")]
     public string? SecurityIdentifier { get; set; }
+
+    [JsonPropertyName("serviceProvisioningErrors")]
+    public List<ServiceProvisioningErrorModel>? ServiceProvisioningErrors { get; set; }
 
     [JsonPropertyName("settings")]
     public UserSettingsModel? Settings { get; set; }

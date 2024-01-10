@@ -1,0 +1,69 @@
+{
+	"fields": [
+		{
+			"documentation": {
+				"markdown": "The FleetHubProfile configures the Fleet's hub."
+			},
+			"forceNew": true,
+			"hclName": "hub_profile",
+			"optional": true,
+			"name": "HubProfile",
+			"objectDefinition": {
+				"referenceName": "KubernetesFleetManagerResourceFleetHubProfileSchema",
+				"type": "Reference"
+			}
+		},
+		{
+			"documentation": {
+				"markdown": "The Azure Region where the Kubernetes Fleet Manager should exist."
+			},
+			"forceNew": true,
+			"hclName": "location",
+			"name": "Location",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "Location"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the name of this Kubernetes Fleet Manager."
+			},
+			"forceNew": true,
+			"hclName": "name",
+			"name": "Name",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the name of the Resource Group within which this Kubernetes Fleet Manager should exist."
+			},
+			"forceNew": true,
+			"hclName": "resource_group_name",
+			"name": "ResourceGroupName",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "ResourceGroup"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "A mapping of tags which should be assigned to the Kubernetes Fleet Manager."
+			},
+			"hclName": "tags",
+			"optional": true,
+			"name": "Tags",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "Tags"
+			}
+		}
+	],
+	"name": "KubernetesFleetManagerResourceSchema"
+}

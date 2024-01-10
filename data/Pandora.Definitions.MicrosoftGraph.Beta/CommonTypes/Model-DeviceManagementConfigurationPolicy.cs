@@ -41,7 +41,7 @@ internal class DeviceManagementConfigurationPolicyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platforms")]
-    public DeviceManagementConfigurationPlatformsConstant? Platforms { get; set; }
+    public DeviceManagementConfigurationPolicyPlatformsConstant? Platforms { get; set; }
 
     [JsonPropertyName("priorityMetaData")]
     public DeviceManagementPriorityMetaDataModel? PriorityMetaData { get; set; }
@@ -56,7 +56,7 @@ internal class DeviceManagementConfigurationPolicyModel
     public List<DeviceManagementConfigurationSettingModel>? Settings { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementConfigurationPolicyTechnologiesConstant? Technologies { get; set; }
 
     [JsonPropertyName("templateReference")]
     public DeviceManagementConfigurationPolicyTemplateReferenceModel? TemplateReference { get; set; }

@@ -26,5 +26,5 @@ internal class HasPayloadLinkResultItemModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("sources")]
-    public List<DeviceAndAppManagementAssignmentSourceConstant>? Sources { get; set; }
+    public List<HasPayloadLinkResultItemSourcesConstant>? Sources { get; set; }
 }

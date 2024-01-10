@@ -23,7 +23,7 @@ internal class UserSecurityStateModel
     public string? DomainName { get; set; }
 
     [JsonPropertyName("emailRole")]
-    public EmailRoleConstant? EmailRole { get; set; }
+    public UserSecurityStateEmailRoleConstant? EmailRole { get; set; }
 
     [JsonPropertyName("isVpn")]
     public bool? IsVpn { get; set; }
@@ -41,7 +41,7 @@ internal class UserSecurityStateModel
     public string? LogonLocation { get; set; }
 
     [JsonPropertyName("logonType")]
-    public LogonTypeConstant? LogonType { get; set; }
+    public UserSecurityStateLogonTypeConstant? LogonType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -53,7 +53,7 @@ internal class UserSecurityStateModel
     public string? RiskScore { get; set; }
 
     [JsonPropertyName("userAccountType")]
-    public UserAccountSecurityTypeConstant? UserAccountType { get; set; }
+    public UserSecurityStateUserAccountTypeConstant? UserAccountType { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }

@@ -26,7 +26,7 @@ internal class PolicySetModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("errorCode")]
-    public ErrorCodeConstant? ErrorCode { get; set; }
+    public PolicySetErrorCodeConstant? ErrorCode { get; set; }
 
     [JsonPropertyName("guidedDeploymentTags")]
     public List<string>? GuidedDeploymentTags { get; set; }

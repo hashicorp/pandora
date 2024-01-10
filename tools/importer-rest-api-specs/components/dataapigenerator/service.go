@@ -33,7 +33,6 @@ func NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha st
 
 func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) *Generator {
 	service := NewForService(serviceName, outputDirectory, rootNamespace, swaggerGitSha, resourceProvider, terraformPackageName, logger)
-
 	normalizedApiVersion := normalizeApiVersion(apiVersion)
 
 	service.apiVersionPackageName = normalizedApiVersion
@@ -44,11 +43,6 @@ func NewForApiVersion(serviceName, apiVersion, outputDirectory, rootNamespace, s
 }
 
 func (s Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
-	s.logger.Debug(fmt.Sprintf("[STAGE] Updating the Output Revision ID to %q", s.swaggerGitSha))
-	if err := outputRevisionId(s.outputDirectory, s.rootNamespace, s.swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Revision Id: %+v", err)
-	}
-
 	s.logger.Debug(fmt.Sprintf("[STAGE] Generating the Service Definitions.."))
 	if err := s.generateServiceDefinitions(apiVersions); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)

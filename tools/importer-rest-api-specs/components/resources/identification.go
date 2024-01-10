@@ -20,17 +20,18 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 	}
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
-		// no point
-		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
-			continue
-		}
-
 		hasList := false
 
 		var createMethod *resourcemanager.MethodDefinition
 		var updateMethod *resourcemanager.MethodDefinition
 		var deleteMethod *resourcemanager.MethodDefinition
 		var getMethod *resourcemanager.MethodDefinition
+
+		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
+		if resourceLabel == nil || resourceMetaData == nil {
+			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
+			continue
+		}
 
 		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
@@ -111,12 +112,6 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			}
 		}
 
-		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
-		if resourceLabel == nil || resourceMetaData == nil {
-			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
-			continue
-		}
-
 		var dataSourceDefinition *resourcemanager.TerraformDataSourceDetails
 		if getMethod != nil || hasList {
 			dataSourceDefinition = &resourcemanager.TerraformDataSourceDetails{
@@ -133,6 +128,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				Generate:             true,
 				GenerateSchema:       true,
 				GenerateIdValidation: true,
+				GenerateModel:        true,
 				ReadMethod:           *getMethod,
 				Resource:             apiResourceName,
 				ResourceIdName:       resourceIdName,

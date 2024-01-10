@@ -1,0 +1,41 @@
+{
+ "name": "RetentionDescription",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cleanupPolicy",
+   "name": "CleanupPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CleanupPolicyRetentionDescription"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "retentionTimeInHours",
+   "name": "RetentionTimeInHours",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tombstoneRetentionTimeInHours",
+   "name": "TombstoneRetentionTimeInHours",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

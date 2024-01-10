@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class ScheduleModel
 {
+    [JsonPropertyName("dayNotes")]
+    public List<DayNoteModel>? DayNotes { get; set; }
+
     [JsonPropertyName("enabled")]
     public bool? Enabled { get; set; }
 
@@ -38,7 +41,7 @@ internal class ScheduleModel
     public bool? OpenShiftsEnabled { get; set; }
 
     [JsonPropertyName("provisionStatus")]
-    public OperationStatusConstant? ProvisionStatus { get; set; }
+    public ScheduleProvisionStatusConstant? ProvisionStatus { get; set; }
 
     [JsonPropertyName("provisionStatusCode")]
     public string? ProvisionStatusCode { get; set; }

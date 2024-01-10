@@ -17,19 +17,19 @@ internal class SecurityModel
     public List<AlertModel>? Alerts { get; set; }
 
     [JsonPropertyName("alerts_v2")]
-    public List<AlertModel>? Alertsv2 { get; set; }
+    public List<SecurityAlertModel>? Alertsv2 { get; set; }
 
     [JsonPropertyName("attackSimulation")]
     public AttackSimulationRootModel? AttackSimulation { get; set; }
 
     [JsonPropertyName("cases")]
-    public CasesRootModel? Cases { get; set; }
+    public SecurityCasesRootModel? Cases { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("incidents")]
-    public List<IncidentModel>? Incidents { get; set; }
+    public List<SecurityIncidentModel>? Incidents { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -40,9 +40,15 @@ internal class SecurityModel
     [JsonPropertyName("secureScores")]
     public List<SecureScoreModel>? SecureScores { get; set; }
 
+    [JsonPropertyName("subjectRightsRequests")]
+    public List<SubjectRightsRequestModel>? SubjectRightsRequests { get; set; }
+
+    [JsonPropertyName("threatIntelligence")]
+    public SecurityThreatIntelligenceModel? ThreatIntelligence { get; set; }
+
     [JsonPropertyName("triggerTypes")]
-    public TriggerTypesRootModel? TriggerTypes { get; set; }
+    public SecurityTriggerTypesRootModel? TriggerTypes { get; set; }
 
     [JsonPropertyName("triggers")]
-    public TriggersRootModel? Triggers { get; set; }
+    public SecurityTriggersRootModel? Triggers { get; set; }
 }

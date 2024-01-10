@@ -23,5 +23,5 @@ internal class SystemCredentialPreferencesModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AdvancedConfigStateConstant? State { get; set; }
+    public SystemCredentialPreferencesStateConstant? State { get; set; }
 }

@@ -17,7 +17,7 @@ internal class WindowsUpdateScheduledInstallModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("scheduledInstallDay")]
-    public WeeklyScheduleConstant? ScheduledInstallDay { get; set; }
+    public WindowsUpdateScheduledInstallScheduledInstallDayConstant? ScheduledInstallDay { get; set; }
 
     [JsonPropertyName("scheduledInstallTime")]
     public DateTime? ScheduledInstallTime { get; set; }

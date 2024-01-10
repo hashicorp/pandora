@@ -1,0 +1,29 @@
+{
+ "name": "DataConnectorRequirementsState",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authorizationState",
+   "name": "AuthorizationState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataConnectorAuthorizationState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "licenseState",
+   "name": "LicenseState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataConnectorLicenseState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

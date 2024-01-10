@@ -1,0 +1,24 @@
+{
+ "name": "MonthlyRecurrence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "daysOfMonth",
+   "name": "DaysOfMonth",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Integer",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Recurrence",
+ "discriminatedTypeValue": "Monthly",
+ "typeHintIn": "RecurrenceType"
+}

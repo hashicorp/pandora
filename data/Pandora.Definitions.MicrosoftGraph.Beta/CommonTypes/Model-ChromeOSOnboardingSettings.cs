@@ -26,7 +26,7 @@ internal class ChromeOSOnboardingSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("onboardingStatus")]
-    public OnboardingStatusConstant? OnboardingStatus { get; set; }
+    public ChromeOSOnboardingSettingsOnboardingStatusConstant? OnboardingStatus { get; set; }
 
     [JsonPropertyName("ownerUserPrincipalName")]
     public string? OwnerUserPrincipalName { get; set; }

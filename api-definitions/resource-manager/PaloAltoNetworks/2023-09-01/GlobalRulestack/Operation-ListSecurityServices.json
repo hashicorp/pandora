@@ -1,0 +1,47 @@
+{
+ "name": "ListSecurityServices",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "skip",
+   "required": false,
+   "field": "Skip",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "top",
+   "required": false,
+   "field": "Top",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "type",
+   "required": true,
+   "field": "Type",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecurityServicesTypeEnum"
+   }
+  }
+ ],
+ "resourceIdName": "GlobalRulestackId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SecurityServicesResponse"
+ },
+ "uriSuffix": "/listSecurityServices"
+}

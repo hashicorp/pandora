@@ -26,8 +26,6 @@ internal class ValidateAtSubscriptionScopeOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new ProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

@@ -1,0 +1,16 @@
+{
+ "name": "UpdateDiagnosticRemoteSupportSettings",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "DataBoxEdgeDeviceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DiagnosticRemoteSupportSettings"
+ },
+ "uriSuffix": "/diagnosticRemoteSupportSettings/default"
+}

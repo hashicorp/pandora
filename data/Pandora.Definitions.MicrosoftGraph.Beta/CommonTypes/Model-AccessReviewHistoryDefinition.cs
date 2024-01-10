@@ -20,7 +20,7 @@ internal class AccessReviewHistoryDefinitionModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("decisions")]
-    public List<AccessReviewHistoryDecisionFilterConstant>? Decisions { get; set; }
+    public List<AccessReviewHistoryDefinitionDecisionsConstant>? Decisions { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -53,5 +53,5 @@ internal class AccessReviewHistoryDefinitionModel
     public List<AccessReviewScopeModel>? Scopes { get; set; }
 
     [JsonPropertyName("status")]
-    public AccessReviewHistoryStatusConstant? Status { get; set; }
+    public AccessReviewHistoryDefinitionStatusConstant? Status { get; set; }
 }

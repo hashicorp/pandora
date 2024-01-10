@@ -13,12 +13,12 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new CreateDelegatedPermissionClassificationOperation(),
-        new DeleteDelegatedPermissionClassificationOperation(),
-        new GetDelegatedPermissionClassificationOperation(),
-        new GetServicePrincipalDelegatedPermissionClassificationsCountOperation(),
-        new ListDelegatedPermissionClassificationsOperation(),
-        new UpdateDelegatedPermissionClassificationOperation()
+        new CreateServicePrincipalByIdDelegatedPermissionClassificationOperation(),
+        new DeleteServicePrincipalByIdDelegatedPermissionClassificationByIdOperation(),
+        new GetServicePrincipalByIdDelegatedPermissionClassificationByIdOperation(),
+        new GetServicePrincipalByIdDelegatedPermissionClassificationCountOperation(),
+        new ListServicePrincipalByIdDelegatedPermissionClassificationsOperation(),
+        new UpdateServicePrincipalByIdDelegatedPermissionClassificationByIdOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

@@ -20,5 +20,5 @@ internal class IndustryDataUserMatchTargetReferenceValueModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("value")]
-    public ReferenceDefinitionModel? Value { get; set; }
+    public IndustryDataReferenceDefinitionModel? Value { get; set; }
 }

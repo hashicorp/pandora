@@ -26,7 +26,5 @@ internal class DigitalTwinsUpdateOperation : Pandora.Definitions.Operations.Patc
 
     public override ResourceID? ResourceId() => new DigitalTwinsInstanceId();
 
-    public override Type? ResponseObject() => typeof(DigitalTwinsDescriptionModel);
-
 
 }

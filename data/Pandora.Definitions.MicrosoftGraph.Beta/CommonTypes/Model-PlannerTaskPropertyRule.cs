@@ -56,7 +56,7 @@ internal class PlannerTaskPropertyRuleModel
     public PlannerFieldRulesModel? References { get; set; }
 
     [JsonPropertyName("ruleKind")]
-    public PlannerRuleKindConstant? RuleKind { get; set; }
+    public PlannerTaskPropertyRuleRuleKindConstant? RuleKind { get; set; }
 
     [JsonPropertyName("startDate")]
     public List<string>? StartDate { get; set; }

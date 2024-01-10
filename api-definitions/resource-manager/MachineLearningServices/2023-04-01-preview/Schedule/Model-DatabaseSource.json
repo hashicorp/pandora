@@ -1,0 +1,64 @@
+{
+ "name": "DatabaseSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "query",
+   "name": "Query",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storedProcedure",
+   "name": "StoredProcedure",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storedProcedureParams",
+   "name": "StoredProcedureParams",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Dictionary",
+     "referenceName": null,
+     "nestedItem": {
+      "type": "String",
+      "referenceName": null
+     }
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tableName",
+   "name": "TableName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataImportSource",
+ "discriminatedTypeValue": "database",
+ "typeHintIn": "SourceType"
+}

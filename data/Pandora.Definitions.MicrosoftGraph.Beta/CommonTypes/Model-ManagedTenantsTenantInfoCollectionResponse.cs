@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsTenantInfoCollectionResponseModel
 {
     [JsonPropertyName("@odata.count")]
-    public long? ODataCount { get; set; }
+    public int? ODataCount { get; set; }
 
     [JsonPropertyName("@odata.nextLink")]
     public string? ODataNextLink { get; set; }
 
     [JsonPropertyName("value")]
-    public List<TenantInfoModel>? Value { get; set; }
+    public List<ManagedTenantsTenantInfoModel>? Value { get; set; }
 }

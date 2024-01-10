@@ -23,7 +23,7 @@ internal class DeviceEnrollmentPlatformRestrictionConfigurationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceEnrollmentConfigurationType")]
-    public DeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
+    public DeviceEnrollmentPlatformRestrictionConfigurationDeviceEnrollmentConfigurationTypeConstant? DeviceEnrollmentConfigurationType { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -41,7 +41,7 @@ internal class DeviceEnrollmentPlatformRestrictionConfigurationModel
     public DeviceEnrollmentPlatformRestrictionModel? PlatformRestriction { get; set; }
 
     [JsonPropertyName("platformType")]
-    public EnrollmentRestrictionPlatformTypeConstant? PlatformType { get; set; }
+    public DeviceEnrollmentPlatformRestrictionConfigurationPlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }

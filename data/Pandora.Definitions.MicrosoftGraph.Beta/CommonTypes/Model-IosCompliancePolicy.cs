@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IosCompliancePolicyModel
 {
     [JsonPropertyName("advancedThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
+    public IosCompliancePolicyAdvancedThreatProtectionRequiredSecurityLevelConstant? AdvancedThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceCompliancePolicyAssignmentModel>? Assignments { get; set; }
@@ -38,7 +38,7 @@ internal class IosCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public IosCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -92,7 +92,7 @@ internal class IosCompliancePolicyModel
     public bool? PasscodeRequired { get; set; }
 
     [JsonPropertyName("passcodeRequiredType")]
-    public RequiredPasswordTypeConstant? PasscodeRequiredType { get; set; }
+    public IosCompliancePolicyPasscodeRequiredTypeConstant? PasscodeRequiredType { get; set; }
 
     [JsonPropertyName("restrictedApps")]
     public List<AppListItemModel>? RestrictedApps { get; set; }

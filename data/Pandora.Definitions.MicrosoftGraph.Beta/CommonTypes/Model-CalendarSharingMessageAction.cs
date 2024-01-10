@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CalendarSharingMessageActionModel
 {
     [JsonPropertyName("action")]
-    public CalendarSharingActionConstant? Action { get; set; }
+    public CalendarSharingMessageActionActionConstant? Action { get; set; }
 
     [JsonPropertyName("actionType")]
-    public CalendarSharingActionTypeConstant? ActionType { get; set; }
+    public CalendarSharingMessageActionActionTypeConstant? ActionType { get; set; }
 
     [JsonPropertyName("importance")]
-    public CalendarSharingActionImportanceConstant? Importance { get; set; }
+    public CalendarSharingMessageActionImportanceConstant? Importance { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

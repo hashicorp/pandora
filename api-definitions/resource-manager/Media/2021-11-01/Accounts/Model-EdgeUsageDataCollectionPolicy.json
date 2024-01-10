@@ -1,0 +1,53 @@
+{
+ "name": "EdgeUsageDataCollectionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataCollectionFrequency",
+   "name": "DataCollectionFrequency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataReportingFrequency",
+   "name": "DataReportingFrequency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventHubDetails",
+   "name": "EventHubDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EdgeUsageDataEventHub"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxAllowedUnreportedUsageDuration",
+   "name": "MaxAllowedUnreportedUsageDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

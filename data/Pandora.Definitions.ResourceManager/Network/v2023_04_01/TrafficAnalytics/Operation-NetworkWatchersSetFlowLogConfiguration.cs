@@ -26,8 +26,6 @@ internal class NetworkWatchersSetFlowLogConfigurationOperation : Pandora.Definit
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(FlowLogInformationModel);
-
     public override string? UriSuffix() => "/configureFlowLog";
 
 

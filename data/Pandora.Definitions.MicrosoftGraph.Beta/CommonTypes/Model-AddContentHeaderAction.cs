@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AddContentHeaderActionModel
 {
     [JsonPropertyName("alignment")]
-    public ContentAlignmentConstant? Alignment { get; set; }
+    public AddContentHeaderActionAlignmentConstant? Alignment { get; set; }
 
     [JsonPropertyName("fontColor")]
     public string? FontColor { get; set; }

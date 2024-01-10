@@ -41,5 +41,5 @@ internal class DeviceAndAppManagementRoleAssignmentModel
     public List<string>? ScopeMembers { get; set; }
 
     [JsonPropertyName("scopeType")]
-    public RoleAssignmentScopeTypeConstant? ScopeType { get; set; }
+    public DeviceAndAppManagementRoleAssignmentScopeTypeConstant? ScopeType { get; set; }
 }

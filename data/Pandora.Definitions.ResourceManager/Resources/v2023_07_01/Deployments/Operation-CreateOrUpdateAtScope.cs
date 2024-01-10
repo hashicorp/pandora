@@ -20,7 +20,5 @@ internal class CreateOrUpdateAtScopeOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ScopedDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentExtendedModel);
-
 
 }

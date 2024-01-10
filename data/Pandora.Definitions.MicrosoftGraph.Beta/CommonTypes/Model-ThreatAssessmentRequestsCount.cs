@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ThreatAssessmentRequestsCountModel
 {
     [JsonPropertyName("count")]
-    public long? Count { get; set; }
+    public int? Count { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

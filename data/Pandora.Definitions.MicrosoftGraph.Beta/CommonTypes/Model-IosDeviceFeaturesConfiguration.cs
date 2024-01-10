@@ -113,7 +113,7 @@ internal class IosDeviceFeaturesConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wallpaperDisplayLocation")]
-    public IosWallpaperDisplayLocationConstant? WallpaperDisplayLocation { get; set; }
+    public IosDeviceFeaturesConfigurationWallpaperDisplayLocationConstant? WallpaperDisplayLocation { get; set; }
 
     [JsonPropertyName("wallpaperImage")]
     public MimeContentModel? WallpaperImage { get; set; }

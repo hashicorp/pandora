@@ -1,0 +1,53 @@
+{
+ "name": "VirtualNetworkLinkProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "registrationEnabled",
+   "name": "RegistrationEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetwork",
+   "name": "VirtualNetwork",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualNetworkLinkState",
+   "name": "VirtualNetworkLinkState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualNetworkLinkState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

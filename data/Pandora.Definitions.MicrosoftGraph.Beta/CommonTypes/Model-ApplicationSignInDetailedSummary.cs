@@ -29,7 +29,7 @@ internal class ApplicationSignInDetailedSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("signInCount")]
-    public long? SignInCount { get; set; }
+    public int? SignInCount { get; set; }
 
     [JsonPropertyName("status")]
     public SignInStatusModel? Status { get; set; }

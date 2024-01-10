@@ -1,0 +1,21 @@
+{
+ "name": "SBAuthorizationRuleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rights",
+   "name": "Rights",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AccessRights"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

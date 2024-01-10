@@ -17,16 +17,16 @@ internal class RoleSuccessStatisticsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("permanentFail")]
-    public long? PermanentFail { get; set; }
+    public int? PermanentFail { get; set; }
 
     [JsonPropertyName("permanentSuccess")]
-    public long? PermanentSuccess { get; set; }
+    public int? PermanentSuccess { get; set; }
 
     [JsonPropertyName("removeFail")]
-    public long? RemoveFail { get; set; }
+    public int? RemoveFail { get; set; }
 
     [JsonPropertyName("removeSuccess")]
-    public long? RemoveSuccess { get; set; }
+    public int? RemoveSuccess { get; set; }
 
     [JsonPropertyName("roleId")]
     public string? RoleId { get; set; }
@@ -35,11 +35,11 @@ internal class RoleSuccessStatisticsModel
     public string? RoleName { get; set; }
 
     [JsonPropertyName("temporaryFail")]
-    public long? TemporaryFail { get; set; }
+    public int? TemporaryFail { get; set; }
 
     [JsonPropertyName("temporarySuccess")]
-    public long? TemporarySuccess { get; set; }
+    public int? TemporarySuccess { get; set; }
 
     [JsonPropertyName("unknownFail")]
-    public long? UnknownFail { get; set; }
+    public int? UnknownFail { get; set; }
 }

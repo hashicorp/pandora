@@ -38,5 +38,5 @@ internal class AccessReviewHistoryInstanceModel
     public DateTime? RunDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public AccessReviewHistoryStatusConstant? Status { get; set; }
+    public AccessReviewHistoryInstanceStatusConstant? Status { get; set; }
 }

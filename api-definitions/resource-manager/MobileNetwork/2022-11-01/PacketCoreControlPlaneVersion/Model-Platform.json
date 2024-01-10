@@ -1,0 +1,77 @@
+{
+ "name": "Platform",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maximumPlatformSoftwareVersion",
+   "name": "MaximumPlatformSoftwareVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimumPlatformSoftwareVersion",
+   "name": "MinimumPlatformSoftwareVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "obsoleteVersion",
+   "name": "ObsoleteVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ObsoleteVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "platformType",
+   "name": "PlatformType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlatformType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recommendedVersion",
+   "name": "RecommendedVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecommendedVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "versionState",
+   "name": "VersionState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VersionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

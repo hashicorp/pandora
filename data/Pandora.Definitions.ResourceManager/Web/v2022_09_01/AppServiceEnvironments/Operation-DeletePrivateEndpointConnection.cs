@@ -25,7 +25,5 @@ internal class DeletePrivateEndpointConnectionOperation : Pandora.Definitions.Op
 
     public override ResourceID? ResourceId() => new HostingEnvironmentPrivateEndpointConnectionId();
 
-    public override Type? ResponseObject() => typeof(object);
-
 
 }

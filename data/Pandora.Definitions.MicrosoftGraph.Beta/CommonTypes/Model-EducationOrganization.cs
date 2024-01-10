@@ -20,7 +20,7 @@ internal class EducationOrganizationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("externalSource")]
-    public EducationExternalSourceConstant? ExternalSource { get; set; }
+    public EducationOrganizationExternalSourceConstant? ExternalSource { get; set; }
 
     [JsonPropertyName("externalSourceDetail")]
     public string? ExternalSourceDetail { get; set; }

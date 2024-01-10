@@ -1,0 +1,33 @@
+{
+ "name": "CapacityReservationUtilization",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "currentCapacity",
+   "name": "CurrentCapacity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "virtualMachinesAllocated",
+   "name": "VirtualMachinesAllocated",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResourceReadOnly"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

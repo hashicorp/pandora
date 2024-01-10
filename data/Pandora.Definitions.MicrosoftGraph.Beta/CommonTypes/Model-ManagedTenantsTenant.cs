@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsTenantModel
 {
     [JsonPropertyName("contract")]
-    public TenantContractModel? Contract { get; set; }
+    public ManagedTenantsTenantContractModel? Contract { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -35,5 +35,5 @@ internal class ManagedTenantsTenantModel
     public string? TenantId { get; set; }
 
     [JsonPropertyName("tenantStatusInformation")]
-    public TenantStatusInformationModel? TenantStatusInformation { get; set; }
+    public ManagedTenantsTenantStatusInformationModel? TenantStatusInformation { get; set; }
 }

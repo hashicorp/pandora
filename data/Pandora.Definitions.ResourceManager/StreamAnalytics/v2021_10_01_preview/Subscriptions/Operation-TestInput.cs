@@ -25,8 +25,6 @@ internal class TestInputOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new LocationId();
 
-    public override Type? ResponseObject() => typeof(TestDatasourceResultModel);
-
     public override string? UriSuffix() => "/testInput";
 
 

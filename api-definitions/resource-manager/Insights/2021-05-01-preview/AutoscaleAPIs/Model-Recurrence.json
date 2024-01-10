@@ -1,0 +1,29 @@
+{
+ "name": "Recurrence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frequency",
+   "name": "Frequency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecurrenceFrequency"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "schedule",
+   "name": "Schedule",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecurrentSchedule"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

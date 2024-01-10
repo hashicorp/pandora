@@ -20,7 +20,7 @@ internal class LearningAssignmentModel
     public string? AssignerUserId { get; set; }
 
     [JsonPropertyName("assignmentType")]
-    public AssignmentTypeConstant? AssignmentType { get; set; }
+    public LearningAssignmentAssignmentTypeConstant? AssignmentType { get; set; }
 
     [JsonPropertyName("completedDateTime")]
     public DateTime? CompletedDateTime { get; set; }
@@ -53,5 +53,5 @@ internal class LearningAssignmentModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public CourseStatusConstant? Status { get; set; }
+    public LearningAssignmentStatusConstant? Status { get; set; }
 }

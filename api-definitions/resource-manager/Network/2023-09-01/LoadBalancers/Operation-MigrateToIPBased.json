@@ -1,0 +1,19 @@
+{
+ "name": "MigrateToIPBased",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "LoadBalancerId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MigrateLoadBalancerToIPBasedRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "MigratedPools"
+ },
+ "uriSuffix": "/migrateToIpBased"
+}

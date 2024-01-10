@@ -1,0 +1,32 @@
+{
+ "name": "AzureVMResourceFeatureSupportRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSize",
+   "name": "VMSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSku",
+   "name": "VMSku",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "FeatureSupportRequest",
+ "discriminatedTypeValue": "AzureVMResourceBackup",
+ "typeHintIn": "FeatureType"
+}

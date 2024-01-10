@@ -1,0 +1,42 @@
+{
+ "name": "TIDataConnectorProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataTypes",
+   "name": "DataTypes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TIDataConnectorDataTypes"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tipLookbackPeriod",
+   "name": "TipLookbackPeriod",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

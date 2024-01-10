@@ -41,7 +41,7 @@ internal class SecuritySensitivityLabelModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parent")]
-    public SensitivityLabelModel? Parent { get; set; }
+    public SecuritySensitivityLabelModel? Parent { get; set; }
 
     [JsonPropertyName("sensitivity")]
     public int? Sensitivity { get; set; }

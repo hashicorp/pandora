@@ -17,7 +17,7 @@ internal class AndroidDeviceOwnerDerivedCredentialAuthenticationConfigurationMod
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateAccessType")]
-    public AndroidDeviceOwnerCertificateAccessTypeConstant? CertificateAccessType { get; set; }
+    public AndroidDeviceOwnerDerivedCredentialAuthenticationConfigurationCertificateAccessTypeConstant? CertificateAccessType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

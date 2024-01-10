@@ -22,6 +22,9 @@ internal class UserExperienceAnalyticsAnomalyDeviceModel
     [JsonPropertyName("anomalyOnDeviceLatestOccurrenceDateTime")]
     public DateTime? AnomalyOnDeviceLatestOccurrenceDateTime { get; set; }
 
+    [JsonPropertyName("correlationGroupId")]
+    public string? CorrelationGroupId { get; set; }
+
     [JsonPropertyName("deviceId")]
     public string? DeviceId { get; set; }
 
@@ -33,6 +36,9 @@ internal class UserExperienceAnalyticsAnomalyDeviceModel
 
     [JsonPropertyName("deviceName")]
     public string? DeviceName { get; set; }
+
+    [JsonPropertyName("deviceStatus")]
+    public UserExperienceAnalyticsAnomalyDeviceDeviceStatusConstant? DeviceStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

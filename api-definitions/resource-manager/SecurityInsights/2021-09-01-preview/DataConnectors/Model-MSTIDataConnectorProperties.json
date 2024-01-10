@@ -1,0 +1,29 @@
+{
+ "name": "MSTIDataConnectorProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataTypes",
+   "name": "DataTypes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MSTIDataConnectorDataTypes"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

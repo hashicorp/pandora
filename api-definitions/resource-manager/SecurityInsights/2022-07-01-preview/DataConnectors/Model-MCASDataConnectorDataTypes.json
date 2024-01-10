@@ -1,0 +1,29 @@
+{
+ "name": "MCASDataConnectorDataTypes",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alerts",
+   "name": "Alerts",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataConnectorDataTypeCommon"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "discoveryLogs",
+   "name": "DiscoveryLogs",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataConnectorDataTypeCommon"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -17,7 +17,7 @@ internal class ExternalConnectorsConnectionQuotaModel
     public string? Id { get; set; }
 
     [JsonPropertyName("itemsRemaining")]
-    public long? ItemsRemaining { get; set; }
+    public int? ItemsRemaining { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

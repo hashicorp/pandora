@@ -1,0 +1,52 @@
+{
+ "name": "WorkflowId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.StorageSync/storageSyncServices/{storageSyncServiceName}/workflows/{workflowId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftStorageSync",
+   "type": "ResourceProvider",
+   "value": "Microsoft.StorageSync"
+  },
+  {
+   "name": "staticStorageSyncServices",
+   "type": "Static",
+   "value": "storageSyncServices"
+  },
+  {
+   "name": "storageSyncServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticWorkflows",
+   "type": "Static",
+   "value": "workflows"
+  },
+  {
+   "name": "workflowId",
+   "type": "UserSpecified"
+  }
+ ]
+}

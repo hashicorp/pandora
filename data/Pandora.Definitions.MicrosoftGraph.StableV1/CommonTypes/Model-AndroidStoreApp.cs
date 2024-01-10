@@ -71,5 +71,5 @@ internal class AndroidStoreAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public AndroidStoreAppPublishingStateConstant? PublishingState { get; set; }
 }

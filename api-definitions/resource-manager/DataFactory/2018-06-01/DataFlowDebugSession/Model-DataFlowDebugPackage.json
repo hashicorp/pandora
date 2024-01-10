@@ -1,0 +1,101 @@
+{
+ "name": "DataFlowDebugPackage",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataFlow",
+   "name": "DataFlow",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataFlowDebugResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataFlows",
+   "name": "DataFlows",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataFlowDebugResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "datasets",
+   "name": "Datasets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DatasetDebugResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "debugSettings",
+   "name": "DebugSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataFlowDebugPackageDebugSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkedServices",
+   "name": "LinkedServices",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "LinkedServiceDebugResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionId",
+   "name": "SessionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "staging",
+   "name": "Staging",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataFlowStagingInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

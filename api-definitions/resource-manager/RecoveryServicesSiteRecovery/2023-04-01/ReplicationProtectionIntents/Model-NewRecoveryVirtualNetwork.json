@@ -1,0 +1,32 @@
+{
+ "name": "NewRecoveryVirtualNetwork",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryVirtualNetworkName",
+   "name": "RecoveryVirtualNetworkName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryVirtualNetworkResourceGroupName",
+   "name": "RecoveryVirtualNetworkResourceGroupName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryVirtualNetworkCustomDetails",
+ "discriminatedTypeValue": "New",
+ "typeHintIn": "ResourceType"
+}

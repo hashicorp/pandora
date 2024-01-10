@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DecisionItemPrincipalResourceMembershipModel
 {
     [JsonPropertyName("membershipType")]
-    public DecisionItemPrincipalResourceMembershipTypeConstant? MembershipType { get; set; }
+    public DecisionItemPrincipalResourceMembershipMembershipTypeConstant? MembershipType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

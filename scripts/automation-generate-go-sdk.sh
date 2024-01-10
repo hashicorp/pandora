@@ -19,12 +19,14 @@ function buildAndInstallDependencies {
 function runWrapper {
   local dataApiAssemblyPath=$1
   local outputDirectory=$2
+  local useV2Generator=$4
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation go-sdk \
     -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"
+    -output-dir="../../$outputDirectory"\
+    -use-v2-generator="$useV2Generator"
 
   cd "${DIR}"
 
@@ -88,15 +90,22 @@ function cleanup {
 
 function main {
   local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
-  local swaggerSubmodule="./swagger"
+  local dataApiV2Path="tools/data-api/data-api"
+  local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="https://github.com/hashicorp/go-azure-sdk.git"
   local sha
+  local useV2Generator=false
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareGoSdk "$outputDirectory" "$sdkRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  if [ "$useV2Generator" = true ]
+  then
+    runWrapper "$dataApiV2Path" "$outputDirectory" "$sha" "$useV2Generator"
+  else
+    runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
+  fi
   runGoSDKUnitTests "$outputDirectory"
   cleanup "$outputDirectory"
 }

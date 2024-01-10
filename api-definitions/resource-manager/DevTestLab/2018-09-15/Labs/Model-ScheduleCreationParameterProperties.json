@@ -1,0 +1,101 @@
+{
+ "name": "ScheduleCreationParameterProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dailyRecurrence",
+   "name": "DailyRecurrence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DayDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hourlyRecurrence",
+   "name": "HourlyRecurrence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HourDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "notificationSettings",
+   "name": "NotificationSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NotificationSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EnableStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetResourceId",
+   "name": "TargetResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taskType",
+   "name": "TaskType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZoneId",
+   "name": "TimeZoneId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "weeklyRecurrence",
+   "name": "WeeklyRecurrence",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WeekDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

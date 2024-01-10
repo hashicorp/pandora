@@ -26,7 +26,5 @@ internal class RacksUpdateOperation : Pandora.Definitions.Operations.PatchOperat
 
     public override ResourceID? ResourceId() => new RackId();
 
-    public override Type? ResponseObject() => typeof(RackModel);
-
 
 }

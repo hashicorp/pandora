@@ -1,0 +1,41 @@
+{
+ "name": "JobsSummary",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failedJobs",
+   "name": "FailedJobs",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inProgressJobs",
+   "name": "InProgressJobs",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "suspendedJobs",
+   "name": "SuspendedJobs",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

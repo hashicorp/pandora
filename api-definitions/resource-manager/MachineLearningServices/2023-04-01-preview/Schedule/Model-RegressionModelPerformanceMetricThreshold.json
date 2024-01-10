@@ -1,0 +1,20 @@
+{
+ "name": "RegressionModelPerformanceMetricThreshold",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metric",
+   "name": "Metric",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RegressionModelPerformanceMetric"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ModelPerformanceMetricThresholdBase",
+ "discriminatedTypeValue": "Regression",
+ "typeHintIn": "ModelType"
+}

@@ -1,0 +1,78 @@
+{
+ "name": "WorkspaceConnectionPropertiesV2",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "authType",
+   "name": "AuthType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionAuthType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "category",
+   "name": "Category",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionCategory"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expiryTime",
+   "name": "ExpiryTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "target",
+   "name": "Target",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "valueFormat",
+   "name": "ValueFormat",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValueFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "AuthType"
+}

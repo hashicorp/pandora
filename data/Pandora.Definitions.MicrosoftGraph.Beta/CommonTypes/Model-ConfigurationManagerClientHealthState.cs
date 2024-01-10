@@ -23,5 +23,5 @@ internal class ConfigurationManagerClientHealthStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public ConfigurationManagerClientStateConstant? State { get; set; }
+    public ConfigurationManagerClientHealthStateStateConstant? State { get; set; }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceRegistrationPolicyModel
 {
     [JsonPropertyName("azureADJoin")]
-    public AzureAdJoinPolicyModel? AzureADJoin { get; set; }
+    public AzureADJoinPolicyModel? AzureADJoin { get; set; }
 
     [JsonPropertyName("azureADRegistration")]
     public AzureADRegistrationPolicyModel? AzureADRegistration { get; set; }
@@ -32,7 +32,7 @@ internal class DeviceRegistrationPolicyModel
     public LocalAdminPasswordSettingsModel? LocalAdminPassword { get; set; }
 
     [JsonPropertyName("multiFactorAuthConfiguration")]
-    public MultiFactorAuthConfigurationConstant? MultiFactorAuthConfiguration { get; set; }
+    public DeviceRegistrationPolicyMultiFactorAuthConfigurationConstant? MultiFactorAuthConfiguration { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

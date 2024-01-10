@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EducationSynchronizationProfileStatusModel
 {
     [JsonPropertyName("errorCount")]
-    public long? ErrorCount { get; set; }
+    public int? ErrorCount { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,7 +29,7 @@ internal class EducationSynchronizationProfileStatusModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public EducationSynchronizationStatusConstant? Status { get; set; }
+    public EducationSynchronizationProfileStatusStatusConstant? Status { get; set; }
 
     [JsonPropertyName("statusMessage")]
     public string? StatusMessage { get; set; }

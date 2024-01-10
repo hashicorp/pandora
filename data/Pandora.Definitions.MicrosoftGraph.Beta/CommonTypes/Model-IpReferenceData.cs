@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IpReferenceDataModel
 {
     [JsonPropertyName("asn")]
-    public long? Asn { get; set; }
+    public int? Asn { get; set; }
 
     [JsonPropertyName("city")]
     public string? City { get; set; }

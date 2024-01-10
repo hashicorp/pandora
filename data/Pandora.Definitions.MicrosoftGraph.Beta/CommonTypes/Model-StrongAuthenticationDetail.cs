@@ -23,5 +23,5 @@ internal class StrongAuthenticationDetailModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("proofupTime")]
-    public long? ProofupTime { get; set; }
+    public int? ProofupTime { get; set; }
 }

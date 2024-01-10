@@ -32,5 +32,5 @@ internal class DriveItemVersionModel
     public PublicationFacetModel? Publication { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 }

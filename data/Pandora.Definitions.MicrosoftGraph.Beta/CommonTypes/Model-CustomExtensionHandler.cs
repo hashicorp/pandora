@@ -23,5 +23,5 @@ internal class CustomExtensionHandlerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("stage")]
-    public AccessPackageCustomExtensionStageConstant? Stage { get; set; }
+    public CustomExtensionHandlerStageConstant? Stage { get; set; }
 }

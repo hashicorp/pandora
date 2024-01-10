@@ -14,14 +14,14 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SearchIdentitySetModel
 {
     [JsonPropertyName("application")]
-    public IdentityModel? Application { get; set; }
+    public SearchIdentityModel? Application { get; set; }
 
     [JsonPropertyName("device")]
-    public IdentityModel? Device { get; set; }
+    public SearchIdentityModel? Device { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("user")]
-    public IdentityModel? User { get; set; }
+    public SearchIdentityModel? User { get; set; }
 }

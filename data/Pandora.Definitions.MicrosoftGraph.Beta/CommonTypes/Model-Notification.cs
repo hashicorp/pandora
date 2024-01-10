@@ -32,7 +32,7 @@ internal class NotificationModel
     public PayloadTypesModel? Payload { get; set; }
 
     [JsonPropertyName("priority")]
-    public PriorityConstant? Priority { get; set; }
+    public NotificationPriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("targetHostName")]
     public string? TargetHostName { get; set; }

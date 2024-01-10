@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EducationSynchronizationLicenseAssignmentModel
 {
     [JsonPropertyName("appliesTo")]
-    public EducationUserRoleConstant? AppliesTo { get; set; }
+    public EducationSynchronizationLicenseAssignmentAppliesToConstant? AppliesTo { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

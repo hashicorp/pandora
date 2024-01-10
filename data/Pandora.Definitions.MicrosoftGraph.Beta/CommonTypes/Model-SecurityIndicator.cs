@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityIndicatorModel
 {
     [JsonPropertyName("artifact")]
-    public ArtifactModel? Artifact { get; set; }
+    public SecurityArtifactModel? Artifact { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -23,5 +23,5 @@ internal class SecurityIndicatorModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("source")]
-    public IndicatorSourceConstant? Source { get; set; }
+    public SecurityIndicatorSourceConstant? Source { get; set; }
 }

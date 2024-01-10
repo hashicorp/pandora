@@ -13,6 +13,12 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class WindowsUpdatesQualityUpdateCatalogEntryModel
 {
+    [JsonPropertyName("catalogName")]
+    public string? CatalogName { get; set; }
+
+    [JsonPropertyName("cveSeverityInformation")]
+    public WindowsUpdatesQualityUpdateCveSeverityInformationModel? CveSeverityInformation { get; set; }
+
     [JsonPropertyName("deployableUntilDateTime")]
     public DateTime? DeployableUntilDateTime { get; set; }
 
@@ -28,9 +34,18 @@ internal class WindowsUpdatesQualityUpdateCatalogEntryModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("productRevisions")]
+    public List<WindowsUpdatesProductRevisionModel>? ProductRevisions { get; set; }
+
+    [JsonPropertyName("qualityUpdateCadence")]
+    public WindowsUpdatesQualityUpdateCatalogEntryQualityUpdateCadenceConstant? QualityUpdateCadence { get; set; }
+
     [JsonPropertyName("qualityUpdateClassification")]
-    public QualityUpdateClassificationConstant? QualityUpdateClassification { get; set; }
+    public WindowsUpdatesQualityUpdateCatalogEntryQualityUpdateClassificationConstant? QualityUpdateClassification { get; set; }
 
     [JsonPropertyName("releaseDateTime")]
     public DateTime? ReleaseDateTime { get; set; }
+
+    [JsonPropertyName("shortName")]
+    public string? ShortName { get; set; }
 }

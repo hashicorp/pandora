@@ -1,0 +1,29 @@
+{
+ "name": "NginxDeploymentUpdateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableDiagnosticsSupport",
+   "name": "EnableDiagnosticsSupport",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logging",
+   "name": "Logging",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NginxLogging"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

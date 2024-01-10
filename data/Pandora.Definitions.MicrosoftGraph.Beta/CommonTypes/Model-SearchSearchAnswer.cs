@@ -23,7 +23,7 @@ internal class SearchSearchAnswerModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lastModifiedBy")]
-    public IdentitySetModel? LastModifiedBy { get; set; }
+    public SearchIdentitySetModel? LastModifiedBy { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

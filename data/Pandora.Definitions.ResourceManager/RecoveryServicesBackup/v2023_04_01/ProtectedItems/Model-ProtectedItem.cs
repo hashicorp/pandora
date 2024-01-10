@@ -70,6 +70,9 @@ internal abstract class ProtectedItemModel
     [JsonPropertyName("sourceResourceId")]
     public string? SourceResourceId { get; set; }
 
+    [JsonPropertyName("vaultId")]
+    public string? VaultId { get; set; }
+
     [JsonPropertyName("workloadType")]
     public DataSourceTypeConstant? WorkloadType { get; set; }
 }

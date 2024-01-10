@@ -62,7 +62,7 @@ internal class Windows10CompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public Windows10CompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -70,11 +70,20 @@ internal class Windows10CompliancePolicyModel
     [JsonPropertyName("earlyLaunchAntiMalwareDriverEnabled")]
     public bool? EarlyLaunchAntiMalwareDriverEnabled { get; set; }
 
+    [JsonPropertyName("firmwareProtectionEnabled")]
+    public bool? FirmwareProtectionEnabled { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("kernelDmaProtectionEnabled")]
+    public bool? KernelDmaProtectionEnabled { get; set; }
+
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
+
+    [JsonPropertyName("memoryIntegrityEnabled")]
+    public bool? MemoryIntegrityEnabled { get; set; }
 
     [JsonPropertyName("mobileOsMaximumVersion")]
     public string? MobileOsMaximumVersion { get; set; }
@@ -116,7 +125,7 @@ internal class Windows10CompliancePolicyModel
     public bool? PasswordRequiredToUnlockFromIdle { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public Windows10CompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("requireHealthyDeviceReport")]
     public bool? RequireHealthyDeviceReport { get; set; }
@@ -153,4 +162,7 @@ internal class Windows10CompliancePolicyModel
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }
+
+    [JsonPropertyName("virtualizationBasedSecurityEnabled")]
+    public bool? VirtualizationBasedSecurityEnabled { get; set; }
 }

@@ -1,0 +1,41 @@
+{
+ "name": "AuthConfig",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "activeDirectoryAuth",
+   "name": "ActiveDirectoryAuth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ActiveDirectoryAuthEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "passwordAuth",
+   "name": "PasswordAuth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PasswordAuthEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tenantId",
+   "name": "TenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

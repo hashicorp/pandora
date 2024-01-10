@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MeetingRegistrationQuestionModel
 {
     [JsonPropertyName("answerInputType")]
-    public AnswerInputTypeConstant? AnswerInputType { get; set; }
+    public MeetingRegistrationQuestionAnswerInputTypeConstant? AnswerInputType { get; set; }
 
     [JsonPropertyName("answerOptions")]
     public List<string>? AnswerOptions { get; set; }

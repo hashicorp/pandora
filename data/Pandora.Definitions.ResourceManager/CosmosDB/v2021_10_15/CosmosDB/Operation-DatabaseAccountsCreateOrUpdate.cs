@@ -25,7 +25,5 @@ internal class DatabaseAccountsCreateOrUpdateOperation : Pandora.Definitions.Ope
 
     public override ResourceID? ResourceId() => new DatabaseAccountId();
 
-    public override Type? ResponseObject() => typeof(DatabaseAccountGetResultsModel);
-
 
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EdiscoveryAddToReviewSetOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public EdiscoveryAddToReviewSetOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("completedDateTime")]
     public DateTime? CompletedDateTime { get; set; }
@@ -40,9 +40,9 @@ internal class EdiscoveryAddToReviewSetOperationModel
     [JsonPropertyName("reviewSet")]
     public EdiscoveryReviewSetModel? ReviewSet { get; set; }
 
-    [JsonPropertyName("search")]
-    public EdiscoverySearchModel? Search { get; set; }
+    [JsonPropertyName("sourceCollection")]
+    public EdiscoverySourceCollectionModel? SourceCollection { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public EdiscoveryAddToReviewSetOperationStatusConstant? Status { get; set; }
 }

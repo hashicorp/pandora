@@ -1,0 +1,270 @@
+{
+ "name": "SnapshotProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "completionPercent",
+   "name": "CompletionPercent",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "copyCompletionError",
+   "name": "CopyCompletionError",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CopyCompletionError"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationData",
+   "name": "CreationData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CreationData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataAccessAuthMode",
+   "name": "DataAccessAuthMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataAccessAuthMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskAccessId",
+   "name": "DiskAccessId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskSizeBytes",
+   "name": "DiskSizeBytes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskSizeGB",
+   "name": "DiskSizeGB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskState",
+   "name": "DiskState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Encryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryptionSettingsCollection",
+   "name": "EncryptionSettingsCollection",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionSettingsCollection"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVGeneration",
+   "name": "HyperVGeneration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HyperVGeneration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "incremental",
+   "name": "Incremental",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkAccessPolicy",
+   "name": "NetworkAccessPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkAccessPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osType",
+   "name": "OsType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperatingSystemTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "purchasePlan",
+   "name": "PurchasePlan",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PurchasePlan"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "securityProfile",
+   "name": "SecurityProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskSecurityProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedCapabilities",
+   "name": "SupportedCapabilities",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SupportedCapabilities"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportsHibernation",
+   "name": "SupportsHibernation",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeCreated",
+   "name": "TimeCreated",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "uniqueId",
+   "name": "UniqueId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

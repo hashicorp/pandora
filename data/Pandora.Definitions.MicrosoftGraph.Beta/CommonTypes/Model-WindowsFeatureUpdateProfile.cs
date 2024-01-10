@@ -37,6 +37,9 @@ internal class WindowsFeatureUpdateProfileModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("installLatestWindows10OnWindows11IneligibleDevice")]
+    public bool? InstallLatestWindows10OnWindows11IneligibleDevice { get; set; }
+
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
 

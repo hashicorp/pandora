@@ -1,0 +1,33 @@
+{
+ "name": "ReplicationStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aggregatedState",
+   "name": "AggregatedState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AggregatedReplicationState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "summary",
+   "name": "Summary",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RegionalReplicationStatus"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

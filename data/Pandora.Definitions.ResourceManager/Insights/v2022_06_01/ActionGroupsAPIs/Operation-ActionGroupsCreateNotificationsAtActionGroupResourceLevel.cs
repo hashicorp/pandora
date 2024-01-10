@@ -26,8 +26,6 @@ internal class ActionGroupsCreateNotificationsAtActionGroupResourceLevelOperatio
 
     public override ResourceID? ResourceId() => new ActionGroupId();
 
-    public override Type? ResponseObject() => typeof(TestNotificationDetailsResponseModel);
-
     public override string? UriSuffix() => "/createNotifications";
 
 

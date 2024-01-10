@@ -28,6 +28,9 @@ func RemoveInvalidCharacters(input string, titleCaseSegments bool) string {
 		",",
 		"/",
 		":",
+		";",  // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\r", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
+		"\n", // https://github.com/hashicorp/pandora/pull/3096/files#diff-303d1d97a2359c956e7b5ccf32ffefe5711fecfccac9439b7c43b1a38b32597dR40
 		"$",
 		"'",
 		".",
@@ -82,6 +85,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"accounts":           "accounts",
 		"alertrules":         "alertRules",
 		"alertruletemplates": "alertRuleTemplates",
+		"apikeys":            "apiKeys",
 		"apiversion":         "apiVersion",
 		"applicationgatewaywebapplicationfirewallpolicies": "applicationGatewayWebApplicationFirewallPolicies",
 		"appsettings":                       "appSettings",
@@ -108,16 +112,20 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"continuouswebjobs":                 "continuousWebJobs",
 		"customimages":                      "customImages",
 		"customipprefixes":                  "customIPPrefixes",
-		"databases":                         "databases", // handles Databases
+		"databases":                         "databases",      // handles Databases
+		"datareferences":                    "dataReferences", // handles MachineLearningServices
 		"dataconnections":                   "dataConnections",
 		"datastores":                        "dataStores",
 		"dedicatedsqlminimaltlssettings":    "dedicatedSQLMinimalTLSSettings",
 		"default":                           "default", // handles Default
 		"deletedservices":                   "deletedServices",
+		"devboxdefinitions":                 "devBoxDefinitions",
+		"devcenters":                        "devCenters",
 		"dicomservices":                     "dicomServices",
 		"dnszones":                          "dnsZones",
-		"endpoints":                         "endpoints",   // handles Endpoints
-		"enrichments":                       "enrichments", // handles Enrichments
+		"endpoints":                         "endpoints",           // handles Endpoints
+		"enrichments":                       "enrichments",         // handles Enrichments
+		"exportconfiguration":               "exportConfiguration", // inconsistency in ApplicationInsights (singular, not plural)
 		"fhirdestinations":                  "fhirDestinations",
 		"fhirservices":                      "fhirServices",
 		"fileservers":                       "fileServers",
@@ -140,6 +148,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"ipconfigurations":                        "ipConfigurations",
 		"iscsiservers":                            "iscsiServers",
 		"linkedservices":                          "linkedServices",
+		"listkeys":                                "listKeys",
 		"localrulestacks":                         "localRulestacks", // (@jackofallops) - "Rulestack" is considered one word, but also casing bug in the service. https://github.com/Azure/azure-rest-api-specs/issues/24780#issuecomment-1635234884
 		"logprofiles":                             "logProfiles",
 		"managedclusters":                         "managedClusters",
@@ -169,6 +178,7 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"role":                                    "role",   // handles Role
 		"routes":                                  "routes", // handles Routes
 		"rulesengines":                            "rulesEngines",
+		"runasaccounts":                           "runAsAccounts",
 		"saasresources":                           "saasResources",
 		"schemagroups":                            "schemaGroups",
 		"scripts":                                 "scripts", // handles Scripts
@@ -187,12 +197,13 @@ func NormalizeSegment(input string, camelCase bool) string {
 		"trafficmanagerprofiles":                  "trafficManagerProfiles",
 		"triggeredwebjobs":                        "triggeredWebJobs",
 		"vaultstorageconfig":                      "vaultStorageConfig",
+		"vcenters":                                "vCenters",
+		"virtualendpoints":                        "virtualEndpoints", // exists in Postgresql
 		"virtualnetworks":                         "virtualNetworks",
 		"virtualmachine":                          "virtualMachine", // exists in MarketplaceOrdering
 		"virtualmachines":                         "virtualMachines",
 		"vmname":                                  "virtualMachineName",         // inconsistency in Compute
 		"vmscalesetname":                          "virtualMachineScaleSetName", // inconsistency in Compute (#1204)
-		"vcenters":                                "vCenters",
 		"vmwaresites":                             "vmwareSites",
 		"vmextension":                             "vmExtension",
 		"vmimage":                                 "vmImage",

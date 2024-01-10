@@ -1,0 +1,43 @@
+{
+ "name": "LocationTopicTypeId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.EventGrid/locations/{locationName}/topicTypes/{topicTypeName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftEventGrid",
+   "type": "ResourceProvider",
+   "value": "Microsoft.EventGrid"
+  },
+  {
+   "name": "staticLocations",
+   "type": "Static",
+   "value": "locations"
+  },
+  {
+   "name": "locationName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticTopicTypes",
+   "type": "Static",
+   "value": "topicTypes"
+  },
+  {
+   "name": "topicTypeName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -17,13 +17,13 @@ internal class IosPkcsCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public IosPkcsCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateTemplateName")]
     public string? CertificateTemplateName { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public IosPkcsCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -89,10 +89,10 @@ internal class IosPkcsCertificateProfileModel
     public string? SubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public IosPkcsCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public AppleSubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public IosPkcsCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("subjectNameFormatString")]
     public string? SubjectNameFormatString { get; set; }

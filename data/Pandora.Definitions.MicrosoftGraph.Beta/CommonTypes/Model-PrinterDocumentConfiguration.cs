@@ -17,7 +17,7 @@ internal class PrinterDocumentConfigurationModel
     public bool? Collate { get; set; }
 
     [JsonPropertyName("colorMode")]
-    public PrintColorModeConstant? ColorMode { get; set; }
+    public PrinterDocumentConfigurationColorModeConstant? ColorMode { get; set; }
 
     [JsonPropertyName("copies")]
     public int? Copies { get; set; }
@@ -26,16 +26,16 @@ internal class PrinterDocumentConfigurationModel
     public int? Dpi { get; set; }
 
     [JsonPropertyName("duplexMode")]
-    public PrintDuplexModeConstant? DuplexMode { get; set; }
+    public PrinterDocumentConfigurationDuplexModeConstant? DuplexMode { get; set; }
 
     [JsonPropertyName("feedDirection")]
-    public PrinterFeedDirectionConstant? FeedDirection { get; set; }
+    public PrinterDocumentConfigurationFeedDirectionConstant? FeedDirection { get; set; }
 
     [JsonPropertyName("feedOrientation")]
-    public PrinterFeedOrientationConstant? FeedOrientation { get; set; }
+    public PrinterDocumentConfigurationFeedOrientationConstant? FeedOrientation { get; set; }
 
     [JsonPropertyName("finishings")]
-    public List<PrintFinishingConstant>? Finishings { get; set; }
+    public List<PrinterDocumentConfigurationFinishingsConstant>? Finishings { get; set; }
 
     [JsonPropertyName("fitPdfToPage")]
     public bool? FitPdfToPage { get; set; }
@@ -53,13 +53,13 @@ internal class PrinterDocumentConfigurationModel
     public string? MediaType { get; set; }
 
     [JsonPropertyName("multipageLayout")]
-    public PrintMultipageLayoutConstant? MultipageLayout { get; set; }
+    public PrinterDocumentConfigurationMultipageLayoutConstant? MultipageLayout { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientation")]
-    public PrintOrientationConstant? Orientation { get; set; }
+    public PrinterDocumentConfigurationOrientationConstant? Orientation { get; set; }
 
     [JsonPropertyName("outputBin")]
     public string? OutputBin { get; set; }
@@ -71,8 +71,8 @@ internal class PrinterDocumentConfigurationModel
     public int? PagesPerSheet { get; set; }
 
     [JsonPropertyName("quality")]
-    public PrintQualityConstant? Quality { get; set; }
+    public PrinterDocumentConfigurationQualityConstant? Quality { get; set; }
 
     [JsonPropertyName("scaling")]
-    public PrintScalingConstant? Scaling { get; set; }
+    public PrinterDocumentConfigurationScalingConstant? Scaling { get; set; }
 }

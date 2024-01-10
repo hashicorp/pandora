@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 service "ContainerService" {
   terraform_package = "containers"
 
@@ -7,11 +10,7 @@ service "ContainerService" {
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}"
         display_name = "Kubernetes Fleet Manager"
         website_subcategory = "Container"
-        description = <<HERE
-Manages a Kubernetes Fleet Manager
-
-~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name FleetResourcePreview` and then `az provider register -n Microsoft.ContainerService`
-HERE
+        description = "Manages a Kubernetes Fleet Manager"
       }
     }
   }

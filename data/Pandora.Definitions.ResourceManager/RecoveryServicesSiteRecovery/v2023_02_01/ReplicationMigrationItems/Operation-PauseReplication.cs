@@ -26,8 +26,6 @@ internal class PauseReplicationOperation : Pandora.Definitions.Operations.PostOp
 
     public override ResourceID? ResourceId() => new ReplicationMigrationItemId();
 
-    public override Type? ResponseObject() => typeof(MigrationItemModel);
-
     public override string? UriSuffix() => "/pauseReplication";
 
 

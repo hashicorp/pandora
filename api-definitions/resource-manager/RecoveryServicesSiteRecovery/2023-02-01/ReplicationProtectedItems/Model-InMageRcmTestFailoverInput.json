@@ -1,0 +1,32 @@
+{
+ "name": "InMageRcmTestFailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkId",
+   "name": "NetworkId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "TestFailoverProviderSpecificInput",
+ "discriminatedTypeValue": "InMageRcm",
+ "typeHintIn": "InstanceType"
+}

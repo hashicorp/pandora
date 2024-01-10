@@ -17,14 +17,14 @@ internal class UserRegistrationMethodSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("totalUserCount")]
-    public long? TotalUserCount { get; set; }
+    public int? TotalUserCount { get; set; }
 
     [JsonPropertyName("userRegistrationMethodCounts")]
     public List<UserRegistrationMethodCountModel>? UserRegistrationMethodCounts { get; set; }
 
     [JsonPropertyName("userRoles")]
-    public IncludedUserRolesConstant? UserRoles { get; set; }
+    public UserRegistrationMethodSummaryUserRolesConstant? UserRoles { get; set; }
 
     [JsonPropertyName("userTypes")]
-    public IncludedUserTypesConstant? UserTypes { get; set; }
+    public UserRegistrationMethodSummaryUserTypesConstant? UserTypes { get; set; }
 }

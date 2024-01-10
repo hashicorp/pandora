@@ -1,0 +1,23 @@
+{
+ "name": "RefreshCounters",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "firewallName",
+   "required": false,
+   "field": "FirewallName",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LocalRuleId",
+ "uriSuffix": "/refreshCounters"
+}

@@ -17,13 +17,13 @@ internal class RecurrencePatternModel
     public int? DayOfMonth { get; set; }
 
     [JsonPropertyName("daysOfWeek")]
-    public List<DayOfWeekConstant>? DaysOfWeek { get; set; }
+    public List<RecurrencePatternDaysOfWeekConstant>? DaysOfWeek { get; set; }
 
     [JsonPropertyName("firstDayOfWeek")]
-    public DayOfWeekConstant? FirstDayOfWeek { get; set; }
+    public RecurrencePatternFirstDayOfWeekConstant? FirstDayOfWeek { get; set; }
 
     [JsonPropertyName("index")]
-    public WeekIndexConstant? Index { get; set; }
+    public RecurrencePatternIndexConstant? Index { get; set; }
 
     [JsonPropertyName("interval")]
     public int? Interval { get; set; }

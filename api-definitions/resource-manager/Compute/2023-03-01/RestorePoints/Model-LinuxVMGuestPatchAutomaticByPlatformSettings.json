@@ -1,0 +1,29 @@
+{
+ "name": "LinuxVMGuestPatchAutomaticByPlatformSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bypassPlatformSafetyChecksOnUserSchedule",
+   "name": "BypassPlatformSafetyChecksOnUserSchedule",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rebootSetting",
+   "name": "RebootSetting",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxVMGuestPatchAutomaticByPlatformRebootSetting"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

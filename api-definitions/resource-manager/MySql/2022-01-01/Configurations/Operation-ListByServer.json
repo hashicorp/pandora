@@ -1,0 +1,58 @@
+{
+ "name": "ListByServer",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "keyword",
+   "required": false,
+   "field": "Keyword",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "page",
+   "required": false,
+   "field": "Page",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "pageSize",
+   "required": false,
+   "field": "PageSize",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "tags",
+   "required": false,
+   "field": "Tags",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "FlexibleServerId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Configuration"
+ },
+ "uriSuffix": "/configurations"
+}

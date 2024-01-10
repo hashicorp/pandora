@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RetireScheduledManagedDeviceModel
 {
     [JsonPropertyName("complianceState")]
-    public ComplianceStatusConstant? ComplianceState { get; set; }
+    public RetireScheduledManagedDeviceComplianceStateConstant? ComplianceState { get; set; }
 
     [JsonPropertyName("deviceCompliancePolicyId")]
     public string? DeviceCompliancePolicyId { get; set; }
@@ -23,7 +23,7 @@ internal class RetireScheduledManagedDeviceModel
     public string? DeviceCompliancePolicyName { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public DeviceTypeConstant? DeviceType { get; set; }
+    public RetireScheduledManagedDeviceDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -35,13 +35,13 @@ internal class RetireScheduledManagedDeviceModel
     public string? ManagedDeviceName { get; set; }
 
     [JsonPropertyName("managementAgent")]
-    public ManagementAgentTypeConstant? ManagementAgent { get; set; }
+    public RetireScheduledManagedDeviceManagementAgentConstant? ManagementAgent { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ownerType")]
-    public ManagedDeviceOwnerTypeConstant? OwnerType { get; set; }
+    public RetireScheduledManagedDeviceOwnerTypeConstant? OwnerType { get; set; }
 
     [JsonPropertyName("retireAfterDateTime")]
     public DateTime? RetireAfterDateTime { get; set; }

@@ -53,7 +53,7 @@ internal class SecurityActionModel
     public List<SecurityActionStateModel>? States { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public SecurityActionStatusConstant? Status { get; set; }
 
     [JsonPropertyName("user")]
     public string? User { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TiIndicatorModel
 {
     [JsonPropertyName("action")]
-    public TiActionConstant? Action { get; set; }
+    public TiIndicatorActionConstant? Action { get; set; }
 
     [JsonPropertyName("activityGroupNames")]
     public List<string>? ActivityGroupNames { get; set; }
@@ -32,7 +32,7 @@ internal class TiIndicatorModel
     public string? Description { get; set; }
 
     [JsonPropertyName("diamondModel")]
-    public DiamondModelConstant? DiamondModel { get; set; }
+    public TiIndicatorDiamondModelConstant? DiamondModel { get; set; }
 
     [JsonPropertyName("domainName")]
     public string? DomainName { get; set; }
@@ -77,7 +77,7 @@ internal class TiIndicatorModel
     public DateTime? FileCreatedDateTime { get; set; }
 
     [JsonPropertyName("fileHashType")]
-    public FileHashTypeConstant? FileHashType { get; set; }
+    public TiIndicatorFileHashTypeConstant? FileHashType { get; set; }
 
     [JsonPropertyName("fileHashValue")]
     public string? FileHashValue { get; set; }
@@ -95,7 +95,7 @@ internal class TiIndicatorModel
     public string? FilePath { get; set; }
 
     [JsonPropertyName("fileSize")]
-    public long? FileSize { get; set; }
+    public int? FileSize { get; set; }
 
     [JsonPropertyName("fileType")]
     public string? FileType { get; set; }
@@ -125,7 +125,7 @@ internal class TiIndicatorModel
     public string? NetworkCidrBlock { get; set; }
 
     [JsonPropertyName("networkDestinationAsn")]
-    public long? NetworkDestinationAsn { get; set; }
+    public int? NetworkDestinationAsn { get; set; }
 
     [JsonPropertyName("networkDestinationCidrBlock")]
     public string? NetworkDestinationCidrBlock { get; set; }
@@ -152,7 +152,7 @@ internal class TiIndicatorModel
     public int? NetworkProtocol { get; set; }
 
     [JsonPropertyName("networkSourceAsn")]
-    public long? NetworkSourceAsn { get; set; }
+    public int? NetworkSourceAsn { get; set; }
 
     [JsonPropertyName("networkSourceCidrBlock")]
     public string? NetworkSourceCidrBlock { get; set; }
@@ -185,7 +185,7 @@ internal class TiIndicatorModel
     public string? ThreatType { get; set; }
 
     [JsonPropertyName("tlpLevel")]
-    public TlpLevelConstant? TlpLevel { get; set; }
+    public TiIndicatorTlpLevelConstant? TlpLevel { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

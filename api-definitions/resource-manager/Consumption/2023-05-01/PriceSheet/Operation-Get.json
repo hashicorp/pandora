@@ -1,0 +1,37 @@
+{
+ "name": "Get",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$top",
+   "required": false,
+   "field": "Top",
+   "optionsObjectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PriceSheetResult"
+ },
+ "uriSuffix": "/providers/Microsoft.Consumption/pricesheets/default"
+}

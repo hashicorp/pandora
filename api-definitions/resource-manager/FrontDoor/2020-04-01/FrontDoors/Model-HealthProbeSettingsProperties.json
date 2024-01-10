@@ -1,0 +1,77 @@
+{
+ "name": "HealthProbeSettingsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabledState",
+   "name": "EnabledState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HealthProbeEnabled"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "healthProbeMethod",
+   "name": "HealthProbeMethod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorHealthProbeMethod"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "intervalInSeconds",
+   "name": "IntervalInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "protocol",
+   "name": "Protocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceState",
+   "name": "ResourceState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorResourceState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -17,13 +17,13 @@ internal class Windows10PkcsCertificateProfileModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public Windows10PkcsCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateTemplateName")]
     public string? CertificateTemplateName { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public Windows10PkcsCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -74,7 +74,7 @@ internal class Windows10PkcsCertificateProfileModel
     public string? Id { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public Windows10PkcsCertificateProfileKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -95,10 +95,10 @@ internal class Windows10PkcsCertificateProfileModel
     public string? SubjectAlternativeNameFormatString { get; set; }
 
     [JsonPropertyName("subjectAlternativeNameType")]
-    public SubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
+    public Windows10PkcsCertificateProfileSubjectAlternativeNameTypeConstant? SubjectAlternativeNameType { get; set; }
 
     [JsonPropertyName("subjectNameFormat")]
-    public SubjectNameFormatConstant? SubjectNameFormat { get; set; }
+    public Windows10PkcsCertificateProfileSubjectNameFormatConstant? SubjectNameFormat { get; set; }
 
     [JsonPropertyName("subjectNameFormatString")]
     public string? SubjectNameFormatString { get; set; }

@@ -23,7 +23,7 @@ internal class SecurityEdiscoveryReviewSetModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("files")]
-    public List<EdiscoveryFileModel>? Files { get; set; }
+    public List<SecurityEdiscoveryFileModel>? Files { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -32,5 +32,5 @@ internal class SecurityEdiscoveryReviewSetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("queries")]
-    public List<EdiscoveryReviewSetQueryModel>? Queries { get; set; }
+    public List<SecurityEdiscoveryReviewSetQueryModel>? Queries { get; set; }
 }

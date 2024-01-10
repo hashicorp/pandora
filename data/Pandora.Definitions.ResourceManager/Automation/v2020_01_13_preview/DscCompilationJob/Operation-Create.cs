@@ -25,7 +25,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new AutomationCompilationJobId();
 
-    public override Type? ResponseObject() => typeof(DscCompilationJobModel);
-
 
 }

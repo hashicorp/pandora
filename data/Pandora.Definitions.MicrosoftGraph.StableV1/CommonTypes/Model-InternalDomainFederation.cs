@@ -20,7 +20,7 @@ internal class InternalDomainFederationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("federatedIdpMfaBehavior")]
-    public FederatedIdpMfaBehaviorConstant? FederatedIdpMfaBehavior { get; set; }
+    public InternalDomainFederationFederatedIdpMfaBehaviorConstant? FederatedIdpMfaBehavior { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -44,10 +44,10 @@ internal class InternalDomainFederationModel
     public string? PassiveSignInUri { get; set; }
 
     [JsonPropertyName("preferredAuthenticationProtocol")]
-    public AuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
+    public InternalDomainFederationPreferredAuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
 
     [JsonPropertyName("promptLoginBehavior")]
-    public PromptLoginBehaviorConstant? PromptLoginBehavior { get; set; }
+    public InternalDomainFederationPromptLoginBehaviorConstant? PromptLoginBehavior { get; set; }
 
     [JsonPropertyName("signOutUri")]
     public string? SignOutUri { get; set; }

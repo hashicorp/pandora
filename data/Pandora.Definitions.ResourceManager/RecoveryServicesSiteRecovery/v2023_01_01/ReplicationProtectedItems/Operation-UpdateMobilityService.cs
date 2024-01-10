@@ -26,8 +26,6 @@ internal class UpdateMobilityServiceOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/updateMobilityService";
 
 

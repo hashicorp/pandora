@@ -1,0 +1,20 @@
+{
+ "name": "ReadWriteDatabase",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReadWriteDatabaseProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Database",
+ "discriminatedTypeValue": "ReadWrite",
+ "typeHintIn": "Kind"
+}

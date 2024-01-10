@@ -1,0 +1,29 @@
+{
+ "name": "ContainerResourceRequirements",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerResourceLimits",
+   "name": "ContainerResourceLimits",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerResourceSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "containerResourceRequests",
+   "name": "ContainerResourceRequests",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ContainerResourceSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

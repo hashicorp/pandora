@@ -1,0 +1,16 @@
+{
+ "name": "MonitorsListHosts",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "MonitorId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatadogHost"
+ },
+ "uriSuffix": "/listHosts"
+}

@@ -12,7 +12,9 @@ type workaroundAutomation25108 struct {
 }
 
 func (workaroundAutomation25108) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
-	return apiDefinition.ServiceName == "Automation" && apiDefinition.ApiVersion == "2022-08-08"
+	serviceMatches := apiDefinition.ServiceName == "Automation"
+	apiVersionMatches := apiDefinition.ApiVersion == "2022-08-08" || apiDefinition.ApiVersion == "2023-11-01"
+	return serviceMatches && apiVersionMatches
 }
 
 func (workaroundAutomation25108) Name() string {

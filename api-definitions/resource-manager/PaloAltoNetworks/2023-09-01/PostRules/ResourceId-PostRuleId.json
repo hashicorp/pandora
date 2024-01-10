@@ -1,0 +1,34 @@
+{
+ "name": "PostRuleId",
+ "id": "/providers/PaloAltoNetworks.Cloudngfw/globalRulestacks/{globalRulestackName}/postRules/{postRuleName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticPaloAltoNetworksCloudngfw",
+   "type": "ResourceProvider",
+   "value": "PaloAltoNetworks.Cloudngfw"
+  },
+  {
+   "name": "staticGlobalRulestacks",
+   "type": "Static",
+   "value": "globalRulestacks"
+  },
+  {
+   "name": "globalRulestackName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticPostRules",
+   "type": "Static",
+   "value": "postRules"
+  },
+  {
+   "name": "postRuleName",
+   "type": "UserSpecified"
+  }
+ ]
+}

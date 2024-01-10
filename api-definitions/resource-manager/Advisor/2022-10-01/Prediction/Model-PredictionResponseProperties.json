@@ -1,0 +1,90 @@
+{
+ "name": "PredictionResponseProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "category",
+   "name": "Category",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Category"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "extendedProperties",
+   "name": "ExtendedProperties",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "impact",
+   "name": "Impact",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Impact"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "impactedField",
+   "name": "ImpactedField",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdated",
+   "name": "LastUpdated",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "predictionType",
+   "name": "PredictionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PredictionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shortDescription",
+   "name": "ShortDescription",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ShortDescription"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "LinkableEnvironmentResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentId",
+   "name": "EnvironmentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentName",
+   "name": "EnvironmentName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "planData",
+   "name": "PlanData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlanData"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

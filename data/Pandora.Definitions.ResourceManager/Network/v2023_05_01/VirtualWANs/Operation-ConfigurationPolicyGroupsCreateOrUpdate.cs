@@ -20,7 +20,5 @@ internal class ConfigurationPolicyGroupsCreateOrUpdateOperation : Pandora.Defini
 
     public override ResourceID? ResourceId() => new ConfigurationPolicyGroupId();
 
-    public override Type? ResponseObject() => typeof(VpnServerConfigurationPolicyGroupModel);
-
 
 }

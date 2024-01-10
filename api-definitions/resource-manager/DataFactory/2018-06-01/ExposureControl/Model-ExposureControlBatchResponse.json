@@ -1,0 +1,21 @@
+{
+ "name": "ExposureControlBatchResponse",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exposureControlResponses",
+   "name": "ExposureControlResponses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ExposureControlResponse"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

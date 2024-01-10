@@ -28,6 +28,9 @@ internal class DirectoryModel
     [JsonPropertyName("deletedItems")]
     public List<DirectoryObjectModel>? DeletedItems { get; set; }
 
+    [JsonPropertyName("deviceLocalCredentials")]
+    public List<DeviceLocalCredentialInfoModel>? DeviceLocalCredentials { get; set; }
+
     [JsonPropertyName("featureRolloutPolicies")]
     public List<FeatureRolloutPolicyModel>? FeatureRolloutPolicies { get; set; }
 
@@ -57,4 +60,7 @@ internal class DirectoryModel
 
     [JsonPropertyName("sharedEmailDomains")]
     public List<SharedEmailDomainModel>? SharedEmailDomains { get; set; }
+
+    [JsonPropertyName("subscriptions")]
+    public List<CompanySubscriptionModel>? Subscriptions { get; set; }
 }

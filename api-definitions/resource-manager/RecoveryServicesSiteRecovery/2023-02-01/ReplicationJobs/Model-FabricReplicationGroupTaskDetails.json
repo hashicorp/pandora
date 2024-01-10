@@ -1,0 +1,32 @@
+{
+ "name": "FabricReplicationGroupTaskDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skippedReason",
+   "name": "SkippedReason",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skippedReasonString",
+   "name": "SkippedReasonString",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "JobTaskDetails",
+ "discriminatedTypeValue": "FabricReplicationGroupTaskDetails",
+ "typeHintIn": "InstanceType"
+}

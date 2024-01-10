@@ -1,0 +1,27 @@
+{
+ "name": "ListKeys",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "artifactType",
+   "required": false,
+   "field": "ArtifactType",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ApplianceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplianceListKeysResults"
+ },
+ "uriSuffix": "/listKeys"
+}

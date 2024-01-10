@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SecurityEdiscoveryExportOperationModel
 {
     [JsonPropertyName("action")]
-    public CaseActionConstant? Action { get; set; }
+    public SecurityEdiscoveryExportOperationActionConstant? Action { get; set; }
 
     [JsonPropertyName("azureBlobContainer")]
     public string? AzureBlobContainer { get; set; }
@@ -35,13 +35,13 @@ internal class SecurityEdiscoveryExportOperationModel
     public string? Description { get; set; }
 
     [JsonPropertyName("exportFileMetadata")]
-    public List<ExportFileMetadataModel>? ExportFileMetadata { get; set; }
+    public List<SecurityExportFileMetadataModel>? ExportFileMetadata { get; set; }
 
     [JsonPropertyName("exportOptions")]
-    public ExportOptionsConstant? ExportOptions { get; set; }
+    public SecurityEdiscoveryExportOperationExportOptionsConstant? ExportOptions { get; set; }
 
     [JsonPropertyName("exportStructure")]
-    public ExportFileStructureConstant? ExportStructure { get; set; }
+    public SecurityEdiscoveryExportOperationExportStructureConstant? ExportStructure { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -62,11 +62,11 @@ internal class SecurityEdiscoveryExportOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("reviewSet")]
-    public EdiscoveryReviewSetModel? ReviewSet { get; set; }
+    public SecurityEdiscoveryReviewSetModel? ReviewSet { get; set; }
 
     [JsonPropertyName("reviewSetQuery")]
-    public EdiscoveryReviewSetQueryModel? ReviewSetQuery { get; set; }
+    public SecurityEdiscoveryReviewSetQueryModel? ReviewSetQuery { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseOperationStatusConstant? Status { get; set; }
+    public SecurityEdiscoveryExportOperationStatusConstant? Status { get; set; }
 }

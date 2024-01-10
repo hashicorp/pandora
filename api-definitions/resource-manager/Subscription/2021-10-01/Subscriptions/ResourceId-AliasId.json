@@ -1,0 +1,25 @@
+{
+ "name": "AliasId",
+ "id": "/providers/Microsoft.Subscription/aliases/{aliasName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSubscription",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Subscription"
+  },
+  {
+   "name": "staticAliases",
+   "type": "Static",
+   "value": "aliases"
+  },
+  {
+   "name": "aliasName",
+   "type": "UserSpecified"
+  }
+ ]
+}

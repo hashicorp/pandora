@@ -65,7 +65,10 @@ internal class RecommendationModel
     public RecommendationPriorityConstant? Priority { get; set; }
 
     [JsonPropertyName("recommendationType")]
-    public RecommendationTypeConstant? RecommendationType { get; set; }
+    public RecommendationRecommendationTypeConstant? RecommendationType { get; set; }
+
+    [JsonPropertyName("releaseType")]
+    public string? ReleaseType { get; set; }
 
     [JsonPropertyName("remediationImpact")]
     public string? RemediationImpact { get; set; }

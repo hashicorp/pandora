@@ -20,5 +20,5 @@ internal class SecurityResourceModel
     public string? Resource { get; set; }
 
     [JsonPropertyName("resourceType")]
-    public SecurityResourceTypeConstant? ResourceType { get; set; }
+    public SecurityResourceResourceTypeConstant? ResourceType { get; set; }
 }

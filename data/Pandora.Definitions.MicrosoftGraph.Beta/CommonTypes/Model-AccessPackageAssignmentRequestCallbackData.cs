@@ -23,7 +23,7 @@ internal class AccessPackageAssignmentRequestCallbackDataModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("stage")]
-    public AccessPackageCustomExtensionStageConstant? Stage { get; set; }
+    public AccessPackageAssignmentRequestCallbackDataStageConstant? Stage { get; set; }
 
     [JsonPropertyName("state")]
     public string? State { get; set; }

@@ -1,0 +1,33 @@
+{
+ "name": "DeleteSlot",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  204
+ ],
+ "longRunning": false,
+ "httpMethod": "DELETE",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "deleteEmptyServerFarm",
+   "required": false,
+   "field": "DeleteEmptyServerFarm",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "deleteMetrics",
+   "required": false,
+   "field": "DeleteMetrics",
+   "optionsObjectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SlotId"
+}

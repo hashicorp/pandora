@@ -26,7 +26,5 @@ internal class UpdateDhcpOperation : Pandora.Definitions.Operations.PatchOperati
 
     public override ResourceID? ResourceId() => new DhcpConfigurationId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkDhcpModel);
-
 
 }

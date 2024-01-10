@@ -20,7 +20,5 @@ internal class ConnectedClusterCreateOperation : Pandora.Definitions.Operations.
 
     public override ResourceID? ResourceId() => new ConnectedClusterId();
 
-    public override Type? ResponseObject() => typeof(ConnectedClusterModel);
-
 
 }

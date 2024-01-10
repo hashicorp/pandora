@@ -38,7 +38,7 @@ internal class GroupPolicyDefinitionFileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("policyType")]
-    public GroupPolicyTypeConstant? PolicyType { get; set; }
+    public GroupPolicyDefinitionFilePolicyTypeConstant? PolicyType { get; set; }
 
     [JsonPropertyName("revision")]
     public string? Revision { get; set; }

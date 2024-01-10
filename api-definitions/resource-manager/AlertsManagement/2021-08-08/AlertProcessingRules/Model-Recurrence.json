@@ -1,0 +1,42 @@
+{
+ "name": "Recurrence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "recurrenceType",
+   "name": "RecurrenceType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecurrenceType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "RecurrenceType"
+}

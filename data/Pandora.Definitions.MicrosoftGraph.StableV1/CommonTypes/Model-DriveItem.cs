@@ -109,6 +109,9 @@ internal class DriveItemModel
     [JsonPropertyName("remoteItem")]
     public RemoteItemModel? RemoteItem { get; set; }
 
+    [JsonPropertyName("retentionLabel")]
+    public ItemRetentionLabelModel? RetentionLabel { get; set; }
+
     [JsonPropertyName("root")]
     public RootModel? Root { get; set; }
 
@@ -122,7 +125,7 @@ internal class DriveItemModel
     public SharepointIdsModel? SharepointIds { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 
     [JsonPropertyName("specialFolder")]
     public SpecialFolderModel? SpecialFolder { get; set; }

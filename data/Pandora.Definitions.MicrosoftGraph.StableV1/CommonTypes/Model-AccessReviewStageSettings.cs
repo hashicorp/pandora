@@ -28,6 +28,9 @@ internal class AccessReviewStageSettingsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("recommendationInsightSettings")]
+    public List<AccessReviewRecommendationInsightSettingModel>? RecommendationInsightSettings { get; set; }
+
     [JsonPropertyName("recommendationsEnabled")]
     public bool? RecommendationsEnabled { get; set; }
 

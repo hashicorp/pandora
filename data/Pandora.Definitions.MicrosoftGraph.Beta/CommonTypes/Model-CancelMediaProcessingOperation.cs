@@ -26,5 +26,5 @@ internal class CancelMediaProcessingOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public CancelMediaProcessingOperationStatusConstant? Status { get; set; }
 }

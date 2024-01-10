@@ -20,7 +20,7 @@ internal class WindowsWiredNetworkConfigurationModel
     public int? AuthenticationBlockPeriodInMinutes { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiredNetworkAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public WindowsWiredNetworkConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("authenticationPeriodInSeconds")]
     public int? AuthenticationPeriodInSeconds { get; set; }
@@ -29,7 +29,7 @@ internal class WindowsWiredNetworkConfigurationModel
     public int? AuthenticationRetryDelayPeriodInSeconds { get; set; }
 
     [JsonPropertyName("authenticationType")]
-    public WiredNetworkAuthenticationTypeConstant? AuthenticationType { get; set; }
+    public WindowsWiredNetworkConfigurationAuthenticationTypeConstant? AuthenticationType { get; set; }
 
     [JsonPropertyName("cacheCredentials")]
     public bool? CacheCredentials { get; set; }
@@ -65,7 +65,7 @@ internal class WindowsWiredNetworkConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapType")]
-    public EapTypeConstant? EapType { get; set; }
+    public WindowsWiredNetworkConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("eapolStartPeriodInSeconds")]
     public int? EapolStartPeriodInSeconds { get; set; }
@@ -86,7 +86,7 @@ internal class WindowsWiredNetworkConfigurationModel
     public WindowsCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEAPTTLS")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEAPTTLS { get; set; }
+    public WindowsWiredNetworkConfigurationInnerAuthenticationProtocolForEAPTTLSConstant? InnerAuthenticationProtocolForEAPTTLS { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -119,7 +119,7 @@ internal class WindowsWiredNetworkConfigurationModel
     public List<Windows81TrustedRootCertificateModel>? RootCertificatesForServerValidation { get; set; }
 
     [JsonPropertyName("secondaryAuthenticationMethod")]
-    public WiredNetworkAuthenticationMethodConstant? SecondaryAuthenticationMethod { get; set; }
+    public WindowsWiredNetworkConfigurationSecondaryAuthenticationMethodConstant? SecondaryAuthenticationMethod { get; set; }
 
     [JsonPropertyName("secondaryIdentityCertificateForClientAuthentication")]
     public WindowsCertificateProfileBaseModel? SecondaryIdentityCertificateForClientAuthentication { get; set; }

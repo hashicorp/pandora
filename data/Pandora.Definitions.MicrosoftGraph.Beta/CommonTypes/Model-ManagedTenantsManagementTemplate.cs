@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsManagementTemplateModel
 {
     [JsonPropertyName("category")]
-    public ManagementCategoryConstant? Category { get; set; }
+    public ManagedTenantsManagementTemplateCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdByUserId")]
     public string? CreatedByUserId { get; set; }
@@ -41,22 +41,22 @@ internal class ManagedTenantsManagementTemplateModel
     public DateTime? LastActionDateTime { get; set; }
 
     [JsonPropertyName("managementTemplateCollections")]
-    public List<ManagementTemplateCollectionModel>? ManagementTemplateCollections { get; set; }
+    public List<ManagedTenantsManagementTemplateCollectionModel>? ManagementTemplateCollections { get; set; }
 
     [JsonPropertyName("managementTemplateSteps")]
-    public List<ManagementTemplateStepModel>? ManagementTemplateSteps { get; set; }
+    public List<ManagedTenantsManagementTemplateStepModel>? ManagementTemplateSteps { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("parameters")]
-    public List<TemplateParameterModel>? Parameters { get; set; }
+    public List<ManagedTenantsTemplateParameterModel>? Parameters { get; set; }
 
     [JsonPropertyName("priority")]
     public int? Priority { get; set; }
 
     [JsonPropertyName("provider")]
-    public ManagementProviderConstant? Provider { get; set; }
+    public ManagedTenantsManagementTemplateProviderConstant? Provider { get; set; }
 
     [JsonPropertyName("userImpact")]
     public string? UserImpact { get; set; }
@@ -65,5 +65,5 @@ internal class ManagedTenantsManagementTemplateModel
     public int? Version { get; set; }
 
     [JsonPropertyName("workloadActions")]
-    public List<WorkloadActionModel>? WorkloadActions { get; set; }
+    public List<ManagedTenantsWorkloadActionModel>? WorkloadActions { get; set; }
 }

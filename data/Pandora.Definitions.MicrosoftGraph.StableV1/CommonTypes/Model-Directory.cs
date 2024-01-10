@@ -25,6 +25,9 @@ internal class DirectoryModel
     [JsonPropertyName("deletedItems")]
     public List<DirectoryObjectModel>? DeletedItems { get; set; }
 
+    [JsonPropertyName("deviceLocalCredentials")]
+    public List<DeviceLocalCredentialInfoModel>? DeviceLocalCredentials { get; set; }
+
     [JsonPropertyName("federationConfigurations")]
     public List<IdentityProviderBaseModel>? FederationConfigurations { get; set; }
 

@@ -27,7 +27,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new AccountId();
 
-    public override Type? ResponseObject() => typeof(DataLakeStoreAccountModel);
-
 
 }

@@ -1,0 +1,68 @@
+{
+ "name": "StandardEncoderPreset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "codecs",
+   "name": "Codecs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Codec"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "experimentalOptions",
+   "name": "ExperimentalOptions",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filters",
+   "name": "Filters",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Filters"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "formats",
+   "name": "Formats",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Format"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Preset",
+ "discriminatedTypeValue": "#Microsoft.Media.StandardEncoderPreset",
+ "typeHintIn": "OdataType"
+}

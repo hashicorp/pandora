@@ -1,0 +1,32 @@
+{
+ "name": "WorkloadNetworkDhcpServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "leaseTime",
+   "name": "LeaseTime",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverAddress",
+   "name": "ServerAddress",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "WorkloadNetworkDhcpEntity",
+ "discriminatedTypeValue": "SERVER",
+ "typeHintIn": "DhcpType"
+}

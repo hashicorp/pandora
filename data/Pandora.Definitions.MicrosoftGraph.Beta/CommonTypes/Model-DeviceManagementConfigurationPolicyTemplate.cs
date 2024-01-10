@@ -32,13 +32,13 @@ internal class DeviceManagementConfigurationPolicyTemplateModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lifecycleState")]
-    public DeviceManagementTemplateLifecycleStateConstant? LifecycleState { get; set; }
+    public DeviceManagementConfigurationPolicyTemplateLifecycleStateConstant? LifecycleState { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platforms")]
-    public DeviceManagementConfigurationPlatformsConstant? Platforms { get; set; }
+    public DeviceManagementConfigurationPolicyTemplatePlatformsConstant? Platforms { get; set; }
 
     [JsonPropertyName("settingTemplateCount")]
     public int? SettingTemplateCount { get; set; }
@@ -47,10 +47,10 @@ internal class DeviceManagementConfigurationPolicyTemplateModel
     public List<DeviceManagementConfigurationSettingTemplateModel>? SettingTemplates { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementConfigurationPolicyTemplateTechnologiesConstant? Technologies { get; set; }
 
     [JsonPropertyName("templateFamily")]
-    public DeviceManagementConfigurationTemplateFamilyConstant? TemplateFamily { get; set; }
+    public DeviceManagementConfigurationPolicyTemplateTemplateFamilyConstant? TemplateFamily { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

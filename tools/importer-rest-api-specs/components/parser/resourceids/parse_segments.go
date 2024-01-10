@@ -4,13 +4,12 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
-	internal2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var knownSegmentsUsedForScope = []string{
@@ -30,13 +29,13 @@ type processedResourceId struct {
 	constants map[string]resourcemanager.ConstantDetails
 }
 
-func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResourceId, error) {
+func (p *Parser) parseSegmentsForEachOperation() (*map[string]processedResourceId, error) {
 	// TODO: document this
 
-	urisToProcessedIds := make(map[string]processedResourceId)
+	operationIdsToProcessedResourceIds := make(map[string]processedResourceId, 0)
 	for _, operation := range p.swaggerSpecExpanded.Operations() {
 		for uri, operationDetails := range operation {
-			if internal2.OperationShouldBeIgnored(uri) {
+			if internal.OperationShouldBeIgnored(uri) {
 				p.logger.Debug(fmt.Sprintf("Ignoring %q", uri))
 				continue
 			}
@@ -46,18 +45,19 @@ func (p *Parser) parseResourceIdsFromOperations() (*map[string]processedResource
 			if err != nil {
 				return nil, fmt.Errorf("parsing Resource ID from Operation for %q: %+v", uri, err)
 			}
-			urisToProcessedIds[uri] = *resourceId
+
+			operationIdsToProcessedResourceIds[operationDetails.ID] = *resourceId
 		}
 	}
 
-	return &urisToProcessedIds, nil
+	return &operationIdsToProcessedResourceIds, nil
 }
 
 func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operation) (*processedResourceId, error) {
 	// TODO: document this
 
 	segments := make([]resourcemanager.ResourceIdSegment, 0)
-	result := internal2.ParseResult{
+	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
 
@@ -131,6 +131,7 @@ func (p *Parser) parseResourceIdFromOperation(uri string, operation *spec.Operat
 							return nil, fmt.Errorf("parsing constant from %q: %+v", uriSegment, err)
 						}
 
+						p.logger.Trace(fmt.Sprintf("Found Constant %q with values `%+v`", constant.Name, constant.Details.Values))
 						if len(constant.Details.Values) == 1 {
 							constantValue := ""
 							for _, v := range constant.Details.Values {

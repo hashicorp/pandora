@@ -37,8 +37,8 @@ internal class LotPropertiesModel
     [JsonPropertyName("isEstimatedBalance")]
     public bool? IsEstimatedBalance { get; set; }
 
-    [JsonPropertyName("orgType")]
-    public OrgTypeConstant? OrgType { get; set; }
+    [JsonPropertyName("OrganizationType")]
+    public OrganizationTypeConstant? OrganizationType { get; set; }
 
     [JsonPropertyName("originalAmount")]
     public AmountModel? OriginalAmount { get; set; }

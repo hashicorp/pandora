@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class AclModel
 {
     [JsonPropertyName("accessType")]
-    public AccessTypeConstant? AccessType { get; set; }
+    public AclAccessTypeConstant? AccessType { get; set; }
 
     [JsonPropertyName("identitySource")]
-    public IdentitySourceTypeConstant? IdentitySource { get; set; }
+    public AclIdentitySourceConstant? IdentitySource { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ServicePrincipalRiskDetectionModel
 {
     [JsonPropertyName("activity")]
-    public ActivityTypeConstant? Activity { get; set; }
+    public ServicePrincipalRiskDetectionActivityConstant? Activity { get; set; }
 
     [JsonPropertyName("activityDateTime")]
     public DateTime? ActivityDateTime { get; set; }
@@ -32,7 +32,7 @@ internal class ServicePrincipalRiskDetectionModel
     public DateTime? DetectedDateTime { get; set; }
 
     [JsonPropertyName("detectionTimingType")]
-    public RiskDetectionTimingTypeConstant? DetectionTimingType { get; set; }
+    public ServicePrincipalRiskDetectionDetectionTimingTypeConstant? DetectionTimingType { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -56,16 +56,16 @@ internal class ServicePrincipalRiskDetectionModel
     public string? RequestId { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public ServicePrincipalRiskDetectionRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskEventType")]
     public string? RiskEventType { get; set; }
 
     [JsonPropertyName("riskLevel")]
-    public RiskLevelConstant? RiskLevel { get; set; }
+    public ServicePrincipalRiskDetectionRiskLevelConstant? RiskLevel { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public ServicePrincipalRiskDetectionRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("servicePrincipalDisplayName")]
     public string? ServicePrincipalDisplayName { get; set; }
@@ -77,5 +77,5 @@ internal class ServicePrincipalRiskDetectionModel
     public string? Source { get; set; }
 
     [JsonPropertyName("tokenIssuerType")]
-    public TokenIssuerTypeConstant? TokenIssuerType { get; set; }
+    public ServicePrincipalRiskDetectionTokenIssuerTypeConstant? TokenIssuerType { get; set; }
 }

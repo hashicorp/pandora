@@ -26,8 +26,6 @@ internal class ActionGroupsPostTestNotificationsOperation : Pandora.Definitions.
 
     public override ResourceID? ResourceId() => new SubscriptionId();
 
-    public override Type? ResponseObject() => typeof(TestNotificationDetailsResponseModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.Insights/createNotifications";
 
 

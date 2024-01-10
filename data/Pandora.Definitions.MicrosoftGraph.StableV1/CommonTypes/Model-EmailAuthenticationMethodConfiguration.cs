@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class EmailAuthenticationMethodConfigurationModel
 {
     [JsonPropertyName("allowExternalIdToUseEmailOtp")]
-    public ExternalEmailOtpStateConstant? AllowExternalIdToUseEmailOtp { get; set; }
+    public EmailAuthenticationMethodConfigurationAllowExternalIdToUseEmailOtpConstant? AllowExternalIdToUseEmailOtp { get; set; }
 
     [JsonPropertyName("excludeTargets")]
     public List<ExcludeTargetModel>? ExcludeTargets { get; set; }
@@ -29,5 +29,5 @@ internal class EmailAuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public EmailAuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

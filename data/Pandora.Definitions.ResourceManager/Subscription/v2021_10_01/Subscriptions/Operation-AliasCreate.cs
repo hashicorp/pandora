@@ -20,7 +20,5 @@ internal class AliasCreateOperation : Pandora.Definitions.Operations.PutOperatio
 
     public override ResourceID? ResourceId() => new AliasId();
 
-    public override Type? ResponseObject() => typeof(SubscriptionAliasResponseModel);
-
 
 }

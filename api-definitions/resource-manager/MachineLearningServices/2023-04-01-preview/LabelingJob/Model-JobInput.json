@@ -1,0 +1,30 @@
+{
+ "name": "JobInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "jobInputType",
+   "name": "JobInputType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobInputType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "JobInputType"
+}

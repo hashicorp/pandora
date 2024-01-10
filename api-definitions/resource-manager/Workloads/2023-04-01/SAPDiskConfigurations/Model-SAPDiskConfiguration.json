@@ -1,0 +1,33 @@
+{
+ "name": "SAPDiskConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recommendedConfiguration",
+   "name": "RecommendedConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskVolumeConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportedConfigurations",
+   "name": "SupportedConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DiskDetails"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

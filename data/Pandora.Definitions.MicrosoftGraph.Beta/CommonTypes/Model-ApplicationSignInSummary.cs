@@ -17,7 +17,7 @@ internal class ApplicationSignInSummaryModel
     public string? AppDisplayName { get; set; }
 
     [JsonPropertyName("failedSignInCount")]
-    public long? FailedSignInCount { get; set; }
+    public int? FailedSignInCount { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -26,5 +26,5 @@ internal class ApplicationSignInSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("successfulSignInCount")]
-    public long? SuccessfulSignInCount { get; set; }
+    public int? SuccessfulSignInCount { get; set; }
 }

@@ -20,7 +20,7 @@ internal class FollowupFlagModel
     public DateTimeTimeZoneModel? DueDateTime { get; set; }
 
     [JsonPropertyName("flagStatus")]
-    public FollowupFlagStatusConstant? FlagStatus { get; set; }
+    public FollowupFlagFlagStatusConstant? FlagStatus { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

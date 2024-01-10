@@ -17,7 +17,7 @@ internal class AddWatermarkModel
     public string? FontColor { get; set; }
 
     [JsonPropertyName("fontSize")]
-    public long? FontSize { get; set; }
+    public int? FontSize { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }
@@ -26,7 +26,7 @@ internal class AddWatermarkModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("orientation")]
-    public PageOrientationConstant? Orientation { get; set; }
+    public AddWatermarkOrientationConstant? Orientation { get; set; }
 
     [JsonPropertyName("text")]
     public string? Text { get; set; }

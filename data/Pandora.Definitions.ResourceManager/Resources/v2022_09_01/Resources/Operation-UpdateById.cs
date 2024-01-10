@@ -26,7 +26,5 @@ internal class UpdateByIdOperation : Pandora.Definitions.Operations.PatchOperati
 
     public override ResourceID? ResourceId() => new ScopeId();
 
-    public override Type? ResponseObject() => typeof(GenericResourceModel);
-
 
 }

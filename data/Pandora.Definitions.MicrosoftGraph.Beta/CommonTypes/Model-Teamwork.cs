@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class TeamworkModel
 {
+    [JsonPropertyName("deletedChats")]
+    public List<DeletedChatModel>? DeletedChats { get; set; }
+
     [JsonPropertyName("deletedTeams")]
     public List<DeletedTeamModel>? DeletedTeams { get; set; }
 

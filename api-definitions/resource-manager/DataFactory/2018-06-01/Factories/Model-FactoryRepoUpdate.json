@@ -1,0 +1,29 @@
+{
+ "name": "FactoryRepoUpdate",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "factoryResourceId",
+   "name": "FactoryResourceId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "repoConfiguration",
+   "name": "RepoConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FactoryRepoConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

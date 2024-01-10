@@ -1,0 +1,37 @@
+{
+ "name": "AnnotationsList",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "end",
+   "required": true,
+   "field": "End",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "start",
+   "required": true,
+   "field": "Start",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "ComponentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AnnotationsListResult"
+ },
+ "uriSuffix": "/annotations"
+}

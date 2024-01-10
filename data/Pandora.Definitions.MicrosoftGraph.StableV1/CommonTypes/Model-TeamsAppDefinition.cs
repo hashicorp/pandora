@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class TeamsAppDefinitionModel
 {
+    [JsonPropertyName("authorization")]
+    public TeamsAppAuthorizationModel? Authorization { get; set; }
+
     [JsonPropertyName("bot")]
     public TeamworkBotModel? Bot { get; set; }
 
@@ -35,7 +38,7 @@ internal class TeamsAppDefinitionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public TeamsAppPublishingStateConstant? PublishingState { get; set; }
+    public TeamsAppDefinitionPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("shortDescription")]
     public string? ShortDescription { get; set; }

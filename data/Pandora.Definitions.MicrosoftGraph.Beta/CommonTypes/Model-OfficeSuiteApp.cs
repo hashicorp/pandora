@@ -34,9 +34,6 @@ internal class OfficeSuiteAppModel
     [JsonPropertyName("developer")]
     public string? Developer { get; set; }
 
-    [JsonPropertyName("deviceStatuses")]
-    public List<MobileAppInstallStatusModel>? DeviceStatuses { get; set; }
-
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
 
@@ -50,10 +47,7 @@ internal class OfficeSuiteAppModel
     public string? InformationUrl { get; set; }
 
     [JsonPropertyName("installProgressDisplayLevel")]
-    public OfficeSuiteInstallProgressDisplayLevelConstant? InstallProgressDisplayLevel { get; set; }
-
-    [JsonPropertyName("installSummary")]
-    public MobileAppInstallSummaryModel? InstallSummary { get; set; }
+    public OfficeSuiteAppInstallProgressDisplayLevelConstant? InstallProgressDisplayLevel { get; set; }
 
     [JsonPropertyName("isAssigned")]
     public bool? IsAssigned { get; set; }
@@ -80,10 +74,10 @@ internal class OfficeSuiteAppModel
     public string? OfficeConfigurationXml { get; set; }
 
     [JsonPropertyName("officePlatformArchitecture")]
-    public WindowsArchitectureConstant? OfficePlatformArchitecture { get; set; }
+    public OfficeSuiteAppOfficePlatformArchitectureConstant? OfficePlatformArchitecture { get; set; }
 
     [JsonPropertyName("officeSuiteAppDefaultFileFormat")]
-    public OfficeSuiteDefaultFileFormatTypeConstant? OfficeSuiteAppDefaultFileFormat { get; set; }
+    public OfficeSuiteAppOfficeSuiteAppDefaultFileFormatConstant? OfficeSuiteAppDefaultFileFormat { get; set; }
 
     [JsonPropertyName("owner")]
     public string? Owner { get; set; }
@@ -92,13 +86,13 @@ internal class OfficeSuiteAppModel
     public string? PrivacyInformationUrl { get; set; }
 
     [JsonPropertyName("productIds")]
-    public List<OfficeProductIdConstant>? ProductIds { get; set; }
+    public List<OfficeSuiteAppProductIdsConstant>? ProductIds { get; set; }
 
     [JsonPropertyName("publisher")]
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public OfficeSuiteAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("relationships")]
     public List<MobileAppRelationshipModel>? Relationships { get; set; }
@@ -119,7 +113,7 @@ internal class OfficeSuiteAppModel
     public string? TargetVersion { get; set; }
 
     [JsonPropertyName("updateChannel")]
-    public OfficeUpdateChannelConstant? UpdateChannel { get; set; }
+    public OfficeSuiteAppUpdateChannelConstant? UpdateChannel { get; set; }
 
     [JsonPropertyName("updateVersion")]
     public string? UpdateVersion { get; set; }
@@ -129,7 +123,4 @@ internal class OfficeSuiteAppModel
 
     [JsonPropertyName("useSharedComputerActivation")]
     public bool? UseSharedComputerActivation { get; set; }
-
-    [JsonPropertyName("userStatuses")]
-    public List<UserAppInstallStatusModel>? UserStatuses { get; set; }
 }

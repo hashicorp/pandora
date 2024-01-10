@@ -35,7 +35,7 @@ internal class AndroidWorkProfileCompliancePolicyModel
     public bool? DeviceThreatProtectionEnabled { get; set; }
 
     [JsonPropertyName("deviceThreatProtectionRequiredSecurityLevel")]
-    public DeviceThreatProtectionLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
+    public AndroidWorkProfileCompliancePolicyDeviceThreatProtectionRequiredSecurityLevelConstant? DeviceThreatProtectionRequiredSecurityLevel { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -74,7 +74,7 @@ internal class AndroidWorkProfileCompliancePolicyModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidWorkProfileCompliancePolicyPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("scheduledActionsForRule")]
     public List<DeviceComplianceScheduledActionForRuleModel>? ScheduledActionsForRule { get; set; }

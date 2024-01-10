@@ -29,5 +29,5 @@ internal class ConditionalAccessTemplateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("scenarios")]
-    public TemplateScenariosConstant? Scenarios { get; set; }
+    public ConditionalAccessTemplateScenariosConstant? Scenarios { get; set; }
 }

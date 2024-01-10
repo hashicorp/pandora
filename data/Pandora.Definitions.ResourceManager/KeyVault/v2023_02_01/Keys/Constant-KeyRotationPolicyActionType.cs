@@ -6,9 +6,9 @@ namespace Pandora.Definitions.ResourceManager.KeyVault.v2023_02_01.Keys;
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum KeyRotationPolicyActionTypeConstant
 {
-    [Description("notify")]
+    [Description("Notify")]
     Notify,
 
-    [Description("rotate")]
+    [Description("Rotate")]
     Rotate,
 }

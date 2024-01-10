@@ -20,8 +20,6 @@ internal class CreateOrReplaceOperation : Pandora.Definitions.Operations.PutOper
 
     public override ResourceID? ResourceId() => new StreamingJobId();
 
-    public override Type? ResponseObject() => typeof(StreamingJobModel);
-
     public override Type? OptionsObject() => typeof(CreateOrReplaceOperation.CreateOrReplaceOptions);
 
     internal class CreateOrReplaceOptions

@@ -35,7 +35,7 @@ internal class TeamworkDeviceModel
     public TeamworkUserIdentityModel? CurrentUser { get; set; }
 
     [JsonPropertyName("deviceType")]
-    public TeamworkDeviceTypeConstant? DeviceType { get; set; }
+    public TeamworkDeviceDeviceTypeConstant? DeviceType { get; set; }
 
     [JsonPropertyName("hardwareDetail")]
     public TeamworkHardwareDetailModel? HardwareDetail { get; set; }

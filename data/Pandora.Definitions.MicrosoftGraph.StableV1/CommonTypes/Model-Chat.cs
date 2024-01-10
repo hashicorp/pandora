@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ChatModel
 {
     [JsonPropertyName("chatType")]
-    public ChatTypeConstant? ChatType { get; set; }
+    public ChatChatTypeConstant? ChatType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -42,6 +42,9 @@ internal class ChatModel
 
     [JsonPropertyName("onlineMeetingInfo")]
     public TeamworkOnlineMeetingInfoModel? OnlineMeetingInfo { get; set; }
+
+    [JsonPropertyName("permissionGrants")]
+    public List<ResourceSpecificPermissionGrantModel>? PermissionGrants { get; set; }
 
     [JsonPropertyName("pinnedMessages")]
     public List<PinnedChatMessageInfoModel>? PinnedMessages { get; set; }

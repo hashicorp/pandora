@@ -1,0 +1,18 @@
+{
+ "name": "Dismiss",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ScopedAlertId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DismissAlertPayload"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Alert"
+ }
+}

@@ -17,5 +17,5 @@ internal class ExternalConnectorsSearchSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("searchResultTemplates")]
-    public List<DisplayTemplateModel>? SearchResultTemplates { get; set; }
+    public List<ExternalConnectorsDisplayTemplateModel>? SearchResultTemplates { get; set; }
 }

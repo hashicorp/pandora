@@ -23,7 +23,7 @@ internal class OnPremisesPublishingModel
     public string? ApplicationType { get; set; }
 
     [JsonPropertyName("externalAuthenticationType")]
-    public ExternalAuthenticationTypeConstant? ExternalAuthenticationType { get; set; }
+    public OnPremisesPublishingExternalAuthenticationTypeConstant? ExternalAuthenticationType { get; set; }
 
     [JsonPropertyName("externalUrl")]
     public string? ExternalUrl { get; set; }
@@ -36,6 +36,9 @@ internal class OnPremisesPublishingModel
 
     [JsonPropertyName("isBackendCertificateValidationEnabled")]
     public bool? IsBackendCertificateValidationEnabled { get; set; }
+
+    [JsonPropertyName("isDnsResolutionEnabled")]
+    public bool? IsDnsResolutionEnabled { get; set; }
 
     [JsonPropertyName("isHttpOnlyCookieEnabled")]
     public bool? IsHttpOnlyCookieEnabled { get; set; }

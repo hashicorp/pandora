@@ -17,7 +17,7 @@ internal class Win32LobAppRegistryRequirementModel
     public bool? Check32BitOn64System { get; set; }
 
     [JsonPropertyName("detectionType")]
-    public Win32LobAppRegistryDetectionTypeConstant? DetectionType { get; set; }
+    public Win32LobAppRegistryRequirementDetectionTypeConstant? DetectionType { get; set; }
 
     [JsonPropertyName("detectionValue")]
     public string? DetectionValue { get; set; }
@@ -29,7 +29,7 @@ internal class Win32LobAppRegistryRequirementModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppDetectionOperatorConstant? Operator { get; set; }
+    public Win32LobAppRegistryRequirementOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("valueName")]
     public string? ValueName { get; set; }

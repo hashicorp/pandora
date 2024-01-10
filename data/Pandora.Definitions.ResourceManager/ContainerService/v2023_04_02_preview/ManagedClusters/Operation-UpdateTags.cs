@@ -25,7 +25,5 @@ internal class UpdateTagsOperation : Pandora.Definitions.Operations.PatchOperati
 
     public override ResourceID? ResourceId() => new KubernetesClusterId();
 
-    public override Type? ResponseObject() => typeof(ManagedClusterModel);
-
 
 }

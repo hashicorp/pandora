@@ -1,0 +1,19 @@
+{
+ "name": "RecoveryPointsGetAccessToken",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "RecoveryPointId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AADPropertiesResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CrrAccessTokenResource"
+ },
+ "uriSuffix": "/accessToken"
+}

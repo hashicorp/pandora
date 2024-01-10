@@ -17,7 +17,7 @@ internal class BookingQuestionAnswerModel
     public string? Answer { get; set; }
 
     [JsonPropertyName("answerInputType")]
-    public AnswerInputTypeConstant? AnswerInputType { get; set; }
+    public BookingQuestionAnswerAnswerInputTypeConstant? AnswerInputType { get; set; }
 
     [JsonPropertyName("answerOptions")]
     public List<string>? AnswerOptions { get; set; }

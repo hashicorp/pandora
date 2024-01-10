@@ -20,7 +20,7 @@ internal class UserExperienceAnalyticsResourcePerformanceModel
     public int? CpuSpikeTimeScore { get; set; }
 
     [JsonPropertyName("deviceCount")]
-    public long? DeviceCount { get; set; }
+    public int? DeviceCount { get; set; }
 
     [JsonPropertyName("deviceId")]
     public string? DeviceId { get; set; }

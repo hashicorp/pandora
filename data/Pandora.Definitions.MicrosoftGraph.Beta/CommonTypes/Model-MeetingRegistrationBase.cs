@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MeetingRegistrationBaseModel
 {
     [JsonPropertyName("allowedRegistrant")]
-    public MeetingAudienceConstant? AllowedRegistrant { get; set; }
+    public MeetingRegistrationBaseAllowedRegistrantConstant? AllowedRegistrant { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

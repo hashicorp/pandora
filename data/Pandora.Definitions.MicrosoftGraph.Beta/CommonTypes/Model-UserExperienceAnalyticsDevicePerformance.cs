@@ -26,13 +26,13 @@ internal class UserExperienceAnalyticsDevicePerformanceModel
     public int? CoreLoginTimeInMs { get; set; }
 
     [JsonPropertyName("deviceCount")]
-    public long? DeviceCount { get; set; }
+    public int? DeviceCount { get; set; }
 
     [JsonPropertyName("deviceName")]
     public string? DeviceName { get; set; }
 
     [JsonPropertyName("diskType")]
-    public DiskTypeConstant? DiskType { get; set; }
+    public UserExperienceAnalyticsDevicePerformanceDiskTypeConstant? DiskType { get; set; }
 
     [JsonPropertyName("groupPolicyBootTimeInMs")]
     public int? GroupPolicyBootTimeInMs { get; set; }
@@ -41,7 +41,7 @@ internal class UserExperienceAnalyticsDevicePerformanceModel
     public int? GroupPolicyLoginTimeInMs { get; set; }
 
     [JsonPropertyName("healthStatus")]
-    public UserExperienceAnalyticsHealthStateConstant? HealthStatus { get; set; }
+    public UserExperienceAnalyticsDevicePerformanceHealthStatusConstant? HealthStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

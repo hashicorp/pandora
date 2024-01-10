@@ -17,7 +17,7 @@ internal class MachineLearningDetectedSensitiveContentModel
     public List<ClassificationAttributeModel>? ClassificationAttributes { get; set; }
 
     [JsonPropertyName("classificationMethod")]
-    public ClassificationMethodConstant? ClassificationMethod { get; set; }
+    public MachineLearningDetectedSensitiveContentClassificationMethodConstant? ClassificationMethod { get; set; }
 
     [JsonPropertyName("confidence")]
     public int? Confidence { get; set; }
@@ -29,7 +29,7 @@ internal class MachineLearningDetectedSensitiveContentModel
     public string? Id { get; set; }
 
     [JsonPropertyName("matchTolerance")]
-    public MlClassificationMatchToleranceConstant? MatchTolerance { get; set; }
+    public MachineLearningDetectedSensitiveContentMatchToleranceConstant? MatchTolerance { get; set; }
 
     [JsonPropertyName("matches")]
     public List<SensitiveContentLocationModel>? Matches { get; set; }
@@ -44,10 +44,10 @@ internal class MachineLearningDetectedSensitiveContentModel
     public int? RecommendedConfidence { get; set; }
 
     [JsonPropertyName("scope")]
-    public SensitiveTypeScopeConstant? Scope { get; set; }
+    public MachineLearningDetectedSensitiveContentScopeConstant? Scope { get; set; }
 
     [JsonPropertyName("sensitiveTypeSource")]
-    public SensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
+    public MachineLearningDetectedSensitiveContentSensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
 
     [JsonPropertyName("uniqueCount")]
     public int? UniqueCount { get; set; }

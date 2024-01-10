@@ -17,7 +17,7 @@ internal class BitLockerRemovableDrivePolicyModel
     public bool? BlockCrossOrganizationWriteAccess { get; set; }
 
     [JsonPropertyName("encryptionMethod")]
-    public BitLockerEncryptionMethodConstant? EncryptionMethod { get; set; }
+    public BitLockerRemovableDrivePolicyEncryptionMethodConstant? EncryptionMethod { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

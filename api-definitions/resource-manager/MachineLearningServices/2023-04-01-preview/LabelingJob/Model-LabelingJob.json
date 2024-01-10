@@ -1,0 +1,137 @@
+{
+ "name": "LabelingJob",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "createdDateTime",
+   "name": "CreatedDateTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataConfiguration",
+   "name": "DataConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LabelingDataConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "jobInstructions",
+   "name": "JobInstructions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LabelingJobInstructions"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labelCategories",
+   "name": "LabelCategories",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "LabelCategory"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "labelingJobMediaProperties",
+   "name": "LabelingJobMediaProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LabelingJobMediaProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mlAssistConfiguration",
+   "name": "MlAssistConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MLAssistConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "progressMetrics",
+   "name": "ProgressMetrics",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProgressMetrics"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "projectId",
+   "name": "ProjectId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "JobProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusMessages",
+   "name": "StatusMessages",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "StatusMessage"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "JobBase",
+ "discriminatedTypeValue": "Labeling",
+ "typeHintIn": "JobType"
+}

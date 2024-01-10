@@ -26,13 +26,13 @@ internal class SecuritySecurityGroupEvidenceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecuritySecurityGroupEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecuritySecurityGroupEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("securityGroupId")]
     public string? SecurityGroupId { get; set; }
@@ -41,5 +41,5 @@ internal class SecuritySecurityGroupEvidenceModel
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecuritySecurityGroupEvidenceVerdictConstant? Verdict { get; set; }
 }

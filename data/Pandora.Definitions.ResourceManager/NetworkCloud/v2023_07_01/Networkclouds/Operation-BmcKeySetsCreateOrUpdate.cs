@@ -20,7 +20,5 @@ internal class BmcKeySetsCreateOrUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new BmcKeySetId();
 
-    public override Type? ResponseObject() => typeof(BmcKeySetModel);
-
 
 }

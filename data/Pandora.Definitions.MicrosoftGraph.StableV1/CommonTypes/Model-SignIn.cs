@@ -26,7 +26,7 @@ internal class SignInModel
     public string? ClientAppUsed { get; set; }
 
     [JsonPropertyName("conditionalAccessStatus")]
-    public ConditionalAccessStatusConstant? ConditionalAccessStatus { get; set; }
+    public SignInConditionalAccessStatusConstant? ConditionalAccessStatus { get; set; }
 
     [JsonPropertyName("correlationId")]
     public string? CorrelationId { get; set; }
@@ -59,22 +59,22 @@ internal class SignInModel
     public string? ResourceId { get; set; }
 
     [JsonPropertyName("riskDetail")]
-    public RiskDetailConstant? RiskDetail { get; set; }
+    public SignInRiskDetailConstant? RiskDetail { get; set; }
 
     [JsonPropertyName("riskEventTypes")]
-    public List<RiskEventTypeConstant>? RiskEventTypes { get; set; }
+    public List<SignInRiskEventTypesConstant>? RiskEventTypes { get; set; }
 
     [JsonPropertyName("riskEventTypes_v2")]
     public List<string>? RiskEventTypesv2 { get; set; }
 
     [JsonPropertyName("riskLevelAggregated")]
-    public RiskLevelConstant? RiskLevelAggregated { get; set; }
+    public SignInRiskLevelAggregatedConstant? RiskLevelAggregated { get; set; }
 
     [JsonPropertyName("riskLevelDuringSignIn")]
-    public RiskLevelConstant? RiskLevelDuringSignIn { get; set; }
+    public SignInRiskLevelDuringSignInConstant? RiskLevelDuringSignIn { get; set; }
 
     [JsonPropertyName("riskState")]
-    public RiskStateConstant? RiskState { get; set; }
+    public SignInRiskStateConstant? RiskState { get; set; }
 
     [JsonPropertyName("status")]
     public SignInStatusModel? Status { get; set; }

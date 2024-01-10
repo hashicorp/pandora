@@ -1,0 +1,41 @@
+{
+ "name": "ManagementPolicyAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baseBlob",
+   "name": "BaseBlob",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagementPolicyBaseBlob"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "snapshot",
+   "name": "Snapshot",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagementPolicySnapShot"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagementPolicyVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

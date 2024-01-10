@@ -1,0 +1,15 @@
+{
+ "name": "ListDeploymentLogSlot",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SlotDeploymentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Deployment"
+ },
+ "uriSuffix": "/log"
+}

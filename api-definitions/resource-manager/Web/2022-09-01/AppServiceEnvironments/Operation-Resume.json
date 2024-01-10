@@ -1,0 +1,17 @@
+{
+ "name": "Resume",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "AppServiceEnvironmentId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Site"
+ },
+ "uriSuffix": "/resume"
+}

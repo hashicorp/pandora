@@ -23,10 +23,10 @@ internal class GroupPolicyOperationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operationStatus")]
-    public GroupPolicyOperationStatusConstant? OperationStatus { get; set; }
+    public GroupPolicyOperationOperationStatusConstant? OperationStatus { get; set; }
 
     [JsonPropertyName("operationType")]
-    public GroupPolicyOperationTypeConstant? OperationType { get; set; }
+    public GroupPolicyOperationOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("statusDetails")]
     public string? StatusDetails { get; set; }

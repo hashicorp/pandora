@@ -83,8 +83,8 @@ internal class WindowsMobileMSIModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public WindowsMobileMSIPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("size")]
-    public long? Size { get; set; }
+    public int? Size { get; set; }
 }

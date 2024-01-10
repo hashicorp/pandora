@@ -19,6 +19,9 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
+    [JsonPropertyName("blockUnifiedPasswordForWorkProfile")]
+    public bool? BlockUnifiedPasswordForWorkProfile { get; set; }
+
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
 
@@ -83,13 +86,13 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public int? PasswordPreviousPasswordBlockCount { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidWorkProfileRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
 
     [JsonPropertyName("requiredPasswordComplexity")]
-    public AndroidRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationRequiredPasswordComplexityConstant? RequiredPasswordComplexity { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -116,7 +119,7 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public bool? VpnEnableAlwaysOnLockdownMode { get; set; }
 
     [JsonPropertyName("workProfileAccountUse")]
-    public AndroidWorkProfileAccountUseConstant? WorkProfileAccountUse { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileAccountUseConstant? WorkProfileAccountUse { get; set; }
 
     [JsonPropertyName("workProfileAllowAppInstallsFromUnknownSources")]
     public bool? WorkProfileAllowAppInstallsFromUnknownSources { get; set; }
@@ -152,10 +155,10 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public bool? WorkProfileBluetoothEnableContactSharing { get; set; }
 
     [JsonPropertyName("workProfileDataSharingType")]
-    public AndroidWorkProfileCrossProfileDataSharingTypeConstant? WorkProfileDataSharingType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileDataSharingTypeConstant? WorkProfileDataSharingType { get; set; }
 
     [JsonPropertyName("workProfileDefaultAppPermissionPolicy")]
-    public AndroidWorkProfileDefaultAppPermissionPolicyTypeConstant? WorkProfileDefaultAppPermissionPolicy { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileDefaultAppPermissionPolicyConstant? WorkProfileDefaultAppPermissionPolicy { get; set; }
 
     [JsonPropertyName("workProfilePasswordBlockFaceUnlock")]
     public bool? WorkProfilePasswordBlockFaceUnlock { get; set; }
@@ -200,7 +203,7 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public int? WorkProfilePasswordPreviousPasswordBlockCount { get; set; }
 
     [JsonPropertyName("workProfilePasswordRequiredType")]
-    public AndroidWorkProfileRequiredPasswordTypeConstant? WorkProfilePasswordRequiredType { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfilePasswordRequiredTypeConstant? WorkProfilePasswordRequiredType { get; set; }
 
     [JsonPropertyName("workProfilePasswordSignInFailureCountBeforeFactoryReset")]
     public int? WorkProfilePasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -209,5 +212,5 @@ internal class AndroidWorkProfileGeneralDeviceConfigurationModel
     public bool? WorkProfileRequirePassword { get; set; }
 
     [JsonPropertyName("workProfileRequiredPasswordComplexity")]
-    public AndroidRequiredPasswordComplexityConstant? WorkProfileRequiredPasswordComplexity { get; set; }
+    public AndroidWorkProfileGeneralDeviceConfigurationWorkProfileRequiredPasswordComplexityConstant? WorkProfileRequiredPasswordComplexity { get; set; }
 }

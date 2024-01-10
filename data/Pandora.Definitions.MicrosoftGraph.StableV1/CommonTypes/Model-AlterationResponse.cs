@@ -23,5 +23,5 @@ internal class AlterationResponseModel
     public SearchAlterationModel? QueryAlteration { get; set; }
 
     [JsonPropertyName("queryAlterationType")]
-    public SearchAlterationTypeConstant? QueryAlterationType { get; set; }
+    public AlterationResponseQueryAlterationTypeConstant? QueryAlterationType { get; set; }
 }

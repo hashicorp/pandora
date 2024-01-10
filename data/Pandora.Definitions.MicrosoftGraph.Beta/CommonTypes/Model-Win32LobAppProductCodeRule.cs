@@ -23,8 +23,8 @@ internal class Win32LobAppProductCodeRuleModel
     public string? ProductVersion { get; set; }
 
     [JsonPropertyName("productVersionOperator")]
-    public Win32LobAppRuleOperatorConstant? ProductVersionOperator { get; set; }
+    public Win32LobAppProductCodeRuleProductVersionOperatorConstant? ProductVersionOperator { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public Win32LobAppRuleTypeConstant? RuleType { get; set; }
+    public Win32LobAppProductCodeRuleRuleTypeConstant? RuleType { get; set; }
 }

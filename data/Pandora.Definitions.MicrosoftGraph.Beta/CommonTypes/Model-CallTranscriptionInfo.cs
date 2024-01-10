@@ -20,5 +20,5 @@ internal class CallTranscriptionInfoModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public CallTranscriptionStateConstant? State { get; set; }
+    public CallTranscriptionInfoStateConstant? State { get; set; }
 }

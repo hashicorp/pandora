@@ -13,10 +13,11 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddServicePrincipalClaimsMappingPolicyOperation(),
-        new GetServicePrincipalClaimsMappingPoliciesCountOperation(),
-        new ListClaimsMappingPoliciesOperation(),
-        new RemoveServicePrincipalClaimsMappingPolicyOperation()
+        new AddServicePrincipalByIdClaimsMappingPolicyRefOperation(),
+        new GetServicePrincipalByIdClaimsMappingPolicyCountOperation(),
+        new ListServicePrincipalByIdClaimsMappingPoliciesOperation(),
+        new ListServicePrincipalByIdClaimsMappingPolicyRefsOperation(),
+        new RemoveServicePrincipalByIdClaimsMappingPolicyByIdRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -26,6 +27,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddServicePrincipalClaimsMappingPolicyRequestModel)
+
     };
 }

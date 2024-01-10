@@ -35,7 +35,7 @@ internal class ManagedTenantsManagementTemplateCollectionModel
     public DateTime? LastActionDateTime { get; set; }
 
     [JsonPropertyName("managementTemplates")]
-    public List<ManagementTemplateModel>? ManagementTemplates { get; set; }
+    public List<ManagedTenantsManagementTemplateModel>? ManagementTemplates { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

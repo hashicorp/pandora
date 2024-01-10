@@ -20,5 +20,5 @@ internal class ExcludeTargetModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("targetType")]
-    public AuthenticationMethodTargetTypeConstant? TargetType { get; set; }
+    public ExcludeTargetTargetTypeConstant? TargetType { get; set; }
 }

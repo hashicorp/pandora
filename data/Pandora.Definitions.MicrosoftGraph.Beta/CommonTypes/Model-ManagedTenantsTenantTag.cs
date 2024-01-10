@@ -41,5 +41,5 @@ internal class ManagedTenantsTenantTagModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("tenants")]
-    public List<TenantInfoModel>? Tenants { get; set; }
+    public List<ManagedTenantsTenantInfoModel>? Tenants { get; set; }
 }

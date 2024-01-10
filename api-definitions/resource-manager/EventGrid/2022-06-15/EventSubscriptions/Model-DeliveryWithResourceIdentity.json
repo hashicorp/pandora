@@ -1,0 +1,29 @@
+{
+ "name": "DeliveryWithResourceIdentity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "destination",
+   "name": "Destination",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventSubscriptionDestination"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EventSubscriptionIdentity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

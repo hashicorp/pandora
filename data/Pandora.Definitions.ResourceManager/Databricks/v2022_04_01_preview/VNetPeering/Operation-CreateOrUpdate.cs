@@ -20,7 +20,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new VirtualNetworkPeeringId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkPeeringModel);
-
 
 }

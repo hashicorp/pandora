@@ -23,7 +23,7 @@ internal class ManagedDeviceMobileAppConfigurationStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public ManagedDeviceMobileAppConfigurationStatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("settingCount")]
     public int? SettingCount { get; set; }
@@ -32,7 +32,7 @@ internal class ManagedDeviceMobileAppConfigurationStateModel
     public List<ManagedDeviceMobileAppConfigurationSettingStateModel>? SettingStates { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public ManagedDeviceMobileAppConfigurationStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userId")]
     public string? UserId { get; set; }

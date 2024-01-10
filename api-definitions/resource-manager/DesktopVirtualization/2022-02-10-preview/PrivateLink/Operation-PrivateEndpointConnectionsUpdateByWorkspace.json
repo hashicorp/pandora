@@ -1,0 +1,18 @@
+{
+ "name": "PrivateEndpointConnectionsUpdateByWorkspace",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "WorkspacePrivateEndpointConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnection"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateEndpointConnectionWithSystemData"
+ }
+}

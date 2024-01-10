@@ -1,0 +1,41 @@
+{
+ "name": "AssociationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "associationType",
+   "name": "AssociationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssociationType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AssociationSubnet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

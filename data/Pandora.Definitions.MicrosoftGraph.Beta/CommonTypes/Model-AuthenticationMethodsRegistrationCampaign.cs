@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class AuthenticationMethodsRegistrationCampaignModel
 {
+    [JsonPropertyName("enforceRegistrationAfterAllowedSnoozes")]
+    public bool? EnforceRegistrationAfterAllowedSnoozes { get; set; }
+
     [JsonPropertyName("excludeTargets")]
     public List<ExcludeTargetModel>? ExcludeTargets { get; set; }
 
@@ -26,5 +29,5 @@ internal class AuthenticationMethodsRegistrationCampaignModel
     public int? SnoozeDurationInDays { get; set; }
 
     [JsonPropertyName("state")]
-    public AdvancedConfigStateConstant? State { get; set; }
+    public AuthenticationMethodsRegistrationCampaignStateConstant? State { get; set; }
 }

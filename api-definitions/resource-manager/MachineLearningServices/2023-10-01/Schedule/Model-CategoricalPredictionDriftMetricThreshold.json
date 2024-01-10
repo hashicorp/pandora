@@ -1,0 +1,20 @@
+{
+ "name": "CategoricalPredictionDriftMetricThreshold",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metric",
+   "name": "Metric",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CategoricalPredictionDriftMetric"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "PredictionDriftMetricThresholdBase",
+ "discriminatedTypeValue": "Categorical",
+ "typeHintIn": "DataType"
+}

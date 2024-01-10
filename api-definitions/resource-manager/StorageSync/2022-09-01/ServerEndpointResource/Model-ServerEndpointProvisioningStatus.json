@@ -1,0 +1,45 @@
+{
+ "name": "ServerEndpointProvisioningStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStatus",
+   "name": "ProvisioningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerProvisioningStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStepStatuses",
+   "name": "ProvisioningStepStatuses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServerEndpointProvisioningStepStatus"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningType",
+   "name": "ProvisioningType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -20,7 +20,5 @@ internal class P2sVpnGatewaysCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new VirtualWANP2SVPNGatewayId();
 
-    public override Type? ResponseObject() => typeof(P2SVpnGatewayModel);
-
 
 }

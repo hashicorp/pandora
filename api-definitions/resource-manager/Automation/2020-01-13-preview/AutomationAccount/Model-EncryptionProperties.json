@@ -1,0 +1,41 @@
+{
+ "name": "EncryptionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionPropertiesIdentity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keySource",
+   "name": "KeySource",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncryptionKeySourceType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultProperties",
+   "name": "KeyVaultProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

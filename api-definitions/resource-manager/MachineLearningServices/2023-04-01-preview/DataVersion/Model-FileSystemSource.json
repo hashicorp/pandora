@@ -1,0 +1,20 @@
+{
+ "name": "FileSystemSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "path",
+   "name": "Path",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataImportSource",
+ "discriminatedTypeValue": "file_system",
+ "typeHintIn": "SourceType"
+}

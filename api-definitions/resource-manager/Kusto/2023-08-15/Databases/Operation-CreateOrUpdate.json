@@ -1,0 +1,28 @@
+{
+ "name": "CreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "callerRole",
+   "required": false,
+   "field": "CallerRole",
+   "optionsObjectDefinition": {
+    "type": "Reference",
+    "referenceName": "CallerRole"
+   }
+  }
+ ],
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "Database"
+ }
+}

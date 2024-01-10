@@ -25,7 +25,5 @@ internal class PurgeOperation : Pandora.Definitions.Operations.DeleteOperation
 
     public override ResourceID? ResourceId() => new DeletedServiceId();
 
-    public override Type? ResponseObject() => typeof(DeletedServiceContractModel);
-
 
 }

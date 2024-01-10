@@ -1,0 +1,53 @@
+{
+ "name": "VolumeProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationData",
+   "name": "CreationData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SourceCreationData"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeGiB",
+   "name": "SizeGiB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageTarget",
+   "name": "StorageTarget",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IscsiTargetInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "volumeId",
+   "name": "VolumeId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

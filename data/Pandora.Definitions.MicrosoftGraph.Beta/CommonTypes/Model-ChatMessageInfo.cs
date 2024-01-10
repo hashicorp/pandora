@@ -32,7 +32,7 @@ internal class ChatMessageInfoModel
     public bool? IsDeleted { get; set; }
 
     [JsonPropertyName("messageType")]
-    public ChatMessageTypeConstant? MessageType { get; set; }
+    public ChatMessageInfoMessageTypeConstant? MessageType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

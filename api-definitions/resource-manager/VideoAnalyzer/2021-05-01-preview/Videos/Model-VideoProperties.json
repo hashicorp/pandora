@@ -1,0 +1,77 @@
+{
+ "name": "VideoProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "flags",
+   "name": "Flags",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VideoFlags"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mediaInfo",
+   "name": "MediaInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VideoMediaInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "streaming",
+   "name": "Streaming",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VideoStreaming"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "title",
+   "name": "Title",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VideoType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

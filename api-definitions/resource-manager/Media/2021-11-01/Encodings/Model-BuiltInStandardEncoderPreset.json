@@ -1,0 +1,32 @@
+{
+ "name": "BuiltInStandardEncoderPreset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurations",
+   "name": "Configurations",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PresetConfigurations"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "presetName",
+   "name": "PresetName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EncoderNamedPreset"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Preset",
+ "discriminatedTypeValue": "#Microsoft.Media.BuiltInStandardEncoderPreset",
+ "typeHintIn": "OdataType"
+}

@@ -1,0 +1,33 @@
+{
+ "name": "NetworkProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkInterfaces",
+   "name": "NetworkInterfaces",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NetworkInterface"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subnet",
+   "name": "Subnet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ApiEntityReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

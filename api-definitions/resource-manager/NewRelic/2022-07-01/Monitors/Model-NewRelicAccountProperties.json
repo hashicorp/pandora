@@ -1,0 +1,53 @@
+{
+ "name": "NewRelicAccountProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accountInfo",
+   "name": "AccountInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccountInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "organizationInfo",
+   "name": "OrganizationInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OrganizationInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "singleSignOnProperties",
+   "name": "SingleSignOnProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NewRelicSingleSignOnProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userId",
+   "name": "UserId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

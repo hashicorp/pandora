@@ -20,7 +20,5 @@ internal class VpnConnectionsCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new VPNConnectionId();
 
-    public override Type? ResponseObject() => typeof(VpnConnectionModel);
-
 
 }

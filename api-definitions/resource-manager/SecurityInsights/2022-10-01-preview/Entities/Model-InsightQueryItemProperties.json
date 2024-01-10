@@ -1,0 +1,161 @@
+{
+ "name": "InsightQueryItemProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalQuery",
+   "name": "AdditionalQuery",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InsightQueryItemPropertiesAdditionalQuery"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baseQuery",
+   "name": "BaseQuery",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "chartQuery",
+   "name": "ChartQuery",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataTypes",
+   "name": "DataTypes",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "EntityQueryItemPropertiesDataTypesInlined"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultTimeRange",
+   "name": "DefaultTimeRange",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InsightQueryItemPropertiesDefaultTimeRange"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "displayName",
+   "name": "DisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "entitiesFilter",
+   "name": "EntitiesFilter",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputEntityType",
+   "name": "InputEntityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EntityType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "referenceTimeRange",
+   "name": "ReferenceTimeRange",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InsightQueryItemPropertiesReferenceTimeRange"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "requiredInputFieldsSets",
+   "name": "RequiredInputFieldsSets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "List",
+     "referenceName": null,
+     "nestedItem": {
+      "type": "String",
+      "referenceName": null
+     }
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "tableQuery",
+   "name": "TableQuery",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InsightQueryItemPropertiesTableQuery"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,9 +1,13 @@
 package endpoints
 
 import (
+	"fmt"
+	"github.com/go-chi/chi/v5"
 	"html/template"
 	"log"
 	"net/http"
+	"sort"
+	"strings"
 )
 
 const homePageTemplate = `
@@ -15,52 +19,81 @@ const homePageTemplate = `
 	<h1>Pandora Data API</h1>
 	<h3>Routes</h3>
 	<ul>
-		<li>
-			<a href="/v1/resource-manager/commonTypes">
-				<strong>GET</strong>
-				<code>/v1/resource-manager/commonTypes</code>
-			</a>
-		</li>
-		<li>
-			<a href="/v1/resource-manager/services">
-				<strong>GET</strong>
-				<code>/v1/resource-manager/services</code>
-			</a>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}</code>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}/{serviceApiVersion}</code>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}/{serviceApiVersion}</code>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}/terraform</code>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}/{resourceName}/operations</code>
-		</li>
-		<li>
-			<strong>GET</strong>
-			<code>/v1/resource-manager/services/{serviceName}/{resourceName}/schema</code>
-		</li>
+		{{range . }}
+			{{if .Linkable }}
+				<li>
+					<a href="{{.Uri}}">
+						<code>{{.Uri}}</code>
+					</a>
+				</li>
+			{{ else }}
+				<li>
+					<code>{{.Uri}}</code>
+				</li>
+			{{end}}
+		{{end}}
 	</ul>
 </body>
 </html>
 `
 
-func HomePage(w http.ResponseWriter, r *http.Request) {
-	templ, err := template.New("home-page").Parse(homePageTemplate)
-	if err != nil {
-		log.Printf("[ERROR] Serving Home Page: %+v", err)
-		w.WriteHeader(http.StatusInternalServerError)
+func HomePage(router chi.Router) func(w http.ResponseWriter, r *http.Request) {
+	return func(w http.ResponseWriter, r *http.Request) {
+		routes := routerToListOfRoutes(router.Routes())
+		links := homePageLinksFromRoutes(routes)
+
+		templ, err := template.New("home-page").Parse(homePageTemplate)
+		if err != nil {
+			log.Printf("[ERROR] Serving Home Page: %+v", err)
+			w.WriteHeader(http.StatusInternalServerError)
+		}
+		templ.Execute(w, links)
 	}
-	templ.Execute(w, nil)
+}
+
+type homePageLink struct {
+	Uri      string
+	Linkable bool
+}
+
+func homePageLinksFromRoutes(input []string) []homePageLink {
+	// ensure the ordering is consistent
+	sort.Strings(input)
+
+	output := make([]homePageLink, 0)
+
+	for _, item := range input {
+		containsTemplatedParameter := false
+		if strings.Contains(item, "{") {
+			containsTemplatedParameter = true
+		}
+		if !containsTemplatedParameter && strings.Contains(item, "}") {
+			containsTemplatedParameter = true
+		}
+		output = append(output, homePageLink{
+			Uri:      item,
+			Linkable: !containsTemplatedParameter,
+		})
+	}
+
+	return output
+}
+
+func routerToListOfRoutes(input []chi.Route) []string {
+	output := make([]string, 0)
+
+	for _, route := range input {
+		if route.SubRoutes != nil && len(route.SubRoutes.Routes()) > 0 {
+			prefix := strings.TrimSuffix(route.Pattern, "/*")
+			subRoutes := routerToListOfRoutes(route.SubRoutes.Routes())
+			for _, subRoute := range subRoutes {
+				output = append(output, fmt.Sprintf("%s%s", prefix, subRoute))
+			}
+			continue
+		}
+
+		output = append(output, strings.TrimSuffix(route.Pattern, "/"))
+	}
+
+	return output
 }

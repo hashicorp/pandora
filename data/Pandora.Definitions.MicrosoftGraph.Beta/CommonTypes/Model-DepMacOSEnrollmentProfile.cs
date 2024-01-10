@@ -31,6 +31,9 @@ internal class DepMacOSEnrollmentProfileModel
     [JsonPropertyName("applePayDisabled")]
     public bool? ApplePayDisabled { get; set; }
 
+    [JsonPropertyName("autoAdvanceSetupEnabled")]
+    public bool? AutoAdvanceSetupEnabled { get; set; }
+
     [JsonPropertyName("autoUnlockWithWatchDisabled")]
     public bool? AutoUnlockWithWatchDisabled { get; set; }
 
@@ -69,6 +72,9 @@ internal class DepMacOSEnrollmentProfileModel
 
     [JsonPropertyName("enabledSkipKeys")]
     public List<string>? EnabledSkipKeys { get; set; }
+
+    [JsonPropertyName("enrollmentTimeAzureAdGroupIds")]
+    public List<string>? EnrollmentTimeAzureAdGroupIds { get; set; }
 
     [JsonPropertyName("fileVaultDisabled")]
     public bool? FileVaultDisabled { get; set; }
@@ -115,6 +121,9 @@ internal class DepMacOSEnrollmentProfileModel
     [JsonPropertyName("registrationDisabled")]
     public bool? RegistrationDisabled { get; set; }
 
+    [JsonPropertyName("requestRequiresNetworkTether")]
+    public bool? RequestRequiresNetworkTether { get; set; }
+
     [JsonPropertyName("requireCompanyPortalOnSetupAssistantEnrolledDevices")]
     public bool? RequireCompanyPortalOnSetupAssistantEnrolledDevices { get; set; }
 
@@ -150,6 +159,9 @@ internal class DepMacOSEnrollmentProfileModel
 
     [JsonPropertyName("touchIdDisabled")]
     public bool? TouchIdDisabled { get; set; }
+
+    [JsonPropertyName("waitForDeviceConfiguredConfirmation")]
+    public bool? WaitForDeviceConfiguredConfirmation { get; set; }
 
     [JsonPropertyName("zoomDisabled")]
     public bool? ZoomDisabled { get; set; }

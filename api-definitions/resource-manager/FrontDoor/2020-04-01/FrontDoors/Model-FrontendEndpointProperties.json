@@ -1,0 +1,101 @@
+{
+ "name": "FrontendEndpointProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customHttpsConfiguration",
+   "name": "CustomHTTPSConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomHTTPSConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customHttpsProvisioningState",
+   "name": "CustomHTTPSProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomHTTPSProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customHttpsProvisioningSubstate",
+   "name": "CustomHTTPSProvisioningSubstate",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomHTTPSProvisioningSubstate"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostName",
+   "name": "HostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceState",
+   "name": "ResourceState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorResourceState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionAffinityEnabledState",
+   "name": "SessionAffinityEnabledState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SessionAffinityEnabledState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionAffinityTtlSeconds",
+   "name": "SessionAffinityTtlSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "webApplicationFirewallPolicyLink",
+   "name": "WebApplicationFirewallPolicyLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontendEndpointUpdateParametersWebApplicationFirewallPolicyLink"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

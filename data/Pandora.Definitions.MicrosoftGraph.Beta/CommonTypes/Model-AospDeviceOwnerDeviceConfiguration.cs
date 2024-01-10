@@ -77,7 +77,7 @@ internal class AospDeviceOwnerDeviceConfigurationModel
     public int? PasswordMinutesOfInactivityBeforeScreenTimeout { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidDeviceOwnerRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AospDeviceOwnerDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }

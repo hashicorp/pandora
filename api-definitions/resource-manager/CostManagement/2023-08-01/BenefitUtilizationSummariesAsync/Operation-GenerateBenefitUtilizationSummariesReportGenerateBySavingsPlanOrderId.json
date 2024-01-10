@@ -1,0 +1,16 @@
+{
+ "name": "GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanOrderId",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SavingsPlanOrderId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BenefitUtilizationSummariesRequest"
+ },
+ "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
+}

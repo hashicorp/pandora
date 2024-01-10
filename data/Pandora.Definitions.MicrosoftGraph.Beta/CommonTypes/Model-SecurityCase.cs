@@ -35,5 +35,5 @@ internal class SecurityCaseModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public CaseStatusConstant? Status { get; set; }
+    public SecurityCaseStatusConstant? Status { get; set; }
 }

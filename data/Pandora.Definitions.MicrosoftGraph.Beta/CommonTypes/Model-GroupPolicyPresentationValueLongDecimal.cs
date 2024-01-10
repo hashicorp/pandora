@@ -32,5 +32,5 @@ internal class GroupPolicyPresentationValueLongDecimalModel
     public GroupPolicyPresentationModel? Presentation { get; set; }
 
     [JsonPropertyName("value")]
-    public long? Value { get; set; }
+    public int? Value { get; set; }
 }

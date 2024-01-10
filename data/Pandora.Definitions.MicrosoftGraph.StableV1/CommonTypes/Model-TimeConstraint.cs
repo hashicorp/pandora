@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class TimeConstraintModel
 {
     [JsonPropertyName("activityDomain")]
-    public ActivityDomainConstant? ActivityDomain { get; set; }
+    public TimeConstraintActivityDomainConstant? ActivityDomain { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

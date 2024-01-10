@@ -1,0 +1,29 @@
+{
+ "name": "LocationSpec",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStatus",
+   "name": "ProvisioningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KnownLocationSpecProvisioningStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

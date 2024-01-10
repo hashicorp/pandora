@@ -1,0 +1,29 @@
+{
+ "name": "SensitiveDataDiscoveryProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isEnabled",
+   "name": "IsEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operationStatus",
+   "name": "OperationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

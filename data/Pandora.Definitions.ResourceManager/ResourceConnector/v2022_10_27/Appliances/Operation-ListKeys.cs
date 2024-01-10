@@ -27,7 +27,7 @@ internal class ListKeysOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? OptionsObject() => typeof(ListKeysOperation.ListKeysOptions);
 
-    public override string? UriSuffix() => "/listkeys";
+    public override string? UriSuffix() => "/listKeys";
 
     internal class ListKeysOptions
     {

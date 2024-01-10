@@ -26,8 +26,6 @@ internal class DiagnoseOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new WorkspaceId();
 
-    public override Type? ResponseObject() => typeof(DiagnoseResponseResultModel);
-
     public override string? UriSuffix() => "/diagnose";
 
 

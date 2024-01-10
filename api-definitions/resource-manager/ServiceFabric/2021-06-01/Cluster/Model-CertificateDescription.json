@@ -1,0 +1,41 @@
+{
+ "name": "CertificateDescription",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "thumbprint",
+   "name": "Thumbprint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "thumbprintSecondary",
+   "name": "ThumbprintSecondary",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "x509StoreName",
+   "name": "X509StoreName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "X509StoreName"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

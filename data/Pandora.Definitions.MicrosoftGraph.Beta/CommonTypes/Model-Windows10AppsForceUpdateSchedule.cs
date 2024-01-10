@@ -17,7 +17,7 @@ internal class Windows10AppsForceUpdateScheduleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("recurrence")]
-    public Windows10AppsUpdateRecurrenceConstant? Recurrence { get; set; }
+    public Windows10AppsForceUpdateScheduleRecurrenceConstant? Recurrence { get; set; }
 
     [JsonPropertyName("runImmediatelyIfAfterStartDateTime")]
     public bool? RunImmediatelyIfAfterStartDateTime { get; set; }

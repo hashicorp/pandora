@@ -26,8 +26,6 @@ internal class GenerateBenefitUtilizationSummariesReportGenerateByBillingProfile
 
     public override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type? ResponseObject() => typeof(BenefitUtilizationSummariesOperationStatusModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport";
 
 

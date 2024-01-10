@@ -23,5 +23,5 @@ internal class SettingSourceModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sourceType")]
-    public SettingSourceTypeConstant? SourceType { get; set; }
+    public SettingSourceSourceTypeConstant? SourceType { get; set; }
 }

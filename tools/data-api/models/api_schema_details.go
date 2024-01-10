@@ -47,11 +47,8 @@ type ModelDetails struct {
 }
 
 type FieldDetails struct {
-	// Default is an optional value which should be used as the default for this field
-	Default *interface{} `json:"default"`
-
 	// DateFormat is the format which should be used for this field when Type is set to DateTime
-	DateFormat *DateFormat `json:"dateFormat"`
+	DateFormat *DateFormat `json:"dateFormat,omitempty"`
 
 	// ForceNew specifies that this value cannot be changed in the API after creation
 	ForceNew bool `json:"forceNew"`

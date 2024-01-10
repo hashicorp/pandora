@@ -1,0 +1,15 @@
+{
+ "name": "GetIPAddress",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "NodeId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "IntegrationRuntimeNodeIPAddress"
+ },
+ "uriSuffix": "/ipAddress"
+}

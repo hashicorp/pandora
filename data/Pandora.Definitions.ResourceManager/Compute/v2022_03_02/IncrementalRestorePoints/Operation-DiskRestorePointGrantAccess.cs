@@ -26,8 +26,6 @@ internal class DiskRestorePointGrantAccessOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new DiskRestorePointId();
 
-    public override Type? ResponseObject() => typeof(AccessUriModel);
-
     public override string? UriSuffix() => "/beginGetAccess";
 
 

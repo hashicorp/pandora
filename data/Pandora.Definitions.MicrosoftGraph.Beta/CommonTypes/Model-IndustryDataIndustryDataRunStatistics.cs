@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IndustryDataIndustryDataRunStatisticsModel
 {
     [JsonPropertyName("activityStatistics")]
-    public List<IndustryDataActivityStatisticsModel>? ActivityStatistics { get; set; }
+    public List<IndustryDataIndustryDataActivityStatisticsModel>? ActivityStatistics { get; set; }
 
     [JsonPropertyName("inboundTotals")]
-    public AggregatedInboundStatisticsModel? InboundTotals { get; set; }
+    public IndustryDataAggregatedInboundStatisticsModel? InboundTotals { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -26,5 +26,5 @@ internal class IndustryDataIndustryDataRunStatisticsModel
     public string? RunId { get; set; }
 
     [JsonPropertyName("status")]
-    public IndustryDataRunStatusConstant? Status { get; set; }
+    public IndustryDataIndustryDataRunStatisticsStatusConstant? Status { get; set; }
 }

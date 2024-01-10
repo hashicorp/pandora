@@ -20,7 +20,5 @@ internal class MonitorsUpdateOperation : Pandora.Definitions.Operations.PatchOpe
 
     public override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(DatadogMonitorResourceModel);
-
 
 }

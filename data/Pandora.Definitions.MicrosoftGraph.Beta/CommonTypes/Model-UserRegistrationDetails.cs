@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class UserRegistrationDetailsModel
 {
     [JsonPropertyName("defaultMfaMethod")]
-    public DefaultMfaMethodTypeConstant? DefaultMfaMethod { get; set; }
+    public UserRegistrationDetailsDefaultMfaMethodConstant? DefaultMfaMethod { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -40,6 +40,9 @@ internal class UserRegistrationDetailsModel
     [JsonPropertyName("isSsprRegistered")]
     public bool? IsSsprRegistered { get; set; }
 
+    [JsonPropertyName("isSystemPreferredAuthenticationMethodEnabled")]
+    public bool? IsSystemPreferredAuthenticationMethodEnabled { get; set; }
+
     [JsonPropertyName("lastUpdatedDateTime")]
     public DateTime? LastUpdatedDateTime { get; set; }
 
@@ -49,12 +52,18 @@ internal class UserRegistrationDetailsModel
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
+    [JsonPropertyName("systemPreferredAuthenticationMethods")]
+    public List<string>? SystemPreferredAuthenticationMethods { get; set; }
+
     [JsonPropertyName("userDisplayName")]
     public string? UserDisplayName { get; set; }
+
+    [JsonPropertyName("userPreferredMethodForSecondaryAuthentication")]
+    public UserRegistrationDetailsUserPreferredMethodForSecondaryAuthenticationConstant? UserPreferredMethodForSecondaryAuthentication { get; set; }
 
     [JsonPropertyName("userPrincipalName")]
     public string? UserPrincipalName { get; set; }
 
     [JsonPropertyName("userType")]
-    public SignInUserTypeConstant? UserType { get; set; }
+    public UserRegistrationDetailsUserTypeConstant? UserType { get; set; }
 }

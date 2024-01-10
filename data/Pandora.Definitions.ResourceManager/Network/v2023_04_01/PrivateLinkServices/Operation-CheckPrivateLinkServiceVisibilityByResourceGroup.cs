@@ -26,8 +26,6 @@ internal class CheckPrivateLinkServiceVisibilityByResourceGroupOperation : Pando
 
     public override ResourceID? ResourceId() => new ProviderLocationId();
 
-    public override Type? ResponseObject() => typeof(PrivateLinkServiceVisibilityModel);
-
     public override string? UriSuffix() => "/checkPrivateLinkServiceVisibility";
 
 

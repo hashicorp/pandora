@@ -26,8 +26,6 @@ internal class CancelSynchronizationOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new ShareSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ShareSubscriptionSynchronizationModel);
-
     public override string? UriSuffix() => "/cancelSynchronization";
 
 

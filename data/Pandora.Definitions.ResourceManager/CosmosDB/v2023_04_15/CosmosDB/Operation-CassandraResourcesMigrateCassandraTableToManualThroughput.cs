@@ -26,8 +26,6 @@ internal class CassandraResourcesMigrateCassandraTableToManualThroughputOperatio
 
     public override ResourceID? ResourceId() => new CassandraKeyspaceTableId();
 
-    public override Type? ResponseObject() => typeof(ThroughputSettingsGetResultsModel);
-
     public override string? UriSuffix() => "/throughputSettings/default/migrateToManualThroughput";
 
 

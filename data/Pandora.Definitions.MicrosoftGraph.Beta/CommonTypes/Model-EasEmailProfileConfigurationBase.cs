@@ -65,7 +65,7 @@ internal class EasEmailProfileConfigurationBaseModel
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("userDomainNameSource")]
-    public DomainNameSourceConstant? UserDomainNameSource { get; set; }
+    public EasEmailProfileConfigurationBaseUserDomainNameSourceConstant? UserDomainNameSource { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }
@@ -74,10 +74,10 @@ internal class EasEmailProfileConfigurationBaseModel
     public List<DeviceConfigurationUserStatusModel>? UserStatuses { get; set; }
 
     [JsonPropertyName("usernameAADSource")]
-    public UsernameSourceConstant? UsernameAADSource { get; set; }
+    public EasEmailProfileConfigurationBaseUsernameAADSourceConstant? UsernameAADSource { get; set; }
 
     [JsonPropertyName("usernameSource")]
-    public UserEmailSourceConstant? UsernameSource { get; set; }
+    public EasEmailProfileConfigurationBaseUsernameSourceConstant? UsernameSource { get; set; }
 
     [JsonPropertyName("version")]
     public int? Version { get; set; }

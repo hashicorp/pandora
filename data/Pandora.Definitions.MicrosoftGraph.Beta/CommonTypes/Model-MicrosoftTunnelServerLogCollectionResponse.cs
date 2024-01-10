@@ -32,11 +32,11 @@ internal class MicrosoftTunnelServerLogCollectionResponseModel
     public string? ServerId { get; set; }
 
     [JsonPropertyName("sizeInBytes")]
-    public long? SizeInBytes { get; set; }
+    public int? SizeInBytes { get; set; }
 
     [JsonPropertyName("startDateTime")]
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public MicrosoftTunnelLogCollectionStatusConstant? Status { get; set; }
+    public MicrosoftTunnelServerLogCollectionResponseStatusConstant? Status { get; set; }
 }

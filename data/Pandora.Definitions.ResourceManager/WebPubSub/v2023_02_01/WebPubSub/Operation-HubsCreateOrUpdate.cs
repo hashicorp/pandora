@@ -20,7 +20,5 @@ internal class HubsCreateOrUpdateOperation : Pandora.Definitions.Operations.PutO
 
     public override ResourceID? ResourceId() => new HubId();
 
-    public override Type? ResponseObject() => typeof(WebPubSubHubModel);
-
 
 }

@@ -32,7 +32,7 @@ internal class DeviceComplianceSettingStateModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public DeviceTypeConstant? PlatformType { get; set; }
+    public DeviceComplianceSettingStatePlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("setting")]
     public string? Setting { get; set; }
@@ -41,7 +41,7 @@ internal class DeviceComplianceSettingStateModel
     public string? SettingName { get; set; }
 
     [JsonPropertyName("state")]
-    public ComplianceStatusConstant? State { get; set; }
+    public DeviceComplianceSettingStateStateConstant? State { get; set; }
 
     [JsonPropertyName("userEmail")]
     public string? UserEmail { get; set; }

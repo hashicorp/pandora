@@ -1,0 +1,54 @@
+{
+ "name": "ProgressMetrics",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "completedDatapointCount",
+   "name": "CompletedDatapointCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "incrementalDataLastRefreshDateTime",
+   "name": "IncrementalDataLastRefreshDateTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skippedDatapointCount",
+   "name": "SkippedDatapointCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalDatapointCount",
+   "name": "TotalDatapointCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

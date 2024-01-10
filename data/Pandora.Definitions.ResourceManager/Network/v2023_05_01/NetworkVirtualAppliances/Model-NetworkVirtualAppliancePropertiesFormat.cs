@@ -54,9 +54,6 @@ internal class NetworkVirtualAppliancePropertiesFormatModel
     [JsonPropertyName("virtualApplianceAsn")]
     public int? VirtualApplianceAsn { get; set; }
 
-    [JsonPropertyName("virtualApplianceConnections")]
-    public List<SubResourceModel>? VirtualApplianceConnections { get; set; }
-
     [JsonPropertyName("virtualApplianceNics")]
     public List<VirtualApplianceNicPropertiesModel>? VirtualApplianceNics { get; set; }
 

@@ -23,7 +23,7 @@ internal class MobileAppTroubleshootingAppTargetHistoryModel
     public DateTime? OccurrenceDateTime { get; set; }
 
     [JsonPropertyName("runState")]
-    public RunStateConstant? RunState { get; set; }
+    public MobileAppTroubleshootingAppTargetHistoryRunStateConstant? RunState { get; set; }
 
     [JsonPropertyName("securityGroupId")]
     public string? SecurityGroupId { get; set; }

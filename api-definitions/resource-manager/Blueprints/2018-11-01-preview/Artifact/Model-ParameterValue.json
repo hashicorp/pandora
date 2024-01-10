@@ -1,0 +1,29 @@
+{
+ "name": "ParameterValue",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reference",
+   "name": "Reference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SecretValueReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

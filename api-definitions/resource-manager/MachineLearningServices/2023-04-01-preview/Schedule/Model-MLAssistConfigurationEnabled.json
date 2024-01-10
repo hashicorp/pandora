@@ -1,0 +1,32 @@
+{
+ "name": "MLAssistConfigurationEnabled",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inferencingComputeBinding",
+   "name": "InferencingComputeBinding",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trainingComputeBinding",
+   "name": "TrainingComputeBinding",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MLAssistConfiguration",
+ "discriminatedTypeValue": "Enabled",
+ "typeHintIn": "MlAssist"
+}

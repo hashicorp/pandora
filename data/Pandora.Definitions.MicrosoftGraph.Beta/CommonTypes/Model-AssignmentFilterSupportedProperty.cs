@@ -29,7 +29,7 @@ internal class AssignmentFilterSupportedPropertyModel
     public string? PropertyRegexConstraint { get; set; }
 
     [JsonPropertyName("supportedOperators")]
-    public List<AssignmentFilterOperatorConstant>? SupportedOperators { get; set; }
+    public List<AssignmentFilterSupportedPropertySupportedOperatorsConstant>? SupportedOperators { get; set; }
 
     [JsonPropertyName("supportedValues")]
     public List<string>? SupportedValues { get; set; }

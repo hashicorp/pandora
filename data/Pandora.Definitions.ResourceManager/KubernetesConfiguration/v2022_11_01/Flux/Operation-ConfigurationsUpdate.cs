@@ -26,7 +26,5 @@ internal class ConfigurationsUpdateOperation : Pandora.Definitions.Operations.Pa
 
     public override ResourceID? ResourceId() => new ScopedFluxConfigurationId();
 
-    public override Type? ResponseObject() => typeof(FluxConfigurationModel);
-
 
 }

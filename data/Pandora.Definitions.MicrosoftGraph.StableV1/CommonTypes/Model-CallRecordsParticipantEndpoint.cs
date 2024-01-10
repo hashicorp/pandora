@@ -13,15 +13,27 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class CallRecordsParticipantEndpointModel
 {
+    [JsonPropertyName("cpuCoresCount")]
+    public int? CpuCoresCount { get; set; }
+
+    [JsonPropertyName("cpuName")]
+    public string? CpuName { get; set; }
+
+    [JsonPropertyName("cpuProcessorSpeedInMhz")]
+    public int? CpuProcessorSpeedInMhz { get; set; }
+
     [JsonPropertyName("feedback")]
-    public UserFeedbackModel? Feedback { get; set; }
+    public CallRecordsUserFeedbackModel? Feedback { get; set; }
 
     [JsonPropertyName("identity")]
     public IdentitySetModel? Identity { get; set; }
+
+    [JsonPropertyName("name")]
+    public string? Name { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userAgent")]
-    public UserAgentModel? UserAgent { get; set; }
+    public CallRecordsUserAgentModel? UserAgent { get; set; }
 }

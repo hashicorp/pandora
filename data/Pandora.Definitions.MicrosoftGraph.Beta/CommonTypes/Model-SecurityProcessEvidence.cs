@@ -20,10 +20,10 @@ internal class SecurityProcessEvidenceModel
     public List<string>? DetailedRoles { get; set; }
 
     [JsonPropertyName("detectionStatus")]
-    public DetectionStatusConstant? DetectionStatus { get; set; }
+    public SecurityProcessEvidenceDetectionStatusConstant? DetectionStatus { get; set; }
 
     [JsonPropertyName("imageFile")]
-    public FileDetailsModel? ImageFile { get; set; }
+    public SecurityFileDetailsModel? ImageFile { get; set; }
 
     [JsonPropertyName("mdeDeviceId")]
     public string? MdeDeviceId { get; set; }
@@ -35,10 +35,10 @@ internal class SecurityProcessEvidenceModel
     public DateTime? ParentProcessCreationDateTime { get; set; }
 
     [JsonPropertyName("parentProcessId")]
-    public long? ParentProcessId { get; set; }
+    public int? ParentProcessId { get; set; }
 
     [JsonPropertyName("parentProcessImageFile")]
-    public FileDetailsModel? ParentProcessImageFile { get; set; }
+    public SecurityFileDetailsModel? ParentProcessImageFile { get; set; }
 
     [JsonPropertyName("processCommandLine")]
     public string? ProcessCommandLine { get; set; }
@@ -47,23 +47,23 @@ internal class SecurityProcessEvidenceModel
     public DateTime? ProcessCreationDateTime { get; set; }
 
     [JsonPropertyName("processId")]
-    public long? ProcessId { get; set; }
+    public int? ProcessId { get; set; }
 
     [JsonPropertyName("remediationStatus")]
-    public EvidenceRemediationStatusConstant? RemediationStatus { get; set; }
+    public SecurityProcessEvidenceRemediationStatusConstant? RemediationStatus { get; set; }
 
     [JsonPropertyName("remediationStatusDetails")]
     public string? RemediationStatusDetails { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<EvidenceRoleConstant>? Roles { get; set; }
+    public List<SecurityProcessEvidenceRolesConstant>? Roles { get; set; }
 
     [JsonPropertyName("tags")]
     public List<string>? Tags { get; set; }
 
     [JsonPropertyName("userAccount")]
-    public UserAccountModel? UserAccount { get; set; }
+    public SecurityUserAccountModel? UserAccount { get; set; }
 
     [JsonPropertyName("verdict")]
-    public EvidenceVerdictConstant? Verdict { get; set; }
+    public SecurityProcessEvidenceVerdictConstant? Verdict { get; set; }
 }

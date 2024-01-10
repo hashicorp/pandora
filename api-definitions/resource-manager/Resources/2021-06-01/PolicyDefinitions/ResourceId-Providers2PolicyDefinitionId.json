@@ -1,0 +1,44 @@
+{
+ "name": "Providers2PolicyDefinitionId",
+ "id": "/providers/Microsoft.Management/managementGroups/{managementGroupId}/providers/Microsoft.Authorization/policyDefinitions/{policyDefinitionName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftManagement",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Management"
+  },
+  {
+   "name": "staticManagementGroups",
+   "type": "Static",
+   "value": "managementGroups"
+  },
+  {
+   "name": "managementGroupId",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticProviders2",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAuthorization",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Authorization"
+  },
+  {
+   "name": "staticPolicyDefinitions",
+   "type": "Static",
+   "value": "policyDefinitions"
+  },
+  {
+   "name": "policyDefinitionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

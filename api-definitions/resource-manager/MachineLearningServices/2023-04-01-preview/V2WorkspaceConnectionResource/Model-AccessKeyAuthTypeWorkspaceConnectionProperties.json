@@ -1,0 +1,20 @@
+{
+ "name": "AccessKeyAuthTypeWorkspaceConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "credentials",
+   "name": "Credentials",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkspaceConnectionAccessKey"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+ "discriminatedTypeValue": "AccessKey",
+ "typeHintIn": "AuthType"
+}

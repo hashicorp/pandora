@@ -26,8 +26,6 @@ internal class ExportOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VaultId();
 
-    public override Type? ResponseObject() => typeof(JobModel);
-
     public override string? UriSuffix() => "/replicationJobs/export";
 
 

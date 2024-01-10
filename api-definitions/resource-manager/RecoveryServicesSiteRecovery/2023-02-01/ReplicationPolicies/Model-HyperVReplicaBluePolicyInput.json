@@ -1,0 +1,20 @@
+{
+ "name": "HyperVReplicaBluePolicyInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationFrequencyInSeconds",
+   "name": "ReplicationFrequencyInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "HyperVReplicaPolicyInput",
+ "discriminatedTypeValue": "HyperVReplica2012R2",
+ "typeHintIn": "InstanceType"
+}

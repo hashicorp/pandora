@@ -13,25 +13,25 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddServicePrincipalKeyOperation(),
-        new AddServicePrincipalPasswordOperation(),
-        new AddServicePrincipalTokenSigningCertificateOperation(),
-        new CheckServicePrincipalMemberGroupsOperation(),
-        new CheckServicePrincipalMemberObjectsOperation(),
+        new AddServicePrincipalByIdKeyOperation(),
+        new AddServicePrincipalByIdPasswordOperation(),
+        new AddServicePrincipalByIdTokenSigningCertificateOperation(),
+        new CheckServicePrincipalByIdMemberGroupOperation(),
+        new CheckServicePrincipalByIdMemberObjectOperation(),
         new CreateServicePrincipalOperation(),
-        new DeleteServicePrincipalOperation(),
-        new GetServicePrincipalAvailableExtensionPropertiesOperation(),
-        new GetServicePrincipalByIdsOperation(),
-        new GetServicePrincipalMemberGroupsOperation(),
-        new GetServicePrincipalMemberObjectsOperation(),
-        new GetServicePrincipalOperation(),
-        new GetServicePrincipalsCountOperation(),
+        new DeleteServicePrincipalByIdOperation(),
+        new GetServicePrincipalByIdMemberGroupOperation(),
+        new GetServicePrincipalByIdMemberObjectOperation(),
+        new GetServicePrincipalByIdOperation(),
+        new GetServicePrincipalCountOperation(),
+        new GetServicePrincipalsAvailableExtensionPropertiesOperation(),
+        new GetServicePrincipalsByIdsOperation(),
         new ListServicePrincipalsOperation(),
-        new RemoveServicePrincipalKeyOperation(),
-        new RemoveServicePrincipalPasswordOperation(),
-        new RestoreServicePrincipalOperation(),
-        new UpdateServicePrincipalOperation(),
-        new ValidateServicePrincipalPropertiesOperation()
+        new RemoveServicePrincipalByIdKeyOperation(),
+        new RemoveServicePrincipalByIdPasswordOperation(),
+        new RestoreServicePrincipalByIdOperation(),
+        new UpdateServicePrincipalByIdOperation(),
+        new ValidateServicePrincipalsPropertyOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -41,17 +41,17 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddServicePrincipalKeyRequestModel),
-        typeof(AddServicePrincipalPasswordRequestModel),
-        typeof(AddServicePrincipalTokenSigningCertificateRequestModel),
-        typeof(CheckServicePrincipalMemberGroupsRequestModel),
-        typeof(CheckServicePrincipalMemberObjectsRequestModel),
-        typeof(GetServicePrincipalAvailableExtensionPropertiesRequestModel),
-        typeof(GetServicePrincipalByIdsRequestModel),
-        typeof(GetServicePrincipalMemberGroupsRequestModel),
-        typeof(GetServicePrincipalMemberObjectsRequestModel),
-        typeof(RemoveServicePrincipalKeyRequestModel),
-        typeof(RemoveServicePrincipalPasswordRequestModel),
-        typeof(ValidateServicePrincipalPropertiesRequestModel)
+        typeof(AddServicePrincipalByIdKeyRequestModel),
+        typeof(AddServicePrincipalByIdPasswordRequestModel),
+        typeof(AddServicePrincipalByIdTokenSigningCertificateRequestModel),
+        typeof(CheckServicePrincipalByIdMemberGroupRequestModel),
+        typeof(CheckServicePrincipalByIdMemberObjectRequestModel),
+        typeof(GetServicePrincipalByIdMemberGroupRequestModel),
+        typeof(GetServicePrincipalByIdMemberObjectRequestModel),
+        typeof(GetServicePrincipalsAvailableExtensionPropertiesRequestModel),
+        typeof(GetServicePrincipalsByIdsRequestModel),
+        typeof(RemoveServicePrincipalByIdKeyRequestModel),
+        typeof(RemoveServicePrincipalByIdPasswordRequestModel),
+        typeof(ValidateServicePrincipalsPropertyRequestModel)
     };
 }

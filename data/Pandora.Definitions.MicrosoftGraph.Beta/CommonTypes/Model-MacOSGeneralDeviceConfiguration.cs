@@ -47,7 +47,7 @@ internal class MacOSGeneralDeviceConfigurationModel
     public bool? ClassroomForceUnpromptedAppAndDeviceLock { get; set; }
 
     [JsonPropertyName("compliantAppListType")]
-    public AppListTypeConstant? CompliantAppListType { get; set; }
+    public MacOSGeneralDeviceConfigurationCompliantAppListTypeConstant? CompliantAppListType { get; set; }
 
     [JsonPropertyName("compliantAppsList")]
     public List<AppListItemModel>? CompliantAppsList { get; set; }
@@ -200,7 +200,7 @@ internal class MacOSGeneralDeviceConfigurationModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public RequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public MacOSGeneralDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("privacyAccessControls")]
     public List<MacOSPrivacyAccessControlItemModel>? PrivacyAccessControls { get; set; }
@@ -236,7 +236,7 @@ internal class MacOSGeneralDeviceConfigurationModel
     public int? TouchIdTimeoutInHours { get; set; }
 
     [JsonPropertyName("updateDelayPolicy")]
-    public MacOSSoftwareUpdateDelayPolicyConstant? UpdateDelayPolicy { get; set; }
+    public MacOSGeneralDeviceConfigurationUpdateDelayPolicyConstant? UpdateDelayPolicy { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }

@@ -1,0 +1,65 @@
+{
+ "name": "RedisLinkedServerCreateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "geoReplicatedPrimaryHostName",
+   "name": "GeoReplicatedPrimaryHostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkedRedisCacheId",
+   "name": "LinkedRedisCacheId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkedRedisCacheLocation",
+   "name": "LinkedRedisCacheLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryHostName",
+   "name": "PrimaryHostName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverRole",
+   "name": "ServerRole",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReplicationRole"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

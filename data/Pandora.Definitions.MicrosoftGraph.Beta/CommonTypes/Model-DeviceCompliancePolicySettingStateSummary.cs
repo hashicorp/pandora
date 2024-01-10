@@ -38,7 +38,7 @@ internal class DeviceCompliancePolicySettingStateSummaryModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platformType")]
-    public PolicyPlatformTypeConstant? PlatformType { get; set; }
+    public DeviceCompliancePolicySettingStateSummaryPlatformTypeConstant? PlatformType { get; set; }
 
     [JsonPropertyName("remediatedDeviceCount")]
     public int? RemediatedDeviceCount { get; set; }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsFirewallRuleModel
 {
     [JsonPropertyName("action")]
-    public StateManagementSettingConstant? Action { get; set; }
+    public WindowsFirewallRuleActionConstant? Action { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -23,7 +23,7 @@ internal class WindowsFirewallRuleModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("edgeTraversal")]
-    public StateManagementSettingConstant? EdgeTraversal { get; set; }
+    public WindowsFirewallRuleEdgeTraversalConstant? EdgeTraversal { get; set; }
 
     [JsonPropertyName("filePath")]
     public string? FilePath { get; set; }
@@ -47,7 +47,7 @@ internal class WindowsFirewallRuleModel
     public string? PackageFamilyName { get; set; }
 
     [JsonPropertyName("profileTypes")]
-    public WindowsFirewallRuleNetworkProfileTypesConstant? ProfileTypes { get; set; }
+    public WindowsFirewallRuleProfileTypesConstant? ProfileTypes { get; set; }
 
     [JsonPropertyName("protocol")]
     public int? Protocol { get; set; }
@@ -62,5 +62,5 @@ internal class WindowsFirewallRuleModel
     public string? ServiceName { get; set; }
 
     [JsonPropertyName("trafficDirection")]
-    public WindowsFirewallRuleTrafficDirectionTypeConstant? TrafficDirection { get; set; }
+    public WindowsFirewallRuleTrafficDirectionConstant? TrafficDirection { get; set; }
 }

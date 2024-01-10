@@ -35,5 +35,5 @@ internal class IdentityUserFlowAttributeAssignmentModel
     public List<UserAttributeValuesItemModel>? UserAttributeValues { get; set; }
 
     [JsonPropertyName("userInputType")]
-    public IdentityUserFlowAttributeInputTypeConstant? UserInputType { get; set; }
+    public IdentityUserFlowAttributeAssignmentUserInputTypeConstant? UserInputType { get; set; }
 }

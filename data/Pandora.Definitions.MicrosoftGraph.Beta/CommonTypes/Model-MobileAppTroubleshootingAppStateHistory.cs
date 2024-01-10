@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class MobileAppTroubleshootingAppStateHistoryModel
 {
     [JsonPropertyName("actionType")]
-    public MobileAppActionTypeConstant? ActionType { get; set; }
+    public MobileAppTroubleshootingAppStateHistoryActionTypeConstant? ActionType { get; set; }
 
     [JsonPropertyName("errorCode")]
     public string? ErrorCode { get; set; }
@@ -26,7 +26,7 @@ internal class MobileAppTroubleshootingAppStateHistoryModel
     public DateTime? OccurrenceDateTime { get; set; }
 
     [JsonPropertyName("runState")]
-    public RunStateConstant? RunState { get; set; }
+    public MobileAppTroubleshootingAppStateHistoryRunStateConstant? RunState { get; set; }
 
     [JsonPropertyName("troubleshootingErrorDetails")]
     public DeviceManagementTroubleshootingErrorDetailsModel? TroubleshootingErrorDetails { get; set; }

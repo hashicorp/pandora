@@ -25,7 +25,6 @@ internal class Definition : ResourceDefinition
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
         typeof(ApplicationTypeResourceModel),
-        typeof(ApplicationTypeResourceListModel),
         typeof(ApplicationTypeResourcePropertiesModel),
         typeof(SystemDataModel),
     };

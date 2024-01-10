@@ -1,0 +1,45 @@
+{
+ "name": "SapLandscapeMonitorProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "grouping",
+   "name": "Grouping",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SapLandscapeMonitorPropertiesGrouping"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SapLandscapeMonitorProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "topMetricsThresholds",
+   "name": "TopMetricsThresholds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SapLandscapeMonitorMetricThresholds"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

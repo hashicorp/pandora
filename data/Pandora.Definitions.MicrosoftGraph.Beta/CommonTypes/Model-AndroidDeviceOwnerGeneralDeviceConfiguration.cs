@@ -16,14 +16,17 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     [JsonPropertyName("accountsBlockModification")]
     public bool? AccountsBlockModification { get; set; }
 
+    [JsonPropertyName("androidDeviceOwnerDelegatedScopeAppSettings")]
+    public List<AndroidDeviceOwnerDelegatedScopeAppSettingModel>? AndroidDeviceOwnerDelegatedScopeAppSettings { get; set; }
+
     [JsonPropertyName("appsAllowInstallFromUnknownSources")]
     public bool? AppsAllowInstallFromUnknownSources { get; set; }
 
     [JsonPropertyName("appsAutoUpdatePolicy")]
-    public AndroidDeviceOwnerAppAutoUpdatePolicyTypeConstant? AppsAutoUpdatePolicy { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationAppsAutoUpdatePolicyConstant? AppsAutoUpdatePolicy { get; set; }
 
     [JsonPropertyName("appsDefaultPermissionPolicy")]
-    public AndroidDeviceOwnerDefaultAppPermissionPolicyTypeConstant? AppsDefaultPermissionPolicy { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationAppsDefaultPermissionPolicyConstant? AppsDefaultPermissionPolicy { get; set; }
 
     [JsonPropertyName("appsRecommendSkippingFirstUseHints")]
     public bool? AppsRecommendSkippingFirstUseHints { get; set; }
@@ -56,7 +59,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? CrossProfilePoliciesAllowCopyPaste { get; set; }
 
     [JsonPropertyName("crossProfilePoliciesAllowDataSharing")]
-    public AndroidDeviceOwnerCrossProfileDataSharingConstant? CrossProfilePoliciesAllowDataSharing { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationCrossProfilePoliciesAllowDataSharingConstant? CrossProfilePoliciesAllowDataSharing { get; set; }
 
     [JsonPropertyName("crossProfilePoliciesShowWorkContactsInPersonalProfile")]
     public bool? CrossProfilePoliciesShowWorkContactsInPersonalProfile { get; set; }
@@ -72,6 +75,9 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
 
     [JsonPropertyName("detailedHelpText")]
     public AndroidDeviceOwnerUserFacingMessageModel? DetailedHelpText { get; set; }
+
+    [JsonPropertyName("deviceLocationMode")]
+    public AndroidDeviceOwnerGeneralDeviceConfigurationDeviceLocationModeConstant? DeviceLocationMode { get; set; }
 
     [JsonPropertyName("deviceManagementApplicabilityRuleDeviceMode")]
     public DeviceManagementApplicabilityRuleDeviceModeModel? DeviceManagementApplicabilityRuleDeviceMode { get; set; }
@@ -98,7 +104,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("enrollmentProfile")]
-    public AndroidDeviceOwnerEnrollmentProfileTypeConstant? EnrollmentProfile { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationEnrollmentProfileConstant? EnrollmentProfile { get; set; }
 
     [JsonPropertyName("factoryResetBlocked")]
     public bool? FactoryResetBlocked { get; set; }
@@ -125,13 +131,13 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? KioskCustomizationPowerButtonActionsBlocked { get; set; }
 
     [JsonPropertyName("kioskCustomizationStatusBar")]
-    public AndroidDeviceOwnerKioskCustomizationStatusBarConstant? KioskCustomizationStatusBar { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskCustomizationStatusBarConstant? KioskCustomizationStatusBar { get; set; }
 
     [JsonPropertyName("kioskCustomizationSystemErrorWarnings")]
     public bool? KioskCustomizationSystemErrorWarnings { get; set; }
 
     [JsonPropertyName("kioskCustomizationSystemNavigation")]
-    public AndroidDeviceOwnerKioskCustomizationSystemNavigationConstant? KioskCustomizationSystemNavigation { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskCustomizationSystemNavigationConstant? KioskCustomizationSystemNavigation { get; set; }
 
     [JsonPropertyName("kioskModeAppOrderEnabled")]
     public bool? KioskModeAppOrderEnabled { get; set; }
@@ -158,7 +164,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? KioskModeFlashlightConfigurationEnabled { get; set; }
 
     [JsonPropertyName("kioskModeFolderIcon")]
-    public AndroidDeviceOwnerKioskModeFolderIconConstant? KioskModeFolderIcon { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeFolderIconConstant? KioskModeFolderIcon { get; set; }
 
     [JsonPropertyName("kioskModeGridHeight")]
     public int? KioskModeGridHeight { get; set; }
@@ -167,7 +173,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public int? KioskModeGridWidth { get; set; }
 
     [JsonPropertyName("kioskModeIconSize")]
-    public AndroidDeviceOwnerKioskModeIconSizeConstant? KioskModeIconSize { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeIconSizeConstant? KioskModeIconSize { get; set; }
 
     [JsonPropertyName("kioskModeLockHomeScreen")]
     public bool? KioskModeLockHomeScreen { get; set; }
@@ -185,7 +191,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public int? KioskModeManagedHomeScreenInactiveSignOutNoticeInSeconds { get; set; }
 
     [JsonPropertyName("kioskModeManagedHomeScreenPinComplexity")]
-    public KioskModeManagedHomeScreenPinComplexityConstant? KioskModeManagedHomeScreenPinComplexity { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeManagedHomeScreenPinComplexityConstant? KioskModeManagedHomeScreenPinComplexity { get; set; }
 
     [JsonPropertyName("kioskModeManagedHomeScreenPinRequired")]
     public bool? KioskModeManagedHomeScreenPinRequired { get; set; }
@@ -209,7 +215,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? KioskModeMediaVolumeConfigurationEnabled { get; set; }
 
     [JsonPropertyName("kioskModeScreenOrientation")]
-    public AndroidDeviceOwnerKioskModeScreenOrientationConstant? KioskModeScreenOrientation { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeScreenOrientationConstant? KioskModeScreenOrientation { get; set; }
 
     [JsonPropertyName("kioskModeScreenSaverConfigurationEnabled")]
     public bool? KioskModeScreenSaverConfigurationEnabled { get; set; }
@@ -233,13 +239,13 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? KioskModeShowDeviceInfo { get; set; }
 
     [JsonPropertyName("kioskModeUseManagedHomeScreenApp")]
-    public KioskModeTypeConstant? KioskModeUseManagedHomeScreenApp { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeUseManagedHomeScreenAppConstant? KioskModeUseManagedHomeScreenApp { get; set; }
 
     [JsonPropertyName("kioskModeVirtualHomeButtonEnabled")]
     public bool? KioskModeVirtualHomeButtonEnabled { get; set; }
 
     [JsonPropertyName("kioskModeVirtualHomeButtonType")]
-    public AndroidDeviceOwnerVirtualHomeButtonTypeConstant? KioskModeVirtualHomeButtonType { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationKioskModeVirtualHomeButtonTypeConstant? KioskModeVirtualHomeButtonType { get; set; }
 
     [JsonPropertyName("kioskModeWallpaperUrl")]
     public string? KioskModeWallpaperUrl { get; set; }
@@ -278,7 +284,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? MicrosoftLauncherDockPresenceAllowUserModification { get; set; }
 
     [JsonPropertyName("microsoftLauncherDockPresenceConfiguration")]
-    public MicrosoftLauncherDockPresenceConstant? MicrosoftLauncherDockPresenceConfiguration { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationMicrosoftLauncherDockPresenceConfigurationConstant? MicrosoftLauncherDockPresenceConfiguration { get; set; }
 
     [JsonPropertyName("microsoftLauncherFeedAllowUserModification")]
     public bool? MicrosoftLauncherFeedAllowUserModification { get; set; }
@@ -287,7 +293,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? MicrosoftLauncherFeedEnabled { get; set; }
 
     [JsonPropertyName("microsoftLauncherSearchBarPlacementConfiguration")]
-    public MicrosoftLauncherSearchBarPlacementConstant? MicrosoftLauncherSearchBarPlacementConfiguration { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationMicrosoftLauncherSearchBarPlacementConfigurationConstant? MicrosoftLauncherSearchBarPlacementConfiguration { get; set; }
 
     [JsonPropertyName("networkEscapeHatchAllowed")]
     public bool? NetworkEscapeHatchAllowed { get; set; }
@@ -302,7 +308,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? PasswordBlockKeyguard { get; set; }
 
     [JsonPropertyName("passwordBlockKeyguardFeatures")]
-    public List<AndroidKeyguardFeatureConstant>? PasswordBlockKeyguardFeatures { get; set; }
+    public List<AndroidDeviceOwnerGeneralDeviceConfigurationPasswordBlockKeyguardFeaturesConstant>? PasswordBlockKeyguardFeatures { get; set; }
 
     [JsonPropertyName("passwordExpirationDays")]
     public int? PasswordExpirationDays { get; set; }
@@ -335,10 +341,10 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public int? PasswordPreviousPasswordCountToBlock { get; set; }
 
     [JsonPropertyName("passwordRequireUnlock")]
-    public AndroidDeviceOwnerRequiredPasswordUnlockConstant? PasswordRequireUnlock { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationPasswordRequireUnlockConstant? PasswordRequireUnlock { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidDeviceOwnerRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -353,13 +359,13 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public List<AppListItemModel>? PersonalProfilePersonalApplications { get; set; }
 
     [JsonPropertyName("personalProfilePlayStoreMode")]
-    public PersonalProfilePersonalPlayStoreModeConstant? PersonalProfilePlayStoreMode { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationPersonalProfilePlayStoreModeConstant? PersonalProfilePlayStoreMode { get; set; }
 
     [JsonPropertyName("personalProfileScreenCaptureBlocked")]
     public bool? PersonalProfileScreenCaptureBlocked { get; set; }
 
     [JsonPropertyName("playStoreMode")]
-    public AndroidDeviceOwnerPlayStoreModeConstant? PlayStoreMode { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationPlayStoreModeConstant? PlayStoreMode { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -376,6 +382,9 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     [JsonPropertyName("securityRequireVerifyApps")]
     public bool? SecurityRequireVerifyApps { get; set; }
 
+    [JsonPropertyName("shareDeviceLocationDisabled")]
+    public bool? ShareDeviceLocationDisabled { get; set; }
+
     [JsonPropertyName("shortHelpText")]
     public AndroidDeviceOwnerUserFacingMessageModel? ShortHelpText { get; set; }
 
@@ -383,7 +392,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public bool? StatusBarBlocked { get; set; }
 
     [JsonPropertyName("stayOnModes")]
-    public List<AndroidDeviceOwnerBatteryPluggedModeConstant>? StayOnModes { get; set; }
+    public List<AndroidDeviceOwnerGeneralDeviceConfigurationStayOnModesConstant>? StayOnModes { get; set; }
 
     [JsonPropertyName("storageAllowUsb")]
     public bool? StorageAllowUsb { get; set; }
@@ -401,7 +410,7 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public List<AndroidDeviceOwnerSystemUpdateFreezePeriodModel>? SystemUpdateFreezePeriods { get; set; }
 
     [JsonPropertyName("systemUpdateInstallType")]
-    public AndroidDeviceOwnerSystemUpdateInstallTypeConstant? SystemUpdateInstallType { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationSystemUpdateInstallTypeConstant? SystemUpdateInstallType { get; set; }
 
     [JsonPropertyName("systemUpdateWindowEndMinutesAfterMidnight")]
     public int? SystemUpdateWindowEndMinutesAfterMidnight { get; set; }
@@ -470,10 +479,10 @@ internal class AndroidDeviceOwnerGeneralDeviceConfigurationModel
     public int? WorkProfilePasswordPreviousPasswordCountToBlock { get; set; }
 
     [JsonPropertyName("workProfilePasswordRequireUnlock")]
-    public AndroidDeviceOwnerRequiredPasswordUnlockConstant? WorkProfilePasswordRequireUnlock { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationWorkProfilePasswordRequireUnlockConstant? WorkProfilePasswordRequireUnlock { get; set; }
 
     [JsonPropertyName("workProfilePasswordRequiredType")]
-    public AndroidDeviceOwnerRequiredPasswordTypeConstant? WorkProfilePasswordRequiredType { get; set; }
+    public AndroidDeviceOwnerGeneralDeviceConfigurationWorkProfilePasswordRequiredTypeConstant? WorkProfilePasswordRequiredType { get; set; }
 
     [JsonPropertyName("workProfilePasswordSignInFailureCountBeforeFactoryReset")]
     public int? WorkProfilePasswordSignInFailureCountBeforeFactoryReset { get; set; }

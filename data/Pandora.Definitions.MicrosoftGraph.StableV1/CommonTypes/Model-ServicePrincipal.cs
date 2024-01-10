@@ -58,6 +58,9 @@ internal class ServicePrincipalModel
     [JsonPropertyName("createdObjects")]
     public List<DirectoryObjectModel>? CreatedObjects { get; set; }
 
+    [JsonPropertyName("customSecurityAttributes")]
+    public CustomSecurityAttributeValueModel? CustomSecurityAttributes { get; set; }
+
     [JsonPropertyName("delegatedPermissionClassifications")]
     public List<DelegatedPermissionClassificationModel>? DelegatedPermissionClassifications { get; set; }
 
@@ -132,6 +135,9 @@ internal class ServicePrincipalModel
 
     [JsonPropertyName("preferredTokenSigningKeyThumbprint")]
     public string? PreferredTokenSigningKeyThumbprint { get; set; }
+
+    [JsonPropertyName("remoteDesktopSecurityConfiguration")]
+    public RemoteDesktopSecurityConfigurationModel? RemoteDesktopSecurityConfiguration { get; set; }
 
     [JsonPropertyName("replyUrls")]
     public List<string>? ReplyUrls { get; set; }

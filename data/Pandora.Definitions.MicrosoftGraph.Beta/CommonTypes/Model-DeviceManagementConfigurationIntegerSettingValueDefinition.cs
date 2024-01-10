@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementConfigurationIntegerSettingValueDefinitionModel
 {
     [JsonPropertyName("maximumValue")]
-    public long? MaximumValue { get; set; }
+    public int? MaximumValue { get; set; }
 
     [JsonPropertyName("minimumValue")]
-    public long? MinimumValue { get; set; }
+    public int? MinimumValue { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

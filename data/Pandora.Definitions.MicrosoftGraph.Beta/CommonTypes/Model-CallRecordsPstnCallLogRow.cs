@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class CallRecordsPstnCallLogRowModel
 {
     [JsonPropertyName("callDurationSource")]
-    public PstnCallDurationSourceConstant? CallDurationSource { get; set; }
+    public CallRecordsPstnCallLogRowCallDurationSourceConstant? CallDurationSource { get; set; }
 
     [JsonPropertyName("callId")]
     public string? CallId { get; set; }
@@ -30,6 +30,18 @@ internal class CallRecordsPstnCallLogRowModel
 
     [JsonPropertyName("charge")]
     public float? Charge { get; set; }
+
+    [JsonPropertyName("clientLocalIpV4Address")]
+    public string? ClientLocalIpV4Address { get; set; }
+
+    [JsonPropertyName("clientLocalIpV6Address")]
+    public string? ClientLocalIpV6Address { get; set; }
+
+    [JsonPropertyName("clientPublicIpV4Address")]
+    public string? ClientPublicIpV4Address { get; set; }
+
+    [JsonPropertyName("clientPublicIpV6Address")]
+    public string? ClientPublicIpV6Address { get; set; }
 
     [JsonPropertyName("conferenceId")]
     public string? ConferenceId { get; set; }

@@ -1,0 +1,29 @@
+{
+ "name": "AutoDeleteSetting",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "condition",
+   "name": "Condition",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoDeleteCondition"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

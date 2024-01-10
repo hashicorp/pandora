@@ -27,7 +27,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new FlexibleServerId();
 
-    public override Type? ResponseObject() => typeof(ServerModel);
-
 
 }

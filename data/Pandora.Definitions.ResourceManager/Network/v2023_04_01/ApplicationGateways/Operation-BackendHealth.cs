@@ -26,8 +26,6 @@ internal class BackendHealthOperation : Pandora.Definitions.Operations.PostOpera
 
     public override ResourceID? ResourceId() => new ApplicationGatewayId();
 
-    public override Type? ResponseObject() => typeof(ApplicationGatewayBackendHealthModel);
-
     public override Type? OptionsObject() => typeof(BackendHealthOperation.BackendHealthOptions);
 
     public override string? UriSuffix() => "/backendhealth";

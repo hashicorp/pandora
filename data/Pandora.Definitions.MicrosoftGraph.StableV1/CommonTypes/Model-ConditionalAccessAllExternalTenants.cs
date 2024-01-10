@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ConditionalAccessAllExternalTenantsModel
 {
     [JsonPropertyName("membershipKind")]
-    public ConditionalAccessExternalTenantsMembershipKindConstant? MembershipKind { get; set; }
+    public ConditionalAccessAllExternalTenantsMembershipKindConstant? MembershipKind { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

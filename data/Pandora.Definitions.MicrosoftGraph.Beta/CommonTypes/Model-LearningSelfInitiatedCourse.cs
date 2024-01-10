@@ -41,5 +41,5 @@ internal class LearningSelfInitiatedCourseModel
     public DateTime? StartedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public CourseStatusConstant? Status { get; set; }
+    public LearningSelfInitiatedCourseStatusConstant? Status { get; set; }
 }

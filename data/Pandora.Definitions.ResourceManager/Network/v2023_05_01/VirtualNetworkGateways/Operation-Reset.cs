@@ -26,8 +26,6 @@ internal class ResetOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new VirtualNetworkGatewayId();
 
-    public override Type? ResponseObject() => typeof(VirtualNetworkGatewayModel);
-
     public override Type? OptionsObject() => typeof(ResetOperation.ResetOptions);
 
     public override string? UriSuffix() => "/reset";

@@ -13,9 +13,27 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class EndpointModel
 {
+    [JsonPropertyName("capability")]
+    public string? Capability { get; set; }
+
+    [JsonPropertyName("deletedDateTime")]
+    public DateTime? DeletedDateTime { get; set; }
+
+    [JsonPropertyName("id")]
+    public string? Id { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 
-    [JsonPropertyName("userAgent")]
-    public UserAgentModel? UserAgent { get; set; }
+    [JsonPropertyName("providerId")]
+    public string? ProviderId { get; set; }
+
+    [JsonPropertyName("providerName")]
+    public string? ProviderName { get; set; }
+
+    [JsonPropertyName("providerResourceId")]
+    public string? ProviderResourceId { get; set; }
+
+    [JsonPropertyName("uri")]
+    public string? Uri { get; set; }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PayloadByFilterModel
 {
     [JsonPropertyName("assignmentFilterType")]
-    public DeviceAndAppManagementAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
+    public PayloadByFilterAssignmentFilterTypeConstant? AssignmentFilterType { get; set; }
 
     [JsonPropertyName("groupId")]
     public string? GroupId { get; set; }
@@ -26,5 +26,5 @@ internal class PayloadByFilterModel
     public string? PayloadId { get; set; }
 
     [JsonPropertyName("payloadType")]
-    public AssociatedAssignmentPayloadTypeConstant? PayloadType { get; set; }
+    public PayloadByFilterPayloadTypeConstant? PayloadType { get; set; }
 }

@@ -20,13 +20,13 @@ internal class EdiscoveryDataSourceContainerModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public EdiscoveryDataSourceContainerHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("lastIndexOperation")]
-    public CaseIndexOperationModel? LastIndexOperation { get; set; }
+    public EdiscoveryCaseIndexOperationModel? LastIndexOperation { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -38,5 +38,5 @@ internal class EdiscoveryDataSourceContainerModel
     public DateTime? ReleasedDateTime { get; set; }
 
     [JsonPropertyName("status")]
-    public DataSourceContainerStatusConstant? Status { get; set; }
+    public EdiscoveryDataSourceContainerStatusConstant? Status { get; set; }
 }

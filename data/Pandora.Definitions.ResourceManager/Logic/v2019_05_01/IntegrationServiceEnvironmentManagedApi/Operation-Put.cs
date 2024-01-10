@@ -20,7 +20,5 @@ internal class PutOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ManagedApiId();
 
-    public override Type? ResponseObject() => typeof(IntegrationServiceEnvironmentManagedApiModel);
-
 
 }

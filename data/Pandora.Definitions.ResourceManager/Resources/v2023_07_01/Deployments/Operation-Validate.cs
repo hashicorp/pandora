@@ -26,8 +26,6 @@ internal class ValidateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override ResourceID? ResourceId() => new ResourceGroupProviderDeploymentId();
 
-    public override Type? ResponseObject() => typeof(DeploymentValidateResultModel);
-
     public override string? UriSuffix() => "/validate";
 
 

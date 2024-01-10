@@ -26,8 +26,6 @@ internal class GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanOrd
 
     public override ResourceID? ResourceId() => new SavingsPlanOrderId();
 
-    public override Type? ResponseObject() => typeof(BenefitUtilizationSummariesOperationStatusModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport";
 
 

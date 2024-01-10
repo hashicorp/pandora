@@ -17,7 +17,7 @@ internal class PlannerExternalBucketSourceModel
     public string? ContextScenarioId { get; set; }
 
     [JsonPropertyName("creationSourceKind")]
-    public PlannerCreationSourceKindConstant? CreationSourceKind { get; set; }
+    public PlannerExternalBucketSourceCreationSourceKindConstant? CreationSourceKind { get; set; }
 
     [JsonPropertyName("externalContextId")]
     public string? ExternalContextId { get; set; }

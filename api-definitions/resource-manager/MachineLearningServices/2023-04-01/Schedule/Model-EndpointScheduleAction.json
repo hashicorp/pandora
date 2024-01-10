@@ -1,0 +1,20 @@
+{
+ "name": "EndpointScheduleAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endpointInvocationDefinition",
+   "name": "EndpointInvocationDefinition",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ScheduleActionBase",
+ "discriminatedTypeValue": "InvokeBatchEndpoint",
+ "typeHintIn": "ActionType"
+}

@@ -20,7 +20,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new PrivateCloudId();
 
-    public override Type? ResponseObject() => typeof(PrivateCloudModel);
-
 
 }

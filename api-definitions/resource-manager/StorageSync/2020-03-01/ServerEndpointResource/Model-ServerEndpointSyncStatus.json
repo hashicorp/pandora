@@ -1,0 +1,138 @@
+{
+ "name": "ServerEndpointSyncStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "combinedHealth",
+   "name": "CombinedHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncHealthState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "downloadActivity",
+   "name": "DownloadActivity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncActivityStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "downloadHealth",
+   "name": "DownloadHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncHealthState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "downloadStatus",
+   "name": "DownloadStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncSessionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdatedTimestamp",
+   "name": "LastUpdatedTimestamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "offlineDataTransferStatus",
+   "name": "OfflineDataTransferStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointOfflineDataTransferState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "syncActivity",
+   "name": "SyncActivity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncActivityState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalPersistentFilesNotSyncingCount",
+   "name": "TotalPersistentFilesNotSyncingCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "uploadActivity",
+   "name": "UploadActivity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncActivityStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "uploadHealth",
+   "name": "UploadHealth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncHealthState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "uploadStatus",
+   "name": "UploadStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServerEndpointSyncSessionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

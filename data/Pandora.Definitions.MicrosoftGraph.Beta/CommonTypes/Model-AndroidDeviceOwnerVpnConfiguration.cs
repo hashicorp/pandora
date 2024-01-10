@@ -23,13 +23,13 @@ internal class AndroidDeviceOwnerVpnConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidDeviceOwnerVpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectionName")]
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public AndroidVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public AndroidDeviceOwnerVpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -84,6 +84,9 @@ internal class AndroidDeviceOwnerVpnConfigurationModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("proxyExclusionList")]
+    public List<string>? ProxyExclusionList { get; set; }
 
     [JsonPropertyName("proxyServer")]
     public VpnProxyServerModel? ProxyServer { get; set; }

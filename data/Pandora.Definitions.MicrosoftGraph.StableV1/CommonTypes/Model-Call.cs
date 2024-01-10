@@ -65,7 +65,7 @@ internal class CallModel
     public List<ParticipantModel>? Participants { get; set; }
 
     [JsonPropertyName("requestedModalities")]
-    public List<ModalityConstant>? RequestedModalities { get; set; }
+    public List<CallRequestedModalitiesConstant>? RequestedModalities { get; set; }
 
     [JsonPropertyName("resultInfo")]
     public ResultInfoModel? ResultInfo { get; set; }

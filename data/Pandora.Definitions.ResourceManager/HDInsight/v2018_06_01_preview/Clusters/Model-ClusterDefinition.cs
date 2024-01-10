@@ -25,5 +25,5 @@ internal class ClusterDefinitionModel
     public object? Configurations { get; set; }
 
     [JsonPropertyName("kind")]
-    public string? Kind { get; set; }
+    public ClusterKindConstant? Kind { get; set; }
 }

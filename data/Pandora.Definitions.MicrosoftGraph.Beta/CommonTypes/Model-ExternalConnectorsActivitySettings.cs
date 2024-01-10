@@ -17,5 +17,5 @@ internal class ExternalConnectorsActivitySettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("urlToItemResolvers")]
-    public List<UrlToItemResolverBaseModel>? UrlToItemResolvers { get; set; }
+    public List<ExternalConnectorsUrlToItemResolverBaseModel>? UrlToItemResolvers { get; set; }
 }

@@ -1,0 +1,46 @@
+{
+ "name": "SliceConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataNetworkConfigurations",
+   "name": "DataNetworkConfigurations",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataNetworkConfiguration",
+     "minItems": 1
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultDataNetwork",
+   "name": "DefaultDataNetwork",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataNetworkResourceId"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "slice",
+   "name": "Slice",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SliceResourceId"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

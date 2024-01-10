@@ -26,5 +26,5 @@ internal class AddLargeGalleryViewOperationModel
     public ResultInfoModel? ResultInfo { get; set; }
 
     [JsonPropertyName("status")]
-    public OperationStatusConstant? Status { get; set; }
+    public AddLargeGalleryViewOperationStatusConstant? Status { get; set; }
 }

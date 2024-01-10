@@ -1,0 +1,43 @@
+{
+ "name": "AutomationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Security/automations/{automationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticAutomations",
+   "type": "Static",
+   "value": "automations"
+  },
+  {
+   "name": "automationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

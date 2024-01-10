@@ -20,7 +20,7 @@ internal class ImportedDeviceIdentityModel
     public string? Description { get; set; }
 
     [JsonPropertyName("enrollmentState")]
-    public EnrollmentStateConstant? EnrollmentState { get; set; }
+    public ImportedDeviceIdentityEnrollmentStateConstant? EnrollmentState { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,7 +29,7 @@ internal class ImportedDeviceIdentityModel
     public string? ImportedDeviceIdentifier { get; set; }
 
     [JsonPropertyName("importedDeviceIdentityType")]
-    public ImportedDeviceIdentityTypeConstant? ImportedDeviceIdentityType { get; set; }
+    public ImportedDeviceIdentityImportedDeviceIdentityTypeConstant? ImportedDeviceIdentityType { get; set; }
 
     [JsonPropertyName("lastContactedDateTime")]
     public DateTime? LastContactedDateTime { get; set; }
@@ -41,5 +41,5 @@ internal class ImportedDeviceIdentityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public PlatformConstant? Platform { get; set; }
+    public ImportedDeviceIdentityPlatformConstant? Platform { get; set; }
 }

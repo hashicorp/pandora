@@ -17,7 +17,7 @@ internal class AospDeviceOwnerEnterpriseWiFiConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AospDeviceOwnerEnterpriseWiFiConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectAutomatically")]
     public bool? ConnectAutomatically { get; set; }
@@ -53,7 +53,7 @@ internal class AospDeviceOwnerEnterpriseWiFiConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapType")]
-    public AndroidEapTypeConstant? EapType { get; set; }
+    public AospDeviceOwnerEnterpriseWiFiConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -65,10 +65,10 @@ internal class AospDeviceOwnerEnterpriseWiFiConfigurationModel
     public AospDeviceOwnerCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEapTtls")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
+    public AospDeviceOwnerEnterpriseWiFiConfigurationInnerAuthenticationProtocolForEapTtlsConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForPeap")]
-    public NonEapAuthenticationMethodForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
+    public AospDeviceOwnerEnterpriseWiFiConfigurationInnerAuthenticationProtocolForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -87,6 +87,21 @@ internal class AospDeviceOwnerEnterpriseWiFiConfigurationModel
 
     [JsonPropertyName("preSharedKeyIsSet")]
     public bool? PreSharedKeyIsSet { get; set; }
+
+    [JsonPropertyName("proxyAutomaticConfigurationUrl")]
+    public string? ProxyAutomaticConfigurationUrl { get; set; }
+
+    [JsonPropertyName("proxyExclusionList")]
+    public List<string>? ProxyExclusionList { get; set; }
+
+    [JsonPropertyName("proxyManualAddress")]
+    public string? ProxyManualAddress { get; set; }
+
+    [JsonPropertyName("proxyManualPort")]
+    public int? ProxyManualPort { get; set; }
+
+    [JsonPropertyName("proxySetting")]
+    public AospDeviceOwnerEnterpriseWiFiConfigurationProxySettingConstant? ProxySetting { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -113,5 +128,5 @@ internal class AospDeviceOwnerEnterpriseWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AospDeviceOwnerWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AospDeviceOwnerEnterpriseWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

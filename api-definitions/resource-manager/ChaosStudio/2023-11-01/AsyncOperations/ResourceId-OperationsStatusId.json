@@ -1,0 +1,43 @@
+{
+ "name": "OperationsStatusId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Chaos/locations/{locationName}/operationsStatuses/{asyncOperationId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftChaos",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Chaos"
+  },
+  {
+   "name": "staticLocations",
+   "type": "Static",
+   "value": "locations"
+  },
+  {
+   "name": "locationName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticOperationsStatuses",
+   "type": "Static",
+   "value": "operationsStatuses"
+  },
+  {
+   "name": "asyncOperationId",
+   "type": "UserSpecified"
+  }
+ ]
+}

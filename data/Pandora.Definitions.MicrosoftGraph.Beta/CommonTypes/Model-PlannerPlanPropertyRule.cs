@@ -23,7 +23,7 @@ internal class PlannerPlanPropertyRuleModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("ruleKind")]
-    public PlannerRuleKindConstant? RuleKind { get; set; }
+    public PlannerPlanPropertyRuleRuleKindConstant? RuleKind { get; set; }
 
     [JsonPropertyName("tasks")]
     public List<string>? Tasks { get; set; }

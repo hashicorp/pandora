@@ -32,7 +32,7 @@ internal class IdentityGovernanceRunModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("processingStatus")]
-    public LifecycleWorkflowProcessingStatusConstant? ProcessingStatus { get; set; }
+    public IdentityGovernanceRunProcessingStatusConstant? ProcessingStatus { get; set; }
 
     [JsonPropertyName("scheduledDateTime")]
     public DateTime? ScheduledDateTime { get; set; }
@@ -44,7 +44,7 @@ internal class IdentityGovernanceRunModel
     public int? SuccessfulUsersCount { get; set; }
 
     [JsonPropertyName("taskProcessingResults")]
-    public List<TaskProcessingResultModel>? TaskProcessingResults { get; set; }
+    public List<IdentityGovernanceTaskProcessingResultModel>? TaskProcessingResults { get; set; }
 
     [JsonPropertyName("totalTasksCount")]
     public int? TotalTasksCount { get; set; }
@@ -56,8 +56,8 @@ internal class IdentityGovernanceRunModel
     public int? TotalUsersCount { get; set; }
 
     [JsonPropertyName("userProcessingResults")]
-    public List<UserProcessingResultModel>? UserProcessingResults { get; set; }
+    public List<IdentityGovernanceUserProcessingResultModel>? UserProcessingResults { get; set; }
 
     [JsonPropertyName("workflowExecutionType")]
-    public WorkflowExecutionTypeConstant? WorkflowExecutionType { get; set; }
+    public IdentityGovernanceRunWorkflowExecutionTypeConstant? WorkflowExecutionType { get; set; }
 }

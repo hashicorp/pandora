@@ -1,0 +1,43 @@
+{
+ "name": "AttestationProvidersId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Attestation/attestationProviders/{attestationProviderName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftAttestation",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Attestation"
+  },
+  {
+   "name": "staticAttestationProviders",
+   "type": "Static",
+   "value": "attestationProviders"
+  },
+  {
+   "name": "attestationProviderName",
+   "type": "UserSpecified"
+  }
+ ]
+}

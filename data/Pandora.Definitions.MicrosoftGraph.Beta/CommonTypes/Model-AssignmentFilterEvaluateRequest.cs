@@ -20,7 +20,7 @@ internal class AssignmentFilterEvaluateRequestModel
     public List<string>? OrderBy { get; set; }
 
     [JsonPropertyName("platform")]
-    public DevicePlatformTypeConstant? Platform { get; set; }
+    public AssignmentFilterEvaluateRequestPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("rule")]
     public string? Rule { get; set; }

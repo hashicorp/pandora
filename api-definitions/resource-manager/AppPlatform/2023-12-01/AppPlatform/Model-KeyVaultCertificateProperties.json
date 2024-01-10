@@ -1,0 +1,68 @@
+{
+ "name": "KeyVaultCertificateProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoSync",
+   "name": "AutoSync",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyVaultCertificateAutoSync"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "certVersion",
+   "name": "CertVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "excludePrivateKey",
+   "name": "ExcludePrivateKey",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyVaultCertName",
+   "name": "KeyVaultCertName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vaultUri",
+   "name": "VaultUri",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "CertificateProperties",
+ "discriminatedTypeValue": "KeyVaultCertificate",
+ "typeHintIn": "Type"
+}

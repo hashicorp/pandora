@@ -1,0 +1,53 @@
+{
+ "name": "GitHubAccessTokenRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gitHubAccessCode",
+   "name": "GitHubAccessCode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gitHubAccessTokenBaseUrl",
+   "name": "GitHubAccessTokenBaseUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gitHubClientId",
+   "name": "GitHubClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "gitHubClientSecret",
+   "name": "GitHubClientSecret",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GitHubClientSecret"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

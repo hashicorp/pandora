@@ -1,0 +1,53 @@
+{
+ "name": "StorageAccountSkuConversionStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "endTime",
+   "name": "EndTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "skuConversionStatus",
+   "name": "SkuConversionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuConversionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startTime",
+   "name": "StartTime",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetSkuName",
+   "name": "TargetSkuName",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SkuName"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

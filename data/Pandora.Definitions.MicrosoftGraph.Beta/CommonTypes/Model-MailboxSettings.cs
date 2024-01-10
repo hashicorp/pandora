@@ -23,7 +23,7 @@ internal class MailboxSettingsModel
     public string? DateFormat { get; set; }
 
     [JsonPropertyName("delegateMeetingMessageDeliveryOptions")]
-    public DelegateMeetingMessageDeliveryOptionsConstant? DelegateMeetingMessageDeliveryOptions { get; set; }
+    public MailboxSettingsDelegateMeetingMessageDeliveryOptionsConstant? DelegateMeetingMessageDeliveryOptions { get; set; }
 
     [JsonPropertyName("language")]
     public LocaleInfoModel? Language { get; set; }
@@ -38,10 +38,10 @@ internal class MailboxSettingsModel
     public string? TimeZone { get; set; }
 
     [JsonPropertyName("userPurpose")]
-    public UserPurposeConstant? UserPurpose { get; set; }
+    public MailboxSettingsUserPurposeConstant? UserPurpose { get; set; }
 
     [JsonPropertyName("userPurposeV2")]
-    public MailboxRecipientTypeConstant? UserPurposeV2 { get; set; }
+    public MailboxSettingsUserPurposeV2Constant? UserPurposeV2 { get; set; }
 
     [JsonPropertyName("workingHours")]
     public WorkingHoursModel? WorkingHours { get; set; }

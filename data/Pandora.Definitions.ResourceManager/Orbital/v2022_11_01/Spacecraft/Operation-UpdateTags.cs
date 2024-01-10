@@ -26,7 +26,5 @@ internal class UpdateTagsOperation : Pandora.Definitions.Operations.PatchOperati
 
     public override ResourceID? ResourceId() => new SpacecraftId();
 
-    public override Type? ResponseObject() => typeof(SpacecraftModel);
-
 
 }

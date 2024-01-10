@@ -1,0 +1,27 @@
+{
+ "name": "CreationSupportedGet",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "datadogOrganizationId",
+   "required": true,
+   "field": "DatadogOrganizationId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "SubscriptionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "CreateResourceSupportedResponse"
+ },
+ "uriSuffix": "/providers/Microsoft.Datadog/subscriptionStatuses/default"
+}

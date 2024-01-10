@@ -1,0 +1,30 @@
+{
+ "name": "CloudTieringLowDiskMode",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastUpdatedTimestamp",
+   "name": "LastUpdatedTimestamp",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "state",
+   "name": "State",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CloudTieringLowDiskModeState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

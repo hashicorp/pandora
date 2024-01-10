@@ -16,6 +16,9 @@ internal class AccessPackageSubjectModel
     [JsonPropertyName("altSecId")]
     public string? AltSecId { get; set; }
 
+    [JsonPropertyName("cleanupScheduledDateTime")]
+    public DateTime? CleanupScheduledDateTime { get; set; }
+
     [JsonPropertyName("connectedOrganization")]
     public ConnectedOrganizationModel? ConnectedOrganization { get; set; }
 
@@ -44,7 +47,7 @@ internal class AccessPackageSubjectModel
     public string? PrincipalName { get; set; }
 
     [JsonPropertyName("subjectLifecycle")]
-    public AccessPackageSubjectLifecycleConstant? SubjectLifecycle { get; set; }
+    public AccessPackageSubjectSubjectLifecycleConstant? SubjectLifecycle { get; set; }
 
     [JsonPropertyName("type")]
     public string? Type { get; set; }

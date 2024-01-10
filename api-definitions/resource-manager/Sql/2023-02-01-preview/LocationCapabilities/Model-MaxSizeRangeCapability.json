@@ -1,0 +1,77 @@
+{
+ "name": "MaxSizeRangeCapability",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logSize",
+   "name": "LogSize",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogSizeCapability"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxValue",
+   "name": "MaxValue",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MaxSizeCapability"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minValue",
+   "name": "MinValue",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MaxSizeCapability"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reason",
+   "name": "Reason",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scaleSize",
+   "name": "ScaleSize",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MaxSizeCapability"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CapabilityStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

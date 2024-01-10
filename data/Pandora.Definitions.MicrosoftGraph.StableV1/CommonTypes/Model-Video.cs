@@ -29,7 +29,7 @@ internal class VideoModel
     public int? Bitrate { get; set; }
 
     [JsonPropertyName("duration")]
-    public long? Duration { get; set; }
+    public int? Duration { get; set; }
 
     [JsonPropertyName("fourCC")]
     public string? FourCC { get; set; }

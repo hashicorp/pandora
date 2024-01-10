@@ -15,6 +15,7 @@ func (c ServiceVersionClient) Get(input ServiceVersion) (*ServiceVersionDetails,
 	if err != nil {
 		return nil, err
 	}
+	defer resp.Body.Close()
 
 	// TODO: handle this being a 404 etc
 

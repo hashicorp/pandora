@@ -24,7 +24,7 @@ internal class UpdateGatewaySettingsOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => typeof(UpdateGatewaySettingsParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/updateGatewaySettings";
 

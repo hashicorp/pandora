@@ -16,7 +16,7 @@ internal class ODataErrorsInnerErrorModel
     [JsonPropertyName("client-request-id")]
     public string? ClientRequestId { get; set; }
 
-    [JsonPropertyName("Date")]
+    [JsonPropertyName("date")]
     public DateTime? Date { get; set; }
 
     [JsonPropertyName("@odata.type")]

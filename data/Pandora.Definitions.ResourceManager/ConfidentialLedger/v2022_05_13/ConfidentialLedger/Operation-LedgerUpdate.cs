@@ -20,7 +20,5 @@ internal class LedgerUpdateOperation : Pandora.Definitions.Operations.PatchOpera
 
     public override ResourceID? ResourceId() => new LedgerId();
 
-    public override Type? ResponseObject() => typeof(ConfidentialLedgerModel);
-
 
 }

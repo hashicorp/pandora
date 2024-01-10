@@ -1,0 +1,29 @@
+{
+ "name": "DataFlowStagingInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "folderPath",
+   "name": "FolderPath",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkedService",
+   "name": "LinkedService",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Reference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

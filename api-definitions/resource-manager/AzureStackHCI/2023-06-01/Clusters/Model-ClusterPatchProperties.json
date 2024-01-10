@@ -1,0 +1,53 @@
+{
+ "name": "ClusterPatchProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aadClientId",
+   "name": "AadClientId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aadTenantId",
+   "name": "AadTenantId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cloudManagementEndpoint",
+   "name": "CloudManagementEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "desiredProperties",
+   "name": "DesiredProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterDesiredProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

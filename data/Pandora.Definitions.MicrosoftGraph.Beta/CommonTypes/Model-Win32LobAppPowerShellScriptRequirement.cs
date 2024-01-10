@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Win32LobAppPowerShellScriptRequirementModel
 {
     [JsonPropertyName("detectionType")]
-    public Win32LobAppPowerShellScriptDetectionTypeConstant? DetectionType { get; set; }
+    public Win32LobAppPowerShellScriptRequirementDetectionTypeConstant? DetectionType { get; set; }
 
     [JsonPropertyName("detectionValue")]
     public string? DetectionValue { get; set; }
@@ -29,13 +29,13 @@ internal class Win32LobAppPowerShellScriptRequirementModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppDetectionOperatorConstant? Operator { get; set; }
+    public Win32LobAppPowerShellScriptRequirementOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("runAs32Bit")]
     public bool? RunAs32Bit { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public Win32LobAppPowerShellScriptRequirementRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("scriptContent")]
     public string? ScriptContent { get; set; }

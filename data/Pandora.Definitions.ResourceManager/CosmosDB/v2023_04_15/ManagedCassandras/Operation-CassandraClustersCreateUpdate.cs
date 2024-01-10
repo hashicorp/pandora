@@ -20,7 +20,5 @@ internal class CassandraClustersCreateUpdateOperation : Pandora.Definitions.Oper
 
     public override ResourceID? ResourceId() => new CassandraClusterId();
 
-    public override Type? ResponseObject() => typeof(ClusterResourceModel);
-
 
 }

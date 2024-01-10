@@ -1,0 +1,33 @@
+{
+ "name": "ApplicationDeltaHealthPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultServiceTypeDeltaHealthPolicy",
+   "name": "DefaultServiceTypeDeltaHealthPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceTypeDeltaHealthPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serviceTypeDeltaHealthPolicies",
+   "name": "ServiceTypeDeltaHealthPolicies",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ServiceTypeDeltaHealthPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

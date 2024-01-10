@@ -1,0 +1,29 @@
+{
+ "name": "Gen2EnvironmentMutableProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageConfiguration",
+   "name": "StorageConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Gen2StorageConfigurationMutableProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "warmStoreConfiguration",
+   "name": "WarmStoreConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WarmStoreConfigurationProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "ForwardProxy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "convention",
+   "name": "Convention",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForwardProxyConvention"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customHostHeaderName",
+   "name": "CustomHostHeaderName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customProtoHeaderName",
+   "name": "CustomProtoHeaderName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

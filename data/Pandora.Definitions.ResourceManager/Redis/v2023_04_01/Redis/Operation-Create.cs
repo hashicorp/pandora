@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new RediId();
 
-    public override Type? ResponseObject() => typeof(RedisResourceModel);
-
 
 }

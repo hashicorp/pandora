@@ -20,7 +20,5 @@ internal class RegistryComponentVersionsCreateOrUpdateOperation : Pandora.Defini
 
     public override ResourceID? ResourceId() => new RegistryComponentVersionId();
 
-    public override Type? ResponseObject() => typeof(ComponentVersionResourceModel);
-
 
 }

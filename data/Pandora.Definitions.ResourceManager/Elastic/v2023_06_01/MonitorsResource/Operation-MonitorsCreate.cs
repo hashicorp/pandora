@@ -20,7 +20,5 @@ internal class MonitorsCreateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new MonitorId();
 
-    public override Type? ResponseObject() => typeof(ElasticMonitorResourceModel);
-
 
 }

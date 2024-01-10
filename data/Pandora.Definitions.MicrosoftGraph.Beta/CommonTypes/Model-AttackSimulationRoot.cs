@@ -13,8 +13,17 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class AttackSimulationRootModel
 {
+    [JsonPropertyName("endUserNotifications")]
+    public List<EndUserNotificationModel>? EndUserNotifications { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
+
+    [JsonPropertyName("landingPages")]
+    public List<LandingPageModel>? LandingPages { get; set; }
+
+    [JsonPropertyName("loginPages")]
+    public List<LoginPageModel>? LoginPages { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -30,4 +39,7 @@ internal class AttackSimulationRootModel
 
     [JsonPropertyName("simulations")]
     public List<SimulationModel>? Simulations { get; set; }
+
+    [JsonPropertyName("trainings")]
+    public List<TrainingModel>? Trainings { get; set; }
 }

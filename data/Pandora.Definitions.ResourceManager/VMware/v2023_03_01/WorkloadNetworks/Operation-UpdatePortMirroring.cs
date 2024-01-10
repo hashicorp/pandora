@@ -26,7 +26,5 @@ internal class UpdatePortMirroringOperation : Pandora.Definitions.Operations.Pat
 
     public override ResourceID? ResourceId() => new PortMirroringProfileId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
-
 
 }

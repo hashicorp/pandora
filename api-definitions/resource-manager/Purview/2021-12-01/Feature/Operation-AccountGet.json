@@ -1,0 +1,19 @@
+{
+ "name": "AccountGet",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "AccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BatchFeatureRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BatchFeatureStatus"
+ },
+ "uriSuffix": "/listFeatures"
+}

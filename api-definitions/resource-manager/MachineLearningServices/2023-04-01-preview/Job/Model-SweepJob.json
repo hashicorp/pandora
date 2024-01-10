@@ -1,0 +1,124 @@
+{
+ "name": "SweepJob",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "earlyTermination",
+   "name": "EarlyTermination",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EarlyTerminationPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inputs",
+   "name": "Inputs",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "JobInput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limits",
+   "name": "Limits",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SweepJobLimits"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objective",
+   "name": "Objective",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Objective"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "outputs",
+   "name": "Outputs",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "JobOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queueSettings",
+   "name": "QueueSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QueueSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "samplingAlgorithm",
+   "name": "SamplingAlgorithm",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SamplingAlgorithm"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "searchSpace",
+   "name": "SearchSpace",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "trial",
+   "name": "Trial",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TrialComponent"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "JobBase",
+ "discriminatedTypeValue": "Sweep",
+ "typeHintIn": "JobType"
+}

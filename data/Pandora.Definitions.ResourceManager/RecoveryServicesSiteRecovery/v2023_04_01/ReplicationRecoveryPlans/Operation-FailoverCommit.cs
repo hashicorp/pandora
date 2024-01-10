@@ -26,8 +26,6 @@ internal class FailoverCommitOperation : Pandora.Definitions.Operations.PostOper
 
     public override ResourceID? ResourceId() => new ReplicationRecoveryPlanId();
 
-    public override Type? ResponseObject() => typeof(RecoveryPlanModel);
-
     public override string? UriSuffix() => "/failoverCommit";
 
 

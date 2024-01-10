@@ -1,0 +1,113 @@
+{
+ "name": "RoutingRuleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "acceptedProtocols",
+   "name": "AcceptedProtocols",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "FrontDoorProtocol"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabledState",
+   "name": "EnabledState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingRuleEnabledState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "frontendEndpoints",
+   "name": "FrontendEndpoints",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubResource"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "patternsToMatch",
+   "name": "PatternsToMatch",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceState",
+   "name": "ResourceState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FrontDoorResourceState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routeConfiguration",
+   "name": "RouteConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RouteConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rulesEngine",
+   "name": "RulesEngine",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "webApplicationFirewallPolicyLink",
+   "name": "WebApplicationFirewallPolicyLink",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingRuleUpdateParametersWebApplicationFirewallPolicyLink"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

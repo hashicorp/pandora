@@ -1,0 +1,20 @@
+{
+ "name": "UpdateMultiRolePool",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AppServiceEnvironmentId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "WorkerPoolResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "WorkerPoolResource"
+ },
+ "uriSuffix": "/multiRolePools/default"
+}

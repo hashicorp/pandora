@@ -65,7 +65,7 @@ internal class Windows10TeamGeneralConfigurationModel
     public bool? MiracastBlocked { get; set; }
 
     [JsonPropertyName("miracastChannel")]
-    public MiracastChannelConstant? MiracastChannel { get; set; }
+    public Windows10TeamGeneralConfigurationMiracastChannelConstant? MiracastChannel { get; set; }
 
     [JsonPropertyName("miracastRequirePin")]
     public bool? MiracastRequirePin { get; set; }
@@ -110,5 +110,5 @@ internal class Windows10TeamGeneralConfigurationModel
     public bool? WelcomeScreenBlockAutomaticWakeUp { get; set; }
 
     [JsonPropertyName("welcomeScreenMeetingInformation")]
-    public WelcomeScreenMeetingInformationConstant? WelcomeScreenMeetingInformation { get; set; }
+    public Windows10TeamGeneralConfigurationWelcomeScreenMeetingInformationConstant? WelcomeScreenMeetingInformation { get; set; }
 }

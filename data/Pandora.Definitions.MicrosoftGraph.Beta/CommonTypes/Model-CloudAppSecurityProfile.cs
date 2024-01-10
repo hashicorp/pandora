@@ -47,7 +47,7 @@ internal class CloudAppSecurityProfileModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("permissionsRequired")]
-    public ApplicationPermissionsRequiredConstant? PermissionsRequired { get; set; }
+    public CloudAppSecurityProfilePermissionsRequiredConstant? PermissionsRequired { get; set; }
 
     [JsonPropertyName("platform")]
     public string? Platform { get; set; }

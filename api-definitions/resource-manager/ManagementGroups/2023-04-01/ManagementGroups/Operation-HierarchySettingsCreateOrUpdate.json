@@ -1,0 +1,19 @@
+{
+ "name": "HierarchySettingsCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "ManagementGroupId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "CreateOrUpdateSettingsRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "HierarchySettings"
+ },
+ "uriSuffix": "/settings/default"
+}

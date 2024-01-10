@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SharedAppleDeviceUserModel
 {
     [JsonPropertyName("dataQuota")]
-    public long? DataQuota { get; set; }
+    public int? DataQuota { get; set; }
 
     [JsonPropertyName("dataToSync")]
     public bool? DataToSync { get; set; }
 
     [JsonPropertyName("dataUsed")]
-    public long? DataUsed { get; set; }
+    public int? DataUsed { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

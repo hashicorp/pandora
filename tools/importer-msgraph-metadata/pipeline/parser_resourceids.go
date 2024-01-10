@@ -7,6 +7,9 @@ import (
 	"strings"
 )
 
+var resourceSuffix = "ById"
+var resourceIdSuffix = "Id"
+
 type ResourceIds []*ResourceId
 
 type ResourceIdMatch struct {
@@ -98,7 +101,7 @@ func (r ResourceId) IsMatchOrAncestor(r2 ResourceId) (ResourceId, bool) {
 // e.g.
 // if r represents `/applications/{applicationId}/synchronization/jobs/{synchronizationJobId}/schema`, the returned name
 // will be `ApplicationSynchronizationJob`
-func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
+func (r ResourceId) FullyQualifiedResourceName(suffixQualification *string) (*string, bool) {
 	name := ""
 	verb := ""
 	for i, segment := range r.Segments {
@@ -106,23 +109,27 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 			newName := cleanName(segment.Value)
 			shouldSingularize := false
 
-			// Singularize all labels by default
 			if segment.Type == SegmentLabel {
+				// Singularize all labels by default
 				shouldSingularize = true
-			}
 
-			// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
-			// Example: in the following ID, we want to _not_ singularize the `jobs` label
-			//          /applications/{applicationId}/synchronization/jobs/validateCredentials
-			if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
-				if _, ok := verbs.match(cleanName(r.Segments[i+1].Value)); ok {
+				if i == len(r.Segments)+1 {
+					// Don't singularize the final segment, so it can still be reliably verb-matched when parsing operations later
 					shouldSingularize = false
-				}
-			}
 
-			// $count indicates a plural entity whereas $ref does not
-			if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && r.Segments[i+1].Value == "$count" {
-				shouldSingularize = false
+				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type != SegmentUserValue {
+					// Look for a verb match in the next segment, if it exists and is not a SegmentUserValue
+					// Example: in the following ID, we want to _not_ singularize the `jobs` label
+					//          /applications/{applicationId}/synchronization/jobs/validateCredentials
+					if _, ok := verbs.match(cleanName(r.Segments[i+1].Value)); ok {
+						shouldSingularize = false
+					}
+
+				} else if len(r.Segments) > i+1 && r.Segments[i+1].Type == SegmentODataReference && r.Segments[i+1].Value == "$count" {
+					// $count indicates a plural entity whereas $ref does not
+					shouldSingularize = false
+
+				}
 			}
 
 			// Note we intentionally match verbs on any segment type, not just SegmentTypeAction
@@ -137,7 +144,8 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 			}
 
 			name = name + newName
-
+		} else if segment.Type == SegmentUserValue && suffixQualification != nil {
+			name = name + *suffixQualification
 		}
 	}
 
@@ -149,7 +157,9 @@ func (r ResourceId) FullyQualifiedResourceName() (*string, bool) {
 		return nil, false
 	}
 
-	name = deDuplicateName(name)
+	// TODO: it would be nice to do this but it's causing some clobbering issues
+	//name = deDuplicateName(name)
+
 	return &name, true
 }
 
@@ -188,13 +198,22 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 			}
 
 			// Hop over a SegmentUserValue if we only have an unqualified label describing a relationship (determined by a succeeding SegmentODataReference)
-			if segment.Type == SegmentLabel && j > 0 && j+1 < len(r.Segments) {
-				if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
-					if succeedingSegment := r.Segments[j+1]; succeedingSegment.Type == SegmentODataReference {
+			if segment.Type == SegmentLabel && j > 0 {
+				if j+1 == len(r.Segments) {
+					if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
+						// Example: /agreements/{agreementId}/file
 						j--
-					} else if j+2 < len(r.Segments) && succeedingSegment.Type == SegmentUserValue {
-						if nextSucceedingSegment := r.Segments[j+2]; nextSucceedingSegment.Type == SegmentODataReference {
+					}
+				} else {
+					if precedingSegment := r.Segments[j-1]; precedingSegment.Type == SegmentUserValue {
+						if succeedingSegment := r.Segments[j+1]; succeedingSegment.Type == SegmentODataReference {
+							// Example: /applications/{applicationId}/owners/$ref
 							j--
+						} else if j+2 < len(r.Segments) && succeedingSegment.Type == SegmentUserValue {
+							if nextSucceedingSegment := r.Segments[j+2]; nextSucceedingSegment.Type == SegmentODataReference {
+								// Example: /applications/{applicationId}/owners/{ownerId}/$ref
+								j--
+							}
 						}
 					}
 				}
@@ -205,13 +224,14 @@ func (r ResourceId) FindResourceName() (*string, bool) {
 		break
 	}
 
-	return r2.FullyQualifiedResourceName()
+	return r2.FullyQualifiedResourceName(&resourceSuffix)
 }
 
 // FindResourceIdName returns a short name for the ResourceId. This currently has the same behavior as FindResourceName
 // but may be changed in future if the ResourceId needs to be distinctly named.
 func (r ResourceId) FindResourceIdName() (*string, bool) {
-	return r.FindResourceName()
+	name, ok := r.FullyQualifiedResourceName(&resourceIdSuffix)
+	return name, ok
 }
 
 func (r ResourceId) HasUserValue() bool {

@@ -1,0 +1,467 @@
+{
+ "name": "StorageAccountProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accessTier",
+   "name": "AccessTier",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessTier"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowBlobPublicAccess",
+   "name": "AllowBlobPublicAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowCrossTenantReplication",
+   "name": "AllowCrossTenantReplication",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowSharedKeyAccess",
+   "name": "AllowSharedKeyAccess",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedCopyScope",
+   "name": "AllowedCopyScope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AllowedCopyScope"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureFilesIdentityBasedAuthentication",
+   "name": "AzureFilesIdentityBasedAuthentication",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureFilesIdentityBasedAuthentication"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "blobRestoreStatus",
+   "name": "BlobRestoreStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BlobRestoreStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationTime",
+   "name": "CreationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customDomain",
+   "name": "CustomDomain",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomDomain"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultToOAuthAuthentication",
+   "name": "DefaultToOAuthAuthentication",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsEndpointType",
+   "name": "DnsEndpointType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DnsEndpointType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "encryption",
+   "name": "Encryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Encryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failoverInProgress",
+   "name": "FailoverInProgress",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "geoReplicationStats",
+   "name": "GeoReplicationStats",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GeoReplicationStats"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "immutableStorageWithVersioning",
+   "name": "ImmutableStorageWithVersioning",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImmutableStorageAccount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isHnsEnabled",
+   "name": "IsHnsEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isLocalUserEnabled",
+   "name": "IsLocalUserEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isNfsV3Enabled",
+   "name": "IsNfsV3Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isSftpEnabled",
+   "name": "IsSftpEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyCreationTime",
+   "name": "KeyCreationTime",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyCreationTime"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyPolicy",
+   "name": "KeyPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KeyPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "largeFileSharesState",
+   "name": "LargeFileSharesState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LargeFileSharesState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastGeoFailoverTime",
+   "name": "LastGeoFailoverTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "minimumTlsVersion",
+   "name": "MinimumTlsVersion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MinimumTlsVersion"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkAcls",
+   "name": "NetworkAcls",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkRuleSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryEndpoints",
+   "name": "PrimaryEndpoints",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Endpoints"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryLocation",
+   "name": "PrimaryLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpointConnections",
+   "name": "PrivateEndpointConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateEndpointConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "routingPreference",
+   "name": "RoutingPreference",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoutingPreference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sasPolicy",
+   "name": "SasPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SasPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secondaryEndpoints",
+   "name": "SecondaryEndpoints",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Endpoints"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "secondaryLocation",
+   "name": "SecondaryLocation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusOfPrimary",
+   "name": "StatusOfPrimary",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccountStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "statusOfSecondary",
+   "name": "StatusOfSecondary",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccountStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageAccountSkuConversionStatus",
+   "name": "StorageAccountSkuConversionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountSkuConversionStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportsHttpsTrafficOnly",
+   "name": "SupportsHTTPSTrafficOnly",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

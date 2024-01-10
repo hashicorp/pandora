@@ -1,0 +1,33 @@
+{
+ "name": "SharingProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "groups",
+   "name": "Groups",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SharingProfileGroup"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "permissions",
+   "name": "Permissions",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GallerySharingPermissionTypes"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

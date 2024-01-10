@@ -1,0 +1,20 @@
+{
+ "name": "ServicePlacementRequireDomainDistributionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "domainName",
+   "name": "DomainName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ServicePlacementPolicy",
+ "discriminatedTypeValue": "RequiredDomainDistribution",
+ "typeHintIn": "Type"
+}

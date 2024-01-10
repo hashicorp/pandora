@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsTenantCustomizedInformationModel
 {
     [JsonPropertyName("contacts")]
-    public List<TenantContactInformationModel>? Contacts { get; set; }
+    public List<ManagedTenantsTenantContactInformationModel>? Contacts { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }

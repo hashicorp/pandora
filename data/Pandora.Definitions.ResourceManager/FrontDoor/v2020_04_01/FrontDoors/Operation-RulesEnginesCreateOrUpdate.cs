@@ -27,7 +27,5 @@ internal class RulesEnginesCreateOrUpdateOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new RulesEngineId();
 
-    public override Type? ResponseObject() => typeof(RulesEngineModel);
-
 
 }

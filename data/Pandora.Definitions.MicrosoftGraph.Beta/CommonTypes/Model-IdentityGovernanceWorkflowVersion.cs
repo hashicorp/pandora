@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IdentityGovernanceWorkflowVersionModel
 {
     [JsonPropertyName("category")]
-    public LifecycleWorkflowCategoryConstant? Category { get; set; }
+    public IdentityGovernanceWorkflowVersionCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("createdBy")]
     public UserModel? CreatedBy { get; set; }
@@ -29,7 +29,7 @@ internal class IdentityGovernanceWorkflowVersionModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("executionConditions")]
-    public WorkflowExecutionConditionsModel? ExecutionConditions { get; set; }
+    public IdentityGovernanceWorkflowExecutionConditionsModel? ExecutionConditions { get; set; }
 
     [JsonPropertyName("isEnabled")]
     public bool? IsEnabled { get; set; }
@@ -47,7 +47,7 @@ internal class IdentityGovernanceWorkflowVersionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("tasks")]
-    public List<TaskModel>? Tasks { get; set; }
+    public List<IdentityGovernanceTaskModel>? Tasks { get; set; }
 
     [JsonPropertyName("versionNumber")]
     public int? VersionNumber { get; set; }

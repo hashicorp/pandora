@@ -32,5 +32,5 @@ internal class ShiftActivityModel
     public DateTime? StartDateTime { get; set; }
 
     [JsonPropertyName("theme")]
-    public ScheduleEntityThemeConstant? Theme { get; set; }
+    public ShiftActivityThemeConstant? Theme { get; set; }
 }

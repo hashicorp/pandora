@@ -16,9 +16,6 @@ internal class SitePageModel
     [JsonPropertyName("canvasLayout")]
     public CanvasLayoutModel? CanvasLayout { get; set; }
 
-    [JsonPropertyName("contentType")]
-    public ContentTypeInfoModel? ContentType { get; set; }
-
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
 
@@ -53,13 +50,13 @@ internal class SitePageModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("pageLayout")]
-    public PageLayoutTypeConstant? PageLayout { get; set; }
+    public SitePagePageLayoutConstant? PageLayout { get; set; }
 
     [JsonPropertyName("parentReference")]
     public ItemReferenceModel? ParentReference { get; set; }
 
     [JsonPropertyName("promotionKind")]
-    public PagePromotionTypeConstant? PromotionKind { get; set; }
+    public SitePagePromotionKindConstant? PromotionKind { get; set; }
 
     [JsonPropertyName("publishingState")]
     public PublicationFacetModel? PublishingState { get; set; }

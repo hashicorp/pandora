@@ -32,7 +32,7 @@ internal class SamlOrWsFedProviderModel
     public string? PassiveSignInUri { get; set; }
 
     [JsonPropertyName("preferredAuthenticationProtocol")]
-    public AuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
+    public SamlOrWsFedProviderPreferredAuthenticationProtocolConstant? PreferredAuthenticationProtocol { get; set; }
 
     [JsonPropertyName("signingCertificate")]
     public string? SigningCertificate { get; set; }

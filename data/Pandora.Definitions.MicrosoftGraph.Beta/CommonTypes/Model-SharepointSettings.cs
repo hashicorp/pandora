@@ -32,7 +32,7 @@ internal class SharepointSettingsModel
     public IdleSessionSignOutModel? IdleSessionSignOut { get; set; }
 
     [JsonPropertyName("imageTaggingOption")]
-    public ImageTaggingChoiceConstant? ImageTaggingOption { get; set; }
+    public SharepointSettingsImageTaggingOptionConstant? ImageTaggingOption { get; set; }
 
     [JsonPropertyName("isCommentingOnSitePagesEnabled")]
     public bool? IsCommentingOnSitePagesEnabled { get; set; }
@@ -83,7 +83,7 @@ internal class SharepointSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("personalSiteDefaultStorageLimitInMB")]
-    public long? PersonalSiteDefaultStorageLimitInMB { get; set; }
+    public int? PersonalSiteDefaultStorageLimitInMB { get; set; }
 
     [JsonPropertyName("sharingAllowedDomainList")]
     public List<string>? SharingAllowedDomainList { get; set; }
@@ -92,10 +92,10 @@ internal class SharepointSettingsModel
     public List<string>? SharingBlockedDomainList { get; set; }
 
     [JsonPropertyName("sharingCapability")]
-    public SharingCapabilitiesConstant? SharingCapability { get; set; }
+    public SharepointSettingsSharingCapabilityConstant? SharingCapability { get; set; }
 
     [JsonPropertyName("sharingDomainRestrictionMode")]
-    public SharingDomainRestrictionModeConstant? SharingDomainRestrictionMode { get; set; }
+    public SharepointSettingsSharingDomainRestrictionModeConstant? SharingDomainRestrictionMode { get; set; }
 
     [JsonPropertyName("siteCreationDefaultManagedPath")]
     public string? SiteCreationDefaultManagedPath { get; set; }

@@ -1,0 +1,15 @@
+{
+ "name": "ApproveOrRejectPrivateEndpointConnection",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "StaticSitePrivateEndpointConnectionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "RemotePrivateEndpointConnectionARMResource"
+ }
+}

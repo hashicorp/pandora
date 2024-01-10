@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ContinuousAccessEvaluationSessionControlModel
 {
     [JsonPropertyName("mode")]
-    public ContinuousAccessEvaluationModeConstant? Mode { get; set; }
+    public ContinuousAccessEvaluationSessionControlModeConstant? Mode { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

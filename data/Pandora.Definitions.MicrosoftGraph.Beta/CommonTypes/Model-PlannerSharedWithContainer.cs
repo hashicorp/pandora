@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PlannerSharedWithContainerModel
 {
     [JsonPropertyName("accessLevel")]
-    public PlannerPlanAccessLevelConstant? AccessLevel { get; set; }
+    public PlannerSharedWithContainerAccessLevelConstant? AccessLevel { get; set; }
 
     [JsonPropertyName("containerId")]
     public string? ContainerId { get; set; }
@@ -23,7 +23,7 @@ internal class PlannerSharedWithContainerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("type")]
-    public PlannerContainerTypeConstant? Type { get; set; }
+    public PlannerSharedWithContainerTypeConstant? Type { get; set; }
 
     [JsonPropertyName("url")]
     public string? Url { get; set; }

@@ -13,11 +13,11 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new AddApplicationOwnerOperation(),
-        new GetApplicationOwnersCountOperation(),
-        new GetCountOperation(),
-        new ListOwnersOperation(),
-        new RemoveApplicationOwnerOperation()
+        new AddApplicationByIdOwnerRefOperation(),
+        new GetApplicationByIdOwnerCountOperation(),
+        new ListApplicationByIdOwnerRefsOperation(),
+        new ListApplicationByIdOwnersOperation(),
+        new RemoveApplicationByIdOwnerByIdRefOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>
@@ -27,6 +27,6 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<System.Type> Models => new List<System.Type>
     {
-        typeof(AddApplicationOwnerRequestModel)
+
     };
 }

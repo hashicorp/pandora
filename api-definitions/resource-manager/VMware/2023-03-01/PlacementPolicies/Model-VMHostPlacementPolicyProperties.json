@@ -1,0 +1,76 @@
+{
+ "name": "VMHostPlacementPolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "affinityStrength",
+   "name": "AffinityStrength",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AffinityStrength"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "affinityType",
+   "name": "AffinityType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AffinityType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azureHybridBenefitType",
+   "name": "AzureHybridBenefitType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureHybridBenefitType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hostMembers",
+   "name": "HostMembers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmMembers",
+   "name": "VMMembers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "PlacementPolicyProperties",
+ "discriminatedTypeValue": "VmHost",
+ "typeHintIn": "Type"
+}

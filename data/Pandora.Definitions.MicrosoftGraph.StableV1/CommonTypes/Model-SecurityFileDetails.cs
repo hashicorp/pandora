@@ -23,7 +23,7 @@ internal class SecurityFileDetailsModel
     public string? FilePublisher { get; set; }
 
     [JsonPropertyName("fileSize")]
-    public long? FileSize { get; set; }
+    public int? FileSize { get; set; }
 
     [JsonPropertyName("issuer")]
     public string? Issuer { get; set; }

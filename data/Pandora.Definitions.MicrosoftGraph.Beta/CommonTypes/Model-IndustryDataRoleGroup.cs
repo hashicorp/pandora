@@ -23,5 +23,5 @@ internal class IndustryDataRoleGroupModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("roles")]
-    public List<RoleReferenceValueModel>? Roles { get; set; }
+    public List<IndustryDataRoleReferenceValueModel>? Roles { get; set; }
 }

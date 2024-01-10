@@ -53,7 +53,7 @@ internal class AndroidGeneralDeviceConfigurationModel
     public bool? CellularBlockWiFiTethering { get; set; }
 
     [JsonPropertyName("compliantAppListType")]
-    public AppListTypeConstant? CompliantAppListType { get; set; }
+    public AndroidGeneralDeviceConfigurationCompliantAppListTypeConstant? CompliantAppListType { get; set; }
 
     [JsonPropertyName("compliantAppsList")]
     public List<AppListItemModel>? CompliantAppsList { get; set; }
@@ -137,7 +137,7 @@ internal class AndroidGeneralDeviceConfigurationModel
     public bool? PasswordRequired { get; set; }
 
     [JsonPropertyName("passwordRequiredType")]
-    public AndroidRequiredPasswordTypeConstant? PasswordRequiredType { get; set; }
+    public AndroidGeneralDeviceConfigurationPasswordRequiredTypeConstant? PasswordRequiredType { get; set; }
 
     [JsonPropertyName("passwordSignInFailureCountBeforeFactoryReset")]
     public int? PasswordSignInFailureCountBeforeFactoryReset { get; set; }
@@ -191,7 +191,7 @@ internal class AndroidGeneralDeviceConfigurationModel
     public bool? WebBrowserBlocked { get; set; }
 
     [JsonPropertyName("webBrowserCookieSettings")]
-    public WebBrowserCookieSettingsConstant? WebBrowserCookieSettings { get; set; }
+    public AndroidGeneralDeviceConfigurationWebBrowserCookieSettingsConstant? WebBrowserCookieSettings { get; set; }
 
     [JsonPropertyName("wiFiBlocked")]
     public bool? WiFiBlocked { get; set; }

@@ -23,8 +23,8 @@ internal class PhoneAuthenticationMethodModel
     public string? PhoneNumber { get; set; }
 
     [JsonPropertyName("phoneType")]
-    public AuthenticationPhoneTypeConstant? PhoneType { get; set; }
+    public PhoneAuthenticationMethodPhoneTypeConstant? PhoneType { get; set; }
 
     [JsonPropertyName("smsSignInState")]
-    public AuthenticationMethodSignInStateConstant? SmsSignInState { get; set; }
+    public PhoneAuthenticationMethodSmsSignInStateConstant? SmsSignInState { get; set; }
 }

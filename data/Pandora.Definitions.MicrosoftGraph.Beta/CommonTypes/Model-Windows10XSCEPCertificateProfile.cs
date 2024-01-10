@@ -17,10 +17,10 @@ internal class Windows10XSCEPCertificateProfileModel
     public List<DeviceManagementResourceAccessProfileAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("certificateStore")]
-    public CertificateStoreConstant? CertificateStore { get; set; }
+    public Windows10XSCEPCertificateProfileCertificateStoreConstant? CertificateStore { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodScale")]
-    public CertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
+    public Windows10XSCEPCertificateProfileCertificateValidityPeriodScaleConstant? CertificateValidityPeriodScale { get; set; }
 
     [JsonPropertyName("certificateValidityPeriodValue")]
     public int? CertificateValidityPeriodValue { get; set; }
@@ -38,19 +38,19 @@ internal class Windows10XSCEPCertificateProfileModel
     public List<ExtendedKeyUsageModel>? ExtendedKeyUsages { get; set; }
 
     [JsonPropertyName("hashAlgorithm")]
-    public List<HashAlgorithmsConstant>? HashAlgorithm { get; set; }
+    public List<Windows10XSCEPCertificateProfileHashAlgorithmConstant>? HashAlgorithm { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
     [JsonPropertyName("keySize")]
-    public KeySizeConstant? KeySize { get; set; }
+    public Windows10XSCEPCertificateProfileKeySizeConstant? KeySize { get; set; }
 
     [JsonPropertyName("keyStorageProvider")]
-    public KeyStorageProviderOptionConstant? KeyStorageProvider { get; set; }
+    public Windows10XSCEPCertificateProfileKeyStorageProviderConstant? KeyStorageProvider { get; set; }
 
     [JsonPropertyName("keyUsage")]
-    public KeyUsagesConstant? KeyUsage { get; set; }
+    public Windows10XSCEPCertificateProfileKeyUsageConstant? KeyUsage { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

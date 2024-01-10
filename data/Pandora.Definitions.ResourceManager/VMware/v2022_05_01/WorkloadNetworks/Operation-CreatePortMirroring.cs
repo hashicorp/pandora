@@ -20,7 +20,5 @@ internal class CreatePortMirroringOperation : Pandora.Definitions.Operations.Put
 
     public override ResourceID? ResourceId() => new PortMirroringProfileId();
 
-    public override Type? ResponseObject() => typeof(WorkloadNetworkPortMirroringModel);
-
 
 }

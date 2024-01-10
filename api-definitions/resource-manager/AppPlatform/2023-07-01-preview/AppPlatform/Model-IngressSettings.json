@@ -1,0 +1,77 @@
+{
+ "name": "IngressSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "backendProtocol",
+   "name": "BackendProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BackendProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clientAuth",
+   "name": "ClientAuth",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IngressSettingsClientAuth"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "readTimeoutInSeconds",
+   "name": "ReadTimeoutInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sendTimeoutInSeconds",
+   "name": "SendTimeoutInSeconds",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionAffinity",
+   "name": "SessionAffinity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SessionAffinity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sessionCookieMaxAge",
+   "name": "SessionCookieMaxAge",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

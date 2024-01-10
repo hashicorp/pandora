@@ -1,0 +1,80 @@
+{
+ "name": "VirtualMachineTemplateInventoryItem",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "folderPath",
+   "name": "FolderPath",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "memorySizeMB",
+   "name": "MemorySizeMB",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "numCPUs",
+   "name": "NumCPUs",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "numCoresPerSocket",
+   "name": "NumCoresPerSocket",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osName",
+   "name": "OsName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osType",
+   "name": "OsType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OsType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "InventoryItemProperties",
+ "discriminatedTypeValue": "VirtualMachineTemplate",
+ "typeHintIn": "InventoryType"
+}

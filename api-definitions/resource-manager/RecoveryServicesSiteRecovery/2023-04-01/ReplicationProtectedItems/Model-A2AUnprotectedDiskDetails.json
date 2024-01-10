@@ -1,0 +1,29 @@
+{
+ "name": "A2AUnprotectedDiskDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskAutoProtectionStatus",
+   "name": "DiskAutoProtectionStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoProtectionOfDataDisk"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskLunId",
+   "name": "DiskLunId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

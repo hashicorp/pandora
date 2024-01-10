@@ -20,7 +20,5 @@ internal class RegistryDataContainersCreateOrUpdateOperation : Pandora.Definitio
 
     public override ResourceID? ResourceId() => new DataId();
 
-    public override Type? ResponseObject() => typeof(DataContainerResourceModel);
-
 
 }

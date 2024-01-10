@@ -20,7 +20,7 @@ internal class SharedPCConfigurationModel
     public bool? AllowLocalStorage { get; set; }
 
     [JsonPropertyName("allowedAccounts")]
-    public SharedPCAllowedAccountTypeConstant? AllowedAccounts { get; set; }
+    public SharedPCConfigurationAllowedAccountsConstant? AllowedAccounts { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }

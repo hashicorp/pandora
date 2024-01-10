@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class AccessPackageAssignmentReviewSettingsModel
 {
     [JsonPropertyName("expirationBehavior")]
-    public AccessReviewExpirationBehaviorConstant? ExpirationBehavior { get; set; }
+    public AccessPackageAssignmentReviewSettingsExpirationBehaviorConstant? ExpirationBehavior { get; set; }
 
     [JsonPropertyName("fallbackReviewers")]
     public List<SubjectSetModel>? FallbackReviewers { get; set; }

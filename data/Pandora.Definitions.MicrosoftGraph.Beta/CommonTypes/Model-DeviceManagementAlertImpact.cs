@@ -14,7 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementAlertImpactModel
 {
     [JsonPropertyName("aggregationType")]
-    public AggregationTypeConstant? AggregationType { get; set; }
+    public DeviceManagementAlertImpactAggregationTypeConstant? AggregationType { get; set; }
+
+    [JsonPropertyName("alertImpactDetails")]
+    public List<KeyValuePairModel>? AlertImpactDetails { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

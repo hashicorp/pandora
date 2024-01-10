@@ -25,7 +25,5 @@ internal class SystemTopicEventSubscriptionsUpdateOperation : Pandora.Definition
 
     public override ResourceID? ResourceId() => new SystemTopicEventSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(EventSubscriptionModel);
-
 
 }

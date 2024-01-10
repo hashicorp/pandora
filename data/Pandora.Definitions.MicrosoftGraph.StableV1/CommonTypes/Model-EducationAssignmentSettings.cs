@@ -13,6 +13,9 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 
 internal class EducationAssignmentSettingsModel
 {
+    [JsonPropertyName("gradingCategories")]
+    public List<EducationGradingCategoryModel>? GradingCategories { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 

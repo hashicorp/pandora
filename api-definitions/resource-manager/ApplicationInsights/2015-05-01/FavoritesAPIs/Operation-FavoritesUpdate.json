@@ -1,0 +1,18 @@
+{
+ "name": "FavoritesUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "FavoriteId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponentFavorite"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ApplicationInsightsComponentFavorite"
+ }
+}

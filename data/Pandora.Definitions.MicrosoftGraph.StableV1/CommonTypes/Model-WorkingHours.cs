@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class WorkingHoursModel
 {
     [JsonPropertyName("daysOfWeek")]
-    public List<DayOfWeekConstant>? DaysOfWeek { get; set; }
+    public List<WorkingHoursDaysOfWeekConstant>? DaysOfWeek { get; set; }
 
     [JsonPropertyName("endTime")]
     public DateTime? EndTime { get; set; }

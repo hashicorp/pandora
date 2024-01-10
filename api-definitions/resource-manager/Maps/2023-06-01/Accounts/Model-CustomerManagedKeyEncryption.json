@@ -1,0 +1,29 @@
+{
+ "name": "CustomerManagedKeyEncryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyEncryptionKeyIdentity",
+   "name": "KeyEncryptionKeyIdentity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomerManagedKeyEncryptionKeyEncryptionKeyIdentity"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyEncryptionKeyUrl",
+   "name": "KeyEncryptionKeyUrl",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

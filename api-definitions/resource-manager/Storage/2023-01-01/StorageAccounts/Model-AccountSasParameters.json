@@ -1,0 +1,103 @@
+{
+ "name": "AccountSasParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "keyToSign",
+   "name": "KeyToSign",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedExpiry",
+   "name": "SignedExpiry",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedIp",
+   "name": "SignedIP",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedPermission",
+   "name": "SignedPermission",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Permissions"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedProtocol",
+   "name": "SignedProtocol",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HTTPProtocol"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedResourceTypes",
+   "name": "SignedResourceTypes",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SignedResourceTypes"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedServices",
+   "name": "SignedServices",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Services"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "signedStart",
+   "name": "SignedStart",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

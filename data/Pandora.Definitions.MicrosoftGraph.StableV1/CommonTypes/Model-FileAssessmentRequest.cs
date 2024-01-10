@@ -14,13 +14,13 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class FileAssessmentRequestModel
 {
     [JsonPropertyName("category")]
-    public ThreatCategoryConstant? Category { get; set; }
+    public FileAssessmentRequestCategoryConstant? Category { get; set; }
 
     [JsonPropertyName("contentData")]
     public string? ContentData { get; set; }
 
     [JsonPropertyName("contentType")]
-    public ThreatAssessmentContentTypeConstant? ContentType { get; set; }
+    public FileAssessmentRequestContentTypeConstant? ContentType { get; set; }
 
     [JsonPropertyName("createdBy")]
     public IdentitySetModel? CreatedBy { get; set; }
@@ -29,7 +29,7 @@ internal class FileAssessmentRequestModel
     public DateTime? CreatedDateTime { get; set; }
 
     [JsonPropertyName("expectedAssessment")]
-    public ThreatExpectedAssessmentConstant? ExpectedAssessment { get; set; }
+    public FileAssessmentRequestExpectedAssessmentConstant? ExpectedAssessment { get; set; }
 
     [JsonPropertyName("fileName")]
     public string? FileName { get; set; }
@@ -41,11 +41,11 @@ internal class FileAssessmentRequestModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("requestSource")]
-    public ThreatAssessmentRequestSourceConstant? RequestSource { get; set; }
+    public FileAssessmentRequestRequestSourceConstant? RequestSource { get; set; }
 
     [JsonPropertyName("results")]
     public List<ThreatAssessmentResultModel>? Results { get; set; }
 
     [JsonPropertyName("status")]
-    public ThreatAssessmentStatusConstant? Status { get; set; }
+    public FileAssessmentRequestStatusConstant? Status { get; set; }
 }

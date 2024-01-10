@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class RiskUserActivityModel
 {
     [JsonPropertyName("detail")]
-    public RiskDetailConstant? Detail { get; set; }
+    public RiskUserActivityDetailConstant? Detail { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

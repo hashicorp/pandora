@@ -17,5 +17,5 @@ internal class WindowsUpdatesAzureADDeviceRegistrationErrorModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("reason")]
-    public AzureADDeviceRegistrationErrorReasonConstant? Reason { get; set; }
+    public WindowsUpdatesAzureADDeviceRegistrationErrorReasonConstant? Reason { get; set; }
 }

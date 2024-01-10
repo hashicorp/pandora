@@ -20,7 +20,5 @@ internal class LinkerUpdateOperation : Pandora.Definitions.Operations.PatchOpera
 
     public override ResourceID? ResourceId() => new ScopedLinkerId();
 
-    public override Type? ResponseObject() => typeof(LinkerResourceModel);
-
 
 }

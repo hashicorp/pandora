@@ -25,7 +25,5 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 
     public override ResourceID? ResourceId() => new ApplicationId();
 
-    public override Type? ResponseObject() => typeof(GalleryApplicationModel);
-
 
 }

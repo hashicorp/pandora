@@ -1,0 +1,34 @@
+{
+ "name": "WorkspaceSettingId",
+ "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Security/workspaceSettings/{workspaceSettingName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftSecurity",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Security"
+  },
+  {
+   "name": "staticWorkspaceSettings",
+   "type": "Static",
+   "value": "workspaceSettings"
+  },
+  {
+   "name": "workspaceSettingName",
+   "type": "UserSpecified"
+  }
+ ]
+}

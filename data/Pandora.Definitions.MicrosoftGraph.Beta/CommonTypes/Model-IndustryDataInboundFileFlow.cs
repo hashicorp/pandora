@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IndustryDataInboundFileFlowModel
 {
     [JsonPropertyName("dataConnector")]
-    public IndustryDataConnectorModel? DataConnector { get; set; }
+    public IndustryDataIndustryDataConnectorModel? DataConnector { get; set; }
 
     [JsonPropertyName("dataDomain")]
-    public InboundDomainConstant? DataDomain { get; set; }
+    public IndustryDataInboundFileFlowDataDomainConstant? DataDomain { get; set; }
 
     [JsonPropertyName("displayName")]
     public string? DisplayName { get; set; }
@@ -35,8 +35,8 @@ internal class IndustryDataInboundFileFlowModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("readinessStatus")]
-    public ReadinessStatusConstant? ReadinessStatus { get; set; }
+    public IndustryDataInboundFileFlowReadinessStatusConstant? ReadinessStatus { get; set; }
 
     [JsonPropertyName("year")]
-    public YearTimePeriodDefinitionModel? Year { get; set; }
+    public IndustryDataYearTimePeriodDefinitionModel? Year { get; set; }
 }

@@ -1,0 +1,42 @@
+{
+ "name": "TimeSeriesDatabaseConnectionProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "connectionType",
+   "name": "ConnectionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "identity",
+   "name": "Identity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ManagedIdentityReference"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TimeSeriesDatabaseConnectionState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "ConnectionType"
+}

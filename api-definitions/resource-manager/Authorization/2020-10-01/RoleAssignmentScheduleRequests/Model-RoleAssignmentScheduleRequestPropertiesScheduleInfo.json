@@ -1,0 +1,30 @@
+{
+ "name": "RoleAssignmentScheduleRequestPropertiesScheduleInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "expiration",
+   "name": "Expiration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleAssignmentScheduleRequestPropertiesScheduleInfoExpiration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startDateTime",
+   "name": "StartDateTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

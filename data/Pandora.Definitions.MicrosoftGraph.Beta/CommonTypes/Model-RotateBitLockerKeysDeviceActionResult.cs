@@ -17,7 +17,7 @@ internal class RotateBitLockerKeysDeviceActionResultModel
     public string? ActionName { get; set; }
 
     [JsonPropertyName("actionState")]
-    public ActionStateConstant? ActionState { get; set; }
+    public RotateBitLockerKeysDeviceActionResultActionStateConstant? ActionState { get; set; }
 
     [JsonPropertyName("errorCode")]
     public int? ErrorCode { get; set; }

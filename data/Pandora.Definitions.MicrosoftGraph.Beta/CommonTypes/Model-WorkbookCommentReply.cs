@@ -24,4 +24,7 @@ internal class WorkbookCommentReplyModel
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
+
+    [JsonPropertyName("task")]
+    public WorkbookDocumentTaskModel? Task { get; set; }
 }

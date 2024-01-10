@@ -29,7 +29,7 @@ internal class GroupPolicyCategoryModel
     public string? Id { get; set; }
 
     [JsonPropertyName("ingestionSource")]
-    public IngestionSourceConstant? IngestionSource { get; set; }
+    public GroupPolicyCategoryIngestionSourceConstant? IngestionSource { get; set; }
 
     [JsonPropertyName("isRoot")]
     public bool? IsRoot { get; set; }

@@ -23,7 +23,7 @@ internal class SecurityDataSourceModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("holdStatus")]
-    public DataSourceHoldStatusConstant? HoldStatus { get; set; }
+    public SecurityDataSourceHoldStatusConstant? HoldStatus { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

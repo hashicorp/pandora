@@ -17,7 +17,7 @@ internal class DelegatedAdminAccessContainerModel
     public string? AccessContainerId { get; set; }
 
     [JsonPropertyName("accessContainerType")]
-    public DelegatedAdminAccessContainerTypeConstant? AccessContainerType { get; set; }
+    public DelegatedAdminAccessContainerAccessContainerTypeConstant? AccessContainerType { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

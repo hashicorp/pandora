@@ -1,0 +1,53 @@
+{
+ "name": "VirtualMachineScaleSetUpdatePublicIPAddressConfigurationProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "deleteOption",
+   "name": "DeleteOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DeleteOptions"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dnsSettings",
+   "name": "DnsSettings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetPublicIPAddressConfigurationDnsSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "idleTimeoutInMinutes",
+   "name": "IdleTimeoutInMinutes",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicIPPrefix",
+   "name": "PublicIPPrefix",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SubResource"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

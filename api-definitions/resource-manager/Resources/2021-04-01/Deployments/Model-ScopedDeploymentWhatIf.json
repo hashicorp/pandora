@@ -1,0 +1,29 @@
+{
+ "name": "ScopedDeploymentWhatIf",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DeploymentWhatIfProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

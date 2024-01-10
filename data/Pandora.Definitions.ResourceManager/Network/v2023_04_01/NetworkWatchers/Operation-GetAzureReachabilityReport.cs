@@ -26,8 +26,6 @@ internal class GetAzureReachabilityReportOperation : Pandora.Definitions.Operati
 
     public override ResourceID? ResourceId() => new NetworkWatcherId();
 
-    public override Type? ResponseObject() => typeof(AzureReachabilityReportModel);
-
     public override string? UriSuffix() => "/azureReachabilityReport";
 
 

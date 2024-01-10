@@ -20,7 +20,5 @@ internal class CreateOperation : Pandora.Definitions.Operations.PutOperation
 
     public override ResourceID? ResourceId() => new ServerGroupsv2Id();
 
-    public override Type? ResponseObject() => typeof(ClusterModel);
-
 
 }

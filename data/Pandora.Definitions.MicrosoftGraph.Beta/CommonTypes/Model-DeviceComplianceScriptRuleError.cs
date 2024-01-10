@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceComplianceScriptRuleErrorModel
 {
     [JsonPropertyName("code")]
-    public CodeConstant? Code { get; set; }
+    public DeviceComplianceScriptRuleErrorCodeConstant? Code { get; set; }
 
     [JsonPropertyName("deviceComplianceScriptRulesValidationError")]
-    public DeviceComplianceScriptRulesValidationErrorConstant? DeviceComplianceScriptRulesValidationError { get; set; }
+    public DeviceComplianceScriptRuleErrorDeviceComplianceScriptRulesValidationErrorConstant? DeviceComplianceScriptRulesValidationError { get; set; }
 
     [JsonPropertyName("message")]
     public string? Message { get; set; }

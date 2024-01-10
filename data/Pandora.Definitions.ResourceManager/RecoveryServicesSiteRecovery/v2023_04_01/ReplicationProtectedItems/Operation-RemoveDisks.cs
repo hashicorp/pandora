@@ -26,8 +26,6 @@ internal class RemoveDisksOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new ReplicationProtectedItemId();
 
-    public override Type? ResponseObject() => typeof(ReplicationProtectedItemModel);
-
     public override string? UriSuffix() => "/removeDisks";
 
 

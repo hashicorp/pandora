@@ -41,5 +41,5 @@ internal class DeviceManagementCachedReportConfigurationModel
     public List<string>? Select { get; set; }
 
     [JsonPropertyName("status")]
-    public DeviceManagementReportStatusConstant? Status { get; set; }
+    public DeviceManagementCachedReportConfigurationStatusConstant? Status { get; set; }
 }

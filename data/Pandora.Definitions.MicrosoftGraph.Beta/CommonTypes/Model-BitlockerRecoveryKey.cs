@@ -29,5 +29,5 @@ internal class BitlockerRecoveryKeyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("volumeType")]
-    public VolumeTypeConstant? VolumeType { get; set; }
+    public BitlockerRecoveryKeyVolumeTypeConstant? VolumeType { get; set; }
 }

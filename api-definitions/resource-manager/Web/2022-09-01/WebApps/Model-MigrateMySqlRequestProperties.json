@@ -1,0 +1,29 @@
+{
+ "name": "MigrateMySqlRequestProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionString",
+   "name": "ConnectionString",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "migrationType",
+   "name": "MigrationType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MySqlMigrationType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -23,7 +23,7 @@ internal class FeatureRolloutPolicyModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("feature")]
-    public StagedFeatureNameConstant? Feature { get; set; }
+    public FeatureRolloutPolicyFeatureConstant? Feature { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

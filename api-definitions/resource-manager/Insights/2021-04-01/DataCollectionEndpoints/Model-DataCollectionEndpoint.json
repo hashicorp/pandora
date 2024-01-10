@@ -1,0 +1,77 @@
+{
+ "name": "DataCollectionEndpoint",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configurationAccess",
+   "name": "ConfigurationAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConfigurationAccessEndpointSpec"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "description",
+   "name": "Description",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "immutableId",
+   "name": "ImmutableId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "logsIngestion",
+   "name": "LogsIngestion",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogsIngestionEndpointSpec"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkAcls",
+   "name": "NetworkAcls",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkRuleSet"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KnownDataCollectionEndpointProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

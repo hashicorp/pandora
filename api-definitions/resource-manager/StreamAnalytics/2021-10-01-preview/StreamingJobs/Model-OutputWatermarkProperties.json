@@ -1,0 +1,29 @@
+{
+ "name": "OutputWatermarkProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "maxWatermarkDifferenceAcrossPartitions",
+   "name": "MaxWatermarkDifferenceAcrossPartitions",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "watermarkMode",
+   "name": "WatermarkMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OutputWatermarkMode"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

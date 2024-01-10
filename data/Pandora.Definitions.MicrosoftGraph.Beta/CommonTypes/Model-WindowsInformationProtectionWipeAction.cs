@@ -23,7 +23,7 @@ internal class WindowsInformationProtectionWipeActionModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("status")]
-    public ActionStateConstant? Status { get; set; }
+    public WindowsInformationProtectionWipeActionStatusConstant? Status { get; set; }
 
     [JsonPropertyName("targetedDeviceMacAddress")]
     public string? TargetedDeviceMacAddress { get; set; }

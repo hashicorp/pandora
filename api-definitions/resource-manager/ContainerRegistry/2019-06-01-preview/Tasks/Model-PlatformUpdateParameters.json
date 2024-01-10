@@ -1,0 +1,41 @@
+{
+ "name": "PlatformUpdateParameters",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "architecture",
+   "name": "Architecture",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Architecture"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "os",
+   "name": "Os",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OS"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "variant",
+   "name": "Variant",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Variant"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

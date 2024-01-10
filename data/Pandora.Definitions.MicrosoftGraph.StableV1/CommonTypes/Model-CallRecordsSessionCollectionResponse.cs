@@ -14,11 +14,11 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CallRecordsSessionCollectionResponseModel
 {
     [JsonPropertyName("@odata.count")]
-    public long? ODataCount { get; set; }
+    public int? ODataCount { get; set; }
 
     [JsonPropertyName("@odata.nextLink")]
     public string? ODataNextLink { get; set; }
 
     [JsonPropertyName("value")]
-    public List<SessionModel>? Value { get; set; }
+    public List<CallRecordsSessionModel>? Value { get; set; }
 }

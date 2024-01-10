@@ -58,6 +58,9 @@ internal class DeviceHealthAttestationStateModel
     [JsonPropertyName("earlyLaunchAntiMalwareDriverProtection")]
     public string? EarlyLaunchAntiMalwareDriverProtection { get; set; }
 
+    [JsonPropertyName("firmwareProtection")]
+    public DeviceHealthAttestationStateFirmwareProtectionConstant? FirmwareProtection { get; set; }
+
     [JsonPropertyName("healthAttestationSupportedStatus")]
     public string? HealthAttestationSupportedStatus { get; set; }
 
@@ -69,6 +72,12 @@ internal class DeviceHealthAttestationStateModel
 
     [JsonPropertyName("lastUpdateDateTime")]
     public string? LastUpdateDateTime { get; set; }
+
+    [JsonPropertyName("memoryAccessProtection")]
+    public DeviceHealthAttestationStateMemoryAccessProtectionConstant? MemoryAccessProtection { get; set; }
+
+    [JsonPropertyName("memoryIntegrityProtection")]
+    public DeviceHealthAttestationStateMemoryIntegrityProtectionConstant? MemoryIntegrityProtection { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
@@ -86,10 +95,10 @@ internal class DeviceHealthAttestationStateModel
     public string? PcrHashAlgorithm { get; set; }
 
     [JsonPropertyName("resetCount")]
-    public long? ResetCount { get; set; }
+    public int? ResetCount { get; set; }
 
     [JsonPropertyName("restartCount")]
-    public long? RestartCount { get; set; }
+    public int? RestartCount { get; set; }
 
     [JsonPropertyName("safeMode")]
     public string? SafeMode { get; set; }
@@ -100,6 +109,12 @@ internal class DeviceHealthAttestationStateModel
     [JsonPropertyName("secureBootConfigurationPolicyFingerPrint")]
     public string? SecureBootConfigurationPolicyFingerPrint { get; set; }
 
+    [JsonPropertyName("securedCorePC")]
+    public DeviceHealthAttestationStateSecuredCorePCConstant? SecuredCorePC { get; set; }
+
+    [JsonPropertyName("systemManagementMode")]
+    public DeviceHealthAttestationStateSystemManagementModeConstant? SystemManagementMode { get; set; }
+
     [JsonPropertyName("testSigning")]
     public string? TestSigning { get; set; }
 
@@ -108,6 +123,9 @@ internal class DeviceHealthAttestationStateModel
 
     [JsonPropertyName("virtualSecureMode")]
     public string? VirtualSecureMode { get; set; }
+
+    [JsonPropertyName("virtualizationBasedSecurity")]
+    public DeviceHealthAttestationStateVirtualizationBasedSecurityConstant? VirtualizationBasedSecurity { get; set; }
 
     [JsonPropertyName("windowsPE")]
     public string? WindowsPE { get; set; }

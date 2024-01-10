@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsHealthMonitoringConfigurationModel
 {
     [JsonPropertyName("allowDeviceHealthMonitoring")]
-    public EnablementConstant? AllowDeviceHealthMonitoring { get; set; }
+    public WindowsHealthMonitoringConfigurationAllowDeviceHealthMonitoringConstant? AllowDeviceHealthMonitoring { get; set; }
 
     [JsonPropertyName("assignments")]
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
@@ -23,7 +23,7 @@ internal class WindowsHealthMonitoringConfigurationModel
     public string? ConfigDeviceHealthMonitoringCustomScope { get; set; }
 
     [JsonPropertyName("configDeviceHealthMonitoringScope")]
-    public WindowsHealthMonitoringScopeConstant? ConfigDeviceHealthMonitoringScope { get; set; }
+    public WindowsHealthMonitoringConfigurationConfigDeviceHealthMonitoringScopeConstant? ConfigDeviceHealthMonitoringScope { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }

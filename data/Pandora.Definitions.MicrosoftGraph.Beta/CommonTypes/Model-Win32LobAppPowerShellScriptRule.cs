@@ -29,16 +29,16 @@ internal class Win32LobAppPowerShellScriptRuleModel
     public Win32LobAppPowerShellScriptRuleOperationTypeConstant? OperationType { get; set; }
 
     [JsonPropertyName("operator")]
-    public Win32LobAppRuleOperatorConstant? Operator { get; set; }
+    public Win32LobAppPowerShellScriptRuleOperatorConstant? Operator { get; set; }
 
     [JsonPropertyName("ruleType")]
-    public Win32LobAppRuleTypeConstant? RuleType { get; set; }
+    public Win32LobAppPowerShellScriptRuleRuleTypeConstant? RuleType { get; set; }
 
     [JsonPropertyName("runAs32Bit")]
     public bool? RunAs32Bit { get; set; }
 
     [JsonPropertyName("runAsAccount")]
-    public RunAsAccountTypeConstant? RunAsAccount { get; set; }
+    public Win32LobAppPowerShellScriptRuleRunAsAccountConstant? RunAsAccount { get; set; }
 
     [JsonPropertyName("scriptContent")]
     public string? ScriptContent { get; set; }

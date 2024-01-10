@@ -1,0 +1,19 @@
+{
+ "name": "Expand",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "BookmarkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BookmarkExpandParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BookmarkExpandResponse"
+ },
+ "uriSuffix": "/expand"
+}

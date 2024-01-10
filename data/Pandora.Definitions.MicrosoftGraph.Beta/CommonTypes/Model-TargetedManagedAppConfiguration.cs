@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class TargetedManagedAppConfigurationModel
 {
     [JsonPropertyName("appGroupType")]
-    public TargetedManagedAppGroupTypeConstant? AppGroupType { get; set; }
+    public TargetedManagedAppConfigurationAppGroupTypeConstant? AppGroupType { get; set; }
 
     [JsonPropertyName("apps")]
     public List<ManagedMobileAppModel>? Apps { get; set; }
@@ -59,7 +59,7 @@ internal class TargetedManagedAppConfigurationModel
     public List<DeviceManagementConfigurationSettingModel>? Settings { get; set; }
 
     [JsonPropertyName("targetedAppManagementLevels")]
-    public AppManagementLevelConstant? TargetedAppManagementLevels { get; set; }
+    public TargetedManagedAppConfigurationTargetedAppManagementLevelsConstant? TargetedAppManagementLevels { get; set; }
 
     [JsonPropertyName("version")]
     public string? Version { get; set; }

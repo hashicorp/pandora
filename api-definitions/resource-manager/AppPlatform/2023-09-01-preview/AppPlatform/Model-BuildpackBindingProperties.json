@@ -1,0 +1,41 @@
+{
+ "name": "BuildpackBindingProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "bindingType",
+   "name": "BindingType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BindingType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "launchProperties",
+   "name": "LaunchProperties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BuildpackBindingLaunchProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BuildpackBindingProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

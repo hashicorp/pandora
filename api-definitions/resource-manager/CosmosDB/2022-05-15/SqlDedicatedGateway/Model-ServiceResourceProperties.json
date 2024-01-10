@@ -1,0 +1,67 @@
+{
+ "name": "ServiceResourceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creationTime",
+   "name": "CreationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceCount",
+   "name": "InstanceCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "instanceSize",
+   "name": "InstanceSize",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceSize"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "serviceType",
+   "name": "ServiceType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "ServiceType"
+}

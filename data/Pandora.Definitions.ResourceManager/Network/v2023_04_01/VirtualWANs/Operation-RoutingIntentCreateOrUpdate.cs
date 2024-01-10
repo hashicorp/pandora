@@ -20,7 +20,5 @@ internal class RoutingIntentCreateOrUpdateOperation : Pandora.Definitions.Operat
 
     public override ResourceID? ResourceId() => new RoutingIntentId();
 
-    public override Type? ResponseObject() => typeof(RoutingIntentModel);
-
 
 }

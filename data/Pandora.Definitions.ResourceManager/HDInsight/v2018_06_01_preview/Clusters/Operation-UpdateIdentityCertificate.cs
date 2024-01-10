@@ -24,7 +24,7 @@ internal class UpdateIdentityCertificateOperation : Pandora.Definitions.Operatio
 
     public override Type? RequestObject() => typeof(UpdateClusterIdentityCertificateParametersModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/updateClusterIdentityCertificate";
 

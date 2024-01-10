@@ -26,7 +26,5 @@ internal class ExtensionsUpdateOperation : Pandora.Definitions.Operations.PatchO
 
     public override ResourceID? ResourceId() => new ScopedExtensionId();
 
-    public override Type? ResponseObject() => typeof(ExtensionModel);
-
 
 }

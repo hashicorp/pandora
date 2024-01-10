@@ -85,6 +85,14 @@ type Model struct {
 	Prefix string
 }
 
+func (m *Model) IsValid() bool {
+	// Several constants are presented as models, these have no fields and are of no use
+	if m == nil || len(m.Fields) == 0 {
+		return false
+	}
+	return true
+}
+
 type ModelField struct {
 	Title        string
 	Type         *DataType
@@ -99,7 +107,7 @@ type ModelField struct {
 
 // CSType returns a string containing the C# type name for the ModelField, either describing it as a literal type, a
 // specific model type, or a collection of either.
-func (f ModelField) CSType() *string {
+func (f ModelField) CSType(models Models) *string {
 	if f.Type == nil {
 		return nil
 	}
@@ -110,11 +118,15 @@ func (f ModelField) CSType() *string {
 			return nil
 		}
 
-		return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
+		if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
+			return pointerTo(fmt.Sprintf("%sModel", *f.ModelName))
+		}
 
 	case DataTypeArray:
 		if f.ModelName != nil {
-			return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
+			if models.Found(*f.ModelName) && models[*f.ModelName].IsValid() {
+				return pointerTo(fmt.Sprintf("List<%sModel>", *f.ModelName))
+			}
 		}
 
 		if f.ConstantName != nil {
@@ -165,52 +177,32 @@ const (
 	DataTypeBinary
 )
 
-// CSType returns a string containing the C# type name for the DataType
+// CSType returns a string containing the C# type name for the DataType. We intentionally consolidate
+// some of these (ints and floats all the same size) to ease downstream implementation.
 func (ft DataType) CSType() *string {
 	csType := ""
 	switch ft {
-	case DataTypeString:
+	case DataTypeString, DataTypeBase64, DataTypeDuration, DataTypeUuid:
 		csType = "string"
-	case DataTypeInteger64:
-		csType = "long"
-	case DataTypeIntegerUnsigned64:
-		csType = "ulong"
-	case DataTypeInteger32:
+	case DataTypeInteger64, DataTypeInteger32, DataTypeInteger16, DataTypeInteger8:
 		csType = "int"
-	case DataTypeIntegerUnsigned32:
+	case DataTypeIntegerUnsigned64, DataTypeIntegerUnsigned32, DataTypeIntegerUnsigned16, DataTypeIntegerUnsigned8:
 		csType = "uint"
-	case DataTypeInteger16:
-		csType = "short"
-	case DataTypeIntegerUnsigned16:
-		csType = "ushort"
-	case DataTypeInteger8:
-		csType = "sbyte"
-	case DataTypeIntegerUnsigned8:
-		csType = "byte"
-	case DataTypeFloat32:
+	case DataTypeFloat64, DataTypeFloat32:
 		csType = "float"
-	case DataTypeFloat64:
-		csType = "double"
 	case DataTypeBool:
 		csType = "bool"
-	case DataTypeBase64:
-		csType = "string"
-	case DataTypeDate:
+	case DataTypeDate, DataTypeDateTime, DataTypeTime:
 		csType = "DateTime"
-	case DataTypeDateTime:
-		csType = "DateTime"
-	case DataTypeDuration:
-		csType = "string"
-	case DataTypeTime:
-		csType = "DateTime"
-	case DataTypeUuid:
-		csType = "string"
 	case DataTypeBinary:
 		csType = "RawFile"
 	}
+
+	// Fall back to string where the type is not known
 	if csType == "" {
-		return nil
+		csType = "string"
 	}
+
 	return &csType
 }
 

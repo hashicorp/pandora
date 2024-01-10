@@ -26,5 +26,5 @@ internal class WindowsAutopilotSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("syncStatus")]
-    public WindowsAutopilotSyncStatusConstant? SyncStatus { get; set; }
+    public WindowsAutopilotSettingsSyncStatusConstant? SyncStatus { get; set; }
 }

@@ -20,7 +20,5 @@ internal class L2NetworksCreateOrUpdateOperation : Pandora.Definitions.Operation
 
     public override ResourceID? ResourceId() => new L2NetworkId();
 
-    public override Type? ResponseObject() => typeof(L2NetworkModel);
-
 
 }

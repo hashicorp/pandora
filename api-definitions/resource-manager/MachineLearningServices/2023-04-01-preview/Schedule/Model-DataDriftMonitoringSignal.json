@@ -1,0 +1,72 @@
+{
+ "name": "DataDriftMonitoringSignal",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "baselineData",
+   "name": "BaselineData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSegment",
+   "name": "DataSegment",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringDataSegment"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "features",
+   "name": "Features",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringFeatureFilterBase"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metricThresholds",
+   "name": "MetricThresholds",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DataDriftMetricThresholdBase"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetData",
+   "name": "TargetData",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MonitoringInputData"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MonitoringSignalBase",
+ "discriminatedTypeValue": "DataDrift",
+ "typeHintIn": "SignalType"
+}

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CalendarModel
 {
     [JsonPropertyName("allowedOnlineMeetingProviders")]
-    public List<OnlineMeetingProviderTypeConstant>? AllowedOnlineMeetingProviders { get; set; }
+    public List<CalendarAllowedOnlineMeetingProvidersConstant>? AllowedOnlineMeetingProviders { get; set; }
 
     [JsonPropertyName("calendarPermissions")]
     public List<CalendarPermissionModel>? CalendarPermissions { get; set; }
@@ -38,7 +38,7 @@ internal class CalendarModel
     public CalendarColorConstant? Color { get; set; }
 
     [JsonPropertyName("defaultOnlineMeetingProvider")]
-    public OnlineMeetingProviderTypeConstant? DefaultOnlineMeetingProvider { get; set; }
+    public CalendarDefaultOnlineMeetingProviderConstant? DefaultOnlineMeetingProvider { get; set; }
 
     [JsonPropertyName("events")]
     public List<EventModel>? Events { get; set; }

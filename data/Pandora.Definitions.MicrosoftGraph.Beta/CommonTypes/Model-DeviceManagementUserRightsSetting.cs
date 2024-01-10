@@ -20,5 +20,5 @@ internal class DeviceManagementUserRightsSettingModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public StateManagementSettingConstant? State { get; set; }
+    public DeviceManagementUserRightsSettingStateConstant? State { get; set; }
 }

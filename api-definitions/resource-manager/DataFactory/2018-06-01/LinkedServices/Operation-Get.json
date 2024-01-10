@@ -1,0 +1,26 @@
+{
+ "name": "Get",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "headerName": "If-None-Match",
+   "optional": true,
+   "required": false,
+   "field": "IfNoneMatch",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "LinkedServiceId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "LinkedServiceResource"
+ }
+}

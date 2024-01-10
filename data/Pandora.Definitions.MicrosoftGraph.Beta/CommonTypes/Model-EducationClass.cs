@@ -47,7 +47,7 @@ internal class EducationClassModel
     public string? ExternalName { get; set; }
 
     [JsonPropertyName("externalSource")]
-    public EducationExternalSourceConstant? ExternalSource { get; set; }
+    public EducationClassExternalSourceConstant? ExternalSource { get; set; }
 
     [JsonPropertyName("externalSourceDetail")]
     public string? ExternalSourceDetail { get; set; }
@@ -66,6 +66,9 @@ internal class EducationClassModel
 
     [JsonPropertyName("members")]
     public List<EducationUserModel>? Members { get; set; }
+
+    [JsonPropertyName("modules")]
+    public List<EducationModuleModel>? Modules { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

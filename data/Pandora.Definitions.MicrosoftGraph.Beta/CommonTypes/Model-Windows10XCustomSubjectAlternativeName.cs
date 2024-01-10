@@ -20,5 +20,5 @@ internal class Windows10XCustomSubjectAlternativeNameModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sanType")]
-    public SubjectAlternativeNameTypeConstant? SanType { get; set; }
+    public Windows10XCustomSubjectAlternativeNameSanTypeConstant? SanType { get; set; }
 }

@@ -1,0 +1,20 @@
+{
+ "name": "CustomInferencingServer",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "inferenceConfiguration",
+   "name": "InferenceConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OnlineInferenceConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "InferencingServer",
+ "discriminatedTypeValue": "Custom",
+ "typeHintIn": "ServerType"
+}

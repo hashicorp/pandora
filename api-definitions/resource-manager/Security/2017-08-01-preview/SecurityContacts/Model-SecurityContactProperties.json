@@ -1,0 +1,53 @@
+{
+ "name": "SecurityContactProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alertNotifications",
+   "name": "AlertNotifications",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertNotifications"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alertsToAdmins",
+   "name": "AlertsToAdmins",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlertsToAdmins"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "email",
+   "name": "Email",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "phone",
+   "name": "Phone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

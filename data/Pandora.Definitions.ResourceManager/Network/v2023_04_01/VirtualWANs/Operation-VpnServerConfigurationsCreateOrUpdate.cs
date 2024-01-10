@@ -20,7 +20,5 @@ internal class VpnServerConfigurationsCreateOrUpdateOperation : Pandora.Definiti
 
     public override ResourceID? ResourceId() => new VpnServerConfigurationId();
 
-    public override Type? ResponseObject() => typeof(VpnServerConfigurationModel);
-
 
 }

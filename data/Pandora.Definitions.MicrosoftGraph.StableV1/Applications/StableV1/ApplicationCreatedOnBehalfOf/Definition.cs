@@ -13,7 +13,7 @@ internal class Definition : ResourceDefinition
 
     public IEnumerable<Interfaces.ApiOperation> Operations => new List<Interfaces.ApiOperation>
     {
-        new GetCreatedOnBehalfOfOperation()
+        new GetApplicationByIdCreatedOnBehalfOfOperation()
     };
 
     public IEnumerable<System.Type> Constants => new List<System.Type>

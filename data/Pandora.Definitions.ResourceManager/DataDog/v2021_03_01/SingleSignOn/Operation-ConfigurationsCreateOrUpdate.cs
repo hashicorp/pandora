@@ -20,7 +20,5 @@ internal class ConfigurationsCreateOrUpdateOperation : Pandora.Definitions.Opera
 
     public override ResourceID? ResourceId() => new SingleSignOnConfigurationId();
 
-    public override Type? ResponseObject() => typeof(DatadogSingleSignOnResourceModel);
-
 
 }

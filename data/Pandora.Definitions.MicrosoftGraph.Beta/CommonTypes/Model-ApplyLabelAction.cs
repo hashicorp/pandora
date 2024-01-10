@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ApplyLabelActionModel
 {
     [JsonPropertyName("actionSource")]
-    public ActionSourceConstant? ActionSource { get; set; }
+    public ApplyLabelActionActionSourceConstant? ActionSource { get; set; }
 
     [JsonPropertyName("actions")]
     public List<InformationProtectionActionModel>? Actions { get; set; }

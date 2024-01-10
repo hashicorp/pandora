@@ -20,5 +20,5 @@ internal class DeletedItemContainerModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("workflows")]
-    public List<WorkflowModel>? Workflows { get; set; }
+    public List<IdentityGovernanceWorkflowModel>? Workflows { get; set; }
 }

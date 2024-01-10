@@ -23,5 +23,5 @@ internal class AuthenticationMethodConfigurationModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("state")]
-    public AuthenticationMethodStateConstant? State { get; set; }
+    public AuthenticationMethodConfigurationStateConstant? State { get; set; }
 }

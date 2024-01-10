@@ -1,0 +1,15 @@
+{
+ "name": "GetRdpFileContents",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualMachineId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RdpConnection"
+ },
+ "uriSuffix": "/getRdpFileContents"
+}

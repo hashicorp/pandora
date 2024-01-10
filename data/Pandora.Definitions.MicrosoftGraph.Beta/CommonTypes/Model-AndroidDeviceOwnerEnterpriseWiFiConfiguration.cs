@@ -17,7 +17,7 @@ internal class AndroidDeviceOwnerEnterpriseWiFiConfigurationModel
     public List<DeviceConfigurationAssignmentModel>? Assignments { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public WiFiAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectAutomatically")]
     public bool? ConnectAutomatically { get; set; }
@@ -56,7 +56,7 @@ internal class AndroidDeviceOwnerEnterpriseWiFiConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("eapType")]
-    public AndroidEapTypeConstant? EapType { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationEapTypeConstant? EapType { get; set; }
 
     [JsonPropertyName("groupAssignments")]
     public List<DeviceConfigurationGroupAssignmentModel>? GroupAssignments { get; set; }
@@ -68,10 +68,10 @@ internal class AndroidDeviceOwnerEnterpriseWiFiConfigurationModel
     public AndroidDeviceOwnerCertificateProfileBaseModel? IdentityCertificateForClientAuthentication { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForEapTtls")]
-    public NonEapAuthenticationMethodForEapTtlsTypeConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationInnerAuthenticationProtocolForEapTtlsConstant? InnerAuthenticationProtocolForEapTtls { get; set; }
 
     [JsonPropertyName("innerAuthenticationProtocolForPeap")]
-    public NonEapAuthenticationMethodForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationInnerAuthenticationProtocolForPeapConstant? InnerAuthenticationProtocolForPeap { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }
@@ -104,7 +104,7 @@ internal class AndroidDeviceOwnerEnterpriseWiFiConfigurationModel
     public int? ProxyManualPort { get; set; }
 
     [JsonPropertyName("proxySettings")]
-    public WiFiProxySettingConstant? ProxySettings { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationProxySettingsConstant? ProxySettings { get; set; }
 
     [JsonPropertyName("roleScopeTagIds")]
     public List<string>? RoleScopeTagIds { get; set; }
@@ -131,5 +131,5 @@ internal class AndroidDeviceOwnerEnterpriseWiFiConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("wiFiSecurityType")]
-    public AndroidDeviceOwnerWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
+    public AndroidDeviceOwnerEnterpriseWiFiConfigurationWiFiSecurityTypeConstant? WiFiSecurityType { get; set; }
 }

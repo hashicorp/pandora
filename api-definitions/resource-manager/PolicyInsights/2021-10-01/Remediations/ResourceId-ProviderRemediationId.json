@@ -1,0 +1,43 @@
+{
+ "name": "ProviderRemediationId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.PolicyInsights/remediations/{remediationName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftPolicyInsights",
+   "type": "ResourceProvider",
+   "value": "Microsoft.PolicyInsights"
+  },
+  {
+   "name": "staticRemediations",
+   "type": "Static",
+   "value": "remediations"
+  },
+  {
+   "name": "remediationName",
+   "type": "UserSpecified"
+  }
+ ]
+}

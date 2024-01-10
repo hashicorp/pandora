@@ -26,8 +26,6 @@ internal class PriceSheetDownloadByBillingProfileOperation : Pandora.Definitions
 
     public override ResourceID? ResourceId() => new BillingProfileId();
 
-    public override Type? ResponseObject() => typeof(DownloadUrlModel);
-
     public override string? UriSuffix() => "/providers/Microsoft.CostManagement/pricesheets/default/download";
 
 

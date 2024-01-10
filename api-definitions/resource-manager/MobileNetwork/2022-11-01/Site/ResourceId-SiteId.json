@@ -1,0 +1,52 @@
+{
+ "name": "SiteId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MobileNetwork/mobileNetworks/{mobileNetworkName}/sites/{siteName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftMobileNetwork",
+   "type": "ResourceProvider",
+   "value": "Microsoft.MobileNetwork"
+  },
+  {
+   "name": "staticMobileNetworks",
+   "type": "Static",
+   "value": "mobileNetworks"
+  },
+  {
+   "name": "mobileNetworkName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticSites",
+   "type": "Static",
+   "value": "sites"
+  },
+  {
+   "name": "siteName",
+   "type": "UserSpecified"
+  }
+ ]
+}

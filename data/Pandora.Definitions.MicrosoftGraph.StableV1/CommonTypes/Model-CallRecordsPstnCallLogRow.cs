@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CallRecordsPstnCallLogRowModel
 {
     [JsonPropertyName("callDurationSource")]
-    public PstnCallDurationSourceConstant? CallDurationSource { get; set; }
+    public CallRecordsPstnCallLogRowCallDurationSourceConstant? CallDurationSource { get; set; }
 
     [JsonPropertyName("callId")]
     public string? CallId { get; set; }

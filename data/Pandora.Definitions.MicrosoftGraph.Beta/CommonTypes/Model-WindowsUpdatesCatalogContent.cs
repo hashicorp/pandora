@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class WindowsUpdatesCatalogContentModel
 {
     [JsonPropertyName("catalogEntry")]
-    public CatalogEntryModel? CatalogEntry { get; set; }
+    public WindowsUpdatesCatalogEntryModel? CatalogEntry { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

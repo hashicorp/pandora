@@ -25,7 +25,5 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override ResourceID? ResourceId() => new TopicId();
 
-    public override Type? ResponseObject() => typeof(TopicModel);
-
 
 }

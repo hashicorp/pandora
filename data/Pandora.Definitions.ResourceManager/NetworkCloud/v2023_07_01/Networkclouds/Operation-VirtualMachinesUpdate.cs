@@ -26,7 +26,5 @@ internal class VirtualMachinesUpdateOperation : Pandora.Definitions.Operations.P
 
     public override ResourceID? ResourceId() => new VirtualMachineId();
 
-    public override Type? ResponseObject() => typeof(VirtualMachineModel);
-
 
 }

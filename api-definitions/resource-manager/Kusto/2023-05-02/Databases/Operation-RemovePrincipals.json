@@ -1,0 +1,19 @@
+{
+ "name": "RemovePrincipals",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "DatabaseId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "DatabasePrincipalListRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "DatabasePrincipalListResult"
+ },
+ "uriSuffix": "/removePrincipals"
+}

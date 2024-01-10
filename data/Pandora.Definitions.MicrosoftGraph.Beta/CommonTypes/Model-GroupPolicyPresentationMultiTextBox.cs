@@ -26,10 +26,10 @@ internal class GroupPolicyPresentationMultiTextBoxModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("maxLength")]
-    public long? MaxLength { get; set; }
+    public int? MaxLength { get; set; }
 
     [JsonPropertyName("maxStrings")]
-    public long? MaxStrings { get; set; }
+    public int? MaxStrings { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

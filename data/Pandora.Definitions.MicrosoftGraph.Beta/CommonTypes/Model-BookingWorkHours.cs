@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class BookingWorkHoursModel
 {
     [JsonPropertyName("day")]
-    public DayOfWeekConstant? Day { get; set; }
+    public BookingWorkHoursDayConstant? Day { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

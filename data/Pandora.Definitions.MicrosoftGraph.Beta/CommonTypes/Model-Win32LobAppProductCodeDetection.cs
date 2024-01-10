@@ -23,5 +23,5 @@ internal class Win32LobAppProductCodeDetectionModel
     public string? ProductVersion { get; set; }
 
     [JsonPropertyName("productVersionOperator")]
-    public Win32LobAppDetectionOperatorConstant? ProductVersionOperator { get; set; }
+    public Win32LobAppProductCodeDetectionProductVersionOperatorConstant? ProductVersionOperator { get; set; }
 }

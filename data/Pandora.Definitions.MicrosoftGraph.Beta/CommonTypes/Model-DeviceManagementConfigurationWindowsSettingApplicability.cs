@@ -20,7 +20,7 @@ internal class DeviceManagementConfigurationWindowsSettingApplicabilityModel
     public string? Description { get; set; }
 
     [JsonPropertyName("deviceMode")]
-    public DeviceManagementConfigurationDeviceModeConstant? DeviceMode { get; set; }
+    public DeviceManagementConfigurationWindowsSettingApplicabilityDeviceModeConstant? DeviceMode { get; set; }
 
     [JsonPropertyName("maximumSupportedVersion")]
     public string? MaximumSupportedVersion { get; set; }
@@ -32,17 +32,17 @@ internal class DeviceManagementConfigurationWindowsSettingApplicabilityModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("platform")]
-    public DeviceManagementConfigurationPlatformsConstant? Platform { get; set; }
+    public DeviceManagementConfigurationWindowsSettingApplicabilityPlatformConstant? Platform { get; set; }
 
     [JsonPropertyName("requiredAzureAdTrustType")]
-    public DeviceManagementConfigurationAzureAdTrustTypeConstant? RequiredAzureAdTrustType { get; set; }
+    public DeviceManagementConfigurationWindowsSettingApplicabilityRequiredAzureAdTrustTypeConstant? RequiredAzureAdTrustType { get; set; }
 
     [JsonPropertyName("requiresAzureAd")]
     public bool? RequiresAzureAd { get; set; }
 
     [JsonPropertyName("technologies")]
-    public DeviceManagementConfigurationTechnologiesConstant? Technologies { get; set; }
+    public DeviceManagementConfigurationWindowsSettingApplicabilityTechnologiesConstant? Technologies { get; set; }
 
     [JsonPropertyName("windowsSkus")]
-    public List<DeviceManagementConfigurationWindowsSkusConstant>? WindowsSkus { get; set; }
+    public List<DeviceManagementConfigurationWindowsSettingApplicabilityWindowsSkusConstant>? WindowsSkus { get; set; }
 }

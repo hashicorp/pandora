@@ -190,6 +190,9 @@ internal class GroupModel
     [JsonPropertyName("securityIdentifier")]
     public string? SecurityIdentifier { get; set; }
 
+    [JsonPropertyName("serviceProvisioningErrors")]
+    public List<ServiceProvisioningErrorModel>? ServiceProvisioningErrors { get; set; }
+
     [JsonPropertyName("settings")]
     public List<GroupSettingModel>? Settings { get; set; }
 

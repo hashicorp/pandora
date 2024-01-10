@@ -1,0 +1,141 @@
+{
+ "name": "FhirServiceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "acrConfiguration",
+   "name": "AcrConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FhirServiceAcrConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "authenticationConfiguration",
+   "name": "AuthenticationConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FhirServiceAuthenticationConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "corsConfiguration",
+   "name": "CorsConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FhirServiceCorsConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "eventState",
+   "name": "EventState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ServiceEventState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exportConfiguration",
+   "name": "ExportConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FhirServiceExportConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "implementationGuidesConfiguration",
+   "name": "ImplementationGuidesConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImplementationGuidesConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "importConfiguration",
+   "name": "ImportConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FhirServiceImportConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "privateEndpointConnections",
+   "name": "PrivateEndpointConnections",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PrivateEndpointConnection"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "publicNetworkAccess",
+   "name": "PublicNetworkAccess",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublicNetworkAccess"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceVersionPolicyConfiguration",
+   "name": "ResourceVersionPolicyConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceVersionPolicyConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

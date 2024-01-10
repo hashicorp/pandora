@@ -1,0 +1,53 @@
+{
+ "name": "ExportDefinition",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataSet",
+   "name": "DataSet",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExportDataset"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timePeriod",
+   "name": "TimePeriod",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExportTimePeriod"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeframe",
+   "name": "Timeframe",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "TimeframeType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExportType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

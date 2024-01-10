@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class IosNotificationSettingsModel
 {
     [JsonPropertyName("alertType")]
-    public IosNotificationAlertTypeConstant? AlertType { get; set; }
+    public IosNotificationSettingsAlertTypeConstant? AlertType { get; set; }
 
     [JsonPropertyName("appName")]
     public string? AppName { get; set; }
@@ -32,7 +32,7 @@ internal class IosNotificationSettingsModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("previewVisibility")]
-    public IosNotificationPreviewVisibilityConstant? PreviewVisibility { get; set; }
+    public IosNotificationSettingsPreviewVisibilityConstant? PreviewVisibility { get; set; }
 
     [JsonPropertyName("publisher")]
     public string? Publisher { get; set; }

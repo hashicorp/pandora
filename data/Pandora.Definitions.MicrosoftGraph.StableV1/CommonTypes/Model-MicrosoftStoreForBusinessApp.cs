@@ -47,7 +47,7 @@ internal class MicrosoftStoreForBusinessAppModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("licenseType")]
-    public MicrosoftStoreForBusinessLicenseTypeConstant? LicenseType { get; set; }
+    public MicrosoftStoreForBusinessAppLicenseTypeConstant? LicenseType { get; set; }
 
     [JsonPropertyName("notes")]
     public string? Notes { get; set; }
@@ -71,7 +71,7 @@ internal class MicrosoftStoreForBusinessAppModel
     public string? Publisher { get; set; }
 
     [JsonPropertyName("publishingState")]
-    public MobileAppPublishingStateConstant? PublishingState { get; set; }
+    public MicrosoftStoreForBusinessAppPublishingStateConstant? PublishingState { get; set; }
 
     [JsonPropertyName("totalLicenseCount")]
     public int? TotalLicenseCount { get; set; }

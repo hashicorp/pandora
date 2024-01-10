@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class Windows10EndpointProtectionConfigurationModel
 {
     [JsonPropertyName("appLockerApplicationControl")]
-    public AppLockerApplicationControlTypeConstant? AppLockerApplicationControl { get; set; }
+    public Windows10EndpointProtectionConfigurationAppLockerApplicationControlConstant? AppLockerApplicationControl { get; set; }
 
     [JsonPropertyName("applicationGuardAllowCameraMicrophoneRedirection")]
     public bool? ApplicationGuardAllowCameraMicrophoneRedirection { get; set; }
@@ -41,10 +41,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? ApplicationGuardAllowVirtualGPU { get; set; }
 
     [JsonPropertyName("applicationGuardBlockClipboardSharing")]
-    public ApplicationGuardBlockClipboardSharingTypeConstant? ApplicationGuardBlockClipboardSharing { get; set; }
+    public Windows10EndpointProtectionConfigurationApplicationGuardBlockClipboardSharingConstant? ApplicationGuardBlockClipboardSharing { get; set; }
 
     [JsonPropertyName("applicationGuardBlockFileTransfer")]
-    public ApplicationGuardBlockFileTransferTypeConstant? ApplicationGuardBlockFileTransfer { get; set; }
+    public Windows10EndpointProtectionConfigurationApplicationGuardBlockFileTransferConstant? ApplicationGuardBlockFileTransfer { get; set; }
 
     [JsonPropertyName("applicationGuardBlockNonEnterpriseContent")]
     public bool? ApplicationGuardBlockNonEnterpriseContent { get; set; }
@@ -56,7 +56,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? ApplicationGuardEnabled { get; set; }
 
     [JsonPropertyName("applicationGuardEnabledOptions")]
-    public ApplicationGuardEnabledOptionsConstant? ApplicationGuardEnabledOptions { get; set; }
+    public Windows10EndpointProtectionConfigurationApplicationGuardEnabledOptionsConstant? ApplicationGuardEnabledOptions { get; set; }
 
     [JsonPropertyName("applicationGuardForceAuditing")]
     public bool? ApplicationGuardForceAuditing { get; set; }
@@ -80,7 +80,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public BitLockerFixedDrivePolicyModel? BitLockerFixedDrivePolicy { get; set; }
 
     [JsonPropertyName("bitLockerRecoveryPasswordRotation")]
-    public BitLockerRecoveryPasswordRotationTypeConstant? BitLockerRecoveryPasswordRotation { get; set; }
+    public Windows10EndpointProtectionConfigurationBitLockerRecoveryPasswordRotationConstant? BitLockerRecoveryPasswordRotation { get; set; }
 
     [JsonPropertyName("bitLockerRemovableDrivePolicy")]
     public BitLockerRemovableDrivePolicyModel? BitLockerRemovableDrivePolicy { get; set; }
@@ -95,10 +95,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public List<string>? DefenderAdditionalGuardedFolders { get; set; }
 
     [JsonPropertyName("defenderAdobeReaderLaunchChildProcess")]
-    public DefenderProtectionTypeConstant? DefenderAdobeReaderLaunchChildProcess { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderAdobeReaderLaunchChildProcessConstant? DefenderAdobeReaderLaunchChildProcess { get; set; }
 
     [JsonPropertyName("defenderAdvancedRansomewareProtectionType")]
-    public DefenderProtectionTypeConstant? DefenderAdvancedRansomewareProtectionType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderAdvancedRansomewareProtectionTypeConstant? DefenderAdvancedRansomewareProtectionType { get; set; }
 
     [JsonPropertyName("defenderAllowBehaviorMonitoring")]
     public bool? DefenderAllowBehaviorMonitoring { get; set; }
@@ -140,13 +140,13 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? DefenderBlockEndUserAccess { get; set; }
 
     [JsonPropertyName("defenderBlockPersistenceThroughWmiType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderBlockPersistenceThroughWmiType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderBlockPersistenceThroughWmiTypeConstant? DefenderBlockPersistenceThroughWmiType { get; set; }
 
     [JsonPropertyName("defenderCheckForSignaturesBeforeRunningScan")]
     public bool? DefenderCheckForSignaturesBeforeRunningScan { get; set; }
 
     [JsonPropertyName("defenderCloudBlockLevel")]
-    public DefenderCloudBlockLevelTypeConstant? DefenderCloudBlockLevel { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderCloudBlockLevelConstant? DefenderCloudBlockLevel { get; set; }
 
     [JsonPropertyName("defenderCloudExtendedTimeoutInSeconds")]
     public int? DefenderCloudExtendedTimeoutInSeconds { get; set; }
@@ -194,10 +194,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? DefenderDisableScanScriptsLoadedInInternetExplorer { get; set; }
 
     [JsonPropertyName("defenderEmailContentExecution")]
-    public DefenderProtectionTypeConstant? DefenderEmailContentExecution { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderEmailContentExecutionConstant? DefenderEmailContentExecution { get; set; }
 
     [JsonPropertyName("defenderEmailContentExecutionType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderEmailContentExecutionType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderEmailContentExecutionTypeConstant? DefenderEmailContentExecutionType { get; set; }
 
     [JsonPropertyName("defenderEnableLowCpuPriority")]
     public bool? DefenderEnableLowCpuPriority { get; set; }
@@ -221,85 +221,85 @@ internal class Windows10EndpointProtectionConfigurationModel
     public List<string>? DefenderFilesAndFoldersToExclude { get; set; }
 
     [JsonPropertyName("defenderGuardMyFoldersType")]
-    public FolderProtectionTypeConstant? DefenderGuardMyFoldersType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderGuardMyFoldersTypeConstant? DefenderGuardMyFoldersType { get; set; }
 
     [JsonPropertyName("defenderGuardedFoldersAllowedAppPaths")]
     public List<string>? DefenderGuardedFoldersAllowedAppPaths { get; set; }
 
     [JsonPropertyName("defenderNetworkProtectionType")]
-    public DefenderProtectionTypeConstant? DefenderNetworkProtectionType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderNetworkProtectionTypeConstant? DefenderNetworkProtectionType { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsExecutableContentCreationOrLaunch")]
-    public DefenderProtectionTypeConstant? DefenderOfficeAppsExecutableContentCreationOrLaunch { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsExecutableContentCreationOrLaunchConstant? DefenderOfficeAppsExecutableContentCreationOrLaunch { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsExecutableContentCreationOrLaunchType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderOfficeAppsExecutableContentCreationOrLaunchType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsExecutableContentCreationOrLaunchTypeConstant? DefenderOfficeAppsExecutableContentCreationOrLaunchType { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsLaunchChildProcess")]
-    public DefenderProtectionTypeConstant? DefenderOfficeAppsLaunchChildProcess { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsLaunchChildProcessConstant? DefenderOfficeAppsLaunchChildProcess { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsLaunchChildProcessType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderOfficeAppsLaunchChildProcessType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsLaunchChildProcessTypeConstant? DefenderOfficeAppsLaunchChildProcessType { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsOtherProcessInjection")]
-    public DefenderProtectionTypeConstant? DefenderOfficeAppsOtherProcessInjection { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsOtherProcessInjectionConstant? DefenderOfficeAppsOtherProcessInjection { get; set; }
 
     [JsonPropertyName("defenderOfficeAppsOtherProcessInjectionType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderOfficeAppsOtherProcessInjectionType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeAppsOtherProcessInjectionTypeConstant? DefenderOfficeAppsOtherProcessInjectionType { get; set; }
 
     [JsonPropertyName("defenderOfficeCommunicationAppsLaunchChildProcess")]
-    public DefenderProtectionTypeConstant? DefenderOfficeCommunicationAppsLaunchChildProcess { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeCommunicationAppsLaunchChildProcessConstant? DefenderOfficeCommunicationAppsLaunchChildProcess { get; set; }
 
     [JsonPropertyName("defenderOfficeMacroCodeAllowWin32Imports")]
-    public DefenderProtectionTypeConstant? DefenderOfficeMacroCodeAllowWin32Imports { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeMacroCodeAllowWin32ImportsConstant? DefenderOfficeMacroCodeAllowWin32Imports { get; set; }
 
     [JsonPropertyName("defenderOfficeMacroCodeAllowWin32ImportsType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderOfficeMacroCodeAllowWin32ImportsType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderOfficeMacroCodeAllowWin32ImportsTypeConstant? DefenderOfficeMacroCodeAllowWin32ImportsType { get; set; }
 
     [JsonPropertyName("defenderPotentiallyUnwantedAppAction")]
-    public DefenderProtectionTypeConstant? DefenderPotentiallyUnwantedAppAction { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderPotentiallyUnwantedAppActionConstant? DefenderPotentiallyUnwantedAppAction { get; set; }
 
     [JsonPropertyName("defenderPreventCredentialStealingType")]
-    public DefenderProtectionTypeConstant? DefenderPreventCredentialStealingType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderPreventCredentialStealingTypeConstant? DefenderPreventCredentialStealingType { get; set; }
 
     [JsonPropertyName("defenderProcessCreation")]
-    public DefenderProtectionTypeConstant? DefenderProcessCreation { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderProcessCreationConstant? DefenderProcessCreation { get; set; }
 
     [JsonPropertyName("defenderProcessCreationType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderProcessCreationType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderProcessCreationTypeConstant? DefenderProcessCreationType { get; set; }
 
     [JsonPropertyName("defenderProcessesToExclude")]
     public List<string>? DefenderProcessesToExclude { get; set; }
 
     [JsonPropertyName("defenderScanDirection")]
-    public DefenderRealtimeScanDirectionConstant? DefenderScanDirection { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScanDirectionConstant? DefenderScanDirection { get; set; }
 
     [JsonPropertyName("defenderScanMaxCpuPercentage")]
     public int? DefenderScanMaxCpuPercentage { get; set; }
 
     [JsonPropertyName("defenderScanType")]
-    public DefenderScanTypeConstant? DefenderScanType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScanTypeConstant? DefenderScanType { get; set; }
 
     [JsonPropertyName("defenderScheduledQuickScanTime")]
     public DateTime? DefenderScheduledQuickScanTime { get; set; }
 
     [JsonPropertyName("defenderScheduledScanDay")]
-    public WeeklyScheduleConstant? DefenderScheduledScanDay { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScheduledScanDayConstant? DefenderScheduledScanDay { get; set; }
 
     [JsonPropertyName("defenderScheduledScanTime")]
     public DateTime? DefenderScheduledScanTime { get; set; }
 
     [JsonPropertyName("defenderScriptDownloadedPayloadExecution")]
-    public DefenderProtectionTypeConstant? DefenderScriptDownloadedPayloadExecution { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScriptDownloadedPayloadExecutionConstant? DefenderScriptDownloadedPayloadExecution { get; set; }
 
     [JsonPropertyName("defenderScriptDownloadedPayloadExecutionType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderScriptDownloadedPayloadExecutionType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScriptDownloadedPayloadExecutionTypeConstant? DefenderScriptDownloadedPayloadExecutionType { get; set; }
 
     [JsonPropertyName("defenderScriptObfuscatedMacroCode")]
-    public DefenderProtectionTypeConstant? DefenderScriptObfuscatedMacroCode { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScriptObfuscatedMacroCodeConstant? DefenderScriptObfuscatedMacroCode { get; set; }
 
     [JsonPropertyName("defenderScriptObfuscatedMacroCodeType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderScriptObfuscatedMacroCodeType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderScriptObfuscatedMacroCodeTypeConstant? DefenderScriptObfuscatedMacroCodeType { get; set; }
 
     [JsonPropertyName("defenderSecurityCenterBlockExploitProtectionOverride")]
     public bool? DefenderSecurityCenterBlockExploitProtectionOverride { get; set; }
@@ -353,10 +353,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public string? DefenderSecurityCenterHelpURL { get; set; }
 
     [JsonPropertyName("defenderSecurityCenterITContactDisplay")]
-    public DefenderSecurityCenterITContactDisplayTypeConstant? DefenderSecurityCenterITContactDisplay { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderSecurityCenterITContactDisplayConstant? DefenderSecurityCenterITContactDisplay { get; set; }
 
     [JsonPropertyName("defenderSecurityCenterNotificationsFromApp")]
-    public DefenderSecurityCenterNotificationsFromAppTypeConstant? DefenderSecurityCenterNotificationsFromApp { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderSecurityCenterNotificationsFromAppConstant? DefenderSecurityCenterNotificationsFromApp { get; set; }
 
     [JsonPropertyName("defenderSecurityCenterOrganizationDisplayName")]
     public string? DefenderSecurityCenterOrganizationDisplayName { get; set; }
@@ -365,19 +365,19 @@ internal class Windows10EndpointProtectionConfigurationModel
     public int? DefenderSignatureUpdateIntervalInHours { get; set; }
 
     [JsonPropertyName("defenderSubmitSamplesConsentType")]
-    public DefenderSubmitSamplesConsentTypeConstant? DefenderSubmitSamplesConsentType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderSubmitSamplesConsentTypeConstant? DefenderSubmitSamplesConsentType { get; set; }
 
     [JsonPropertyName("defenderUntrustedExecutable")]
-    public DefenderProtectionTypeConstant? DefenderUntrustedExecutable { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderUntrustedExecutableConstant? DefenderUntrustedExecutable { get; set; }
 
     [JsonPropertyName("defenderUntrustedExecutableType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderUntrustedExecutableType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderUntrustedExecutableTypeConstant? DefenderUntrustedExecutableType { get; set; }
 
     [JsonPropertyName("defenderUntrustedUSBProcess")]
-    public DefenderProtectionTypeConstant? DefenderUntrustedUSBProcess { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderUntrustedUSBProcessConstant? DefenderUntrustedUSBProcess { get; set; }
 
     [JsonPropertyName("defenderUntrustedUSBProcessType")]
-    public DefenderAttackSurfaceTypeConstant? DefenderUntrustedUSBProcessType { get; set; }
+    public Windows10EndpointProtectionConfigurationDefenderUntrustedUSBProcessTypeConstant? DefenderUntrustedUSBProcessType { get; set; }
 
     [JsonPropertyName("description")]
     public string? Description { get; set; }
@@ -389,13 +389,13 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? DeviceGuardEnableVirtualizationBasedSecurity { get; set; }
 
     [JsonPropertyName("deviceGuardLaunchSystemGuard")]
-    public EnablementConstant? DeviceGuardLaunchSystemGuard { get; set; }
+    public Windows10EndpointProtectionConfigurationDeviceGuardLaunchSystemGuardConstant? DeviceGuardLaunchSystemGuard { get; set; }
 
     [JsonPropertyName("deviceGuardLocalSystemAuthorityCredentialGuardSettings")]
-    public DeviceGuardLocalSystemAuthorityCredentialGuardTypeConstant? DeviceGuardLocalSystemAuthorityCredentialGuardSettings { get; set; }
+    public Windows10EndpointProtectionConfigurationDeviceGuardLocalSystemAuthorityCredentialGuardSettingsConstant? DeviceGuardLocalSystemAuthorityCredentialGuardSettings { get; set; }
 
     [JsonPropertyName("deviceGuardSecureBootWithDMA")]
-    public SecureBootWithDMATypeConstant? DeviceGuardSecureBootWithDMA { get; set; }
+    public Windows10EndpointProtectionConfigurationDeviceGuardSecureBootWithDMAConstant? DeviceGuardSecureBootWithDMA { get; set; }
 
     [JsonPropertyName("deviceManagementApplicabilityRuleDeviceMode")]
     public DeviceManagementApplicabilityRuleDeviceModeModel? DeviceManagementApplicabilityRuleDeviceMode { get; set; }
@@ -419,13 +419,13 @@ internal class Windows10EndpointProtectionConfigurationModel
     public string? DisplayName { get; set; }
 
     [JsonPropertyName("dmaGuardDeviceEnumerationPolicy")]
-    public DmaGuardDeviceEnumerationPolicyTypeConstant? DmaGuardDeviceEnumerationPolicy { get; set; }
+    public Windows10EndpointProtectionConfigurationDmaGuardDeviceEnumerationPolicyConstant? DmaGuardDeviceEnumerationPolicy { get; set; }
 
     [JsonPropertyName("firewallBlockStatefulFTP")]
     public bool? FirewallBlockStatefulFTP { get; set; }
 
     [JsonPropertyName("firewallCertificateRevocationListCheckMethod")]
-    public FirewallCertificateRevocationListCheckMethodTypeConstant? FirewallCertificateRevocationListCheckMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallCertificateRevocationListCheckMethodConstant? FirewallCertificateRevocationListCheckMethod { get; set; }
 
     [JsonPropertyName("firewallIPSecExemptionsAllowDHCP")]
     public bool? FirewallIPSecExemptionsAllowDHCP { get; set; }
@@ -449,10 +449,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? FirewallMergeKeyingModuleSettings { get; set; }
 
     [JsonPropertyName("firewallPacketQueueingMethod")]
-    public FirewallPacketQueueingMethodTypeConstant? FirewallPacketQueueingMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallPacketQueueingMethodConstant? FirewallPacketQueueingMethod { get; set; }
 
     [JsonPropertyName("firewallPreSharedKeyEncodingMethod")]
-    public FirewallPreSharedKeyEncodingMethodTypeConstant? FirewallPreSharedKeyEncodingMethod { get; set; }
+    public Windows10EndpointProtectionConfigurationFirewallPreSharedKeyEncodingMethodConstant? FirewallPreSharedKeyEncodingMethod { get; set; }
 
     [JsonPropertyName("firewallProfileDomain")]
     public WindowsFirewallNetworkProfileModel? FirewallProfileDomain { get; set; }
@@ -473,7 +473,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public string? Id { get; set; }
 
     [JsonPropertyName("lanManagerAuthenticationLevel")]
-    public LanManagerAuthenticationLevelConstant? LanManagerAuthenticationLevel { get; set; }
+    public Windows10EndpointProtectionConfigurationLanManagerAuthenticationLevelConstant? LanManagerAuthenticationLevel { get; set; }
 
     [JsonPropertyName("lanManagerWorkstationDisableInsecureGuestLogons")]
     public bool? LanManagerWorkstationDisableInsecureGuestLogons { get; set; }
@@ -485,7 +485,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public string? LocalSecurityOptionsAdministratorAccountName { get; set; }
 
     [JsonPropertyName("localSecurityOptionsAdministratorElevationPromptBehavior")]
-    public LocalSecurityOptionsAdministratorElevationPromptBehaviorTypeConstant? LocalSecurityOptionsAdministratorElevationPromptBehavior { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsAdministratorElevationPromptBehaviorConstant? LocalSecurityOptionsAdministratorElevationPromptBehavior { get; set; }
 
     [JsonPropertyName("localSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares")]
     public bool? LocalSecurityOptionsAllowAnonymousEnumerationOfSAMAccountsAndShares { get; set; }
@@ -560,7 +560,7 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? LocalSecurityOptionsDoNotStoreLANManagerHashValueOnNextPasswordChange { get; set; }
 
     [JsonPropertyName("localSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser")]
-    public LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserTypeConstant? LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUserConstant? LocalSecurityOptionsFormatAndEjectOfRemovableMediaAllowedUser { get; set; }
 
     [JsonPropertyName("localSecurityOptionsGuestAccountName")]
     public string? LocalSecurityOptionsGuestAccountName { get; set; }
@@ -572,10 +572,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? LocalSecurityOptionsHideUsernameAtSignIn { get; set; }
 
     [JsonPropertyName("localSecurityOptionsInformationDisplayedOnLockScreen")]
-    public LocalSecurityOptionsInformationDisplayedOnLockScreenTypeConstant? LocalSecurityOptionsInformationDisplayedOnLockScreen { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsInformationDisplayedOnLockScreenConstant? LocalSecurityOptionsInformationDisplayedOnLockScreen { get; set; }
 
     [JsonPropertyName("localSecurityOptionsInformationShownOnLockScreen")]
-    public LocalSecurityOptionsInformationShownOnLockScreenTypeConstant? LocalSecurityOptionsInformationShownOnLockScreen { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsInformationShownOnLockScreenConstant? LocalSecurityOptionsInformationShownOnLockScreen { get; set; }
 
     [JsonPropertyName("localSecurityOptionsLogOnMessageText")]
     public string? LocalSecurityOptionsLogOnMessageText { get; set; }
@@ -590,10 +590,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public int? LocalSecurityOptionsMachineInactivityLimitInMinutes { get; set; }
 
     [JsonPropertyName("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients")]
-    public LocalSecurityOptionsMinimumSessionSecurityConstant? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClientsConstant? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedClients { get; set; }
 
     [JsonPropertyName("localSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers")]
-    public LocalSecurityOptionsMinimumSessionSecurityConstant? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServersConstant? LocalSecurityOptionsMinimumSessionSecurityForNtlmSspBasedServers { get; set; }
 
     [JsonPropertyName("localSecurityOptionsOnlyElevateSignedExecutables")]
     public bool? LocalSecurityOptionsOnlyElevateSignedExecutables { get; set; }
@@ -602,10 +602,10 @@ internal class Windows10EndpointProtectionConfigurationModel
     public bool? LocalSecurityOptionsRestrictAnonymousAccessToNamedPipesAndShares { get; set; }
 
     [JsonPropertyName("localSecurityOptionsSmartCardRemovalBehavior")]
-    public LocalSecurityOptionsSmartCardRemovalBehaviorTypeConstant? LocalSecurityOptionsSmartCardRemovalBehavior { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsSmartCardRemovalBehaviorConstant? LocalSecurityOptionsSmartCardRemovalBehavior { get; set; }
 
     [JsonPropertyName("localSecurityOptionsStandardUserElevationPromptBehavior")]
-    public LocalSecurityOptionsStandardUserElevationPromptBehaviorTypeConstant? LocalSecurityOptionsStandardUserElevationPromptBehavior { get; set; }
+    public Windows10EndpointProtectionConfigurationLocalSecurityOptionsStandardUserElevationPromptBehaviorConstant? LocalSecurityOptionsStandardUserElevationPromptBehavior { get; set; }
 
     [JsonPropertyName("localSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation")]
     public bool? LocalSecurityOptionsSwitchToSecureDesktopWhenPromptingForElevation { get; set; }
@@ -731,20 +731,20 @@ internal class Windows10EndpointProtectionConfigurationModel
     public int? Version { get; set; }
 
     [JsonPropertyName("windowsDefenderTamperProtection")]
-    public WindowsDefenderTamperProtectionOptionsConstant? WindowsDefenderTamperProtection { get; set; }
+    public Windows10EndpointProtectionConfigurationWindowsDefenderTamperProtectionConstant? WindowsDefenderTamperProtection { get; set; }
 
     [JsonPropertyName("xboxServicesAccessoryManagementServiceStartupMode")]
-    public ServiceStartTypeConstant? XboxServicesAccessoryManagementServiceStartupMode { get; set; }
+    public Windows10EndpointProtectionConfigurationXboxServicesAccessoryManagementServiceStartupModeConstant? XboxServicesAccessoryManagementServiceStartupMode { get; set; }
 
     [JsonPropertyName("xboxServicesEnableXboxGameSaveTask")]
     public bool? XboxServicesEnableXboxGameSaveTask { get; set; }
 
     [JsonPropertyName("xboxServicesLiveAuthManagerServiceStartupMode")]
-    public ServiceStartTypeConstant? XboxServicesLiveAuthManagerServiceStartupMode { get; set; }
+    public Windows10EndpointProtectionConfigurationXboxServicesLiveAuthManagerServiceStartupModeConstant? XboxServicesLiveAuthManagerServiceStartupMode { get; set; }
 
     [JsonPropertyName("xboxServicesLiveGameSaveServiceStartupMode")]
-    public ServiceStartTypeConstant? XboxServicesLiveGameSaveServiceStartupMode { get; set; }
+    public Windows10EndpointProtectionConfigurationXboxServicesLiveGameSaveServiceStartupModeConstant? XboxServicesLiveGameSaveServiceStartupMode { get; set; }
 
     [JsonPropertyName("xboxServicesLiveNetworkingServiceStartupMode")]
-    public ServiceStartTypeConstant? XboxServicesLiveNetworkingServiceStartupMode { get; set; }
+    public Windows10EndpointProtectionConfigurationXboxServicesLiveNetworkingServiceStartupModeConstant? XboxServicesLiveNetworkingServiceStartupMode { get; set; }
 }

@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class ManagedTenantsAlertRuleDefinitionTemplateModel
 {
     [JsonPropertyName("defaultSeverity")]
-    public AlertSeverityConstant? DefaultSeverity { get; set; }
+    public ManagedTenantsAlertRuleDefinitionTemplateDefaultSeverityConstant? DefaultSeverity { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

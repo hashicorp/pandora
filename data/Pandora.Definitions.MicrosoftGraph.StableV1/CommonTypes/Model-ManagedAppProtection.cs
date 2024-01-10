@@ -14,16 +14,16 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class ManagedAppProtectionModel
 {
     [JsonPropertyName("allowedDataStorageLocations")]
-    public List<ManagedAppDataStorageLocationConstant>? AllowedDataStorageLocations { get; set; }
+    public List<ManagedAppProtectionAllowedDataStorageLocationsConstant>? AllowedDataStorageLocations { get; set; }
 
     [JsonPropertyName("allowedInboundDataTransferSources")]
-    public ManagedAppDataTransferLevelConstant? AllowedInboundDataTransferSources { get; set; }
+    public ManagedAppProtectionAllowedInboundDataTransferSourcesConstant? AllowedInboundDataTransferSources { get; set; }
 
     [JsonPropertyName("allowedOutboundClipboardSharingLevel")]
-    public ManagedAppClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
+    public ManagedAppProtectionAllowedOutboundClipboardSharingLevelConstant? AllowedOutboundClipboardSharingLevel { get; set; }
 
     [JsonPropertyName("allowedOutboundDataTransferDestinations")]
-    public ManagedAppDataTransferLevelConstant? AllowedOutboundDataTransferDestinations { get; set; }
+    public ManagedAppProtectionAllowedOutboundDataTransferDestinationsConstant? AllowedOutboundDataTransferDestinations { get; set; }
 
     [JsonPropertyName("contactSyncBlocked")]
     public bool? ContactSyncBlocked { get; set; }
@@ -56,7 +56,7 @@ internal class ManagedAppProtectionModel
     public DateTime? LastModifiedDateTime { get; set; }
 
     [JsonPropertyName("managedBrowser")]
-    public ManagedBrowserTypeConstant? ManagedBrowser { get; set; }
+    public ManagedAppProtectionManagedBrowserConstant? ManagedBrowser { get; set; }
 
     [JsonPropertyName("managedBrowserToOpenLinksRequired")]
     public bool? ManagedBrowserToOpenLinksRequired { get; set; }
@@ -98,7 +98,7 @@ internal class ManagedAppProtectionModel
     public string? PeriodOnlineBeforeAccessCheck { get; set; }
 
     [JsonPropertyName("pinCharacterSet")]
-    public ManagedAppPinCharacterSetConstant? PinCharacterSet { get; set; }
+    public ManagedAppProtectionPinCharacterSetConstant? PinCharacterSet { get; set; }
 
     [JsonPropertyName("pinRequired")]
     public bool? PinRequired { get; set; }

@@ -20,5 +20,5 @@ internal class IdentityUserFlowModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("userFlowType")]
-    public UserFlowTypeConstant? UserFlowType { get; set; }
+    public IdentityUserFlowUserFlowTypeConstant? UserFlowType { get; set; }
 }

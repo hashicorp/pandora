@@ -1,0 +1,53 @@
+{
+ "name": "Persistence",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aofEnabled",
+   "name": "AofEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aofFrequency",
+   "name": "AofFrequency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AofFrequency"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rdbEnabled",
+   "name": "RdbEnabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rdbFrequency",
+   "name": "RdbFrequency",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RdbFrequency"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

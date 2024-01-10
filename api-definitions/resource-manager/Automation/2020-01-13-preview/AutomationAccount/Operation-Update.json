@@ -1,0 +1,18 @@
+{
+ "name": "Update",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "AutomationAccountId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "AutomationAccountUpdateParameters"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AutomationAccount"
+ }
+}

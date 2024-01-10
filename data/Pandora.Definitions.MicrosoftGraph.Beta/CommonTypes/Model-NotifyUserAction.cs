@@ -13,9 +13,6 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 
 internal class NotifyUserActionModel
 {
-    [JsonPropertyName("action")]
-    public DlpActionConstant? Action { get; set; }
-
     [JsonPropertyName("actionLastModifiedDateTime")]
     public DateTime? ActionLastModifiedDateTime { get; set; }
 

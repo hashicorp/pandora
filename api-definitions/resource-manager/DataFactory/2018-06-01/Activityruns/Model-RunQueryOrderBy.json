@@ -1,0 +1,29 @@
+{
+ "name": "RunQueryOrderBy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "order",
+   "name": "Order",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunQueryOrder"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "orderBy",
+   "name": "OrderBy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RunQueryOrderByField"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -26,5 +26,5 @@ internal class ProtectGroupModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("privacy")]
-    public GroupPrivacyConstant? Privacy { get; set; }
+    public ProtectGroupPrivacyConstant? Privacy { get; set; }
 }

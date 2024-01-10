@@ -1,0 +1,53 @@
+{
+ "name": "Extension",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "additionalExtensionProperties",
+   "name": "AdditionalExtensionProperties",
+   "objectDefinition": {
+    "type": "RawObject",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isEnabled",
+   "name": "IsEnabled",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IsEnabled"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "operationStatus",
+   "name": "OperationStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OperationStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

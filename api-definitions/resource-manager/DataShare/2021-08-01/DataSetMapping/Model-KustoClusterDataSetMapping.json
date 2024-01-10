@@ -1,0 +1,20 @@
+{
+ "name": "KustoClusterDataSetMapping",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "KustoClusterDataSetMappingProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataSetMapping",
+ "discriminatedTypeValue": "KustoCluster",
+ "typeHintIn": "Kind"
+}

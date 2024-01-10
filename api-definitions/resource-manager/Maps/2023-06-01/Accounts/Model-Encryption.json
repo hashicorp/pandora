@@ -1,0 +1,29 @@
+{
+ "name": "Encryption",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "customerManagedKeyEncryption",
+   "name": "CustomerManagedKeyEncryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CustomerManagedKeyEncryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "infrastructureEncryption",
+   "name": "InfrastructureEncryption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InfrastructureEncryption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

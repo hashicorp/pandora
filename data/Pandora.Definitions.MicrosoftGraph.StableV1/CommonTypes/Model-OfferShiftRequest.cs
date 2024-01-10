@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class OfferShiftRequestModel
 {
     [JsonPropertyName("assignedTo")]
-    public ScheduleChangeRequestActorConstant? AssignedTo { get; set; }
+    public OfferShiftRequestAssignedToConstant? AssignedTo { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -62,5 +62,5 @@ internal class OfferShiftRequestModel
     public string? SenderUserId { get; set; }
 
     [JsonPropertyName("state")]
-    public ScheduleChangeStateConstant? State { get; set; }
+    public OfferShiftRequestStateConstant? State { get; set; }
 }

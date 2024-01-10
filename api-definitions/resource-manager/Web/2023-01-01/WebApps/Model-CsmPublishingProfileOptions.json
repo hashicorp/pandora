@@ -1,0 +1,29 @@
+{
+ "name": "CsmPublishingProfileOptions",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "format",
+   "name": "Format",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PublishingProfileFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "includeDisasterRecoveryEndpoints",
+   "name": "IncludeDisasterRecoveryEndpoints",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

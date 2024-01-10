@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class PlannerTeamsPublicationInfoModel
 {
     [JsonPropertyName("creationSourceKind")]
-    public PlannerCreationSourceKindConstant? CreationSourceKind { get; set; }
+    public PlannerTeamsPublicationInfoCreationSourceKindConstant? CreationSourceKind { get; set; }
 
     [JsonPropertyName("lastModifiedDateTime")]
     public DateTime? LastModifiedDateTime { get; set; }

@@ -26,8 +26,6 @@ internal class SynchronizeOperation : Pandora.Definitions.Operations.PostOperati
 
     public override ResourceID? ResourceId() => new ShareSubscriptionId();
 
-    public override Type? ResponseObject() => typeof(ShareSubscriptionSynchronizationModel);
-
     public override string? UriSuffix() => "/synchronize";
 
 

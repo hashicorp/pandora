@@ -1,0 +1,42 @@
+{
+ "name": "ImageDeprecationStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "alternativeOption",
+   "name": "AlternativeOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AlternativeOption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "imageState",
+   "name": "ImageState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ImageState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scheduledDeprecationTime",
+   "name": "ScheduledDeprecationTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

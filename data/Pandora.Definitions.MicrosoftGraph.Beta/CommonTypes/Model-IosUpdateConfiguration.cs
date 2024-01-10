@@ -77,13 +77,13 @@ internal class IosUpdateConfigurationModel
     public List<string>? RoleScopeTagIds { get; set; }
 
     [JsonPropertyName("scheduledInstallDays")]
-    public List<DayOfWeekConstant>? ScheduledInstallDays { get; set; }
+    public List<IosUpdateConfigurationScheduledInstallDaysConstant>? ScheduledInstallDays { get; set; }
 
     [JsonPropertyName("supportsScopeTags")]
     public bool? SupportsScopeTags { get; set; }
 
     [JsonPropertyName("updateScheduleType")]
-    public IosSoftwareUpdateScheduleTypeConstant? UpdateScheduleType { get; set; }
+    public IosUpdateConfigurationUpdateScheduleTypeConstant? UpdateScheduleType { get; set; }
 
     [JsonPropertyName("userStatusOverview")]
     public DeviceConfigurationUserOverviewModel? UserStatusOverview { get; set; }

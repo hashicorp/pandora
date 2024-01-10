@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SkillProficiencyModel
 {
     [JsonPropertyName("allowedAudiences")]
-    public AllowedAudiencesConstant? AllowedAudiences { get; set; }
+    public SkillProficiencyAllowedAudiencesConstant? AllowedAudiences { get; set; }
 
     [JsonPropertyName("categories")]
     public List<string>? Categories { get; set; }
@@ -50,7 +50,7 @@ internal class SkillProficiencyModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("proficiency")]
-    public SkillProficiencyLevelConstant? Proficiency { get; set; }
+    public SkillProficiencyProficiencyConstant? Proficiency { get; set; }
 
     [JsonPropertyName("source")]
     public PersonDataSourcesModel? Source { get; set; }

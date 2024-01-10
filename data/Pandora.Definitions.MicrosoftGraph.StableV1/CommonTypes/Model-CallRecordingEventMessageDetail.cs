@@ -23,7 +23,7 @@ internal class CallRecordingEventMessageDetailModel
     public string? CallRecordingDuration { get; set; }
 
     [JsonPropertyName("callRecordingStatus")]
-    public CallRecordingStatusConstant? CallRecordingStatus { get; set; }
+    public CallRecordingEventMessageDetailCallRecordingStatusConstant? CallRecordingStatus { get; set; }
 
     [JsonPropertyName("callRecordingUrl")]
     public string? CallRecordingUrl { get; set; }

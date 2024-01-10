@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
-func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
+func (api Api) operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 	ctx := r.Context()
 
 	resource, ok := ctx.Value("resourceName").(*repositories.ServiceApiVersionResourceDetails)
@@ -30,10 +30,20 @@ func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 				options[k] = models.ApiOperationOption{
 					HeaderName:       option.HeaderName,
 					QueryStringName:  option.QueryStringName,
-					ObjectDefinition: pointer.From(mapObjectDefinition(option.ObjectDefinition)),
+					ObjectDefinition: *mapOptionObjectDefinition(option.ObjectDefinition),
 					Required:         option.Required,
 				}
 			}
+		}
+
+		requestObject, err := mapObjectDefinition(details.RequestObject)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping request object for operation %q: %+v", method, err))
+		}
+
+		responseObject, err := mapObjectDefinition(details.ResponseObject)
+		if err != nil {
+			internalServerError(w, fmt.Errorf("mapping response object for operation %q: %+v", method, err))
 		}
 
 		operations[method] = models.ApiOperation{
@@ -41,9 +51,9 @@ func operationsForApiResource(w http.ResponseWriter, r *http.Request) {
 			ExpectedStatusCodes:              details.ExpectedStatusCodes,
 			LongRunning:                      details.LongRunning,
 			Method:                           details.Method,
-			RequestObject:                    mapObjectDefinition(details.RequestObject),
+			RequestObject:                    requestObject,
 			ResourceIdName:                   details.ResourceIdName,
-			ResponseObject:                   mapObjectDefinition(details.ResponseObject),
+			ResponseObject:                   responseObject,
 			FieldContainingPaginationDetails: details.FieldContainingPaginationDetails,
 			Options:                          options,
 			UriSuffix:                        details.UriSuffix,

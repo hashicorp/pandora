@@ -34,6 +34,9 @@ internal class CrossTenantAccessPolicyConfigurationDefaultModel
     [JsonPropertyName("inboundTrust")]
     public CrossTenantAccessPolicyInboundTrustModel? InboundTrust { get; set; }
 
+    [JsonPropertyName("invitationRedemptionIdentityProviderConfiguration")]
+    public DefaultInvitationRedemptionIdentityProviderConfigurationModel? InvitationRedemptionIdentityProviderConfiguration { get; set; }
+
     [JsonPropertyName("isServiceDefault")]
     public bool? IsServiceDefault { get; set; }
 

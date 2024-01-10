@@ -1,0 +1,105 @@
+{
+ "name": "LabPlanProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedRegions",
+   "name": "AllowedRegions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultAutoShutdownProfile",
+   "name": "DefaultAutoShutdownProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoShutdownProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultConnectionProfile",
+   "name": "DefaultConnectionProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ConnectionProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultNetworkProfile",
+   "name": "DefaultNetworkProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LabPlanNetworkProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linkedLmsInstance",
+   "name": "LinkedLmsInstance",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sharedGalleryId",
+   "name": "SharedGalleryId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "supportInfo",
+   "name": "SupportInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SupportInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

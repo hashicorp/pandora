@@ -20,13 +20,13 @@ internal class MacOSVpnConfigurationModel
     public List<string>? AssociatedDomains { get; set; }
 
     [JsonPropertyName("authenticationMethod")]
-    public VpnAuthenticationMethodConstant? AuthenticationMethod { get; set; }
+    public MacOSVpnConfigurationAuthenticationMethodConstant? AuthenticationMethod { get; set; }
 
     [JsonPropertyName("connectionName")]
     public string? ConnectionName { get; set; }
 
     [JsonPropertyName("connectionType")]
-    public AppleVpnConnectionTypeConstant? ConnectionType { get; set; }
+    public MacOSVpnConfigurationConnectionTypeConstant? ConnectionType { get; set; }
 
     [JsonPropertyName("createdDateTime")]
     public DateTime? CreatedDateTime { get; set; }
@@ -107,7 +107,7 @@ internal class MacOSVpnConfigurationModel
     public bool? OptInToDeviceIdSharing { get; set; }
 
     [JsonPropertyName("providerType")]
-    public VpnProviderTypeConstant? ProviderType { get; set; }
+    public MacOSVpnConfigurationProviderTypeConstant? ProviderType { get; set; }
 
     [JsonPropertyName("proxyServer")]
     public VpnProxyServerModel? ProxyServer { get; set; }

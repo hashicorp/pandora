@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class RegistryKeyStateModel
 {
     [JsonPropertyName("hive")]
-    public RegistryHiveConstant? Hive { get; set; }
+    public RegistryKeyStateHiveConstant? Hive { get; set; }
 
     [JsonPropertyName("key")]
     public string? Key { get; set; }
@@ -32,7 +32,7 @@ internal class RegistryKeyStateModel
     public string? OldValueName { get; set; }
 
     [JsonPropertyName("operation")]
-    public RegistryOperationConstant? Operation { get; set; }
+    public RegistryKeyStateOperationConstant? Operation { get; set; }
 
     [JsonPropertyName("processId")]
     public int? ProcessId { get; set; }
@@ -44,5 +44,5 @@ internal class RegistryKeyStateModel
     public string? ValueName { get; set; }
 
     [JsonPropertyName("valueType")]
-    public RegistryValueTypeConstant? ValueType { get; set; }
+    public RegistryKeyStateValueTypeConstant? ValueType { get; set; }
 }

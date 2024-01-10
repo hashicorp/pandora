@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class EducationIdentityDomainModel
 {
     [JsonPropertyName("appliesTo")]
-    public EducationUserRoleConstant? AppliesTo { get; set; }
+    public EducationIdentityDomainAppliesToConstant? AppliesTo { get; set; }
 
     [JsonPropertyName("name")]
     public string? Name { get; set; }

@@ -17,10 +17,10 @@ internal class Pkcs12CertificateInformationModel
     public bool? IsActive { get; set; }
 
     [JsonPropertyName("notAfter")]
-    public long? NotAfter { get; set; }
+    public int? NotAfter { get; set; }
 
     [JsonPropertyName("notBefore")]
-    public long? NotBefore { get; set; }
+    public int? NotBefore { get; set; }
 
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }

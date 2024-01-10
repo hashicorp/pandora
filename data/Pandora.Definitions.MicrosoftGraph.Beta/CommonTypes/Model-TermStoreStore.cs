@@ -17,7 +17,7 @@ internal class TermStoreStoreModel
     public string? DefaultLanguageTag { get; set; }
 
     [JsonPropertyName("groups")]
-    public List<GroupModel>? Groups { get; set; }
+    public List<TermStoreGroupModel>? Groups { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }
@@ -29,5 +29,5 @@ internal class TermStoreStoreModel
     public string? ODataType { get; set; }
 
     [JsonPropertyName("sets")]
-    public List<SetModel>? Sets { get; set; }
+    public List<TermStoreSetModel>? Sets { get; set; }
 }

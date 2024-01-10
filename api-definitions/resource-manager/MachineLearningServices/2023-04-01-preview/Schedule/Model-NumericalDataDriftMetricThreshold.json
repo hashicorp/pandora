@@ -1,0 +1,20 @@
+{
+ "name": "NumericalDataDriftMetricThreshold",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "metric",
+   "name": "Metric",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NumericalDataDriftMetric"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "DataDriftMetricThresholdBase",
+ "discriminatedTypeValue": "Numerical",
+ "typeHintIn": "DataType"
+}

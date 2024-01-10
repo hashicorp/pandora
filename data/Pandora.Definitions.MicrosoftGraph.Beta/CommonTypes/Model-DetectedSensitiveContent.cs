@@ -17,7 +17,7 @@ internal class DetectedSensitiveContentModel
     public List<ClassificationAttributeModel>? ClassificationAttributes { get; set; }
 
     [JsonPropertyName("classificationMethod")]
-    public ClassificationMethodConstant? ClassificationMethod { get; set; }
+    public DetectedSensitiveContentClassificationMethodConstant? ClassificationMethod { get; set; }
 
     [JsonPropertyName("confidence")]
     public int? Confidence { get; set; }
@@ -38,10 +38,10 @@ internal class DetectedSensitiveContentModel
     public int? RecommendedConfidence { get; set; }
 
     [JsonPropertyName("scope")]
-    public SensitiveTypeScopeConstant? Scope { get; set; }
+    public DetectedSensitiveContentScopeConstant? Scope { get; set; }
 
     [JsonPropertyName("sensitiveTypeSource")]
-    public SensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
+    public DetectedSensitiveContentSensitiveTypeSourceConstant? SensitiveTypeSource { get; set; }
 
     [JsonPropertyName("uniqueCount")]
     public int? UniqueCount { get; set; }

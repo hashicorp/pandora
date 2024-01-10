@@ -1,0 +1,16 @@
+{
+ "name": "Generatevirtualwanvpnserverconfigurationvpnprofile",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "VirtualWANId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualWanVpnProfileParameters"
+ },
+ "uriSuffix": "/generateVpnProfile"
+}

@@ -23,7 +23,7 @@ internal class DisableAzureMonitorOperation : Pandora.Definitions.Operations.Del
 
     public override bool LongRunning() => true;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new HDInsightClusterId();
 
     public override string? UriSuffix() => "/extensions/azureMonitor";
 

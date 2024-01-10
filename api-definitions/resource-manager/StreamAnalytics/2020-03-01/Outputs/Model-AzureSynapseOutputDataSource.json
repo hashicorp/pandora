@@ -1,0 +1,20 @@
+{
+ "name": "AzureSynapseOutputDataSource",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AzureSynapseDataSourceProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "OutputDataSource",
+ "discriminatedTypeValue": "Microsoft.Sql/Server/DataWarehouse",
+ "typeHintIn": "Type"
+}

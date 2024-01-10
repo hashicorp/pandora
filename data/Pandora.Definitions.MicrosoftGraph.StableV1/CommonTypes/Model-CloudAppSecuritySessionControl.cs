@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class CloudAppSecuritySessionControlModel
 {
     [JsonPropertyName("cloudAppSecurityType")]
-    public CloudAppSecuritySessionControlTypeConstant? CloudAppSecurityType { get; set; }
+    public CloudAppSecuritySessionControlCloudAppSecurityTypeConstant? CloudAppSecurityType { get; set; }
 
     [JsonPropertyName("isEnabled")]
     public bool? IsEnabled { get; set; }

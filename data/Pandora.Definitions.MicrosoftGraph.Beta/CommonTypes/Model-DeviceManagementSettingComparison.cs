@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class DeviceManagementSettingComparisonModel
 {
     [JsonPropertyName("comparisonResult")]
-    public DeviceManagementComparisonResultConstant? ComparisonResult { get; set; }
+    public DeviceManagementSettingComparisonComparisonResultConstant? ComparisonResult { get; set; }
 
     [JsonPropertyName("currentValueJson")]
     public string? CurrentValueJson { get; set; }

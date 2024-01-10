@@ -14,10 +14,10 @@ namespace Pandora.Definitions.MicrosoftGraph.StableV1.CommonTypes;
 internal class EducationAssignmentModel
 {
     [JsonPropertyName("addToCalendarAction")]
-    public EducationAddToCalendarOptionsConstant? AddToCalendarAction { get; set; }
+    public EducationAssignmentAddToCalendarActionConstant? AddToCalendarAction { get; set; }
 
     [JsonPropertyName("addedStudentAction")]
-    public EducationAddedStudentActionConstant? AddedStudentAction { get; set; }
+    public EducationAssignmentAddedStudentActionConstant? AddedStudentAction { get; set; }
 
     [JsonPropertyName("allowLateSubmissions")]
     public bool? AllowLateSubmissions { get; set; }
@@ -60,6 +60,9 @@ internal class EducationAssignmentModel
 
     [JsonPropertyName("grading")]
     public EducationAssignmentGradeTypeModel? Grading { get; set; }
+
+    [JsonPropertyName("gradingCategory")]
+    public EducationGradingCategoryModel? GradingCategory { get; set; }
 
     [JsonPropertyName("id")]
     public string? Id { get; set; }

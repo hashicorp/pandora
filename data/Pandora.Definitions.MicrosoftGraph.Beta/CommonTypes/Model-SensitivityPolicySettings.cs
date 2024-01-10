@@ -14,7 +14,7 @@ namespace Pandora.Definitions.MicrosoftGraph.Beta.CommonTypes;
 internal class SensitivityPolicySettingsModel
 {
     [JsonPropertyName("applicableTo")]
-    public SensitivityLabelTargetConstant? ApplicableTo { get; set; }
+    public SensitivityPolicySettingsApplicableToConstant? ApplicableTo { get; set; }
 
     [JsonPropertyName("downgradeSensitivityRequiresJustification")]
     public bool? DowngradeSensitivityRequiresJustification { get; set; }
