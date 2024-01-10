@@ -77,7 +77,7 @@ service "botservice" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2023-04-15-preview", "2023-11-01"]
+  available = ["2023-04-15-preview", "2023-11-01", "2024-01-01"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
@@ -114,7 +114,7 @@ service "containerregistry" {
 }
 service "containerservice" {
   name      = "ContainerService"
-  available = ["2019-08-01", "2022-09-02-preview", "2023-03-02-preview", "2023-04-02-preview", "2023-10-15"]
+  available = ["2019-08-01", "2022-09-02-preview", "2023-03-02-preview", "2023-04-02-preview", "2023-10-01", "2023-10-15"]
 }
 service "cosmos-db" {
   name      = "CosmosDB"
@@ -162,7 +162,7 @@ service "datamigration" {
 }
 service "dataprotection" {
   name      = "DataProtection"
-  available = ["2022-04-01", "2023-05-01", "2023-11-01"]
+  available = ["2022-04-01", "2023-05-01", "2023-11-01", "2023-12-01"]
 }
 service "datashare" {
   name      = "DataShare"
@@ -365,7 +365,7 @@ service "netapp" {
 }
 service "network" {
   name      = "Network"
-  available = ["2023-04-01", "2023-05-01", "2023-06-01"]
+  available = ["2023-04-01", "2023-05-01", "2023-06-01", "2023-09-01"]
 }
 service "networkcloud" {
   name      = "NetworkCloud"
@@ -438,7 +438,7 @@ service "recoveryservices" {
 }
 service "recoveryservicesbackup" {
   name      = "RecoveryServicesBackup"
-  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01"]
+  available = ["2023-01-15", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01"]
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
@@ -486,7 +486,7 @@ service "security" {
 }
 service "securityinsights" {
   name      = "SecurityInsights"
-  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01"]
+  available = ["2021-09-01-preview", "2022-07-01-preview", "2022-08-01", "2022-10-01-preview", "2022-11-01", "2023-02-01", "2023-11-01"]
 }
 service "servicebus" {
   name      = "ServiceBus"

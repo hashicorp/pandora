@@ -301,6 +301,9 @@ internal class UserModel
     [JsonPropertyName("people")]
     public List<PersonModel>? People { get; set; }
 
+    [JsonPropertyName("permissionGrants")]
+    public List<ResourceSpecificPermissionGrantModel>? PermissionGrants { get; set; }
+
     [JsonPropertyName("photo")]
     public ProfilePhotoModel? Photo { get; set; }
 

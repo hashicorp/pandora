@@ -19,6 +19,9 @@ internal class TeamsAppSettingsModel
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
+    [JsonPropertyName("isUserPersonalScopeResourceSpecificConsentEnabled")]
+    public bool? IsUserPersonalScopeResourceSpecificConsentEnabled { get; set; }
+
     [JsonPropertyName("@odata.type")]
     public string? ODataType { get; set; }
 }

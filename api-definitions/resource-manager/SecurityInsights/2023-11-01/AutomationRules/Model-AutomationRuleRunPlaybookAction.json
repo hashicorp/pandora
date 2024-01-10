@@ -1,0 +1,20 @@
+{
+ "name": "AutomationRuleRunPlaybookAction",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "actionConfiguration",
+   "name": "ActionConfiguration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PlaybookActionProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "AutomationRuleAction",
+ "discriminatedTypeValue": "RunPlaybook",
+ "typeHintIn": "ActionType"
+}

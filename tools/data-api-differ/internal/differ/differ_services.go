@@ -10,14 +10,14 @@ import (
 )
 
 // changesForServices determines the changes between the initial and updated set of Services.
-func (d differ) changesForServices(initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData) (*[]changes.Change, error) {
+func (d differ) changesForServices(initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	// first pull out a unique list of Service names
 	log.Logger.Info("Identifying a unique list of Service Names..")
 	serviceNames := d.uniqueServiceNames(initial, updated)
 	for _, serviceName := range serviceNames {
 		log.Logger.Info(fmt.Sprintf("Detecting changes in Service %q..", serviceName))
-		changesForService, err := d.changesForService(serviceName, initial, updated)
+		changesForService, err := d.changesForService(serviceName, initial, updated, includeNestedChangesWhenNew)
 		if err != nil {
 			return nil, fmt.Errorf("detecting changes to the Service %q: %+v", serviceName, err)
 		}
@@ -27,7 +27,7 @@ func (d differ) changesForServices(initial map[string]dataapi.ServiceData, updat
 }
 
 // changesForService determines the changes between two different Services.
-func (d differ) changesForService(serviceName string, initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData) (*[]changes.Change, error) {
+func (d differ) changesForService(serviceName string, initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	oldData, inOldData := initial[serviceName]
 	updatedData, inUpdatedData := updated[serviceName]
@@ -58,7 +58,7 @@ func (d differ) changesForService(serviceName string, initial map[string]dataapi
 	if inOldData {
 		oldApiVersions = oldData.ApiVersions
 	}
-	changesForApiVersions, err := d.changesForApiVersions(serviceName, oldApiVersions, updatedData.ApiVersions)
+	changesForApiVersions, err := d.changesForApiVersions(serviceName, oldApiVersions, updatedData.ApiVersions, includeNestedChangesWhenNew)
 	if err != nil {
 		return nil, fmt.Errorf("detecting changes to the API Versions: %+v", err)
 	}

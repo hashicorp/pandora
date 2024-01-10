@@ -16,6 +16,7 @@ internal class UpdateOperation : Pandora.Definitions.Operations.PatchOperation
 {
     public override IEnumerable<HttpStatusCode> ExpectedStatusCodes() => new List<HttpStatusCode>
         {
+                HttpStatusCode.Accepted,
                 HttpStatusCode.OK,
         };
 

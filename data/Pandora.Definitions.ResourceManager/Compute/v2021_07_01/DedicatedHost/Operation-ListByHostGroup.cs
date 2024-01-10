@@ -16,7 +16,7 @@ internal class ListByHostGroupOperation : Pandora.Definitions.Operations.ListOpe
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new HostGroupId();
+    public override ResourceID? ResourceId() => new DedicatedHostGroupId();
 
     public override Type NestedItemType() => typeof(DedicatedHostModel);
 

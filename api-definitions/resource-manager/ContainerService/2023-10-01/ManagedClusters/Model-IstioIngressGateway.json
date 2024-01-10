@@ -1,0 +1,29 @@
+{
+ "name": "IstioIngressGateway",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enabled",
+   "name": "Enabled",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "mode",
+   "name": "Mode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IstioIngressGatewayMode"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2023_04_02.DiskEncryption
 
 internal class DiskEncryptionSetId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "DiskEncryptionSet";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/diskEncryptionSets/{diskEncryptionSetName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
-        ResourceIDSegment.Static("staticDiskEncryptionSets", "diskEncryptionSets"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Compute"),
+        ResourceIDSegment.Static("diskEncryptionSets", "diskEncryptionSets"),
         ResourceIDSegment.UserSpecified("diskEncryptionSetName"),
     };
 }

@@ -11,12 +11,12 @@ import (
 )
 
 // changesForApiResources determines the changes between the API Resources within the specified API Version.
-func (d differ) changesForApiResources(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiResourceData) (*[]changes.Change, error) {
+func (d differ) changesForApiResources(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiResourceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	apiResources := d.uniqueApiResources(initial, updated)
 	for _, apiResource := range apiResources {
 		log.Logger.Trace(fmt.Sprintf("Detecting changes in API Resource %q..", apiResource))
-		changesForApiResource, err := d.changesForApiResource(serviceName, apiVersion, apiResource, initial, updated)
+		changesForApiResource, err := d.changesForApiResource(serviceName, apiVersion, apiResource, initial, updated, includeNestedChangesWhenNew)
 		if err != nil {
 			return nil, fmt.Errorf("detecting changes to the API Resource %q: %+v", apiResource, err)
 		}
@@ -26,7 +26,7 @@ func (d differ) changesForApiResources(serviceName, apiVersion string, initial, 
 }
 
 // changesForApiResource determines the changes between two versions of the specified API Resource.
-func (d differ) changesForApiResource(serviceName, apiVersion, apiResource string, initial, updated map[string]dataapi.ApiResourceData) (*[]changes.Change, error) {
+func (d differ) changesForApiResource(serviceName, apiVersion, apiResource string, initial, updated map[string]dataapi.ApiResourceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[apiResource]
@@ -48,7 +48,12 @@ func (d differ) changesForApiResource(serviceName, apiVersion, apiResource strin
 			ApiVersion:   apiVersion,
 			ResourceName: apiResource,
 		})
-		// intentionally not returning here
+		if !includeNestedChangesWhenNew {
+			return &output, nil
+		}
+		// Otherwise we'll include the full list of nested changes (for example any new Constants, Models,
+		// Operations and Resource IDs contained within the [new] API Resource) - which will be a large
+		// number of changes - but is needed for certain kinds of diff's (e.g. detecting new Static Identifiers).
 	}
 
 	// we then need to diff each of the individual components - however note that the old version may not exist

@@ -16,7 +16,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 {
     public override Type? RequestObject() => typeof(DedicatedHostGroupModel);
 
-    public override ResourceID? ResourceId() => new HostGroupId();
+    public override ResourceID? ResourceId() => new DedicatedHostGroupId();
 
     public override Type? ResponseObject() => typeof(DedicatedHostGroupModel);
 
