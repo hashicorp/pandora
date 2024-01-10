@@ -73,7 +73,7 @@ service "blueprint" {
 }
 service "chaos" {
   name      = "ChaosStudio"
-  available = ["2023-04-15-preview", "2023-11-01"]
+  available = ["2023-04-15-preview", "2023-11-01", "2024-01-01"]
 }
 service "cognitiveservices" {
   name      = "Cognitive"
