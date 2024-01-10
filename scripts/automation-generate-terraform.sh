@@ -5,39 +5,34 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
-    echo "Outputting Go Version.."
-    go version
+  echo "Outputting Go Version.."
+  go version
 
-    echo "Outputting .net Version.."
-    dotnet --version
+  echo "Installing the Data API V2 onto the GOBIN.."
+  cd "${DIR}/tools/data-api"
+  go install .
+  cd "${DIR}"
 
-    echo "Installing the Data API V2 onto the GOBIN.."
-    cd "${DIR}/tools/data-api"
-    go install .
-    cd "${DIR}"
+  echo "Installing the Terraform Generator into the GOBIN.."
+  cd "${DIR}/tools/generator-terraform"
+  go install .
+  cd "${DIR}"
 
-    echo "Installing the Terraform Generator into the GOBIN.."
-    cd "${DIR}/tools/generator-terraform"
-    go install .
-    cd "${DIR}"
-
-    echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-automation"
-    go build -o wrapper-automation
-    cd "${DIR}"
+  echo "Building Wrapper.."
+  cd "${DIR}/tools/wrapper-automation"
+  go build -o wrapper-automation
+  cd "${DIR}"
 }
 
 function runWrapper {
-  local dataApiAssemblyPath=$1
+  local apiDefinitionsDirectory=$1
   local outputDirectory=$2
-  local useV2Generator=$3
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
-    -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"\
-    -use-v2-generator="$useV2Generator"
+    --api-definitions-directory="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
 
   cd "${DIR}"
 
@@ -115,14 +110,13 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
+  local apiDefinitionsDirectory="./api-definitions"
   local outputDirectory="tmp/provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
-  local useV2Generator=false
 
   buildAndInstallDependencies
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$useV2Generator"
+  runWrapper "$apiDefinitionsDirectory" "$outputDirectory"
   runFmtImportsAndGenerate "$outputDirectory"
   runTerraformProviderUnitTests "$outputDirectory"
   cleanup "$outputDirectory"

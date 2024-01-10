@@ -5,33 +5,34 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
-    echo "Installing the Data API V2 onto the GOBIN.."
-    cd "${DIR}/tools/data-api"
-    go install .
-    cd "${DIR}"
+  echo "Outputting Go Version.."
+  go version
 
-    echo "Installing the Go SDK Generator into the GOBIN.."
-    cd "${DIR}/tools/generator-go-sdk"
-    go install .
-    cd "${DIR}"
+  echo "Installing the Data API V2 onto the GOBIN.."
+  cd "${DIR}/tools/data-api"
+  go install .
+  cd "${DIR}"
 
-    echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-automation"
-    go build -o wrapper-automation
-    cd "${DIR}"
+  echo "Installing the Go SDK Generator into the GOBIN.."
+  cd "${DIR}/tools/generator-go-sdk"
+  go install .
+  cd "${DIR}"
+
+  echo "Building Wrapper.."
+  cd "${DIR}/tools/wrapper-automation"
+  go build -o wrapper-automation
+  cd "${DIR}"
 }
 
 function runWrapper {
-  local dataApiAssemblyPath=$1
+  local apiDefinitionsDirectory=$1
   local outputDirectory=$2
-  local useV2Generator=$4
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation go-sdk \
-    -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"\
-    -use-v2-generator="$useV2Generator"
+    --api-definitions-directory="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
 
   cd "${DIR}"
 
@@ -94,17 +95,16 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
+  local apiDefinitionsDirectory="./api-definitions"
   local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/go-azure-sdk"
   local sdkRepo="https://github.com/hashicorp/go-azure-sdk.git"
   local sha
-  local useV2Generator=true
 
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareGoSdk "$outputDirectory" "$sdkRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha" "$useV2Generator"
+  runWrapper "$apiDefinitionsDirectory" "$outputDirectory"
   runGoSDKUnitTests "$outputDirectory"
   cleanup "$outputDirectory"
 }
