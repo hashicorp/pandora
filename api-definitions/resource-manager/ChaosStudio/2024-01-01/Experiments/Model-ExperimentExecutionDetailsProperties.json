@@ -1,0 +1,80 @@
+{
+ "name": "ExperimentExecutionDetailsProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "failureReason",
+   "name": "FailureReason",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastActionAt",
+   "name": "LastActionAt",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "runInformation",
+   "name": "RunInformation",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ExperimentExecutionDetailsPropertiesRunInformation"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "startedAt",
+   "name": "StartedAt",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "stoppedAt",
+   "name": "StoppedAt",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

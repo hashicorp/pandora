@@ -378,11 +378,10 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	out.createModelName = *createOperation.RequestObject.ReferenceName
 	out.createPayload = createModel
 	createPropsModelName, createPropsModel := out.getPropertiesModelWithinModel(out.createPayload, b.models)
-	if createPropsModelName == nil || createPropsModel == nil {
-		return nil, fmt.Errorf("couldn't find `Properties` model for Create Payload")
+	if createPropsModelName != nil || createPropsModel != nil {
+		out.createPropertiesPayload = *createPropsModel
+		out.createPropertiesModelName = *createPropsModelName
 	}
-	out.createPropertiesPayload = *createPropsModel
-	out.createPropertiesModelName = *createPropsModelName
 
 	// Read has to exist
 	readOperation, ok := b.operations[input.ReadMethod.MethodName]
@@ -401,11 +400,10 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	out.readPayload = readModel
 	// then find the `Properties` model within this
 	readPropsModelName, readPropsModel := out.getPropertiesModelWithinModel(out.readPayload, b.models)
-	if readPropsModelName == nil || readPropsModel == nil {
-		return nil, fmt.Errorf("couldn't find `Properties` model for Read Payload")
+	if readPropsModelName != nil || readPropsModel != nil {
+		out.readPropertiesModelName = *readPropsModelName
+		out.readPropertiesPayload = *readPropsModel
 	}
-	out.readPropertiesModelName = *readPropsModelName
-	out.readPropertiesPayload = *readPropsModel
 
 	// Update doesn't have to exist
 	if updateMethod := input.UpdateMethod; updateMethod != nil {
@@ -426,11 +424,10 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 
 		// then find the `Properties` model within this
 		updatePropsModelName, updatePropsModel := out.getPropertiesModelWithinModel(*out.updatePayload, b.models)
-		if updatePropsModelName == nil || updatePropsModel == nil {
-			return nil, fmt.Errorf("couldn't find `Properties` model for Update Payload")
+		if updatePropsModelName != nil || updatePropsModel != nil {
+			out.updatePropertiesModelName = updatePropsModelName
+			out.updatePropertiesPayload = updatePropsModel
 		}
-		out.updatePropertiesModelName = updatePropsModelName
-		out.updatePropertiesPayload = updatePropsModel
 	}
 
 	// NOTE: intentionally not including Delete since the payload shouldn't be applicable to users

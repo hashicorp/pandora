@@ -24,7 +24,7 @@ internal class GrantAccessOperation : Pandora.Definitions.Operations.PostOperati
 
     public override Type? RequestObject() => typeof(GrantAccessDataModel);
 
-    public override ResourceID? ResourceId() => new DiskId();
+    public override ResourceID? ResourceId() => new ManagedDiskId();
 
     public override string? UriSuffix() => "/beginGetAccess";
 

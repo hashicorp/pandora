@@ -6,8 +6,14 @@ namespace Pandora.Definitions.ResourceManager.Insights.v2021_04_01.DataCollectio
 [ConstantType(ConstantTypeAttribute.ConstantType.String)]
 internal enum KnownSyslogDataSourceFacilityNamesConstant
 {
+    [Description("alert")]
+    Alert,
+
     [Description("*")]
     Any,
+
+    [Description("audit")]
+    Audit,
 
     [Description("auth")]
     Auth,
@@ -15,11 +21,17 @@ internal enum KnownSyslogDataSourceFacilityNamesConstant
     [Description("authpriv")]
     Authpriv,
 
+    [Description("clock")]
+    Clock,
+
     [Description("cron")]
     Cron,
 
     [Description("daemon")]
     Daemon,
+
+    [Description("ftp")]
+    Ftp,
 
     [Description("kern")]
     Kern,
@@ -59,6 +71,12 @@ internal enum KnownSyslogDataSourceFacilityNamesConstant
 
     [Description("news")]
     News,
+
+    [Description("nopri")]
+    Nopri,
+
+    [Description("ntp")]
+    Ntp,
 
     [Description("syslog")]
     Syslog,

@@ -349,6 +349,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicat
 	}
 
 	result = %[2]sCompleteResult{
+		LatestHttpResponse: resp.HttpResponse,
 		Items: items,
 	}
 	return
@@ -372,7 +373,8 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 	}
 
 	result = %[2]sCompleteResult{
-		Items: items,
+		LatestHttpResponse: resp.HttpResponse,
+		Items:		  items,
 	}
 	return
 }
@@ -621,6 +623,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorDat
 		// whilst these looks like they could crash it's guaranteed above
 		paginationCode = fmt.Sprintf(`
 type %[2]sCompleteResult struct {
+	LatestHttpResponse *http.Response
 	Items []%[1]s
 }
 `, typeName, c.operationName)

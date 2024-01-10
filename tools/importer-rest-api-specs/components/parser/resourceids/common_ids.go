@@ -53,8 +53,16 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdBotService{},
 	commonIdBotServiceChannel{},
 
+	// Compute
+	commonIdAvailabilitySet{},
+	commonIdDedicatedHost{},
+	commonIdDedicatedHostGroup{},
+	commonIdDiskEncryptionSet{},
+	commonIdManagedDisk{},
+
 	// HDInsight
 	commonIdHDInsightCluster{},
+
 
 	// Key Vault
 	commonIdKeyVault{},

@@ -61,6 +61,9 @@ internal class EducationAssignmentModel
     [JsonPropertyName("grading")]
     public EducationAssignmentGradeTypeModel? Grading { get; set; }
 
+    [JsonPropertyName("gradingCategory")]
+    public EducationGradingCategoryModel? GradingCategory { get; set; }
+
     [JsonPropertyName("id")]
     public string? Id { get; set; }
 
