@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2023_03_01.DedicatedHost;
 
 internal class ListAvailableSizesOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HostId();
+    public override ResourceID? ResourceId() => new DedicatedHostId();
 
     public override Type? ResponseObject() => typeof(DedicatedHostSizeListResultModel);
 

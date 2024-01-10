@@ -23,7 +23,7 @@ internal class RestartOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new HostId();
+    public override ResourceID? ResourceId() => new DedicatedHostId();
 
     public override string? UriSuffix() => "/restart";
 

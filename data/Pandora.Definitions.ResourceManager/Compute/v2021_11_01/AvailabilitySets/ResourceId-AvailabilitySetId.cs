@@ -10,19 +10,19 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2021_11_01.AvailabilitySe
 
 internal class AvailabilitySetId : ResourceID
 {
-    public string? CommonAlias => null;
+    public string? CommonAlias => "AvailabilitySet";
 
     public string ID => "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Compute/availabilitySets/{availabilitySetName}";
 
     public List<ResourceIDSegment> Segments => new List<ResourceIDSegment>
     {
-        ResourceIDSegment.Static("staticSubscriptions", "subscriptions"),
+        ResourceIDSegment.Static("subscriptions", "subscriptions"),
         ResourceIDSegment.SubscriptionId("subscriptionId"),
-        ResourceIDSegment.Static("staticResourceGroups", "resourceGroups"),
+        ResourceIDSegment.Static("resourceGroups", "resourceGroups"),
         ResourceIDSegment.ResourceGroup("resourceGroupName"),
-        ResourceIDSegment.Static("staticProviders", "providers"),
-        ResourceIDSegment.ResourceProvider("staticMicrosoftCompute", "Microsoft.Compute"),
-        ResourceIDSegment.Static("staticAvailabilitySets", "availabilitySets"),
+        ResourceIDSegment.Static("providers", "providers"),
+        ResourceIDSegment.ResourceProvider("resourceProvider", "Microsoft.Compute"),
+        ResourceIDSegment.Static("availabilitySets", "availabilitySets"),
         ResourceIDSegment.UserSpecified("availabilitySetName"),
     };
 }

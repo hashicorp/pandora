@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Compute.v2023_03_01.DedicatedHosts
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new HostId();
+    public override ResourceID? ResourceId() => new DedicatedHostId();
 
     public override Type? ResponseObject() => typeof(DedicatedHostModel);
 

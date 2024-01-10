@@ -24,7 +24,7 @@ internal class RevokeAccessOperation : Pandora.Definitions.Operations.PostOperat
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new DiskId();
+    public override ResourceID? ResourceId() => new ManagedDiskId();
 
     public override string? UriSuffix() => "/endGetAccess";
 
