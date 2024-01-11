@@ -45,7 +45,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			ForceNew: true,
 			HclName:  "name",
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment("Name", resource.DisplayName),
+				Markdown: descriptionForResourceIDSegment("Name", resource.DisplayName, resource.DocumentationOverrides),
 			},
 		}
 
@@ -59,7 +59,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			ForceNew: true,
 			HclName:  helpers.ConvertToSnakeCase(parentResourceIdName),
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resource.DisplayName),
+				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resource.DisplayName, resource.DocumentationOverrides),
 			},
 		}
 
@@ -110,7 +110,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				ForceNew: true,
 				HclName:  hclName,
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: descriptionForResourceIDSegment(fieldName, resource.DisplayName),
+					Markdown: descriptionForResourceIDSegment(fieldName, resource.DisplayName, resource.DocumentationOverrides),
 				},
 			}
 			if v.Type == resourcemanager.ResourceGroupSegment {
@@ -132,7 +132,15 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	return &out, mappings, nil
 }
 
-func descriptionForResourceIDSegment(input, resourceDisplayName string) string {
+func descriptionForResourceIDSegment(input, resourceDisplayName string, documentationOverrides *map[string]string) string {
+	if documentationOverrides != nil {
+		for field, description := range *documentationOverrides {
+			if strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(field)) {
+				return description
+			}
+		}
+	}
+
 	if strings.EqualFold(input, "Name") {
 		return fmt.Sprintf("Specifies the name of this %s.", resourceDisplayName)
 	}

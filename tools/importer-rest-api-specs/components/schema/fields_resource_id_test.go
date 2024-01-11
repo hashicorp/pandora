@@ -667,6 +667,122 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "TargetType", "targetName", false)
 }
 
+func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
+	input := resourcemanager.ResourceIdDefinition{
+		Segments: []resourcemanager.ResourceIdSegment{
+			{
+				FixedValue: stringPointer("subscriptions"),
+				Name:       "subscriptions",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "subscriptionId",
+				Type: resourcemanager.SubscriptionIdSegment,
+			},
+			{
+				FixedValue: stringPointer("resourceGroups"),
+				Name:       "resourceGroups",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "resourceGroupName",
+				Type: resourcemanager.ResourceGroupSegment,
+			},
+			{
+				FixedValue: stringPointer("providers"),
+				Name:       "providers",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				FixedValue: stringPointer("Microsoft.Chaos"),
+				Name:       "staticMicrosoftCompute",
+				Type:       resourcemanager.ResourceProviderSegment,
+			},
+			{
+				FixedValue: stringPointer("targets"),
+				Name:       "staticTargets",
+				Type:       resourcemanager.StaticSegment,
+			},
+			{
+				Name: "targetName",
+				Type: resourcemanager.UserSpecifiedSegment,
+			},
+		},
+	}
+	inputMappings := resourcemanager.MappingDefinition{
+		Fields:     []resourcemanager.FieldMappingDefinition{},
+		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
+	}
+	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
+		DisplayName: "Chaos Studio Target",
+		SchemaOverrides: &map[string]string{
+			"name":  "target_type",
+			"scope": "target_resource_id",
+		},
+		DocumentationOverrides: &map[string]string{
+			"target_type": "Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here.",
+		},
+	}
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+
+	// first check we've mapped the field across
+	if actualFields == nil {
+		t.Fatalf("expected actualFields to be non-nil but was nil")
+	}
+	if len(*actualFields) != 2 {
+		t.Fatalf("expected actualFields to contain 2 items but got %d", len(*actualFields))
+	}
+	resourceGroupName, ok := (*actualFields)["ResourceGroupName"]
+	if !ok {
+		t.Fatalf("expected there to be a field called `ResourceGroupName` but there wasn't")
+	}
+	if !resourceGroupName.Required {
+		t.Fatalf("expected the field ResourceGroupName to be Required but it wasn't")
+	}
+	if !resourceGroupName.ForceNew {
+		t.Fatalf("expected the field ResourceGroupName to be ForceNew but it wasn't")
+	}
+	if resourceGroupName.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+		t.Fatalf("expected ResourceGroupName to be a Resource Group Field but got %q", string(resourceGroupName.ObjectDefinition.Type))
+	}
+	if resourceGroupName.Documentation.Markdown != "Specifies the name of the Resource Group within which this Chaos Studio Target should exist." {
+		t.Fatalf("expected the description for `ResourceGroupName` to be `Specifies the name of the Resource Group within which this Chaos Studio Target should exist.` but got %q", resourceGroupName.Documentation.Markdown)
+	}
+
+	targetType, ok := (*actualFields)["TargetType"]
+	if !ok {
+		t.Fatalf("expected there to be a field called `TargetType` but there wasn't")
+	}
+	if !targetType.Required {
+		t.Fatalf("expected the field TargetType to be Required but it wasn't")
+	}
+	if !targetType.ForceNew {
+		t.Fatalf("expected the field TargetType to be ForceNew but it wasn't")
+	}
+	if targetType.ObjectDefinition.Type != resourcemanager.TerraformSchemaFieldTypeString {
+		t.Fatalf("expected TargetType to be a String Field but got %q", string(targetType.ObjectDefinition.Type))
+	}
+	if targetType.Documentation.Markdown != "Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here." {
+		t.Fatalf("expected the description for `TargetType` to be `Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here.` but got %q", targetType.Documentation.Markdown)
+	}
+
+	// then check the mappings
+	if actualMappings == nil {
+		t.Fatalf("expected actualMappings to be non-nil but was nil")
+	}
+	if len(actualMappings.Fields) > 0 {
+		t.Fatalf("expected no field mappings but got %d", len(actualMappings.Fields))
+	}
+	if len(actualMappings.ResourceId) != 2 {
+		t.Fatalf("expected there to be 2 ResourceId mappings but got %d", len(actualMappings.ResourceId))
+	}
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "ResourceGroupName", "resourceGroupName", false)
+	checkResourceIdMappingExistsBetween(t, actualMappings.ResourceId, "TargetType", "targetName", false)
+}
+
 func checkResourceIdMappingExistsBetween(t *testing.T, mappings []resourcemanager.ResourceIdMappingDefinition, schemaFieldName, segmentName string, parent bool) {
 	found := false
 	for _, item := range mappings {
