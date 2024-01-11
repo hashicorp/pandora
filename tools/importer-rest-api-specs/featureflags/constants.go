@@ -6,7 +6,7 @@ package featureflags
 const AllowConstantsWithoutXMSEnum = true
 
 // GenerateV1APIDefinitions specifies whether the V1 (C#) API Definitions should be output.
-const GenerateV1APIDefinitions = true
+const GenerateV1APIDefinitions = false
 
 // GenerateV2APIDefinitions specifies whether the V2 (JSON) API Definitions should be output.
 const GenerateV2APIDefinitions = true
