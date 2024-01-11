@@ -153,6 +153,8 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 								BasicVariables:    basicVariables,
 								CompleteVariables: completeVariables,
 							},
+							SchemaOverrides:        def.SchemaOverrides,
+							DocumentationOverrides: def.DocumentationOverrides,
 						}
 					}
 

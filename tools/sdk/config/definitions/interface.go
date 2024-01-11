@@ -38,6 +38,12 @@ type ResourceDefinition struct {
 
 	// TestData contains specific values for the tests of this resource
 	TestData ResourceTestDataDefinition
+
+	// SchemaOverrides contains schema property names that should be renamed
+	SchemaOverrides *map[string]string
+
+	// DocumentationOverrides contains property descriptions that need to be customised
+	DocumentationOverrides *map[string]string
 }
 
 type ResourceTestDataDefinition struct {

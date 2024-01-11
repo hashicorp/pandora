@@ -255,6 +255,10 @@ type TerraformResourceDetails struct {
 	// for this Resource.
 	Documentation ResourceDocumentationDefinition `json:"documentation"`
 
+	// DocumentationOverrides specifies a mapping of properties that require
+	// custom descriptions in the Documentation.
+	DocumentationOverrides *map[string]string `json:"documentationOverrides"`
+
 	// DisplayName is the human-readable/marketing name for this Resource,
 	// for example `Resource Group` or `Virtual Machine`.
 	DisplayName string `json:"displayName"`
@@ -297,6 +301,9 @@ type TerraformResourceDetails struct {
 	// SchemaModels is a Map of ModelName -> TerraformSchemaModelDefinition defining the
 	// Terraform Schema Models used in this Resource, including mappings to the SDK Models.
 	SchemaModels map[string]TerraformSchemaModelDefinition `json:"schemaModels"`
+
+	// SchemaOverrides is a mapping of resource properties that require renaming.
+	SchemaOverrides *map[string]string `json:"schemaOverrides"`
 
 	// Tests defines the Terraform Configurations which should be used to test this Resource.
 	Tests TerraformResourceTestsDefinition `json:"tests"`

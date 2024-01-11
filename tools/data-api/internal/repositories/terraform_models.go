@@ -20,25 +20,27 @@ type TerraformDataSourceDetails struct {
 }
 
 type TerraformResourceDetails struct {
-	ApiVersion           string
-	CreateMethod         MethodDefinition
-	DeleteMethod         MethodDefinition
-	Documentation        ResourceDocumentationDefinition
-	DisplayName          string
-	Generate             bool
-	GenerateModel        bool
-	GenerateIdValidation bool
-	GenerateSchema       bool
-	Label                string
-	Mappings             MappingDefinition
-	ReadMethod           MethodDefinition
-	Resource             string
-	ResourceIdName       string
-	ResourceName         string
-	SchemaModelName      string
-	SchemaModels         map[string]TerraformSchemaModelDefinition
-	Tests                TerraformResourceTestsDefinition
-	UpdateMethod         *MethodDefinition
+	ApiVersion             string
+	CreateMethod           MethodDefinition
+	DeleteMethod           MethodDefinition
+	Documentation          ResourceDocumentationDefinition
+	DocumentationOverrides *map[string]string
+	DisplayName            string
+	Generate               bool
+	GenerateModel          bool
+	GenerateIdValidation   bool
+	GenerateSchema         bool
+	Label                  string
+	Mappings               MappingDefinition
+	ReadMethod             MethodDefinition
+	Resource               string
+	ResourceIdName         string
+	ResourceName           string
+	SchemaModelName        string
+	SchemaModels           map[string]TerraformSchemaModelDefinition
+	SchemaOverrides        *map[string]string
+	Tests                  TerraformResourceTestsDefinition
+	UpdateMethod           *MethodDefinition
 }
 
 type MethodDefinition struct {

@@ -138,6 +138,8 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 					Category:    resourceMetaData.WebsiteSubcategory,
 					Description: resourceMetaData.Description,
 				},
+				DocumentationOverrides: resourceMetaData.DocumentationOverrides,
+				SchemaOverrides:        resourceMetaData.SchemaOverrides,
 				Tests: resourcemanager.TerraformResourceTestsDefinition{
 					TestData: &resourcemanager.TerraformResourceTestDataDefinition{
 						BasicVariables: resourcemanager.TerraformTestDataVariables{
