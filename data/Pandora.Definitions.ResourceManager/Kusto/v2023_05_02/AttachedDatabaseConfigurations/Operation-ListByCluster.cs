@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2023_05_02.AttachedDatabase
 
 internal class ListByClusterOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override Type? ResponseObject() => typeof(AttachedDatabaseConfigurationListResultModel);
 

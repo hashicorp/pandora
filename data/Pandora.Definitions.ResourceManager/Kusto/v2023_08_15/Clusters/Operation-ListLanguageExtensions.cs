@@ -21,7 +21,7 @@ internal class ListLanguageExtensionsOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override Type? ResponseObject() => typeof(LanguageExtensionsListModel);
 

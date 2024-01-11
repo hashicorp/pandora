@@ -21,7 +21,7 @@ internal class CheckNameAvailabilityOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => typeof(DataConnectionCheckNameRequestModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new KustoDatabaseId();
 
     public override Type? ResponseObject() => typeof(CheckNameResultModel);
 

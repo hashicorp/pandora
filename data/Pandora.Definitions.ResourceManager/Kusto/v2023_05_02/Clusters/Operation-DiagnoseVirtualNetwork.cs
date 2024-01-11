@@ -24,7 +24,7 @@ internal class DiagnoseVirtualNetworkOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override string? UriSuffix() => "/diagnoseVirtualNetwork";
 

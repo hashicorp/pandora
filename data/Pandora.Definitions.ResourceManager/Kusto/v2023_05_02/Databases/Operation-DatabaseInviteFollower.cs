@@ -21,7 +21,7 @@ internal class DatabaseInviteFollowerOperation : Pandora.Definitions.Operations.
 
     public override Type? RequestObject() => typeof(DatabaseInviteFollowerRequestModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new KustoDatabaseId();
 
     public override Type? ResponseObject() => typeof(DatabaseInviteFollowerResultModel);
 

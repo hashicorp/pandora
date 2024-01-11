@@ -24,7 +24,7 @@ internal class DetachFollowerDatabasesOperation : Pandora.Definitions.Operations
 
     public override Type? RequestObject() => typeof(FollowerDatabaseDefinitionModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override string? UriSuffix() => "/detachFollowerDatabases";
 
