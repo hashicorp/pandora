@@ -6,123 +6,40 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func TestProcessField_RenameBoolean(t *testing.T) {
+func TestProcessField_SchemaOverrideRename(t *testing.T) {
 	testData := []struct {
 		fieldInput    string
 		metadataInput FieldMetadata
 		expected      *string
 	}{
 		{
-			fieldInput: "enablePandas",
+			fieldInput: "name",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"enablePandas": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
+				TerraformDetails: resourcemanager.TerraformResourceDetails{
+					SchemaOverrides: &map[string]string{
+						"name": "target_resource_id",
 					},
 				},
 			},
-			expected: stringPointer("PandasEnabled"),
-		},
-		{
-			fieldInput: "disablePlanets",
-			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"disablePlanets": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
-					},
-				},
-			},
-			expected: stringPointer("PlanetsDisabled"),
-		},
-		{
-			fieldInput: "AllowedPublicAccess",
-			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"AllowedPublicAccess": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
-					},
-				},
-			},
-			expected: stringPointer("PublicAccessEnabled"),
-		},
-		{
-			fieldInput: "AllowTethering",
-			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"AllowTethering": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
-					},
-				},
-			},
-			expected: stringPointer("TetheringEnabled"),
-		},
-		{
-			fieldInput: "TastesLikePancakes",
-			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"TastesLikePancakes": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
-					},
-				},
-			},
-			expected: nil,
+			expected: stringPointer("TargetResourceId"),
 		},
 		{
 			fieldInput: "ThreeCoffeesADay",
 			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"ThreeCoffeesADay": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.StringApiObjectDefinitionType,
-							},
-						},
+				TerraformDetails: resourcemanager.TerraformResourceDetails{
+					SchemaOverrides: &map[string]string{
+						"name": "target_resource_id",
 					},
 				},
 			},
 			expected: nil,
-		},
-		{
-			fieldInput: "Enabled",
-			metadataInput: FieldMetadata{
-				Model: resourcemanager.ModelDetails{
-					Fields: map[string]resourcemanager.FieldDetails{
-						"Enabled": {
-							ObjectDefinition: resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.BooleanApiObjectDefinitionType,
-							},
-						},
-					},
-				},
-			},
-			expected: stringPointer("Enabled"),
 		},
 	}
 
 	for _, v := range testData {
 		t.Logf("[DEBUG] Testing %s", v.fieldInput)
 
-		actual, _ := fieldNameRenameBoolean{}.ProcessField(v.fieldInput, v.metadataInput)
+		actual, _ := fieldNameSchemaOverrideRename{}.ProcessField(v.fieldInput, v.metadataInput)
 
 		if actual == nil {
 			if v.expected == nil {

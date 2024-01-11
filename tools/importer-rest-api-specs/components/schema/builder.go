@@ -2,7 +2,6 @@ package schema
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
@@ -269,7 +268,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
-	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
+	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, &input, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}

@@ -71,6 +71,25 @@ func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, reso
 	return fieldName, nil
 }
 
+func updateFieldNameFromSchemaOverrides(fieldName string, resource *resourcemanager.TerraformResourceDetails) (string, error) {
+	metadata := processors.FieldMetadata{
+		TerraformDetails: *resource,
+	}
+	for ruleName, matcher := range processors.NamingRules {
+		if strings.EqualFold(ruleName, "SchemaOverrides") {
+			updatedFieldName, err := matcher.ProcessField(fieldName, metadata)
+			if err != nil {
+				return "", err
+			}
+
+			if updatedFieldName != nil {
+				return *updatedFieldName, nil
+			}
+		}
+	}
+	return fieldName, nil
+}
+
 func stringPointer(input string) *string {
 	return &input
 }

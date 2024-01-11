@@ -1,46 +1,24 @@
 package processors
 
 import (
-	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var _ FieldNameProcessor = fieldNameRenameBoolean{}
+var _ FieldNameProcessor = fieldNameSchemaOverrideRename{}
 
-type fieldNameRenameBoolean struct{}
+type fieldNameSchemaOverrideRename struct{}
 
-func (fieldNameRenameBoolean) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
-	if metadata.Model.Fields[fieldName].ObjectDefinition.Type == resourcemanager.BooleanApiObjectDefinitionType {
-		// change the Prefix -> Suffix
-		// NOTE: ordering matters due to `enabled` getting trimmed to `ed` if `enable` is trimmed before `enabled`
-		if strings.HasPrefix(strings.ToLower(fieldName), "enabled") {
-			updated := fmt.Sprintf("%sEnabled", fieldName[7:])
-			return &updated, nil
-		}
-		if strings.HasPrefix(strings.ToLower(fieldName), "enable") {
-			updated := fmt.Sprintf("%sEnabled", fieldName[6:])
-			return &updated, nil
-		}
+func (fieldNameSchemaOverrideRename) ProcessField(fieldName string, metadata FieldMetadata) (*string, error) {
+	if metadata.TerraformDetails.SchemaOverrides != nil {
+		for old, updated := range *metadata.TerraformDetails.SchemaOverrides {
+			if strings.EqualFold(fieldName, strings.ReplaceAll(old, "_", "")) {
 
-		if strings.HasPrefix(strings.ToLower(fieldName), "disabled") {
-			updated := fmt.Sprintf("%sDisabled", fieldName[7:])
-			return &updated, nil
-		}
-		if strings.HasPrefix(strings.ToLower(fieldName), "disable") {
-			updated := fmt.Sprintf("%sDisabled", fieldName[7:])
-			return &updated, nil
-		}
-
-		if strings.HasPrefix(strings.ToLower(fieldName), "allowed") {
-			updated := fmt.Sprintf("%sEnabled", fieldName[7:])
-			return &updated, nil
-		}
-		if strings.HasPrefix(strings.ToLower(fieldName), "allow") {
-			updated := fmt.Sprintf("%sEnabled", fieldName[5:])
-			return &updated, nil
+				updated = helpers.ConvertFromSnakeToTitleCase(updated)
+				return &updated, nil
+			}
 		}
 	}
+
 	return nil, nil
 }

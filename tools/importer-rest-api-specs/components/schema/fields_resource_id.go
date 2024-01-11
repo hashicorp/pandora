@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, resourceDisplayName string, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, resource *resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	// first determine whether we are dealing with a nested resource
@@ -31,7 +31,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	}
 
 	if parentResourceFound && parentResourceIdName == "" {
-		logger.Debug("parent resource detected for %s but was not present in resource's ID definitions", resourceDisplayName)
+		logger.Debug("parent resource detected for %s but was not present in resource's ID definitions", resource.DisplayName)
 	}
 
 	// if a parent is resource is found and present in the ResourceID mappings then we use this
@@ -45,12 +45,11 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			ForceNew: true,
 			HclName:  "name",
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment("Name", resourceDisplayName),
+				Markdown: descriptionForResourceIDSegment("Name", resource.DisplayName),
 			},
 		}
 
 		// add the parent resource ID and then the name of the resource
-		parentResourceSchemaField := helpers.ConvertToSnakeCase(parentResourceIdName)
 		out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
 			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeString,
@@ -58,9 +57,9 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			// since this is included in the Resource ID it's implicitly Required/ForceNew
 			Required: true,
 			ForceNew: true,
-			HclName:  parentResourceSchemaField,
+			HclName:  helpers.ConvertToSnakeCase(parentResourceIdName),
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resourceDisplayName),
+				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resource.DisplayName),
 			},
 		}
 
@@ -91,12 +90,17 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 
 			userConfigurableSegments++
 			fieldName := strings.Title(v.Name)
-			hclName := helpers.ConvertToSnakeCase(v.Name)
 			if i == len(input.Segments)-1 {
 				// if it's the last one override the name since that'll be the name of this Resource
 				fieldName = "Name"
-				hclName = "name"
 			}
+			var err error
+			fieldName, err = updateFieldNameFromSchemaOverrides(fieldName, resource)
+			if err != nil {
+				return nil, nil, fmt.Errorf("overriding schema property from resource ID: %+v", err)
+			}
+			hclName := helpers.ConvertToSnakeCase(fieldName)
+
 			field := resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 					Type: resourcemanager.TerraformSchemaFieldTypeString,
@@ -106,7 +110,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				ForceNew: true,
 				HclName:  hclName,
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: descriptionForResourceIDSegment(fieldName, resourceDisplayName),
+					Markdown: descriptionForResourceIDSegment(fieldName, resource.DisplayName),
 				},
 			}
 			if v.Type == resourcemanager.ResourceGroupSegment {
@@ -140,7 +144,11 @@ func descriptionForResourceIDSegment(input, resourceDisplayName string) string {
 		return fmt.Sprintf("Specifies the %s within which this %s should exist.", wordified, resourceDisplayName)
 	}
 
-	return fmt.Sprintf("Specifies the name of the %s within which this %s should exist.", wordified, resourceDisplayName)
+	if strings.EqualFold(input, "ResourceGroupName") {
+		return fmt.Sprintf("Specifies the name of the %s within which this %s should exist.", wordified, resourceDisplayName)
+	}
+
+	return fmt.Sprintf("Specifies the %s of this %s.", wordified, resourceDisplayName)
 }
 
 func wordifyParentSegment(input string) string {
