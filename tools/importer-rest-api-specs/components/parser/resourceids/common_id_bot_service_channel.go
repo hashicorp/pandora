@@ -13,7 +13,33 @@ func (commonIdBotServiceChannel) id() models.ParsedResourceId {
 	name := "BotServiceChannel"
 	return models.ParsedResourceId{
 		CommonAlias: &name,
-		Constants:   map[string]resourcemanager.ConstantDetails{},
+		Constants: map[string]resourcemanager.ConstantDetails{
+			"BotServiceChannelType": {
+				CaseInsensitive: false,
+				Type:            resourcemanager.StringConstant,
+				Values: map[string]string{
+					"AcsChatChannel":          "AcsChatChannel",
+					"AlexaChannel":            "AlexaChannel",
+					"DirectLineChannel":       "DirectLineChannel",
+					"DirectLineSpeechChannel": "DirectLineSpeechChannel",
+					"EmailChannel":            "EmailChannel",
+					"KikChannel":              "KikChannel",
+					"FacebookChannel":         "FacebookChannel",
+					"LineChannel":             "LineChannel",
+					"M365Extensions":          "M365Extensions",
+					"MsTeamsChannel":          "MsTeamsChannel",
+					"Omnichannel":             "Omnichannel",
+					"OutlookChannel":          "OutlookChannel",
+					"SearchAssistant":         "SearchAssistant",
+					"SkypeChannel":            "SkypeChannel",
+					"SlackChannel":            "SlackChannel",
+					"SmsChannel":              "SmsChannel",
+					"TelegramChannel":         "TelegramChannel",
+					"TelephonyChannel":        "TelephonyChannel",
+					"WebChatChannel":          "WebChatChannel",
+				},
+			},
+		},
 		Segments: []resourcemanager.ResourceIdSegment{
 			models.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
 			models.SubscriptionIDResourceIDSegment("subscriptionId"),
