@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2023_08_15.PrivateLinkResou
 
 internal class ListOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override Type? ResponseObject() => typeof(PrivateLinkResourceListResultModel);
 

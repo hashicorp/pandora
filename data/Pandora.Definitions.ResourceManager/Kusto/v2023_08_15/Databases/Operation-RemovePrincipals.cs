@@ -21,7 +21,7 @@ internal class RemovePrincipalsOperation : Pandora.Definitions.Operations.PostOp
 
     public override Type? RequestObject() => typeof(DatabasePrincipalListRequestModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new KustoDatabaseId();
 
     public override Type? ResponseObject() => typeof(DatabasePrincipalListResultModel);
 

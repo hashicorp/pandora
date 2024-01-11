@@ -14,7 +14,7 @@ namespace Pandora.Definitions.ResourceManager.Kusto.v2023_08_15.Databases;
 
 internal class GetOperation : Pandora.Definitions.Operations.GetOperation
 {
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new KustoDatabaseId();
 
     public override Type? ResponseObject() => typeof(DatabaseModel);
 

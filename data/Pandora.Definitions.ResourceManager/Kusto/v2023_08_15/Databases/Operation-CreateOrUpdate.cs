@@ -25,7 +25,7 @@ internal class CreateOrUpdateOperation : Pandora.Definitions.Operations.PutOpera
 
     public override Type? RequestObject() => typeof(DatabaseModel);
 
-    public override ResourceID? ResourceId() => new DatabaseId();
+    public override ResourceID? ResourceId() => new KustoDatabaseId();
 
     public override Type? OptionsObject() => typeof(CreateOrUpdateOperation.CreateOrUpdateOptions);
 

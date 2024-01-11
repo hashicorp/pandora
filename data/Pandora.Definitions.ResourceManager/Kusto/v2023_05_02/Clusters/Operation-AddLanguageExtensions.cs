@@ -24,7 +24,7 @@ internal class AddLanguageExtensionsOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => typeof(LanguageExtensionsListModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override string? UriSuffix() => "/addLanguageExtensions";
 

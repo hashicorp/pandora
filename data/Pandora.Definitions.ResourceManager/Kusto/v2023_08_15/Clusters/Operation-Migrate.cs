@@ -24,7 +24,7 @@ internal class MigrateOperation : Pandora.Definitions.Operations.PostOperation
 
     public override Type? RequestObject() => typeof(ClusterMigrateRequestModel);
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override string? UriSuffix() => "/migrate";
 

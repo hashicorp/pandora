@@ -21,7 +21,7 @@ internal class ListFollowerDatabasesOperation : Pandora.Definitions.Operations.P
 
     public override Type? RequestObject() => null;
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override Type? ResponseObject() => typeof(FollowerDatabaseListResultModel);
 

@@ -16,7 +16,7 @@ internal class ClustersListOutboundNetworkDependenciesEndpointsOperation : Pando
 {
     public override string? FieldContainingPaginationDetails() => "nextLink";
 
-    public override ResourceID? ResourceId() => new ClusterId();
+    public override ResourceID? ResourceId() => new KustoClusterId();
 
     public override Type NestedItemType() => typeof(OutboundNetworkDependenciesEndpointModel);
 
