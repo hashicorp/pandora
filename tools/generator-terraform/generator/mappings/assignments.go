@@ -98,7 +98,9 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 		if err != nil {
 			return nil, fmt.Errorf("building create/update assignment line for assignment type %q (Mapping %q): %+v", string(mapping.Type), mapping.String(), err)
 		}
-		lines = append(lines, *assignmentLine)
+		if assignmentLine != nil {
+			lines = append(lines, *assignmentLine)
+		}
 	}
 
 	out := strings.Join(lines, "\n")
@@ -176,7 +178,9 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanage
 		if err != nil {
 			return nil, fmt.Errorf("building read assignment line for constant assignment type %q: %+v", mapping.Type, err)
 		}
-		lines = append(lines, *assignmentLine)
+		if assignmentLine != nil {
+			lines = append(lines, *assignmentLine)
+		}
 	}
 
 	out := strings.Join(lines, "\n")

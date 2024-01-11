@@ -21,6 +21,9 @@ func (m modelToModelAssignmentLine) assignmentForCreateUpdateMapping(mapping res
 		return nil, fmt.Errorf("couldn't find SDK Field %q in Model %q", mapping.ModelToModel.SdkFieldName, mapping.ModelToModel.SdkModelName)
 	}
 	if sdkField.ObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+			return nil, nil
+		}
 		return nil, fmt.Errorf("a ModelToModel mapping must be a Reference but got %q", string(sdkField.ObjectDefinition.Type))
 	}
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
@@ -58,6 +61,9 @@ func (m modelToModelAssignmentLine) assignmentForReadMapping(mapping resourceman
 		return nil, fmt.Errorf("couldn't find SDK Field %q in Model %q", mapping.ModelToModel.SdkFieldName, mapping.ModelToModel.SdkModelName)
 	}
 	if sdkField.ObjectDefinition.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+			return nil, nil
+		}
 		return nil, fmt.Errorf("a ModelToModel mapping must be a Reference but got %q", string(sdkField.ObjectDefinition.Type))
 	}
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
