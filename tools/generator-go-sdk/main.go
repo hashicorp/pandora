@@ -47,7 +47,6 @@ func main() {
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
-		"ServiceFabricManagedCluster",
 		"SqlVirtualMachine",
 		"StreamAnalytics",
 		"Subscription",
