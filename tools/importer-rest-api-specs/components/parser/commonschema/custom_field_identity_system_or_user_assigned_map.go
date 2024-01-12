@@ -107,6 +107,7 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, def
 			continue
 		}
 
+		// Per the API Definition, the `DelegatedResources` field is for `internal use only` - therefore we should ignore this if it's present
 		if strings.EqualFold(fieldName, "DelegatedResources") {
 			continue
 		}
