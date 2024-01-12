@@ -107,6 +107,10 @@ func (systemOrUserAssignedIdentityMapMatcher) IsMatch(_ models.FieldDetails, def
 			continue
 		}
 
+		if strings.EqualFold(fieldName, "DelegatedResources") {
+			continue
+		}
+
 		// other fields
 		return false
 	}
