@@ -53,11 +53,17 @@ type resourceDefinition struct {
 	// TestData contains specific values for the tests of this resource
 	TestData []resourceTestDataDefinition `hcl:"test_data,block"`
 
-	// SchemaOverrides contains schema property names that should be renamed
-	SchemaOverrides *map[string]string `hcl:"schema_overrides"`
+	// Overrides contains a mapping of properties that require renames or custom descriptions, for now
+	Overrides *map[string]override `hcl:"overrides"`
+}
 
-	// DocumentationOverrides contains property descriptions that need to be customised
-	DocumentationOverrides *map[string]string `hcl:"documentation_overrides"`
+type override struct {
+	// Name defines an override for the Name for this field
+	Name *string `hcl:"name,omitempty"`
+
+	// Description defines a custom description for this field.
+	// If unspecified a description will be determined based on the field name.
+	Description *string `hcl:"description,omitempty"`
 }
 
 type resourceTestDataDefinition struct {
