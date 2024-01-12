@@ -12,6 +12,9 @@ import (
 var servicesUsingOldBaseLayer = map[string]struct{}{
 	// these should be lower-cased
 	"containerservice": {},
+
+	// purely for testing purposes
+	"examplelegacypackage": {},
 }
 
 func templateForServiceClient(input models.ServiceInput) string {
