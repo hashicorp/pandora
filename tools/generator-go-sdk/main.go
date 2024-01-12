@@ -33,8 +33,6 @@ func main() {
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
 
-		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
-		// for services/resources which are auto-generated
 		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
@@ -58,9 +56,9 @@ func main() {
 		"Automation@2021-06-22",
 
 		// @tombuildsstuff: there's generated resources associated with these three - please check before removing these
+		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
+		// for services/resources which are auto-generated
 		"ContainerService",
-		"LoadTestService",
-		"ManagedIdentity",
 
 		// @tombuildsstuff: KeyVault requires that the exact casing retrieved from the API is re-sent back to the API
 		// as such will require custom work in the Provider (potentially a custom unmarshaller from the HTTP Body) to support this
