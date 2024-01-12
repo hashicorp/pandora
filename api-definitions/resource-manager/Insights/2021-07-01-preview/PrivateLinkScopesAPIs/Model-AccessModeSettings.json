@@ -1,0 +1,45 @@
+{
+ "name": "AccessModeSettings",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "exclusions",
+   "name": "Exclusions",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "AccessModeSettingsExclusion"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ingestionAccessMode",
+   "name": "IngestionAccessMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessMode"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queryAccessMode",
+   "name": "QueryAccessMode",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AccessMode"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}
