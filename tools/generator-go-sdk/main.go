@@ -38,7 +38,6 @@ func main() {
 		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
-		"DataShare",
 		"FrontDoor",
 		"Insights",
 		"Maintenance",
