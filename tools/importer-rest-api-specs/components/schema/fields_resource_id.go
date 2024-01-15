@@ -2,6 +2,7 @@ package schema
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
@@ -9,8 +10,13 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, resource *resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.ResourceIdDefinition, mappings *resourcemanager.MappingDefinition, displayName string, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
+	overrides := make([]models.Override, 0)
+
+	if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
+		overrides = resourceBuildInfo.Overrides
+	}
 
 	// first determine whether we are dealing with a nested resource
 	parentResourceFound := false
@@ -31,7 +37,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	}
 
 	if parentResourceFound && parentResourceIdName == "" {
-		logger.Debug("parent resource detected for %s but was not present in resource's ID definitions", resource.DisplayName)
+		logger.Debug("parent resource detected for %s but was not present in resource's ID definitions", displayName)
 	}
 
 	// if a parent is resource is found and present in the ResourceID mappings then we use this
@@ -45,7 +51,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			ForceNew: true,
 			HclName:  "name",
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment("Name", resource.DisplayName, resource.DocumentationOverrides),
+				Markdown: descriptionForResourceIDSegment("Name", displayName, overrides),
 			},
 		}
 
@@ -59,7 +65,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			ForceNew: true,
 			HclName:  helpers.ConvertToSnakeCase(parentResourceIdName),
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-				Markdown: descriptionForResourceIDSegment(parentResourceIdName, resource.DisplayName, resource.DocumentationOverrides),
+				Markdown: descriptionForResourceIDSegment(parentResourceIdName, displayName, overrides),
 			},
 		}
 
@@ -94,11 +100,17 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				// if it's the last one override the name since that'll be the name of this Resource
 				fieldName = "Name"
 			}
-			var err error
-			fieldName, err = updateFieldNameFromSchemaOverrides(fieldName, resource)
-			if err != nil {
-				return nil, nil, fmt.Errorf("overriding schema property from resource ID: %+v", err)
+
+			if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
+				updated, err := applySchemaOverrides(fieldName, resourceBuildInfo.Overrides)
+				if err != nil {
+					return nil, nil, fmt.Errorf("updating schema property from resource ID: %+v", err)
+				}
+				if updated != nil {
+					fieldName = *updated
+				}
 			}
+
 			hclName := helpers.ConvertToSnakeCase(fieldName)
 
 			field := resourcemanager.TerraformSchemaFieldDefinition{
@@ -110,7 +122,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				ForceNew: true,
 				HclName:  hclName,
 				Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
-					Markdown: descriptionForResourceIDSegment(fieldName, resource.DisplayName, resource.DocumentationOverrides),
+					Markdown: descriptionForResourceIDSegment(fieldName, displayName, overrides),
 				},
 			}
 			if v.Type == resourcemanager.ResourceGroupSegment {
@@ -132,11 +144,18 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 	return &out, mappings, nil
 }
 
-func descriptionForResourceIDSegment(input, resourceDisplayName string, documentationOverrides *map[string]string) string {
-	if documentationOverrides != nil {
-		for field, description := range *documentationOverrides {
-			if strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(field)) {
-				return description
+func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []models.Override) string {
+	if overrides != nil && len(overrides) > 0 {
+		for _, o := range overrides {
+			if o.UpdatedName != nil && strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {
+				if o.Description != nil {
+					return *o.Description
+				}
+			}
+			if strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(o.Name)) {
+				if o.Description != nil {
+					return *o.Description
+				}
 			}
 		}
 	}

@@ -14,31 +14,15 @@ type FieldMetadata struct {
 	Constants        map[string]resourcemanager.ConstantDetails
 }
 
-//var NamingRules = []FieldNameProcessor{
-//	// Exists should be first rule in the list since that checks whether the field even exists in the model
-//	fieldNameExists{},
-//	fieldNameRemoveIsPrefix{},
-//	fieldNamePluralToSingular{},
-//	fieldNameRemoveResourcePrefix{},
-//	fieldNameRenameBoolean{},
-//	fieldNameRenameMislabelledResourceID{},
-//	fieldNameMaxToMaximum{},
-//	//TODO perhaps this should be applied somewhere else since it should apply to all possible fields in a schema
-//	// currently this would only apply to fields that exist in the Properties model, but we may not want to apply
-//	// all of the processors above to fields that are taken from the resource ID
-//	fieldNameSchemaOverrideRename{},
-//}
-
-var NamingRules = map[string]FieldNameProcessor{
+var NamingRules = []FieldNameProcessor{
 	// Exists should be first rule in the list since that checks whether the field even exists in the model
-	"Exists":                fieldNameExists{},
-	"RemoveIsPrefix":        fieldNameRemoveIsPrefix{},
-	"PluralToSingular":      fieldNamePluralToSingular{},
-	"RemoveResourcePrefix":  fieldNameRemoveResourcePrefix{},
-	"RenameBoolean":         fieldNameRenameBoolean{},
-	"MislabelledResourceID": fieldNameRenameMislabelledResourceID{},
-	"MaxToMinimum":          fieldNameMaxToMaximum{},
-	"SchemaOverrides":       fieldNameSchemaOverrideRename{},
+	fieldNameExists{},
+	fieldNameRemoveIsPrefix{},
+	fieldNamePluralToSingular{},
+	fieldNameRemoveResourcePrefix{},
+	fieldNameRenameBoolean{},
+	fieldNameRenameMislabelledResourceID{},
+	fieldNameMaxToMaximum{},
 }
 
 //TODO: Below is a list common scenarios which might require a processor

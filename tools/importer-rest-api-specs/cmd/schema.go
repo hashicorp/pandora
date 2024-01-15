@@ -3,6 +3,7 @@ package cmd
 import (
 	"flag"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"log"
 	"strings"
 
@@ -127,7 +128,7 @@ func run(input Input) error {
 
 				for resourceName, resource := range candidates.Resources {
 					logger.Trace(fmt.Sprintf("Found Resource %q..", resourceName))
-					schemaDefinition, mappings, err := builder.Build(resource, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
+					schemaDefinition, mappings, err := builder.Build(resource, &models.ResourceBuildInfo{}, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
 					if err != nil {
 						return fmt.Errorf("processing schema for candidate %s: %+v", resourceName, err)
 					}

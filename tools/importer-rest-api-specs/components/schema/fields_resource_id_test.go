@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 	"testing"
 
@@ -19,10 +20,8 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Nothing",
-	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Nothing", &models.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err == nil {
 		t.Fatalf("expected an error but didn't get one")
 	}
@@ -61,10 +60,8 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Resource Group",
-	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Resource Group", &models.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -152,10 +149,8 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Virtual Machine",
-	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine", &models.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -270,9 +265,6 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Virtual Machine Extension",
-	}
 	actualFields, actualMappings, err := Builder{
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"VirtualMachineId": {
@@ -318,7 +310,7 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 				},
 			},
 		},
-	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Virtual Machine Extension", &models.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -440,9 +432,6 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Kubernetes Cluster Trusted Access Role Binding",
-	}
 	actualFields, actualMappings, err := Builder{
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"KubernetesClusterId": {
@@ -489,7 +478,7 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 				},
 			},
 		},
-	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+	}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Kubernetes Cluster Trusted Access Role Binding", &models.ResourceBuildInfo{}, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -600,14 +589,20 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Chaos Studio Target",
-		SchemaOverrides: &map[string]string{
-			"name":  "target_type",
-			"scope": "target_resource_id",
+	inputResourceBuildInfo := models.ResourceBuildInfo{
+		Overrides: []models.Override{
+			{
+				Name:        "name",
+				UpdatedName: pointer.To("target_type"),
+			},
+			{
+				Name:        "scope",
+				UpdatedName: pointer.To("target_resource_id"),
+			},
 		},
 	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Chaos Studio Target", &inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}
@@ -713,17 +708,21 @@ func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
-	inputTerraformDetails := resourcemanager.TerraformResourceDetails{
-		DisplayName: "Chaos Studio Target",
-		SchemaOverrides: &map[string]string{
-			"name":  "target_type",
-			"scope": "target_resource_id",
-		},
-		DocumentationOverrides: &map[string]string{
-			"target_type": "Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here.",
+	inputResourceBuildInfo := models.ResourceBuildInfo{
+		Overrides: []models.Override{
+			{
+				Name:        "name",
+				UpdatedName: pointer.To("target_type"),
+				Description: pointer.To("Specifies the Target Type of a Chaos Studio Target. Plus some additional useful information here."),
+			},
+			{
+				Name:        "scope",
+				UpdatedName: pointer.To("target_resource_id"),
+			},
 		},
 	}
-	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, &inputTerraformDetails, hclog.New(hclog.DefaultOptions))
+
+	actualFields, actualMappings, err := Builder{}.identifyTopLevelFieldsWithinResourceID(input, &inputMappings, "Chaos Studio Target", &inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("error: %+v", err)
 	}

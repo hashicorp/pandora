@@ -1,6 +1,7 @@
 package schema
 
 import (
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
@@ -145,7 +146,10 @@ func TestBuildForResourceGroupHappyPathAllModelsTheSame(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+
+	var inputResourceBuildInfo *models.ResourceBuildInfo
+
+	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
@@ -345,7 +349,10 @@ func TestBuildForResourceGroupUsingRealData(t *testing.T) {
 			TimeoutInMinutes: 30,
 		},
 	}
-	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+
+	var inputResourceBuildInfo *models.ResourceBuildInfo
+
+	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Fatalf("building schema: %+v", err)
 	}
