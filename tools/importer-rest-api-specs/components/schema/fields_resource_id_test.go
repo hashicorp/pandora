@@ -1,12 +1,12 @@
 package schema
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"strings"
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
