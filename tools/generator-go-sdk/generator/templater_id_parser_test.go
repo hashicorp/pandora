@@ -49,7 +49,7 @@ import (
 
 // acctests licence placeholder
 
-var _ resourceids.ResourceId = BasicTestId{}
+var _ resourceids.ResourceId = &BasicTestId{}
 
 	// BasicTestId is a struct representing the Resource ID for a Basic Test
 	type BasicTestId struct {
@@ -65,7 +65,7 @@ var _ resourceids.ResourceId = BasicTestId{}
 
 	// ParseBasicTestID parses 'input' into a BasicTestId
 	func ParseBasicTestID(input string) (*BasicTestId, error) {
-        parser := resourceids.NewParserFromResourceIdType(BasicTestId{})
+        parser := resourceids.NewParserFromResourceIdType(&BasicTestId{})
         parsed, err := parser.Parse(input, false)
         if err != nil {
 	        return nil, fmt.Errorf("parsing %q: %+v", input, err)
@@ -82,7 +82,7 @@ var _ resourceids.ResourceId = BasicTestId{}
 	// ParseBasicTestIDInsensitively parses 'input' case-insensitively into a BasicTestId
 	// note: this method should only be used for API response data and not user input
 	func ParseBasicTestIDInsensitively(input string) (*BasicTestId, error) {
-        parser := resourceids.NewParserFromResourceIdType(BasicTestId{})
+        parser := resourceids.NewParserFromResourceIdType(&BasicTestId{})
         parsed, err := parser.Parse(input, true)
         if err != nil {
 	        return nil, fmt.Errorf("parsing %q: %+v", input, err)
@@ -204,7 +204,7 @@ import (
 
 // acctests licence placeholder
 
-var _ resourceids.ResourceId = ConstantOnlyId{}
+var _ resourceids.ResourceId = &ConstantOnlyId{}
 
 // ConstantOnlyId is a struct representing the Resource ID for a Constant Only
 type ConstantOnlyId struct {
@@ -220,7 +220,7 @@ func NewConstantOnlyID(thingId Thing) ConstantOnlyId {
 
 // ParseConstantOnlyID parses 'input' into a ConstantOnlyId
 func ParseConstantOnlyID(input string) (*ConstantOnlyId, error) {
-	parser := resourceids.NewParserFromResourceIdType(ConstantOnlyId{})
+	parser := resourceids.NewParserFromResourceIdType(&ConstantOnlyId{})
 	parsed, err := parser.Parse(input, false)
 	if err != nil {
 		return nil, fmt.Errorf("parsing %q: %+v", input, err)
@@ -237,7 +237,7 @@ func ParseConstantOnlyID(input string) (*ConstantOnlyId, error) {
 // ParseConstantOnlyIDInsensitively parses 'input' case-insensitively into a ConstantOnlyId
 // note: this method should only be used for API response data and not user input
 func ParseConstantOnlyIDInsensitively(input string) (*ConstantOnlyId, error) {
-	parser := resourceids.NewParserFromResourceIdType(ConstantOnlyId{})
+	parser := resourceids.NewParserFromResourceIdType(&ConstantOnlyId{})
 	parsed, err := parser.Parse(input, true)
 	if err != nil {
 		return nil, fmt.Errorf("parsing %q: %+v", input, err)

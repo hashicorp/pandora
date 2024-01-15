@@ -73,7 +73,7 @@ func (r resourceIdTemplater) structBody() (*string, error) {
 
 	wordifiedName := wordifyString(r.name)
 	out := fmt.Sprintf(`
-var _ resourceids.ResourceId = %[1]s{}
+var _ resourceids.ResourceId = &%[1]s{}
 
 // %[1]s is a struct representing the Resource ID for a %[3]s
 type %[1]s struct {
@@ -279,7 +279,7 @@ func (r resourceIdTemplater) parseFunction(nameWithoutSuffix string, caseSensiti
 
 	out := fmt.Sprintf(`%[4]s
 func %[1]s(input string) (*%[2]s, error) {
-	parser := resourceids.NewParserFromResourceIdType(%[2]s{})
+	parser := resourceids.NewParserFromResourceIdType(&%[2]s{})
 	parsed, err := parser.Parse(input, %[3]t)
 	if err != nil {
 		return nil, fmt.Errorf("parsing %%q: %%+v", input, err)
