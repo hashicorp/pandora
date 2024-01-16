@@ -55,6 +55,16 @@ type OperationDetails struct {
 	UriSuffix                        *string
 }
 
+type ResourceBuildInfo struct {
+	Overrides []Override
+}
+
+type Override struct {
+	Name        string
+	UpdatedName *string
+	Description *string
+}
+
 type ObjectDefinition struct {
 	// NestedItem is an optional nested ObjectDefinition when Type is a Dictionary or List
 	NestedItem *ObjectDefinition

@@ -120,9 +120,33 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			}
 		}
 
+		resourceBuildInfo := make(map[string]models.ResourceBuildInfo)
+
+		if api[0].TerraformServiceDefinition != nil {
+			for _, versionDetails := range api[0].TerraformServiceDefinition.ApiVersions {
+				for _, pkgDetails := range versionDetails.Packages {
+					for resource, resourceDetails := range pkgDetails.Definitions {
+						if resourceDetails.Overrides != nil {
+							overrides := make([]models.Override, 0)
+							for _, o := range *resourceDetails.Overrides {
+								overrides = append(overrides, models.Override{
+									Name:        o.Name,
+									UpdatedName: o.UpdatedName,
+									Description: o.Description,
+								})
+							}
+							resourceBuildInfo[resource] = models.ResourceBuildInfo{
+								Overrides: overrides,
+							}
+						}
+					}
+				}
+			}
+		}
+
 		versionLogger.Trace("generating Terraform Details")
 		var err error
-		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, versionLogger.Named("TerraformDetails"))
+		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, &resourceBuildInfo, versionLogger.Named("TerraformDetails"))
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}

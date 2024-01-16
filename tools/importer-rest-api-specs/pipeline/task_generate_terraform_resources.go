@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, resourceBuildInfo *map[string]models.ResourceBuildInfo, logger hclog.Logger) (*models.AzureApiDefinition, error) {
 	for key, resource := range data.Resources {
 		if resource.Terraform == nil {
 			continue
@@ -34,7 +34,14 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, lo
 			// use the ResourceName to build up the name for this Schema Model
 			resourceDetails.SchemaModelName = fmt.Sprintf("%sResource", resourceDetails.ResourceName)
 
-			modelsForResource, mappings, err := b.Build(resourceDetails, logger)
+			var buildInfo *models.ResourceBuildInfo
+			if resourceBuildInfo != nil {
+				if b, ok := (*resourceBuildInfo)[resourceLabel]; ok {
+					buildInfo = &b
+				}
+			}
+
+			modelsForResource, mappings, err := b.Build(resourceDetails, buildInfo, logger)
 			if err != nil {
 				return nil, err
 			}

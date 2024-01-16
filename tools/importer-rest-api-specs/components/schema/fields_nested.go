@@ -7,10 +7,11 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, input operationPayloads, resource *resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *models.ResourceBuildInfo, named hclog.Logger) (*map[string]resourcemanager.TerraformSchemaFieldDefinition, *resourcemanager.MappingDefinition, error) {
 	allFields := make(map[string]struct{}, 0)
 	propertiesPayloads := input.createReadUpdatePayloadsProperties()
 	for _, model := range propertiesPayloads {
@@ -76,11 +77,11 @@ func (b Builder) identifyFieldsWithinPropertiesBlock(schemaModelName string, inp
 
 		fieldNameForTypedModel := ""
 		if hasRead {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource, b.constants)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.readPropertiesPayload, resource, b.constants, resourceBuildInfo)
 		} else if hasCreate {
-			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource, b.constants)
+			fieldNameForTypedModel, err = updateFieldName(k, &input.createPropertiesPayload, resource, b.constants, resourceBuildInfo)
 		} else if hasUpdate {
-			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource, b.constants)
+			fieldNameForTypedModel, err = updateFieldName(k, input.updatePropertiesPayload, resource, b.constants, resourceBuildInfo)
 		}
 
 		if err != nil {

@@ -2,10 +2,10 @@ package schema
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -35,13 +35,13 @@ func NewBuilder(constants map[string]resourcemanager.ConstantDetails, models map
 }
 
 // Build produces a map of TerraformSchemaModelDefinitions which comprise the Schema for this Resource
-func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) Build(input resourcemanager.TerraformResourceDetails, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*map[string]resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	mappings := resourcemanager.MappingDefinition{
 		Fields:     []resourcemanager.FieldMappingDefinition{},
 		ResourceId: []resourcemanager.ResourceIdMappingDefinition{},
 	}
 
-	parsedTopLevelModel, err := b.schemaFromTopLevelModel(input, &mappings, logger.Named("top level model"))
+	parsedTopLevelModel, err := b.schemaFromTopLevelModel(input, &mappings, resourceBuildInfo, logger.Named("top level model"))
 	if err != nil {
 		return nil, nil, fmt.Errorf("building schema from top level model: %+v", err)
 	}
@@ -66,7 +66,7 @@ func (b Builder) Build(input resourcemanager.TerraformResourceDetails, logger hc
 		// models should be prefixed with the resource name to avoid conflicts where a model is reused across a package
 		// for example `VirtualMachineAdditionalCapabilitiesSchema`
 		prefixedModelName := fmt.Sprintf("%s%s", input.SchemaModelName, modelName)
-		nestedModelDetails, updatedMappings, err := b.buildNestedModelDefinition(prefixedModelName, input.SchemaModelName, modelName, modelDetails, input, mappings, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
+		nestedModelDetails, updatedMappings, err := b.buildNestedModelDefinition(prefixedModelName, input.SchemaModelName, modelName, modelDetails, input, mappings, resourceBuildInfo, logger.Named(fmt.Sprintf("Nested Model Definition %q", modelName)))
 		if err != nil {
 			return nil, nil, fmt.Errorf("building model definition for nested model %q: %+v", modelName, err)
 		}
@@ -247,7 +247,7 @@ type modelParseResult struct {
 	nestedModels map[string]resourcemanager.ModelDetails
 }
 
-func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, logger hclog.Logger) (*modelParseResult, error) {
+func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResourceDetails, mappings *resourcemanager.MappingDefinition, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*modelParseResult, error) {
 	createReadUpdateMethods, err := b.findCreateUpdateReadPayloads(input)
 	if err != nil {
 		return nil, fmt.Errorf("finding create/update/read payloads: %+v", err)
@@ -269,7 +269,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 	if !ok {
 		return nil, fmt.Errorf("couldn't find Resource ID named %q", input.ResourceIdName)
 	}
-	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, logger.Named("TopLevelFields ResourceID"))
+	fieldsWithinResourceId, mappings, err := b.identifyTopLevelFieldsWithinResourceID(resourceId, mappings, input.DisplayName, resourceBuildInfo, logger.Named("TopLevelFields ResourceID"))
 	if err != nil {
 		return nil, fmt.Errorf("identifying top level fields within Resource ID %q: %+v", resourceId.Id, err)
 	}
@@ -277,7 +277,7 @@ func (b Builder) schemaFromTopLevelModel(input resourcemanager.TerraformResource
 		schemaFields[k] = v
 	}
 
-	fieldsWithinProperties, mappings, err := b.identifyFieldsWithinPropertiesBlock(input.SchemaModelName, *createReadUpdateMethods, &input, mappings, logger.Named("TopLevelFields PropertiesFields"))
+	fieldsWithinProperties, mappings, err := b.identifyFieldsWithinPropertiesBlock(input.SchemaModelName, *createReadUpdateMethods, &input, mappings, resourceBuildInfo, logger.Named("TopLevelFields PropertiesFields"))
 	if err != nil {
 		return nil, fmt.Errorf("parsing fields within the `properties` block for the create/read/update methods: %+v", err)
 	}
@@ -434,7 +434,7 @@ func (b Builder) findCreateUpdateReadPayloads(input resourcemanager.TerraformRes
 	return &out, nil
 }
 
-func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
+func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, sdkModelName string, model resourcemanager.ModelDetails, details resourcemanager.TerraformResourceDetails, mappings resourcemanager.MappingDefinition, resourceBuildInfo *models.ResourceBuildInfo, logger hclog.Logger) (*resourcemanager.TerraformSchemaModelDefinition, *resourcemanager.MappingDefinition, error) {
 	out := make(map[string]resourcemanager.TerraformSchemaFieldDefinition, 0)
 
 	for sdkFieldName, sdkField := range model.Fields {
@@ -462,7 +462,7 @@ func (b Builder) buildNestedModelDefinition(schemaModelName, topLevelModelName, 
 			return nil, nil, fmt.Errorf("converting ObjectDefinition for field to a TerraformFieldObjectDefinition: %+v", err)
 		}
 		definition.ObjectDefinition = *fieldObjectDefinition
-		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.constants)
+		schemaFieldName, err := updateFieldName(sdkFieldName, &model, &details, b.constants, resourceBuildInfo)
 		if err != nil {
 			return nil, nil, err
 		}

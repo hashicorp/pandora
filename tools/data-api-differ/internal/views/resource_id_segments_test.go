@@ -56,7 +56,7 @@ func TestResourceIdSegmentsView_Markdown_WithChanges(t *testing.T) {
 
 The following new Static Identifiers were detected from the set of changes (new/updated Resource IDs).
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 
 Please review the following list of Static Identifiers:
 
@@ -70,7 +70,7 @@ Please review the following list of Static Identifiers:
 
 ---
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 `, "'", "`")
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
@@ -148,7 +148,7 @@ func TestResourceIdSegmentsView_Markdown_WithRelevantAndIrrelevantChanges(t *tes
 
 The following new Static Identifiers were detected from the set of changes (new/updated Resource IDs).
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 
 Please review the following list of Static Identifiers:
 
@@ -162,7 +162,7 @@ Please review the following list of Static Identifiers:
 
 ---
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 `, "'", "`")
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }

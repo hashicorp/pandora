@@ -72,7 +72,7 @@ No new Resource ID Segments containing Static Identifiers were identified in the
 
 The following new Static Identifiers were detected from the set of changes (new/updated Resource IDs).
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 
 Please review the following list of Static Identifiers:
 
@@ -82,7 +82,7 @@ Please review the following list of Static Identifiers:
 
 ---
 
-> Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
+> ⚠️ Note: Resource ID segments should **always** be 'camelCased' and not 'TitleCased', 'lowercased' or 'kebab-cased'.
 `, strings.Join(lines, "\n"))
 	output = strings.ReplaceAll(output, "'", "`")
 	//TODO: add a "see the link for how to fix this" to the comment above when the associated documentation is available

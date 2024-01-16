@@ -94,6 +94,12 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
+		if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
+			if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+				continue
+			}
+		}
+
 		assignmentLine, err := assignment.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 		if err != nil {
 			return nil, fmt.Errorf("building create/update assignment line for assignment type %q (Mapping %q): %+v", string(mapping.Type), mapping.String(), err)
@@ -172,6 +178,11 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
+		if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
+			if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+				continue
+			}
+		}
 		assignmentLine, err := assignment.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 		if err != nil {
 			return nil, fmt.Errorf("building read assignment line for constant assignment type %q: %+v", mapping.Type, err)
