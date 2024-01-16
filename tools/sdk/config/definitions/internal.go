@@ -41,6 +41,18 @@ type resourceDefinition struct {
 	// the Resource Type with spaces, but sometimes a different marketing name.
 	DisplayName string `hcl:"display_name"`
 
+	// GenerateCreate specifies whether the create method should be generated or not
+	GenerateCreate *bool `hcl:"generate_create"`
+
+	// GenerateDelete specifies whether the Delete method should be generated or not
+	GenerateDelete *bool `hcl:"generate_delete"`
+
+	// GenerateRead specifies whether the read method should be generated or not
+	GenerateRead *bool `hcl:"generate_read"`
+
+	// GenerateUpdate specifies whether the update method should be generated or not
+	GenerateUpdate *bool `hcl:"generate_update"`
+
 	// Id is the Resource ID which defines this resource
 	Id string `hcl:"id"`
 

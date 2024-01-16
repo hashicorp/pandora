@@ -49,3 +49,26 @@ type ExampleResource struct {}
 `)
 	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
 }
+
+func TestComponentDefinitionForMethodWithOutUpdate(t *testing.T) {
+	input := models.ResourceInput{
+		ResourceTypeName: "Example",
+		Details: resourcemanager.TerraformResourceDetails{
+			UpdateMethod: &resourcemanager.MethodDefinition{
+				MethodName:       "Update",
+				Generate:         false,
+				TimeoutInMinutes: 30,
+			},
+		},
+	}
+	actual, err := definitionForResource(input)
+	if err != nil {
+		t.Fatalf("error: %+v", err)
+	}
+	expected := strings.TrimSpace(`
+var _ sdk.Resource = ExampleResource{}
+
+type ExampleResource struct {}
+`)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}

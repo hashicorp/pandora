@@ -51,6 +51,18 @@ func (pipelineTask) generateTerraformDetails(data *models.AzureApiDefinition, re
 				continue
 			}
 
+			if resourceDetails.UpdateMethod != nil {
+				generateUpdate := false
+				for _, model := range *modelsForResource {
+					for _, field := range model.Fields {
+						if !field.ForceNew {
+							generateUpdate = true
+						}
+					}
+				}
+				resourceDetails.UpdateMethod.Generate = generateUpdate
+			}
+
 			resourceDetails.ApiVersion = data.ApiVersion
 			resourceDetails.SchemaModels = *modelsForResource
 			resourceDetails.Mappings = *mappings

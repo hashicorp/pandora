@@ -30,6 +30,18 @@ type ResourceDefinition struct {
 	// Name is the human-friendly/marketing name for this Resource
 	Name string
 
+	// GenerateCreate specifies whether the create method should be generated or not
+	GenerateCreate bool
+
+	// GenerateDelete specifies whether the Delete method should be generated or not
+	GenerateDelete bool
+
+	// GenerateRead specifies whether the read method should be generated or not
+	GenerateRead bool
+
+	// GenerateUpdate specifies whether the update method should be generated or not
+	GenerateUpdate bool
+
 	// WebsiteSubcategory is the name of the subcategory which this Resource should appear under on the website
 	WebsiteSubcategory string
 
