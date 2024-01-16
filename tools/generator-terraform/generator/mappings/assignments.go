@@ -94,9 +94,11 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
-			if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
-				continue
+		if mapping.ModelToModel != nil {
+			if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
+				if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+					continue
+				}
 			}
 		}
 
@@ -178,9 +180,11 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
-			if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
-				continue
+		if mapping.ModelToModel != nil {
+			if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
+				if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
+					continue
+				}
 			}
 		}
 		assignmentLine, err := assignment.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
