@@ -843,7 +843,6 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 	}
 
 	var schemaModel dataapimodels.TerraformSchemaModel
-
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
 		return input, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
