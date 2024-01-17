@@ -1,0 +1,52 @@
+{
+ "name": "ConnectionId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{botServiceName}/connections/{connectionName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBotService",
+   "type": "ResourceProvider",
+   "value": "Microsoft.BotService"
+  },
+  {
+   "name": "staticBotServices",
+   "type": "Static",
+   "value": "botServices"
+  },
+  {
+   "name": "botServiceName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticConnections",
+   "type": "Static",
+   "value": "connections"
+  },
+  {
+   "name": "connectionName",
+   "type": "UserSpecified"
+  }
+ ]
+}
