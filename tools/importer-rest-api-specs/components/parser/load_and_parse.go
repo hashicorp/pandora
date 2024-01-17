@@ -87,17 +87,6 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
 	}
 
-	// the response object is removed for long-running operations (see #2828) as well as for operations that are not
-	// list operations for parity with the former data api definitions in C# (see #3364).
-	// this can only be done here, since there are data workarounds that manipulate the operation information that
-	// we need to determine if the response object should be stripped or not e.g. workaround_automation_25435.go
-	for _, service := range *output {
-		for _, resource := range service.Resources {
-			operations := removeResponseObjectForSpecificOperations(&resource.Operations)
-			resource.Operations = *operations
-		}
-	}
-
 	out = *output
 
 	if len(out) > 1 {
