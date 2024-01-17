@@ -7,6 +7,7 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigenerator"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -51,7 +52,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		if featureflags.GenerateV2APIDefinitions {
 			serviceDirectoryV2 := path.Join(input.OutputDirectoryJson, serviceName)
 			logger.Debug("recreating the V2 working directory at %q for Service %q", serviceDirectoryV2, serviceName)
-			if err := dataapigenerator.RecreateDirectory(serviceDirectoryV2, logger); err != nil {
+			if err := dataapigeneratorjson.RecreateDirectory(serviceDirectoryV2, logger); err != nil {
 				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryV2, serviceName)
 			}
 		}

@@ -9,7 +9,7 @@ import (
 )
 
 func (s Generator) generateResources(resource models.AzureApiResource, workingDirectory string, logger hclog.Logger) error {
-	if err := recreateDirectory(workingDirectory, s.logger); err != nil {
+	if err := RecreateDirectory(workingDirectory, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}
 

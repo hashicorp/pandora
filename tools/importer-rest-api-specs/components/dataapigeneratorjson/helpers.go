@@ -14,7 +14,7 @@ func (s Generator) workingDirectoryForResource(resource string) string {
 	return path.Join(dir, resource)
 }
 
-func recreateDirectory(directory string, logger hclog.Logger) error {
+func RecreateDirectory(directory string, logger hclog.Logger) error {
 	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
 	if err := os.RemoveAll(directory); err != nil {
 		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
