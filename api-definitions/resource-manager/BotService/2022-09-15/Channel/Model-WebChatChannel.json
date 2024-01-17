@@ -1,0 +1,20 @@
+{
+ "name": "WebChatChannel",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WebChatChannelProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Channel",
+ "discriminatedTypeValue": "WebChatChannel",
+ "typeHintIn": "ChannelName"
+}
