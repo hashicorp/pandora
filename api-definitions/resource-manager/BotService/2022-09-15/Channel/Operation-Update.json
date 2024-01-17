@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "BotServiceChannelId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BotChannel"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BotChannel"
+ }
+}
