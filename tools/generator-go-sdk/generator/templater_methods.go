@@ -539,6 +539,18 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 		}
 		typeName := *golangTypeName
 
+		discriminatedTypeParentName := ""
+		if model, ok := data.models[typeName]; ok {
+			// it's either a parent model
+			if model.TypeHintIn != nil {
+				discriminatedTypeParentName = typeName
+			}
+			// or an implementation referencing a parent
+			if model.ParentTypeName != nil {
+				discriminatedTypeParentName = *model.ParentTypeName
+			}
+		}
+
 		if c.operation.FieldContainingPaginationDetails != nil {
 			output = fmt.Sprintf(`
 	var values struct {
@@ -550,19 +562,32 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 
 	result.Model = values.Values
 `, typeName, "`json:\"value\"`")
-			return &output, nil
-		}
 
-		discriminatedTypeParentName := ""
-		if model, ok := data.models[typeName]; ok {
-			// it's either a parent model
-			if model.TypeHintIn != nil {
-				discriminatedTypeParentName = typeName
+			if discriminatedTypeParentName != "" {
+				output = fmt.Sprintf(`
+	var values struct {
+		Values *[]json.RawMessage %[2]s
+	}
+	if err = resp.Unmarshal(&values); err != nil {
+		return
+	}
+
+	temp := make([]%[1]s, 0)
+	if values.Values != nil {
+		for i, v := range *values.Values {
+			val, err := unmarshal%[1]sImplementation(v)
+			if err != nil {
+				err = fmt.Errorf("unmarshalling item %%d for %[1]s (%%q): %%+v", i, v, err)
+				return result, err
 			}
-			// or an implementation referencing a parent
-			if model.ParentTypeName != nil {
-				discriminatedTypeParentName = *model.ParentTypeName
+			temp = append(temp, val)
+		}
+	}
+	result.Model = &temp
+`, typeName, "`json:\"value\"`")
 			}
+
+			return &output, nil
 		}
 
 		// when this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
