@@ -14,10 +14,9 @@ type RunInput struct {
 	DataApiEndpoint          *string
 	JustOutputSegments       bool
 	JustParseData            bool
-	Logger                   hclog.Logger
-	OutputDirectoryCS        string
-	OutputDirectoryJson      string
-	ProviderPrefix           string
+	Logger          hclog.Logger
+	OutputDirectory string
+	ProviderPrefix  string
 	Services                 []string
 	SwaggerDirectory         string
 	TerraformDefinitionsPath string
@@ -31,11 +30,10 @@ func Run(input RunInput) error {
 	}
 
 	findInput := discovery.FindServiceInput{
-		SwaggerDirectory:    input.SwaggerDirectory,
-		ConfigFilePath:      input.ConfigFilePath,
-		OutputDirectoryCS:   input.OutputDirectoryCS,
-		OutputDirectoryJson: input.OutputDirectoryJson,
-		Logger:              input.Logger.Named("Discovery"),
+		SwaggerDirectory: input.SwaggerDirectory,
+		ConfigFilePath:   input.ConfigFilePath,
+		OutputDirectory:  input.OutputDirectory,
+		Logger:           input.Logger.Named("Discovery"),
 	}
 
 	var generationData *[]discovery.ServiceInput

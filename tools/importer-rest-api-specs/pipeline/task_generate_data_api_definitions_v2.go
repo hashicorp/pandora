@@ -5,16 +5,10 @@ import (
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []models.AzureApiDefinition, outputDirectory, swaggerGitSha string, resourceProvider, terraformPackageName *string, logger hclog.Logger) error {
-	if !featureflags.GenerateV2APIDefinitions {
-		logger.Info("V2 API Definitions are feature-toggled off - skipping")
-		return nil
-	}
-
 	// TODO: we should recreate the folder for this service
 
 	// Generate each of the API Versions for this Service

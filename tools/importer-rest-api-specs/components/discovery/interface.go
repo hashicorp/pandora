@@ -9,9 +9,6 @@ type ServiceInput struct {
 	// ApiVersion is the version of the API (e.g. `2020-10-01`).
 	ApiVersion string
 
-	// OutputDirectoryCS is the directory where the generated C# files should be output.
-	OutputDirectoryCS string
-
 	// OutputDirectoryJson is the directory where the generated JSON files should be output.
 	OutputDirectoryJson string
 
@@ -40,7 +37,6 @@ type ServiceInput struct {
 type ResourceManagerServiceInput struct {
 	ServiceName                string
 	ApiVersion                 string
-	OutputDirectoryCS          string
 	OutputDirectoryJson        string
 	ResourceProvider           *string
 	ResourceProviderToFilterTo *string
@@ -55,7 +51,6 @@ func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
 		ApiVersion:                 rmi.ApiVersion,
 		ResourceProvider:           rmi.ResourceProvider,
 		ResourceProviderToFilterTo: rmi.ResourceProviderToFilterTo,
-		OutputDirectoryCS:          rmi.OutputDirectoryCS,
 		OutputDirectoryJson:        rmi.OutputDirectoryJson,
 		SwaggerDirectory:           rmi.SwaggerDirectory,
 		SwaggerFiles:               rmi.SwaggerFiles,

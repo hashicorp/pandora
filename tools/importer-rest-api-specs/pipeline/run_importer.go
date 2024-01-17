@@ -8,7 +8,6 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/featureflags"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -40,12 +39,10 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		serviceDetails := dataByServices[serviceName]
 		logger := input.Logger.Named(fmt.Sprintf("Importer for Service %q", serviceName))
 
-		if featureflags.GenerateV2APIDefinitions {
-			serviceDirectoryV2 := path.Join(input.OutputDirectoryJson, serviceName)
-			logger.Debug("recreating the V2 working directory at %q for Service %q", serviceDirectoryV2, serviceName)
-			if err := dataapigeneratorjson.RecreateDirectory(serviceDirectoryV2, logger); err != nil {
-				fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryV2, serviceName)
-			}
+		serviceDirectoryV2 := path.Join(input.OutputDirectory, serviceName)
+		logger.Debug("recreating the V2 working directory at %q for Service %q", serviceDirectoryV2, serviceName)
+		if err := dataapigeneratorjson.RecreateDirectory(serviceDirectoryV2, logger); err != nil {
+			fmt.Errorf("recreating JSON directory %q for service %q", serviceDirectoryV2, serviceName)
 		}
 
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {
@@ -153,7 +150,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Trace("Task: Generating Service Definitions (v2 / JSON)..")
-	if err := task.generateApiDefinitionsV2(serviceName, apiVersions, input.OutputDirectoryJson, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V2 API Definitions Generator")); err != nil {
+	if err := task.generateApiDefinitionsV2(serviceName, apiVersions, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V2 API Definitions Generator")); err != nil {
 		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
 	}
 
