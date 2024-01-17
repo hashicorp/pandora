@@ -13,7 +13,7 @@ func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []m
 
 	// Generate each of the API Versions for this Service
 	for _, apiVersion := range apiVersions {
-		logger.Debug("Generating Data API Definition in JSON..")
+		logger.Debug("Generating Data API Definition..")
 		apiVersionGenerator := dataapigeneratorjson.NewForApiVersion(apiVersion.ServiceName, apiVersion.ApiVersion, outputDirectory, resourceProvider, terraformPackageName, logger.Named("Data API Generator"))
 		if err := apiVersionGenerator.GenerateForApiVersion(apiVersion); err != nil {
 			err = fmt.Errorf("generating JSON Data API Definitions for Service %q / API Version %q: %+v", apiVersion.ServiceName, apiVersion.ApiVersion, err)
@@ -21,14 +21,14 @@ func (pipelineTask) generateApiDefinitionsV2(serviceName string, apiVersions []m
 			logger.Error(fmt.Sprintf("     💥 Error: %+v", err))
 			return err
 		}
-		logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q in JSON", apiVersion.ServiceName, apiVersion.ApiVersion))
+		logger.Info(fmt.Sprintf("✅ Service %q - Api Version %q", apiVersion.ServiceName, apiVersion.ApiVersion))
 
 	}
 
-	logger.Debug("Generating Service Definition in JSON..")
+	logger.Debug("Generating Service Definition..")
 	serviceGenerator := dataapigeneratorjson.NewForService(serviceName, outputDirectory, resourceProvider, terraformPackageName, logger)
 	if err := serviceGenerator.GenerateForService(apiVersions); err != nil {
-		return fmt.Errorf("generating service %q in JSON: %+v", serviceName, err)
+		return fmt.Errorf("generating service %q: %+v", serviceName, err)
 	}
 
 	return nil
