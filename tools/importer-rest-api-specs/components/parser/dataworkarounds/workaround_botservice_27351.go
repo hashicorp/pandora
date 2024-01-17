@@ -5,6 +5,7 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ workaround = workaroundBotService27351{}
@@ -65,6 +66,14 @@ func (workaroundBotService27351) Process(input models.AzureApiDefinition) (*mode
 		}
 		resource.Operations[operationName] = operation
 	}
+
+	// ensure the Constant `EmailChannelAuthMethod` is updated to be an Integer rather than a Float
+	constant, ok := resource.Constants["EmailChannelAuthMethod"]
+	if !ok {
+		return nil, fmt.Errorf("expected a Constant named `EmailChannelAuthMethod` but didn't get one")
+	}
+	constant.Type = resourcemanager.IntegerConstant
+	resource.Constants["EmailChannelAuthMethod"] = constant
 
 	output.Resources["Channel"] = resource
 
