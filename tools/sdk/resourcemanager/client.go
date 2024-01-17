@@ -18,22 +18,13 @@ type Client struct {
 	client *http.Client
 }
 
-func NewMicrosoftGraphBetaClient(endpoint string) Client {
+func NewMicrosoftGraphClient(endpoint string) Client {
 	return Client{
 		endpoint:    fmt.Sprintf("%s", endpoint),
-		apiEndpoint: "/v1/microsoft-graph/beta",
+		apiEndpoint: "/v1/microsoft-graph",
 		client:      retryablehttp.NewClient().StandardClient(),
 	}
 }
-
-func NewMicrosoftGraphStableV1Client(endpoint string) Client {
-	return Client{
-		endpoint:    fmt.Sprintf("%s", endpoint),
-		apiEndpoint: "/v1/microsoft-graph/stable-v1",
-		client:      retryablehttp.NewClient().StandardClient(),
-	}
-}
-
 func NewResourceManagerClient(endpoint string) Client {
 	return Client{
 		endpoint:    fmt.Sprintf("%s", endpoint),
