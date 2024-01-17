@@ -3,10 +3,6 @@ package discovery
 import "github.com/hashicorp/pandora/tools/sdk/config/definitions"
 
 type ServiceInput struct {
-	// RootNamespace is the root namespace which should be used as a prefix for each Service/API Version etc.
-	// (e.g. `Pandora.Definitions.ResourceManager`).
-	RootNamespace string
-
 	// ServiceName is the name of the Service (e.g. `Compute`).
 	ServiceName string
 
@@ -55,7 +51,6 @@ type ResourceManagerServiceInput struct {
 
 func (rmi ResourceManagerServiceInput) ToRunInput() ServiceInput {
 	return ServiceInput{
-		RootNamespace:              "Pandora.Definitions.ResourceManager",
 		ServiceName:                rmi.ServiceName,
 		ApiVersion:                 rmi.ApiVersion,
 		ResourceProvider:           rmi.ResourceProvider,

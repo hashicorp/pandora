@@ -5,8 +5,5 @@ package featureflags
 // issues are resolved - since the Swagger should define canonical names for these Enums.
 const AllowConstantsWithoutXMSEnum = true
 
-// GenerateV1APIDefinitions specifies whether the V1 (C#) API Definitions should be output.
-const GenerateV1APIDefinitions = false
-
 // GenerateV2APIDefinitions specifies whether the V2 (JSON) API Definitions should be output.
 const GenerateV2APIDefinitions = true
