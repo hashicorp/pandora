@@ -13,6 +13,19 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 	if !ok {
 		return nil, fmt.Errorf("the schema model %q was not found", tb.details.SchemaModelName)
 	}
+
+	completeRequired := false
+	for _, details := range topLevelModel.Fields {
+		if details.Required == false {
+			completeRequired = true
+			break
+		}
+	}
+
+	if !completeRequired {
+		return nil, nil
+	}
+
 	onlyRequiredFields := false // Compute should include all Required & Optional properties
 	block, err := tb.getBlockValueForModel("resource", topLevelModel, dependencies, onlyRequiredFields, tb.details.Tests.TestData.CompleteVariables)
 	if err != nil {
