@@ -44,7 +44,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateCreate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -69,7 +69,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 
 				updateMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateUpdate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -77,7 +77,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
 				if operation.UriSuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
-						Generate:         true,
+						Generate:         resourceMetaData.GenerateRead,
 						MethodName:       operationName,
 						TimeoutInMinutes: 5,
 					}
@@ -89,7 +89,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			}
 			if strings.EqualFold(operation.Method, "DELETE") && operation.UriSuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateDelete,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -105,7 +105,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			// handle CreateOrUpdate, but only when there's no Update method
 			if strings.Contains(strings.ToLower(createMethod.MethodName), "update") {
 				updateMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateUpdate,
 					MethodName:       createMethod.MethodName,
 					TimeoutInMinutes: 30,
 				}
