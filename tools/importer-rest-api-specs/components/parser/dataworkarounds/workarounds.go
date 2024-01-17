@@ -13,6 +13,7 @@ var workarounds = []workaround{
 	workaroundAutomation25108{},
 	workaroundAutomation25435{},
 	workaroundBatch21291{},
+	workaroundBotService27351{},
 	workaroundContainerService21394{},
 	workaroundDataFactory23013{},
 	workaroundDevCenter26189{},
@@ -20,7 +21,6 @@ var workarounds = []workaround{
 	workaroundLoadTest20961{},
 	workaroundRedis22407{},
 	workaroundMachineLearning25142{},
-
 	workaroundRecoveryServicesSiteRecovery26680{},
 
 	// @tombuildsstuff: this is an odd place for this however this allows working around inconsistencies in the Swagger
