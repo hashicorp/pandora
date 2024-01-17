@@ -10,9 +10,8 @@ type ResourceIdSegmentType string
 type ServiceType string
 
 const (
-	MicrosoftGraphV1BetaServiceType   ServiceType = "microsoft-graph-beta"
-	MicrosoftGraphV1StableServiceType ServiceType = "microsoft-graph-v1-stable"
-	ResourceManagerServiceType        ServiceType = "resource-manager"
+	MicrosoftGraphServiceType  ServiceType = "microsoft-graph"
+	ResourceManagerServiceType ServiceType = "resource-manager"
 
 	HandWrittenApiDefinitionsSource                 ApiDefinitionSourceType = "HandWritten"
 	MicrosoftGraphMetadataApiDefinitionsSource      ApiDefinitionSourceType = "MicrosoftGraphMetadata"

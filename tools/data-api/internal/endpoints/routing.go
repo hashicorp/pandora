@@ -12,23 +12,10 @@ import (
 func Router(directory string, serviceNames *[]string) func(chi.Router) {
 	return func(router chi.Router) {
 		router.Route("/v1", infrastructure.Router)
-		router.Route("/v1/microsoft-graph/beta", func(r chi.Router) {
+		router.Route("/v1/microsoft-graph", func(r chi.Router) {
 			opts := v1.Options{
-				ServiceType:     repositories.MicrosoftGraphV1BetaServiceType,
-				UriPrefix:       "/v1/microsoft-graph/beta",
-				UsesCommonTypes: true,
-			}
-			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)
-			if err != nil {
-				// TODO logging
-				log.Fatalf("Error: %+v", err)
-			}
-			v1.Router(r, opts, serviceRepo)
-		})
-		router.Route("/v1/microsoft-graph/stable-v1", func(r chi.Router) {
-			opts := v1.Options{
-				ServiceType:     repositories.MicrosoftGraphV1StableServiceType,
-				UriPrefix:       "/v1/microsoft-graph/stable-v1",
+				ServiceType:     repositories.MicrosoftGraphServiceType,
+				UriPrefix:       "/v1/microsoft-graph",
 				UsesCommonTypes: true,
 			}
 			serviceRepo, err := repositories.NewServicesRepository(directory, opts.ServiceType, serviceNames)

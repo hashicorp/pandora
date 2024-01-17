@@ -63,16 +63,17 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
 	// to load from
 
-	var expectedDataSource dataapimodels.DataSource
-	if serviceType == ResourceManagerServiceType {
-		expectedDataSource = dataapimodels.AzureResourceManagerDataSource
+	dataSources := map[ServiceType]dataapimodels.DataSource{
+		MicrosoftGraphServiceType:  dataapimodels.MicrosoftGraphDataSource,
+		ResourceManagerServiceType: dataapimodels.AzureResourceManagerDataSource,
 	}
-	if serviceType == MicrosoftGraphV1StableServiceType {
-		expectedDataSource = dataapimodels.MicrosoftGraphDataSource
+	dataSource, ok := dataSources[serviceType]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: unimplemented data source %q", string(serviceType))
 	}
 
 	repo := &ServicesRepositoryImpl{
-		expectedDataSource: expectedDataSource,
+		expectedDataSource: dataSource,
 		rootDirectory:      directory,
 		serviceNames:       serviceNames,
 		serviceType:        serviceType,
