@@ -4,61 +4,10 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-
 	"github.com/hashicorp/hcl/v2"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/zclconf/go-cty/cty"
 )
-
-func TestGenerateCompleteTest_NoProperties(t *testing.T) {
-	details := resourcemanager.TerraformResourceDetails{
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
-			"TopLevelModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{},
-			},
-		},
-		SchemaModelName: "TopLevelModel",
-		Tests: resourcemanager.TerraformResourceTestsDefinition{
-			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
-		},
-	}
-	actualDependencies := testDependencies{
-		variables: testVariables{},
-	}
-	hclContext := &hcl.EvalContext{
-		Variables: map[string]cty.Value{},
-	}
-	builder := NewTestBuilder("example", "resource", details)
-	expected := `
-provider "example" {
-  features {}
-}
-
-resource "example_resource" "test" {
-}
-`
-	actual, err := builder.generateCompleteTest(&actualDependencies)
-	if err != nil {
-		t.Fatalf(err.Error())
-	}
-
-	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
-	expectedDependencies := testDependencies{
-		variables: testVariables{
-			needsRandomInteger:   false,
-			needsPrimaryLocation: false,
-		},
-		needsClientConfig:         false,
-		needsEdgeZone:             false,
-		needsNetworkInterface:     false,
-		needsPublicIP:             false,
-		needsResourceGroup:        false,
-		needsSubnet:               false,
-		needsUserAssignedIdentity: false,
-		needsVirtualNetwork:       false,
-	}
-	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
-}
 
 func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 	details := resourcemanager.TerraformResourceDetails{
@@ -83,39 +32,15 @@ func TestGenerateCompleteTest_NameOnlyRequired(t *testing.T) {
 	actualDependencies := testDependencies{
 		variables: testVariables{},
 	}
-	hclContext := &hcl.EvalContext{
-		Variables: map[string]cty.Value{
-			"random_string": cty.StringVal("example"),
-		},
-	}
 	builder := NewTestBuilder("example", "resource", details)
-	expected := `
-provider "example" {
-  features {}
-}
-
-resource "example_resource" "test" {
-  name = "acctestr-${var.random_string}"
-}
-`
 	actual, err := builder.generateCompleteTest(&actualDependencies)
 	if err != nil {
 		t.Fatalf(err.Error())
 	}
 
-	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
-	expectedDependencies := testDependencies{
-		variables: testVariables{
-			needsRandomString: true,
-		},
-		needsEdgeZone:             false,
-		needsPublicIP:             false,
-		needsResourceGroup:        false,
-		needsSubnet:               false,
-		needsUserAssignedIdentity: false,
-		needsVirtualNetwork:       false,
+	if actual != nil {
+		t.Fatalf("expected complete test to be nil but got %q", *actual)
 	}
-	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
 func TestGenerateCompleteTest_NameOnlyOptional(t *testing.T) {
@@ -238,7 +163,7 @@ func TestGenerateCompleteTest_SystemAssignedIdentityOnly(t *testing.T) {
 				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
 					"Identity": {
 						HclName:  "identity",
-						Required: true,
+						Optional: true,
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
 						},
@@ -260,13 +185,13 @@ func TestGenerateCompleteTest_SystemAssignedIdentityOnly(t *testing.T) {
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `
 provider "example" {
-  features {}
+ features {}
 }
 
 resource "example_resource" "test" {
-  identity {
-    type = "SystemAssigned"
-  }
+ identity {
+   type = "SystemAssigned"
+ }
 }
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies)
@@ -603,7 +528,7 @@ resource "example_resource" "test" {
 	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
 }
 
-func TestGenerateCompleteTest_SetOfANestedObject(t *testing.T) {
+func TestGenerateCompleteTest_SetOfAnOptionalNestedObject(t *testing.T) {
 	details := resourcemanager.TerraformResourceDetails{
 		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
 			"TopLevelModel": {
@@ -617,7 +542,7 @@ func TestGenerateCompleteTest_SetOfANestedObject(t *testing.T) {
 					},
 					"NestedBlock": {
 						HclName:  "nested_block",
-						Required: true,
+						Optional: true,
 						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 							Type: resourcemanager.TerraformSchemaFieldTypeSet,
 							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -656,15 +581,15 @@ func TestGenerateCompleteTest_SetOfANestedObject(t *testing.T) {
 	builder := NewTestBuilder("example", "resource", details)
 	expected := `
 provider "example" {
-  features {}
+ features {}
 }
 
 resource "example_resource" "test" {
-  name = "acctest-${var.random_string}"
+ name = "acctest-${var.random_string}"
 
-  nested_block {
-    name = "acctest-${var.random_string}"
-  }
+ nested_block {
+   name = "acctest-${var.random_string}"
+ }
 }
 `
 	actual, err := builder.generateCompleteTest(&actualDependencies)
@@ -672,6 +597,96 @@ resource "example_resource" "test" {
 		t.Fatalf(err.Error())
 	}
 
+	if actual == nil {
+		t.Fatalf("no complete test was generated")
+	}
+	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
+	expectedDependencies := testDependencies{
+		variables: testVariables{
+			needsRandomString: true,
+		},
+		needsEdgeZone:             false,
+		needsPublicIP:             false,
+		needsResourceGroup:        false,
+		needsSubnet:               false,
+		needsUserAssignedIdentity: false,
+		needsVirtualNetwork:       false,
+	}
+	assertDependenciesMatch(t, expectedDependencies, actualDependencies)
+}
+
+func TestGenerateCompleteTest_SetOfANestedObjectWithOptionalField(t *testing.T) {
+	details := resourcemanager.TerraformResourceDetails{
+		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			"TopLevelModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName:  "name",
+						Required: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+					},
+					"NestedBlock": {
+						HclName:  "nested_block",
+						Required: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeSet,
+							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+								ReferenceName: pointer.To("NestedModel"),
+							},
+						},
+					},
+				},
+			},
+			"NestedModel": {
+				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					"Name": {
+						HclName:  "name",
+						Optional: true,
+						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						},
+					},
+				},
+			},
+		},
+		SchemaModelName: "TopLevelModel",
+		Tests: resourcemanager.TerraformResourceTestsDefinition{
+			TestData: pointer.To(resourcemanager.TerraformResourceTestDataDefinition{}),
+		},
+	}
+	actualDependencies := testDependencies{
+		variables: testVariables{},
+	}
+	hclContext := &hcl.EvalContext{
+		Variables: map[string]cty.Value{
+			"random_string": cty.StringVal("example"),
+		},
+	}
+	builder := NewTestBuilder("example", "resource", details)
+	expected := `
+provider "example" {
+ features {}
+}
+
+resource "example_resource" "test" {
+ name = "acctest-${var.random_string}"
+
+ nested_block {
+   name = "acctest-${var.random_string}"
+ }
+}
+`
+	actual, err := builder.generateCompleteTest(&actualDependencies)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+
+	if actual == nil {
+		t.Fatalf("no complete test was generated")
+	}
 	assertTerraformConfigurationsAreSemanticallyTheSame(t, expected, *actual, hclContext)
 	expectedDependencies := testDependencies{
 		variables: testVariables{

@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*string, error) {
@@ -14,13 +15,7 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 		return nil, fmt.Errorf("the schema model %q was not found", tb.details.SchemaModelName)
 	}
 
-	completeRequired := false
-	for _, details := range topLevelModel.Fields {
-		if details.Required == false {
-			completeRequired = true
-			break
-		}
-	}
+	completeRequired := hasOptionalField(topLevelModel.Fields, tb.details.SchemaModels)
 
 	if !completeRequired {
 		return nil, nil
@@ -49,4 +44,19 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 %s
 `, *providerBlock, testBody)
 	return &out, nil
+}
+
+func hasOptionalField(input map[string]resourcemanager.TerraformSchemaFieldDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
+	for _, details := range input {
+		if details.ObjectDefinition.NestedObject != nil {
+			nestedModel := schemaModels[*details.ObjectDefinition.NestedObject.ReferenceName]
+			if hasOptionalField(nestedModel.Fields, schemaModels) {
+				return true
+			}
+		}
+		if details.Required != true {
+			return true
+		}
+	}
+	return false
 }
