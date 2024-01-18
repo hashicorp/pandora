@@ -166,3 +166,16 @@ func mapApiDefinitionSourceType(input dataapimodels.ApiDefinitionsSource) (*ApiD
 
 	return nil, fmt.Errorf("unmapped Definition Source Type %q", string(input))
 }
+
+func mapValidationPossibleValueTypes(input dataapimodels.TerraformSchemaValidationPossibleValuesType) (*TerraformSchemaValidationPossibleValueType, error) {
+	mappings := map[dataapimodels.TerraformSchemaValidationPossibleValuesType]TerraformSchemaValidationPossibleValueType{
+		dataapimodels.FloatTerraformSchemaValidationPossibleValuesType:   TerraformSchemaValidationPossibleValueTypeFloat,
+		dataapimodels.IntegerTerraformSchemaValidationPossibleValuesType: TerraformSchemaValidationPossibleValueTypeInt,
+		dataapimodels.StringTerraformSchemaValidationPossibleValuesType:  TerraformSchemaValidationPossibleValueTypeString,
+	}
+	if v, ok := mappings[input]; ok {
+		return &v, nil
+	}
+
+	return nil, fmt.Errorf("unmapped Validation Posssible Values Type %q", string(input))
+}
