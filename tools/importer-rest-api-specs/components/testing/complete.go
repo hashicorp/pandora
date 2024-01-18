@@ -49,7 +49,7 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 func hasOptionalField(input map[string]resourcemanager.TerraformSchemaFieldDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
 	for _, details := range input {
 		if details.ObjectDefinition.NestedObject != nil {
-			if details.ObjectDefinition.NestedObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if details.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
 				nestedModel := schemaModels[*details.ObjectDefinition.NestedObject.ReferenceName]
 				if hasOptionalField(nestedModel.Fields, schemaModels) {
 					return true
