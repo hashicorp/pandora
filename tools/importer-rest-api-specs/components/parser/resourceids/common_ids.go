@@ -57,6 +57,10 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdBotService{},
 	commonIdBotServiceChannel{},
 
+	// Chaos
+	commonIdChaosStudioCapability{},
+	commonIdChaosStudioTarget{},
+
 	// Compute
 	commonIdAvailabilitySet{},
 	commonIdDedicatedHost{},
