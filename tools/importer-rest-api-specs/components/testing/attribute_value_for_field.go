@@ -148,7 +148,7 @@ var attributeValuesForBasicTypes = map[resourcemanager.TerraformSchemaFieldType]
 		}
 
 		for k, v := range testData.Strings {
-			if strings.EqualFold(field.HclName, k) {
+			if field.HclName == k {
 				out := hclwrite.TokensForValue(cty.StringVal(v))
 				return &out, nil
 			}
