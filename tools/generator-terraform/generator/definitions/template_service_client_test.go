@@ -158,7 +158,7 @@ type AutoClient struct {
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,
@@ -196,10 +196,10 @@ type AutoClient struct {
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	v20211010Client := loadtestserviceV20211010.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,
@@ -236,7 +236,7 @@ type AutoClient struct {
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,
