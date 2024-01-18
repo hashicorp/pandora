@@ -864,9 +864,13 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 			}
 
 			if field.Validation.PossibleValues != nil {
+				valueType, err := mapValidationPossibleValueTypes(field.Validation.PossibleValues.Type)
+				if err != nil {
+					return input, err
+				}
 				fieldDefinition.Validation.PossibleValues = &TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   fieldDefinition.Validation.PossibleValues.Type,
-					Values: fieldDefinition.Validation.PossibleValues.Values,
+					Type:   *valueType,
+					Values: field.Validation.PossibleValues.Values,
 				}
 			}
 		}

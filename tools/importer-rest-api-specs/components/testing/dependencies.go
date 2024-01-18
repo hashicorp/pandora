@@ -170,8 +170,8 @@ func DetermineDependencies(field, providerPrefix string, dependencies *testDepen
 		"subnet_id":                     {dependencies.setNeedsSubnet, fmt.Sprintf("%s_subnet.test.id", providerPrefix)},
 		"subscription_id":               {dependencies.setNeedsClientConfig, fmt.Sprintf("data.%s_client_config.test.subscription_id", providerPrefix)},
 		// Currently only Chaos Studio Targets has this property which can accept many different resource IDs
-		// for now setting this to storage is sufficient, but we will need to consider how to proceed in future
-		"target_resource_id":        {dependencies.setNeedsStorageAccount, fmt.Sprintf("%s_storage_account.test.id", providerPrefix)},
+		// for now setting this to kubernetes is sufficient, but we will need to consider how to proceed in future
+		"target_resource_id":        {dependencies.setNeedsKubernetesCluster, fmt.Sprintf("%s_kubernetes_cluster.test.id", providerPrefix)},
 		"tenant_id":                 {dependencies.setNeedsClientConfig, fmt.Sprintf("data.%s_client_config.test.tenant_id", providerPrefix)},
 		"user_assigned_identity_id": {dependencies.setNeedsUserAssignedIdentity, fmt.Sprintf("%s_user_assigned_identity.test.id", providerPrefix)},
 		"virtual_network_id":        {dependencies.setNeedsVirtualNetwork, fmt.Sprintf("%s_virtual_network.test.id", providerPrefix)},
