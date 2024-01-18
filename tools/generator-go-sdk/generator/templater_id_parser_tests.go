@@ -81,7 +81,7 @@ import (
 
 %[2]s
 
-var _ resourceids.ResourceId = %[3]s{}
+var _ resourceids.ResourceId = &%[3]s{}
 
 %[4]s
 `, packageName, *copyrightLines, structName, strings.Join(lines, "\n"))
