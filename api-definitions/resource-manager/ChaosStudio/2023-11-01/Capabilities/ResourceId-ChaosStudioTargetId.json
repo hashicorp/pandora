@@ -1,6 +1,7 @@
 {
- "name": "ScopedCapabilityId",
- "id": "/{scope}/providers/Microsoft.Chaos/targets/{targetName}/capabilities/{capabilityName}",
+ "name": "ChaosStudioTargetId",
+ "commonAlias": "ChaosStudioTarget",
+ "id": "/{scope}/providers/Microsoft.Chaos/targets/{targetName}",
  "segments": [
   {
    "name": "scope",
@@ -23,15 +24,6 @@
   },
   {
    "name": "targetName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticCapabilities",
-   "type": "Static",
-   "value": "capabilities"
-  },
-  {
-   "name": "capabilityName",
    "type": "UserSpecified"
   }
  ]
