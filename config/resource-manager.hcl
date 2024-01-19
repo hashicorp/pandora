@@ -61,7 +61,7 @@ service "azureactivedirectory" {
 }
 service "azurestackhci" {
   name      = "AzureStackHCI"
-  available = ["2023-03-01", "2023-06-01", "2023-08-01"]
+  available = ["2023-03-01", "2023-06-01", "2023-08-01", "2023-09-01-preview"]
 }
 service "batch" {
   name      = "Batch"
