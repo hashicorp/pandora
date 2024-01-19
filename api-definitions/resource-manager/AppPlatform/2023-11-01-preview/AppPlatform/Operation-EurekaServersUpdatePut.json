@@ -1,0 +1,16 @@
+{
+ "name": "EurekaServersUpdatePut",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "SpringCloudServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "EurekaServerResource"
+ },
+ "uriSuffix": "/eurekaServers/default"
+}
