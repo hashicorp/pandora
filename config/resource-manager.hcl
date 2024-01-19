@@ -553,6 +553,10 @@ service "subscription" {
   name      = "Subscription"
   available = ["2021-10-01"]
 }
+service "synapse" {
+  name = "Synapse"
+  available = ["2021-06-01"]
+}
 service "timeseriesinsights" {
   name      = "TimeSeriesInsights"
   available = ["2020-05-15"]
