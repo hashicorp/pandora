@@ -1,0 +1,16 @@
+{
+ "name": "ConfigServersValidate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SpringCloudServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ConfigServerSettings"
+ },
+ "uriSuffix": "/configServers/validate"
+}
