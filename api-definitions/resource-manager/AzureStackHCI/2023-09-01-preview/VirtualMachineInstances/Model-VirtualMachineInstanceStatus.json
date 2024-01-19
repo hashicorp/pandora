@@ -1,0 +1,53 @@
+{
+ "name": "VirtualMachineInstanceStatus",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorCode",
+   "name": "ErrorCode",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorMessage",
+   "name": "ErrorMessage",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "powerState",
+   "name": "PowerState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PowerStateEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningStatus",
+   "name": "ProvisioningStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineInstanceStatusProvisioningStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,65 @@
+{
+ "name": "VirtualMachineInstancePropertiesOsProfileWindowsConfiguration",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "enableAutomaticUpdates",
+   "name": "EnableAutomaticUpdates",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisionVMAgent",
+   "name": "ProvisionVMAgent",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisionVMConfigAgent",
+   "name": "ProvisionVMConfigAgent",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ssh",
+   "name": "Ssh",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SshConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeZone",
+   "name": "TimeZone",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
