@@ -1,0 +1,29 @@
+{
+ "name": "ValidateProductTransferEligibilityResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorDetails",
+   "name": "ErrorDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidateProductTransferEligibilityError"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isTransferEligible",
+   "name": "IsTransferEligible",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

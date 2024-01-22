@@ -1,0 +1,29 @@
+{
+ "name": "ValidateSubscriptionTransferEligibilityResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "errorDetails",
+   "name": "ErrorDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidateSubscriptionTransferEligibilityError"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isMoveEligible",
+   "name": "IsMoveEligible",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

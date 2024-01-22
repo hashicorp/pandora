@@ -1,0 +1,35 @@
+{
+ "name": "InvoiceId",
+ "id": "/providers/Microsoft.Billing/billingAccounts/default/invoices/{invoiceName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBilling",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Billing"
+  },
+  {
+   "name": "staticBillingAccounts",
+   "type": "Static",
+   "value": "billingAccounts"
+  },
+  {
+   "name": "staticDefault",
+   "type": "Static",
+   "value": "default"
+  },
+  {
+   "name": "staticInvoices",
+   "type": "Static",
+   "value": "invoices"
+  },
+  {
+   "name": "invoiceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

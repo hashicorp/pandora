@@ -1,0 +1,321 @@
+{
+ "name": "InvoiceProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "amountDue",
+   "name": "AmountDue",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "azurePrepaymentApplied",
+   "name": "AzurePrepaymentApplied",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billedAmount",
+   "name": "BilledAmount",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billedDocumentId",
+   "name": "BilledDocumentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingProfileDisplayName",
+   "name": "BillingProfileDisplayName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingProfileId",
+   "name": "BillingProfileId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creditAmount",
+   "name": "CreditAmount",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "creditForDocumentId",
+   "name": "CreditForDocumentId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "documentType",
+   "name": "DocumentType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InvoiceDocumentType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "documents",
+   "name": "Documents",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Document"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dueDate",
+   "name": "DueDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "freeAzureCreditApplied",
+   "name": "FreeAzureCreditApplied",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoiceDate",
+   "name": "InvoiceDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoicePeriodEndDate",
+   "name": "InvoicePeriodEndDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoicePeriodStartDate",
+   "name": "InvoicePeriodStartDate",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "invoiceType",
+   "name": "InvoiceType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InvoiceType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "isMonthlyInvoice",
+   "name": "IsMonthlyInvoice",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "payments",
+   "name": "Payments",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "PaymentProperties"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "purchaseOrderNumber",
+   "name": "PurchaseOrderNumber",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rebillDetails",
+   "name": "RebillDetails",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "RebillDetails"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InvoiceStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subTotal",
+   "name": "SubTotal",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subscriptionId",
+   "name": "SubscriptionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "taxAmount",
+   "name": "TaxAmount",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "totalAmount",
+   "name": "TotalAmount",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Amount"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

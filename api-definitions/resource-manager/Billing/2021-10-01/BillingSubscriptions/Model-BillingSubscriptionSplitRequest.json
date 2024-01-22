@@ -1,0 +1,65 @@
+{
+ "name": "BillingSubscriptionSplitRequest",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billingFrequency",
+   "name": "BillingFrequency",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "quantity",
+   "name": "Quantity",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetProductTypeId",
+   "name": "TargetProductTypeId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetSkuId",
+   "name": "TargetSkuId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "termDuration",
+   "name": "TermDuration",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

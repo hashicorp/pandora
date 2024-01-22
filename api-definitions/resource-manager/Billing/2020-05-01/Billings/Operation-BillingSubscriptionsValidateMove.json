@@ -1,0 +1,19 @@
+{
+ "name": "BillingSubscriptionsValidateMove",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "BillingAccountBillingSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TransferBillingSubscriptionRequestProperties"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ValidateSubscriptionTransferEligibilityResult"
+ },
+ "uriSuffix": "/validateMoveEligibility"
+}

@@ -1,0 +1,33 @@
+{
+ "name": "BillingProfilesOnExpand",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasMoreResults",
+   "name": "HasMoreResults",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "value",
+   "name": "Value",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "BillingProfile"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

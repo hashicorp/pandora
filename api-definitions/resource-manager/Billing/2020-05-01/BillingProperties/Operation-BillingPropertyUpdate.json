@@ -1,0 +1,19 @@
+{
+ "name": "BillingPropertyUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "SubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "BillingProperty"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BillingProperty"
+ },
+ "uriSuffix": "/providers/Microsoft.Billing/billingProperty/default"
+}
