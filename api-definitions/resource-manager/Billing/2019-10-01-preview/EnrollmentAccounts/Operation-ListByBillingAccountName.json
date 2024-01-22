@@ -1,0 +1,37 @@
+{
+ "name": "ListByBillingAccountName",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "$expand",
+   "required": false,
+   "field": "Expand",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "$filter",
+   "required": false,
+   "field": "Filter",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BillingAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "EnrollmentAccountListResult"
+ },
+ "uriSuffix": "/enrollmentAccounts"
+}

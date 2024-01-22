@@ -1,0 +1,25 @@
+{
+ "name": "PaymentMethodId",
+ "id": "/providers/Microsoft.Billing/paymentMethods/{paymentMethodName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBilling",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Billing"
+  },
+  {
+   "name": "staticPaymentMethods",
+   "type": "Static",
+   "value": "paymentMethods"
+  },
+  {
+   "name": "paymentMethodName",
+   "type": "UserSpecified"
+  }
+ ]
+}

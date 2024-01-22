@@ -1,0 +1,16 @@
+{
+ "name": "ListInvoiceSectionsByCreateSubscriptionPermission",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "fieldContainingPaginationDetails": "nextLink",
+ "longRunning": false,
+ "httpMethod": "POST",
+ "resourceIdName": "BillingAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "InvoiceSectionWithCreateSubPermission"
+ },
+ "uriSuffix": "/listInvoiceSectionsWithCreateSubscriptionPermission"
+}

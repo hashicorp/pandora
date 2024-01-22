@@ -1,0 +1,41 @@
+{
+ "name": "PolicyProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "marketplacePurchases",
+   "name": "MarketplacePurchases",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MarketplacePurchasesPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "reservationPurchases",
+   "name": "ReservationPurchases",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReservationPurchasesPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "viewCharges",
+   "name": "ViewCharges",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ViewChargesPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

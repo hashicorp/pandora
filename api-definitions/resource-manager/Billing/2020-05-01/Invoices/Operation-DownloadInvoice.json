@@ -1,0 +1,24 @@
+{
+ "name": "DownloadInvoice",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "downloadToken",
+   "required": true,
+   "field": "DownloadToken",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "BillingAccountInvoiceId",
+ "uriSuffix": "/download"
+}
