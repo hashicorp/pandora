@@ -60,9 +60,14 @@ func main() {
 		// for services/resources which are auto-generated
 		"ContainerService",
 
-		// @tombuildsstuff: KeyVault requires that the exact casing retrieved from the API is re-sent back to the API
-		// as such will require custom work in the Provider (potentially a custom unmarshaller from the HTTP Body) to support this
-		"KeyVault",
+		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
+		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
+		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
+		//
+		// As such KeyVault has an opt-out of Constant Normalization when using the new base layer - details can be found
+		// in https://github.com/hashicorp/pandora/pull/3672 - however until that is removed Key Vault should be considered
+		// not fully using the new base layer, since it doesn't support Constant Normalization.
+		"KeyVault@2023-02-01",
 	)
 
 	var serviceNames string
