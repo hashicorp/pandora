@@ -34,6 +34,25 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 		// rollout of the new base layer, to allow us to go gradually
 		generateNormalizationFunction := data.useNewBaseLayer
 
+		// TODO: remove this when https://github.com/hashicorp/pandora/issues/3229 has been resolved
+		if data.servicePackageName == "keyvault" && data.packageName == "vaults" {
+			// The Key Vault API requires that the EXACT casing sent in the Response is sent in the Request
+			// to remove a Key Vault Access Policy.
+			//
+			// We need to raise a Swagger issue to track this - however for the moment we can disable
+			// the Normalization of Constants when using the new base layer specifically for Key Vault.
+			//
+			// Whilst typically we would avoid special-casing this - the Key Vault API is starting to
+			// behave differently to how the legacy base layer expects - such as the issue described in
+			// https://github.com/hashicorp/terraform-provider-azurerm/pull/24449 - as such there's
+			// benefit to using the new base layer, but having Constant Normalization disabled in this
+			// one specific scenario.
+			//
+			// Which is to say, this shouldn't be done for other services - and is only a temporary fix
+			// until the upstream API issue is resolved.
+			generateNormalizationFunction = false
+		}
+
 		// used to reduce the TLOC being output
 		usedInAResourceId := false
 		for _, id := range data.resourceIds {
