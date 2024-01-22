@@ -549,6 +549,12 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 			if model.ParentTypeName != nil {
 				discriminatedTypeParentName = *model.ParentTypeName
 			}
+
+			if model.TypeHintValue != nil {
+				// in this instance this would be a discriminated implementation present in the response object
+				// as such we should use that directly, rather than calling the parents unmarshal function
+				discriminatedTypeParentName = ""
+			}
 		}
 
 		if c.operation.FieldContainingPaginationDetails != nil {
