@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 namespace Pandora.Definitions.ResourceManager.FrontDoor.v2020_05_01;
 
 public partial class Definition

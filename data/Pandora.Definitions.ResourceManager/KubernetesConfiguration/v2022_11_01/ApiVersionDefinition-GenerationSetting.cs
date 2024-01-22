@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 namespace Pandora.Definitions.ResourceManager.KubernetesConfiguration.v2022_11_01;
 
 public partial class Definition

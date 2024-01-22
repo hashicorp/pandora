@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 namespace Pandora.Definitions.ResourceManager.Databricks.v2022_04_01_preview;
 
 public partial class Definition

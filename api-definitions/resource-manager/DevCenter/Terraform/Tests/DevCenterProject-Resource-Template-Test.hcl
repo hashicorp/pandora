@@ -1,3 +1,6 @@
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 variable "primary_location" {}
 variable "random_integer" {}
 variable "random_string" {}

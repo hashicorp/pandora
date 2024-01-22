@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 using Pandora.Data.Models;
 
 namespace Pandora.Api.V1.Helpers;
