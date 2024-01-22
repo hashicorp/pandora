@@ -33,7 +33,6 @@ func main() {
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
 
-		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
 		"FrontDoor",
