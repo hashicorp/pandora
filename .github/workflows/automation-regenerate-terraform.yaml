@@ -29,11 +29,6 @@ jobs:
         with:
           dotnet-version: 7.0.x
 
-      - name: "Build Data API"
-        run: |
-          cd ./data
-          make build
-
       - name: "Launch SSH Agent"
         run: |
           # launch an ssh agent and export it's env vars
