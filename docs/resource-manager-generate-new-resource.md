@@ -39,6 +39,10 @@ service "ContainerService" {
 Manages a Kubernetes Cluster Trusted Access Role Binding
 ~> **Note:** This Resource is in **Preview** to use this you must be opted into the Preview. You can do this by running `az feature register --namespace Microsoft.ContainerService --name TrustedAccessPreview` and then `az provider register -n Microsoft.ContainerService`
 HERE
+        overrides "resource_id" {
+          updated_name = "source_resource_id"
+          description = "A special description here."
+        }
         test_data {
           basic_variables {
             lists = {
@@ -66,10 +70,11 @@ HERE
 The example above consists of the following properties:
 
 * Labels:
-  * `Compute` - (Required) - This is the name of the Service defined in Pandora, it is identical to the directory name containing the Pandora API definitions residing in [ `./api-definitions`](https://github.com/hashicorp/pandora/blob/main/api-definitions)
-  * `2021-11-01` - (Required) - This is the Version of the Service
-  * `VirtualMachines`, `VirtualMachineScaleSets` - (Required) - This is the name of the Resource for which there are Pandora API definitions
-  * `virtual_machine`, `virtual_machine_scale_set` - (Required) - This is the name that the resource should have in the AzureRM provider with the `azurerm` prefix omitted. The prefix will be added automatically during generation
+  * `ContainerService` - (Required) - This is the name of the Service defined in Pandora, it is identical to the directory name containing the Pandora API definitions residing in [ `./api-definitions`](https://github.com/hashicorp/pandora/blob/main/api-definitions)
+  * `2022-09-02-preview`, `2023-03-02-preview` - (Required) - These are the API Versions from which the resources are generated from.
+  * `Fleets`, `TrustedAccess` - (Required) - This is the name of the API Resource(s) within the Service/API Version where the Resource(s) are located.
+  * `kubernetes_fleet_manager`, `kubernetes_cluster_trusted_access_role_binding` - (Required) - This specifies [the Resource Type](https://developer.hashicorp.com/terraform/language/resources/syntax#resource-types) without the provider prefix (e.g. `azurerm_kubernetes_fleet_manager` would be `kubernetes_fleet_manager`). The provider prefix (e.g. `azurerm`) will be added automatically during generation.
+  * `resource_id` - (Required) - When overrides are specified the label defines which API property the overrides should be applied to
 * `id` - (Required) - This is the resource ID that the resource should have. Segments must be camel cased and user specified segments are expressed in curly braces e.g. {resourceName}
 * `display_name` - (Required) - This is the name we use when referring to the resource in the documentation
 * `website_subcategory` - (Required) - This is the documentation category that the resource belongs to
@@ -79,11 +84,16 @@ The example above consists of the following properties:
 
 In addition to the properties above there are also several options that are available to control the generation of a resource.
 
+* `generate_create` - (Optional) - Whether to generate the create method for this resource, defaults to `true`
+* `generate_read` - (Optional) - Whether to generate the read method for this resource, defaults to `true`
+* `generate_update` - (Optional) - Whether to generate the update method for this resource, defaults to `true`
+* `generate_delete` - (Optional) - Whether to generate the delete method for this resource, defaults to `true`
 * `test_data` - (Optional) - One test data block that allows us to customise the test data to be used in the basic and complete tests
 * `basic_variables` - (Optional) - One basic variable block that specifies custom values for test data in the basic resource test
 * `complete_variables` - (Optional) - One complete variable block that specifies custom values for test data in the complete resource test
 * `lists` - (Optional) - This is a map of property name to list, e.g. if there is a list property in a resource that requires a custom value it would be specified in this map
 * `strings` - (Optional) - This is a map of property name to string, e.g. if there is a string property in a resource that requires a custom value it would be specified in this map
+* `overrides` - (Optional) - One or more overrides blocks that will apply property renames and custom documentation descriptions to the property
 
 ### Workflow
 
