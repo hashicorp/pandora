@@ -138,7 +138,7 @@ service "dashboard" {
 }
 service "databoxedge" {
   name      = "DataBoxEdge"
-  available = ["2022-03-01", "2023-07-01"]
+  available = ["2022-03-01", "2023-07-01", "2023-12-01"]
 }
 service "databricks" {
   name      = "Databricks"
@@ -264,7 +264,7 @@ service "healthbot" {
 }
 service "healthcareapis" {
   name      = "HealthcareApis"
-  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01"]
+  available = ["2022-12-01", "2023-02-28", "2023-09-06", "2023-11-01", "2023-12-01"]
 }
 service "hybridcompute" {
   name      = "HybridCompute"
