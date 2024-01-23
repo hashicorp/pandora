@@ -64,9 +64,8 @@ func main() {
 		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
 		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
 		//
-		// As such KeyVault has an opt-out of Constant Normalization when using the new base layer - details can be found
-		// in https://github.com/hashicorp/pandora/pull/3672 - however until that is removed Key Vault should be considered
-		// not fully using the new base layer, since it doesn't support Constant Normalization.
+		// After testing it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
+                // `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
 		"KeyVault@2023-02-01",
 	)
 
