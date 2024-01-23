@@ -16,7 +16,7 @@ At the current time only Resource Manager Services are supported - although we'r
 
 The following dependencies are required:
 
-* [Golang 1.20.x](https://go.dev/dl/)
+* [Golang 1.21.x](https://go.dev/dl/)
 * [.NET 7.x](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 At first checkout you'll need to both initialize and then update the Git submodule:
@@ -55,20 +55,29 @@ For information and guides and on how to contribute, add services, service versi
 
 ## Project Structure
 
+- `./api-definitions` - contains V2 of the transformed Azure API Definitions, used by the (V2) Data API.
 - `./config/resource-manager.hcl` - contains the list of Resource Manager Services and API Versions which should be imported.
-- `./data` - contains the Data API, containing the transformed Azure API Definitions in the intermediate C# format.
 - `./docs` - contains documentation.
 - `./submodules/msgraph-metadata` - contains the Git Submodule to [the `microsoftgraph/msgraph-metadata` repository](https://github.com/microsoftgraph/msgraph-metadata) - containing the OpenAPI/Swagger definitions for Microsoft Graph.
 - `./submodules/rest-api-specs` - contains the Git Submodule to [the `Azure/azure-rest-api-specs` repository](https://github.com/Azure/azure-rest-api-specs) - containing the OpenAPI/Swagger definitions for Azure Resource Manager.
+- `./tools/data-api` - contains V2 of the Data API - which serves the transformed Azure API Definitions from `./api-definitions`.
 - `./tools/data-api-differ` - contains the Data API Differ which detects changes to the API Definitions.
 - `./tools/generator-go-sdk` - contains the Go SDK Generator, pulling information from the Data API.
 - `./tools/generator-terraform` - contains the Terraform Generator, pulling information from the Data API.
-- `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.
 - `./tools/importer-rest-api-specs` - contains the Importer for the Azure Resource Manager OpenAPI/Swagger definitions.
 - `./tools/version-bumper` - contains a small tool to add new Services and new API Versions for existing Services to the config.
 
 There's also few helper tools (for example, for use in automation):
 
-- `./tools/extract-tf-resource-ids` - contains the tool used to output a list of Resource IDs included in a given Pull Request.
 - `./tools/sdk` - contains a lightweight HTTP API for the Data API.
 - `./tools/wrapper-automation` - launches the Data API and then the Rest API Specs Importer/Go SDK/Terraform Generator for use in automation.
+
+The following paths are still a work-in-progress:
+
+- `./config/microsoft-graph.hcl` - contains the list of Microsoft Graph Services which should be imported.
+- `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.
+
+The following paths are deprecated and will be removed in the near future:
+
+- `./data` - contains V1 of the Data API including the transformed Azure API Definitions in the intermediate C# format.
+- `./tools/extract-tf-resource-ids` - contains the tool used to output a list of Resource IDs included in a given Pull Request.
