@@ -1,5 +1,12 @@
 {
  "name": "ChaosStudio",
  "resourceProvider": "Microsoft.Chaos",
- "generate": true
+ "terraformPackageName": "chaosstudio",
+ "generate": true,
+ "terraform": {
+  "servicePackageName": "chaosstudio",
+  "resources": [
+   "ChaosStudioTarget"
+  ]
+ }
 }
