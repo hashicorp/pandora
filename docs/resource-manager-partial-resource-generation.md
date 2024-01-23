@@ -54,9 +54,10 @@ For partially generated resources we need to add the pieces in a specific order.
 
 1. Open a PR to add the following files to the `hashicorp/terraform-azurerm-provider` repository under the path `internal/services/chaosstudio`:
     * `client/client_gen.go` - contains the initialisation of the Chaos Studio client, this file will be overwritten
-    * `chaos_studio_target_resource_create.go` - contains the handwritten create method for the Chaos Studio Target resource
+    * `chaos_studio_target_resource_create.go` - contains the handwritten create method for the Chaos Studio Target resource. See [this PR](https://github.com/hashicorp/terraform-provider-azurerm/pull/24580) as an example.
     * `chaos_studio_target_resource_gen.go` - contains the initialised typed resource, but with the bare minimum information so that `chaos_studio_target_resource_create.go` can be added without causing a compile error. This file will be overwritten with the correct information when the automated PR is opened on the repository.
     * `registration.go` - contains the registration information for the resource
     * `registration_gen.go` - contains the registration information for generated resources, this file will be overwritten as well
 2. Once the PR from step 1. has been merged we can open a PR on `hashicorp/pandora` adding the resource definition defined in the [Example](#example)
-3. When the PR from step 2. has been merged `hashicorp/pandora` will generate and open a PR on the `hashicorp/terraform-azurerm-provider` repository, overwriting the files suffixed with `_gen.go` listed in step.1 with the generated resource information.
+3. When the PR from step 2. has been merged `hashicorp/pandora` will run `./tools/importer-rest-api-specs`, which imports the API Definitions and builds up the Resource Definition, Tests and Documentation for each Terraform Resource. These are generated and sent as an auto-PR to `hashicorp/pandora` for review.
+4. When the PR from step 3. has been merged `hashicorp/pandora` will generate each of the Terraform Resources into `hashicorp/terraform-provider-azurerm` and send a PR to that repository. Note that as a part of this, any filenames matching `*_gen.go` (such as those added in step 1.) will be overwritten.

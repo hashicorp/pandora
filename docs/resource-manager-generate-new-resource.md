@@ -71,9 +71,9 @@ The example above consists of the following properties:
 
 * Labels:
   * `ContainerService` - (Required) - This is the name of the Service defined in Pandora, it is identical to the directory name containing the Pandora API definitions residing in [ `./api-definitions`](https://github.com/hashicorp/pandora/blob/main/api-definitions)
-  * `2022-09-02-preview`, `2023-03-02-preview` - (Required) - These are the Versions from which the resources are generated from
-  * `Fleets`, `TrustedAccess` - (Required) - This is the name of the Resource for which there are Pandora API definitions
-  * `kubernetes_fleet_manager`, `kubernetes_cluster_trusted_access_role_binding` - (Required) - This is the name that the resource should have in the AzureRM provider with the `azurerm` prefix omitted. The prefix will be added automatically during generation
+  * `2022-09-02-preview`, `2023-03-02-preview` - (Required) - These are the API Versions from which the resources are generated from.
+  * `Fleets`, `TrustedAccess` - (Required) - This is the name of the API Resource(s) within the Service/API Version where the Resource(s) are located.
+  * `kubernetes_fleet_manager`, `kubernetes_cluster_trusted_access_role_binding` - (Required) - This specifies [the Resource Type](https://developer.hashicorp.com/terraform/language/resources/syntax#resource-types) without the provider prefix (e.g. `azurerm_kubernetes_fleet_manager` would be `kubernetes_fleet_manager`). The provider prefix (e.g. `azurerm`) will be added automatically during generation.
   * `resource_id` - (Required) - When overrides are specified the label defines which API property the overrides should be applied to
 * `id` - (Required) - This is the resource ID that the resource should have. Segments must be camel cased and user specified segments are expressed in curly braces e.g. {resourceName}
 * `display_name` - (Required) - This is the name we use when referring to the resource in the documentation
