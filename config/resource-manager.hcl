@@ -280,7 +280,7 @@ service "iotcentral" {
 }
 service "keyvault" {
   name      = "KeyVault"
-  available = ["2021-10-01", "2022-11-01", "2023-02-01", "2023-07-01"]
+  available = ["2023-02-01", "2023-07-01"]
 }
 service "kubernetesconfiguration" {
   name      = "KubernetesConfiguration"
