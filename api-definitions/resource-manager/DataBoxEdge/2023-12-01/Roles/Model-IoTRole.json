@@ -1,0 +1,20 @@
+{
+ "name": "IoTRole",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IoTRoleProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Role",
+ "discriminatedTypeValue": "IOT",
+ "typeHintIn": "Kind"
+}
