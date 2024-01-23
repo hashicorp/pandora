@@ -413,7 +413,7 @@ service "policyinsights" {
 }
 service "portal" {
   name      = "Portal"
-  available = ["2019-01-01-preview"]
+  available = ["2019-01-01-preview", "2020-09-01-preview"]
 }
 service "postgresql" {
   name      = "PostgreSql"
