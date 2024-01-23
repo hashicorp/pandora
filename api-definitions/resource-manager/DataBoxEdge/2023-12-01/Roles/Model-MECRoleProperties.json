@@ -1,0 +1,53 @@
+{
+ "name": "MECRoleProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "connectionString",
+   "name": "ConnectionString",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AsymmetricEncryptedSecret"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "controllerEndpoint",
+   "name": "ControllerEndpoint",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "resourceUniqueId",
+   "name": "ResourceUniqueId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "roleStatus",
+   "name": "RoleStatus",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RoleStatus"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "ServicesCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ServiceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ServicesDescription"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ServicesDescription"
+ }
+}

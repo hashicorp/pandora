@@ -1,0 +1,29 @@
+{
+ "name": "ShareAccessRight",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "accessType",
+   "name": "AccessType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ShareAccessType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "shareId",
+   "name": "ShareId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}
