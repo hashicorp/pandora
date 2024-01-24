@@ -7,6 +7,7 @@ project {
   header_ignore = [
     ".github/**",
     "api-definitions/**",
-    "submodules/**"
+    "submodules/**",
+    "tools/**/vendor/**"
   ]
 }
