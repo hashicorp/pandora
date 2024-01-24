@@ -29,6 +29,9 @@ service "DevCenter" {
         display_name = "Dev Center Gallery"
         website_subcategory = "Dev Center"
         description = "Manages a Dev Center Gallery"
+        overrides "gallery_resource_id" {
+          updated_name = "shared_gallery_id"
+        }
       }
     }
   }
