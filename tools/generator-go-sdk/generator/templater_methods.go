@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"sort"
 	"strings"
 
@@ -532,6 +533,14 @@ func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 
 func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) (*string, error) {
 	var output string
+
+	if c.operation.LongRunning {
+		// Long Running operations shouldn't be attempted to be unmarshalled until the LRO is completed
+		// in the event this needs to be unmarshalled early - the Response Object being exposed means that
+		// we can opt to do this by calling `Unmarshal` by hand on a case-by-case basis.
+		return pointer.To(""), nil
+	}
+
 	if c.operation.ResponseObject != nil {
 		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
 		if err != nil {
