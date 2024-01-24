@@ -1,0 +1,37 @@
+{
+ "name": "RestorableMongodbResourcesList",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "restoreLocation",
+   "required": false,
+   "field": "RestoreLocation",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": true,
+   "queryString": "restoreTimestampInUtc",
+   "required": false,
+   "field": "RestoreTimestampInUtc",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "RestorableDatabaseAccountId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "RestorableMongodbResourcesListResult"
+ },
+ "uriSuffix": "/restorableMongodbResources"
+}
