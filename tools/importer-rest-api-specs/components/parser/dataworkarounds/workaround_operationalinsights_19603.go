@@ -6,21 +6,21 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-var _ workaround = workaroundOperationalinsights19603{}
+var _ workaround = workaroundOperationalinsights27524{}
 
-// workaroundOperationalinsights19603 works around the missed 201 status code.
-// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/19603
-type workaroundOperationalinsights19603 struct{}
+// workaroundOperationalinsights27524 works around the missed 201 status code.
+// Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/27524
+type workaroundOperationalinsights27524 struct{}
 
-func (workaroundOperationalinsights19603) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundOperationalinsights27524) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "OperationalInsights" && apiDefinition.ApiVersion == "2019-09-01"
 }
 
-func (workaroundOperationalinsights19603) Name() string {
-	return "OperationalInsights / 19603"
+func (workaroundOperationalinsights27524) Name() string {
+	return "OperationalInsights / 27524"
 }
 
-func (workaroundOperationalinsights19603) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundOperationalinsights27524) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["QueryPacks"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `QueryPacks` but didn't get one")
