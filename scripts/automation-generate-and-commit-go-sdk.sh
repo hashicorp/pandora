@@ -83,12 +83,14 @@ function conditionallyCommitAndPushGoSdk {
     git add --all
     git commit -m "Updating based on $sha"
 
-    # then update the dependencies
+    # Resource Manager: conditional update of dependencies
+    cd resource-manager/
     go mod tidy
     if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
       git add --all
-      git commit -m "Updating dependencies based on $sha"
+      git commit -m "resource-manager: updating dependencies based on $sha"
     fi
+    # TODO: conditional dependency updates for the other outputs (e.g. `microsoft-graph`)
 
     # NOTE: we're intentionally force-pushing here in-case this PR is
     # open and other changes (e.g. to the generator) get included
