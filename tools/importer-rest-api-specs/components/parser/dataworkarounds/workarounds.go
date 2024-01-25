@@ -31,6 +31,7 @@ var workarounds = []workaround{
 	workaroundInvalidGoPackageNames{},
 
 	workaroundOperationalinsights26678{},
+	workaroundOperationalinsights19603{},
 }
 
 func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {
