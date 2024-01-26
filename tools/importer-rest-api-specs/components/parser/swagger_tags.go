@@ -7,7 +7,6 @@ import (
 
 var tagsToIgnore = map[string]struct{}{
 	"deploymentoperations": {},
-	"tags":                 {},
 	"usage":                {},
 }
 
