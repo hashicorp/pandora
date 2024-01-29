@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package changes
 
 // Change defines the type of Change between one set of API Definitions and another.

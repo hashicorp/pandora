@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 namespace Pandora.Definitions.ResourceManager.DataLakeAnalytics;
 
 public partial class Service
