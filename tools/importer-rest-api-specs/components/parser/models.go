@@ -182,7 +182,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		for _, inlinedModel := range value.AllOf {
 			remoteRef := fragmentNameFromReference(inlinedModel.Ref)
 			if remoteRef == nil {
-				// it's possible for the AllOf to just be a description
+				// it's possible for the AllOf to just be a description (or contain a Type)
 				continue
 			}
 
@@ -533,12 +533,13 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
 		if len(input.Properties) == 0 && len(input.AllOf) > 0 {
-			// However not all `AllOf` fields are necessarily references, in some cases these can be
-			// just descriptions - as such we need to check for relevant fragments
+			// `AllOf` can contain either a Reference, a model/constant or just a description.
+			// As such we need to filter out the description-only `AllOf`'s when determining whether the model
+			// should be replaced by the single type it's referencing.
 			allOfFields := make([]spec.Schema, 0)
 			for _, item := range input.AllOf {
 				fragmentName := fragmentNameFromReference(item.Ref)
-				if fragmentName == nil {
+				if fragmentName == nil && len(item.Type) == 0 {
 					continue
 				}
 				allOfFields = append(allOfFields, item)
