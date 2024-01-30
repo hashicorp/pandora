@@ -182,8 +182,10 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		for _, inlinedModel := range value.AllOf {
 			remoteRef := fragmentNameFromReference(inlinedModel.Ref)
 			if remoteRef == nil {
-				return nil, nil, fmt.Errorf("allOf Ref had no fragment in path for %q", inlinedName)
+				// it's possible for the AllOf to just be a description
+				continue
 			}
+
 			remoteSpec, err := d.findTopLevelObject(*remoteRef)
 			if err != nil {
 				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", *remoteRef)
@@ -530,9 +532,21 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
-		if len(input.Properties) == 0 && len(input.AllOf) == 1 {
-			inheritedModel := input.AllOf[0]
-			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
+		if len(input.Properties) == 0 && len(input.AllOf) > 0 {
+			// However not all `AllOf` fields are necessarily references, in some cases these can be
+			// just descriptions - as such we need to check for relevant fragments
+			allOfFields := make([]spec.Schema, 0)
+			for _, item := range input.AllOf {
+				fragmentName := fragmentNameFromReference(item.Ref)
+				if fragmentName == nil {
+					continue
+				}
+				allOfFields = append(allOfFields, item)
+			}
+			if len(allOfFields) == 1 {
+				inheritedModel := allOfFields[0]
+				return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
+			}
 		}
 
 		// check for / avoid circular references,
