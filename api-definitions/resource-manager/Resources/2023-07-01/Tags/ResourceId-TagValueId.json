@@ -1,0 +1,33 @@
+{
+ "name": "TagValueId",
+ "id": "/subscriptions/{subscriptionId}/tagNames/{tagName}/tagValues/{tagValueName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticTagNames",
+   "type": "Static",
+   "value": "tagNames"
+  },
+  {
+   "name": "tagName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticTagValues",
+   "type": "Static",
+   "value": "tagValues"
+  },
+  {
+   "name": "tagValueName",
+   "type": "UserSpecified"
+  }
+ ]
+}
