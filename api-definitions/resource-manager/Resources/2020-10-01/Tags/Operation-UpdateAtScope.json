@@ -1,0 +1,19 @@
+{
+ "name": "UpdateAtScope",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "ScopeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "TagsPatchResource"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "TagsResource"
+ },
+ "uriSuffix": "/providers/Microsoft.Resources/tags/default"
+}
