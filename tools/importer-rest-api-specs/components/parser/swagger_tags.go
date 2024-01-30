@@ -6,9 +6,9 @@ import (
 )
 
 var tagsToIgnore = map[string]struct{}{
-	"deploymentoperations": {},
-	"tags":                 {},
-	"usage":                {},
+	"deploymentoperations":  {},
+	"azurefirewallfqdntags": {},
+	"usage":                 {},
 }
 
 func (d *SwaggerDefinition) findTags() []string {
