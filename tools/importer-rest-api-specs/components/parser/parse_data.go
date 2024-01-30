@@ -89,7 +89,12 @@ func combineModels(first map[string]models.ModelDetails, second map[string]model
 		if ok && len(existing.Fields) != len(v.Fields) {
 			return nil, fmt.Errorf("duplicate models named %q with different fields - first %d - second %d", k, len(existing.Fields), len(v.Fields))
 		}
+		output[k] = v
+	}
 
+	// once we've combined the models for a resource and de-duplicated them, we will iterate over all of them to link any
+	// orphaned discriminated models to their parent
+	for k, v := range output {
 		// this model is an implementation, so we need to find/update the parent
 		if v.ParentTypeName != nil && v.TypeHintIn != nil && v.TypeHintValue != nil {
 			parent, ok := output[*v.ParentTypeName]
@@ -104,8 +109,6 @@ func combineModels(first map[string]models.ModelDetails, second map[string]model
 			}
 			output[*v.ParentTypeName] = parent
 		}
-
-		output[k] = v
 	}
 
 	return &output, nil
