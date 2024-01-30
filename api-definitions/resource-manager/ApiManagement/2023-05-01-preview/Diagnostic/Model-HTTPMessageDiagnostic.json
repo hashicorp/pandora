@@ -1,0 +1,45 @@
+{
+ "name": "HTTPMessageDiagnostic",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "body",
+   "name": "Body",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "BodyDiagnosticSettings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "dataMasking",
+   "name": "DataMasking",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataMasking"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "headers",
+   "name": "Headers",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
