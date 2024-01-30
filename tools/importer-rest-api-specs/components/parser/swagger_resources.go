@@ -255,65 +255,67 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		return &out, nil
 	}
 
-	for _, operation := range *operations {
-		if operation.RequestObject != nil {
-			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
-			if topLevelRef.Type == models.ObjectDefinitionReference {
-				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
-				if !isKnownConstant && !isKnownModel {
+	if operations != nil {
+		for _, operation := range *operations {
+			if operation.RequestObject != nil {
+				topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
+				if topLevelRef.Type == models.ObjectDefinitionReference {
+					isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+					if !isKnownConstant && !isKnownModel {
+						referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
+					}
+
+					if isKnownModel {
+						modelName := *topLevelRef.ReferenceName
+						model := known.Models[modelName]
+						missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+						if err != nil {
+							return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
+						}
+						for _, name := range *missingReferencesInModel {
+							referencesToFind[name] = struct{}{}
+						}
+					}
+				}
+			}
+
+			if operation.ResponseObject != nil {
+				topLevelRef := topLevelObjectDefinition(*operation.ResponseObject)
+				if topLevelRef.Type == models.ObjectDefinitionReference {
+					isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
+					if !isKnownConstant && !isKnownModel {
+						referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
+					}
+
+					if isKnownModel {
+						// if it's a model, we need to check all of the fields for this to find any constant or models
+						// that we don't know about
+						modelName := *topLevelRef.ReferenceName
+						model := known.Models[modelName]
+						missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
+						if err != nil {
+							return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
+						}
+						for _, name := range *missingReferencesInModel {
+							referencesToFind[name] = struct{}{}
+						}
+					}
+				}
+			}
+
+			for _, value := range operation.Options {
+				if value.ObjectDefinition == nil {
+					continue
+				}
+
+				topLevelRef := topLevelObjectDefinition(*value.ObjectDefinition)
+				if topLevelRef.Type != models.ObjectDefinitionReference {
+					continue
+				}
+
+				if _, isKnown := known.Constants[*topLevelRef.ReferenceName]; !isKnown {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 				}
-
-				if isKnownModel {
-					modelName := *topLevelRef.ReferenceName
-					model := known.Models[modelName]
-					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
-					if err != nil {
-						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
-					}
-					for _, name := range *missingReferencesInModel {
-						referencesToFind[name] = struct{}{}
-					}
-				}
-			}
-		}
-
-		if operation.ResponseObject != nil {
-			topLevelRef := topLevelObjectDefinition(*operation.ResponseObject)
-			if topLevelRef.Type == models.ObjectDefinitionReference {
-				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
-				if !isKnownConstant && !isKnownModel {
-					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
-				}
-
-				if isKnownModel {
-					// if it's a model, we need to check all of the fields for this to find any constant or models
-					// that we don't know about
-					modelName := *topLevelRef.ReferenceName
-					model := known.Models[modelName]
-					missingReferencesInModel, err := objectsRequiredByModel(modelName, model)
-					if err != nil {
-						return nil, fmt.Errorf("determining objects required by model %q: %+v", modelName, err)
-					}
-					for _, name := range *missingReferencesInModel {
-						referencesToFind[name] = struct{}{}
-					}
-				}
-			}
-		}
-
-		for _, value := range operation.Options {
-			if value.ObjectDefinition == nil {
-				continue
-			}
-
-			topLevelRef := topLevelObjectDefinition(*value.ObjectDefinition)
-			if topLevelRef.Type != models.ObjectDefinitionReference {
-				continue
-			}
-
-			if _, isKnown := known.Constants[*topLevelRef.ReferenceName]; !isKnown {
-				referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
 			}
 		}
 	}

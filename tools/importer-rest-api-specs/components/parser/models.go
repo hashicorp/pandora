@@ -454,6 +454,37 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 	return nil, nil, nil
 }
 
+func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
+	}
+
+	for modelName, definition := range d.swaggerSpecRaw.Definitions {
+		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
+			details, err := d.parseModel(modelName, definition)
+			if err != nil {
+				return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
+			}
+			if err := result.Append(*details); err != nil {
+				return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
+			}
+		}
+	}
+
+	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
+	// since they will be de-duplicated when we call combineResourcesWith
+	nestedResult, err := d.findNestedItemsYetToBeParsed(nil, result)
+	if err != nil {
+		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
+	}
+	if err := result.Append(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
+	}
+
+	return &result, nil
+}
+
 // if `inputForModel` is false, it means the `input` schema cannot be used to parse the model of `modelName`
 func (d SwaggerDefinition) parseObjectDefinition(
 	modelName, propertyName string,

@@ -2,7 +2,6 @@ package parser
 
 import (
 	"fmt"
-
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -81,14 +80,29 @@ func combineConstants(first map[string]resourcemanager.ConstantDetails, second m
 func combineModels(first map[string]models.ModelDetails, second map[string]models.ModelDetails) (*map[string]models.ModelDetails, error) {
 	output := make(map[string]models.ModelDetails)
 
-	for k, v := range first {
+	for k, v := range second {
 		output[k] = v
 	}
 
-	for k, v := range second {
+	for k, v := range first {
 		existing, ok := output[k]
 		if ok && len(existing.Fields) != len(v.Fields) {
 			return nil, fmt.Errorf("duplicate models named %q with different fields - first %d - second %d", k, len(existing.Fields), len(v.Fields))
+		}
+
+		// this model is an implementation, so we need to find/update the parent
+		if v.ParentTypeName != nil && v.TypeHintIn != nil && v.TypeHintValue != nil {
+			parent, ok := output[*v.ParentTypeName]
+			if !ok {
+				return nil, fmt.Errorf("no parent definition %q found for implementation %q", *v.ParentTypeName, k)
+			}
+			// discriminated models that are defined in a separate file with no reference to a path/tag/resource ID
+			// will not be found when we parse the parent, as a result the parent's TypeHintIn is set to nil,
+			// here we set the information back into the parent after we've found the implementation
+			if parent.TypeHintIn == nil {
+				parent.TypeHintIn = v.TypeHintIn
+			}
+			output[*v.ParentTypeName] = parent
 		}
 
 		output[k] = v
