@@ -1,0 +1,41 @@
+{
+ "name": "NetworkProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "loadBalancerProfile",
+   "name": "LoadBalancerProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkProfileLoadBalancerProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkPolicy",
+   "name": "NetworkPolicy",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkPolicy"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "podCidr",
+   "name": "PodCidr",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,41 @@
+{
+ "name": "ControlPlaneProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "controlPlaneEndpoint",
+   "name": "ControlPlaneEndpoint",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ControlPlaneProfileControlPlaneEndpoint"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "count",
+   "name": "Count",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "vmSize",
+   "name": "VMSize",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "PATCH",
+ "resourceIdName": "VirtualNetworkId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "VirtualNetworksPatch"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "VirtualNetwork"
+ }
+}

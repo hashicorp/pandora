@@ -1,0 +1,153 @@
+{
+ "name": "ProvisionedClusterProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "agentPoolProfiles",
+   "name": "AgentPoolProfiles",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "NamedAgentPoolProfile"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "autoScalerProfile",
+   "name": "AutoScalerProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisionedClusterPropertiesAutoScalerProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cloudProviderProfile",
+   "name": "CloudProviderProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CloudProviderProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "clusterVMAccessProfile",
+   "name": "ClusterVMAccessProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ClusterVMAccessProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "controlPlane",
+   "name": "ControlPlane",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ControlPlaneProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "kubernetesVersion",
+   "name": "KubernetesVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "licenseProfile",
+   "name": "LicenseProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisionedClusterLicenseProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "linuxProfile",
+   "name": "LinuxProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LinuxProfileProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "networkProfile",
+   "name": "NetworkProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NetworkProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ResourceProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "status",
+   "name": "Status",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisionedClusterPropertiesStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "storageProfile",
+   "name": "StorageProfile",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageProfile"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
