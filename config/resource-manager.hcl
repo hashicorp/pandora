@@ -587,3 +587,4 @@ service "workloads" {
   name      = "Workloads"
   available = ["2023-04-01"]
 }
+
