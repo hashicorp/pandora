@@ -1,0 +1,29 @@
+{
+ "name": "PartnerRegionInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "location",
+   "name": "Location",
+   "objectDefinition": {
+    "type": "Location",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "replicationRole",
+   "name": "ReplicationRole",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InstanceFailoverGroupReplicationRole"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
