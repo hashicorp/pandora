@@ -570,7 +570,7 @@ func (d SwaggerDefinition) parseObjectDefinition(
 			allOfFields := make([]spec.Schema, 0)
 			for _, item := range input.AllOf {
 				fragmentName := fragmentNameFromReference(item.Ref)
-				if fragmentName == nil && len(item.Type) == 0 {
+				if fragmentName == nil && len(item.Type) == 0 && len(item.Properties) == 0 {
 					continue
 				}
 				allOfFields = append(allOfFields, item)
