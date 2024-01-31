@@ -1,0 +1,41 @@
+{
+ "name": "SchemaComparisonValidationResultType",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectName",
+   "name": "ObjectName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "objectType",
+   "name": "ObjectType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ObjectType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "updateAction",
+   "name": "UpdateAction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UpdateActionType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

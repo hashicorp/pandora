@@ -1,0 +1,20 @@
+{
+ "name": "NicEntity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "NicEntityProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Entity",
+ "discriminatedTypeValue": "Nic",
+ "typeHintIn": "Kind"
+}

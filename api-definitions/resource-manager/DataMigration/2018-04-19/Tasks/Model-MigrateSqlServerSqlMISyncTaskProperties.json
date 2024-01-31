@@ -1,0 +1,36 @@
+{
+ "name": "MigrateSqlServerSqlMISyncTaskProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlServerSqlMISyncTaskInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "output",
+   "name": "Output",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MigrateSqlServerSqlMISyncTaskOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ProjectTaskProperties",
+ "discriminatedTypeValue": "Migrate.SqlServer.AzureSqlDbMI.Sync.LRS",
+ "typeHintIn": "TaskType"
+}

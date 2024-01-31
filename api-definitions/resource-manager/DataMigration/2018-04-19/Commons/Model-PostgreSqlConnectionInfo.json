@@ -1,0 +1,44 @@
+{
+ "name": "PostgreSqlConnectionInfo",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseName",
+   "name": "DatabaseName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "port",
+   "name": "Port",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "serverName",
+   "name": "ServerName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ConnectionInfo",
+ "discriminatedTypeValue": "PostgreSqlConnectionInfo",
+ "typeHintIn": "Type"
+}

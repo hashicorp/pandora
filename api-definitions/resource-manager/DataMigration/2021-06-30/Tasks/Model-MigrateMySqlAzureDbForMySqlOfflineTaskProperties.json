@@ -1,0 +1,36 @@
+{
+ "name": "MigrateMySqlAzureDbForMySqlOfflineTaskProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrateMySqlAzureDbForMySqlOfflineTaskInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "output",
+   "name": "Output",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MigrateMySqlAzureDbForMySqlOfflineTaskOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ProjectTaskProperties",
+ "discriminatedTypeValue": "Migrate.MySql.AzureDbForMySql",
+ "typeHintIn": "TaskType"
+}

@@ -1,0 +1,36 @@
+{
+ "name": "MigrateOracleAzureDbForPostgreSqlSyncTaskProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MigrateOracleAzureDbPostgreSqlSyncTaskInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "output",
+   "name": "Output",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MigrateOracleAzureDbPostgreSqlSyncTaskOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ProjectTaskProperties",
+ "discriminatedTypeValue": "Migrate.Oracle.AzureDbForPostgreSql.Sync",
+ "typeHintIn": "TaskType"
+}

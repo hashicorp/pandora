@@ -1,0 +1,17 @@
+{
+ "name": "ConnectToSourcePostgreSqlSyncTaskInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceConnectionInfo",
+   "name": "SourceConnectionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PostgreSqlConnectionInfo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

@@ -1,0 +1,20 @@
+{
+ "name": "HostEntity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "HostEntityProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Entity",
+ "discriminatedTypeValue": "Host",
+ "typeHintIn": "Kind"
+}

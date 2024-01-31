@@ -1,0 +1,29 @@
+{
+ "name": "QueryAnalysisValidationResult",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "queryResults",
+   "name": "QueryResults",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "QueryExecutionResult"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "validationErrors",
+   "name": "ValidationErrors",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ValidationError"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
