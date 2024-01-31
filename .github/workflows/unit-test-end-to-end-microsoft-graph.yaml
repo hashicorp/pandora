@@ -17,26 +17,17 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Setup .NET
-        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4.0.0
-        with:
-          dotnet-version: 7.0.x
-
       - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
         with:
           go-version-file: ./.go-version
-
-      - name: "Build Data API"
-        run: |
-          cd ./data
-          make build
 
       - name: "Build and Run importer-msgraph-metadata"
         id: import-data
         run: |
           cd ./tools/importer-msgraph-metadata
-          make tools
-          make build
-          make import
+          echo "Temporarily disabled until this is updated to use the new Data API"
+          # make tools
+          # make build
+          # make import
         env:
           PANDORA_LOG: WARN
