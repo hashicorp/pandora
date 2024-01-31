@@ -1116,3 +1116,207 @@ func TestParseDiscriminatorsWithMultipleParentsWithinArray(t *testing.T) {
 		t.Fatalf("human.TypeHintValue should be `human` but it was %q", *human.TypeHintValue)
 	}
 }
+
+func TestParseDiscriminatorsOrphanedChild(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	// the functionality we're testing here will use the file name as the inferred tag/resource since that's the pattern
+	// we observe in the Rest API Specs. The file name for the test data is meaningless so we just get the only resource
+	// that's available
+	var resource models.AzureApiResource
+	for _, v := range result.Resources {
+		resource = v
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 3 {
+		t.Fatalf("expected 3 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 0 {
+		t.Fatalf("expected 0 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 0 {
+		t.Fatalf("expected 0 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	animal, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatalf("the Model `Animal` was not found")
+	}
+	if animal.ParentTypeName != nil {
+		t.Fatalf("animal.ParentTypeName should be nil but was %q", *animal.ParentTypeName)
+	}
+	if animal.TypeHintIn == nil {
+		t.Fatal("animal.TypeHintIn should have a value but it doesn't")
+	}
+	if animal.TypeHintValue != nil {
+		t.Fatalf("animal.TypeHintValue should be nil but was %q", *animal.TypeHintValue)
+	}
+
+	cat, ok := resource.Models["Cat"]
+	if !ok {
+		t.Fatalf("the Model `Cat` was not found")
+	}
+	if cat.ParentTypeName == nil {
+		t.Fatalf("cat.ParentTypeName should have a value but it doesn't")
+	}
+	if *cat.ParentTypeName != "Animal" {
+		t.Fatalf("cat.ParentTypeName should be `Animal` but it was %q", *cat.ParentTypeName)
+	}
+	if cat.TypeHintIn == nil {
+		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
+	}
+	if *cat.TypeHintIn != "AnimalType" {
+		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
+	}
+	if cat.TypeHintValue == nil {
+		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
+	}
+	if *cat.TypeHintValue != "cat" {
+		t.Fatalf("cat.TypeHintValue should be `cat` but it was %q", *cat.TypeHintValue)
+	}
+
+	dog, ok := resource.Models["Dog"]
+	if !ok {
+		t.Fatalf("the Model `Dog` was not found")
+	}
+	if dog.ParentTypeName == nil {
+		t.Fatalf("dog.ParentTypeName should have a value but it doesn't")
+	}
+	if *dog.ParentTypeName != "Animal" {
+		t.Fatalf("dog.ParentTypeName should be `Animal` but it was %q", *dog.ParentTypeName)
+	}
+	if dog.TypeHintIn == nil {
+		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
+	}
+	if *dog.TypeHintIn != "AnimalType" {
+		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
+	}
+	if dog.TypeHintValue == nil {
+		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
+	}
+	if *dog.TypeHintValue != "dog" {
+		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
+	}
+}
+
+func TestParseDiscriminatorsOrphanedChildWithNestedModel(t *testing.T) {
+	result, err := ParseSwaggerFileForTesting(t, "/nestedtestdata/model_discriminators_orphaned_child_with_nested_model.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+	if result == nil {
+		t.Fatal("result was nil")
+	}
+	if len(result.Resources) != 1 {
+		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
+	}
+
+	// the functionality we're testing here will use the file name as the inferred tag/resource since that's the pattern
+	// we observe in the Rest API Specs. The file name for the test data is meaningless so we just get the only resource
+	// that's available
+	var resource models.AzureApiResource
+	for _, v := range result.Resources {
+		resource = v
+	}
+
+	// sanity checking
+	if len(resource.Constants) != 0 {
+		t.Fatalf("expected no constants but got %d", len(resource.Constants))
+	}
+	if len(resource.Models) != 4 {
+		t.Fatalf("expected 4 models but got %d", len(resource.Models))
+	}
+	if len(resource.Operations) != 0 {
+		t.Fatalf("expected 0 operation but got %d", len(resource.Operations))
+	}
+	if len(resource.ResourceIds) != 0 {
+		t.Fatalf("expected 0 Resource ID but got %d", len(resource.ResourceIds))
+	}
+
+	animal, ok := resource.Models["Animal"]
+	if !ok {
+		t.Fatalf("the Model `Animal` was not found")
+	}
+	if animal.ParentTypeName != nil {
+		t.Fatalf("animal.ParentTypeName should be nil but was %q", *animal.ParentTypeName)
+	}
+	if animal.TypeHintIn == nil {
+		t.Fatal("animal.TypeHintIn should have a value but it doesn't")
+	}
+	if animal.TypeHintValue != nil {
+		t.Fatalf("animal.TypeHintValue should be nil but was %q", *animal.TypeHintValue)
+	}
+
+	cat, ok := resource.Models["Cat"]
+	if !ok {
+		t.Fatalf("the Model `Cat` was not found")
+	}
+	if cat.ParentTypeName == nil {
+		t.Fatalf("cat.ParentTypeName should have a value but it doesn't")
+	}
+	if *cat.ParentTypeName != "Animal" {
+		t.Fatalf("cat.ParentTypeName should be `Animal` but it was %q", *cat.ParentTypeName)
+	}
+	if cat.TypeHintIn == nil {
+		t.Fatal("cat.TypeHintIn should have a value but it doesn't")
+	}
+	if *cat.TypeHintIn != "AnimalType" {
+		t.Fatalf("cat.TypeHintIn should be `AnimalType` but it was %q", *cat.TypeHintIn)
+	}
+	if cat.TypeHintValue == nil {
+		t.Fatalf("cat.TypeHintValue should have a value but it doesn't")
+	}
+	if *cat.TypeHintValue != "cat" {
+		t.Fatalf("cat.TypeHintValue should be `cat` but it was %q", *cat.TypeHintValue)
+	}
+
+	dog, ok := resource.Models["Dog"]
+	if !ok {
+		t.Fatalf("the Model `Dog` was not found")
+	}
+	if dog.ParentTypeName == nil {
+		t.Fatalf("dog.ParentTypeName should have a value but it doesn't")
+	}
+	if *dog.ParentTypeName != "Animal" {
+		t.Fatalf("dog.ParentTypeName should be `Animal` but it was %q", *dog.ParentTypeName)
+	}
+	if dog.TypeHintIn == nil {
+		t.Fatal("dog.TypeHintIn should have a value but it doesn't")
+	}
+	if *dog.TypeHintIn != "AnimalType" {
+		t.Fatalf("dog.TypeHintIn should be `AnimalType` but it was %q", *dog.TypeHintIn)
+	}
+	if dog.TypeHintValue == nil {
+		t.Fatalf("dog.TypeHintValue should have a value but it doesn't")
+	}
+	if *dog.TypeHintValue != "dog" {
+		t.Fatalf("dog.TypeHintValue should be `dog` but it was %q", *dog.TypeHintValue)
+	}
+
+	keyValuePair, ok := resource.Models["KeyValuePair"]
+	if !ok {
+		t.Fatalf("the Model `KeyValuePair` was not found")
+	}
+	if keyValuePair.ParentTypeName != nil {
+		t.Fatalf("keyValuePair.ParentTypeName shouldn't have a value but has %q", *keyValuePair.ParentTypeName)
+	}
+	if keyValuePair.TypeHintIn != nil {
+		t.Fatalf("keyValuePair.TypeHintIn shouldn't have a value but has %q", *keyValuePair.TypeHintIn)
+	}
+	if keyValuePair.TypeHintValue != nil {
+		t.Fatalf("keyValuePair.TypeHintValue shouldn't have a value but has %q", *keyValuePair.TypeHintValue)
+	}
+}
