@@ -80,11 +80,11 @@ func combineConstants(first map[string]resourcemanager.ConstantDetails, second m
 func combineModels(first map[string]models.ModelDetails, second map[string]models.ModelDetails) (*map[string]models.ModelDetails, error) {
 	output := make(map[string]models.ModelDetails)
 
-	for k, v := range second {
+	for k, v := range first {
 		output[k] = v
 	}
 
-	for k, v := range first {
+	for k, v := range second {
 		existing, ok := output[k]
 		if ok && len(existing.Fields) != len(v.Fields) {
 			return nil, fmt.Errorf("duplicate models named %q with different fields - first %d - second %d", k, len(existing.Fields), len(v.Fields))

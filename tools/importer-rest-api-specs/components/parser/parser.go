@@ -89,7 +89,12 @@ func (d *SwaggerDefinition) parse(serviceName, apiVersion string, resourceProvid
 					Models:    result.Models,
 				}
 				resource = normalizeAzureApiResource(resource)
-				resourcesOut[normalizedTag] = resource
+
+				if mergeResources, ok := resources[normalizedTag]; ok {
+					resources[normalizedTag] = models.MergeResourcesForTag(mergeResources, resource)
+				} else {
+					resourcesOut[normalizedTag] = resource
+				}
 			}
 		}
 	}
