@@ -86,7 +86,7 @@ func TestParseResourceIDFromOperation_ConstantMultiple(t *testing.T) {
 }
 
 func TestParseResourceIDFromOperation_InvalidSegmentDefaultGetsTransformed(t *testing.T) {
-	// `default` is a language keyword in both C# and Go - so we need to ensure it's
+	// `default` is a language keyword in Go - so we need to ensure it's
 	// not output directly, but should be transformed into `defaultName` so that it's
 	// output as a variable rather than a language keyword (see #935)
 	swagger := spec.NewOperation("Example_Operation")
@@ -148,7 +148,7 @@ func TestParseResourceIDFromOperation_InvalidSegmentDefaultAsStaticValueGetsLeft
 }
 
 func TestParseResourceIDFromOperation_InvalidSegmentTypeGetsTransformed(t *testing.T) {
-	// `type` is a language keyword in both C# and Go - so we need to ensure it's
+	// `type` is a language keyword in Go - so we need to ensure it's
 	// not output directly, but should be transformed into `typeName` so that it's
 	// output as a variable rather than a language keyword (see #935)
 	swagger := spec.NewOperation("Example_Operation")
