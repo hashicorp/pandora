@@ -1,0 +1,29 @@
+{
+ "name": "LogSizeCapability",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "limit",
+   "name": "Limit",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "unit",
+   "name": "Unit",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "LogSizeUnit"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
