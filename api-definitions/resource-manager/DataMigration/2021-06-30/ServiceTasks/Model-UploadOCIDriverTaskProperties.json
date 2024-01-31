@@ -1,0 +1,36 @@
+{
+ "name": "UploadOCIDriverTaskProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UploadOCIDriverTaskInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "output",
+   "name": "Output",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "UploadOCIDriverTaskOutput"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ProjectTaskProperties",
+ "discriminatedTypeValue": "Service.Upload.OCI",
+ "typeHintIn": "TaskType"
+}

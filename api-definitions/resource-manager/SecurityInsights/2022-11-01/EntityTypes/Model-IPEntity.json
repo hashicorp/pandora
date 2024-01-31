@@ -1,0 +1,20 @@
+{
+ "name": "IPEntity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPEntityProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Entity",
+ "discriminatedTypeValue": "Ip",
+ "typeHintIn": "Kind"
+}

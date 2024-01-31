@@ -1,0 +1,45 @@
+{
+ "name": "ValidateSyncMigrationInputSqlServerTaskInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "selectedDatabases",
+   "name": "SelectedDatabases",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "MigrateSqlServerSqlDbSyncDatabaseInput"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceConnectionInfo",
+   "name": "SourceConnectionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlConnectionInfo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targetConnectionInfo",
+   "name": "TargetConnectionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "SqlConnectionInfo"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ]
+}

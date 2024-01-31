@@ -1,0 +1,20 @@
+{
+ "name": "MongoDbFinishCommand",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "input",
+   "name": "Input",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MongoDbFinishCommandInput"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "CommandProperties",
+ "discriminatedTypeValue": "finish",
+ "typeHintIn": "CommandType"
+}

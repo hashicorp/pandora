@@ -1,0 +1,20 @@
+{
+ "name": "MailMessageEntity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MailMessageEntityProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Entity",
+ "discriminatedTypeValue": "MailMessage",
+ "typeHintIn": "Kind"
+}

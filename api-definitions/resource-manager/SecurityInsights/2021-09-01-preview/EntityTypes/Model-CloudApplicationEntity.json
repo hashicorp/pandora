@@ -1,0 +1,20 @@
+{
+ "name": "CloudApplicationEntity",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "CloudApplicationEntityProperties"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Entity",
+ "discriminatedTypeValue": "CloudApplication",
+ "typeHintIn": "Kind"
+}
