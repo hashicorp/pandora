@@ -521,7 +521,7 @@ service "solutions" {
 }
 service "sql" {
   name      = "Sql"
-  available = ["2023-02-01-preview"]
+  available = ["2023-02-01-preview", "2023-05-01-preview"]
 }
 service "sqlvirtualmachine" {
   name      = "SqlVirtualMachine"
