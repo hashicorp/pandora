@@ -1,0 +1,43 @@
+{
+ "name": "BillingSubscriptionInvoiceId",
+ "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptions/{billingSubscriptionName}/invoices/{invoiceName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBilling",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Billing"
+  },
+  {
+   "name": "staticBillingAccounts",
+   "type": "Static",
+   "value": "billingAccounts"
+  },
+  {
+   "name": "billingAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticBillingSubscriptions",
+   "type": "Static",
+   "value": "billingSubscriptions"
+  },
+  {
+   "name": "billingSubscriptionName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticInvoices",
+   "type": "Static",
+   "value": "invoices"
+  },
+  {
+   "name": "invoiceName",
+   "type": "UserSpecified"
+  }
+ ]
+}

@@ -1,0 +1,42 @@
+{
+ "name": "FirewallPolicyRuleCollection",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "priority",
+   "name": "Priority",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": true,
+   "jsonName": "ruleCollectionType",
+   "name": "RuleCollectionType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "FirewallPolicyRuleCollectionType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "typeHintIn": "RuleCollectionType"
+}

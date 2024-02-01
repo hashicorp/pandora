@@ -7,9 +7,13 @@
  ],
  "longRunning": true,
  "httpMethod": "PATCH",
- "resourceIdName": "DiskId",
+ "resourceIdName": "ManagedDiskId",
  "requestObject": {
   "type": "Reference",
   "referenceName": "DiskUpdate"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Disk"
  }
 }

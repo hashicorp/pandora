@@ -63,16 +63,17 @@ func NewServicesRepository(directory string, serviceType ServiceType, serviceNam
 	// all service definitions for the specified service type, building a complete list of services as well as their directory paths
 	// to load from
 
-	var expectedDataSource dataapimodels.DataSource
-	if serviceType == ResourceManagerServiceType {
-		expectedDataSource = dataapimodels.AzureResourceManagerDataSource
+	dataSources := map[ServiceType]dataapimodels.DataSource{
+		MicrosoftGraphServiceType:  dataapimodels.MicrosoftGraphDataSource,
+		ResourceManagerServiceType: dataapimodels.AzureResourceManagerDataSource,
 	}
-	if serviceType == MicrosoftGraphV1StableServiceType {
-		expectedDataSource = dataapimodels.MicrosoftGraphDataSource
+	dataSource, ok := dataSources[serviceType]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: unimplemented data source %q", string(serviceType))
 	}
 
 	repo := &ServicesRepositoryImpl{
-		expectedDataSource: expectedDataSource,
+		expectedDataSource: dataSource,
 		rootDirectory:      directory,
 		serviceNames:       serviceNames,
 		serviceType:        serviceType,
@@ -231,9 +232,11 @@ func (s *ServicesRepositoryImpl) ProcessServiceDefinitions(serviceName string) (
 	}
 
 	serviceDetails := &ServiceDetails{
-		Name:             serviceName,
-		ResourceProvider: serviceDefinition.ResourceProvider,
-		ApiVersions:      versionDefinitions,
+		Name:                 serviceName,
+		Generate:             serviceDefinition.Generate,
+		TerraformPackageName: serviceDefinition.TerraformPackageName,
+		ResourceProvider:     serviceDefinition.ResourceProvider,
+		ApiVersions:          versionDefinitions,
 	}
 
 	if terraformDetails != nil {
@@ -248,6 +251,23 @@ func (s *ServicesRepositoryImpl) ProcessVersionDefinitions(serviceName string, v
 		Name:     version,
 		Generate: true,
 	}
+
+	var apiVersionDefinition dataapimodels.ApiVersionDefinition
+
+	contents, err := loadJson(path.Join((*s.serviceNamesToDirectory)[serviceName], version, "ApiVersionDefinition.json"))
+	if err != nil {
+		return nil, fmt.Errorf("processing api version definition for %q: %+v", serviceName, err)
+	}
+
+	if err = json.Unmarshal(*contents, &apiVersionDefinition); err != nil {
+		return nil, fmt.Errorf("unmarshaling api version definition for %q: %+v", serviceName, err)
+	}
+
+	source, err := mapApiDefinitionSourceType(apiVersionDefinition.Source)
+	if err != nil {
+		return nil, err
+	}
+	versionDefinition.Source = *source
 
 	resourceDefinitions := make(map[string]*ServiceApiVersionResourceDetails, 0)
 
@@ -569,7 +589,7 @@ func (s *ServicesRepositoryImpl) ProcessTerraformDefinitions(serviceName string)
 			}
 
 		case "resource-schema":
-			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file)
+			resource.SchemaModels, err = parseTerraformDefinitionResourceSchemaFromFilePath(terraformDefinitionsPath, file, resource.SchemaModels)
 			if err != nil {
 				return nil, err
 			}
@@ -721,16 +741,10 @@ func parseTerraformDefinitionResourceFromFilePath(resourcePath string, file os.D
 	}
 
 	definition.Documentation = ResourceDocumentationDefinition{
-		Category:        resourceDefinition.DisplayName,
+		Category:        resourceDefinition.Category,
 		Description:     resourceDefinition.Description,
 		ExampleUsageHcl: resourceDefinition.ExampleUsage,
 	}
-
-	// todo the following are missing from the current information available
-	// TerraformResourceDetails{
-	//	Documentation:  ResourceDocumentationDefinition{},
-	//	Resource:       "",
-	// }
 
 	return definition, nil
 }
@@ -819,17 +833,19 @@ func parseTerraformTestFromFilePath(resourcePath string, file os.DirEntry) (stri
 	return contents, nil
 }
 
-func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry) (map[string]TerraformSchemaModelDefinition, error) {
-	schemaModelDefinition := make(map[string]TerraformSchemaModelDefinition)
+func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, file os.DirEntry, input map[string]TerraformSchemaModelDefinition) (map[string]TerraformSchemaModelDefinition, error) {
+	if input == nil {
+		input = make(map[string]TerraformSchemaModelDefinition)
+	}
+
 	contents, err := loadJson(path.Join(resourcePath, file.Name()))
 	if err != nil {
-		return schemaModelDefinition, err
+		return input, err
 	}
 
 	var schemaModel dataapimodels.TerraformSchemaModel
-
 	if err := json.Unmarshal(*contents, &schemaModel); err != nil {
-		return schemaModelDefinition, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
+		return input, fmt.Errorf("unmarshaling Terraform Resource Schema %+v", err)
 	}
 
 	fields := make(map[string]TerraformSchemaFieldDefinition)
@@ -849,9 +865,13 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 			}
 
 			if field.Validation.PossibleValues != nil {
+				valueType, err := mapValidationPossibleValueTypes(field.Validation.PossibleValues.Type)
+				if err != nil {
+					return input, err
+				}
 				fieldDefinition.Validation.PossibleValues = &TerraformSchemaValidationPossibleValuesDefinition{
-					Type:   fieldDefinition.Validation.PossibleValues.Type,
-					Values: fieldDefinition.Validation.PossibleValues.Values,
+					Type:   *valueType,
+					Values: field.Validation.PossibleValues.Values,
 				}
 			}
 		}
@@ -865,15 +885,11 @@ func parseTerraformDefinitionResourceSchemaFromFilePath(resourcePath string, fil
 		fields[field.Name] = fieldDefinition
 	}
 
-	// todo do we take the file name and strip it of these pieces or is this information somewhere else
-	// the v1 data api has this value as `LoadTestResourceSchema` which is the filename (LoadTest-Resource-Schema.json) with the following stripped
-	modelDefinitionName := strings.Replace(strings.Replace(file.Name(), "-", "", -1), ".json", "", -1)
-
-	schemaModelDefinition[modelDefinitionName] = TerraformSchemaModelDefinition{
+	input[schemaModel.Name] = TerraformSchemaModelDefinition{
 		Fields: fields,
 	}
 
-	return schemaModelDefinition, nil
+	return input, nil
 }
 
 func parseTerraformDefinitionResourceTestsFromFilePath(resourcePath string, file os.DirEntry) (TerraformResourceTestsDefinition, error) {

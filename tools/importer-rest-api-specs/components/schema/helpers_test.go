@@ -3,6 +3,8 @@ package schema
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -41,6 +43,54 @@ func TestExtractDescription(t *testing.T) {
 		actual := extractDescription(input)
 		if expected != actual {
 			t.Fatalf("expected %q but got %q", expected, actual)
+		}
+	}
+}
+
+func TestUpdateField_ApplySchemaOverrides(t *testing.T) {
+	testData := []struct {
+		fieldInput string
+		overrides  []models.Override
+		expected   *string
+	}{
+		{
+			fieldInput: "name",
+			overrides: []models.Override{
+				{
+					Name:        "name",
+					UpdatedName: pointer.To("target_resource_id"),
+				},
+			},
+			expected: stringPointer("TargetResourceId"),
+		},
+		{
+			fieldInput: "ThreeCoffeesADay",
+			overrides: []models.Override{
+				{
+					Name:        "name",
+					UpdatedName: pointer.To("target_resource_id"),
+				},
+			},
+			expected: nil,
+		},
+	}
+
+	for _, v := range testData {
+		t.Logf("[DEBUG] Testing %s", v.fieldInput)
+
+		actual, _ := applySchemaOverrides(v.fieldInput, v.overrides)
+
+		if actual == nil {
+			if v.expected == nil {
+				continue
+			}
+			t.Fatalf("expected a result but didn't get one")
+		}
+		if v.expected == nil {
+			t.Fatalf("expected no result but got %s", *actual)
+		}
+		if *actual != *v.expected {
+			t.Fatalf("Expected %s but got %s", *v.expected, *actual)
 		}
 	}
 }

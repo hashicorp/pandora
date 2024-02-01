@@ -1,0 +1,20 @@
+{
+ "name": "ProvisionedClusterInstancesCreateOrUpdate",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": true,
+ "httpMethod": "PUT",
+ "resourceIdName": "ScopeId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "ProvisionedCluster"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "ProvisionedCluster"
+ },
+ "uriSuffix": "/providers/Microsoft.HybridContainerService/provisionedClusterInstances/default"
+}

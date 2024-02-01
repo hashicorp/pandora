@@ -4,6 +4,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/hcl/v2/hclwrite"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*string, error) {
@@ -13,6 +14,13 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 	if !ok {
 		return nil, fmt.Errorf("the schema model %q was not found", tb.details.SchemaModelName)
 	}
+
+	completeRequired := hasOptionalField(topLevelModel.Fields, tb.details.SchemaModels)
+
+	if !completeRequired {
+		return nil, nil
+	}
+
 	onlyRequiredFields := false // Compute should include all Required & Optional properties
 	block, err := tb.getBlockValueForModel("resource", topLevelModel, dependencies, onlyRequiredFields, tb.details.Tests.TestData.CompleteVariables)
 	if err != nil {
@@ -36,4 +44,21 @@ func (tb TestBuilder) generateCompleteTest(dependencies *testDependencies) (*str
 %s
 `, *providerBlock, testBody)
 	return &out, nil
+}
+
+func hasOptionalField(input map[string]resourcemanager.TerraformSchemaFieldDefinition, schemaModels map[string]resourcemanager.TerraformSchemaModelDefinition) bool {
+	for _, details := range input {
+		if details.ObjectDefinition.NestedObject != nil {
+			if details.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+				nestedModel := schemaModels[*details.ObjectDefinition.NestedObject.ReferenceName]
+				if hasOptionalField(nestedModel.Fields, schemaModels) {
+					return true
+				}
+			}
+		}
+		if details.Required != true {
+			return true
+		}
+	}
+	return false
 }

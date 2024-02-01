@@ -1,0 +1,72 @@
+{
+ "name": "ConnectToSourceSqlServerTaskOutputDatabaseLevel",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "compatibilityLevel",
+   "name": "CompatibilityLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatabaseCompatLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseFiles",
+   "name": "DatabaseFiles",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DatabaseFileInfo"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "databaseState",
+   "name": "DatabaseState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DatabaseState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sizeMB",
+   "name": "SizeMB",
+   "objectDefinition": {
+    "type": "Float",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ConnectToSourceSqlServerTaskOutput",
+ "discriminatedTypeValue": "DatabaseLevelOutput",
+ "typeHintIn": "ResultType"
+}

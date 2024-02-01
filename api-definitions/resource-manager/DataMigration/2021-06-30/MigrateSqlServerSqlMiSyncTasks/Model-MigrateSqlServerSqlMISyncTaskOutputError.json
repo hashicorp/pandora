@@ -1,0 +1,20 @@
+{
+ "name": "MigrateSqlServerSqlMISyncTaskOutputError",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "error",
+   "name": "Error",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ReportableException"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "MigrateSqlServerSqlMISyncTaskOutput",
+ "discriminatedTypeValue": "ErrorOutput",
+ "typeHintIn": "ResultType"
+}

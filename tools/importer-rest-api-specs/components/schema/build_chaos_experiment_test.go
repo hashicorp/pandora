@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -335,7 +336,9 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 		SchemaModelName: "Experiment",
 	}
 
-	actualModels, actualMappings, err := builder.Build(input, hclog.New(hclog.DefaultOptions))
+	var inputResourceBuildInfo *models.ResourceBuildInfo
+
+	actualModels, actualMappings, err := builder.Build(input, inputResourceBuildInfo, hclog.New(hclog.DefaultOptions))
 	if err != nil {
 		t.Errorf("building schema: %+v", err)
 	}

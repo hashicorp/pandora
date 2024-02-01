@@ -33,7 +33,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	}
 
 	// pull out all of the remaining models based on what we've got
-	nestedResult, err = d.findNestedItemsYetToBeParsed(operations, result)
+	nestedResult, err = d.findNestedItemsYetToBeParsed(*operations, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
@@ -158,7 +158,7 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 	return input
 }
 
-func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]models.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Models:    map[string]models.ModelDetails{},
@@ -229,7 +229,7 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map[string]models.OperationDetails, known internal.ParseResult) (*[]string, error) {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]models.OperationDetails, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
 	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) (*[]string, error) {
@@ -255,7 +255,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations *map
 		return &out, nil
 	}
 
-	for _, operation := range *operations {
+	for _, operation := range operations {
 		if operation.RequestObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
 			if topLevelRef.Type == models.ObjectDefinitionReference {

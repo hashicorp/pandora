@@ -14,6 +14,8 @@ import (
 
 var knownSegmentsUsedForScope = []string{
 	"billingScope",
+	"connectedClusterResourceUri", // HybridAKS
+	"customLocationResourceUri",   // HybridAKS
 	"denyAssignmentId",
 	"ResourceId",
 	"resourceScope",

@@ -9,6 +9,7 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/resources"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
@@ -127,7 +128,7 @@ func run(input Input) error {
 
 				for resourceName, resource := range candidates.Resources {
 					logger.Trace(fmt.Sprintf("Found Resource %q..", resourceName))
-					schemaDefinition, mappings, err := builder.Build(resource, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
+					schemaDefinition, mappings, err := builder.Build(resource, &models.ResourceBuildInfo{}, logger.Named(fmt.Sprintf("Resource %q", resourceName)))
 					if err != nil {
 						return fmt.Errorf("processing schema for candidate %s: %+v", resourceName, err)
 					}

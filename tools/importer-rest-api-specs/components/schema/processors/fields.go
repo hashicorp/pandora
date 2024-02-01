@@ -25,14 +25,9 @@ var NamingRules = []FieldNameProcessor{
 	fieldNameMaxToMaximum{},
 }
 
+//TODO: Below is a list common scenarios which might require a processor
 //TODO: if it's a List[Reference] and the model contains a single field `Id` then flatten this into `_ids`.
-//TODO: handling booleans `SomeBool` -> `SomeBoolEnabled` etc.
-//TODO: Singularizing plural names when it's a List (e.g. `planets` -> `planet`)
-//TODO: handle `is_XXX` -> `XXX`
-//TODO: if the field contains the same prefix as the resource, remove the prefix (e.g. `/msixPackages/` and `package_family_name`)
-
 //TODO: if the field is named `id` within a block rename it to `{block}_id`
-
 //TODO: fields containing discriminators - for now we should skip the resource/raise an error if there's a discriminator involved
 //TODO: when the field `properties` is a reference to a model, move fields from the 'properties' model up into the parent model
 //TODO: handling the top level field `sku`

@@ -5,32 +5,34 @@ set -e
 DIR="$(cd "$(dirname "$0")" && pwd)/.."
 
 function buildAndInstallDependencies {
-    echo "Outputting Go Version.."
-    go version
+  echo "Outputting Go Version.."
+  go version
 
-    echo "Outputting .net Version.."
-    dotnet --version
+  echo "Installing the Data API into the GOBIN.."
+  cd "${DIR}/tools/data-api"
+  go install .
+  cd "${DIR}"
 
-    echo "Installing the Terraform Generator into the GOBIN.."
-    cd "${DIR}/tools/generator-terraform"
-    go install .
-    cd "${DIR}"
+  echo "Installing the Terraform Generator into the GOBIN.."
+  cd "${DIR}/tools/generator-terraform"
+  go install .
+  cd "${DIR}"
 
-    echo "Building Wrapper.."
-    cd "${DIR}/tools/wrapper-automation"
-    go build -o wrapper-automation
-    cd "${DIR}"
+  echo "Building Wrapper.."
+  cd "${DIR}/tools/wrapper-automation"
+  go build -o wrapper-automation
+  cd "${DIR}"
 }
 
 function runWrapper {
-  local dataApiAssemblyPath=$1
+  local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
   echo "Running Wrapper.."
   cd "${DIR}/tools/wrapper-automation"
   ./wrapper-automation terraform \
-    -data-api-assembly-path="../../$dataApiAssemblyPath"\
-    -output-dir="../../$outputDirectory"
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
 
   cd "${DIR}"
 
@@ -139,8 +141,8 @@ function cleanup {
 }
 
 function main {
-  local dataApiAssemblyPath="data/Pandora.Api/bin/Debug/net7.0/Pandora.Api.dll"
-  local swaggerSubmodule="./swagger"
+  local apiDefinitionsDirectory="./api-definitions"
+  local swaggerSubmodule="./submodules/rest-api-specs"
   local outputDirectory="tmp/terraform-provider-azurerm"
   local providerRepo="git@github.com:hashicorp/terraform-provider-azurerm.git"
   local sha
@@ -148,7 +150,7 @@ function main {
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$dataApiAssemblyPath" "$outputDirectory" "$sha"
+  runWrapper "$apiDefinitionsDirectory" "$outputDirectory"
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"

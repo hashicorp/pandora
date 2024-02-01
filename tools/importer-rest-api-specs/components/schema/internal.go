@@ -5,13 +5,15 @@ import (
 )
 
 type operationPayloads struct {
-	createModelName           string
-	createPayload             resourcemanager.ModelDetails
+	createModelName string
+	createPayload   resourcemanager.ModelDetails
+	// TODO once #3588 has been resolved these should become pointers
 	createPropertiesModelName string
 	createPropertiesPayload   resourcemanager.ModelDetails
 
-	readModelName           string
-	readPayload             resourcemanager.ModelDetails
+	readModelName string
+	readPayload   resourcemanager.ModelDetails
+	// TODO once #3588 has been resolved these should become pointers
 	readPropertiesModelName string
 	readPropertiesPayload   resourcemanager.ModelDetails
 

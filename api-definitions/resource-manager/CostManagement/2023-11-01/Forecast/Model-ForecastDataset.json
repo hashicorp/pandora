@@ -1,0 +1,57 @@
+{
+ "name": "ForecastDataset",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "aggregation",
+   "name": "Aggregation",
+   "objectDefinition": {
+    "type": "Dictionary",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "ForecastAggregation"
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "configuration",
+   "name": "Configuration",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastDatasetConfiguration"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "filter",
+   "name": "Filter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ForecastFilter"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "granularity",
+   "name": "Granularity",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GranularityType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

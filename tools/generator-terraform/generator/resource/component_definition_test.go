@@ -16,7 +16,7 @@ func TestComponentDefinition(t *testing.T) {
 	}
 	actual, err := definitionForResource(input)
 	if err != nil {
-		t.Fatalf("error: %+v", err)
+		t.Fatalf(err.Error())
 	}
 	expected := strings.TrimSpace(`
 var _ sdk.Resource = ExampleResource{}
@@ -39,11 +39,34 @@ func TestComponentDefinitionForMethodWithUpdate(t *testing.T) {
 	}
 	actual, err := definitionForResource(input)
 	if err != nil {
-		t.Fatalf("error: %+v", err)
+		t.Fatalf(err.Error())
 	}
 	expected := strings.TrimSpace(`
 var _ sdk.Resource = ExampleResource{}
 var _ sdk.ResourceWithUpdate = ExampleResource{}
+
+type ExampleResource struct {}
+`)
+	testhelpers.AssertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestComponentDefinitionForMethodWithUpdateDisabled(t *testing.T) {
+	input := models.ResourceInput{
+		ResourceTypeName: "Example",
+		Details: resourcemanager.TerraformResourceDetails{
+			UpdateMethod: &resourcemanager.MethodDefinition{
+				MethodName:       "Update",
+				Generate:         false,
+				TimeoutInMinutes: 30,
+			},
+		},
+	}
+	actual, err := definitionForResource(input)
+	if err != nil {
+		t.Fatalf(err.Error())
+	}
+	expected := strings.TrimSpace(`
+var _ sdk.Resource = ExampleResource{}
 
 type ExampleResource struct {}
 `)

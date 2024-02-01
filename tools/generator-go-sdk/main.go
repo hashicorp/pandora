@@ -33,21 +33,16 @@ func main() {
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
 
-		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
-		// for services/resources which are auto-generated
 		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
-		"DataShare",
 		"FrontDoor",
 		"Insights",
-		"Kusto",
 		"Maintenance",
 		"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
-		"ServiceFabricManagedCluster",
 		"SqlVirtualMachine",
 		"StreamAnalytics",
 		"Subscription",
@@ -60,13 +55,17 @@ func main() {
 		"Automation@2021-06-22",
 
 		// @tombuildsstuff: there's generated resources associated with these three - please check before removing these
+		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
+		// for services/resources which are auto-generated
 		"ContainerService",
-		"LoadTestService",
-		"ManagedIdentity",
 
-		// @tombuildsstuff: KeyVault requires that the exact casing retrieved from the API is re-sent back to the API
-		// as such will require custom work in the Provider (potentially a custom unmarshaller from the HTTP Body) to support this
-		"KeyVault",
+		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
+		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
+		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
+		//
+		// After testing it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
+                // `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
+		"KeyVault@2023-02-01",
 	)
 
 	var serviceNames string

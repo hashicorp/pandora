@@ -3,9 +3,11 @@ package main
 import (
 	"fmt"
 	"os"
+	"path/filepath"
 )
 
 type Arguments struct {
+	ApiDefinitionsDirectory string
 	DataApiAssemblyPath     string
 	DataApiPort             int
 	OutputDirectory         string
@@ -15,16 +17,21 @@ type Arguments struct {
 }
 
 func (a Arguments) Validate() error {
-	if a.DataApiAssemblyPath == "" {
-		return fmt.Errorf("missing 'data-api-assembly-path'")
+	if a.ApiDefinitionsDirectory == "" {
+		return fmt.Errorf("'api-definitions-dir' must be specified")
 	}
 
-	if _, err := os.Stat(a.DataApiAssemblyPath); err != nil {
+	abs, err := filepath.Abs(a.ApiDefinitionsDirectory)
+	if err != nil {
+		return fmt.Errorf("determining absolute path to %q: %+v", a.ApiDefinitionsDirectory, err)
+	}
+	a.ApiDefinitionsDirectory = abs
+	if _, err := os.Stat(a.ApiDefinitionsDirectory); err != nil {
 		if os.IsNotExist(err) {
-			return fmt.Errorf("the Data API Assembly doesn't exist at %q", a.DataApiAssemblyPath)
+			return fmt.Errorf("the API Definitions Directory doesn't exist at %q", a.ApiDefinitionsDirectory)
 		}
 
-		return fmt.Errorf("validating Data API Assembly exists: %+v", err)
+		return fmt.Errorf("validating API Definitions Directory exists at %q: %+v", a.ApiDefinitionsDirectory, err)
 	}
 
 	return nil

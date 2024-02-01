@@ -139,7 +139,7 @@ func TestTemplateForServiceClient_GoAutoRest(t *testing.T) {
 		ResourceToApiVersion: map[string]string{
 			"load_test_service_resource": "2015-11-01-preview",
 		},
-		SdkServiceName:     "loadtestservice",
+		SdkServiceName:     "examplelegacypackage",
 		ServicePackageName: "mypackage",
 	}
 	actual := templateForServiceClient(input)
@@ -148,17 +148,17 @@ package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
-	loadtestserviceV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2015-11-01-preview"
+	examplelegacypackageV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/examplelegacypackage/2015-11-01-preview"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
 type AutoClient struct {
-	V20151101Preview loadtestserviceV20151101Preview.Client
-	}
+	V20151101Preview examplelegacypackageV20151101Preview.Client
+}
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+	v20151101PreviewClient := examplelegacypackageV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,
@@ -175,7 +175,7 @@ func TestTemplateForServiceClient_GoAutoRest_WithMultipleApiVersions(t *testing.
 			"load_test_service_one_resource": "2015-11-01-preview",
 			"load_test_service_two_resource": "2021-10-10",
 		},
-		SdkServiceName:     "loadtestservice",
+		SdkServiceName:     "examplelegacypackage",
 		ServicePackageName: "mypackage",
 	}
 	actual := templateForServiceClient(input)
@@ -184,22 +184,22 @@ package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
-	loadtestserviceV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2015-11-01-preview"
-	loadtestserviceV20211010 "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2021-10-10"
+	examplelegacypackageV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/examplelegacypackage/2015-11-01-preview"
+	examplelegacypackageV20211010 "github.com/hashicorp/go-azure-sdk/resource-manager/examplelegacypackage/2021-10-10"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
 type AutoClient struct {
-	V20151101Preview loadtestserviceV20151101Preview.Client
-	V20211010 loadtestserviceV20211010.Client
-	}
+	V20151101Preview examplelegacypackageV20151101Preview.Client
+	V20211010 examplelegacypackageV20211010.Client
+}
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+	v20151101PreviewClient := examplelegacypackageV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
-	v20211010Client := loadtestserviceV20211010.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+	v20211010Client := examplelegacypackageV20211010.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,
@@ -217,7 +217,7 @@ func TestTemplateForServiceClient_GoAutoRest_WithMultipleResourcesAndOneApiVersi
 			"load_test_service_one_resource": "2015-11-01-preview",
 			"load_test_service_two_resource": "2015-11-01-preview",
 		},
-		SdkServiceName:     "loadtestservice",
+		SdkServiceName:     "examplelegacypackage",
 		ServicePackageName: "mypackage",
 	}
 	actual := templateForServiceClient(input)
@@ -226,17 +226,17 @@ package client
 
 import (
 	"github.com/Azure/go-autorest/autorest"
-	loadtestserviceV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/loadtestservice/2015-11-01-preview"
+	examplelegacypackageV20151101Preview "github.com/hashicorp/go-azure-sdk/resource-manager/examplelegacypackage/2015-11-01-preview"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/common"
 )
 
 type AutoClient struct {
-	V20151101Preview loadtestserviceV20151101Preview.Client
-	}
+	V20151101Preview examplelegacypackageV20151101Preview.Client
+}
 
 func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	v20151101PreviewClient := loadtestserviceV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-		c.Authorizer = o.ResourceManagerAuthorizer
+	v20151101PreviewClient := examplelegacypackageV20151101Preview.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
+		o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 	})
 	return &AutoClient{
 		V20151101Preview: v20151101PreviewClient,

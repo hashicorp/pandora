@@ -1,0 +1,19 @@
+{
+ "name": "CreateOrUpdateNetworkRuleSet",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "PUT",
+ "resourceIdName": "NamespaceId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "NetworkRuleSet"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "NetworkRuleSet"
+ },
+ "uriSuffix": "/networkRuleSets/default"
+}

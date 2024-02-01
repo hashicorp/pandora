@@ -9,7 +9,6 @@ import (
 )
 
 const (
-	outputDirectoryCS        = "../../data/"
 	outputDirectoryJson      = "../../api-definitions/resource-manager"
 	swaggerDirectory         = "../../submodules/rest-api-specs"
 	resourceManagerConfig    = "../../config/resource-manager.hcl"
@@ -23,7 +22,7 @@ func main() {
 	c := cli.NewCLI("importer-rest-api-specs", "1.0.0")
 	c.Args = os.Args[1:]
 	c.Commands = map[string]cli.CommandFactory{
-		"import":   cmd.NewImportCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryCS, outputDirectoryJson),
+		"import":   cmd.NewImportCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath, outputDirectoryJson),
 		"schema":   cmd.NewSchemaCommand(),
 		"segments": cmd.NewSegmentsCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),
 		"validate": cmd.NewValidateCommand(swaggerDirectory, resourceManagerConfig, terraformDefinitionsPath),

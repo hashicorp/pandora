@@ -3,6 +3,8 @@ package resourcemanager
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/hashicorp/go-retryablehttp"
 )
 
 type Client struct {
@@ -16,27 +18,18 @@ type Client struct {
 	client *http.Client
 }
 
-func NewMicrosoftGraphBetaClient(endpoint string) Client {
+func NewMicrosoftGraphClient(endpoint string) Client {
 	return Client{
 		endpoint:    fmt.Sprintf("%s", endpoint),
-		apiEndpoint: "/v1/microsoft-graph/beta",
-		client:      http.DefaultClient,
+		apiEndpoint: "/v1/microsoft-graph",
+		client:      retryablehttp.NewClient().StandardClient(),
 	}
 }
-
-func NewMicrosoftGraphStableV1Client(endpoint string) Client {
-	return Client{
-		endpoint:    fmt.Sprintf("%s", endpoint),
-		apiEndpoint: "/v1/microsoft-graph/stable-v1",
-		client:      http.DefaultClient,
-	}
-}
-
 func NewResourceManagerClient(endpoint string) Client {
 	return Client{
 		endpoint:    fmt.Sprintf("%s", endpoint),
 		apiEndpoint: "/v1/resource-manager",
-		client:      http.DefaultClient,
+		client:      retryablehttp.NewClient().StandardClient(),
 	}
 }
 

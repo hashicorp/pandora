@@ -36,6 +36,9 @@ func OperationShouldBeIgnored(operationUri string) bool {
 		"/privatelinkscopeoperationstatuses/":         {},
 		"/recommendedactionsessionsoperationresults/": {},
 
+		// Tags within this package is unnecessary
+		"/providers/microsoft.consumption/tags": {},
+
 		// we can't just use `/operations` since some APIs (e.g. API Management) expose these, so we're intentionally
 		// checking more (but not all) of the path
 		// /providers/Microsoft.KubernetesConfiguration/extensions/{extensionName}/operations/{operationId}

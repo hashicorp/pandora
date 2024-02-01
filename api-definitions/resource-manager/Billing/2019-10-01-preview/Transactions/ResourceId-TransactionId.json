@@ -1,0 +1,43 @@
+{
+ "name": "TransactionId",
+ "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingProfiles/{billingProfileName}/transactions/{transactionName}",
+ "segments": [
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBilling",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Billing"
+  },
+  {
+   "name": "staticBillingAccounts",
+   "type": "Static",
+   "value": "billingAccounts"
+  },
+  {
+   "name": "billingAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticBillingProfiles",
+   "type": "Static",
+   "value": "billingProfiles"
+  },
+  {
+   "name": "billingProfileName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticTransactions",
+   "type": "Static",
+   "value": "transactions"
+  },
+  {
+   "name": "transactionName",
+   "type": "UserSpecified"
+  }
+ ]
+}

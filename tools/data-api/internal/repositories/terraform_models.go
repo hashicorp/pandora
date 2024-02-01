@@ -1,9 +1,5 @@
 package repositories
 
-const (
-	StringTerraformSchemaFieldType TerraformSchemaFieldType = "String"
-)
-
 type TerraformDetails struct {
 	DataSources map[string]TerraformDataSourceDetails
 	Resources   map[string]TerraformResourceDetails
@@ -208,6 +204,12 @@ type TerraformSchemaDocumentationDefinition struct {
 }
 
 type TerraformSchemaValidationPossibleValueType string
+
+const (
+	TerraformSchemaValidationPossibleValueTypeFloat  TerraformSchemaValidationPossibleValueType = "Float"
+	TerraformSchemaValidationPossibleValueTypeInt    TerraformSchemaValidationPossibleValueType = "Int"
+	TerraformSchemaValidationPossibleValueTypeString TerraformSchemaValidationPossibleValueType = "String"
+)
 
 type TerraformSchemaValidationPossibleValuesDefinition struct {
 	Type   TerraformSchemaValidationPossibleValueType

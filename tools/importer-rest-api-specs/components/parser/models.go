@@ -182,8 +182,10 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		for _, inlinedModel := range value.AllOf {
 			remoteRef := fragmentNameFromReference(inlinedModel.Ref)
 			if remoteRef == nil {
-				return nil, nil, fmt.Errorf("allOf Ref had no fragment in path for %q", inlinedName)
+				// it's possible for the AllOf to just be a description (or contain a Type)
+				continue
 			}
+
 			remoteSpec, err := d.findTopLevelObject(*remoteRef)
 			if err != nil {
 				return nil, nil, fmt.Errorf("could not find allOf referenced model %q", *remoteRef)
@@ -452,6 +454,37 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 	return nil, nil, nil
 }
 
+func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
+	result := internal.ParseResult{
+		Constants: map[string]resourcemanager.ConstantDetails{},
+		Models:    map[string]models.ModelDetails{},
+	}
+
+	for modelName, definition := range d.swaggerSpecRaw.Definitions {
+		if _, ok := definition.Extensions.GetString("x-ms-discriminator-value"); ok {
+			details, err := d.parseModel(modelName, definition)
+			if err != nil {
+				return nil, fmt.Errorf("parsing model details for model %q: %+v", modelName, err)
+			}
+			if err := result.Append(*details); err != nil {
+				return nil, fmt.Errorf("appending model %q: %+v", modelName, err)
+			}
+		}
+	}
+
+	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
+	// since they will be de-duplicated when we call combineResourcesWith
+	nestedResult, err := d.findNestedItemsYetToBeParsed(map[string]models.OperationDetails{}, result)
+	if err != nil {
+		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
+	}
+	if err := result.Append(*nestedResult); err != nil {
+		return nil, fmt.Errorf("appending nestedResult from Models used by existing Items: %+v", err)
+	}
+
+	return &result, nil
+}
+
 // if `inputForModel` is false, it means the `input` schema cannot be used to parse the model of `modelName`
 func (d SwaggerDefinition) parseObjectDefinition(
 	modelName, propertyName string,
@@ -530,9 +563,22 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	if len(input.Properties) > 0 || len(input.AllOf) > 0 {
 		// special-case: if the model has no properties and inherits from one model
 		// then just return that object instead, there's no point creating the wrapper type
-		if len(input.Properties) == 0 && len(input.AllOf) == 1 {
-			inheritedModel := input.AllOf[0]
-			return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
+		if len(input.Properties) == 0 && len(input.AllOf) > 0 {
+			// `AllOf` can contain either a Reference, a model/constant or just a description.
+			// As such we need to filter out the description-only `AllOf`'s when determining whether the model
+			// should be replaced by the single type it's referencing.
+			allOfFields := make([]spec.Schema, 0)
+			for _, item := range input.AllOf {
+				fragmentName := fragmentNameFromReference(item.Ref)
+				if fragmentName == nil && len(item.Type) == 0 && len(item.Properties) == 0 {
+					continue
+				}
+				allOfFields = append(allOfFields, item)
+			}
+			if len(allOfFields) == 1 {
+				inheritedModel := allOfFields[0]
+				return d.parseObjectDefinition(inheritedModel.Title, propertyName, &inheritedModel, result, true)
+			}
 		}
 
 		// check for / avoid circular references,

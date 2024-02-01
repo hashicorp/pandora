@@ -144,6 +144,39 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 							}
 						}
 
+						overrides := make([]Override, 0)
+						if def.Overrides != nil {
+							for _, details := range def.Overrides {
+								if details.UpdatedName == nil && details.Description == nil {
+									return nil, fmt.Errorf("definition %q within package %q within api version %q within service %q: override for property %q must have at least one attribute specified", def.ResourceType, pkg.Name, api.Version, service.Name, details.Name)
+								}
+								overrides = append(overrides, Override{
+									Name:        details.Name,
+									UpdatedName: details.UpdatedName,
+									Description: details.Description,
+								})
+
+							}
+						}
+
+						generateCreate := true
+						generateDelete := true
+						generateRead := true
+						generateUpdate := true
+
+						if def.GenerateCreate != nil {
+							generateCreate = *def.GenerateCreate
+						}
+						if def.GenerateDelete != nil {
+							generateDelete = *def.GenerateDelete
+						}
+						if def.GenerateRead != nil {
+							generateRead = *def.GenerateRead
+						}
+						if def.GenerateUpdate != nil {
+							generateUpdate = *def.GenerateUpdate
+						}
+
 						definitions[def.ResourceType] = ResourceDefinition{
 							ID:                 def.Id,
 							Name:               def.DisplayName,
@@ -153,6 +186,11 @@ func consolidateIntoASingleDefinition(input []definition) (*Config, error) {
 								BasicVariables:    basicVariables,
 								CompleteVariables: completeVariables,
 							},
+							Overrides:      &overrides,
+							GenerateCreate: generateCreate,
+							GenerateDelete: generateDelete,
+							GenerateRead:   generateRead,
+							GenerateUpdate: generateUpdate,
 						}
 					}
 

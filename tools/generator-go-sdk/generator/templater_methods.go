@@ -5,6 +5,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -349,6 +350,7 @@ func (c %[1]s) %[2]sCompleteMatchingPredicate(ctx context.Context%[4]s, predicat
 	}
 
 	result = %[2]sCompleteResult{
+		LatestHttpResponse: resp.HttpResponse,
 		Items: items,
 	}
 	return
@@ -372,7 +374,8 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 	}
 
 	result = %[2]sCompleteResult{
-		Items: items,
+		LatestHttpResponse: resp.HttpResponse,
+		Items:		  items,
 	}
 	return
 }
@@ -530,12 +533,38 @@ func (c methodsPandoraTemplater) marshalerTemplate() (*string, error) {
 
 func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) (*string, error) {
 	var output string
+
+	if c.operation.LongRunning {
+		// Long Running operations shouldn't be attempted to be unmarshalled until the LRO is completed
+		// in the event this needs to be unmarshalled early - the Response Object being exposed means that
+		// we can opt to do this by calling `Unmarshal` by hand on a case-by-case basis.
+		return pointer.To(""), nil
+	}
+
 	if c.operation.ResponseObject != nil {
 		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
 		typeName := *golangTypeName
+
+		discriminatedTypeParentName := ""
+		if model, ok := data.models[typeName]; ok {
+			// it's either a parent model
+			if model.TypeHintIn != nil {
+				discriminatedTypeParentName = typeName
+			}
+			// or an implementation referencing a parent
+			if model.ParentTypeName != nil {
+				discriminatedTypeParentName = *model.ParentTypeName
+			}
+
+			if model.TypeHintValue != nil {
+				// in this instance this would be a discriminated implementation present in the response object
+				// as such we should use that directly, rather than calling the parents unmarshal function
+				discriminatedTypeParentName = ""
+			}
+		}
 
 		if c.operation.FieldContainingPaginationDetails != nil {
 			output = fmt.Sprintf(`
@@ -548,19 +577,32 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 
 	result.Model = values.Values
 `, typeName, "`json:\"value\"`")
-			return &output, nil
-		}
 
-		discriminatedTypeParentName := ""
-		if model, ok := data.models[typeName]; ok {
-			// it's either a parent model
-			if model.TypeHintIn != nil {
-				discriminatedTypeParentName = typeName
+			if discriminatedTypeParentName != "" {
+				output = fmt.Sprintf(`
+	var values struct {
+		Values *[]json.RawMessage %[2]s
+	}
+	if err = resp.Unmarshal(&values); err != nil {
+		return
+	}
+
+	temp := make([]%[1]s, 0)
+	if values.Values != nil {
+		for i, v := range *values.Values {
+			val, err := unmarshal%[1]sImplementation(v)
+			if err != nil {
+				err = fmt.Errorf("unmarshalling item %%d for %[1]s (%%q): %%+v", i, v, err)
+				return result, err
 			}
-			// or an implementation referencing a parent
-			if model.ParentTypeName != nil {
-				discriminatedTypeParentName = *model.ParentTypeName
+			temp = append(temp, val)
+		}
+	}
+	result.Model = &temp
+`, typeName, "`json:\"value\"`")
 			}
+
+			return &output, nil
 		}
 
 		// when this is a Discriminated Type (either the Parent or the Implementation, call the `unmarshal` func
@@ -621,6 +663,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorDat
 		// whilst these looks like they could crash it's guaranteed above
 		paginationCode = fmt.Sprintf(`
 type %[2]sCompleteResult struct {
+	LatestHttpResponse *http.Response
 	Items []%[1]s
 }
 `, typeName, c.operationName)

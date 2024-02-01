@@ -41,6 +41,18 @@ type resourceDefinition struct {
 	// the Resource Type with spaces, but sometimes a different marketing name.
 	DisplayName string `hcl:"display_name"`
 
+	// GenerateCreate specifies whether the create method should be generated or not
+	GenerateCreate *bool `hcl:"generate_create"`
+
+	// GenerateDelete specifies whether the Delete method should be generated or not
+	GenerateDelete *bool `hcl:"generate_delete"`
+
+	// GenerateRead specifies whether the read method should be generated or not
+	GenerateRead *bool `hcl:"generate_read"`
+
+	// GenerateUpdate specifies whether the update method should be generated or not
+	GenerateUpdate *bool `hcl:"generate_update"`
+
 	// Id is the Resource ID which defines this resource
 	Id string `hcl:"id"`
 
@@ -52,6 +64,21 @@ type resourceDefinition struct {
 
 	// TestData contains specific values for the tests of this resource
 	TestData []resourceTestDataDefinition `hcl:"test_data,block"`
+
+	// Overrides contains a mapping of properties that require renames or custom descriptions, for now
+	Overrides []override `hcl:"overrides,block"`
+}
+
+type override struct {
+	// Name specifies the field for which the overrides will be applied to
+	Name string `hcl:"name,label"`
+
+	// UpdatedName defines the updated name the field should be renamed to
+	UpdatedName *string `hcl:"updated_name,optional"`
+
+	// Description defines a custom description for this field.
+	// If unspecified a description will be determined based on the field name.
+	Description *string `hcl:"description,optional"`
 }
 
 type resourceTestDataDefinition struct {

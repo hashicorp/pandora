@@ -1,0 +1,65 @@
+{
+ "name": "IPPool",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "end",
+   "name": "End",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipPoolType",
+   "name": "IPPoolType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPPoolTypeEnum"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "info",
+   "name": "Info",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IPPoolInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "name",
+   "name": "Name",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "start",
+   "name": "Start",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

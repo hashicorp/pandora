@@ -13,6 +13,10 @@ type ServiceDefinition struct {
 	// Example: `Microsoft.Compute`
 	ResourceProvider *string `json:"resourceProvider,omitempty"`
 
+	// TerraformPackageName is the name of the Service Package within
+	// the Terraform Provider associated with this service.
+	TerraformPackageName *string `json:"terraformPackageName,omitempty"`
+
 	// Generate specifies whether this ServiceDefinition should be generated whilst
 	// the majority of the time this is set to true, there are cases where the data
 	// wants to be imported but not yet generated (e.g. issues).

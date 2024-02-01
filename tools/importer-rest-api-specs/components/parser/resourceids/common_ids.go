@@ -24,6 +24,10 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdVirtualNetwork{},
 	commonIdVPNConnection{},
 
+	// Kusto
+	commonIdKustoCluster{},
+	commonIdKustoDatabase{},
+
 	// RP Specific
 	commonIdCloudServicesIPConfiguration{},
 	commonIdCloudServicesPublicIPAddress{},
@@ -49,6 +53,25 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdAutomationCompilationJob{}, // (@stephybun) CompilationJobId segment is defined in three different ways `jobId`, `compilationJobId` and `compilationJobName`
 	commonIdProvisioningService{},      // (@jackofallops): Inconsistent user specified fields in the swagger - `provisioningServices/{resourceName}` vs `provisioningServices/{provisioningServiceName}`
 
+	// Bot Service
+	commonIdBotService{},
+	commonIdBotServiceChannel{},
+
+	// Chaos
+	commonIdChaosStudioCapability{},
+	commonIdChaosStudioTarget{},
+
+	// Compute
+	commonIdAvailabilitySet{},
+	commonIdDedicatedHost{},
+	commonIdDedicatedHostGroup{},
+	commonIdDiskEncryptionSet{},
+	commonIdManagedDisk{},
+
+	// HDInsight
+	commonIdHDInsightCluster{},
+
+
 	// Key Vault
 	commonIdKeyVault{},
 	commonIdKeyVaultKey{},
@@ -61,6 +84,9 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSqlManagedInstance{},
 	commonIdSqlManagedInstanceDatabase{},
 	commonIdSqlServer{},
+
+	// Spring Cloud
+	commonIdSpringCloudService{},
 
 	// Storage
 	commonIdStorageAccount{},

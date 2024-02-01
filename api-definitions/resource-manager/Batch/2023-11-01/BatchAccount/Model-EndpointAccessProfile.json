@@ -1,0 +1,33 @@
+{
+ "name": "EndpointAccessProfile",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "defaultAction",
+   "name": "DefaultAction",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "EndpointAccessDefaultAction"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ipRules",
+   "name": "IPRules",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "IPRule"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

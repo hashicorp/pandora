@@ -1,0 +1,20 @@
+{
+ "name": "ActiveDefaultSecurityAdminRule",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "properties",
+   "name": "Properties",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DefaultAdminPropertiesFormat"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ActiveBaseSecurityAdminRule",
+ "discriminatedTypeValue": "Default",
+ "typeHintIn": "Kind"
+}

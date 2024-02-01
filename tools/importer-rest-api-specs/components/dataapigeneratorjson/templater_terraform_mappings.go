@@ -21,7 +21,8 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
 					DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
-						SchemaModelName: item.DirectAssignment.SchemaModelName,
+						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+						SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 						SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
 						SdkModelName:    item.DirectAssignment.SdkModelName,
 						SdkFieldPath:    item.DirectAssignment.SdkFieldPath,
@@ -29,7 +30,8 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-					SchemaModelName: item.DirectAssignment.SchemaModelName,
+					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+					SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
 					SdkModelName:    item.DirectAssignment.SdkModelName,
 				})
 				continue
@@ -47,14 +49,16 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
 					Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
 					ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
-						SchemaModelName: item.ModelToModel.SchemaModelName,
+						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+						SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 						SdkModelName:    item.ModelToModel.SdkModelName,
 						SdkFieldName:    item.ModelToModel.SdkFieldName,
 					},
 				})
 				// NOTE: any duplications get removed below - so this is safe for now
 				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-					SchemaModelName: item.ModelToModel.SchemaModelName,
+					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+					SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
 					SdkModelName:    item.ModelToModel.SdkModelName,
 				})
 				continue
@@ -79,7 +83,8 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 	for _, item := range input.ModelToModels {
 		// NOTE: any duplications get removed below
 		modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-			SchemaModelName: item.SchemaModelName,
+			// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+			SchemaModelName: fmt.Sprintf("%sSchema", item.SchemaModelName),
 			SdkModelName:    item.SdkModelName,
 		})
 	}
@@ -110,17 +115,17 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 
 func mapTerraformSchemaResourceIdMappings(input []resourcemanager.ResourceIdMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
 	// we need the ordering to be consistent else to avoid noisy regenerations, so let's order this on one of the keys
-	schemaFieldNames := make([]string, 0)
-	schemaFieldNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)
+	segmentNames := make([]string, 0)
+	segmentNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)
 	for _, item := range input {
-		schemaFieldNames = append(schemaFieldNames, item.SchemaFieldName)
-		schemaFieldNamesToResourceIdMappings[item.SchemaFieldName] = item
+		segmentNames = append(segmentNames, item.SegmentName)
+		segmentNamesToResourceIdMappings[item.SegmentName] = item
 	}
-	sort.Strings(schemaFieldNames)
+	sort.Strings(segmentNames)
 
 	output := make([]dataapimodels.TerraformResourceIdMappingDefinition, 0)
-	for _, schemaFieldName := range schemaFieldNames {
-		resourceIdMapping := schemaFieldNamesToResourceIdMappings[schemaFieldName]
+	for _, schemaFieldName := range segmentNames {
+		resourceIdMapping := segmentNamesToResourceIdMappings[schemaFieldName]
 		output = append(output, dataapimodels.TerraformResourceIdMappingDefinition{
 			SchemaFieldName:    resourceIdMapping.SchemaFieldName,
 			SegmentName:        resourceIdMapping.SegmentName,

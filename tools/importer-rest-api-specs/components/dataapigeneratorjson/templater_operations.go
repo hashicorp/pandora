@@ -18,12 +18,10 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 		contentType = fmt.Sprintf("%s; charset=utf-8", input.ContentType)
 	}
 
-	expectedStatusCodes := determineStatusCodes(input)
-
 	output := dataapimodels.Operation{
 		Name:                             operationName,
 		ContentType:                      contentType,
-		ExpectedStatusCodes:              expectedStatusCodes,
+		ExpectedStatusCodes:              input.ExpectedStatusCodes,
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
 		HTTPMethod:                       strings.ToUpper(input.Method),
@@ -40,16 +38,11 @@ func codeForOperation(operationName string, input importerModels.OperationDetail
 	}
 
 	if input.ResponseObject != nil {
-		// we disregard the response object if it's either a long running operation or not a list operation
-		// since that is the behaviour in the current data api and to prevent diffs in the generated sdk
-		// this can be removed once #3364 has been fixed
-		if !input.LongRunning || input.FieldContainingPaginationDetails != nil {
-			responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
-			if err != nil {
-				return nil, fmt.Errorf("mapping the response object definition: %+v", err)
-			}
-			output.ResponseObject = responseObject
+		responseObject, err := mapObjectDefinition(input.ResponseObject, knownConstants, knownModels)
+		if err != nil {
+			return nil, fmt.Errorf("mapping the response object definition: %+v", err)
 		}
+		output.ResponseObject = responseObject
 	}
 
 	if len(input.Options) > 0 {
@@ -168,67 +161,4 @@ func validateOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, 
 	}
 
 	return nil
-}
-
-func determineStatusCodes(operation importerModels.OperationDetails) []int {
-	expectedStatusCodes := make([]int, 0)
-	if usesNonDefaultStatusCodes(operation) {
-		expectedStatusCodes = operation.ExpectedStatusCodes
-	} else {
-		if operation.LongRunning {
-			if strings.EqualFold(operation.Method, "delete") {
-				expectedStatusCodes = []int{200, 202}
-			}
-			if strings.EqualFold(operation.Method, "post") {
-				expectedStatusCodes = []int{201, 202}
-			}
-			if strings.EqualFold(operation.Method, "put") {
-				expectedStatusCodes = []int{201, 202}
-			}
-		}
-		if operation.FieldContainingPaginationDetails != nil {
-			if strings.EqualFold(operation.Method, "get") {
-				expectedStatusCodes = []int{200}
-			}
-		}
-		if strings.EqualFold(operation.Method, "delete") || strings.EqualFold(operation.Method, "get") || strings.EqualFold(operation.Method, "post") || strings.EqualFold(operation.Method, "head") {
-			expectedStatusCodes = []int{200}
-		}
-		if strings.EqualFold(operation.Method, "put") || strings.EqualFold(operation.Method, "patch") {
-			expectedStatusCodes = []int{200, 201}
-		}
-	}
-	sort.Ints(expectedStatusCodes)
-	return expectedStatusCodes
-}
-
-// this is needed at the moment to prevent diffs in the generated SDK - and can be removed once #3363 has been fixed
-func usesNonDefaultStatusCodes(operation importerModels.OperationDetails) bool {
-	defaultStatusCodes := map[string][]int{
-		"get":    {200},
-		"post":   {200, 201},
-		"put":    {200, 201},
-		"delete": {200, 201},
-		"patch":  {200, 201},
-	}
-	expected, ok := defaultStatusCodes[strings.ToLower(operation.Method)]
-	if !ok {
-		// potentially an unsupported use-case but fine for now
-		return true
-	}
-
-	if len(expected) != len(operation.ExpectedStatusCodes) {
-		return true
-	}
-
-	sort.Ints(expected)
-	sort.Ints(operation.ExpectedStatusCodes)
-	for i, ev := range expected {
-		av := operation.ExpectedStatusCodes[i]
-		if ev != av {
-			return true
-		}
-	}
-
-	return false
 }

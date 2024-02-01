@@ -86,6 +86,7 @@ func LoadAndParseFiles(directory string, fileNames []string, serviceName, apiVer
 	if err != nil {
 		return nil, fmt.Errorf("applying Swagger overrides: %+v", err)
 	}
+
 	out = *output
 
 	if len(out) > 1 {

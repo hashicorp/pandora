@@ -1,0 +1,112 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "Example",
+    "description": "Example",
+    "version": "2020-01-01"
+  },
+  "paths": {},
+  "definitions": {
+    "ExampleWrapper": {
+      "description": "The Resource definition.",
+      "properties": {
+        "nested": {
+          "$ref": "#/definitions/Animal"
+        }
+      },
+      "required": [
+        "nested"
+      ],
+      "title": "ExampleWrapper",
+      "type": "object",
+      "x-ms-azure-resource": true
+    },
+    "Animal": {
+      "discriminator": "animalType",
+      "properties": {
+        "animalType": {
+          "type": "string",
+          "description": "The type of Animal this is, used as a Discriminator value."
+        }
+      },
+      "required": [
+        "animalType"
+      ],
+      "title": "Animal",
+      "type": "object"
+    },
+    "Cat": {
+      "description": "A cat is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "properties": {
+        "isFluffy": {
+          "type": "boolean",
+          "description": "Are cats fluffy?"
+        }
+      },
+      "required": [
+        "animalType",
+        "isFluffy"
+      ],
+      "title": "Cat",
+      "type": "object",
+      "x-ms-discriminator-value": "cat"
+    },
+    "Dog": {
+      "description": "A dog is a kind of animal",
+      "allOf": [
+        {
+          "$ref": "#/definitions/Animal"
+        }
+      ],
+      "properties": {
+        "parameters": {
+          "description": "List of key value pairs.",
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/keyValuePair"
+          },
+          "x-ms-identifiers": [
+            "key"
+          ]
+        },
+        "barks": {
+          "type": "boolean",
+          "description": "Do dogs bark?"
+        }
+      },
+      "required": [
+        "animalType",
+        "barks"
+      ],
+      "title": "Dog",
+      "type": "object",
+      "x-ms-discriminator-value": "dog"
+    },
+    "keyValuePair": {
+      "description": "A map to describe the settings of a dog.",
+      "type": "object",
+      "properties": {
+        "key": {
+          "description": "The name of the setting for the dog",
+          "type": "string",
+          "minLength": 1
+        },
+        "value": {
+          "description": "The value of the setting for the dog.",
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "key",
+        "value"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

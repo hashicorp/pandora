@@ -1,0 +1,36 @@
+{
+ "name": "Get",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "options": [
+  {
+   "optional": false,
+   "queryString": "periodEndDate",
+   "required": true,
+   "field": "PeriodEndDate",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  },
+  {
+   "optional": false,
+   "queryString": "periodStartDate",
+   "required": true,
+   "field": "PeriodStartDate",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "TransactionId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "Transaction"
+ }
+}

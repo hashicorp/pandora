@@ -1,0 +1,26 @@
+{
+ "name": "ListSelector",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "targets",
+   "name": "Targets",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "TargetReference",
+     "maxItems": 50,
+     "minItems": 1
+    }
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "Selector",
+ "discriminatedTypeValue": "List",
+ "typeHintIn": "Type"
+}

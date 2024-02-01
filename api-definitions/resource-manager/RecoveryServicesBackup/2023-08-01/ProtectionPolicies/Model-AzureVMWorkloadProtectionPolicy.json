@@ -1,0 +1,60 @@
+{
+ "name": "AzureVMWorkloadProtectionPolicy",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "makePolicyConsistent",
+   "name": "MakePolicyConsistent",
+   "objectDefinition": {
+    "type": "Boolean",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "settings",
+   "name": "Settings",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "Settings"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "subProtectionPolicy",
+   "name": "SubProtectionPolicy",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SubProtectionPolicy"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "workLoadType",
+   "name": "WorkLoadType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "WorkloadType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ProtectionPolicy",
+ "discriminatedTypeValue": "AzureWorkload",
+ "typeHintIn": "BackupManagementType"
+}

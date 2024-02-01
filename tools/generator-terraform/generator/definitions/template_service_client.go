@@ -12,8 +12,9 @@ import (
 var servicesUsingOldBaseLayer = map[string]struct{}{
 	// these should be lower-cased
 	"containerservice": {},
-	"loadtestservice":  {},
-	"managedidentity":  {},
+
+	// purely for testing purposes
+	"examplelegacypackage": {},
 }
 
 func templateForServiceClient(input models.ServiceInput) string {
@@ -56,7 +57,7 @@ func templateForServiceClient(input models.ServiceInput) string {
 
 		assignmentOldBaseLayerLine := fmt.Sprintf(`
 		%[1]sClient := %[2]s%[3]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-			c.Authorizer = o.ResourceManagerAuthorizer
+			o.ConfigureClient(c, o.ResourceManagerAuthorizer)
 		})
 `, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
 		assignmentOldBaseLayerLines = append(assignmentOldBaseLayerLines, assignmentOldBaseLayerLine)

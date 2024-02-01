@@ -1,0 +1,52 @@
+{
+ "name": "DetectorId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Batch/batchAccounts/{batchAccountName}/detectors/{detectorId}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftBatch",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Batch"
+  },
+  {
+   "name": "staticBatchAccounts",
+   "type": "Static",
+   "value": "batchAccounts"
+  },
+  {
+   "name": "batchAccountName",
+   "type": "UserSpecified"
+  },
+  {
+   "name": "staticDetectors",
+   "type": "Static",
+   "value": "detectors"
+  },
+  {
+   "name": "detectorId",
+   "type": "UserSpecified"
+  }
+ ]
+}

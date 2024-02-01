@@ -6,7 +6,9 @@ import (
 	"strings"
 	"unicode"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema/processors"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -52,12 +54,14 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails) (string, error) {
+func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails, resourceBuildInfo *models.ResourceBuildInfo) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
 		Constants:        constants,
 	}
+
+	// first we apply the field processing rules for several common renaming scenarios
 	for _, matcher := range processors.NamingRules {
 		updatedFieldName, err := matcher.ProcessField(fieldName, metadata)
 		if err != nil {
@@ -68,7 +72,32 @@ func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, reso
 			return *updatedFieldName, nil
 		}
 	}
+
+	// if we get this far then we check for any naming overrides that need to happen
+	if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
+		updatedFieldName, err := applySchemaOverrides(fieldName, resourceBuildInfo.Overrides)
+		if err != nil {
+			return "", fmt.Errorf("applying schema override for %q: %+v", fieldName, err)
+		}
+
+		if updatedFieldName != nil {
+			return *updatedFieldName, nil
+		}
+	}
 	return fieldName, nil
+}
+
+func applySchemaOverrides(fieldName string, overrides []models.Override) (*string, error) {
+	for _, override := range overrides {
+		if strings.EqualFold(fieldName, strings.ReplaceAll(override.Name, "_", "")) {
+			if override.UpdatedName != nil {
+				updated := helpers.ConvertFromSnakeToTitleCase(*override.UpdatedName)
+				return &updated, nil
+			}
+			continue
+		}
+	}
+	return nil, nil
 }
 
 func stringPointer(input string) *string {

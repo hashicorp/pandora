@@ -20,17 +20,18 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 	}
 
 	for resourceIdName, resourceId := range input.Schema.ResourceIds {
-		// no point
-		if resourceId.Segments[0].Type == resourcemanager.ScopeSegment {
-			continue
-		}
-
 		hasList := false
 
 		var createMethod *resourcemanager.MethodDefinition
 		var updateMethod *resourcemanager.MethodDefinition
 		var deleteMethod *resourcemanager.MethodDefinition
 		var getMethod *resourcemanager.MethodDefinition
+
+		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
+		if resourceLabel == nil || resourceMetaData == nil {
+			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
+			continue
+		}
 
 		for operationName, operation := range input.Operations.Operations {
 			// if it's an operation on just a suffix we're not interested
@@ -43,7 +44,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 
 			if (strings.EqualFold(operation.Method, "POST") || strings.EqualFold(operation.Method, "PUT")) && operation.UriSuffix == nil && operation.RequestObject != nil {
 				createMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateCreate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -68,7 +69,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 				}
 
 				updateMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateUpdate,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -76,7 +77,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			if strings.EqualFold(operation.Method, "GET") && operation.UriSuffix == nil && operation.ResponseObject != nil {
 				if operation.UriSuffix == nil {
 					getMethod = &resourcemanager.MethodDefinition{
-						Generate:         true,
+						Generate:         resourceMetaData.GenerateRead,
 						MethodName:       operationName,
 						TimeoutInMinutes: 5,
 					}
@@ -88,7 +89,7 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			}
 			if strings.EqualFold(operation.Method, "DELETE") && operation.UriSuffix == nil {
 				deleteMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateDelete,
 					MethodName:       operationName,
 					TimeoutInMinutes: 30,
 				}
@@ -104,17 +105,11 @@ func FindCandidates(input services.Resource, resourceDefinitions map[string]defi
 			// handle CreateOrUpdate, but only when there's no Update method
 			if strings.Contains(strings.ToLower(createMethod.MethodName), "update") {
 				updateMethod = &resourcemanager.MethodDefinition{
-					Generate:         true,
+					Generate:         resourceMetaData.GenerateUpdate,
 					MethodName:       createMethod.MethodName,
 					TimeoutInMinutes: 30,
 				}
 			}
-		}
-
-		resourceLabel, resourceMetaData := findResourceName(resourceDefinitions, resourceId.Id)
-		if resourceLabel == nil || resourceMetaData == nil {
-			logger.Debug(fmt.Sprintf("Identified Resource %q but not defined - skipping", resourceId.Id))
-			continue
 		}
 
 		var dataSourceDefinition *resourcemanager.TerraformDataSourceDetails

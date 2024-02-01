@@ -1,0 +1,29 @@
+{
+ "name": "AutoUserSpecification",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "elevationLevel",
+   "name": "ElevationLevel",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ElevationLevel"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "scope",
+   "name": "Scope",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "AutoUserScope"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

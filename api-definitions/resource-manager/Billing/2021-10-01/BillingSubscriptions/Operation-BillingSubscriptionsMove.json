@@ -1,0 +1,20 @@
+{
+ "name": "BillingSubscriptionsMove",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "BillingSubscriptionId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "MoveBillingSubscriptionRequest"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "BillingSubscription"
+ },
+ "uriSuffix": "/move"
+}

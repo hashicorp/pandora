@@ -1,6 +1,7 @@
 package dataapigeneratorjson
 
 import (
+	"fmt"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -33,9 +34,10 @@ func buildTerraformResourceDefinition(resourceLabel string, input resourcemanage
 			Name:             input.ReadMethod.MethodName,
 			TimeoutInMinutes: input.ReadMethod.TimeoutInMinutes,
 		},
-		Resource:        input.Resource,
-		ResourceIdName:  input.ResourceIdName,
-		SchemaModelName: input.SchemaModelName,
+		Resource:       input.Resource,
+		ResourceIdName: input.ResourceIdName,
+		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+		SchemaModelName: fmt.Sprintf("%sSchema", input.SchemaModelName),
 		UpdateMethod:    nil,
 	}
 	if input.UpdateMethod != nil {

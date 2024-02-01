@@ -7,10 +7,14 @@
  ],
  "longRunning": true,
  "httpMethod": "POST",
- "resourceIdName": "DiskId",
+ "resourceIdName": "ManagedDiskId",
  "requestObject": {
   "type": "Reference",
   "referenceName": "GrantAccessData"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "AccessUri"
  },
  "uriSuffix": "/beginGetAccess"
 }

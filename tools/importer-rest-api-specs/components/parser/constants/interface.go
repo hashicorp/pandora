@@ -15,7 +15,13 @@ import (
 )
 
 type constantExtension struct {
+	// name defines the Name that should be used for this Constant
 	name string
+
+	// valuesToDisplayNames defines any display name overrides that should be used for this Constant
+	// NOTE: whilst the API Definitions may define a value with no display name - this map contains
+	// only values with a name defined.
+	valuesToDisplayNames *map[interface{}]string
 }
 
 type ParsedConstant struct {
@@ -96,6 +102,14 @@ func MapConstant(typeVal spec.StringOrArray, fieldName string, values []interfac
 			}
 
 			key := keyValueForInteger(int64(value))
+			// if an override name is defined for this Constant then we should use it
+			if constExtension.valuesToDisplayNames != nil {
+				overrideName, hasOverride := (*constExtension.valuesToDisplayNames)[value]
+				if hasOverride {
+					key = overrideName
+				}
+			}
+
 			val := fmt.Sprintf("%d", int64(value))
 			normalizedName := normalizeConstantKey(key)
 			keysAndValues[normalizedName] = val
@@ -145,11 +159,36 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 	}
 
 	var enumName *string
+	var valuesToDisplayNames *map[interface{}]string
 	for k, v := range enumDetails {
 		// presume inconsistencies in the data
 		if strings.EqualFold(k, "name") {
 			normalizedEnumName := cleanup.NormalizeName(v.(string))
 			enumName = &normalizedEnumName
+		}
+
+		if strings.EqualFold(k, "values") {
+			items := v.([]interface{})
+			displayNameOverrides := make(map[interface{}]string)
+			for _, itemRaw := range items {
+				item := itemRaw.(map[string]interface{})
+				name, ok := item["name"].(string)
+				if !ok || name == "" {
+					// there isn't a custom name defined for this, so we should ignore it
+					continue
+				}
+				value, ok := item["value"].(interface{})
+				if !ok {
+					continue
+				}
+				// NOTE: whilst `x-ms-enum` includes a `description` field we don't support that today
+				// support for that is tracked in https://github.com/hashicorp/pandora/issues/231
+
+				displayNameOverrides[value] = name
+			}
+			if len(displayNameOverrides) > 0 {
+				valuesToDisplayNames = &displayNameOverrides
+			}
 		}
 
 		// NOTE: the Swagger Extension defines `modelAsString` which is used to define whether
@@ -161,9 +200,13 @@ func parseConstantExtensionFromExtension(field spec.Extensions) (*constantExtens
 		return nil, fmt.Errorf("enum details are missing a `name`")
 	}
 
-	return &constantExtension{
+	output := constantExtension{
 		name: *enumName,
-	}, nil
+	}
+	if valuesToDisplayNames != nil {
+		output.valuesToDisplayNames = valuesToDisplayNames
+	}
+	return &output, nil
 }
 
 func keyValueForInteger(value int64) string {
