@@ -57,9 +57,10 @@ HERE
         id = "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/fleets/{fleetName}/members/{memberName}"
         display_name = "Kubernetes Fleet Member"
         website_subcategory = "Container"
-        description = <<HERE
-Manages a Kubernetes Fleet Member
-HERE
+        description = "Manages a Kubernetes Fleet Member"
+        overrides "cluster_resource_id" {
+          updated_name = "kubernetes_cluster_id"
+        }
       }
     }
   }
