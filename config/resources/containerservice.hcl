@@ -57,6 +57,9 @@ HERE
         overrides "cluster_resource_id" {
           updated_name = "kubernetes_cluster_id"
         }
+        overrides "fleet_id" {
+          updated_name = "kubernetes_fleet_id"
+        }
       }
     }
   }
