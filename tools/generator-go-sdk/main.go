@@ -54,17 +54,12 @@ func main() {
 		"Automation@2020-01-13-preview",
 		"Automation@2021-06-22",
 
-		// @tombuildsstuff: there's generated resources associated with these three - please check before removing these
-		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
-		// for services/resources which are auto-generated
-		"ContainerService",
-
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
 		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
 		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
 		//
 		// After testing it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
-                // `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
+		// `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
 		"KeyVault@2023-02-01",
 	)
 
