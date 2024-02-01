@@ -1,0 +1,16 @@
+{
+ "name": "Resume",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  202
+ ],
+ "longRunning": true,
+ "httpMethod": "POST",
+ "resourceIdName": "SqlPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SqlPool"
+ },
+ "uriSuffix": "/resume"
+}
