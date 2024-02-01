@@ -23,7 +23,7 @@ func mapTerraformSchemaModelDefinition(modelName string, schemaModel resourceman
 
 		fieldBody, err := fieldDefinitionForTerraformSchemaField(fieldName, def)
 		if err != nil {
-			return nil, fmt.Errorf("determining the dotnet field for the terraform schema field %q: %+v", fieldName, err)
+			return nil, fmt.Errorf("mapping the terraform schema field %q: %+v", fieldName, err)
 		}
 
 		schemaFields = append(schemaFields, *fieldBody)

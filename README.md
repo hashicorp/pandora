@@ -4,11 +4,11 @@ Pandora is a suite of single-purpose tools which enable transforming the Azure A
 
 These tools are:
 
-1. **Rest API Specs Importer** - imports data from the Azure OpenAPI/Swagger Definitions into the intermediate C# format used by the Data API.
+1. **Rest API Specs Importer** - imports data from [the Azure Rest API Specs repository](https://github.com/Azure/azure-rest-api-specs) into the API Definitions format used by the Data API.
 2. **Data API** - exposes the imported API Definitions over an HTTP API (for ease of consumption in other tooling).
 3. **Go SDK Generator** - generates a Go SDK using data from the Data API.
 4. **Terraform Generator** - generates Terraform Resources using data from the Data API.
-5. **Version Bumper** - used to add new Azure Services and new API Versions for existing Azure Services to the config.
+5. **Version Bumper** - automatically detects and proposes importing new Services and API Versions for Azure Resource Manager.
 
 At the current time only Resource Manager Services are supported - although we're looking to support Microsoft Graph and (potentially) the Data Plane APIs in the future.
 
@@ -17,7 +17,6 @@ At the current time only Resource Manager Services are supported - although we'r
 The following dependencies are required:
 
 * [Golang 1.21.x](https://go.dev/dl/)
-* [.NET 7.x](https://dotnet.microsoft.com/download/dotnet/7.0)
 
 At first checkout you'll need to both initialize and then update the Git submodule:
 
@@ -76,8 +75,3 @@ The following paths are still a work-in-progress:
 
 - `./config/microsoft-graph.hcl` - contains the list of Microsoft Graph Services which should be imported.
 - `./tools/importer-msgraph-metadata` - contains the Importer for the Microsoft Graph API Definitions.
-
-The following paths are deprecated and will be removed in the near future:
-
-- `./data` - contains V1 of the Data API including the transformed Azure API Definitions in the intermediate C# format.
-- `./tools/extract-tf-resource-ids` - contains the tool used to output a list of Resource IDs included in a given Pull Request.

@@ -3,7 +3,7 @@ name: Regenerate API Data with New Microsoft Graph Changes after PR Merge
 on:
   push:
     branches:
-      - main
+      - fake_name_to_disable_trigger
     paths:
       - '.github/workflows/**'
       - 'config/microsoft-graph.hcl'
@@ -30,11 +30,6 @@ jobs:
       - uses: actions/setup-go@0c52d547c9bc32b1aa3301fd7a9cb496313a4491 # v5.0.0
         with:
           go-version: '1.21.3'
-
-      - name: Setup .NET
-        uses: actions/setup-dotnet@4d6c8fcf3c8f7a60068d26b594648e99df24cee3 # v4.0.0
-        with:
-          dotnet-version: 7.0.x
 
       - name: build and run importer-msgraph-metadata
         id: import-data

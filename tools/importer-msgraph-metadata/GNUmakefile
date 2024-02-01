@@ -12,20 +12,15 @@ import: build
 	else \
 		./importer-msgraph-metadata import -services=$(SERVICES); \
 	fi
-	# note we're intentionally only using whitespace here since the others try
-	# to fix design issues, which are actually issues in the API Data
-	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 import-all-clean: build
 	rm -r ../../data/Pandora.Definitions.MicrosoftGraph.*/[A-Z]*/
 	./importer-msgraph-metadata import
-	dotnet format whitespace --verbosity quiet ../../data/Pandora.sln
 
 test: build
 	go test -v ./...
 
 tools:
-	@echo "==> installing required tooling..."
-	dotnet tool install -g dotnet-format
+	@echo "==> no tools are required at this time."
 
 .PHONY: build fmt import import-with-api test tools
