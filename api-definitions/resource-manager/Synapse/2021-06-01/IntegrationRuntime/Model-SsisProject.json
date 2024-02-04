@@ -1,0 +1,64 @@
+{
+ "name": "SsisProject",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "environmentRefs",
+   "name": "EnvironmentRefs",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SsisEnvironmentReference"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "folderId",
+   "name": "FolderId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "parameters",
+   "name": "Parameters",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "SsisParameter"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "version",
+   "name": "Version",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "SsisObjectMetadata",
+ "discriminatedTypeValue": "Project",
+ "typeHintIn": "Type"
+}

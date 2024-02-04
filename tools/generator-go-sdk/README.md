@@ -46,7 +46,7 @@ Each (Generation) Stage has an associated Templater, meaning that each Stage can
 
 ## Getting Started
 
-Ensure [the Data API](../../data) is launched and then:
+Ensure [the Data API](../data-api) is launched and then:
 
 ```sh
 $ make tools

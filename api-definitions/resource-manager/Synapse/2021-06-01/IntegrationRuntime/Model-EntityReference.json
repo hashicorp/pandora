@@ -1,0 +1,29 @@
+{
+ "name": "EntityReference",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "referenceName",
+   "name": "ReferenceName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "type",
+   "name": "Type",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "IntegrationRuntimeEntityReferenceType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

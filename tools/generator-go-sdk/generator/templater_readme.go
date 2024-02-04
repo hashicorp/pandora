@@ -2,6 +2,7 @@ package generator
 
 import (
 	"fmt"
+	"sort"
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
@@ -13,7 +14,7 @@ type readmeTemplater struct {
 }
 
 func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
-	summary := r.packageSummary(data.servicePackageName, data.apiVersion, data.packageName)
+	summary := r.packageSummary(data)
 	clientInit := r.clientInitialization(data.packageName, data.serviceClientName)
 	examples, err := r.exampleUsages(data)
 	if err != nil {
@@ -28,7 +29,22 @@ func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
 	return &out, nil
 }
 
-func (r readmeTemplater) packageSummary(serviceName, apiVersion, resourceName string) string {
+func (r readmeTemplater) packageSummary(data ServiceGeneratorData) string {
+	importLines := []string{
+		fmt.Sprintf(`import "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s"`, data.servicePackageName, data.apiVersion, data.packageName),
+	}
+	containsCommonId := false
+	for _, resourceId := range data.resourceIds {
+		if resourceId.CommonAlias != nil {
+			containsCommonId = true
+			break
+		}
+	}
+	if containsCommonId {
+		importLines = append(importLines, `import "github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"`)
+	}
+	sort.Strings(importLines)
+
 	return fmt.Sprintf(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s' Documentation
 
@@ -39,9 +55,9 @@ This readme covers example usages, but further information on [using this SDK ca
 ### Import Path
 
 '''go
-import "github.com/hashicorp/go-azure-sdk/resource-manager/%[1]s/%[2]s/%[3]s"
+%[4]s
 '''
-`, serviceName, apiVersion, resourceName)
+`, data.servicePackageName, data.apiVersion, data.packageName, strings.Join(importLines, "\n"))
 }
 
 func (r readmeTemplater) clientInitialization(packageName, clientName string) string {
@@ -94,6 +110,13 @@ func (r readmeTemplater) resourceIdInitialization(operation resourcemanager.ApiO
 		return nil, fmt.Errorf("resource id %q was not found", *operation.ResourceIdName)
 	}
 
+	resourceIdPackageName := data.packageName
+	resourceIdTypeName := strings.TrimSuffix(*operation.ResourceIdName, "Id")
+	if resourceId.CommonAlias != nil {
+		resourceIdPackageName = "commonids"
+		resourceIdTypeName = *resourceId.CommonAlias // NOTE: CommonIds aren't output with an `Id` suffix
+	}
+
 	components := make([]string, 0)
 	for _, v := range resourceId.Segments {
 		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.ResourceProviderSegment {
@@ -101,7 +124,7 @@ func (r readmeTemplater) resourceIdInitialization(operation resourcemanager.ApiO
 		}
 		components = append(components, fmt.Sprintf("%q", v.ExampleValue))
 	}
-	out := fmt.Sprintf(`id := %[1]s.New%[2]sID(%[3]s)`, data.packageName, strings.TrimSuffix(*operation.ResourceIdName, "Id"), strings.Join(components, ", "))
+	out := fmt.Sprintf(`id := %[1]s.New%[2]sID(%[3]s)`, resourceIdPackageName, resourceIdTypeName, strings.Join(components, ", "))
 	return &out, nil
 }
 

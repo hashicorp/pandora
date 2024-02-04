@@ -1,0 +1,19 @@
+{
+ "name": "Update",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200,
+  201
+ ],
+ "longRunning": false,
+ "httpMethod": "PATCH",
+ "resourceIdName": "PrivateLinkHubId",
+ "requestObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkHubPatchInfo"
+ },
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "PrivateLinkHub"
+ }
+}

@@ -1,0 +1,15 @@
+{
+ "name": "SqlPoolConnectionPoliciesGet",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "GET",
+ "resourceIdName": "SqlPoolId",
+ "responseObject": {
+  "type": "Reference",
+  "referenceName": "SqlPoolConnectionPolicy"
+ },
+ "uriSuffix": "/connectionPolicies/default"
+}
