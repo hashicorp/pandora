@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapimodels
 
 // TerraformSchemaField describes information about an attribute that will be mapped into the Terraform Schema of a resource

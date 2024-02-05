@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapimodels
 
 // NOTE: these types are intentionally undocumented atm, these'll be added in a follow-up PR

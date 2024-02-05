@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapimodels
 
 // ServiceDefinition is used to define a Service (such as `Compute`) within which
