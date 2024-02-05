@@ -384,7 +384,7 @@ service "networkfunction" {
 }
 service "newrelic" {
   name      = "NewRelic"
-  available = ["2022-07-01"]
+  available = ["2022-07-01", "2024-01-01"]
 }
 service "nginx" {
   name      = "Nginx"
