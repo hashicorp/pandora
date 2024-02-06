@@ -1,0 +1,56 @@
+{
+	"fields": [
+		{
+			"documentation": {
+				"markdown": "The group this member belongs to for multi-cluster update management."
+			},
+			"hclName": "group",
+			"optional": true,
+			"name": "Group",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			}
+		},
+		{
+			"documentation": {
+				"markdown": "The ARM resource ID of the cluster that joins the Fleet."
+			},
+			"forceNew": true,
+			"hclName": "kubernetes_cluster_id",
+			"name": "KubernetesClusterId",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the Kubernetes Fleet Id within which this Kubernetes Fleet Member should exist."
+			},
+			"forceNew": true,
+			"hclName": "kubernetes_fleet_id",
+			"name": "KubernetesFleetId",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		},
+		{
+			"documentation": {
+				"markdown": "Specifies the name of this Kubernetes Fleet Member."
+			},
+			"forceNew": true,
+			"hclName": "name",
+			"name": "Name",
+			"objectDefinition": {
+				"referenceName": null,
+				"type": "String"
+			},
+			"required": true
+		}
+	],
+	"name": "KubernetesFleetMemberResourceSchema"
+}
