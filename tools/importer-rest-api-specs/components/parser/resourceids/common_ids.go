@@ -74,7 +74,6 @@ var commonIdTypes = []commonIdMatcher{
 	// HDInsight
 	commonIdHDInsightCluster{},
 
-
 	// Key Vault
 	commonIdKeyVault{},
 	commonIdKeyVaultKey{},

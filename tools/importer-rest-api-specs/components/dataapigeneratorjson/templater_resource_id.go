@@ -6,6 +6,7 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
+
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"

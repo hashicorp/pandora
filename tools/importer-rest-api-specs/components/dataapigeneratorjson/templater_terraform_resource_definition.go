@@ -5,6 +5,7 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )

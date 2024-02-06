@@ -17,7 +17,7 @@ type FindServiceInput struct {
 	ConfigFilePath   string
 	OutputDirectory  string
 	SwaggerDirectory string
-	Logger              hclog.Logger
+	Logger           hclog.Logger
 }
 
 func FindServices(input FindServiceInput, terraformConfig definitions.Config) (*[]ServiceInput, error) {

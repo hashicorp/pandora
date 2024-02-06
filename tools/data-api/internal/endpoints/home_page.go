@@ -5,12 +5,13 @@ package endpoints
 
 import (
 	"fmt"
-	"github.com/go-chi/chi/v5"
 	"html/template"
 	"log"
 	"net/http"
 	"sort"
 	"strings"
+
+	"github.com/go-chi/chi/v5"
 )
 
 const homePageTemplate = `
