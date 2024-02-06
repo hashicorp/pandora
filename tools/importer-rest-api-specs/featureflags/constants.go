@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package featureflags
 
 // AllowConstantsWithoutXMSEnum specifies whether Constants should be parsed out without

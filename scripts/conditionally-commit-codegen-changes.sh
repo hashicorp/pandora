@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright (c) HashiCorp, Inc.
+# SPDX-License-Identifier: MPL-2.0
+
 
 if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
   git add --all

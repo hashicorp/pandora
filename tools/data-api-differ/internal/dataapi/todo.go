@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapi
 
 // TODO: this package can disappear/be merged into the updated SDK once that's available
