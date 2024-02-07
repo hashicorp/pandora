@@ -47,7 +47,6 @@ func main() {
 		"SecurityInsights",
 		"ServiceFabric",
 		"SqlVirtualMachine",
-		"StreamAnalytics",
 		"Subscription",
 		"TimeSeriesInsights",
 
@@ -67,7 +66,7 @@ func main() {
 		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
 		//
 		// After testing it appears that `2023-07-01` doesn't suffer from this problem - as such we're going to leave
-                // `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
+		// `2023-02-01` on the older base layer and use the newer API Version as a divide to give us a clear migration path.
 		"KeyVault@2023-02-01",
 	)
 
