@@ -1,0 +1,108 @@
+{
+ "name": "HyperVVirtualMachineDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskDetails",
+   "name": "DiskDetails",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "DiskDetails"
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "generation",
+   "name": "Generation",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasFibreChannelAdapter",
+   "name": "HasFibreChannelAdapter",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PresenceStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasPhysicalDisk",
+   "name": "HasPhysicalDisk",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PresenceStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hasSharedVhd",
+   "name": "HasSharedVhd",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "PresenceStatus"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "hyperVHostId",
+   "name": "HyperVHostId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osDetails",
+   "name": "OsDetails",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "OSDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "sourceItemId",
+   "name": "SourceItemId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "ConfigurationSettings",
+ "discriminatedTypeValue": "HyperVVirtualMachine",
+ "typeHintIn": "InstanceType"
+}

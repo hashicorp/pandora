@@ -1,0 +1,89 @@
+{
+ "name": "A2AProtectionIntentManagedDiskInputDetails",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskEncryptionInfo",
+   "name": "DiskEncryptionInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DiskEncryptionInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "diskId",
+   "name": "DiskId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "primaryStagingStorageAccountCustomInput",
+   "name": "PrimaryStagingStorageAccountCustomInput",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "StorageAccountCustomDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryDiskEncryptionSetId",
+   "name": "RecoveryDiskEncryptionSetId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryReplicaDiskAccountType",
+   "name": "RecoveryReplicaDiskAccountType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryResourceGroupCustomInput",
+   "name": "RecoveryResourceGroupCustomInput",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RecoveryResourceGroupCustomDetails"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryTargetDiskAccountType",
+   "name": "RecoveryTargetDiskAccountType",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
