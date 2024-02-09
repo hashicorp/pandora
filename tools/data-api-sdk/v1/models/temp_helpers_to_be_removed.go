@@ -7,11 +7,12 @@ import (
 	"fmt"
 )
 
-type ApiObjectDefinition struct {
-	NestedItem    *ApiObjectDefinition    `json:"nestedItem,omitempty"`
-	ReferenceName *string                 `json:"referenceName,omitempty"`
-	Type          ApiObjectDefinitionType `json:"type"`
-}
+// NOTE: the methods within this file are deprecated but remain in place
+// temporarily to allow tools to continue to compile whilst the refactor
+// is partially complete.
+//
+// Each item within this file will be marked as Deprecated - which should
+// make it possible to detect usages of the old types fairly easily.
 
 func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error) {
 	// TODO: we should look to add unit tests for this method
@@ -187,39 +188,6 @@ func (d ApiObjectDefinition) Matches(other *ApiObjectDefinition) bool {
 
 	return true
 }
-
-type ApiObjectDefinitionType string
-
-const (
-	BooleanApiObjectDefinitionType    ApiObjectDefinitionType = "Boolean"
-	CsvApiObjectDefinitionType        ApiObjectDefinitionType = "Csv"
-	DateTimeApiObjectDefinitionType   ApiObjectDefinitionType = "DateTime"
-	DictionaryApiObjectDefinitionType ApiObjectDefinitionType = "Dictionary"
-	IntegerApiObjectDefinitionType    ApiObjectDefinitionType = "Integer"
-	FloatApiObjectDefinitionType      ApiObjectDefinitionType = "Float"
-	ListApiObjectDefinitionType       ApiObjectDefinitionType = "List"
-	RawFileApiObjectDefinitionType    ApiObjectDefinitionType = "RawFile"
-	RawObjectApiObjectDefinitionType  ApiObjectDefinitionType = "RawObject"
-	ReferenceApiObjectDefinitionType  ApiObjectDefinitionType = "Reference"
-	StringApiObjectDefinitionType     ApiObjectDefinitionType = "String"
-
-	// Custom Types
-	EdgeZoneApiObjectDefinitionType                                ApiObjectDefinitionType = "EdgeZone"
-	LocationApiObjectDefinitionType                                ApiObjectDefinitionType = "Location"
-	SystemAssignedIdentityApiObjectDefinitionType                  ApiObjectDefinitionType = "SystemAssignedIdentity"
-	SystemAndUserAssignedIdentityListApiObjectDefinitionType       ApiObjectDefinitionType = "SystemAndUserAssignedIdentityList"
-	SystemAndUserAssignedIdentityMapApiObjectDefinitionType        ApiObjectDefinitionType = "SystemAndUserAssignedIdentityMap"
-	LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType ApiObjectDefinitionType = "LegacySystemAndUserAssignedIdentityList"
-	LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType  ApiObjectDefinitionType = "LegacySystemAndUserAssignedIdentityMap"
-	SystemOrUserAssignedIdentityListApiObjectDefinitionType        ApiObjectDefinitionType = "SystemOrUserAssignedIdentityList"
-	SystemOrUserAssignedIdentityMapApiObjectDefinitionType         ApiObjectDefinitionType = "SystemOrUserAssignedIdentityMap"
-	UserAssignedIdentityListApiObjectDefinitionType                ApiObjectDefinitionType = "UserAssignedIdentityList"
-	UserAssignedIdentityMapApiObjectDefinitionType                 ApiObjectDefinitionType = "UserAssignedIdentityMap"
-	TagsApiObjectDefinitionType                                    ApiObjectDefinitionType = "Tags"
-	SystemData                                                     ApiObjectDefinitionType = "SystemData"
-	ZoneApiObjectDefinitionType                                    ApiObjectDefinitionType = "Zone"
-	ZonesApiObjectDefinitionType                                   ApiObjectDefinitionType = "Zones"
-)
 
 func toStringPointer(in string) (*string, error) {
 	return &in, nil

@@ -1,0 +1,22 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+package models
+
+// Service defines a collection of APIVersion's which are all grouped/related
+// to the same area.
+// An example of this would be `Compute` which contains the APIVersion `2021-01-01`
+// which in turn contains APIResource's for `ManagedDisks` and `VirtualMachines`.
+type Service struct {
+	// APIVersions specifies a map of API Version (key) to APIVersion (value)
+	// which defines the available API Versions for this Service.
+	APIVersions map[string]APIVersion
+
+	// ResourceProvider optionally specifies the Azure Resource Provider
+	// that this Service is related to.
+	// Note that this only exists when the SourceDataType is ResourceManagerSourceDataType.
+	// Also note that Resource Providers do NOT have to start with `Microsoft.`.
+	ResourceProvider *string
+
+	// TODO: Terraform
+}
