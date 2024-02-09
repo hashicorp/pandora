@@ -56,7 +56,6 @@ func NewStaticValueResourceIDSegment(name, fixedValue string) ResourceIDSegment 
 		FixedValue:   pointer.To(fixedValue),
 		Name:         name,
 		Type:         StaticResourceIDSegmentType,
-	}
 }
 
 // NewSubscriptionIDResourceIDSegment returns a configured ResourceIDSegment which represents
