@@ -10,6 +10,9 @@ package models
 // Each item within this file will be marked as Deprecated - which should
 // make it possible to detect usages of the old types fairly easily.
 
+// 1. TerraformDefinition no longer contains `DataSources`,
+//    which will want splitting into Singular and Plural.
+
 /*
 Removed:
   * ApiOperationDetails (should be unused)
@@ -17,6 +20,9 @@ Removed:
   * ServiceVersionDetails (not widely used)
   * FieldValidationDetails (no longer required)
   * FieldValidationType (no longer required)
+  * TerraformSchemaFieldTypeSku (unused/requires reworking)
+  * FieldManualMappingDefinition (currently unused)
+  * ManualMappingDefinitionType (currently unused)
 
 Notes:
   * SDKConstant - no longer supports CaseInsensitive
@@ -108,4 +114,79 @@ type DateFormat = SDKDateFormat
 const (
 	RFC3339     = RFC3339SDKDateFormat
 	RFC3339Nano = RFC3339NanoSDKDateFormat
+)
+
+// =============================
+// ========= Terraform =========
+// =============================
+
+type TerraformDetails = TerraformDefinition
+
+type TerraformResourceDetails = TerraformResourceDefinition
+
+type TerraformSchemaModelDefinition = TerraformSchemaModel
+
+type TerraformSchemaFieldDefinition = TerraformSchemaField
+
+type TerraformSchemaFieldObjectDefinition = TerraformSchemaObjectDefinition
+
+type TerraformSchemaFieldType = TerraformSchemaObjectDefinitionType
+
+type ResourceDocumentationDefinition = TerraformDocumentationDefinition
+
+type MethodDefinition = TerraformMethodDefinition
+
+type MappingDefinition = TerraformMappingDefinition
+
+type TerraformSchemaDocumentationDefinition = TerraformSchemaFieldDocumentationDefinition
+
+type ResourceIDMappingDefinition = TerraformResourceIDMappingDefinition
+
+// ==================================
+// == Terraform Object Definitions ==
+// ==================================
+
+// Simple Types
+
+const (
+	TerraformSchemaFieldTypeBoolean  = BooleanTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeDateTime = DateTimeTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeFloat    = FloatTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeInteger  = IntegerTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeString   = StringTerraformSchemaObjectDefinitionType
+)
+
+// Complex Types
+const (
+	TerraformSchemaFieldTypeDictionary = DictionaryTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeList       = ListTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeReference  = ReferenceTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeSet        = SetTerraformSchemaObjectDefinitionType
+)
+
+// Common Schema Types
+const (
+	TerraformSchemaFieldTypeEdgeZone                      = EdgeZoneTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeIdentitySystemAssigned        = SystemAssignedIdentityTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeIdentitySystemAndUserAssigned = SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeIdentitySystemOrUserAssigned  = SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeIdentityUserAssigned          = UserAssignedIdentityTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeLocation                      = LocationTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeResourceGroup                 = ResourceGroupTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeTags                          = TagsTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeZone                          = ZoneTerraformSchemaObjectDefinitionType
+	TerraformSchemaFieldTypeZones                         = ZonesTerraformSchemaObjectDefinitionType
+
+	// NOTE: there is no replacement for `Sku`
+)
+
+// ============================
+// ==== Terraform Mappings ====
+// ============================
+
+type MappingDefinitionType = TerraformFieldMappingDefinitionType
+
+const (
+	DirectAssignmentMappingDefinitionType = DirectAssignmentTerraformFieldMappingDefinitionType
+	ModelToModelMappingDefinitionType     = ModelToModelTerraformFieldMappingDefinitionType
 )

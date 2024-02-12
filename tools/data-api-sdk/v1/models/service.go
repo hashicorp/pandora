@@ -18,5 +18,7 @@ type Service struct {
 	// Also note that Resource Providers do NOT have to start with `Microsoft.`.
 	ResourceProvider *string
 
-	// TODO: Terraform
+	// TerraformDefinition optionally specifies the Terraform Data Sources and
+	// Terraform Resources which are included as a part of this Service.
+	TerraformDefinition *TerraformDefinition
 }
