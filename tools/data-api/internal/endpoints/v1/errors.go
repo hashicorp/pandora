@@ -9,6 +9,7 @@ import (
 )
 
 func internalServerError(w http.ResponseWriter, err error) {
+	// TODO: update errors
 	log.Printf("[ERROR] %+v", err)
 	http.Error(w, http.StatusText(http.StatusInternalServerError), http.StatusInternalServerError)
 }

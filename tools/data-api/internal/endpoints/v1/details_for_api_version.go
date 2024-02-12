@@ -8,8 +8,9 @@ import (
 	"net/http"
 
 	"github.com/go-chi/render"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
+	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1/transforms"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
-	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func (api Api) detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
@@ -31,18 +32,22 @@ func (api Api) detailsForApiVersion(w http.ResponseWriter, r *http.Request) {
 		internalServerError(w, fmt.Errorf("missing serviceApiVersion"))
 		return
 	}
-	resources := make(map[string]models.ResourceSummary, 0)
 
+	resources := make(map[string]v1.APIResourceSummary, 0)
 	for k := range apiVersion.Resources {
-		resources[k] = models.ResourceSummary{
-			OperationsUri: fmt.Sprintf("%s/services/%s/%s/%s/operations", opts.UriPrefix, service.Name, apiVersion.Name, k),
-			SchemaUri:     fmt.Sprintf("%s/services/%s/%s/%s/schema", opts.UriPrefix, service.Name, apiVersion.Name, k),
+		resources[k] = v1.APIResourceSummary{
+			OperationsURI: fmt.Sprintf("%s/services/%s/%s/%s/operations", opts.UriPrefix, service.Name, apiVersion.Name, k),
+			SchemaURI:     fmt.Sprintf("%s/services/%s/%s/%s/schema", opts.UriPrefix, service.Name, apiVersion.Name, k),
 		}
 	}
+	source, err := transforms.MapSourceDataOrigin(apiVersion.Source)
+	if err != nil {
+		internalServerError(w, fmt.Errorf("mapping SourceDataOrigin: %+v", err))
+	}
 
-	payload := models.ServiceVersionDetails{
+	payload := v1.DetailsForAPIVersionSummary{
 		Resources: resources,
-		Source:    models.ApiDefinitionsSource(apiVersion.Source),
+		Source:    *source,
 	}
 	render.JSON(w, r, payload)
 }
