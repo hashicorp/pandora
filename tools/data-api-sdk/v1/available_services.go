@@ -11,9 +11,14 @@ type GetAvailableServicesResponse struct {
 	// HttpResponse is the raw HTTP Response
 	HttpResponse *http.Response
 
-	// Model is a map of Service Name to AvailableServiceSummary, which can be used to determine
-	// the API Versions available for this Service.
+	// Model contains a list of the Available Services within this Source Data Type.
 	Model *map[string]AvailableServiceSummary
+}
+
+type GetAvailableServices struct {
+	// Services is a map of Service Name to AvailableServiceSummary, which can be used to determine
+	// the API Versions available for this Service.
+	Services map[string]AvailableServiceSummary `json:"services"`
 }
 
 type AvailableServiceSummary struct {
@@ -42,13 +47,9 @@ func (c *Client) GetAvailableServices(ctx context.Context) (*GetAvailableService
 		return nil, fmt.Errorf("expected a 200 OK but got %d %s for %q", out.HttpResponse.StatusCode, out.HttpResponse.Status, uri)
 	}
 
-	var response struct {
-		Services map[string]AvailableServiceSummary `json:"services"`
-	}
-	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&response); err != nil {
+	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&out.Model); err != nil {
 		return nil, err
 	}
 
-	out.Model = &response.Services
 	return &out, nil
 }

@@ -31,6 +31,11 @@ func (c *Client) GetTerraformDetailsForService(ctx context.Context, service Serv
 		return nil, fmt.Errorf("performing request to %q: %+v", uri, err)
 	}
 
+	if out.HttpResponse.StatusCode == http.StatusNoContent {
+		// no Terraform Definitions for this Service
+		return &out, nil
+	}
+
 	if out.HttpResponse.StatusCode != http.StatusOK {
 		return nil, fmt.Errorf("expected a 200 OK but got %d %s for %q", out.HttpResponse.StatusCode, out.HttpResponse.Status, uri)
 	}

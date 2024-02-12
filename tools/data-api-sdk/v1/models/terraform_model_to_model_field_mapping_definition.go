@@ -33,7 +33,7 @@ type TerraformModelToModelFieldMappingDefinitionImpl struct {
 
 	// SDKFieldName specifies the name of the SDKField within the SDKModel (defined in SDKModelName) which should be
 	// mapped to/from the TerraformSchemaModel (defined in TerraformSchemaModelName).
-	SdkFieldName string `json:"sdkFieldName"`
+	SDKFieldName string `json:"sdkFieldName"`
 }
 
 // mappingDefinitionType specifies the type of TerraformFieldMappingDefinitionType this TerraformFieldMappingType represents.

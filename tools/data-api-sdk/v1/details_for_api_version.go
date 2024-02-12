@@ -39,7 +39,7 @@ type APIResourceSummary struct {
 // DetailsForAPIVersion retrieves information about the specified API Version, including the
 // list of API Resources available within it.
 func (c *Client) DetailsForAPIVersion(ctx context.Context, apiVersion ServiceAPIVersionSummary) (*DetailsForAPIVersionResponse, error) {
-	uri := fmt.Sprintf("%s%s", c.endpoint, apiVersion.Uri)
+	uri := fmt.Sprintf("%s%s", c.endpoint, apiVersion.URI)
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, uri, nil)
 	if err != nil {
 		return nil, fmt.Errorf("building request to the %q endpoint: %+v", uri, err)

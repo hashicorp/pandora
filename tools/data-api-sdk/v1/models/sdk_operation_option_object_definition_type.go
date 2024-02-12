@@ -13,6 +13,10 @@ const (
 	// This will be output as the Go type `bool`.
 	BooleanSDKOperationOptionObjectDefinitionType SDKOperationOptionObjectDefinitionType = "Boolean"
 
+	// CSVSDKOperationOptionObjectDefinitionType defines that the payload is a list of Comma Separated Values.
+	// This will be output as the Go type `string`.
+	CSVSDKOperationOptionObjectDefinitionType SDKOperationOptionObjectDefinitionType = "Csv"
+
 	// IntegerSDKOperationOptionObjectDefinitionType defines that the payload is an Integer.
 	// This will be output as the Go type `int64`.
 	IntegerSDKOperationOptionObjectDefinitionType SDKOperationOptionObjectDefinitionType = "Integer"

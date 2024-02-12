@@ -12,17 +12,22 @@ type GetSDKSchemaForAPIResourceResponse struct {
 	// HttpResponse is the raw HTTP Response.
 	HttpResponse *http.Response
 
+	// Model contains the SDKConstants, SDKModels and ResourceIDs for this APIResource.
+	Model *GetSDKSchemaForAPIResource
+}
+
+type GetSDKSchemaForAPIResource struct {
 	// Constants describes a map of Constant Name (key) to SDKConstant (value) used within this APIResource.
 	// The Constant Name is a valid Identifier.
-	Constants *map[string]models.SDKConstant
+	Constants map[string]models.SDKConstant `json:"constants"`
 
 	// Models describes a map of Model Name (key) to SDKModel (value) used within this APIResource.
 	// The Model Name is a valid Identifier.
-	Models *map[string]models.SDKModel
+	Models map[string]models.SDKModel `json:"models"`
 
 	// ResourceIDs describes a map of Resource ID Name (key) to ResourceID (value) used within this APIResource.
 	// The Resource ID Name is a valid Identifier.
-	ResourceIDs *map[string]models.ResourceID
+	ResourceIDs map[string]models.ResourceID `json:"resourceIds"`
 }
 
 // GetSDKSchemaForAPIResource returns the SDK Schema for the specified API Resource (within a given API Version/Service).
@@ -43,18 +48,9 @@ func (c *Client) GetSDKSchemaForAPIResource(ctx context.Context, apiResource API
 		return nil, fmt.Errorf("expected a 200 OK but got %d %s for %q", out.HttpResponse.StatusCode, out.HttpResponse.Status, uri)
 	}
 
-	var response struct {
-		Constants   map[string]models.SDKConstant `json:"constants"`
-		Models      map[string]models.SDKModel    `json:"models"`
-		ResourceIDs map[string]models.ResourceID  `json:"resourceIds"`
-	}
-	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&response); err != nil {
+	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&out.Model); err != nil {
 		return nil, err
 	}
-
-	out.Constants = &response.Constants
-	out.Models = &response.Models
-	out.ResourceIDs = &response.ResourceIDs
 
 	return &out, nil
 }

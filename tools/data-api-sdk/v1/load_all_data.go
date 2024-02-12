@@ -119,10 +119,10 @@ func (c *Client) loadAllDetailsForAPIVersion(ctx context.Context, summary Servic
 		}
 
 		apiResources[resourceName] = models.APIResource{
-			Constants:   *sdkSchema.Constants,
-			Models:      *sdkSchema.Models,
-			Operations:  *sdkOperations.Operations,
-			ResourceIDs: *sdkSchema.ResourceIDs,
+			Constants:   sdkSchema.Model.Constants,
+			Models:      sdkSchema.Model.Models,
+			Operations:  sdkOperations.Model.Operations,
+			ResourceIDs: sdkSchema.Model.ResourceIDs,
 		}
 	}
 

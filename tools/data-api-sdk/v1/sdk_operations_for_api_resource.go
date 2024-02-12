@@ -12,9 +12,14 @@ type GetSDKOperationsForAPIResourceResponse struct {
 	// HttpResponse is the raw HTTP Response.
 	HttpResponse *http.Response
 
+	// Model contains the SDKOperations for this APIResource.
+	Model *GetSDKOperationsForAPIResource
+}
+
+type GetSDKOperationsForAPIResource struct {
 	// Operations describes a map of key (Operation Name) to value (SDKOperation) of the
 	// SDK Operations available within this API Resource.
-	Operations *map[string]models.SDKOperation
+	Operations map[string]models.SDKOperation `json:"operations"`
 }
 
 // GetSDKOperationsForAPIResource returns the SDK Operations for the specified API Resource (within a given API Version/Service).
@@ -35,13 +40,9 @@ func (c *Client) GetSDKOperationsForAPIResource(ctx context.Context, apiResource
 		return nil, fmt.Errorf("expected a 200 OK but got %d %s for %q", out.HttpResponse.StatusCode, out.HttpResponse.Status, uri)
 	}
 
-	var response struct {
-		Operations map[string]models.SDKOperation `json:"operations"`
-	}
-	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&response); err != nil {
+	if err := json.NewDecoder(out.HttpResponse.Body).Decode(&out.Model); err != nil {
 		return nil, err
 	}
 
-	out.Operations = &response.Operations
 	return &out, nil
 }

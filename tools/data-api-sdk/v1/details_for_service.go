@@ -38,8 +38,8 @@ type ServiceAPIVersionSummary struct {
 	// Preview specifies whether this API Version is a Preview rather than a Stable version.
 	Preview bool `json:"preview"`
 
-	// Uri specifies the URI where additional information about this API version can be loaded from.
-	Uri string `json:"uri"`
+	// URI specifies the URI where additional information about this API version can be loaded from.
+	URI string `json:"uri"`
 }
 
 // GetDetailsForServiceResponse returns information about the specified Service, including the list of available API Versions.
