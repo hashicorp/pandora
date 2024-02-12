@@ -11,6 +11,4 @@ const (
 	// be specified for this field.
 	// Example: [`Standard` and `Basic` SKUs] or [`1-5`]
 	PossibleValuesTerraformSchemaFieldValidationType TerraformSchemaFieldValidationType = "PossibleValues"
-
-	// NOTE be sure to update terraformSchemaFieldValidationDefinitions when adding to this.
 )

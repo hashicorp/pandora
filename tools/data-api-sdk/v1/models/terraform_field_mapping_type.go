@@ -15,6 +15,4 @@ const (
 	ModelToModelTerraformFieldMappingDefinitionType TerraformFieldMappingDefinitionType = "ModelToModel"
 
 	// TODO: support for other mapping types (e.g. BooleanEquals, BooleanInvert) in the future
-
-	// NOTE: when adding new values/implementations be sure to update terraformFieldMappingTypes.
 )

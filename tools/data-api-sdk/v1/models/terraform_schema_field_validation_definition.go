@@ -14,10 +14,6 @@ type TerraformSchemaFieldValidationDefinition interface {
 	fieldValidationType() TerraformSchemaFieldValidationType
 }
 
-var terraformSchemaFieldValidationDefinitions = []TerraformSchemaFieldValidationDefinition{
-	TerraformSchemaFieldValidationPossibleValuesDefinition{},
-}
-
 // unmarshalTerraformSchemaFieldValidationDefinitionImplementation provides a custom unmarshal function to deserialize the correct
 // TerraformSchemaFieldValidationDefinition implementation based on the `type` field.
 func unmarshalTerraformSchemaFieldValidationDefinitionImplementation(input []byte) (TerraformSchemaFieldValidationDefinition, error) {
@@ -35,13 +31,12 @@ func unmarshalTerraformSchemaFieldValidationDefinitionImplementation(input []byt
 		return nil, nil
 	}
 
-	for _, impl := range terraformSchemaFieldValidationDefinitions {
-		if impl.fieldValidationType() == value {
-			if err := json.Unmarshal(input, impl); err != nil {
-				return nil, fmt.Errorf("unmarshaling %q: %+v", value, err)
-			}
-			return impl, nil
+	if value == PossibleValuesTerraformSchemaFieldValidationType {
+		var instance TerraformSchemaFieldValidationPossibleValuesDefinition
+		if err := json.Unmarshal(input, &instance); err != nil {
+			return nil, fmt.Errorf("unmarshaling %q: %+v", value, err)
 		}
+		return instance, nil
 	}
 
 	return nil, fmt.Errorf("internal-error: missing implementation for TerraformSchemaFieldValidationDefinition %q", value)

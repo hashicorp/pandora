@@ -50,7 +50,7 @@ func (f *TerraformSchemaField) UnmarshalJSON(bytes []byte) error {
 	type alias TerraformSchemaField
 	var decoded alias
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
-		return fmt.Errorf("unmarshaling into TerraformMappingDefinition: %+v", err)
+		return fmt.Errorf("unmarshaling into TerraformSchemaField: %+v", err)
 	}
 
 	f.Computed = decoded.Computed
@@ -63,7 +63,7 @@ func (f *TerraformSchemaField) UnmarshalJSON(bytes []byte) error {
 
 	var temp map[string]json.RawMessage
 	if err := json.Unmarshal(bytes, &temp); err != nil {
-		return fmt.Errorf("unmarshaling TerraformMappingDefinition into map[string]json.RawMessage: %+v", err)
+		return fmt.Errorf("unmarshaling TerraformSchemaField into map[string]json.RawMessage: %+v", err)
 	}
 
 	if v, ok := temp["validation"]; ok {

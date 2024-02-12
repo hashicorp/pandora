@@ -26,7 +26,7 @@ type AvailableServiceSummary struct {
 
 // GetAvailableServices returns the list of available Services within this Source Data Type.
 func (c *Client) GetAvailableServices(ctx context.Context) (*GetAvailableServicesResponse, error) {
-	uri := fmt.Sprintf("%s/v1/services", c.endpoint)
+	uri := fmt.Sprintf("%s/v1/%s/services", c.endpoint, string(c.sourceDataType))
 	req, err := http.NewRequestWithContext(ctx, http.MethodGet, uri, nil)
 	if err != nil {
 		return nil, fmt.Errorf("building request to the %q endpoint: %+v", uri, err)

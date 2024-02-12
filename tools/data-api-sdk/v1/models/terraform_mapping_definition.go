@@ -30,7 +30,11 @@ type TerraformMappingDefinition struct {
 }
 
 func (d *TerraformMappingDefinition) UnmarshalJSON(bytes []byte) error {
-	type alias TerraformMappingDefinition
+	type alias struct {
+		Fields        []json.RawMessage                        `json:"fields"`
+		ModelToModels []TerraformModelToModelMappingDefinition `json:"modelToModel"`
+		ResourceID    []TerraformResourceIDMappingDefinition   `json:"resourceId"`
+	}
 	var decoded alias
 	if err := json.Unmarshal(bytes, &decoded); err != nil {
 		return fmt.Errorf("unmarshaling into TerraformMappingDefinition: %+v", err)
@@ -39,26 +43,14 @@ func (d *TerraformMappingDefinition) UnmarshalJSON(bytes []byte) error {
 	d.ModelToModels = decoded.ModelToModels
 	d.ResourceID = decoded.ResourceID
 
-	var temp map[string]json.RawMessage
-	if err := json.Unmarshal(bytes, &temp); err != nil {
-		return fmt.Errorf("unmarshaling TerraformMappingDefinition into map[string]json.RawMessage: %+v", err)
-	}
-
-	if v, ok := temp["fields"]; ok {
-		var listTemp []json.RawMessage
-		if err := json.Unmarshal(v, &listTemp); err != nil {
-			return fmt.Errorf("unmarshaling TerraformFieldMappingDefinition into list []json.RawMessage: %+v", err)
+	output := make([]TerraformFieldMappingDefinition, 0)
+	for i, raw := range decoded.Fields {
+		impl, err := unmarshalTerraformFieldMappingDefinitionImplementation(raw)
+		if err != nil {
+			return fmt.Errorf("unmarshaling index %d field for `Fields` within `TerraformFieldMappingDefinition`: %+v", i, err)
 		}
-
-		output := make([]TerraformFieldMappingDefinition, 0)
-		for i, val := range listTemp {
-			impl, err := unmarshalTerraformFieldMappingDefinitionImplementation(val)
-			if err != nil {
-				return fmt.Errorf("unmarshaling index %d field for `Fields` within `TerraformFieldMappingDefinition`: %+v", i, err)
-			}
-			output = append(output, impl)
-		}
-		d.Fields = output
+		output = append(output, impl)
 	}
+	d.Fields = output
 	return nil
 }

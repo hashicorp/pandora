@@ -16,13 +16,6 @@ type TerraformFieldMappingDefinition interface {
 	mappingDefinitionType() TerraformFieldMappingDefinitionType
 }
 
-// terraformFieldMappingTypes defines the list of supported TerraformFieldMappingTypes, used to enable
-// the correct implementation to be unmarshalled based on the `type` field.
-var terraformFieldMappingTypes = []TerraformFieldMappingDefinition{
-	TerraformDirectAssignmentFieldMappingDefinition{},
-	TerraformModelToModelFieldMappingDefinition{},
-}
-
 // unmarshalTerraformFieldMappingDefinitionImplementation provides a custom unmarshal function to deserialize the correct
 // TerraformFieldMappingDefinition implementation based on the `type` field.
 func unmarshalTerraformFieldMappingDefinitionImplementation(input []byte) (TerraformFieldMappingDefinition, error) {
@@ -40,13 +33,19 @@ func unmarshalTerraformFieldMappingDefinitionImplementation(input []byte) (Terra
 		return nil, nil
 	}
 
-	for _, impl := range terraformFieldMappingTypes {
-		if impl.mappingDefinitionType() == value {
-			if err := json.Unmarshal(input, impl); err != nil {
-				return nil, fmt.Errorf("unmarshaling %q: %+v", value, err)
-			}
-			return impl, nil
+	if value == DirectAssignmentTerraformFieldMappingDefinitionType {
+		var instance TerraformDirectAssignmentFieldMappingDefinition
+		if err := json.Unmarshal(input, &instance); err != nil {
+			return nil, fmt.Errorf("unmarshaling %q: %+v", value, err)
 		}
+		return instance, nil
+	}
+	if value == ModelToModelTerraformFieldMappingDefinitionType {
+		var instance TerraformModelToModelFieldMappingDefinition
+		if err := json.Unmarshal(input, &instance); err != nil {
+			return nil, fmt.Errorf("unmarshaling %q: %+v", value, err)
+		}
+		return instance, nil
 	}
 
 	return nil, fmt.Errorf("internal-error: missing implementation for TerraformFieldMappingDefinition %q", value)
