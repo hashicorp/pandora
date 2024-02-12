@@ -25,7 +25,7 @@ type ServiceDetailsResponse struct {
 	TerraformPackageName *string `json:"terraformPackageName,omitempty"`
 
 	// TerraformURI specifies the URI where the Terraform-specific information can be loaded from.
-	TerraformURI *string `json:"terraformUri,omitempty"`
+	TerraformURI string `json:"terraformUri"`
 
 	// Versions specifies a map of ApiVersion (key) to ServiceAPIVersionSummary, containing
 	Versions map[string]ServiceAPIVersionSummary `json:"versions"`
