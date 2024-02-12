@@ -6,6 +6,7 @@ package resourcemanager
 import (
 	"encoding/json"
 	"fmt"
+	"net/http"
 	"strings"
 )
 
@@ -23,8 +24,12 @@ func (c TerraformClient) Get(input ServiceDetails) (*TerraformDetails, error) {
 	// TODO: handle this being a 404 etc
 
 	var response TerraformDetails
-	if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
-		return nil, err
+
+	// Data API V2 now returns a 204 when nothing
+	if resp.StatusCode == http.StatusOK {
+		if err := json.NewDecoder(resp.Body).Decode(&response); err != nil {
+			return nil, err
+		}
 	}
 
 	return &response, nil
