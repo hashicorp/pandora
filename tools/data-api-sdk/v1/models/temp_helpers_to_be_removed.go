@@ -14,9 +14,8 @@ import (
 // Each item within this file will be marked as Deprecated - which should
 // make it possible to detect usages of the old types fairly easily.
 
+// Deprecated: use `helpers.GolangTypeForSDKObjectDefinition` instead.
 func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error) {
-	// TODO: we should look to add unit tests for this method
-
 	// NOTE: all of this validation should be done in the Importer and the API - this is purely sanity checking
 
 	if d.Type == CsvApiObjectDefinitionType {
@@ -141,52 +140,22 @@ func (d ApiObjectDefinition) GolangTypeName(packageName *string) (*string, error
 	return nil, fmt.Errorf("unimplemented object definition type %q", string(d.Type))
 }
 
-func (d ApiObjectDefinition) String() string {
-	if d.Type == DictionaryApiObjectDefinitionType {
+func (d SDKObjectDefinition) String() string {
+	// TODO: determine if this should be removed
+
+	if d.Type == DictionarySDKObjectDefinitionType {
 		return fmt.Sprintf("Dictionary[string, %s]", *d.NestedItem)
 	}
 
-	if d.Type == ListApiObjectDefinitionType {
+	if d.Type == ListSDKObjectDefinitionType {
 		return fmt.Sprintf("List[%s]", *d.NestedItem)
 	}
 
-	if d.Type == ReferenceApiObjectDefinitionType {
+	if d.Type == ReferenceSDKObjectDefinitionType {
 		return fmt.Sprintf("Reference %q", *d.ReferenceName)
 	}
 
 	return string(d.Type)
-}
-
-func (d ApiObjectDefinition) Matches(other *ApiObjectDefinition) bool {
-	if other == nil {
-		return false
-	}
-	if d.Type != other.Type {
-		return false
-	}
-	if d.ReferenceName != nil {
-		if other.ReferenceName == nil {
-			return false
-		}
-		if *d.ReferenceName != *other.ReferenceName {
-			return false
-		}
-	}
-	if other.ReferenceName != nil && d.ReferenceName == nil {
-		return false
-	}
-
-	if d.NestedItem != nil {
-		if other.NestedItem == nil {
-			return false
-		}
-		return d.NestedItem.Matches(other.NestedItem)
-	}
-	if other.NestedItem != nil && d.NestedItem == nil {
-		return false
-	}
-
-	return true
 }
 
 func toStringPointer(in string) (*string, error) {
