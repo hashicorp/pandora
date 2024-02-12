@@ -8,7 +8,7 @@ import (
 )
 
 type GetDetailsForServiceResponse struct {
-	// HttpResponse is the raw HTTP Response
+	// HttpResponse is the raw HTTP Response.
 	HttpResponse *http.Response
 
 	// Model describes details about the specified Service, including the API Versions that are available.

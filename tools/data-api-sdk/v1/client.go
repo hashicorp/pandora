@@ -6,6 +6,7 @@ package v1
 import (
 	"net/http"
 
+	"github.com/hashicorp/go-retryablehttp"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 

@@ -13,7 +13,7 @@ type GetAvailableServicesResponse struct {
 
 	// Model is a map of Service Name to AvailableServiceSummary, which can be used to determine
 	// the API Versions available for this Service.
-	Model map[string]AvailableServiceSummary
+	Model *map[string]AvailableServiceSummary
 }
 
 type AvailableServiceSummary struct {
@@ -49,6 +49,6 @@ func (c *Client) GetAvailableServices(ctx context.Context) (*GetAvailableService
 		return nil, err
 	}
 
-	out.Model = response.Services
+	out.Model = &response.Services
 	return &out, nil
 }
