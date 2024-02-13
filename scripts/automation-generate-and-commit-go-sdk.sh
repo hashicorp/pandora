@@ -31,9 +31,15 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper.."
+  echo "Running Wrapper for Resource Manager.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation go-sdk \
+  ./wrapper-automation resource-manager go-sdk \
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
+
+  echo "Running Wrapper for Microsoft Graph.."
+  cd "${DIR}/tools/wrapper-automation"
+  ./wrapper-automation microsoft-graph go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
@@ -86,6 +92,15 @@ function conditionallyCommitAndPushGoSdk {
     git add --all
     git commit -m "Updating based on $sha"
 
+    # Microsoft Graph: conditional update of dependencies
+    cd microsoft-graph/
+    go mod tidy
+    if [[ $(git status --porcelain | wc -l) -gt 0 ]]; then
+      git add --all
+      git commit -m "microsoft-graph: updating dependencies based on $sha"
+    fi
+    cd "$workingDirectory"
+
     # Resource Manager: conditional update of dependencies
     cd resource-manager/
     go mod tidy
@@ -93,7 +108,6 @@ function conditionallyCommitAndPushGoSdk {
       git add --all
       git commit -m "resource-manager: updating dependencies based on $sha"
     fi
-    # TODO: conditional dependency updates for the other outputs (e.g. `microsoft-graph`)
 
     # NOTE: we're intentionally force-pushing here in-case this PR is
     # open and other changes (e.g. to the generator) get included

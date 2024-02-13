@@ -31,9 +31,15 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper.."
+  echo "Running Wrapper for Resource Manager.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation go-sdk \
+  ./wrapper-automation resource-manager go-sdk \
+    --api-definitions-dir="../../$apiDefinitionsDirectory"\
+    --output-dir="../../$outputDirectory"
+
+  echo "Running Wrapper for Microsoft Graph.."
+  cd "${DIR}/tools/wrapper-automation"
+  ./wrapper-automation microsoft-graph go-sdk \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
