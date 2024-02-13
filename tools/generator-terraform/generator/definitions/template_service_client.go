@@ -13,8 +13,7 @@ import (
 )
 
 var servicesUsingOldBaseLayer = map[string]struct{}{
-	// these should be lower-cased
-	"containerservice": {},
+	// TODO: the old base layer related logic can be removed from `generator-terraform` in a follow-up PR
 
 	// purely for testing purposes
 	"examplelegacypackage": {},

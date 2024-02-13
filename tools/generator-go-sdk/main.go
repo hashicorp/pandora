@@ -48,11 +48,6 @@ func main() {
 		"Subscription",
 		"TimeSeriesInsights",
 
-		// @tombuildsstuff: there's generated resources associated with these three - please check before removing these
-		// NOTE: also see the list in ./tools/generator-terraform/generator/definitions/template_service_client.go
-		// for services/resources which are auto-generated
-		"ContainerService",
-
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
 		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
 		// or removal fails - which is tracked in https://github.com/hashicorp/pandora/issues/3229.
