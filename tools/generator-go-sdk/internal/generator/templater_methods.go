@@ -619,7 +619,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 `, discriminatedTypeParentName)
 		} else {
 			output = fmt.Sprintf(`
-	if err = resp.Unmarshal(&result.Model); err != nil {
+	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
 `)
