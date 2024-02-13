@@ -93,6 +93,7 @@ func (c *Client) loadAllDetailsForService(ctx context.Context, summary Available
 
 	return &models.Service{
 		APIVersions:         apiVersions,
+		Generate:            summary.Generate,
 		ResourceProvider:    serviceDetails.Model.ResourceProvider,
 		TerraformDefinition: terraformDetails.Model,
 	}, nil

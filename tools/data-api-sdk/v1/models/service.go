@@ -12,6 +12,9 @@ type Service struct {
 	// which defines the available API Versions for this Service.
 	APIVersions map[string]APIVersion
 
+	// Generate specifies whether this Service should be generated or not.
+	Generate bool `json:"generate"`
+
 	// ResourceProvider optionally specifies the Azure Resource Provider
 	// that this Service is related to.
 	// Note that this only exists when the SourceDataType is ResourceManagerSourceDataType.
