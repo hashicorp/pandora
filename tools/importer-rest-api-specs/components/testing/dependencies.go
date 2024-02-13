@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package testing
 
 import (
@@ -16,6 +19,7 @@ type testDependencies struct {
 	needsKeyVaultAccessPolicy     bool
 	needsKeyVaultKey              bool
 	needsKubernetesCluster        bool
+	needsKubernetesFleetManager   bool
 	needsMachineLearningWorkspace bool
 	needsNetworkInterface         bool
 	needsPublicIP                 bool
@@ -84,6 +88,13 @@ func (d *testDependencies) setNeedsKeyVaultKey() {
 func (d *testDependencies) setNeedsKubernetesCluster() {
 	d.setNeedsResourceGroup()
 	d.needsKubernetesCluster = true
+
+	d.variables.needsRandomString = true
+}
+
+func (d *testDependencies) setNeedsKubernetesFleetManager() {
+	d.setNeedsResourceGroup()
+	d.needsKubernetesFleetManager = true
 
 	d.variables.needsRandomString = true
 }
@@ -164,6 +175,7 @@ func DetermineDependencies(field, providerPrefix string, dependencies *testDepen
 		"key_vault_access_policy_id":    {dependencies.setNeedsKeyVaultAccessPolicy, fmt.Sprintf("%s_key_vault_access_policy.test.id", providerPrefix)},
 		"key_vault_key_id":              {dependencies.setNeedsKeyVaultKey, fmt.Sprintf("%s_key_vault_key.test.id", providerPrefix)},
 		"kubernetes_cluster_id":         {dependencies.setNeedsKubernetesCluster, fmt.Sprintf("%s_kubernetes_cluster.test.id", providerPrefix)},
+		"kubernetes_fleet_id":           {dependencies.setNeedsKubernetesFleetManager, fmt.Sprintf("%s_kubernetes_fleet_manager.test.id", providerPrefix)},
 		"machine_learning_workspace_id": {dependencies.setNeedsMachineLearningWorkspace, fmt.Sprintf("%s_machine_learning_workspace.test.id", providerPrefix)},
 		"network_interface_id":          {dependencies.setNeedsNetworkInterface, fmt.Sprintf("%s_network_interface.test.id", providerPrefix)},
 		"storage_account_id":            {dependencies.setNeedsStorageAccount, fmt.Sprintf("%s_storage_account.test.id", providerPrefix)},

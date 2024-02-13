@@ -1,0 +1,41 @@
+{
+ "name": "IntegrationRuntimeDataFlowProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "computeType",
+   "name": "ComputeType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "DataFlowComputeType"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "coreCount",
+   "name": "CoreCount",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "timeToLive",
+   "name": "TimeToLive",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

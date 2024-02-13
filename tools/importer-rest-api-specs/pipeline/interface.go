@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package pipeline
 
 import (
@@ -14,9 +17,9 @@ type RunInput struct {
 	DataApiEndpoint          *string
 	JustOutputSegments       bool
 	JustParseData            bool
-	Logger          hclog.Logger
-	OutputDirectory string
-	ProviderPrefix  string
+	Logger                   hclog.Logger
+	OutputDirectory          string
+	ProviderPrefix           string
 	Services                 []string
 	SwaggerDirectory         string
 	TerraformDefinitionsPath string

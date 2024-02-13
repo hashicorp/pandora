@@ -1,9 +1,13 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package generator
 
 import (
 	"strings"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -96,6 +100,81 @@ if model := read.Model; model != nil {
 		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "disks",
+						FixedValue: stringPointer("disks"),
+					},
+					{
+						Type:         resourcemanager.UserSpecifiedSegment,
+						Name:         "diskName",
+						ExampleValue: "my-disk",
+					},
+				},
+			},
+		},
+	})
+	if err != nil {
+		t.Fatalf("generating readme: %+v", err)
+	}
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestReadmeTemplater_GetOperationWithResourceIDUsingACommonID(t *testing.T) {
+	expected := strings.ReplaceAll(`
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
+
+The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+
+This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
+
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
+
+'''go
+client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
+client.Client.Authorizer = authorizer
+'''
+
+### Example Usage: 'DisksClient.Get'
+
+'''go
+ctx := context.TODO()
+id := commonids.NewManagedDiskID("my-disk")
+read, err := client.Get(ctx, id)
+if err != nil {
+	// handle the error
+}
+if model := read.Model; model != nil {
+	// do something with the model/response object
+}
+'''
+`, "'", "`")
+	actual, err := readmeTemplater{
+		sortedOperationNames: []string{
+			"Get",
+		},
+		operations: map[string]resourcemanager.ApiOperation{
+			"Get": {
+				LongRunning:    false,
+				ResourceIdName: stringPointer("Disk"),
+			},
+		},
+	}.template(ServiceGeneratorData{
+		packageName:        "disks",
+		apiVersion:         "2022-02-01",
+		servicePackageName: "compute",
+		serviceClientName:  "DisksClient",
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"Disk": {
+				CommonAlias: pointer.To("ManagedDisk"),
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						Type:       resourcemanager.StaticSegment,
@@ -577,6 +656,83 @@ for _, item := range items {
 	assertTemplatedCodeMatches(t, expected, *actual)
 }
 
+func TestReadmeTemplater_ListOperationWithResourceIDUsingACommonID(t *testing.T) {
+	expected := strings.ReplaceAll(`
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
+
+The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+
+This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
+
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
+
+'''go
+client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
+client.Client.Authorizer = authorizer
+'''
+
+### Example Usage: 'DisksClient.ListSomething'
+
+'''go
+ctx := context.TODO()
+id := commonids.NewManagedDiskID("my-disk")
+// alternatively 'client.ListSomething(ctx, id)' can be used to do batched pagination
+items, err := client.ListSomethingComplete(ctx, id)
+if err != nil {
+	// handle the error
+}
+for _, item := range items {
+	// do something
+}
+'''
+`, "'", "`")
+	actual, err := readmeTemplater{
+		sortedOperationNames: []string{
+			"ListSomething",
+		},
+		operations: map[string]resourcemanager.ApiOperation{
+			"ListSomething": {
+				LongRunning:                      false,
+				ResourceIdName:                   stringPointer("Disk"),
+				FieldContainingPaginationDetails: stringPointer("SomeField"),
+			},
+		},
+	}.template(ServiceGeneratorData{
+		packageName:        "disks",
+		apiVersion:         "2022-02-01",
+		servicePackageName: "compute",
+		serviceClientName:  "DisksClient",
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"Disk": {
+				CommonAlias: pointer.To("ManagedDisk"),
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "disks",
+						FixedValue: stringPointer("disks"),
+					},
+					{
+						Type:         resourcemanager.UserSpecifiedSegment,
+						Name:         "diskName",
+						ExampleValue: "my-disk",
+					},
+				},
+			},
+		},
+	})
+	if err != nil {
+		t.Fatalf("generating readme: %+v", err)
+	}
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
 func TestReadmeTemplater_ListOperationWithResourceIDAndPayload(t *testing.T) {
 	expected := strings.ReplaceAll(`
 ## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
@@ -961,6 +1117,78 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 		serviceClientName:  "DisksClient",
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"Disk": {
+				Segments: []resourcemanager.ResourceIdSegment{
+					{
+						Type:       resourcemanager.StaticSegment,
+						Name:       "disks",
+						FixedValue: stringPointer("disks"),
+					},
+					{
+						Type:         resourcemanager.UserSpecifiedSegment,
+						Name:         "diskName",
+						ExampleValue: "my-disk",
+					},
+				},
+			},
+		},
+	})
+	if err != nil {
+		t.Fatalf("generating readme: %+v", err)
+	}
+	assertTemplatedCodeMatches(t, expected, *actual)
+}
+
+func TestReadmeTemplater_LongRunningOperationWithResourceIDUsingACommonID(t *testing.T) {
+	expected := strings.ReplaceAll(`
+## 'github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks' Documentation
+
+The 'disks' SDK allows for interaction with the Azure Resource Manager Service 'compute' (API Version '2022-02-01').
+
+This readme covers example usages, but further information on [using this SDK can be found in the project root](https://github.com/hashicorp/go-azure-sdk/tree/main/docs).
+
+### Import Path
+
+'''go
+import "github.com/hashicorp/go-azure-helpers/resourcemanager/commonids"
+import "github.com/hashicorp/go-azure-sdk/resource-manager/compute/2022-02-01/disks"
+'''
+
+### Client Initialization
+
+'''go
+client := disks.NewDisksClientWithBaseURI("https://management.azure.com")
+client.Client.Authorizer = authorizer
+'''
+
+### Example Usage: 'DisksClient.SomeLongRunning'
+
+'''go
+ctx := context.TODO()
+id := commonids.NewManagedDiskID("my-disk")
+
+if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
+	// handle the error
+}
+'''
+`, "'", "`")
+	actual, err := readmeTemplater{
+		sortedOperationNames: []string{
+			"SomeLongRunning",
+		},
+		operations: map[string]resourcemanager.ApiOperation{
+			"SomeLongRunning": {
+				LongRunning:    true,
+				ResourceIdName: stringPointer("Disk"),
+			},
+		},
+	}.template(ServiceGeneratorData{
+		packageName:        "disks",
+		apiVersion:         "2022-02-01",
+		servicePackageName: "compute",
+		serviceClientName:  "DisksClient",
+		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+			"Disk": {
+				CommonAlias: pointer.To("ManagedDisk"),
 				Segments: []resourcemanager.ResourceIdSegment{
 					{
 						Type:       resourcemanager.StaticSegment,

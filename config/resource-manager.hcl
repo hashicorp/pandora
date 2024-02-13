@@ -32,7 +32,7 @@ service "applicationinsights" {
 }
 service "appplatform" {
   name      = "AppPlatform"
-  available = ["2023-09-01-preview", "2023-11-01-preview", "2023-12-01"]
+  available = ["2023-09-01-preview", "2023-11-01-preview", "2023-12-01", "2024-01-01-preview"]
 }
 service "attestation" {
   name      = "Attestation"
@@ -385,6 +385,7 @@ service "networkfunction" {
 service "newrelic" {
   name      = "NewRelic"
   available = ["2022-07-01"]
+  ignore    = ["2024-01-01"]
 }
 service "nginx" {
   name      = "Nginx"
@@ -448,7 +449,7 @@ service "recoveryservicesbackup" {
 }
 service "recoveryservicessiterecovery" {
   name      = "RecoveryServicesSiteRecovery"
-  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01"]
+  available = ["2022-10-01", "2023-01-01", "2023-02-01", "2023-04-01", "2023-06-01", "2023-08-01"]
 }
 service "redhatopenshift" {
   name      = "RedHatOpenShift"
@@ -460,7 +461,7 @@ service "redis" {
 }
 service "redisenterprise" {
   name      = "RedisEnterprise"
-  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01"]
+  available = ["2023-07-01", "2023-10-01-preview", "2023-11-01", "2024-02-01"]
 }
 service "relay" {
   name      = "Relay"
@@ -558,6 +559,10 @@ service "streamanalytics" {
 service "subscription" {
   name      = "Subscription"
   available = ["2021-10-01"]
+}
+service "synapse" {
+  name      = "Synapse"
+  available = ["2021-06-01"]
 }
 service "timeseriesinsights" {
   name      = "TimeSeriesInsights"

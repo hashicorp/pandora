@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package schema
 
 import (
@@ -56,6 +59,16 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 		}
 
 		// add the parent resource ID and then the name of the resource
+		if resourceBuildInfo != nil && resourceBuildInfo.Overrides != nil {
+			updated, err := applySchemaOverrides(parentResourceIdName, resourceBuildInfo.Overrides)
+			if err != nil {
+				return nil, nil, fmt.Errorf("updating schema property from resource ID: %+v", err)
+			}
+			if updated != nil {
+				parentResourceIdName = *updated
+			}
+		}
+
 		out[parentResourceIdName] = resourcemanager.TerraformSchemaFieldDefinition{
 			ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
 				Type: resourcemanager.TerraformSchemaFieldTypeString,

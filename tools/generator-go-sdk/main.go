@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package main
 
 import (
@@ -33,26 +36,17 @@ func main() {
 		// with services already used in `terraform-provider-azurerm`. These services will be gradually removed
 		// from this list to ensure they're migrated across to using `hashicorp/go-azure-sdk`s base layer.
 
-		"ContainerApps",
 		"ContainerInstance",
 		"CosmosDB",
 		"FrontDoor",
 		"Insights",
-		"Maintenance",
 		"RecoveryServicesBackup", // error: generating Service "RecoveryServicesBackup" / Version "2023-04-01" / Resource "Operation": generating methods: templating methods (using hashicorp/go-azure-sdk): templating: building methods: building response struct template: existing model "ValidateOperationResponse" conflicts with the operation response model for "Validate"
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
 		"SqlVirtualMachine",
-		"StreamAnalytics",
 		"Subscription",
 		"TimeSeriesInsights",
-
-		// Automation @ 2022-08-08 uses the new base layer, so let's invert the older versions for now
-		"Automation@2015-10-31",
-		"Automation@2019-06-01",
-		"Automation@2020-01-13-preview",
-		"Automation@2021-06-22",
 
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
 		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update

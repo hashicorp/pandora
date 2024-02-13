@@ -1,0 +1,82 @@
+{
+	"fieldMappings": [
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetMemberResourceSchema",
+				"schemaFieldPath": "Group",
+				"sdkModelName": "FleetMemberProperties",
+				"sdkFieldPath": "Group"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetMemberResourceSchema",
+				"schemaFieldPath": "Group",
+				"sdkModelName": "FleetMemberUpdateProperties",
+				"sdkFieldPath": "Group"
+			}
+		},
+		{
+			"type": "DirectAssignment",
+			"directAssignment": {
+				"schemaModelName": "KubernetesFleetMemberResourceSchema",
+				"schemaFieldPath": "KubernetesClusterId",
+				"sdkModelName": "FleetMemberProperties",
+				"sdkFieldPath": "ClusterResourceId"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "KubernetesFleetMemberResourceSchema",
+				"sdkModelName": "FleetMember",
+				"sdkFieldName": "Properties"
+			}
+		},
+		{
+			"type": "ModelToModel",
+			"modelToModel": {
+				"schemaModelName": "KubernetesFleetMemberResourceSchema",
+				"sdkModelName": "FleetMemberUpdate",
+				"sdkFieldName": "Properties"
+			}
+		}
+	],
+	"modelToModelMappings": [
+		{
+			"schemaModelName": "KubernetesFleetMemberResourceSchema",
+			"sdkModelName": "FleetMember"
+		},
+		{
+			"schemaModelName": "KubernetesFleetMemberResourceSchema",
+			"sdkModelName": "FleetMemberProperties"
+		},
+		{
+			"schemaModelName": "KubernetesFleetMemberResourceSchema",
+			"sdkModelName": "FleetMemberUpdate"
+		},
+		{
+			"schemaModelName": "KubernetesFleetMemberResourceSchema",
+			"sdkModelName": "FleetMemberUpdateProperties"
+		}
+	],
+	"resourceIdMappings": [
+		{
+			"parsedFromParentId": true,
+			"schemaFieldName": "KubernetesFleetId",
+			"segmentName": "fleetName"
+		},
+		{
+			"parsedFromParentId": false,
+			"schemaFieldName": "Name",
+			"segmentName": "memberName"
+		},
+		{
+			"parsedFromParentId": true,
+			"schemaFieldName": "KubernetesFleetId",
+			"segmentName": "resourceGroupName"
+		}
+	]
+}

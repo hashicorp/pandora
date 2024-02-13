@@ -1,0 +1,32 @@
+{
+ "name": "InMageAzureV2TestFailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "osUpgradeVersion",
+   "name": "OsUpgradeVersion",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointId",
+   "name": "RecoveryPointId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "TestFailoverProviderSpecificInput",
+ "discriminatedTypeValue": "InMageAzureV2",
+ "typeHintIn": "InstanceType"
+}

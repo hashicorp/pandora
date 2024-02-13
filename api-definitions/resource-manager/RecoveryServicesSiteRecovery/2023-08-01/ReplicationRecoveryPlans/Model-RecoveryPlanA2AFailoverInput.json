@@ -1,0 +1,44 @@
+{
+ "name": "RecoveryPlanA2AFailoverInput",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "cloudServiceCreationOption",
+   "name": "CloudServiceCreationOption",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "multiVmSyncPointOption",
+   "name": "MultiVMSyncPointOption",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MultiVMSyncPointOption"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "recoveryPointType",
+   "name": "RecoveryPointType",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "A2ARpRecoveryPointType"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  }
+ ],
+ "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
+ "discriminatedTypeValue": "A2A",
+ "typeHintIn": "InstanceType"
+}
