@@ -8,9 +8,10 @@ import "github.com/hashicorp/go-azure-helpers/lang/pointer"
 // NewConstantResourceIDSegment returns a configured ResourceIDSegment which represents
 // the value from a Constant. The user-provided value for this Resource ID Segment MUST
 // represent one of the values specified in the Constant.
-func NewConstantResourceIDSegment(name, constantReferenceName string) ResourceIDSegment {
+func NewConstantResourceIDSegment(name, constantReferenceName, exampleValue string) ResourceIDSegment {
 	return ResourceIDSegment{
 		ConstantReference: pointer.To(constantReferenceName),
+		ExampleValue:      exampleValue,
 		Name:              name,
 		Type:              ConstantResourceIDSegmentType,
 	}
@@ -20,8 +21,9 @@ func NewConstantResourceIDSegment(name, constantReferenceName string) ResourceID
 // the value of a Resource Group Name.
 func NewResourceGroupNameResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		Name: name,
-		Type: ResourceGroupResourceIDSegmentType,
+		ExampleValue: "example-resources",
+		Name:         name,
+		Type:         ResourceGroupResourceIDSegmentType,
 	}
 }
 
@@ -29,9 +31,10 @@ func NewResourceGroupNameResourceIDSegment(name string) ResourceIDSegment {
 // the value of an Azure Resource Provider.
 func NewResourceProviderResourceIDSegment(name, resourceProviderName string) ResourceIDSegment {
 	return ResourceIDSegment{
-		FixedValue: pointer.To(resourceProviderName),
-		Name:       name,
-		Type:       ResourceProviderResourceIDSegmentType,
+		ExampleValue: resourceProviderName,
+		FixedValue:   pointer.To(resourceProviderName),
+		Name:         name,
+		Type:         ResourceProviderResourceIDSegmentType,
 	}
 }
 
@@ -39,8 +42,9 @@ func NewResourceProviderResourceIDSegment(name, resourceProviderName string) Res
 // the value of an Azure Resource Scope.
 func NewScopeResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		Name: name,
-		Type: ScopeResourceIDSegmentType,
+		ExampleValue: "/subscriptions/11112222-3333-4444-555566667777/resourceGroups/example-resources",
+		Name:         name,
+		Type:         ScopeResourceIDSegmentType,
 	}
 }
 
@@ -48,9 +52,10 @@ func NewScopeResourceIDSegment(name string) ResourceIDSegment {
 // a fixed/static value.
 func NewStaticValueResourceIDSegment(name, fixedValue string) ResourceIDSegment {
 	return ResourceIDSegment{
-		FixedValue: pointer.To(fixedValue),
-		Name:       name,
-		Type:       StaticResourceIDSegmentType,
+		ExampleValue: fixedValue,
+		FixedValue:   pointer.To(fixedValue),
+		Name:         name,
+		Type:         StaticResourceIDSegmentType,
 	}
 }
 
@@ -58,16 +63,18 @@ func NewStaticValueResourceIDSegment(name, fixedValue string) ResourceIDSegment 
 // the value of a Subscription ID.
 func NewSubscriptionIDResourceIDSegment(name string) ResourceIDSegment {
 	return ResourceIDSegment{
-		Name: name,
-		Type: SubscriptionIDResourceIDSegmentType,
+		ExampleValue: "11112222-3333-4444-555566667777",
+		Name:         name,
+		Type:         SubscriptionIDResourceIDSegmentType,
 	}
 }
 
 // NewUserSpecifiedResourceIDSegment returns a configured ResourceIDSegment which represents
 // a User Specified value.
-func NewUserSpecifiedResourceIDSegment(name string) ResourceIDSegment {
+func NewUserSpecifiedResourceIDSegment(name, exampleValue string) ResourceIDSegment {
 	return ResourceIDSegment{
-		Name: name,
-		Type: UserSpecifiedResourceIDSegmentType,
+		ExampleValue: exampleValue,
+		Name:         name,
+		Type:         UserSpecifiedResourceIDSegmentType,
 	}
 }
