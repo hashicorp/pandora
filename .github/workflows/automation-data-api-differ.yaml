@@ -1,5 +1,5 @@
 ---
-name: Detect changes to the API Definitions
+name: Detect changes to the API Definitions (Resource Manager)
 on:
   pull_request:
     types: ['opened', 'synchronize']
@@ -26,19 +26,19 @@ jobs:
 
       - name: Detect Changes
         run: |
-          ./scripts/automation-determine-changes-to-api-definitions.sh outputs/
+          ./scripts/automation-determine-changes-to-api-definitions.sh resource-manager outputs/
 
       - name: Post Comment containing Breaking Changes
         uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308 # v2.4.3
         with:
-          filePath: outputs/breaking-changes.md
+          filePath: outputs/resource-manager-breaking-changes.md
 
       - name: Post Comment containing Changes
         uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308 # v2.4.3
         with:
-          filePath: outputs/changes.md
+          filePath: outputs/resource-manager-changes.md
 
       - name: Post Comment with New Static Identifiers
         uses: thollander/actions-comment-pull-request@1d3973dc4b8e1399c0620d3f2b1aa5e795465308 # v2.4.3
         with:
-          filePath: outputs/static-identifiers.md
+          filePath: outputs/resource-manager-static-identifiers.md

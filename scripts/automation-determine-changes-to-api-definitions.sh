@@ -69,43 +69,47 @@ function ensureDirectoryExists {
 function runBreakingChangeDetector {
   local initialApiDefinitionsDirectory="$1"
   local updatedApiDefinitionsDirectory="$2"
-  local outputFilePath="$3"
+  local sourceDataType="$3"
+  local outputFilePath="$4"
 
   echo "Detecting Breaking Changes between ${initialApiDefinitionsDirectory} and ${updatedApiDefinitionsDirectory}.."
-  data-api-differ detect-breaking-changes --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
+  data-api-differ "${sourceDataType}" detect-breaking-changes --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
 }
 
 function runChangeDetector {
   local initialApiDefinitionsDirectory="$1"
   local updatedApiDefinitionsDirectory="$2"
-  local outputFilePath="$3"
+  local sourceDataType="$3"
+  local outputFilePath="$4"
 
   echo "Detecting Changes between ${initialApiDefinitionsDirectory} and ${updatedApiDefinitionsDirectory}.."
-  data-api-differ detect-changes --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
+  data-api-differ "${sourceDataType}" detect-changes --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
 }
 
 function runStaticIdentifierDetector {
   local initialApiDefinitionsDirectory="$1"
   local updatedApiDefinitionsDirectory="$2"
-  local outputFilePath="$3"
+  local sourceDataType="$3"
+  local outputFilePath="$4"
 
   echo "Detecting any new Static Identifiers between ${initialApiDefinitionsDirectory} and ${updatedApiDefinitionsDirectory}.."
-  data-api-differ output-resource-id-segments --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
+  data-api-differ "${sourceDataType}" output-resource-id-segments --initial-path="${initialApiDefinitionsDirectory}" --updated-path="${updatedApiDefinitionsDirectory}" --output-file-path="${outputFilePath}"
 }
 
 function main {
   local tempDirectory="./pandora-from-main"
   local initialApiDefinitionsDirectory="${tempDirectory}/api-definitions"
   local updatedApiDefinitionsDirectory="${DIR}/api-definitions"
-  local outputDirectory="$1"
+  local sourceDataType="$1"
+  local outputDirectory="$2"
 
   buildAndInstallDependencies
   checkoutAPIDefinitionsFromMainInto "$tempDirectory"
   ensureDirectoryExists "$outputDirectory"
 
-  runBreakingChangeDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "${outputDirectory}/breaking-changes.md"
-  runChangeDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "${outputDirectory}/changes.md"
-  runStaticIdentifierDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "${outputDirectory}/static-identifiers.md"
+  runBreakingChangeDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "$sourceDataType" "${outputDirectory}/resource-manager-breaking-changes.md"
+  runChangeDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "$sourceDataType" "${outputDirectory}/resource-manager-changes.md"
+  runStaticIdentifierDetector "$initialApiDefinitionsDirectory" "$updatedApiDefinitionsDirectory" "$sourceDataType" "${outputDirectory}/resource-manager-static-identifiers.md"
 }
 
-main "$1"
+main "$1" "$2"
