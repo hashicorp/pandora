@@ -12,13 +12,6 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/generator/models"
 )
 
-var servicesUsingOldBaseLayer = map[string]struct{}{
-	// TODO: the old base layer related logic can be removed from `generator-terraform` in a follow-up PR
-
-	// purely for testing purposes
-	"examplelegacypackage": {},
-}
-
 func templateForServiceClient(input models.ServiceInput) string {
 	importLines := make([]string, 0)
 	autoClientLines := make([]string, 0)
@@ -92,30 +85,5 @@ func NewClient(o *common.ClientOptions) (*AutoClient, error) {
 	}, nil
 }
 `, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentLines, "\n"), strings.Join(returnLines, "\n"), input.ProviderPrefix)
-
-	if _, ok := servicesUsingOldBaseLayer[strings.ToLower(input.SdkServiceName)]; ok {
-		output = fmt.Sprintf(`
-package client
-
-import (
-	"github.com/Azure/go-autorest/autorest"
-	%[1]s
-	"github.com/hashicorp/terraform-provider-%[5]s/internal/common"
-)
-
-type AutoClient struct {
-	%[2]s
-}
-
-func NewClient(o *common.ClientOptions) (*AutoClient, error) {
-	%[3]s
-
-	return &AutoClient{
-		%[4]s
-	}, nil
-}
-`, strings.Join(importLines, "\n"), strings.Join(autoClientLines, "\n"), strings.Join(assignmentOldBaseLayerLines, "\n"), strings.Join(returnOldBaseLayerLines, "\n"), input.ProviderPrefix)
-	}
-
 	return strings.TrimSpace(output)
 }
