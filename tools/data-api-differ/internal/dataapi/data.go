@@ -14,13 +14,12 @@ import (
 )
 
 // ParseDataFromPath launches the Data API using inputPath as the API Definitions directory.
-func ParseDataFromPath(ctx context.Context, dataApiBinary, inputPath string) (*v1.LoadAllDataResult, error) {
+func ParseDataFromPath(ctx context.Context, dataApiBinary, inputPath string, sourceDataType models.SourceDataType) (*v1.LoadAllDataResult, error) {
 	port := randomPortNumber()
 	log.Logger.Info("Launching Data API..")
 	dataApi := newDataApiCmd(dataApiBinary, port, inputPath)
 
-	// TODO: support for ALL Source Data types
-	client := v1.NewClient(dataApi.endpoint, models.ResourceManagerSourceDataType)
+	client := v1.NewClient(dataApi.endpoint, sourceDataType)
 	if err := dataApi.launchAndWait(ctx, client); err != nil {
 		return nil, fmt.Errorf("launching the Data API: %+v", err)
 	}
