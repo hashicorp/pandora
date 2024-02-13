@@ -50,7 +50,7 @@ func (c *Client) LoadAllData(ctx context.Context, serviceNamesToLimitTo []string
 	result.CommonTypes.Models = commonTypes.Model.Models
 
 	c.logger.Debug("Retrieving All Services..")
-	for serviceName, serviceSummary := range *allServices.Model {
+	for serviceName, serviceSummary := range allServices.Model.Services {
 		if len(serviceNamesToLimitTo) > 0 && !filteredServiceListContains(serviceNamesToLimitTo, serviceName) {
 			c.logger.Trace(fmt.Sprintf("Skipping Service %q since it's not in the list of services to retrieve data from", serviceName))
 			continue

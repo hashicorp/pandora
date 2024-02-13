@@ -12,7 +12,7 @@ type GetAvailableServicesResponse struct {
 	HttpResponse *http.Response
 
 	// Model contains a list of the Available Services within this Source Data Type.
-	Model *map[string]AvailableServiceSummary
+	Model *GetAvailableServices
 }
 
 type GetAvailableServices struct {
