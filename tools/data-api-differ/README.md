@@ -11,9 +11,11 @@ These are available as three sub-commands and are described below.
 ### Example Usage
 
 ```
-$ ./data-api-differ
+$ ./data-api-differ [source-data-type]
 2023-12-07T12:16:15.106+0100 [INFO]  Data API Differ launched..
 Usage: data-api-differ [--version] [--help] <command> [<args>]
+
+Where Source Data Type is one of: [microsoft-graph resource-manager]
 
 Available commands are:
     detect-breaking-changes        Retrieves two sets of API Definitions from the Data API and determines if there are any breaking changes
@@ -41,7 +43,7 @@ This command detects both Breaking Changes that exist between the two sets of AP
 Command:
 
 ```
-$ go build . && ./data-api-differ detect-breaking-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
+$ go build . && ./data-api-differ resource-manager detect-breaking-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
 This command supports each of the arguments defined under `Supported Arguments` above.
@@ -96,7 +98,7 @@ This command detects both Breaking and Non-Breaking Changes that exist between t
 Command:
 
 ```
-$ go build . && ./data-api-differ detect-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
+$ go build . && ./data-api-differ resource-manager detect-changes --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
 This command supports each of the arguments defined under `Supported Arguments` above.
@@ -157,7 +159,7 @@ This command detects any new Resource IDs or Resource ID Segments which are new/
 Command:
 
 ```
-$ go build . && ./data-api-differ output-resource-id-segments --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
+$ go build . && ./data-api-differ resource-manager output-resource-id-segments --initial-path=/path/to/initial-api-definitions --updated-path=/path/to/updated-api-definitions
 ```
 
 This command supports each of the arguments defined under `Supported Arguments` above.
