@@ -4,6 +4,7 @@
 package commands
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -41,6 +42,7 @@ This includes both breaking and non-breaking changes.
 
 func (c DetectChangesCommand) Run(args []string) int {
 	c.logger.Info("Running `detect-changes` command..")
+	ctx := context.Background()
 
 	a := arguments{}
 	c.logger.Debug("Parsing arguments..")
@@ -66,7 +68,7 @@ func (c DetectChangesCommand) Run(args []string) int {
 
 	c.logger.Debug("Performing diff of the two data sources..")
 	includeNestedChangesWhenNew := false // TODO: expose this as a `--full` flag
-	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
+	result, err := differ.Diff(ctx, a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
 	if err != nil {
 		c.logger.Error(fmt.Sprintf("performing diff: %+v", err))
 		return 1

@@ -5,6 +5,7 @@ package differ
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"reflect"
 	"sort"
 	"strings"
@@ -12,11 +13,10 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // changesForOperations determines the changes between the initial and updated Operations within the specified API Resource.
-func (d differ) changesForOperations(serviceName, apiVersion, apiResource string, initial, updated map[string]resourcemanager.ApiOperation, initialResourceIds, updatedResourceIds map[string]resourcemanager.ResourceIdDefinition) (*[]changes.Change, error) {
+func (d differ) changesForOperations(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKOperation, initialResourceIds, updatedResourceIds map[string]models.ResourceID) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	operationNames := d.uniqueOperationNames(initial, updated)
 	for _, operationName := range operationNames {
@@ -31,7 +31,7 @@ func (d differ) changesForOperations(serviceName, apiVersion, apiResource string
 }
 
 // changesForOperation determines the changes between the initial and updated Operations within the specified API Resource.
-func (d differ) changesForOperation(serviceName, apiVersion, apiResource, operationName string, initial, updated map[string]resourcemanager.ApiOperation, initialResourceIds, updatedResourceIds map[string]resourcemanager.ResourceIdDefinition) (*[]changes.Change, error) {
+func (d differ) changesForOperation(serviceName, apiVersion, apiResource, operationName string, initial, updated map[string]models.SDKOperation, initialResourceIds, updatedResourceIds map[string]models.ResourceID) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, isInOld := initial[operationName]
@@ -77,15 +77,15 @@ func (d differ) changesForOperation(serviceName, apiVersion, apiResource, operat
 	output = append(output, *resourceIdChanges...)
 
 	// When the Content-Type changes we're sending a semantically different object
-	if pointer.From(oldData.ContentType) != pointer.From(updatedData.ContentType) {
+	if oldData.ContentType != updatedData.ContentType {
 		log.Logger.Trace("Content Type didn't match")
 		output = append(output, changes.OperationContentTypeChanged{
 			ServiceName:    serviceName,
 			ApiVersion:     apiVersion,
 			ResourceName:   apiResource,
 			OperationName:  operationName,
-			OldContentType: pointer.From(oldData.ContentType),
-			NewContentType: pointer.From(updatedData.ContentType),
+			OldContentType: oldData.ContentType,
+			NewContentType: updatedData.ContentType,
 		})
 	}
 
@@ -181,7 +181,7 @@ func (d differ) changesForOperation(serviceName, apiVersion, apiResource, operat
 }
 
 // changesForOperationOptionsObject determines any changes to the Options Object between the initial and updated version of this Operation.
-func (d differ) changesForOperationOptionsObject(serviceName, apiVersion, apiResource, operationName string, initial, updated resourcemanager.ApiOperation) (*[]changes.Change, error) {
+func (d differ) changesForOperationOptionsObject(serviceName, apiVersion, apiResource, operationName string, initial, updated models.SDKOperation) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	if len(initial.Options) == 0 && len(updated.Options) > 0 {
@@ -242,12 +242,12 @@ func (d differ) changesForOperationOptionsObject(serviceName, apiVersion, apiRes
 }
 
 // changesForOperationRequestObject determines any changes to the Request Object in both the initial and updated versions of this Operation.
-func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiResource, operationName string, initial, updated resourcemanager.ApiOperation) (*[]changes.Change, error) {
+func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiResource, operationName string, initial, updated models.SDKOperation) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	if initial.RequestObject != nil && updated.RequestObject == nil {
 		log.Logger.Trace("The updated Operation no longer has a Request Object")
-		oldStringified, err := d.stringifyObjectDefinition(*initial.RequestObject)
+		oldStringified, err := d.stringifySDKObjectDefinition(*initial.RequestObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Old Object Definition: %+v", err)
 		}
@@ -261,7 +261,7 @@ func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiRes
 	}
 	if initial.RequestObject == nil && updated.RequestObject != nil {
 		log.Logger.Trace("The updated Operation now has a Request Object")
-		updatedStringified, err := d.stringifyObjectDefinition(*updated.RequestObject)
+		updatedStringified, err := d.stringifySDKObjectDefinition(*updated.RequestObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
@@ -274,11 +274,11 @@ func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiRes
 		})
 	}
 	if initial.RequestObject != nil && updated.RequestObject != nil {
-		oldStringified, err := d.stringifyObjectDefinition(*initial.RequestObject)
+		oldStringified, err := d.stringifySDKObjectDefinition(*initial.RequestObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Old Object Definition: %+v", err)
 		}
-		updatedStringified, err := d.stringifyObjectDefinition(*updated.RequestObject)
+		updatedStringified, err := d.stringifySDKObjectDefinition(*updated.RequestObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
@@ -299,63 +299,63 @@ func (d differ) changesForOperationRequestObject(serviceName, apiVersion, apiRes
 }
 
 // changesForOperationResourceId determines any changes to the Resource Id used in both the initial and updated versions of this Operation.
-func (d differ) changesForOperationResourceId(serviceName, apiVersion, apiResource, operationName string, initial, updated resourcemanager.ApiOperation, initialResourceIds, updatedResourceIds map[string]resourcemanager.ResourceIdDefinition) (*[]changes.Change, error) {
+func (d differ) changesForOperationResourceId(serviceName, apiVersion, apiResource, operationName string, initial, updated models.SDKOperation, initialResourceIds, updatedResourceIds map[string]models.ResourceID) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
-	if initial.ResourceIdName != nil && updated.ResourceIdName == nil {
-		log.Logger.Trace(fmt.Sprintf("The Operation no longer requires a Resource ID %q", *initial.ResourceIdName))
+	if initial.ResourceIDName != nil && updated.ResourceIDName == nil {
+		log.Logger.Trace(fmt.Sprintf("The Operation no longer requires a Resource ID %q", *initial.ResourceIDName))
 		output = append(output, changes.OperationResourceIdRemoved{
 			ServiceName:       serviceName,
 			ApiVersion:        apiVersion,
 			ResourceName:      apiResource,
 			OperationName:     operationName,
-			OldResourceIdName: *initial.ResourceIdName,
+			OldResourceIdName: *initial.ResourceIDName,
 		})
 	}
-	if initial.ResourceIdName == nil && updated.ResourceIdName != nil {
-		log.Logger.Trace(fmt.Sprintf("The Operation now requires a Resource ID %q", *updated.ResourceIdName))
+	if initial.ResourceIDName == nil && updated.ResourceIDName != nil {
+		log.Logger.Trace(fmt.Sprintf("The Operation now requires a Resource ID %q", *updated.ResourceIDName))
 		output = append(output, changes.OperationResourceIdAdded{
 			ServiceName:       serviceName,
 			ApiVersion:        apiVersion,
 			ResourceName:      apiResource,
 			OperationName:     operationName,
-			NewResourceIdName: *updated.ResourceIdName,
+			NewResourceIdName: *updated.ResourceIDName,
 		})
 	}
-	if initial.ResourceIdName != nil && updated.ResourceIdName != nil {
-		oldId, ok := initialResourceIds[*initial.ResourceIdName]
+	if initial.ResourceIDName != nil && updated.ResourceIDName != nil {
+		oldId, ok := initialResourceIds[*initial.ResourceIDName]
 		if !ok {
-			return nil, fmt.Errorf("Unable to find the original Resource ID %q", *initial.ResourceIdName)
+			return nil, fmt.Errorf("Unable to find the original Resource ID %q", *initial.ResourceIDName)
 		}
-		updatedId, ok := updatedResourceIds[*updated.ResourceIdName]
+		updatedId, ok := updatedResourceIds[*updated.ResourceIDName]
 		if !ok {
-			return nil, fmt.Errorf("Unable to find the updated Resource ID %q", *updated.ResourceIdName)
+			return nil, fmt.Errorf("Unable to find the updated Resource ID %q", *updated.ResourceIDName)
 		}
 
 		// Determine if the Resource ID itself has changed - or whether it's been renamed
-		if *initial.ResourceIdName != *updated.ResourceIdName {
+		if *initial.ResourceIDName != *updated.ResourceIDName {
 			log.Logger.Trace("The Operation uses a different Resource ID Name")
 			output = append(output, changes.OperationResourceIdRenamed{
 				ServiceName:       serviceName,
 				ApiVersion:        apiVersion,
 				ResourceName:      apiResource,
 				OperationName:     operationName,
-				NewResourceIdName: *updated.ResourceIdName,
-				OldResourceIdName: *initial.ResourceIdName,
+				NewResourceIdName: *updated.ResourceIDName,
+				OldResourceIdName: *initial.ResourceIDName,
 			})
 		}
 
-		if oldId.Id != updatedId.Id {
+		if oldId.ExampleValue != updatedId.ExampleValue {
 			log.Logger.Trace("The Operation now targets a different Resource ID")
 			output = append(output, changes.OperationResourceIdChanged{
 				ServiceName:       serviceName,
 				ApiVersion:        apiVersion,
 				ResourceName:      apiResource,
 				OperationName:     operationName,
-				OldResourceIdName: *initial.ResourceIdName,
-				OldValue:          oldId.Id,
-				NewResourceIdName: *updated.ResourceIdName,
-				NewValue:          updatedId.Id,
+				OldResourceIdName: *initial.ResourceIDName,
+				OldValue:          oldId.ExampleValue,
+				NewResourceIdName: *updated.ResourceIDName,
+				NewValue:          updatedId.ExampleValue,
 			})
 		}
 	}
@@ -364,12 +364,12 @@ func (d differ) changesForOperationResourceId(serviceName, apiVersion, apiResour
 }
 
 // changesForOperationResponseObject determines any changes to the Response Object in both the initial and updated versions of this Operation.
-func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiResource, operationName string, initial, updated resourcemanager.ApiOperation) (*[]changes.Change, error) {
+func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiResource, operationName string, initial, updated models.SDKOperation) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	if initial.ResponseObject != nil && updated.ResponseObject == nil {
 		log.Logger.Trace("The updated Operation no longer has a Response Object")
-		oldStringified, err := d.stringifyObjectDefinition(*initial.ResponseObject)
+		oldStringified, err := d.stringifySDKObjectDefinition(*initial.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Old Object Definition: %+v", err)
 		}
@@ -383,7 +383,7 @@ func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiRe
 	}
 	if initial.ResponseObject == nil && updated.ResponseObject != nil {
 		log.Logger.Trace("The updated Operation now has a Response Object")
-		updatedStringified, err := d.stringifyObjectDefinition(*updated.ResponseObject)
+		updatedStringified, err := d.stringifySDKObjectDefinition(*updated.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
@@ -396,11 +396,11 @@ func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiRe
 		})
 	}
 	if initial.ResponseObject != nil && updated.ResponseObject != nil {
-		oldStringified, err := d.stringifyObjectDefinition(*initial.ResponseObject)
+		oldStringified, err := d.stringifySDKObjectDefinition(*initial.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Old Object Definition: %+v", err)
 		}
-		updatedStringified, err := d.stringifyObjectDefinition(*updated.ResponseObject)
+		updatedStringified, err := d.stringifySDKObjectDefinition(*updated.ResponseObject)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 		}
@@ -421,42 +421,42 @@ func (d differ) changesForOperationResponseObject(serviceName, apiVersion, apiRe
 }
 
 // changesForOperationUriSuffix determines any changes to the Uri Suffix between the initial and updated versions of this Operation.
-func (d differ) changesForOperationUriSuffix(serviceName, apiVersion, apiResource, operationName string, initial, updated resourcemanager.ApiOperation) []changes.Change {
+func (d differ) changesForOperationUriSuffix(serviceName, apiVersion, apiResource, operationName string, initial, updated models.SDKOperation) []changes.Change {
 	output := make([]changes.Change, 0)
 
-	if initial.UriSuffix != nil && updated.UriSuffix == nil {
+	if initial.URISuffix != nil && updated.URISuffix == nil {
 		log.Logger.Trace("The existing Uri Suffix has been removed")
 		output = append(output, changes.OperationUriSuffixRemoved{
 			ServiceName:   serviceName,
 			ApiVersion:    apiVersion,
 			ResourceName:  apiResource,
 			OperationName: operationName,
-			OldValue:      *initial.UriSuffix,
+			OldValue:      *initial.URISuffix,
 		})
 		return output
 	}
 
-	if initial.UriSuffix == nil && updated.UriSuffix != nil {
+	if initial.URISuffix == nil && updated.URISuffix != nil {
 		log.Logger.Trace("A new Uri Suffix has been added")
 		output = append(output, changes.OperationUriSuffixAdded{
 			ServiceName:   serviceName,
 			ApiVersion:    apiVersion,
 			ResourceName:  apiResource,
 			OperationName: operationName,
-			NewValue:      *updated.UriSuffix,
+			NewValue:      *updated.URISuffix,
 		})
 		return output
 	}
 
-	if initial.UriSuffix != nil && updated.UriSuffix != nil && *initial.UriSuffix != *updated.UriSuffix {
+	if initial.URISuffix != nil && updated.URISuffix != nil && *initial.URISuffix != *updated.URISuffix {
 		log.Logger.Trace("The Uri Suffix has changed")
 		output = append(output, changes.OperationUriSuffixChanged{
 			ServiceName:   serviceName,
 			ApiVersion:    apiVersion,
 			ResourceName:  apiResource,
 			OperationName: operationName,
-			OldValue:      *initial.UriSuffix,
-			NewValue:      *updated.UriSuffix,
+			OldValue:      *initial.URISuffix,
+			NewValue:      *updated.URISuffix,
 		})
 	}
 
@@ -475,7 +475,7 @@ func (d differ) expectedStatusCodesMatch(initial, updated []int) bool {
 }
 
 // optionsMatch determines whether the two sets of Options are the same.
-func (d differ) optionsMatch(initial, updated map[string]resourcemanager.ApiOperationOption) (*bool, error) {
+func (d differ) optionsMatch(initial, updated map[string]models.SDKOperationOption) (*bool, error) {
 	// since we're stringifying the options for output, we can reuse this here
 	initialStringified, err := d.stringifyOperationOptions(initial)
 	if err != nil {
@@ -507,12 +507,12 @@ func (d differ) optionsMatch(initial, updated map[string]resourcemanager.ApiOper
 
 // stringifyOperationOptions returns a stringified version of the Options object
 // which is used to provide a human-readable output.
-func (d differ) stringifyOperationOptions(input map[string]resourcemanager.ApiOperationOption) (*map[string]string, error) {
+func (d differ) stringifyOperationOptions(input map[string]models.SDKOperationOption) (*map[string]string, error) {
 	output := make(map[string]string)
 
 	for key, value := range input {
 		log.Logger.Trace(fmt.Sprintf("Processing Option %q", key))
-		stringifiedObjectDefinition, err := d.stringifyObjectDefinition(value.ObjectDefinition)
+		stringifiedObjectDefinition, err := d.stringifySDKOperationOptionObjectDefinition(value.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("stringifying the Object Definition for Option %q: %+v", key, err)
 		}
@@ -538,20 +538,20 @@ func (d differ) stringifyOperationOptions(input map[string]resourcemanager.ApiOp
 
 // uriForOperation returns the formatted URI for this operation, comprising either the Resource ID, the Resource ID and the Uri Suffix
 // or just the Uri Suffix.
-func (d differ) uriForOperation(input resourcemanager.ApiOperation, resourceIds map[string]resourcemanager.ResourceIdDefinition) string {
+func (d differ) uriForOperation(input models.SDKOperation, resourceIds map[string]models.ResourceID) string {
 	components := make([]string, 0)
-	if input.ResourceIdName != nil {
-		id, ok := resourceIds[*input.ResourceIdName]
+	if input.ResourceIDName != nil {
+		id, ok := resourceIds[*input.ResourceIDName]
 		if !ok {
 			// TODO: thread through errors/raise this, but for now:
 			components = append(components, "{MISSING RESOURCE ID}")
 		} else {
-			components = append(components, id.Id)
+			components = append(components, id.ExampleValue)
 		}
 	}
 
-	if input.UriSuffix != nil {
-		components = append(components, *input.UriSuffix)
+	if input.URISuffix != nil {
+		components = append(components, *input.URISuffix)
 	}
 
 	// We could use a strings.Join(components, "/") here but since we need to check if both the Resource ID and UriSuffix
@@ -569,7 +569,7 @@ func (d differ) uriForOperation(input resourcemanager.ApiOperation, resourceIds 
 }
 
 // uniqueOperationNames returns a unique, sorted list of Operation Names from the keys of initial and updated.
-func (d differ) uniqueOperationNames(initial, updated map[string]resourcemanager.ApiOperation) []string {
+func (d differ) uniqueOperationNames(initial, updated map[string]models.SDKOperation) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

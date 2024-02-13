@@ -9,11 +9,11 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // changesForConstants determines the changes between the different Constants within the provided API Resource.
-func (d differ) changesForConstants(serviceName, apiVersion, apiResource string, initial, updated map[string]resourcemanager.ConstantDetails) []changes.Change {
+func (d differ) changesForConstants(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKConstant) []changes.Change {
 	output := make([]changes.Change, 0)
 	constantNames := d.uniqueConstantNames(initial, updated)
 	for _, constantName := range constantNames {
@@ -25,7 +25,7 @@ func (d differ) changesForConstants(serviceName, apiVersion, apiResource string,
 }
 
 // changesForConstant determines the changes between two different versions of the same Constant.
-func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constantName string, initial, updated map[string]resourcemanager.ConstantDetails) []changes.Change {
+func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constantName string, initial, updated map[string]models.SDKConstant) []changes.Change {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[constantName]
@@ -122,7 +122,7 @@ func (d differ) changesForConstant(serviceName, apiVersion, apiResource, constan
 }
 
 // uniqueConstantNames returns a unique, sorted list of Constant Names from the keys of initial and updated.
-func (d differ) uniqueConstantNames(initial, updated map[string]resourcemanager.ConstantDetails) []string {
+func (d differ) uniqueConstantNames(initial, updated map[string]models.SDKConstant) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

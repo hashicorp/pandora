@@ -8,18 +8,18 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_ResourceIdNoChanges(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
@@ -29,31 +29,16 @@ func TestDiff_ResourceIdNoChanges(t *testing.T) {
 }
 
 func TestDiff_ResourceIdAdded(t *testing.T) {
-	oldIds := make(map[string]resourcemanager.ResourceIdDefinition)
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := make(map[string]models.ResourceID)
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					// NOTE: it's not strictly representative to have 3 static segments and no user configurable
-					// segments in a Resource ID - but its worth it in this instance for a simpler/shorter testcase.
-					Name:         "staticSome",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("some"),
-					ExampleValue: "some",
-				},
-				{
-					Name:         "staticResource",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("resource"),
-					ExampleValue: "resource",
-				},
-				{
-					Name:         "staticId",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("id"),
-					ExampleValue: "id",
-				},
+			ExampleValue: "/some/resource/id",
+			Segments: []models.ResourceIDSegment{
+				// NOTE: it's not strictly representative to have 3 static segments and no user configurable
+				// segments in a Resource ID - but its worth it in this instance for a simpler/shorter testcase.
+				models.NewStaticValueResourceIDSegment("staticSome", "some"),
+				models.NewStaticValueResourceIDSegment("staticResource", "resource"),
+				models.NewStaticValueResourceIDSegment("staticId", "id"),
 			},
 		},
 	}
@@ -78,15 +63,15 @@ func TestDiff_ResourceIdAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceIdCommonIdAdded(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id:          "/some/resource/id",
-			CommonAlias: pointer.To("SomeCommonAlias"),
+			CommonIDAlias: pointer.To("SomeCommonAlias"),
+			ExampleValue:  "/some/resource/id",
 		},
 	}
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
@@ -105,16 +90,16 @@ func TestDiff_ResourceIdCommonIdAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceIdCommonIdChanged(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id:          "/some/resource/id",
-			CommonAlias: pointer.To("SomeCommonAlias"),
+			CommonIDAlias: pointer.To("SomeCommonAlias"),
+			ExampleValue:  "/some/resource/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id:          "/some/resource/id",
-			CommonAlias: pointer.To("SomeOtherAlias"),
+			CommonIDAlias: pointer.To("SomeOtherAlias"),
+			ExampleValue:  "/some/resource/id",
 		},
 	}
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
@@ -135,15 +120,15 @@ func TestDiff_ResourceIdCommonIdChanged(t *testing.T) {
 }
 
 func TestDiff_ResourceIdCommonIdRemoved(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id:          "/some/resource/id",
-			CommonAlias: pointer.To("SomeCommonAlias"),
+			CommonIDAlias: pointer.To("SomeCommonAlias"),
+			ExampleValue:  "/some/resource/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
@@ -163,33 +148,20 @@ func TestDiff_ResourceIdCommonIdRemoved(t *testing.T) {
 
 func TestDiff_ResourceIdSegmentsAdded(t *testing.T) {
 	// NOTE: when Segments are added this should still get surfaced as `ResourceIdSegmentsChangedLength`
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/example/{name}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "name",
-					Type:         resourcemanager.UserSpecifiedSegment,
-					ExampleValue: "someName",
-				},
+			ExampleValue: "/example/{name}",
+			Segments: []models.ResourceIDSegment{
+				models.NewUserSpecifiedResourceIDSegment("name", "exampleName"),
 			},
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/{name}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "staticExample",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("example"),
-					ExampleValue: "example",
-				},
-				{
-					Name:         "name",
-					Type:         resourcemanager.UserSpecifiedSegment,
-					ExampleValue: "someName",
-				},
+			ExampleValue: "/{name}",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticExample", "example"),
+				models.NewUserSpecifiedResourceIDSegment("name", "exampleName"),
 			},
 		},
 	}
@@ -201,11 +173,11 @@ func TestDiff_ResourceIdSegmentsAdded(t *testing.T) {
 			ResourceName:   "Example",
 			ResourceIdName: "SomeId",
 			OldValue: []string{
-				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
+				`Name "name" / Type "UserSpecified" / ExampleValue "exampleName"`,
 			},
 			NewValue: []string{
 				`Name "staticExample" / Type "Static" / FixedValue "example" / ExampleValue "example"`,
-				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
+				`Name "name" / Type "UserSpecified" / ExampleValue "exampleName"`,
 			},
 			StaticIdentifiersInNewValue: []string{
 				"example",
@@ -217,29 +189,19 @@ func TestDiff_ResourceIdSegmentsAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceIdSegmentsChangedFixedValue(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/first",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "staticExample",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("first"),
-					ExampleValue: "first",
-				},
+			ExampleValue: "/first",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticExample", "first"),
 			},
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/second",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "staticExample",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("second"),
-					ExampleValue: "second",
-				},
+			ExampleValue: "/second",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticExample", "second"),
 			},
 		},
 	}
@@ -261,29 +223,19 @@ func TestDiff_ResourceIdSegmentsChangedFixedValue(t *testing.T) {
 }
 
 func TestDiff_ResourceIdSegmentsChangedName(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/first",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "staticExample",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("first"),
-					ExampleValue: "first",
-				},
+			ExampleValue: "/first",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticExample", "first"),
 			},
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/first",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "updatedName",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("first"),
-					ExampleValue: "first",
-				},
+			ExampleValue: "/first",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("updatedName", "first"),
 			},
 		},
 	}
@@ -307,28 +259,19 @@ func TestDiff_ResourceIdSegmentsChangedName(t *testing.T) {
 func TestDiff_ResourceIdSegmentsChangedType(t *testing.T) {
 	// This test covers when the Resource ID segment has changed type (e.g. a String to a Constant)
 
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/{skuName}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "skuName",
-					Type:         resourcemanager.UserSpecifiedSegment,
-					ExampleValue: "first",
-				},
+			ExampleValue: "/{skuName}",
+			Segments: []models.ResourceIDSegment{
+				models.NewUserSpecifiedResourceIDSegment("skuName", "skuValue"),
 			},
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/{skuName}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:              "skuName",
-					Type:              resourcemanager.ConstantSegment,
-					ConstantReference: pointer.To("SomeConstant"),
-					ExampleValue:      "Basic",
-				},
+			ExampleValue: "/{skuName}",
+			Segments: []models.ResourceIDSegment{
+				models.NewConstantResourceIDSegment("skuName", "SomeConstant", "Basic"),
 			},
 			ConstantNames: []string{"SomeConstant"},
 		},
@@ -341,7 +284,7 @@ func TestDiff_ResourceIdSegmentsChangedType(t *testing.T) {
 			ResourceName:   "Example",
 			ResourceIdName: "SomeId",
 			SegmentIndex:   0,
-			OldValue:       `Name "skuName" / Type "UserSpecified" / ExampleValue "first"`,
+			OldValue:       `Name "skuName" / Type "UserSpecified" / ExampleValue "skuValue"`,
 			NewValue:       `Name "skuName" / Type "Constant" / ConstantReference "SomeConstant" / ExampleValue "Basic"`,
 		},
 	}
@@ -351,33 +294,20 @@ func TestDiff_ResourceIdSegmentsChangedType(t *testing.T) {
 
 func TestDiff_ResourceIdSegmentsRemoved(t *testing.T) {
 	// NOTE: when Segments are removed this should still get surfaced as `ResourceIdSegmentsChangedLength`
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/example/{name}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "staticExample",
-					Type:         resourcemanager.StaticSegment,
-					FixedValue:   pointer.To("example"),
-					ExampleValue: "example",
-				},
-				{
-					Name:         "name",
-					Type:         resourcemanager.UserSpecifiedSegment,
-					ExampleValue: "someName",
-				},
+			ExampleValue: "/example/{name}",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticExample", "example"),
+				models.NewUserSpecifiedResourceIDSegment("name", "exampleValue"),
 			},
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/{name}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Name:         "name",
-					Type:         resourcemanager.UserSpecifiedSegment,
-					ExampleValue: "someName",
-				},
+			ExampleValue: "/{name}",
+			Segments: []models.ResourceIDSegment{
+				models.NewUserSpecifiedResourceIDSegment("name", "exampleValue"),
 			},
 		},
 	}
@@ -390,10 +320,10 @@ func TestDiff_ResourceIdSegmentsRemoved(t *testing.T) {
 			ResourceIdName: "SomeId",
 			OldValue: []string{
 				`Name "staticExample" / Type "Static" / FixedValue "example" / ExampleValue "example"`,
-				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
+				`Name "name" / Type "UserSpecified" / ExampleValue "exampleValue"`,
 			},
 			NewValue: []string{
-				`Name "name" / Type "UserSpecified" / ExampleValue "someName"`,
+				`Name "name" / Type "UserSpecified" / ExampleValue "exampleValue"`,
 			},
 			StaticIdentifiersInNewValue: []string{},
 		},
@@ -403,12 +333,12 @@ func TestDiff_ResourceIdSegmentsRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceIdRemoved(t *testing.T) {
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
-	newIds := make(map[string]resourcemanager.ResourceIdDefinition)
+	newIds := make(map[string]models.ResourceID)
 	actual := differ{}.changesForResourceIds("Computer", "2020-01-01", "Example", oldIds, newIds)
 	expected := []changes.Change{
 		changes.ResourceIdRemoved{

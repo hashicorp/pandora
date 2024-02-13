@@ -8,21 +8,21 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_FieldNoChanges(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -36,22 +36,22 @@ func TestDiff_FieldNoChanges(t *testing.T) {
 }
 
 func TestDiff_FieldAdded(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 		"Second": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -73,22 +73,22 @@ func TestDiff_FieldAdded(t *testing.T) {
 }
 
 func TestDiff_FieldRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 		"Second": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -110,19 +110,19 @@ func TestDiff_FieldRemoved(t *testing.T) {
 }
 
 func TestDiff_FieldJsonNameChanged(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
 			JsonName: "someField",
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
 			JsonName: "SomeField", // casing differs == a breaking change
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -146,19 +146,19 @@ func TestDiff_FieldJsonNameChanged(t *testing.T) {
 }
 
 func TestDiff_FieldIsNowOptional(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
 			Optional: false,
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
 			Optional: true,
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -180,19 +180,19 @@ func TestDiff_FieldIsNowOptional(t *testing.T) {
 }
 
 func TestDiff_FieldIsNowRequired(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
 			Required: false,
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
 			Required: true,
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
@@ -214,17 +214,17 @@ func TestDiff_FieldIsNowRequired(t *testing.T) {
 }
 
 func TestDiff_FieldObjectDefinitionChanged(t *testing.T) {
-	initial := map[string]resourcemanager.FieldDetails{
+	initial := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.FieldDetails{
+	updated := map[string]models.SDKField{
 		"First": {
-			ObjectDefinition: resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ObjectDefinition: models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SomeConstant"),
 			},
 		},

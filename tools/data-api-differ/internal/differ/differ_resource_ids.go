@@ -11,10 +11,10 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func (d differ) changesForResourceIds(serviceName, apiVersion, apiResource string, initial, updated map[string]resourcemanager.ResourceIdDefinition) []changes.Change {
+func (d differ) changesForResourceIds(serviceName, apiVersion, apiResource string, initial, updated map[string]models.ResourceID) []changes.Change {
 	output := make([]changes.Change, 0)
 	resourceIdNames := d.uniqueResourceIdNames(initial, updated)
 	for _, resourceIdName := range resourceIdNames {
@@ -25,7 +25,7 @@ func (d differ) changesForResourceIds(serviceName, apiVersion, apiResource strin
 	return output
 }
 
-func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated map[string]resourcemanager.ResourceIdDefinition) []changes.Change {
+func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated map[string]models.ResourceID) []changes.Change {
 	output := make([]changes.Change, 0)
 
 	oldData, isInOld := initial[resourceIdName]
@@ -38,7 +38,7 @@ func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resou
 			ApiVersion:      apiVersion,
 			ResourceName:    apiResource,
 			ResourceIdName:  resourceIdName,
-			ResourceIdValue: oldData.Id,
+			ResourceIdValue: oldData.ExampleValue,
 		})
 		return output
 	}
@@ -50,14 +50,14 @@ func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resou
 			ApiVersion:                  apiVersion,
 			ResourceName:                apiResource,
 			ResourceIdName:              resourceIdName,
-			ResourceIdValue:             updatedData.Id,
+			ResourceIdValue:             updatedData.ExampleValue,
 			StaticIdentifiersInNewValue: staticIdentifiers,
 		})
 		return output
 	}
 
 	log.Logger.Trace("Determining any changes to the Common Alias..")
-	commonAliasChanges := d.changesForResourceIdCommonAlias(serviceName, apiVersion, apiResource, resourceIdName, oldData, updatedData)
+	commonAliasChanges := d.changesForResourceIDCommonIDAlias(serviceName, apiVersion, apiResource, resourceIdName, oldData, updatedData)
 	output = append(output, commonAliasChanges...)
 
 	log.Logger.Trace("Determining any changes to the Resource ID Segments..")
@@ -67,43 +67,43 @@ func (d differ) changesForResourceId(serviceName, apiVersion, apiResource, resou
 	return output
 }
 
-// changesForResourceIdCommonAlias determines any changes related to the Common Alias for the initial and updated version of this Resource ID.
-func (d differ) changesForResourceIdCommonAlias(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated resourcemanager.ResourceIdDefinition) []changes.Change {
+// changesForResourceIDCommonIDAlias determines any changes related to the Common Alias for the initial and updated version of this Resource ID.
+func (d differ) changesForResourceIDCommonIDAlias(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated models.ResourceID) []changes.Change {
 	output := make([]changes.Change, 0)
 
-	if initial.CommonAlias != nil && updated.CommonAlias == nil {
+	if initial.CommonIDAlias != nil && updated.CommonIDAlias == nil {
 		log.Logger.Trace(fmt.Sprintf("The Resource ID %q is no longer a Common ID", resourceIdName))
 		output = append(output, changes.ResourceIdCommonIdRemoved{
 			ServiceName:     serviceName,
 			ApiVersion:      apiVersion,
 			ResourceName:    apiResource,
 			ResourceIdName:  resourceIdName,
-			CommonAliasName: *initial.CommonAlias,
-			ResourceIdValue: initial.Id,
+			CommonAliasName: *initial.CommonIDAlias,
+			ResourceIdValue: initial.ExampleValue,
 		})
 	}
-	if initial.CommonAlias == nil && updated.CommonAlias != nil {
+	if initial.CommonIDAlias == nil && updated.CommonIDAlias != nil {
 		log.Logger.Trace(fmt.Sprintf("The Resource ID %q is now a Common ID", resourceIdName))
 		output = append(output, changes.ResourceIdCommonIdAdded{
 			ServiceName:     serviceName,
 			ApiVersion:      apiVersion,
 			ResourceName:    apiResource,
 			ResourceIdName:  resourceIdName,
-			CommonAliasName: *updated.CommonAlias,
-			ResourceIdValue: updated.Id,
+			CommonAliasName: *updated.CommonIDAlias,
+			ResourceIdValue: updated.ExampleValue,
 		})
 	}
-	if initial.CommonAlias != nil && updated.CommonAlias != nil && *initial.CommonAlias != *updated.CommonAlias {
-		log.Logger.Trace(fmt.Sprintf("The Resource ID %q has changed it's Common Alias from %q to %q", resourceIdName, *initial.CommonAlias, *updated.CommonAlias))
+	if initial.CommonIDAlias != nil && updated.CommonIDAlias != nil && *initial.CommonIDAlias != *updated.CommonIDAlias {
+		log.Logger.Trace(fmt.Sprintf("The Resource ID %q has changed it's Common Alias from %q to %q", resourceIdName, *initial.CommonIDAlias, *updated.CommonIDAlias))
 		output = append(output, changes.ResourceIdCommonIdChanged{
 			ServiceName:        serviceName,
 			ApiVersion:         apiVersion,
 			ResourceName:       apiResource,
 			ResourceIdName:     resourceIdName,
-			OldCommonAliasName: *initial.CommonAlias,
-			OldValue:           initial.Id,
-			NewCommonAliasName: *updated.CommonAlias,
-			NewValue:           updated.Id,
+			OldCommonAliasName: *initial.CommonIDAlias,
+			OldValue:           initial.ExampleValue,
+			NewCommonAliasName: *updated.CommonIDAlias,
+			NewValue:           updated.ExampleValue,
 		})
 	}
 
@@ -111,7 +111,7 @@ func (d differ) changesForResourceIdCommonAlias(serviceName, apiVersion, apiReso
 }
 
 // changesForResourceIdSegments determines any changes related to the Segments for the initial and updated version of this Resource ID.
-func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated resourcemanager.ResourceIdDefinition) []changes.Change {
+func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResource, resourceIdName string, initial, updated models.ResourceID) []changes.Change {
 	output := make([]changes.Change, 0)
 
 	// Stringify the Resource ID Segments so these are consistent for diffing and output
@@ -140,7 +140,7 @@ func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResourc
 		updatedValue := updatedStringified[i]
 		if oldValue != updatedValue {
 			log.Logger.Trace(fmt.Sprintf("Resource ID Segment Index %d differs", i))
-			staticIdentifiers := d.staticIdentifiersInResourceIdSegments([]resourcemanager.ResourceIdSegment{
+			staticIdentifiers := d.staticIdentifiersInResourceIdSegments([]models.ResourceIDSegment{
 				updated.Segments[i], // only the changed Resource ID Segment
 			})
 			var staticIdentifier *string
@@ -164,7 +164,7 @@ func (d differ) changesForResourceIdSegments(serviceName, apiVersion, apiResourc
 }
 
 // stringifyResourceIdSegments builds up a stringified version of the Resource ID segments for human understanding of the diff
-func (d differ) stringifyResourceIdSegments(input []resourcemanager.ResourceIdSegment) []string {
+func (d differ) stringifyResourceIdSegments(input []models.ResourceIDSegment) []string {
 	output := make([]string, 0)
 
 	for _, item := range input {
@@ -188,7 +188,7 @@ func (d differ) stringifyResourceIdSegments(input []resourcemanager.ResourceIdSe
 
 // staticIdentifiersInResourceIdSegments retrieves a unique, sorted list of the static identifiers within the Resource ID Segments
 // This comes from both Static Segments, Resource Provider Segments,
-func (d differ) staticIdentifiersInResourceIdSegments(input []resourcemanager.ResourceIdSegment) []string {
+func (d differ) staticIdentifiersInResourceIdSegments(input []models.ResourceIDSegment) []string {
 	segments := make(map[string]struct{})
 
 	// first pull out a unique list of fixed values from the different segment types
@@ -208,7 +208,7 @@ func (d differ) staticIdentifiersInResourceIdSegments(input []resourcemanager.Re
 }
 
 // uniqueResourceIdNames returns a unique, sorted list of Resource ID Names from the keys of initial and updated.
-func (d differ) uniqueResourceIdNames(initial, updated map[string]resourcemanager.ResourceIdDefinition) []string {
+func (d differ) uniqueResourceIdNames(initial, updated map[string]models.ResourceID) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

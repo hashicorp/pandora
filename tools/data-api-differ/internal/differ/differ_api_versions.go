@@ -8,12 +8,12 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // changesForApiVersions determines the changes between the different API versions for the provided Service.
-func (d differ) changesForApiVersions(serviceName string, initial map[string]dataapi.ApiVersionData, updated map[string]dataapi.ApiVersionData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForApiVersions(serviceName string, initial, updated map[string]models.APIVersion, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	apiVersions := d.uniqueApiVersions(initial, updated)
 	for _, apiVersion := range apiVersions {
@@ -28,7 +28,7 @@ func (d differ) changesForApiVersions(serviceName string, initial map[string]dat
 }
 
 // changesForApiVersion determines the changes between two different API Versions within a given Service.
-func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiVersionData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, updated map[string]models.APIVersion, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[apiVersion]
@@ -54,7 +54,7 @@ func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, up
 	// TODO: support diffing `initial.Generate` / `initial.Preview` and `initial.Source` if needed in the future
 
 	// diff the API Resources within this API version - however note that the old version may not exist
-	initialResources := make(map[string]dataapi.ApiResourceData)
+	initialResources := make(map[string]models.APIResource)
 	if inOldData {
 		initialResources = oldData.Resources
 	}
@@ -68,7 +68,7 @@ func (d differ) changesForApiVersion(serviceName, apiVersion string, initial, up
 }
 
 // uniqueApiVersions returns a unique, sorted list of API Versions from the keys of initial and updated.
-func (d differ) uniqueApiVersions(initial map[string]dataapi.ApiVersionData, updated map[string]dataapi.ApiVersionData) []string {
+func (d differ) uniqueApiVersions(initial, updated map[string]models.APIVersion) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

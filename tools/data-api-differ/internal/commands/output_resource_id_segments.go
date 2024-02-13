@@ -4,6 +4,7 @@
 package commands
 
 import (
+	"context"
 	"fmt"
 	"log"
 	"os"
@@ -39,6 +40,7 @@ and then outputs a unique, sorted list of any Static Identifiers found within th
 
 func (c OutputResourceIdSegmentsCommand) Run(args []string) int {
 	c.logger.Info("Running `output-resource-id-segments` command..")
+	ctx := context.Background()
 
 	a := arguments{}
 	c.logger.Debug("Parsing arguments..")
@@ -64,7 +66,7 @@ func (c OutputResourceIdSegmentsCommand) Run(args []string) int {
 
 	c.logger.Debug("Performing diff of the two data sources..")
 	includeNestedChangesWhenNew := true // needed to detect any Resource ID Segments containing Static Identifiers
-	result, err := differ.Diff(a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
+	result, err := differ.Diff(ctx, a.dataApiBinaryPath, a.initialApiDefinitionsPath, a.updatedApiDefinitionsPath, includeNestedChangesWhenNew)
 	if err != nil {
 		c.logger.Error(fmt.Sprintf("performing diff: %+v", err))
 		return 1
