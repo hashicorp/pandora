@@ -75,7 +75,9 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 		return
 	}
 
-	if err = resp.Unmarshal(&result.Model); err != nil {
+	var model string
+	result.Model = &model
+	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
 
@@ -104,7 +106,7 @@ func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
 			Method:              "GET",
 			ResourceIDName:      stringPointer("PandaPop"),
 			ResponseObject: &models.SDKObjectDefinition{
-				Type: models.StringSDKObjectDefinitionType,
+				Type: models.RawFileSDKObjectDefinitionType,
 			},
 		},
 		operationName: "Get",
@@ -118,7 +120,7 @@ func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
 type GetOperationResponse struct {
 	HttpResponse *http.Response
 	OData *odata.OData
-	Model *string
+	Model *[]byte
 }
 
 // Get ...
@@ -147,7 +149,9 @@ func (c pandaClient) Get(ctx context.Context , id PandaPop) (result GetOperation
 		return
 	}
 
-	if err = resp.Unmarshal(&result.Model); err != nil {
+	var model []byte
+	result.Model = &model
+	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
 

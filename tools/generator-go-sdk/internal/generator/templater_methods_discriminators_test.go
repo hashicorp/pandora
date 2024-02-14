@@ -106,7 +106,10 @@ func (c pandaClient) Get(ctx context.Context ) (result GetOperationResponse, err
 		return
 	}
 
-	if err = resp.Unmarshal(&result.Model); err != nil {
+	var model PandaPop
+	result.Model = &model
+
+	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
 	return

@@ -618,11 +618,27 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	result.Model = &model
 `, discriminatedTypeParentName)
 		} else {
-			output = fmt.Sprintf(`
+			responseModelType, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
+			if err != nil {
+				return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
+			}
+			if responseModelType != nil {
+				if c.operation.FieldContainingPaginationDetails != nil {
+					output = fmt.Sprintf(`
+	var model []%s`, *responseModelType)
+				} else {
+					output = fmt.Sprintf(`
+	var model %s`, *responseModelType)
+				}
+				output = fmt.Sprintf(`%s
+	result.Model = &model`, output)
+			}
+			output = fmt.Sprintf(`%s
+
 	if err = resp.Unmarshal(result.Model); err != nil {
 		return
 	}
-`)
+`, output)
 		}
 	}
 
