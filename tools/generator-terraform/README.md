@@ -67,7 +67,7 @@ By default, the generated code will be output to your desktop (`~/Desktop/genera
 
 The `generator-terraform` tool supports a number of command-line arguments:
 
-* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:5000`).
+* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:8080`).
 * `--output-dir=/some/custom/path` - specifies the directory where the generated Terraform Resources should be output (defaults to `~/Desktop/generated-tf-dev`).
 * `--services=Service1,Service2` - generates Terraform Resources for only the specified Services (for expediency) - the Service Names coming from the `name` field [within the Configuration File that defines which Service should be imported](`../../config/resource-manager.hcl`).
 

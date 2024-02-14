@@ -16,7 +16,6 @@ import (
 	definitions2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/definitions"
 	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/resource"
-
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/services"
 	"github.com/mitchellh/cli"
@@ -56,7 +55,7 @@ func (i *GenerateCommand) Run(args []string) int {
 	i.providerPrefix = "azurerm"
 
 	f := flag.NewFlagSet("generator-terraform", flag.ExitOnError)
-	f.StringVar(&i.apiServerEndpoint, "data-api", "http://localhost:5000", "-data-api=http://localhost:5000")
+	f.StringVar(&i.apiServerEndpoint, "data-api", "http://localhost:8080", "-data-api=http://localhost:8080")
 	f.StringVar(&i.outputDirectory, "output-dir", "", "-output-dir=../generated-tf-dev")
 	f.StringVar(&i.serviceNamesRaw, "services", "", "A list of comma separated Service named from the Data API to import")
 	if err := f.Parse(args); err != nil {
