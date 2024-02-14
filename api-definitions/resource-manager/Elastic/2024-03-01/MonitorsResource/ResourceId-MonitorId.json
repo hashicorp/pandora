@@ -1,0 +1,43 @@
+{
+ "name": "MonitorId",
+ "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Elastic/monitors/{monitorName}",
+ "segments": [
+  {
+   "name": "staticSubscriptions",
+   "type": "Static",
+   "value": "subscriptions"
+  },
+  {
+   "name": "subscriptionId",
+   "type": "SubscriptionId"
+  },
+  {
+   "name": "staticResourceGroups",
+   "type": "Static",
+   "value": "resourceGroups"
+  },
+  {
+   "name": "resourceGroupName",
+   "type": "ResourceGroup"
+  },
+  {
+   "name": "staticProviders",
+   "type": "Static",
+   "value": "providers"
+  },
+  {
+   "name": "staticMicrosoftElastic",
+   "type": "ResourceProvider",
+   "value": "Microsoft.Elastic"
+  },
+  {
+   "name": "staticMonitors",
+   "type": "Static",
+   "value": "monitors"
+  },
+  {
+   "name": "monitorName",
+   "type": "UserSpecified"
+  }
+ ]
+}

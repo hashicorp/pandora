@@ -1,0 +1,53 @@
+{
+ "name": "ElasticOrganizationToAzureSubscriptionMappingResponseProperties",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "billedAzureSubscriptionId",
+   "name": "BilledAzureSubscriptionId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "elasticOrganizationId",
+   "name": "ElasticOrganizationId",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "elasticOrganizationName",
+   "name": "ElasticOrganizationName",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "marketplaceSaasInfo",
+   "name": "MarketplaceSaasInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "MarketplaceSaaSInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

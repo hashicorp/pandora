@@ -1,0 +1,23 @@
+{
+ "name": "Delete",
+ "contentType": "application/json; charset=utf-8",
+ "expectedStatusCodes": [
+  200
+ ],
+ "longRunning": false,
+ "httpMethod": "POST",
+ "options": [
+  {
+   "optional": true,
+   "queryString": "rulesetId",
+   "required": false,
+   "field": "RulesetId",
+   "optionsObjectDefinition": {
+    "type": "String",
+    "referenceName": null
+   }
+  }
+ ],
+ "resourceIdName": "MonitorId",
+ "uriSuffix": "/deleteTrafficFilter"
+}
