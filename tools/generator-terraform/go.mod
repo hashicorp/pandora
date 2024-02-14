@@ -2,10 +2,9 @@ module github.com/hashicorp/pandora/tools/generator-terraform
 
 go 1.21
 
-replace github.com/hashicorp/pandora/tools/sdk => ../sdk
-
 require (
-	github.com/hashicorp/go-azure-helpers v0.64.0
+	github.com/hashicorp/go-azure-helpers v0.66.2
+	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.4
 )
@@ -20,6 +19,7 @@ require (
 	github.com/google/uuid v1.1.2 // indirect
 	github.com/hashicorp/errwrap v1.1.0 // indirect
 	github.com/hashicorp/go-cleanhttp v0.5.2 // indirect
+	github.com/hashicorp/go-hclog v1.4.0 // indirect
 	github.com/hashicorp/go-multierror v1.1.1 // indirect
 	github.com/hashicorp/go-retryablehttp v0.7.5 // indirect
 	github.com/huandu/xstrings v1.3.2 // indirect
@@ -34,3 +34,7 @@ require (
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 )
+
+replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
+
+replace github.com/hashicorp/pandora/tools/sdk => ../sdk
