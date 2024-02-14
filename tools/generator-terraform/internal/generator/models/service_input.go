@@ -7,9 +7,6 @@ type ServiceInput struct {
 	// CategoryNames is a slice of Category Names the Data Sources and Resources contain.
 	CategoryNames []string
 
-	// DataSourceNames is a slice of the names of the Data Sources which should be output.
-	DataSourceNames []string
-
 	// ProviderPrefix is the prefix used for the Resources within this Terraform Provider.
 	ProviderPrefix string
 

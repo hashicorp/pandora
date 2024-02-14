@@ -5,7 +5,6 @@ import (
 	"log"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/datasource"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/definitions"
 	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/resource"
@@ -26,28 +25,9 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 			continue
 		}
 
-		if len(service.Terraform.DataSources) == 0 && len(service.Terraform.Resources) == 0 {
-			log.Printf("[DEBUG] .. has no Data Sources/Resources, skipping..")
+		if len(service.Terraform.Resources) == 0 {
+			log.Printf("[DEBUG] .. has no Terraform Resources, skipping..")
 			continue
-		}
-
-		for label, details := range service.Terraform.DataSources {
-			if !details.Generate {
-				log.Printf("[DEBUG] Data Source %q has generation disabled - skipping", label)
-				continue
-			}
-
-			log.Printf("[DEBUG] Processing Data Source %q..", label)
-			dataSourceInput := models2.DataSourceInput{
-				ApiVersion:         details.ApiVersion,
-				ProviderPrefix:     providerPrefix,
-				ResourceLabel:      label,
-				RootDirectory:      outputDirectory,
-				ServicePackageName: *service.TerraformPackageName,
-			}
-			if err := datasource.DataSource(dataSourceInput); err != nil {
-				return fmt.Errorf("generating for Data Source %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
-			}
 		}
 
 		for label, details := range service.Terraform.Resources {
@@ -99,7 +79,6 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 
 		resourceToApiVersion := make(map[string]string)
 		categories := make(map[string]struct{})
-		dataSourceNames := make([]string, 0)
 		resourceNames := make([]string, 0)
 		for _, resource := range service.Terraform.Resources {
 			categories[resource.Documentation.Category] = struct{}{}
@@ -112,7 +91,6 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 			categoryNames = append(categoryNames, k)
 		}
 		sort.Strings(categoryNames)
-		sort.Strings(dataSourceNames)
 		sort.Strings(resourceNames)
 
 		resourceToApiVersionSorted := make(map[string]string, 0)
@@ -122,7 +100,6 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 
 		serviceInput := models2.ServiceInput{
 			CategoryNames:        categoryNames,
-			DataSourceNames:      dataSourceNames,
 			ProviderPrefix:       providerPrefix,
 			ResourceToApiVersion: resourceToApiVersionSorted,
 			RootDirectory:        outputDirectory,

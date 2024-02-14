@@ -7,14 +7,12 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestTemplateForServiceRegistrationEmpty(t *testing.T) {
 	input := models.ServiceInput{
 		CategoryNames:      []string{},
-		DataSourceNames:    []string{},
 		ProviderPrefix:     "myprovider",
 		ServiceDisplayName: "Awesome Service",
 		ServicePackageName: "mypackage",
@@ -37,8 +35,7 @@ func (autoRegistration) Name() string {
 }
 
 func (autoRegistration) DataSources() []sdk.DataSource {
-	return []sdk.DataSource{
-	}
+	return []sdk.DataSource{}
 }
 
 func (autoRegistration) Resources() []sdk.Resource {
@@ -59,12 +56,6 @@ func TestTemplateForServiceRegistration(t *testing.T) {
 		CategoryNames: []string{
 			"Category3",
 			"Category1",
-		},
-		DataSourceNames: []string{
-			// intentional to check ordering
-			"Example2",
-			"Example3",
-			"Example1",
 		},
 		ProviderPrefix: "myprovider",
 		ResourceToApiVersion: map[string]string{
@@ -94,11 +85,7 @@ func (autoRegistration) Name() string {
 }
 
 func (autoRegistration) DataSources() []sdk.DataSource {
-	return []sdk.DataSource{
-		Example1DataSource{},
-		Example2DataSource{},
-		Example3DataSource{},
-	}
+	return []sdk.DataSource{}
 }
 
 func (autoRegistration) Resources() []sdk.Resource {
