@@ -46,7 +46,6 @@ func main() {
 		"ServiceFabric",
 		"SqlVirtualMachine",
 		"Subscription",
-		"TimeSeriesInsights",
 
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
 		// is sent in the Request to update or remove a Key Vault Access Policy - and using other casings mean the update
