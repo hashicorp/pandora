@@ -25,7 +25,7 @@ func main() {
 	resp, err := client.Health(ctx)
 	if err != nil {
 		log.Fatalf("%+v", err)
-    }
+	}
 	log.Printf("Data API is available: %t", resp.Available)
 	
 	// Then retrieve all of the Services and all of their associated Data to work against..
