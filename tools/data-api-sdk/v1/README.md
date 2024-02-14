@@ -33,8 +33,8 @@ func main() {
 	data, err := client.LoadAllData(ctx, servicesToLoad)
 	if err != nil {
 		log.Fatalf(err.Error())
-    }
-    log.Printf("retrieved: %+v", data)
+	}
+	log.Printf("retrieved: %+v", data)
 }
 ```
 
