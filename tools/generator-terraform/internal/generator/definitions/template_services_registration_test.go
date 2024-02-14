@@ -1,0 +1,70 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+package definitions
+
+import (
+	"testing"
+
+	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
+
+	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
+)
+
+func TestCodeForServicesRegistrationEmpty(t *testing.T) {
+	input := models2.ServicesInput{
+		ProviderPrefix: "myprovider",
+		Services:       map[string]models2.ServiceInput{},
+	}
+	actual := codeForServicesRegistration(input)
+	expected := `
+package provider
+
+// NOTE: this file is generated - manual changes will be overwritten.
+
+import (
+	"github.com/hashicorp/terraform-provider-myprovider/internal/sdk"
+)
+
+func autoRegisteredTypedServices() []sdk.TypedServiceRegistration {
+	return []sdk.TypedServiceRegistration{
+	}
+}
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}
+
+func TestCodeForServicesRegistration(t *testing.T) {
+	input := models2.ServicesInput{
+		ProviderPrefix: "myprovider",
+		Services: map[string]models2.ServiceInput{
+			"Compute": {
+				ServicePackageName: "compute",
+			},
+			"Resource": {
+				ServicePackageName: "resources",
+			},
+		},
+	}
+	actual := codeForServicesRegistration(input)
+	expected := `
+package provider
+
+// NOTE: this file is generated - manual changes will be overwritten.
+
+import (
+	"github.com/hashicorp/terraform-provider-myprovider/internal/sdk"
+
+	"github.com/hashicorp/terraform-provider-myprovider/internal/services/compute"
+	"github.com/hashicorp/terraform-provider-myprovider/internal/services/resources"
+)
+
+func autoRegisteredTypedServices() []sdk.TypedServiceRegistration {
+	return []sdk.TypedServiceRegistration{
+		compute.Registration{},
+		resources.Registration{},
+	}
+}
+`
+	testhelpers.AssertTemplatedCodeMatches(t, expected, actual)
+}

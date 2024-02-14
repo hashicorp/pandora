@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/cmd"
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/cmd"
 	"github.com/mitchellh/cli"
 )
 
