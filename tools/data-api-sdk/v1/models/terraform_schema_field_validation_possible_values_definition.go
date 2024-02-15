@@ -8,6 +8,7 @@ import (
 	"fmt"
 )
 
+var _ json.Marshaler = &TerraformSchemaFieldValidationPossibleValuesDefinition{}
 var _ TerraformSchemaFieldValidationDefinition = TerraformSchemaFieldValidationPossibleValuesDefinition{}
 
 // TerraformSchemaFieldValidationPossibleValuesDefinition defines a list of Possible Values for a TerraformSchemaField.
