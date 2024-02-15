@@ -8,7 +8,7 @@ package models
 // (specified by RFC3339SDKDateFormat) - multiple other types are possible
 // however are unimplemented at this time.
 // Related: https://github.com/hashicorp/pandora/issues/8
-type SDKDateFormat string
+type SDKDateFormat =  string
 
 const (
 	// RFC3339SDKDateFormat specifies that the DateTime is an RFC3339 value.
