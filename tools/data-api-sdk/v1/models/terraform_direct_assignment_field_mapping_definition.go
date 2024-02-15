@@ -8,6 +8,7 @@ import (
 	"fmt"
 )
 
+var _ json.Marshaler = &TerraformDirectAssignmentFieldMappingDefinition{}
 var _ TerraformFieldMappingDefinition = TerraformDirectAssignmentFieldMappingDefinition{}
 
 // TerraformDirectAssignmentFieldMappingDefinition defines that a TerraformSchemaField within a TerraformSchemaModel
