@@ -7,8 +7,8 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-func mapTerraformSchemaModels(input map[string]repositories.TerraformSchemaModelDefinition) (*map[string]models.TerraformSchemaModelDefinition, error) {
-	output := make(map[string]models.TerraformSchemaModelDefinition)
+func mapTerraformSchemaModels(input map[string]repositories.TerraformSchemaModelDefinition) (*map[string]models.TerraformSchemaModel, error) {
+	output := make(map[string]models.TerraformSchemaModel)
 
 	for key, value := range input {
 		mappedModel, err := mapTerraformSchemaModel(value)
@@ -22,13 +22,13 @@ func mapTerraformSchemaModels(input map[string]repositories.TerraformSchemaModel
 	return &output, nil
 }
 
-func mapTerraformSchemaModel(input repositories.TerraformSchemaModelDefinition) (*models.TerraformSchemaModelDefinition, error) {
+func mapTerraformSchemaModel(input repositories.TerraformSchemaModelDefinition) (*models.TerraformSchemaModel, error) {
 	mappedFields, err := mapTerraformSchemaFields(input.Fields)
 	if err != nil {
 		return nil, fmt.Errorf("mapping Fields: %+v", err)
 	}
 
-	return &models.TerraformSchemaModelDefinition{
+	return &models.TerraformSchemaModel{
 		Fields: *mappedFields,
 	}, nil
 }

@@ -25,14 +25,14 @@ func mapTerraformSchemaField(input repositories.TerraformSchemaFieldDefinition) 
 		return nil, fmt.Errorf("mapping Object Definition: %+v", err)
 	}
 
-	output := models.TerraformSchemaFieldDefinition{
+	output := models.TerraformSchemaField{
 		Computed:         input.Computed,
 		ForceNew:         input.ForceNew,
 		HCLName:          input.HclName,
 		Optional:         input.Optional,
 		ObjectDefinition: *objectDefinition,
 		Required:         input.Required,
-		Documentation: models.TerraformSchemaDocumentationDefinition{
+		Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 			Markdown: input.Documentation.Markdown,
 		},
 	}

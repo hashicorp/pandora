@@ -33,7 +33,7 @@ func mapTerraformResourceDefinition(input repositories.TerraformResourceDetails)
 		return nil, fmt.Errorf("mapping schema models for %s: %+v", input.ResourceName, err)
 	}
 
-	output := models.TerraformResourceDetails{
+	output := models.TerraformResourceDefinition{
 		APIVersion:   input.ApiVersion,
 		CreateMethod: mapTerraformMethodDefinition(input.CreateMethod),
 		DeleteMethod: mapTerraformMethodDefinition(input.DeleteMethod),

@@ -7,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-func mapTerraformSchemaMappings(input repositories.MappingDefinition) (*models.MappingDefinition, error) {
+func mapTerraformSchemaMappings(input repositories.MappingDefinition) (*models.TerraformMappingDefinition, error) {
 	mappedFieldMappings, err := mapTerraformSchemaFieldMappings(input.Fields)
 	if err != nil {
 		return nil, fmt.Errorf("mapping TerraformSchemaFieldMappings: %+v", err)
@@ -15,7 +15,7 @@ func mapTerraformSchemaMappings(input repositories.MappingDefinition) (*models.M
 
 	mappedModelToModelMappings := mapTerraformSchemaModelToModelMappings(input.ModelToModels)
 	mappedResourceIDMappings := mapTerraformSchemaResourceIDMappings(input.ResourceId)
-	return &models.MappingDefinition{
+	return &models.TerraformMappingDefinition{
 		Fields:        *mappedFieldMappings,
 		ModelToModels: mappedModelToModelMappings,
 		ResourceID:    mappedResourceIDMappings,
@@ -67,10 +67,10 @@ func mapTerraformSchemaModelToModelMappings(input []repositories.ModelToModelMap
 	return output
 }
 
-func mapTerraformSchemaResourceIDMappings(input []repositories.ResourceIdMappingDefinition) []models.ResourceIDMappingDefinition {
-	output := make([]models.ResourceIDMappingDefinition, 0)
+func mapTerraformSchemaResourceIDMappings(input []repositories.ResourceIdMappingDefinition) []models.TerraformResourceIDMappingDefinition {
+	output := make([]models.TerraformResourceIDMappingDefinition, 0)
 	for _, item := range input {
-		output = append(output, models.ResourceIDMappingDefinition{
+		output = append(output, models.TerraformResourceIDMappingDefinition{
 			ParsedFromParentID:       item.ParsedFromParentID,
 			SegmentName:              item.SegmentName,
 			TerraformSchemaFieldName: item.SchemaFieldName,

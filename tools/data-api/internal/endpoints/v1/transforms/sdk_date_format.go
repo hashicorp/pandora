@@ -11,11 +11,11 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-var sdkDateFormats = map[repositories.DateFormat]models.DateFormat{
+var sdkDateFormats = map[repositories.DateFormat]models.SDKDateFormat{
 	repositories.RFC3339DateFormat: models.RFC3339SDKDateFormat,
 }
 
-func mapSDKDateFormat(input repositories.DateFormat) (*models.DateFormat, error) {
+func mapSDKDateFormat(input repositories.DateFormat) (*models.SDKDateFormat, error) {
 	if v, ok := sdkDateFormats[input]; ok {
 		return pointer.To(v), nil
 	}

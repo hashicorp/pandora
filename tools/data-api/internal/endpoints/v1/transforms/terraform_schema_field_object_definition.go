@@ -7,40 +7,40 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 
-var terraformSchemaObjectDefinitionTypes = map[repositories.TerraformSchemaFieldType]models.TerraformSchemaFieldType{
+var terraformSchemaObjectDefinitionTypes = map[repositories.TerraformSchemaFieldType]models.TerraformSchemaObjectDefinitionType{
 	// Simple Types
-	repositories.BooleanTerraformSchemaObjectDefinitionType:  models.TerraformSchemaFieldTypeBoolean,
-	repositories.DateTimeTerraformSchemaObjectDefinitionType: models.TerraformSchemaFieldTypeDateTime,
-	repositories.FloatTerraformSchemaObjectDefinitionType:    models.TerraformSchemaFieldTypeFloat,
-	repositories.IntegerTerraformSchemaObjectDefinitionType:  models.TerraformSchemaFieldTypeInteger,
-	repositories.StringTerraformSchemaObjectDefinitionType:   models.TerraformSchemaFieldTypeString,
+	repositories.BooleanTerraformSchemaObjectDefinitionType:  models.BooleanTerraformSchemaObjectDefinitionType,
+	repositories.DateTimeTerraformSchemaObjectDefinitionType: models.DateTimeTerraformSchemaObjectDefinitionType,
+	repositories.FloatTerraformSchemaObjectDefinitionType:    models.FloatTerraformSchemaObjectDefinitionType,
+	repositories.IntegerTerraformSchemaObjectDefinitionType:  models.IntegerTerraformSchemaObjectDefinitionType,
+	repositories.StringTerraformSchemaObjectDefinitionType:   models.StringTerraformSchemaObjectDefinitionType,
 
 	// Complex Types
-	repositories.DictionaryTerraformSchemaObjectDefinitionType:    models.TerraformSchemaFieldTypeDictionary,
-	repositories.ListTerraformSchemaObjectDefinitionType:          models.TerraformSchemaFieldTypeList,
-	repositories.LocationTerraformSchemaObjectDefinitionType:      models.TerraformSchemaFieldTypeLocation,
-	repositories.ReferenceTerraformSchemaObjectDefinitionType:     models.TerraformSchemaFieldTypeReference,
-	repositories.ResourceGroupTerraformSchemaObjectDefinitionType: models.TerraformSchemaFieldTypeResourceGroup,
-	repositories.SetTerraformSchemaObjectDefinitionType:           models.TerraformSchemaFieldTypeSet,
+	repositories.DictionaryTerraformSchemaObjectDefinitionType:    models.DictionaryTerraformSchemaObjectDefinitionType,
+	repositories.ListTerraformSchemaObjectDefinitionType:          models.ListTerraformSchemaObjectDefinitionType,
+	repositories.LocationTerraformSchemaObjectDefinitionType:      models.LocationTerraformSchemaObjectDefinitionType,
+	repositories.ReferenceTerraformSchemaObjectDefinitionType:     models.ReferenceTerraformSchemaObjectDefinitionType,
+	repositories.ResourceGroupTerraformSchemaObjectDefinitionType: models.ResourceGroupTerraformSchemaObjectDefinitionType,
+	repositories.SetTerraformSchemaObjectDefinitionType:           models.SetTerraformSchemaObjectDefinitionType,
 
 	// Common Schema
-	repositories.EdgeZoneTerraformSchemaObjectDefinitionType:                      models.TerraformSchemaFieldTypeEdgeZone,
-	repositories.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        models.TerraformSchemaFieldTypeIdentitySystemAssigned,
-	repositories.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: models.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-	repositories.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  models.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
-	repositories.TagsTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeTags,
-	repositories.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          models.TerraformSchemaFieldTypeIdentityUserAssigned,
-	repositories.ZoneTerraformSchemaObjectDefinitionType:                          models.TerraformSchemaFieldTypeZone,
-	repositories.ZonesTerraformSchemaObjectDefinitionType:                         models.TerraformSchemaFieldTypeZones,
+	repositories.EdgeZoneTerraformSchemaObjectDefinitionType:                      models.EdgeZoneTerraformSchemaObjectDefinitionType,
+	repositories.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
+	repositories.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	repositories.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	repositories.TagsTerraformSchemaObjectDefinitionType:                          models.TagsTerraformSchemaObjectDefinitionType,
+	repositories.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
+	repositories.ZoneTerraformSchemaObjectDefinitionType:                          models.ZoneTerraformSchemaObjectDefinitionType,
+	repositories.ZonesTerraformSchemaObjectDefinitionType:                         models.ZonesTerraformSchemaObjectDefinitionType,
 }
 
-func mapTerraformSchemaFieldObjectDefinition(input repositories.TerraformSchemaFieldObjectDefinition) (*models.TerraformSchemaFieldObjectDefinition, error) {
+func mapTerraformSchemaFieldObjectDefinition(input repositories.TerraformSchemaFieldObjectDefinition) (*models.TerraformSchemaObjectDefinition, error) {
 	mappedType, ok := terraformSchemaObjectDefinitionTypes[input.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for TerraformSchemaObjectDefinitionType %q", string(input.Type))
 	}
 
-	output := models.TerraformSchemaFieldObjectDefinition{
+	output := models.TerraformSchemaObjectDefinition{
 		NestedObject:  nil,
 		ReferenceName: input.ReferenceName,
 		Type:          mappedType,
