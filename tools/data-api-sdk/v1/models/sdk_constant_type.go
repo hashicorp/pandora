@@ -6,7 +6,7 @@ package models
 // SDKConstantType defines the backing Type for a Constant used within the SDK.
 // In the majority of cases these are String values (StringSDKConstantType) however
 // both Float and Integer constants can exist too.
-type SDKConstantType string
+type SDKConstantType = string
 
 const (
 	// FloatSDKConstantType specifies that this represents a Float value.
