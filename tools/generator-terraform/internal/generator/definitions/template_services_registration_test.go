@@ -6,15 +6,14 @@ package definitions
 import (
 	"testing"
 
-	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForServicesRegistrationEmpty(t *testing.T) {
-	input := models2.ServicesInput{
+	input := models.ServicesInput{
 		ProviderPrefix: "myprovider",
-		Services:       map[string]models2.ServiceInput{},
+		Services:       map[string]models.ServiceInput{},
 	}
 	actual := codeForServicesRegistration(input)
 	expected := `
@@ -35,9 +34,9 @@ func autoRegisteredTypedServices() []sdk.TypedServiceRegistration {
 }
 
 func TestCodeForServicesRegistration(t *testing.T) {
-	input := models2.ServicesInput{
+	input := models.ServicesInput{
 		ProviderPrefix: "myprovider",
-		Services: map[string]models2.ServiceInput{
+		Services: map[string]models.ServiceInput{
 			"Compute": {
 				ServicePackageName: "compute",
 			},
@@ -54,7 +53,6 @@ package provider
 
 import (
 	"github.com/hashicorp/terraform-provider-myprovider/internal/sdk"
-
 	"github.com/hashicorp/terraform-provider-myprovider/internal/services/compute"
 	"github.com/hashicorp/terraform-provider-myprovider/internal/services/resources"
 )

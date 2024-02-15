@@ -6,34 +6,33 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:   false,
-				MethodName: "Get",
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
+				Generate:         false,
+				SDKOperationName: "Get",
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -47,26 +46,26 @@ func TestExistsFuncForResourceTest_CommonId_Disabled(t *testing.T) {
 }
 
 func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:   false,
-				MethodName: "Get",
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
+				Generate:         false,
+				SDKOperationName: "Get",
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -80,27 +79,27 @@ func TestExistsFuncForResourceTest_RegularResourceId_Disabled(t *testing.T) {
 }
 
 func TestExistsFuncForResourceTest_CommonId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2021-01-01",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
-				Generate:   true,
-				MethodName: "Get",
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
+				Generate:         true,
+				SDKOperationName: "Get",
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -127,28 +126,28 @@ func (r ExampleTestResource) Exists(ctx context.Context, clients *clients.Client
 }
 
 func TestExistsFuncForResourceTest_RegularResourceId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2021-01-01",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}

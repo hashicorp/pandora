@@ -2,88 +2,55 @@ package generator
 
 import (
 	"fmt"
-	"log"
 	"sort"
 
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/definitions"
-	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	resourceGenerator "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/resource"
-	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/logging"
 )
 
-func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDirectory string) error {
-	serviceInputs := make(map[string]models2.ServiceInput)
-	for serviceName, service := range input.Services {
-		log.Printf("[DEBUG] Service %q..", serviceName)
-		if !service.Details.Generate {
-			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
+func RunLegacy(input v1.LoadAllDataResult, providerPrefix, outputDirectory string) error {
+	serviceInputs := make(map[string]generatorModels.ServiceInput)
+	for serviceName, serviceDetails := range input.Services {
+		logging.Log.Debug(fmt.Sprintf("Service %q..", serviceName))
+		if !serviceDetails.Generate {
+			logging.Log.Debug(" .. is opted out of generation, skipping..")
 			continue
 		}
 
-		if service.TerraformPackageName == nil {
-			log.Printf("[INFO] TerraformPackageName is nil for Service %q", serviceName)
+		if serviceDetails.TerraformDefinition == nil {
+			logging.Log.Debug(fmt.Sprintf("TerraformDefinition is nil for Service %q", serviceName))
 			continue
 		}
 
-		if len(service.Terraform.Resources) == 0 {
-			log.Printf("[DEBUG] .. has no Terraform Resources, skipping..")
+		if len(serviceDetails.TerraformDefinition.Resources) == 0 {
+			logging.Log.Debug(fmt.Sprintf(".. has no Terraform Resources, skipping.."))
 			continue
 		}
 
-		for label, details := range service.Terraform.Resources {
-			if !details.Generate {
-				log.Printf("[DEBUG] Resource %q has generation disabled - skipping", label)
-				continue
-			}
+		// Build the intermediate models used by the Terraform Generator
+		terraformResources, err := buildTerraformResourcesForService(serviceDetails.TerraformDefinition.Resources, serviceDetails, serviceName, providerPrefix, outputDirectory)
+		if err != nil {
+			return fmt.Errorf("building intermediate models: %+v", err)
+		}
 
-			versionDetails, ok := service.Versions[details.ApiVersion]
-			if !ok {
-				return fmt.Errorf("couldn't find API Version %q for Terraform Resource %q (Service %q)", details.ApiVersion, label, serviceName)
-			}
-
-			resource, ok := versionDetails.Resources[details.Resource]
-			if !ok {
-				return fmt.Errorf("couldn't find API Resource %q for Terraform Resource %q (API Version %q / Service %q)", details.Resource, label, details.ApiVersion, serviceName)
-			}
-
-			log.Printf("[DEBUG] Processing Resource %q..", label)
-			resourceInput := models2.ResourceInput{
-				// Provider related
-				ProviderPrefix:     providerPrefix,
-				RootDirectory:      outputDirectory,
-				ServicePackageName: *service.TerraformPackageName,
-				ServiceName:        serviceName,
-
-				// Resource Related
-				Details:          details,
-				ResourceLabel:    label,
-				ResourceTypeName: details.ResourceName,
-
-				// Sdk Related
-				SdkApiVersion:   details.ApiVersion,
-				SdkResourceName: details.Resource,
-				SdkServiceName:  serviceName,
-
-				// Data
-				Constants:       resource.Schema.Constants,
-				Models:          resource.Schema.Models,
-				Operations:      resource.Operations.Operations,
-				ResourceIds:     resource.Schema.ResourceIds,
-				SchemaModelName: details.SchemaModelName,
-				SchemaModels:    details.SchemaModels,
-			}
-			if err := resourceGenerator.Resource(resourceInput); err != nil {
-				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", label, serviceName, details.ApiVersion, err)
+		// Then build each of the Terraform Resources
+		for resourceLabel, resourceDefinition := range *terraformResources {
+			if err := resourceGenerator.Resource(resourceDefinition); err != nil {
+				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", resourceLabel, serviceName, resourceDefinition.SdkApiVersion, err)
 			}
 		}
 
 		resourceToApiVersion := make(map[string]string)
 		categories := make(map[string]struct{})
 		resourceNames := make([]string, 0)
-		for _, resource := range service.Terraform.Resources {
+		for _, resource := range serviceDetails.TerraformDefinition.Resources {
 			categories[resource.Documentation.Category] = struct{}{}
 			resourceNames = append(resourceNames, resource.ResourceName)
-			resourceToApiVersion[resource.ResourceName] = resource.ApiVersion
+			resourceToApiVersion[resource.ResourceName] = resource.APIVersion
 		}
 
 		categoryNames := make([]string, 0)
@@ -98,14 +65,14 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 			resourceToApiVersionSorted[resource] = resourceToApiVersion[resource]
 		}
 
-		serviceInput := models2.ServiceInput{
+		serviceInput := generatorModels.ServiceInput{
 			CategoryNames:        categoryNames,
 			ProviderPrefix:       providerPrefix,
 			ResourceToApiVersion: resourceToApiVersionSorted,
 			RootDirectory:        outputDirectory,
 			SdkServiceName:       serviceName,
 			ServiceDisplayName:   serviceName, // TODO: add to API?
-			ServicePackageName:   *service.TerraformPackageName,
+			ServicePackageName:   serviceDetails.TerraformDefinition.TerraformPackageName,
 		}
 		serviceInputs[serviceName] = serviceInput
 		if err := definitions.ForService(serviceInput); err != nil {
@@ -113,7 +80,7 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 		}
 	}
 
-	servicesInput := models2.ServicesInput{
+	servicesInput := generatorModels.ServicesInput{
 		ProviderPrefix: providerPrefix,
 		RootDirectory:  outputDirectory,
 		Services:       serviceInputs,
@@ -123,4 +90,54 @@ func RunLegacy(input services.ResourceManagerServices, providerPrefix, outputDir
 	}
 
 	return nil
+}
+
+func buildTerraformResourcesForService(input map[string]models.TerraformResourceDefinition, service models.Service, serviceName, providerPrefix, outputDirectory string) (*map[string]generatorModels.ResourceInput, error) {
+	output := make(map[string]generatorModels.ResourceInput)
+
+	for resourceLabel, resourceDefinition := range input {
+		if !resourceDefinition.Generate {
+			logging.Log.Debug(fmt.Sprintf("Resource %q has generation disabled - skipping", resourceLabel))
+			continue
+		}
+
+		versionDetails, ok := service.APIVersions[resourceDefinition.APIVersion]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find API Version %q for Terraform Resource %q (Service %q)", resourceDefinition.APIVersion, resourceLabel, serviceName)
+		}
+
+		resource, ok := versionDetails.Resources[resourceDefinition.APIResource]
+		if !ok {
+			return nil, fmt.Errorf("couldn't find API Resource %q for Terraform Resource %q (API Version %q / Service %q)", resourceDefinition.APIResource, resourceLabel, resourceDefinition.APIVersion, serviceName)
+		}
+
+		logging.Log.Debug(fmt.Sprintf("Processing Resource %q..", resourceLabel))
+		output[resourceLabel] = generatorModels.ResourceInput{
+			// Provider related
+			ProviderPrefix:     providerPrefix,
+			RootDirectory:      outputDirectory,
+			ServicePackageName: service.TerraformDefinition.TerraformPackageName,
+			ServiceName:        serviceName,
+
+			// Resource Related
+			Details:          resourceDefinition,
+			ResourceLabel:    resourceLabel,
+			ResourceTypeName: resourceDefinition.ResourceName,
+
+			// Sdk Related
+			SdkApiVersion:   resourceDefinition.APIVersion,
+			SdkResourceName: resourceDefinition.APIResource,
+			SdkServiceName:  serviceName,
+
+			// Data
+			Constants:       resource.Constants,
+			Models:          resource.Models,
+			Operations:      resource.Operations,
+			ResourceIds:     resource.ResourceIDs,
+			SchemaModelName: resourceDefinition.SchemaModelName,
+			SchemaModels:    resourceDefinition.SchemaModels,
+		}
+	}
+
+	return &output, nil
 }

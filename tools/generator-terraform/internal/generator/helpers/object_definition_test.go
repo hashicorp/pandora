@@ -7,24 +7,24 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldObjectDefinition
+		input    models.TerraformSchemaObjectDefinition
 		expected *string
 	}{
 		// Simple Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.BooleanTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("bool"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeDateTime,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.DateTimeTerraformSchemaObjectDefinitionType,
 			},
 			// whilst DateTime could be output as *time.Time the Go SDK outputs
 			// this as a String with Get/Set methods to allow exposing this value
@@ -33,28 +33,28 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 			expected: pointer.To("string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.FloatTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("float64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.IntegerTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("int64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeString,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.StringTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("string"),
 		},
 
 		// References
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaObjectDefinition{
+				Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 				ReferenceName: pointer.To("SomeModel"),
 			},
 			expected: pointer.To("[]SomeModel"),
@@ -62,62 +62,62 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 
 		// Common Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.LocationTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.TagsTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("map[string]interface{}"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ZoneTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ZonesTerraformSchemaObjectDefinitionType,
 			},
 			expected: pointer.To("[]string"),
 		},
@@ -145,24 +145,24 @@ func TestObjectDefinitionToGolangFieldType(t *testing.T) {
 
 func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldObjectDefinition
+		input    models.TerraformSchemaObjectDefinition
 		expected *string
 	}{
 		// Simple Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]bool"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeDateTime,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.DateTimeSDKObjectDefinitionType,
 				},
 			},
 			// whilst DateTime could be output as *time.Time the Go SDK outputs
@@ -172,28 +172,28 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.FloatTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]float64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.IntegerTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]int64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
@@ -201,10 +201,10 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 
 		// References
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
@@ -213,91 +213,91 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 
 		// Common Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]map[string]interface{}"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeList,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.ListTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[][]string"),
@@ -326,24 +326,24 @@ func TestObjectDefinitionToGolangFieldType_Lists(t *testing.T) {
 
 func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldObjectDefinition
+		input    models.TerraformSchemaObjectDefinition
 		expected *string
 	}{
 		// Simple Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]bool"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeDateTime,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.DateTimeTerraformSchemaObjectDefinitionType,
 				},
 			},
 			// whilst DateTime could be output as *time.Time the Go SDK outputs
@@ -353,28 +353,28 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeFloat,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.FloatTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]float64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.IntegerTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]int64"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
@@ -382,10 +382,10 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 
 		// References
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
@@ -394,91 +394,91 @@ func TestObjectDefinitionToGolangFieldType_Sets(t *testing.T) {
 
 		// Common Types
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelSystemAssignedUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]identity.ModelUserAssigned"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]map[string]interface{}"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[]string"),
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldObjectDefinition{
-				Type: resourcemanager.TerraformSchemaFieldTypeSet,
-				NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaObjectDefinition{
+				Type: models.SetTerraformSchemaObjectDefinitionType,
+				NestedObject: &models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 			},
 			expected: pointer.To("[][]string"),

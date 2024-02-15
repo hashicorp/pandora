@@ -6,14 +6,14 @@ package mappings
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func possibleValuesDefinitionFromConstant(t *testing.T, input resourcemanager.ConstantDetails) *resourcemanager.TerraformSchemaValidationPossibleValuesDefinition {
-	types := map[resourcemanager.ConstantType]resourcemanager.TerraformSchemaValidationPossibleValueType{
-		resourcemanager.FloatConstant:   resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat,
-		resourcemanager.IntegerConstant: resourcemanager.TerraformSchemaValidationPossibleValueTypeInt,
-		resourcemanager.StringConstant:  resourcemanager.TerraformSchemaValidationPossibleValueTypeString,
+func possibleValuesDefinitionFromConstant(t *testing.T, input models.SDKConstant) *models.TerraformSchemaFieldValidationPossibleValuesDefinition {
+	types := map[models.SDKConstantType]models.TerraformSchemaFieldValidationPossibleValuesType{
+		models.FloatSDKConstantType:   models.FloatTerraformSchemaFieldValidationPossibleValuesType,
+		models.IntegerSDKConstantType: models.IntegerTerraformSchemaFieldValidationPossibleValuesType,
+		models.StringSDKConstantType:  models.StringTerraformSchemaFieldValidationPossibleValuesType,
 	}
 	constantType, ok := types[input.Type]
 	if !ok {
@@ -23,8 +23,10 @@ func possibleValuesDefinitionFromConstant(t *testing.T, input resourcemanager.Co
 	for _, v := range input.Values {
 		values = append(values, v)
 	}
-	return &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
-		Type:   constantType,
-		Values: values,
+	return &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+		PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
+			Type:   constantType,
+			Values: values,
+		},
 	}
 }

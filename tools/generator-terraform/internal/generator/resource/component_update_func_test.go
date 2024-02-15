@@ -6,15 +6,14 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
-	input := models.ResourceInput{}
+	input := generatorModels.ResourceInput{}
 	actual, err := updateFuncForResource(input)
 	if err != nil {
 		t.Fatalf("error: %+v", err)
@@ -25,8 +24,8 @@ func TestComponentUpdate_HappyPathDisabled(t *testing.T) {
 }
 
 func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			UpdateMethod: nil,
 		},
 	}
@@ -42,50 +41,50 @@ func TestComponentUpdate_HappyPathDisabled_NoUpdateMethod(t *testing.T) {
 func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 	t.Skip("TODO: add conditional update support?")
 
-	input := models.ResourceInput{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Details: resourcemanager.TerraformResourceDetails{
-			CreateMethod: resourcemanager.MethodDefinition{
+	input := generatorModels.ResourceInput{
+		Constants: map[string]models.SDKConstant{},
+		Details: models.TerraformResourceDefinition{
+			APIResource: "Resources",
+			CreateMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Create",
+				SDKOperationName: "Create",
 				TimeoutInMinutes: 10,
 			},
-			DeleteMethod: resourcemanager.MethodDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Delete",
+				SDKOperationName: "Delete",
 				TimeoutInMinutes: 20,
 			},
 			DisplayName:          "Some Resource",
 			Generate:             true,
 			GenerateSchema:       false,
-			GenerateIdValidation: false,
-			ReadMethod: resourcemanager.MethodDefinition{
+			GenerateIDValidation: false,
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 30,
 			},
-			Resource:       "Resources",
-			ResourceIdName: "SomeResourceId",
+			ResourceIDName: "SomeResourceId",
 			ResourceName:   "SomeResource",
-			UpdateMethod: &resourcemanager.MethodDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Update",
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 40,
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -93,40 +92,40 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("SomeResourceId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("SomeResourceId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: pointer.To("SomeCommon"),
+				CommonIDAlias: pointer.To("SomeCommon"),
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -137,21 +136,21 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
 			"MyTypedModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaFieldDefinition{
 					"Example": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "example",
 						Required: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_sdk_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "some_sdk_field",
 						Required: true,
 					},
 				},
@@ -204,50 +203,50 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 	t.Skip("TODO: add conditional update support?")
 
-	input := models.ResourceInput{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Details: resourcemanager.TerraformResourceDetails{
-			CreateMethod: resourcemanager.MethodDefinition{
+	input := generatorModels.ResourceInput{
+		Constants: map[string]models.SDKConstant{},
+		Details: models.TerraformResourceDefinition{
+			APIResource: "Resources",
+			CreateMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Create",
+				SDKOperationName: "Create",
 				TimeoutInMinutes: 10,
 			},
-			DeleteMethod: resourcemanager.MethodDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Delete",
+				SDKOperationName: "Delete",
 				TimeoutInMinutes: 20,
 			},
 			DisplayName:          "Some Resource",
 			Generate:             true,
 			GenerateSchema:       false,
-			GenerateIdValidation: false,
-			ReadMethod: resourcemanager.MethodDefinition{
+			GenerateIDValidation: false,
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 30,
 			},
-			Resource:       "Resources",
-			ResourceIdName: "SomeResourceId",
+			ResourceIDName: "SomeResourceId",
 			ResourceName:   "SomeResource",
-			UpdateMethod: &resourcemanager.MethodDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Update",
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 40,
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"CreatePayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -255,17 +254,17 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				},
 			},
 			"GetPayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -273,17 +272,17 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				},
 			},
 			"UpdatePayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -291,40 +290,40 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("CreatePayload"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("SomeResourceId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("SomeResourceId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetPayload"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("UpdatePayload"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: pointer.To("SomeCommon"),
+				CommonIDAlias: pointer.To("SomeCommon"),
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -335,21 +334,21 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
 			"MyTypedModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaFieldDefinition{
 					"Example": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "example",
 						Required: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_sdk_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "some_sdk_field",
 						Required: true,
 					},
 				},
@@ -395,50 +394,50 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *testing.T) {
 	t.Skip("TODO: add conditional update support?")
 
-	input := models.ResourceInput{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Details: resourcemanager.TerraformResourceDetails{
-			CreateMethod: resourcemanager.MethodDefinition{
+	input := generatorModels.ResourceInput{
+		Constants: map[string]models.SDKConstant{},
+		Details: models.TerraformResourceDefinition{
+			APIResource: "Resources",
+			CreateMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Create",
+				SDKOperationName: "Create",
 				TimeoutInMinutes: 10,
 			},
-			DeleteMethod: resourcemanager.MethodDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Delete",
+				SDKOperationName: "Delete",
 				TimeoutInMinutes: 20,
 			},
 			DisplayName:          "Some Resource",
 			Generate:             true,
 			GenerateSchema:       false,
-			GenerateIdValidation: false,
-			ReadMethod: resourcemanager.MethodDefinition{
+			GenerateIDValidation: false,
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 30,
 			},
-			Resource:       "Resources",
-			ResourceIdName: "SomeResourceId",
+			ResourceIDName: "SomeResourceId",
 			ResourceName:   "SomeResource",
-			UpdateMethod: &resourcemanager.MethodDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Update",
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 40,
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -446,40 +445,40 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("SomeResourceId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("SomeResourceId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeModel"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: nil,
+				CommonIDAlias: nil,
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -490,21 +489,21 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
 			"MyTypedModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaFieldDefinition{
 					"Example": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "example",
 						Required: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_sdk_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "some_sdk_field",
 						Required: true,
 					},
 				},
@@ -557,50 +556,50 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *testing.T) {
 	t.Skip("TODO: add conditional update support?")
 
-	input := models.ResourceInput{
-		Constants: map[string]resourcemanager.ConstantDetails{},
-		Details: resourcemanager.TerraformResourceDetails{
-			CreateMethod: resourcemanager.MethodDefinition{
+	input := generatorModels.ResourceInput{
+		Constants: map[string]models.SDKConstant{},
+		Details: models.TerraformResourceDefinition{
+			APIResource: "Resources",
+			CreateMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Create",
+				SDKOperationName: "Create",
 				TimeoutInMinutes: 10,
 			},
-			DeleteMethod: resourcemanager.MethodDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Delete",
+				SDKOperationName: "Delete",
 				TimeoutInMinutes: 20,
 			},
 			DisplayName:          "Some Resource",
 			Generate:             true,
 			GenerateSchema:       false,
-			GenerateIdValidation: false,
-			ReadMethod: resourcemanager.MethodDefinition{
+			GenerateIDValidation: false,
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 30,
 			},
-			Resource:       "Resources",
-			ResourceIdName: "SomeResourceId",
+			ResourceIDName: "SomeResourceId",
 			ResourceName:   "SomeResource",
-			UpdateMethod: &resourcemanager.MethodDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Update",
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 40,
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"CreatePayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -608,17 +607,17 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				},
 			},
 			"GetPayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -626,17 +625,17 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				},
 			},
 			"UpdatePayload": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "example",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -644,40 +643,40 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Create": {
 				LongRunning: false,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("CreatePayload"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Delete": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("SomeResourceId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("SomeResourceId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetPayload"),
 				},
 			},
 			"Update": {
 				LongRunning: true,
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("UpdatePayload"),
 				},
-				ResourceIdName: pointer.To("SomeResourceId"),
+				ResourceIDName: pointer.To("SomeResourceId"),
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceIdDefinition{
 			"SomeResourceId": {
-				CommonAlias: nil,
+				CommonIDAlias: nil,
 			},
 		},
 		ResourceLabel:      "some_resource",
@@ -688,21 +687,21 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
 			"MyTypedModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaFieldDefinition{
 					"Example": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "example",
 						Required: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_sdk_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.TerraformSchemaFieldTypeString,
 						},
-						HclName:  "some_sdk_field",
 						Required: true,
 					},
 				},
@@ -764,31 +763,31 @@ func TestComponentUpdate_ModelDecode(t *testing.T) {
 
 func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		createMethod: resourcemanager.ApiOperation{
+		createMethod: models.SDKOperation{
 			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		createMethodName: "Create",
-		readMethod: resourcemanager.ApiOperation{
+		readMethod: models.SDKOperation{
 			LongRunning: false,
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		readMethodName: "Get",
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SharedPayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		updateMethodName:       "Update",
 		sdkResourceNameLowered: "sdkresource",
@@ -814,31 +813,31 @@ func TestComponentUpdate_PayloadDefinition_ModelSharedBetweenCreateReadUpdate(t 
 
 func TestComponentUpdate_PayloadDefinition_UniqueModelsForCreateReadUpdate(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		createMethod: resourcemanager.ApiOperation{
+		createMethod: models.SDKOperation{
 			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("CreatePayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		createMethodName: "Create",
-		readMethod: resourcemanager.ApiOperation{
+		readMethod: models.SDKOperation{
 			LongRunning: false,
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("ReadPayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		readMethodName: "Get",
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning: false,
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("UpdatePayload"),
 			},
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 		updateMethodName:       "Update",
 		sdkResourceNameLowered: "sdkresource",
@@ -873,11 +872,11 @@ func TestComponentUpdate_ResourceIDParser(t *testing.T) {
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning:    false,
-			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: pointer.To("SomeResourceId"),
-			UriSuffix:      pointer.To("/example"),
+			RequestObject:  &models.SDKObjectDefinition{},
+			ResourceIDName: pointer.To("SomeResourceId"),
+			URISuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -895,14 +894,14 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdNoOptions(t *test
 
 func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning: false,
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"example": {},
 			},
-			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: pointer.To("SomeResourceId"),
-			UriSuffix:      pointer.To("/example"),
+			RequestObject:  &models.SDKObjectDefinition{},
+			ResourceIDName: pointer.To("SomeResourceId"),
+			URISuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -920,11 +919,11 @@ func TestComponentUpdate_UpdateFunc_Immediate_PayloadResourceIdOptions(t *testin
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning:    true,
-			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: pointer.To("SomeResourceId"),
-			UriSuffix:      pointer.To("/example"),
+			RequestObject:  &models.SDKObjectDefinition{},
+			ResourceIDName: pointer.To("SomeResourceId"),
+			URISuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",
@@ -942,14 +941,14 @@ func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdNoOptions(t *te
 
 func TestComponentUpdate_UpdateFunc_LongRunning_PayloadResourceIdOptions(t *testing.T) {
 	actual, err := updateFuncHelpers{
-		updateMethod: resourcemanager.ApiOperation{
+		updateMethod: models.SDKOperation{
 			LongRunning: true,
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"example": {},
 			},
-			RequestObject:  &resourcemanager.ApiObjectDefinition{},
-			ResourceIdName: pointer.To("SomeResourceId"),
-			UriSuffix:      pointer.To("/example"),
+			RequestObject:  &models.SDKObjectDefinition{},
+			ResourceIDName: pointer.To("SomeResourceId"),
+			URISuffix:      pointer.To("/example"),
 		},
 		updateMethodName:       "UpdateThing",
 		sdkResourceNameLowered: "sdkresource",

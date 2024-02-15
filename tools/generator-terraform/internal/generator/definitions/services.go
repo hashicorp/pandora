@@ -7,6 +7,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
@@ -19,7 +20,7 @@ func DefinitionForServices(input models.ServicesInput) error {
 	clientsFilePath := fmt.Sprintf("%s/client_gen.go", clientsDirectory)
 	_ = os.Remove(clientsFilePath)
 	clientContents := codeForClientsRegistration(input)
-	writeToPath(clientsFilePath, clientContents)
+	helpers.WriteToPath(clientsFilePath, clientContents)
 
 	// ensure the provider directory exists
 	providerDirectory := fmt.Sprintf("%s/internal/provider", input.RootDirectory)
@@ -29,7 +30,7 @@ func DefinitionForServices(input models.ServicesInput) error {
 	servicesRegistrationFilePath := fmt.Sprintf("%s/services_gen.go", providerDirectory)
 	_ = os.Remove(servicesRegistrationFilePath)
 	servicesRegistrationCode := codeForServicesRegistration(input)
-	writeToPath(servicesRegistrationFilePath, servicesRegistrationCode)
+	helpers.WriteToPath(servicesRegistrationFilePath, servicesRegistrationCode)
 
 	return nil
 }

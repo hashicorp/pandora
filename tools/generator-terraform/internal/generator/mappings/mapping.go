@@ -6,7 +6,7 @@ package mappings
 import (
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // Two types of Mappings:
@@ -16,14 +16,14 @@ import (
 
 type Mappings struct {
 	apiResourcePackageName string
-	sdkConstants           map[string]resourcemanager.ConstantDetails
-	sdkModels              map[string]resourcemanager.ModelDetails
-	schemaModels           map[string]resourcemanager.TerraformSchemaModelDefinition
+	sdkConstants           map[string]models.SDKConstant
+	sdkModels              map[string]models.SDKModel
+	schemaModels           map[string]models.TerraformSchemaModel
 }
 
-func NewResourceMappings(terraformDefinition resourcemanager.TerraformResourceDetails, sdkConstants map[string]resourcemanager.ConstantDetails, sdkModels map[string]resourcemanager.ModelDetails) Mappings {
+func NewResourceMappings(terraformDefinition models.TerraformResourceDefinition, sdkConstants map[string]models.SDKConstant, sdkModels map[string]models.SDKModel) Mappings {
 	return Mappings{
-		apiResourcePackageName: strings.ToLower(terraformDefinition.Resource),
+		apiResourcePackageName: strings.ToLower(terraformDefinition.APIResource),
 		schemaModels:           terraformDefinition.SchemaModels,
 		sdkConstants:           sdkConstants,
 		sdkModels:              sdkModels,

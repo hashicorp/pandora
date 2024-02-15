@@ -6,46 +6,46 @@ package helpers
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var fieldObjectDefinitionsToGolangTypes = map[resourcemanager.TerraformSchemaFieldType]string{
-	resourcemanager.TerraformSchemaFieldTypeBoolean: "bool",
+var fieldObjectDefinitionsToGolangTypes = map[models.TerraformSchemaObjectDefinitionType]string{
+	models.BooleanTerraformSchemaObjectDefinitionType: "bool",
 	// whilst DateTime could be output as *time.Time the Go SDK outputs
 	// this as a String with Get/Set methods to allow exposing this value
 	// either as a raw string or by formatting the value, so we expect
 	// a string here rather than a *time.Time
-	resourcemanager.TerraformSchemaFieldTypeDateTime: "string",
-	resourcemanager.TerraformSchemaFieldTypeFloat:    "float64",
-	resourcemanager.TerraformSchemaFieldTypeInteger:  "int64",
-	resourcemanager.TerraformSchemaFieldTypeString:   "string",
+	models.DateTimeTerraformSchemaObjectDefinitionType: "string",
+	models.FloatTerraformSchemaObjectDefinitionType:    "float64",
+	models.IntegerTerraformSchemaObjectDefinitionType:  "int64",
+	models.StringTerraformSchemaObjectDefinitionType:   "string",
 
 	// Common Types
-	resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      "string",
-	resourcemanager.TerraformSchemaFieldTypeLocation:                      "string",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        "[]identity.ModelSystemAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: "[]identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  "[]identity.ModelSystemAssignedUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          "[]identity.ModelUserAssigned",
-	resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 "string",
-	resourcemanager.TerraformSchemaFieldTypeTags:                          "map[string]interface{}",
-	resourcemanager.TerraformSchemaFieldTypeZone:                          "string",
-	resourcemanager.TerraformSchemaFieldTypeZones:                         "[]string",
+	models.EdgeZoneTerraformSchemaObjectDefinitionType:                      "string",
+	models.LocationTerraformSchemaObjectDefinitionType:                      "string",
+	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        "[]identity.ModelSystemAssigned",
+	models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: "[]identity.ModelSystemAssignedUserAssigned",
+	models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  "[]identity.ModelSystemAssignedUserAssigned",
+	models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          "[]identity.ModelUserAssigned",
+	models.ResourceGroupTerraformSchemaObjectDefinitionType:                 "string",
+	models.TagsTerraformSchemaObjectDefinitionType:                          "map[string]interface{}",
+	models.ZoneTerraformSchemaObjectDefinitionType:                          "string",
+	models.ZonesTerraformSchemaObjectDefinitionType:                         "[]string",
 }
 
-var constantTypesToGolangTypes = map[resourcemanager.ConstantType]string{
-	resourcemanager.IntegerConstant: "int64",
-	resourcemanager.FloatConstant:   "float64",
-	resourcemanager.StringConstant:  "string",
+var constantTypesToGolangTypes = map[models.SDKConstantType]string{
+	models.IntegerSDKConstantType: "int64",
+	models.FloatSDKConstantType:   "float64",
+	models.StringSDKConstantType:  "string",
 }
 
-func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*string, error) {
+func GolangFieldTypeFromObjectFieldDefinition(input models.TerraformSchemaObjectDefinition) (*string, error) {
 	goTypeName, ok := fieldObjectDefinitionsToGolangTypes[input.Type]
 	if ok {
 		return &goTypeName, nil
 	}
 
-	if input.Type == resourcemanager.TerraformSchemaFieldTypeDictionary {
+	if input.Type == models.DictionaryTerraformSchemaObjectDefinitionType {
 		if input.NestedObject == nil {
 			return nil, fmt.Errorf("dictionary type had no nested object")
 		}
@@ -59,7 +59,7 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		return &output, nil
 	}
 
-	if input.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+	if input.Type == models.ReferenceSDKObjectDefinitionType {
 		if input.ReferenceName == nil {
 			return nil, fmt.Errorf("reference type had no reference")
 		}
@@ -68,7 +68,7 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		return &output, nil
 	}
 
-	if input.Type == resourcemanager.TerraformSchemaFieldTypeList {
+	if input.Type == models.ListTerraformSchemaObjectDefinitionType {
 		if input.NestedObject == nil {
 			return nil, fmt.Errorf("list type had no nested object")
 		}
@@ -86,7 +86,7 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 		return &output, nil
 	}
 
-	if input.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+	if input.Type == models.SetTerraformSchemaObjectDefinitionType {
 		if input.NestedObject == nil {
 			return nil, fmt.Errorf("set type had no nested object")
 		}
@@ -106,19 +106,19 @@ func GolangFieldTypeFromObjectFieldDefinition(input resourcemanager.TerraformSch
 	return nil, fmt.Errorf("internal-error: unimplement field object definition mapping: %q", string(input.Type))
 }
 
-func nestedObjectTypeIsSlicedByDefault(input resourcemanager.TerraformSchemaFieldType) bool {
-	types := map[resourcemanager.TerraformSchemaFieldType]struct{}{
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
-		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
-		resourcemanager.TerraformSchemaFieldTypeReference:                     {},
+func nestedObjectTypeIsSlicedByDefault(input models.TerraformSchemaObjectDefinitionType) bool {
+	types := map[models.TerraformSchemaObjectDefinitionType]struct{}{
+		models.ReferenceTerraformSchemaObjectDefinitionType:                     {},
+		models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        {},
+		models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: {},
+		models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  {},
+		models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          {},
 	}
 	_, ok := types[input]
 	return ok
 }
 
-func GolangFieldTypeFromConstantType(input resourcemanager.ConstantType) (*string, error) {
+func GolangFieldTypeFromConstantType(input models.SDKConstantType) (*string, error) {
 	if v, ok := constantTypesToGolangTypes[input]; ok {
 		return &v, nil
 	}

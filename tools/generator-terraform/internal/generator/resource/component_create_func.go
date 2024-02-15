@@ -7,51 +7,50 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
 type createFunctionComponents struct {
-	createMethod     resourcemanager.ApiOperation
+	createMethod     models.SDKOperation
 	createMethodName string
 
-	readMethod     resourcemanager.ApiOperation
+	readMethod     models.SDKOperation
 	readMethodName string
 
 	resourceTypeName       string
 	sdkResourceName        string
 	sdkResourceNameLowered string
 
-	models                map[string]resourcemanager.ModelDetails
-	mappings              resourcemanager.MappingDefinition
+	models                map[string]models.SDKModel
+	mappings              models.TerraformMappingDefinition
 	newResourceIdFuncName string
-	resourceId            resourcemanager.ResourceIdDefinition
+	resourceId            models.ResourceID
 
-	terraformModel     resourcemanager.TerraformSchemaModelDefinition
+	terraformModel     models.TerraformSchemaModel
 	terraformModelName string
-	topLevelModel      resourcemanager.ModelDetails
+	topLevelModel      models.SDKModel
 }
 
-func createFunctionForResource(input models.ResourceInput) (*string, error) {
+func createFunctionForResource(input generatorModels.ResourceInput) (*string, error) {
 	if !input.Details.CreateMethod.Generate {
 		return nil, nil
 	}
 
-	createOperation, ok := input.Operations[input.Details.CreateMethod.MethodName]
+	createOperation, ok := input.Operations[input.Details.CreateMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find create operation named %q", input.Details.CreateMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find create operation named %q", input.Details.CreateMethod.SDKOperationName)
 	}
 
-	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
+	readOperation, ok := input.Operations[input.Details.ReadMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find Read operation for create operation named %q", input.Details.ReadMethod.SDKOperationName)
 	}
 
-	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
+	resourceId, ok := input.ResourceIds[input.Details.ResourceIDName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIdName)
+		return nil, fmt.Errorf("couldn't find Resource ID %q for Create Method", input.Details.ResourceIDName)
 	}
 
 	newResourceIdFuncName, err := input.NewResourceIdFuncName()
@@ -73,9 +72,9 @@ func createFunctionForResource(input models.ResourceInput) (*string, error) {
 
 	helper := createFunctionComponents{
 		createMethod:           createOperation,
-		createMethodName:       input.Details.CreateMethod.MethodName,
+		createMethodName:       input.Details.CreateMethod.SDKOperationName,
 		readMethod:             readOperation,
-		readMethodName:         input.Details.ReadMethod.MethodName,
+		readMethodName:         input.Details.ReadMethod.SDKOperationName,
 		resourceTypeName:       input.ResourceTypeName,
 		sdkResourceName:        input.SdkResourceName,
 		sdkResourceNameLowered: strings.ToLower(input.SdkResourceName),
@@ -145,12 +144,12 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 
 	subscriptionIdDefinition := ""
 	for _, v := range h.resourceId.Segments {
-		if v.Type == resourcemanager.ResourceProviderSegment || v.Type == resourcemanager.StaticSegment {
+		if v.Type == models.ResourceProviderResourceIDSegmentType || v.Type == models.StaticResourceIDSegmentType {
 			continue
 		}
 
 		switch v.Type {
-		case resourcemanager.SubscriptionIdSegment:
+		case models.SubscriptionIDResourceIDSegmentType:
 			{
 				segments = append(segments, "subscriptionId")
 				subscriptionIdDefinition = "subscriptionId := metadata.Client.Account.SubscriptionId"
@@ -160,27 +159,27 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 		default:
 			{
 				// find the associated mapping and output the relevant field to output the ID
-				for _, resourceIdMapping := range h.mappings.ResourceId {
+				for _, resourceIdMapping := range h.mappings.ResourceID {
 					if resourceIdMapping.SegmentName != v.Name {
 						continue
 					}
 
 					if v.ConstantReference != nil {
 						constantTypeName := fmt.Sprintf("%s.%s", h.sdkResourceNameLowered, *v.ConstantReference)
-						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.SchemaFieldName))
+						segments = append(segments, fmt.Sprintf("%s(config.%s)", constantTypeName, resourceIdMapping.TerraformSchemaFieldName))
 					} else if resourceIdMapping.ParsedFromParentID {
 						if !strings.EqualFold(v.Name, "resourceGroupName") && parseParentId == "" {
-							parentResource := strings.Replace(resourceIdMapping.SchemaFieldName, "Id", "", -1)
+							parentResource := strings.Replace(resourceIdMapping.TerraformSchemaFieldName, "Id", "", -1)
 							parseParentId = fmt.Sprintf(`
 								%[1]sId, err := commonids.Parse%[2]sID(config.%[3]s)
 								if err != nil {
 									return err
 								}
-							`, helpers.CamelCasedName(parentResource), parentResource, resourceIdMapping.SchemaFieldName)
+							`, helpers.CamelCasedName(parentResource), parentResource, resourceIdMapping.TerraformSchemaFieldName)
 						}
-						segments = append(segments, fmt.Sprintf("%s.%s", helpers.CamelCasedName(resourceIdMapping.SchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
+						segments = append(segments, fmt.Sprintf("%s.%s", helpers.CamelCasedName(resourceIdMapping.TerraformSchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
 					} else {
-						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.SchemaFieldName))
+						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.TerraformSchemaFieldName))
 					}
 					break
 				}

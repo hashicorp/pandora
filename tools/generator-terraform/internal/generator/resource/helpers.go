@@ -8,15 +8,15 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkResourceName, methodName string, idIsAPointer bool) string {
+func argumentsForApiOperationMethod(operation models.SDKOperation, sdkResourceName, methodName string, idIsAPointer bool) string {
 	methodArguments := []string{
 		"ctx",
 	}
 
-	if operation.ResourceIdName != nil {
+	if operation.ResourceIDName != nil {
 		if idIsAPointer {
 			methodArguments = append(methodArguments, "*id")
 		} else {
@@ -37,7 +37,7 @@ func argumentsForApiOperationMethod(operation resourcemanager.ApiOperation, sdkR
 	return strings.Join(methodArguments, ", ")
 }
 
-func methodNameToCallForOperation(operation resourcemanager.ApiOperation, methodName string) string {
+func methodNameToCallForOperation(operation models.SDKOperation, methodName string) string {
 	if operation.LongRunning {
 		return fmt.Sprintf("%sThenPoll", methodName)
 	}

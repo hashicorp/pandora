@@ -6,7 +6,7 @@ package mappings
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
@@ -14,43 +14,42 @@ func TestDirectAssignment_CreateOrUpdate_Zones_RequiredToRequired(t *testing.T) 
 	// mapping a Schema Model Field (Required) to an SDK Field (Required) for zones
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = zones.Expand(input.Zones)",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -72,43 +71,42 @@ func TestDirectAssignment_CreateOrUpdate_Zones_RequiredToOptional(t *testing.T) 
 	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for zones
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = pointer.To(zones.Expand(input.Zones))",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -131,41 +129,40 @@ func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToRequired(t *testing.T) 
 	// this has to be mapped, so is a Schema error / we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -186,43 +183,42 @@ func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToOptional(t *testing.T) 
 	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for zones
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = pointer.To(zones.Expand(input.Zones))",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -243,43 +239,42 @@ func TestDirectAssignment_CreateOrUpdate_Zones_OptionalToOptional(t *testing.T) 
 func TestDirectAssignment_Read_Zones_RequiredToRequired(t *testing.T) {
 	// when mapping a model to a model where both fields are required and matching zones
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = zones.Flatten(input.Zones)",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -301,43 +296,42 @@ func TestDirectAssignment_Read_Zones_RequiredToOptional(t *testing.T) {
 	// when mapping a model to a model where the Schema field is Required but the SDK field is Optional
 	// and matching zones
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = zones.Flatten(input.Zones)",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -360,41 +354,40 @@ func TestDirectAssignment_Read_Zones_OptionalToRequired(t *testing.T) {
 	// this has to be mapped, so is a Schema error / we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -414,43 +407,42 @@ func TestDirectAssignment_Read_Zones_OptionalToRequired(t *testing.T) {
 func TestDirectAssignment_Read_Zones_OptionalToOptional(t *testing.T) {
 	// when mapping a model to a model where both fields are optional and matching zones
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeZones,
-			sdkFieldType:         resourcemanager.ZonesApiObjectDefinitionType,
+			schemaModelFieldType: models.ZonesTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.ZonesSDKObjectDefinitionType,
 			expected:             "output.Zones = zones.Flatten(input.Zones)",
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Zones",
-				SdkFieldPath:    "Zones",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Zones",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Zones",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Zones": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "zones",
+					HCLName:  "zones",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Zones": {
 					JsonName: "zones",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,

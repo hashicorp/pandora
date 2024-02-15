@@ -6,43 +6,42 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -56,35 +55,35 @@ func TestComponentReadFunc_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -98,50 +97,50 @@ func TestComponentReadFunc_RegularResourceId_Disabled(t *testing.T) {
 }
 
 func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2021-01-01",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"GetModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "name",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -149,51 +148,37 @@ func TestComponentReadFunc_CommonId_Enabled(t *testing.T) {
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
-				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "subscriptions",
-						FixedValue: pointer.To("subscriptions"),
-					},
-					{
-						Type: resourcemanager.SubscriptionIdSegment,
-						Name: "subscriptionId",
-					},
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "resourceGroups",
-						FixedValue: pointer.To("resourceGroups"),
-					},
-					{
-						Type: resourcemanager.ResourceGroupSegment,
-						Name: "resourceGroupName",
-					},
+				CommonIDAlias: pointer.To("Subscription"),
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},
 		SchemaModelName: "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Name": {
-						HclName: "name",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "name",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "some_field",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
-						HclName:  "some_field",
 					},
 				},
 			},
@@ -236,40 +221,40 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		SdkApiVersion:      "2021-01-01",
 		ServicePackageName: "sdkservicepackage",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetModel"),
 				},
-				Options: map[string]resourcemanager.ApiOperationOption{
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -277,19 +262,19 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 				},
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"GetModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "name",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -297,51 +282,37 @@ func TestComponentReadFunc_CommonId_Options_Enabled(t *testing.T) {
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
-				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "subscriptions",
-						FixedValue: pointer.To("subscriptions"),
-					},
-					{
-						Type: resourcemanager.SubscriptionIdSegment,
-						Name: "subscriptionId",
-					},
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "resourceGroups",
-						FixedValue: pointer.To("resourceGroups"),
-					},
-					{
-						Type: resourcemanager.ResourceGroupSegment,
-						Name: "resourceGroupName",
-					},
+				CommonIDAlias: pointer.To("Subscription"),
+				ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},
 		SchemaModelName: "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Name": {
-						HclName: "name",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "name",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "some_field",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
-						HclName:  "some_field",
 					},
 				},
 			},
@@ -385,101 +356,87 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2021-01-01",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"GetModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						JsonName: "name",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
-						JsonName: "name",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						JsonName: "someSdkField",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
-						JsonName: "someSdkField",
 					},
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "subscriptions",
-						FixedValue: pointer.To("subscriptions"),
-					},
-					{
-						Type: resourcemanager.SubscriptionIdSegment,
-						Name: "subscriptionId",
-					},
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "resourceGroups",
-						FixedValue: pointer.To("resourceGroups"),
-					},
-					{
-						Type: resourcemanager.ResourceGroupSegment,
-						Name: "resourceGroupName",
-					},
+				ExampleValue: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},
 		SchemaModelName: "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Name": {
-						HclName: "name",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "name",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "some_field",
+						ForceNew: true,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
-						HclName:  "some_field",
 					},
 				},
 			},
@@ -522,59 +479,59 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2021-01-01",
-		Constants: map[string]resourcemanager.ConstantDetails{
+		Constants: map[string]models.SDKConstant{
 			"AnimalType": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Cow":   "Cow",
 					"Panda": "Panda",
 				},
 			},
 		},
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Animal",
-						SegmentName:     "animalType",
+						SegmentName:              "animalType",
+						TerraformSchemaFieldName: "Animal",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetModel"),
 				},
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"GetModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "name",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -582,51 +539,36 @@ func TestComponentReadFunc_RegularResourceId_Constant_Enabled(t *testing.T) {
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "subscriptions",
-						FixedValue: pointer.To("subscriptions"),
-					},
-					{
-						Type: resourcemanager.SubscriptionIdSegment,
-						Name: "subscriptionId",
-					},
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "animals",
-						FixedValue: pointer.To("animals"),
-					},
-					{
-						Type:              resourcemanager.ConstantSegment,
-						Name:              "animalType",
-						ConstantReference: pointer.To("AnimalType"),
-					},
+				ExampleValue: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("animals", "animals"),
+					models.NewConstantResourceIDSegment("animalType", "AnimalType", "Panda"),
 				},
 			},
 		},
 		SchemaModelName: "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Animal": {
-						HclName: "animal",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ForceNew: true,
+						HCLName:  "animal",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ForceNew: true,
+						HCLName:  "some_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
-						HclName:  "some_field",
 					},
 				},
 			},
@@ -669,40 +611,40 @@ func (r ExampleResource) Read() sdk.ResourceFunc {
 }
 
 func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		SdkApiVersion:      "2021-01-01",
-		Details: resourcemanager.TerraformResourceDetails{
-			ReadMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			ReadMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "Get",
+				SDKOperationName: "Get",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
-			Mappings: resourcemanager.MappingDefinition{
-				ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+			ResourceIDName: "CustomSubscriptionId",
+			Mappings: models.TerraformMappingDefinition{
+				ResourceID: []models.TerraformResourceIDMappingDefinition{
 					{
-						SchemaFieldName: "Name",
-						SegmentName:     "resourceGroupName",
+						SegmentName:              "resourceGroupName",
+						TerraformSchemaFieldName: "Name",
 					},
 				},
 			},
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				ResponseObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				ResponseObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("GetModel"),
 				},
-				Options: map[string]resourcemanager.ApiOperationOption{
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -710,19 +652,19 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 				},
 			},
 		},
-		Models: map[string]resourcemanager.ModelDetails{
+		Models: map[string]models.SDKModel{
 			"GetModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "name",
 					},
 					"SomeSdkField": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 						JsonName: "someSdkField",
@@ -730,50 +672,36 @@ func TestComponentReadFunc_RegularResourceId_Options_Enabled(t *testing.T) {
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Id: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "subscriptions",
-						FixedValue: pointer.To("subscriptions"),
-					},
-					{
-						Type: resourcemanager.SubscriptionIdSegment,
-						Name: "subscriptionId",
-					},
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "resourceGroups",
-						FixedValue: pointer.To("resourceGroups"),
-					},
-					{
-						Type: resourcemanager.ResourceGroupSegment,
-						Name: "resourceGroupName",
-					},
+				ExampleValue: "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}",
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 				},
 			},
 		},
 		SchemaModelName: "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Name": {
-						HclName: "name",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ForceNew: true,
+						HCLName:  "name",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ForceNew: true,
+						HCLName:  "some_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						ForceNew: true,
-						HclName:  "some_field",
 					},
 				},
 			},
@@ -836,86 +764,57 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 		idParseLine:    "trustedaccess.ParseTrustedAccessRoleBindingID",
 		parentResource: "ManagedClusterId",
 		parentSegment:  "managedClusterName",
-		resourceId: resourcemanager.ResourceIdDefinition{
-			CommonAlias: nil,
-			Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					Type:       resourcemanager.StaticSegment,
-					Name:       "subscriptions",
-					FixedValue: pointer.To("subscriptions"),
-				},
-				{
-					Type: resourcemanager.SubscriptionIdSegment,
-					Name: "subscriptionId",
-				},
-				{
-					Type:       resourcemanager.StaticSegment,
-					Name:       "resourceGroups",
-					FixedValue: pointer.To("resourceGroups"),
-				},
-				{
-					Type:         resourcemanager.UserSpecifiedSegment,
-					Name:         "resourceGroupName",
-					ExampleValue: "resource-group-value",
-				},
-				{
-					Type:       resourcemanager.StaticSegment,
-					Name:       "managedClusters",
-					FixedValue: pointer.To("managedClusters"),
-				},
-				{
-					Type:         resourcemanager.UserSpecifiedSegment,
-					Name:         "managedClusterName",
-					ExampleValue: "managed-cluster-value",
-				},
-				{
-					Type:       resourcemanager.StaticSegment,
-					Name:       "trustedAccessRoleBindings",
-					FixedValue: pointer.To("trustedAccessRoleBindings"),
-				},
-				{
-					Type:         resourcemanager.UserSpecifiedSegment,
-					Name:         "trustedAccessRoleBindingName",
-					ExampleValue: "trusted-access-role-binding-value",
-				},
+		resourceId: models.ResourceID{
+			CommonIDAlias: nil,
+			ExampleValue:  "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}/trustedAccessRoleBindings/{trustedAccessRoleBindingName}",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+				models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+				models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+				models.NewStaticValueResourceIDSegment("providers", "providers"),
+				models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ContainerService"),
+				models.NewStaticValueResourceIDSegment("managedClusters", "managedClusters"),
+				models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managed-cluster-value"),
+				models.NewStaticValueResourceIDSegment("trustedAccessRoleBindings", "trustedAccessRoleBindings"),
+				models.NewUserSpecifiedResourceIDSegment("trustedAccessRoleBindingName", "trusted-access-role-binding-value"),
 			},
 		},
-		terraformModel: resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		terraformModel: models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Name": {
-					HclName: "name",
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					ForceNew: true,
+					HCLName:  "name",
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.TerraformSchemaFieldTypeString,
 					},
 					Required: true,
-					ForceNew: true,
 				},
 				"ManagedClusterId": {
-					HclName: "kubernetes_cluster_id",
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeString,
+					ForceNew: true,
+					HCLName:  "kubernetes_cluster_id",
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.TerraformSchemaFieldTypeString,
 					},
 					Required: true,
-					ForceNew: true,
 				},
 			},
 		},
-		mappings: resourcemanager.MappingDefinition{
-			ResourceId: []resourcemanager.ResourceIdMappingDefinition{
+		mappings: models.TerraformMappingDefinition{
+			ResourceID: []models.TerraformResourceIDMappingDefinition{
 				{
-					SchemaFieldName: "Name",
-					SegmentName:     "trustedAccessRoleBindingName",
+					SegmentName:              "trustedAccessRoleBindingName",
+					TerraformSchemaFieldName: "Name",
 				},
 				{
-					SchemaFieldName:    "ManagedClusterId",
-					SegmentName:        "managedClusterName",
-					ParsedFromParentID: true,
+					ParsedFromParentID:       true,
+					SegmentName:              "managedClusterName",
+					TerraformSchemaFieldName: "ManagedClusterId",
 				},
 				{
-					SchemaFieldName:    "ManagedClusterId",
-					SegmentName:        "resourceGroupName",
-					ParsedFromParentID: true,
+					ParsedFromParentID:       true,
+					SegmentName:              "resourceGroupName",
+					TerraformSchemaFieldName: "ManagedClusterId",
 				},
 			},
 		},
@@ -935,13 +834,13 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 
 func TestComponentReadFunc_CodeForGet(t *testing.T) {
 	actual, err := readFunctionComponents{
-		readMethod: resourcemanager.MethodDefinition{
+		readMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
-		readOperation: resourcemanager.ApiOperation{
-			ResourceIdName: pointer.To("SomeResourceId"),
+		readOperation: models.SDKOperation{
+			ResourceIDName: pointer.To("SomeResourceId"),
 		},
 		sdkResourceName: "SdkResource",
 	}.codeForGet()
@@ -962,14 +861,14 @@ func TestComponentReadFunc_CodeForGet(t *testing.T) {
 
 func TestComponentReadFunc_CodeForGet_Options(t *testing.T) {
 	actual, err := readFunctionComponents{
-		readMethod: resourcemanager.MethodDefinition{
+		readMethod: models.TerraformMethodDefinition{
 			Generate:         true,
-			MethodName:       "Get",
+			SDKOperationName: "Get",
 			TimeoutInMinutes: 5,
 		},
-		readOperation: resourcemanager.ApiOperation{
-			ResourceIdName: pointer.To("SomeResourceId"),
-			Options: map[string]resourcemanager.ApiOperationOption{
+		readOperation: models.SDKOperation{
+			ResourceIDName: pointer.To("SomeResourceId"),
+			Options: map[string]models.SDKOperationOption{
 				"Example": {},
 			},
 		},

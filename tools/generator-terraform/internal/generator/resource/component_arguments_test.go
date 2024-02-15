@@ -6,86 +6,84 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestComponentArguments(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "optional_nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("NestedSchema"),
 						},
 						Optional: true,
-						HclName:  "optional_nested_item",
 					},
 					"RequiredInteger": {
-						HclName: "required_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "required_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"OptionalInteger": {
-						HclName: "optional_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "optional_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ComputedInteger": {
-						HclName: "computed_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "computed_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
 					},
 					"RequiredString": {
-						HclName: "required_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"OptionalString": {
-						HclName: "optional_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ComputedString": {
-						HclName: "computed_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
 					},
 				},
 			},
 			"NestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"NestedItem": {
-						HclName: "nested_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
 					},
 					"ComputedItem": {
-						HclName: "computed_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
 					},

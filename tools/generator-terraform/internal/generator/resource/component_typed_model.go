@@ -8,13 +8,12 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func codeForTopLevelTypedModelAndDefinition(input models.ResourceInput) (*string, error) {
+func codeForTopLevelTypedModelAndDefinition(input generatorModels.ResourceInput) (*string, error) {
 	if !input.Details.GenerateModel {
 		return nil, nil
 	}
@@ -39,7 +38,7 @@ func (r %[1]sResource) ModelObject() interface{} {
 	return &output, nil
 }
 
-func codeForNonTopLevelModels(input models.ResourceInput) (*string, error) {
+func codeForNonTopLevelModels(input generatorModels.ResourceInput) (*string, error) {
 	if !input.Details.GenerateModel {
 		return nil, nil
 	}
@@ -68,7 +67,7 @@ func codeForNonTopLevelModels(input models.ResourceInput) (*string, error) {
 	return &output, nil
 }
 
-func codeForModel(name string, input resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
+func codeForModel(name string, input models.TerraformSchemaModel) (*string, error) {
 	schemaFields := make([]string, 0)
 	for fieldName, fieldDetails := range input.Fields {
 		golandFieldType, err := helpers.GolangFieldTypeFromObjectFieldDefinition(fieldDetails.ObjectDefinition)
@@ -80,7 +79,7 @@ func codeForModel(name string, input resourcemanager.TerraformSchemaModelDefinit
 		// may be omitted from the Terraform Configuration, we still parse them out/set them
 		// back as an empty value at this point in time
 
-		schemaFields = append(schemaFields, fmt.Sprintf("%s %s `tfschema:%q`", fieldName, *golandFieldType, fieldDetails.HclName))
+		schemaFields = append(schemaFields, fmt.Sprintf("%s %s `tfschema:%q`", fieldName, *golandFieldType, fieldDetails.HCLName))
 	}
 	sort.Strings(schemaFields)
 

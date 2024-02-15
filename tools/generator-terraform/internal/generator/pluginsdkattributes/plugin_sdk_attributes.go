@@ -8,14 +8,15 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type PluginSdkAttributesHelpers struct {
-	SchemaModels map[string]resourcemanager.TerraformSchemaModelDefinition
+	SchemaModels map[string]models.TerraformSchemaModel
 }
 
-func (h PluginSdkAttributesHelpers) CodeForModel(input resourcemanager.TerraformSchemaModelDefinition, isTopLevel bool) (*string, error) {
+func (h PluginSdkAttributesHelpers) CodeForModel(input models.TerraformSchemaModel, isTopLevel bool) (*string, error) {
 	lines := make([]string, 0)
 
 	// fields should be sorted Required -> Optional -> Computed, and alphabetically within each category
@@ -62,7 +63,7 @@ func (h PluginSdkAttributesHelpers) CodeForModel(input resourcemanager.Terraform
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
 
-		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HclName, *line))
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HCLName, *line))
 	}
 
 	output := strings.TrimSpace(fmt.Sprintf(`
@@ -73,7 +74,7 @@ map[string]*pluginsdk.Schema{
 	return &output, nil
 }
 
-func (h PluginSdkAttributesHelpers) CodeForModelAttributesOnly(input resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
+func (h PluginSdkAttributesHelpers) CodeForModelAttributesOnly(input models.TerraformSchemaModel) (*string, error) {
 	lines := make([]string, 0)
 
 	// pull out a list of Computed-only fields and then sort those alphabetically
@@ -100,7 +101,7 @@ func (h PluginSdkAttributesHelpers) CodeForModelAttributesOnly(input resourceman
 			return nil, fmt.Errorf("building argument code for field %q: %+v", fieldName, err)
 		}
 
-		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HclName, *line))
+		lines = append(lines, fmt.Sprintf(`%[1]q: %[2]s`, field.HCLName, *line))
 	}
 
 	output := strings.TrimSpace(fmt.Sprintf(`
@@ -111,7 +112,7 @@ map[string]*pluginsdk.Schema{
 	return &output, nil
 }
 
-func (h PluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
+func (h PluginSdkAttributesHelpers) codeForPluginSdkAttribute(field models.TerraformSchemaField) (*string, error) {
 	code, err := codeForPluginSdkCommonSchemaAttribute(field)
 	if err != nil {
 		return nil, fmt.Errorf("building common schema attribute code: %+v", err)
@@ -157,101 +158,106 @@ func (h PluginSdkAttributesHelpers) codeForPluginSdkAttribute(field resourcemana
 	return &output, nil
 }
 
-func attributesForValidation(input *resourcemanager.TerraformSchemaValidationDefinition) (*[]string, error) {
+func attributesForValidation(input models.TerraformSchemaFieldValidationDefinition) (*[]string, error) {
 	output := make([]string, 0)
 	if input != nil {
-		if input.Type != resourcemanager.TerraformSchemaValidationTypePossibleValues {
-			return nil, fmt.Errorf("unimplemented validation type: %q", string(input.Type))
-		}
-		if input.PossibleValues == nil {
-			return nil, fmt.Errorf("internal-error: type was PossibleValues but no PossibleValues were defined")
+		val, ok := input.(models.TerraformSchemaFieldValidationPossibleValuesDefinition)
+		if !ok {
+			return nil, fmt.Errorf("internal-error: unimplemented validation type %+v", input)
 		}
 
-		switch input.PossibleValues.Type {
-		case resourcemanager.TerraformSchemaValidationPossibleValueTypeFloat:
-			{
-				floatValues := make([]string, 0)
-				for i, v := range input.PossibleValues.Values {
-					val, ok := v.(float64)
-					if !ok {
-						return nil, fmt.Errorf("expected PossibleValues value to be an float64 but was %+v for index %d", v, i)
-					}
-
-					floatValues = append(floatValues, fmt.Sprintf("%f,", val))
-				}
-				// TODO: add this method to the SDK
-				output = append(output, fmt.Sprintf(`ValidateFunc: validation.FloatInSlice([]float{
-%s
-}, false)`, strings.Join(floatValues, "\n")))
-			}
-
-		case resourcemanager.TerraformSchemaValidationPossibleValueTypeInt:
-			{
-				intValues := make([]string, 0)
-				for i, v := range input.PossibleValues.Values {
-					val, ok := v.(int64)
-					if !ok {
-						return nil, fmt.Errorf("expected PossibleValues value to be an int64 but was %+v for index %d", v, i)
-					}
-
-					intValues = append(intValues, fmt.Sprintf("%d,", val))
-				}
-				output = append(output, fmt.Sprintf(`ValidateFunc: validation.IntInSlice([]int{
-%s
-}, false)`, strings.Join(intValues, "\n")))
-			}
-
-		case resourcemanager.TerraformSchemaValidationPossibleValueTypeString:
-			{
-				stringValues := make([]string, 0)
-				for i, v := range input.PossibleValues.Values {
-					val, ok := v.(string)
-					if !ok {
-						return nil, fmt.Errorf("expected PossibleValues value to be a string but was %+v for index %d", v, i)
-					}
-
-					stringValues = append(stringValues, fmt.Sprintf("%q,", val))
-				}
-				output = append(output, fmt.Sprintf(`ValidateFunc: validation.StringInSlice([]string{
-%s
-}, false)`, strings.Join(stringValues, "\n")))
-			}
-
-		default:
-			{
-				return nil, fmt.Errorf("unimplemented validation possible values type: %q", string(input.PossibleValues.Type))
-			}
+		line, err := attributesForPossibleValuesDefinition(val)
+		if err != nil {
+			return nil, fmt.Errorf("building validation attribute for possible values definition: %+v", err)
 		}
+		output = append(output, *line)
 	}
+
 	return &output, nil
 }
 
-func (h PluginSdkAttributesHelpers) attributesForObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) (*[]string, error) {
+func attributesForPossibleValuesDefinition(input models.TerraformSchemaFieldValidationPossibleValuesDefinition) (*string, error) {
+	if input.PossibleValues == nil {
+		return nil, fmt.Errorf("internal-error: type was PossibleValues but no PossibleValues were defined")
+	}
+
+	if input.PossibleValues.Type == models.FloatTerraformSchemaFieldValidationPossibleValuesType {
+		floatValues := make([]string, 0)
+		for i, v := range input.PossibleValues.Values {
+			val, ok := v.(float64)
+			if !ok {
+				return nil, fmt.Errorf("expected PossibleValues value to be an float64 but was %+v for index %d", v, i)
+			}
+
+			floatValues = append(floatValues, fmt.Sprintf("%f,", val))
+		}
+		line := fmt.Sprintf(`ValidateFunc: validation.FloatInSlice([]float{
+		%s
+		}, false)`, strings.Join(floatValues, "\n"))
+		return pointer.To(line), nil
+	}
+
+	if input.PossibleValues.Type == models.IntegerTerraformSchemaFieldValidationPossibleValuesType {
+		intValues := make([]string, 0)
+		for i, v := range input.PossibleValues.Values {
+			val, ok := v.(int64)
+			if !ok {
+				return nil, fmt.Errorf("expected PossibleValues value to be an int64 but was %+v for index %d", v, i)
+			}
+
+			intValues = append(intValues, fmt.Sprintf("%d,", val))
+		}
+		line := fmt.Sprintf(`ValidateFunc: validation.IntInSlice([]int{
+		%s
+		}, false)`, strings.Join(intValues, "\n"))
+		return pointer.To(line), nil
+	}
+
+	if input.PossibleValues.Type == models.StringTerraformSchemaFieldValidationPossibleValuesType {
+		stringValues := make([]string, 0)
+		for i, v := range input.PossibleValues.Values {
+			val, ok := v.(string)
+			if !ok {
+				return nil, fmt.Errorf("expected PossibleValues value to be a string but was %+v for index %d", v, i)
+			}
+
+			stringValues = append(stringValues, fmt.Sprintf("%q,", val))
+		}
+		line := fmt.Sprintf(`ValidateFunc: validation.StringInSlice([]string{
+		%s
+		}, false)`, strings.Join(stringValues, "\n"))
+		return pointer.To(line), nil
+	}
+
+	return nil, fmt.Errorf("internal-error: unimplemented validation possible values type: %q", string(input.PossibleValues.Type))
+}
+
+func (h PluginSdkAttributesHelpers) attributesForObjectDefinition(input models.TerraformSchemaObjectDefinition) (*[]string, error) {
 	attributes := make([]string, 0)
 	switch input.Type {
-	case resourcemanager.TerraformSchemaFieldTypeBoolean:
+	case models.BooleanTerraformSchemaObjectDefinitionType:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeBool")
 		}
-	case resourcemanager.TerraformSchemaFieldTypeDateTime:
+	case models.DateTimeTerraformSchemaObjectDefinitionType:
 		{
 			// TODO: should/can we also output validation for this?
 			attributes = append(attributes, "Type: pluginsdk.TypeString")
 		}
-	case resourcemanager.TerraformSchemaFieldTypeFloat:
+	case models.FloatTerraformSchemaObjectDefinitionType:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeFloat")
 		}
-	case resourcemanager.TerraformSchemaFieldTypeInteger:
+	case models.IntegerTerraformSchemaObjectDefinitionType:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeInt")
 		}
-	case resourcemanager.TerraformSchemaFieldTypeString:
+	case models.StringTerraformSchemaObjectDefinitionType:
 		{
 			attributes = append(attributes, "Type: pluginsdk.TypeString")
 		}
 
-	case resourcemanager.TerraformSchemaFieldTypeReference:
+	case models.ReferenceTerraformSchemaObjectDefinitionType:
 		{
 			if input.ReferenceName == nil {
 				return nil, fmt.Errorf("missing name for reference")
@@ -276,14 +282,14 @@ Elem: &pluginsdk.Resource{
 `, *codeForModel)))
 		}
 
-	case resourcemanager.TerraformSchemaFieldTypeDictionary:
+	case models.DictionaryTerraformSchemaObjectDefinitionType:
 		{
 			if input.NestedObject == nil {
 				return nil, fmt.Errorf("internal-error: dictionary type with no nested object")
 			}
 
 			attributes = append(attributes, "Type: pluginsdk.TypeMap")
-			if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if input.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 				if input.NestedObject.ReferenceName == nil {
 					return nil, fmt.Errorf("missing name for reference")
 				}
@@ -315,18 +321,18 @@ Elem: &pluginsdk.Schema{
 			}
 		}
 
-	case resourcemanager.TerraformSchemaFieldTypeList, resourcemanager.TerraformSchemaFieldTypeSet:
+	case models.ListTerraformSchemaObjectDefinitionType, models.SetTerraformSchemaObjectDefinitionType:
 		{
 			if input.NestedObject == nil {
 				return nil, fmt.Errorf("internal-error: list/set type with no nested object")
 			}
 
-			if input.Type == resourcemanager.TerraformSchemaFieldTypeList {
+			if input.Type == models.ListTerraformSchemaObjectDefinitionType {
 				attributes = append(attributes, "Type: pluginsdk.TypeList")
 			} else {
 				attributes = append(attributes, "Type: pluginsdk.TypeSet")
 			}
-			if input.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference {
+			if input.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType {
 				if input.NestedObject.ReferenceName == nil {
 					return nil, fmt.Errorf("missing name for reference")
 				}
@@ -367,25 +373,25 @@ Elem: &pluginsdk.Schema{
 	return &attributes, nil
 }
 
-func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchemaFieldDefinition) (*string, error) {
-	commonSchemaTypes := map[resourcemanager.TerraformSchemaFieldType]struct{}{
-		resourcemanager.TerraformSchemaFieldTypeEdgeZone:                      {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
-		resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
-		resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
-		resourcemanager.TerraformSchemaFieldTypeLocation:                      {},
-		resourcemanager.TerraformSchemaFieldTypeResourceGroup:                 {},
-		resourcemanager.TerraformSchemaFieldTypeTags:                          {},
-		resourcemanager.TerraformSchemaFieldTypeZone:                          {},
-		resourcemanager.TerraformSchemaFieldTypeZones:                         {},
+func codeForPluginSdkCommonSchemaAttribute(field models.TerraformSchemaField) (*string, error) {
+	commonSchemaTypes := map[models.TerraformSchemaObjectDefinitionType]struct{}{
+		models.EdgeZoneTerraformSchemaObjectDefinitionType:                      {},
+		models.LocationTerraformSchemaObjectDefinitionType:                      {},
+		models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        {},
+		models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: {},
+		models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  {},
+		models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          {},
+		models.ResourceGroupTerraformSchemaObjectDefinitionType:                 {},
+		models.TagsTerraformSchemaObjectDefinitionType:                          {},
+		models.ZoneTerraformSchemaObjectDefinitionType:                          {},
+		models.ZonesTerraformSchemaObjectDefinitionType:                         {},
 	}
 	if _, ok := commonSchemaTypes[field.ObjectDefinition.Type]; !ok {
 		return nil, nil
 	}
 
 	out := ""
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeEdgeZone {
+	if field.ObjectDefinition.Type == models.EdgeZoneTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			return nil, fmt.Errorf("not supported: edge zone cannot be required")
 		}
@@ -405,7 +411,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.EdgeZoneComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned {
+	if field.ObjectDefinition.Type == models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.SystemAssignedIdentityRequired()"
 			if field.ForceNew {
@@ -425,7 +431,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.SystemAssignedIdentityComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned {
+	if field.ObjectDefinition.Type == models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.SystemAssignedUserAssignedIdentityRequired()"
 			if field.ForceNew {
@@ -445,7 +451,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.SystemAssignedUserAssignedIdentityComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned {
+	if field.ObjectDefinition.Type == models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.SystemOrUserAssignedIdentityRequired()"
 			if field.ForceNew {
@@ -465,7 +471,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.SystemOrUserAssignedIdentityComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned {
+	if field.ObjectDefinition.Type == models.UserAssignedIdentityTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.UserAssignedIdentityRequired()"
 			if field.ForceNew {
@@ -485,7 +491,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.UserAssignedIdentityComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeLocation {
+	if field.ObjectDefinition.Type == models.LocationTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.Location()"
 			if !field.ForceNew {
@@ -511,7 +517,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.LocationComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeResourceGroup {
+	if field.ObjectDefinition.Type == models.ResourceGroupTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.ResourceGroupNameForDataSource()"
 			if field.ForceNew {
@@ -533,7 +539,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			return nil, fmt.Errorf("not-supported: Computed & !Optional & !ForceNew is not supported for Resource Group")
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeTags {
+	if field.ObjectDefinition.Type == models.TagsTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			return nil, fmt.Errorf("unimplemented: Required Tags")
 		}
@@ -551,7 +557,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.TagsDataSource()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeZone {
+	if field.ObjectDefinition.Type == models.ZoneTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.ZoneSingleRequired()"
 			if field.ForceNew {
@@ -576,7 +582,7 @@ func codeForPluginSdkCommonSchemaAttribute(field resourcemanager.TerraformSchema
 			out = "commonschema.ZoneSingleComputed()"
 		}
 	}
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeZones {
+	if field.ObjectDefinition.Type == models.ZonesTerraformSchemaObjectDefinitionType {
 		if field.Required {
 			out = "commonschema.ZonesMultipleRequired()"
 			if field.ForceNew {

@@ -10,7 +10,7 @@ import (
 )
 
 func idValidationFunctionForResource(input models.ResourceInput) (*string, error) {
-	if !input.Details.GenerateIdValidation {
+	if !input.Details.GenerateIDValidation {
 		return nil, nil
 	}
 

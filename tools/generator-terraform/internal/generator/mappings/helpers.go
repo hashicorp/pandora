@@ -5,48 +5,32 @@ package mappings
 
 import (
 	"fmt"
-	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: tests
 
-func FindMappingsBetween(input resourcemanager.ModelToModelMappingDefinition, mappings []resourcemanager.FieldMappingDefinition) (*[]resourcemanager.FieldMappingDefinition, error) {
-	output := make([]resourcemanager.FieldMappingDefinition, 0)
+func FindMappingsBetween(input models.TerraformModelToModelMappingDefinition, mappings []models.TerraformFieldMappingDefinition) (*[]models.TerraformFieldMappingDefinition, error) {
+	output := make([]models.TerraformFieldMappingDefinition, 0)
 
 	for _, item := range mappings {
-		switch item.Type {
-		case resourcemanager.DirectAssignmentMappingDefinitionType:
-			{
-				if item.DirectAssignment.SchemaModelName == input.SchemaModelName && item.DirectAssignment.SdkModelName == input.SdkModelName {
-					output = append(output, item)
-				}
-				continue
+		if v, ok := item.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			if v.DirectAssignment.TerraformSchemaModelName == input.TerraformSchemaModelName && v.DirectAssignment.SDKModelName == input.SDKModelName {
+				output = append(output, v)
 			}
-
-		case resourcemanager.ModelToModelMappingDefinitionType:
-			{
-				if item.ModelToModel.SchemaModelName == input.SchemaModelName && item.ModelToModel.SdkModelName == input.SdkModelName {
-					output = append(output, item)
-				}
-				continue
-			}
-
-		default:
-			{
-				return nil, fmt.Errorf("internal-error: unimplemented mapping type %q", string(item.Type))
-			}
+			continue
 		}
+
+		if v, ok := item.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			if v.ModelToModel.TerraformSchemaModelName == input.TerraformSchemaModelName && v.ModelToModel.SDKModelName == input.SDKModelName {
+				output = append(output, item)
+			}
+			continue
+		}
+
+		return nil, fmt.Errorf("internal-error: unimplemented mapping type %+v", item)
 	}
 
 	return &output, nil
-}
-
-func singleFieldNameFromFieldPath(fieldPath string) (*string, error) {
-	if strings.ContainsAny(fieldPath, ".") {
-		return nil, fmt.Errorf("TODO: implement support for nested field mappings (e.g. `Foo.Bar`)")
-	}
-
-	return &fieldPath, nil
 }

@@ -6,7 +6,7 @@ package mappings
 import (
 	"fmt"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: support for User Assigned Map
@@ -16,12 +16,12 @@ var _ directAssignmentTransform = directAssignmentTransformIdentityUserAssignedL
 type directAssignmentTransformIdentityUserAssignedList struct {
 }
 
-func (d directAssignmentTransformIdentityUserAssignedList) schemaFieldType() resourcemanager.TerraformSchemaFieldType {
-	return resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned
+func (d directAssignmentTransformIdentityUserAssignedList) schemaFieldType() models.TerraformSchemaObjectDefinitionType {
+	return models.UserAssignedIdentityTerraformSchemaObjectDefinitionType
 }
 
-func (d directAssignmentTransformIdentityUserAssignedList) sdkFieldType() resourcemanager.ApiObjectDefinitionType {
-	return resourcemanager.UserAssignedIdentityListApiObjectDefinitionType
+func (d directAssignmentTransformIdentityUserAssignedList) sdkFieldType() models.SDKObjectDefinitionType {
+	return models.UserAssignedIdentityListSDKObjectDefinitionType
 }
 
 func (d directAssignmentTransformIdentityUserAssignedList) requiredExpandFuncBody() directAssignmentTransformFunc {

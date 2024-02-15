@@ -21,12 +21,12 @@ func existsFuncForResourceTest(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
-	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
+	readOperation, ok := input.Operations[input.Details.ReadMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.SDKOperationName)
 	}
 
-	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.MethodName, true)
+	methodArguments := argumentsForApiOperationMethod(readOperation, input.SdkResourceName, input.Details.ReadMethod.SDKOperationName, true)
 	output := fmt.Sprintf(`
 func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, state *pluginsdk.InstanceState) (*bool, error) {
 	id, err := %[2]s(state.ID)
@@ -41,6 +41,6 @@ func (r %[1]sTestResource) Exists(ctx context.Context, clients *clients.Client, 
 
 	return utils.Bool(resp.Model != nil), nil
 }
-`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.SdkResourceName, input.Details.ReadMethod.MethodName, methodArguments, strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
+`, input.ResourceTypeName, *idParseLine, input.ServiceName, input.SdkResourceName, input.Details.ReadMethod.SDKOperationName, methodArguments, strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }

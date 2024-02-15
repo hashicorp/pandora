@@ -6,18 +6,18 @@ package pluginsdkattributes
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -28,9 +28,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -41,9 +41,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -53,9 +53,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "commonschema.EdgeZoneOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -65,9 +65,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "commonschema.EdgeZoneOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -77,9 +77,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "commonschema.EdgeZoneComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -90,9 +90,9 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeEdgeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.EdgeZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -123,13 +123,13 @@ func TestPluginSdkAttributes_CommonSchema_EdgeZone(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -139,9 +139,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "commonschema.SystemAssignedIdentityRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -151,9 +151,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "commonschema.SystemAssignedIdentityRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -163,9 +163,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "commonschema.SystemAssignedIdentityOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -175,9 +175,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "commonschema.SystemAssignedIdentityOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -187,9 +187,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "commonschema.SystemAssignedIdentityComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -200,9 +200,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -233,13 +233,13 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -249,9 +249,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "commonschema.SystemAssignedUserAssignedIdentityRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -261,9 +261,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "commonschema.SystemAssignedUserAssignedIdentityRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -273,9 +273,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "commonschema.SystemAssignedUserAssignedIdentityOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -285,9 +285,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "commonschema.SystemAssignedUserAssignedIdentityOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -297,9 +297,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "commonschema.SystemAssignedUserAssignedIdentityComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -310,9 +310,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -343,13 +343,13 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemAndUserAssigned(t *testi
 
 func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -359,9 +359,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "commonschema.SystemOrUserAssignedIdentityRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -371,9 +371,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "commonschema.SystemOrUserAssignedIdentityRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -383,9 +383,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "commonschema.SystemOrUserAssignedIdentityOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -395,9 +395,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "commonschema.SystemOrUserAssignedIdentityOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -407,9 +407,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "commonschema.SystemOrUserAssignedIdentityComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -420,9 +420,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -453,13 +453,13 @@ func TestPluginSdkAttributes_CommonSchema_IdentitySystemOrUserAssigned(t *testin
 
 func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -469,9 +469,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "commonschema.UserAssignedIdentityRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -481,9 +481,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "commonschema.UserAssignedIdentityRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -493,9 +493,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "commonschema.UserAssignedIdentityOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -505,9 +505,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "commonschema.UserAssignedIdentityOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -517,9 +517,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "commonschema.UserAssignedIdentityComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -530,9 +530,9 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -563,13 +563,13 @@ func TestPluginSdkAttributes_CommonSchema_IdentityUserAssigned(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -579,9 +579,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "commonschema.Location()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -591,9 +591,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "commonschema.LocationWithoutForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -603,9 +603,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "commonschema.LocationOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -616,9 +616,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -628,9 +628,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "commonschema.LocationComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -641,9 +641,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -654,9 +654,9 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeLocation,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.LocationTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -688,13 +688,13 @@ func TestPluginSdkAttributes_CommonSchema_Location(t *testing.T) {
 func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 	// TODO: the CommonSchema methods want normalizing here
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -704,9 +704,9 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 			expected: "commonschema.ResourceGroupNameForDataSource()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -716,9 +716,9 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 			expected: "commonschema.ResourceGroupName()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -728,9 +728,9 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 			expected: "commonschema.ResourceGroupNameOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -741,9 +741,9 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -753,9 +753,9 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 			expected: "commonschema.ResourceGroupNameOptionalComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeResourceGroup,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ResourceGroupTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -786,13 +786,13 @@ func TestPluginSdkAttributes_CommonSchema_ResourceGroup(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -803,9 +803,9 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -815,9 +815,9 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 			expected: "commonschema.Tags()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -827,9 +827,9 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 			expected: "commonschema.TagsForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -840,9 +840,9 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 			expected: "",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeTags,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.TagsTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -872,13 +872,13 @@ func TestPluginSdkAttributes_CommonSchema_Tags(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -888,9 +888,9 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 			expected: "commonschema.ZoneSingleRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -900,9 +900,9 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 			expected: "commonschema.ZoneSingleRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -912,9 +912,9 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 			expected: "commonschema.ZoneSingleOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -924,9 +924,9 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 			expected: "commonschema.ZoneSingleOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -936,9 +936,9 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 			expected: "commonschema.ZoneSingleComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZone,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZoneTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,
@@ -969,13 +969,13 @@ func TestPluginSdkAttributes_CommonSchema_ZoneSingle(t *testing.T) {
 
 func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -985,9 +985,9 @@ func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 			expected: "commonschema.ZonesMultipleRequired()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -997,9 +997,9 @@ func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 			expected: "commonschema.ZonesMultipleRequiredForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: false,
@@ -1009,9 +1009,9 @@ func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 			expected: "commonschema.ZonesMultipleOptional()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: false,
 				ForceNew: true,
@@ -1021,9 +1021,9 @@ func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 			expected: "commonschema.ZonesMultipleOptionalForceNew()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: false,
@@ -1033,9 +1033,9 @@ func TestPluginSdkAttributes_CommonSchema_ZonesMultiple(t *testing.T) {
 			expected: "commonschema.ZonesMultipleComputed()",
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeZones,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ZonesTerraformSchemaObjectDefinitionType,
 				},
 				Computed: true,
 				ForceNew: true,

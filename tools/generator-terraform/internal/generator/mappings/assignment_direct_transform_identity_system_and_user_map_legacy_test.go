@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
@@ -15,13 +15,13 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	// mapping a Schema Model Field (Required) to an SDK Field (Required) for LegacySystemAndUserAssignedIdentity
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
    identity, err := identity.ExpandLegacySystemAndUserAssignedMapFromModel(input.Identity)
    if err != nil {
@@ -33,31 +33,30 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -79,13 +78,13 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	// mapping a Schema Model Field (Required) to an SDK Field (Optional) for LegacySystemAndUserAssignedIdentity
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
    identity, err := identity.ExpandLegacySystemAndUserAssignedMapFromModel(input.Identity)
    if err != nil {
@@ -97,31 +96,30 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -144,41 +142,40 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	// this has to be mapped, so is a Schema error / we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -199,13 +196,13 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) for LegacySystemAndUserAssignedIdentity
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
    identity, err := identity.ExpandLegacySystemAndUserAssignedMapFromModel(input.Identity)
    if err != nil {
@@ -217,31 +214,30 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -262,13 +258,13 @@ func TestDirectAssignment_CreateOrUpdate_Identity_SystemAndUserAssignedMapLegacy
 func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_RequiredToRequired(t *testing.T) {
 	// when mapping a model to a model where both fields are required and matching LegacySystemAndUserAssignedIdentity
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
 	identity, err := identity.FlattenLegacySystemAndUserAssignedMapToModel(input.Identity)
 	if err != nil {
@@ -280,31 +276,30 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_RequiredT
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -326,13 +321,13 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_RequiredT
 	// when mapping a model to a model where the Schema field is Required but the SDK field is Optional
 	// and matching SystemAndUserAssignedIdentity
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
 	identity, err := identity.FlattenLegacySystemAndUserAssignedMapToModel(input.Identity)
 	if err != nil {
@@ -344,31 +339,30 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_RequiredT
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -391,41 +385,40 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_OptionalT
 	// this has to be mapped, so is a Schema error / we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -445,13 +438,13 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_OptionalT
 func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_OptionalToOptional(t *testing.T) {
 	// when mapping a model to a model where both fields are optional and matching LegacySystemAndUserAssignedIdentity
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
-			sdkFieldType:         resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType,
+			schemaModelFieldType: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType,
 			expected: fmt.Sprintf(`
 	identity, err := identity.FlattenLegacySystemAndUserAssignedMapToModel(input.Identity)
 	if err != nil {
@@ -463,31 +456,30 @@ func TestDirectAssignment_Read_Identity_SystemAndUserAssignedMapLegacy_OptionalT
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "Identity",
-				SdkFieldPath:    "Identity",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "Identity",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "Identity",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"Identity": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "identity",
+					HCLName:  "identity",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Identity": {
 					JsonName: "identity",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,

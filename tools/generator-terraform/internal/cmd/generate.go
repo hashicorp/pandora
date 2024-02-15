@@ -4,6 +4,7 @@
 package cmd
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
@@ -11,10 +12,10 @@ import (
 	"path/filepath"
 	"strings"
 
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/logging"
 	"github.com/mitchellh/cli"
 )
 
@@ -31,9 +32,9 @@ func NewGenerateCommand(sourceDataType models.SourceDataType) func() (cli.Comman
 type GenerateCommand struct {
 	sourceDataType models.SourceDataType
 
+	apiServerEndpoint string
 	providerPrefix    string
 	outputDirectory   string
-	apiServerEndpoint string
 	serviceNamesRaw   string
 }
 
@@ -52,6 +53,7 @@ Flags:
 }
 
 func (i *GenerateCommand) Run(args []string) int {
+	ctx := context.Background()
 	// no point making this configurable (right now anyway)
 	i.providerPrefix = "azurerm"
 
@@ -68,7 +70,7 @@ func (i *GenerateCommand) Run(args []string) int {
 		i.outputDirectory = filepath.Join(homeDir, "/Desktop/generated-tf-dev")
 	}
 
-	if err := i.run(); err != nil {
+	if err := i.run(ctx); err != nil {
 		log.Printf("error: %+v", err)
 		return 1
 	}
@@ -76,31 +78,30 @@ func (i *GenerateCommand) Run(args []string) int {
 	return 0
 }
 
-func (i *GenerateCommand) run() error {
+func (i *GenerateCommand) run(ctx context.Context) error {
 	// ensure the output directory exists
 	_ = os.MkdirAll(i.outputDirectory, 0755)
 
-	log.Printf("[DEBUG] Retrieving Services from Data API..")
-	client := resourcemanager.NewResourceManagerClient(i.apiServerEndpoint)
-	var loadedServices services.ResourceManagerServices
-	servicesToLoad := strings.Split(i.serviceNamesRaw, ",")
-	if i.serviceNamesRaw != "" && len(servicesToLoad) > 0 {
-		log.Printf("[DEBUG] Loading the Services %q..", strings.Join(servicesToLoad, " / "))
-		services, err := services.GetResourceManagerServicesByName(client, servicesToLoad)
-		if err != nil {
-			return fmt.Errorf("retrieving resource manager services: %+v", err)
-		}
-		loadedServices = *services
-	} else {
-		log.Printf("[DEBUG] Loading All Services..")
-		services, err := services.GetResourceManagerServices(client)
-		if err != nil {
-			return fmt.Errorf("retrieving resource manager services: %+v", err)
-		}
-		loadedServices = *services
+	client := v1.NewClient(i.apiServerEndpoint, i.sourceDataType)
+	health, err := client.Health(ctx)
+	if err != nil {
+		return fmt.Errorf("checking if the Data API is available: %+v", err)
+	}
+	if !health.Available {
+		return fmt.Errorf("the Data API was not available")
 	}
 
-	if err := generator.RunLegacy(loadedServices, i.providerPrefix, i.outputDirectory); err != nil {
+	servicesToLoad := strings.Split(i.serviceNamesRaw, ",")
+	logging.Log.Info("Loading API Definitions from the Data API..")
+	if len(servicesToLoad) > 0 {
+		logging.Log.Warn(fmt.Sprintf("Limiting the Services to [%s]..", i.serviceNamesRaw))
+	}
+	data, err := client.LoadAllData(ctx, servicesToLoad)
+	if err != nil {
+		return fmt.Errorf("loading API Definitions: %+v", err)
+	}
+
+	if err := generator.RunLegacy(*data, i.providerPrefix, i.outputDirectory); err != nil {
 		return err
 	}
 

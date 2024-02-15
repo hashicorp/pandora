@@ -68,13 +68,15 @@ func TestAcc%[1]s_update(t *testing.T) {
 	}
 
 	otherTestNames := make([]string, 0)
-	for testName := range input.Details.Tests.OtherTests {
-		otherTestNames = append(otherTestNames, testName)
+	if input.Details.Tests.OtherTests != nil {
+		for testName := range *input.Details.Tests.OtherTests {
+			otherTestNames = append(otherTestNames, testName)
+		}
 	}
 	sort.Strings(otherTestNames)
 
 	for _, testName := range otherTestNames {
-		testConfigs := input.Details.Tests.OtherTests[testName]
+		testConfigs := (*input.Details.Tests.OtherTests)[testName]
 		testFunction := testForDynamicTestConfiguration(dynamicTestInput{
 			providerPrefix:            input.ProviderPrefix,
 			resourceLabel:             input.ResourceLabel,
@@ -157,13 +159,15 @@ func (r %[1]sTestResource) complete(data acceptance.TestData) string {
 	}
 
 	otherTestNames := make([]string, 0)
-	for testName := range tests.OtherTests {
-		otherTestNames = append(otherTestNames, testName)
+	if tests.OtherTests != nil {
+		for testName := range *tests.OtherTests {
+			otherTestNames = append(otherTestNames, testName)
+		}
 	}
 	sort.Strings(otherTestNames)
 
 	for _, testName := range otherTestNames {
-		testConfigs := tests.OtherTests[testName]
+		testConfigs := (*tests.OtherTests)[testName]
 		testFunction := functionsForDynamicTestConfiguration(dynamicTestInput{
 			providerPrefix:            input.ProviderPrefix,
 			resourceLabel:             input.ResourceLabel,

@@ -6,15 +6,14 @@ package definitions
 import (
 	"testing"
 
-	models2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForClientRegistrationsEmpty(t *testing.T) {
-	input := models2.ServicesInput{
+	input := models.ServicesInput{
 		ProviderPrefix: "myprovider",
-		Services:       map[string]models2.ServiceInput{},
+		Services:       map[string]models.ServiceInput{},
 	}
 	actual := codeForClientsRegistration(input)
 	expected := `
@@ -39,9 +38,9 @@ func buildAutoClients(client *autoClient, o *common.ClientOptions) (err error) {
 }
 
 func TestCodeForClientRegistrations(t *testing.T) {
-	input := models2.ServicesInput{
+	input := models.ServicesInput{
 		ProviderPrefix: "myprovider",
-		Services: map[string]models2.ServiceInput{
+		Services: map[string]models.ServiceInput{
 			"Compute": {
 				ResourceToApiVersion: map[string]string{
 					"compute_resource": "2020-01-01",

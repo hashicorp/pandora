@@ -7,15 +7,14 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestCodeForTopLevelTypedModelAndDefinition_Disabled(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			GenerateModel: false,
 		},
 	}
@@ -29,72 +28,72 @@ func TestCodeForTopLevelTypedModelAndDefinition_Disabled(t *testing.T) {
 }
 
 func TestCodeForTopLevelTypedModelAndDefinition_Enabled(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			GenerateModel: true,
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "ExampleModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"ExampleModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredBoolean": {
-						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName: "required_boolean",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "required_boolean",
+						Required: true,
 					},
 					"OptionalBoolean": {
-						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName: "optional_boolean",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "optional_boolean",
+						Optional: true,
 					},
 					"OptionalComputedBoolean": {
-						Optional: true,
 						Computed: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName:  "optional_computed_boolean",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "optional_computed_boolean",
+						Optional: true,
 					},
 					"ComputedBoolean": {
 						Computed: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName:  "computed_boolean",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "computed_boolean",
 					},
 					"RequiredString": {
-						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "required_string",
+						Required: true,
 					},
 					"OptionalString": {
-						Optional: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "optional_string",
+						Optional: true,
 					},
 					"OptionalComputedString": {
-						Optional: true,
 						Computed: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "optional_computed_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "optional_computed_string",
+						Optional: true,
 					},
 					"ComputedString": {
 						Computed: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName:  "computed_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "computed_string",
 					},
 				},
 			},
@@ -126,8 +125,8 @@ type ExampleModel struct {
 }
 
 func TestCodeForNonTopLevelModels_Disabled(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			GenerateModel: false,
 		},
 	}
@@ -141,42 +140,42 @@ func TestCodeForNonTopLevelModels_Disabled(t *testing.T) {
 }
 
 func TestCodeForNonTopLevelModels_Enabled(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			GenerateModel: true,
 		},
 		SchemaModelName: "TopLevelModel",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			// top level model shouldn't be output here
 			"TopLevelModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Field1": {
-						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "field1",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
-						HclName: "field1",
+						Required: true,
 					},
 				},
 			},
 			"NestedModel1": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Field2": {
-						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "field2",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "field2",
+						Required: true,
 					},
 				}},
 			"NestedModel2": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Field3": {
-						Required: true,
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "field3",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName: "field3",
+						Required: true,
 					},
 				}},
 		},
@@ -197,65 +196,65 @@ type NestedModel2 struct {
 }
 
 func TestCodeForModel(t *testing.T) {
-	input := resourcemanager.TerraformSchemaModelDefinition{
-		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+	input := models.TerraformSchemaModel{
+		Fields: map[string]models.TerraformSchemaField{
 			"RequiredBoolean": {
-				Required: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+				HCLName: "required_boolean",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "required_boolean",
+				Required: true,
 			},
 			"OptionalBoolean": {
-				Optional: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+				HCLName: "optional_boolean",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "optional_boolean",
+				Optional: true,
 			},
 			"OptionalComputedBoolean": {
-				Optional: true,
 				Computed: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+				HCLName:  "optional_computed_boolean",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "optional_computed_boolean",
+				Optional: true,
 			},
 			"ComputedBoolean": {
 				Computed: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+				HCLName:  "computed_boolean",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.BooleanTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "computed_boolean",
 			},
 			"RequiredString": {
-				Required: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				HCLName: "required_string",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "required_string",
+				Required: true,
 			},
 			"OptionalString": {
-				Optional: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				HCLName: "optional_string",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "optional_string",
+				Optional: true,
 			},
 			"OptionalComputedString": {
-				Optional: true,
 				Computed: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				HCLName:  "optional_computed_string",
+				Optional: true,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "optional_computed_string",
 			},
 			"ComputedString": {
 				Computed: true,
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeString,
+				HCLName:  "computed_string",
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.StringTerraformSchemaObjectDefinitionType,
 				},
-				HclName: "computed_string",
 			},
 		},
 	}

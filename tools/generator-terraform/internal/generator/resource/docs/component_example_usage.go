@@ -17,7 +17,7 @@ func codeForExampleUsage(input models.ResourceInput) (*string, error) {
 '''hcl
 %[1]s
 '''
-`, input.Details.Documentation.ExampleUsageHcl))
+`, input.Details.Documentation.ExampleUsageHCL))
 	output := strings.ReplaceAll(code, "'", "`")
 	return &output, nil
 }

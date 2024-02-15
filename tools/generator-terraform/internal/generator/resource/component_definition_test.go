@@ -7,14 +7,13 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentDefinition(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 	}
 	actual, err := definitionForResource(input)
@@ -30,12 +29,12 @@ type ExampleResource struct {}
 }
 
 func TestComponentDefinitionForMethodWithUpdate(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
-		Details: resourcemanager.TerraformResourceDetails{
-			UpdateMethod: &resourcemanager.MethodDefinition{
-				MethodName:       "Update",
+		Details: models.TerraformResourceDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         true,
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 30,
 			},
 		},
@@ -54,12 +53,12 @@ type ExampleResource struct {}
 }
 
 func TestComponentDefinitionForMethodWithUpdateDisabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
-		Details: resourcemanager.TerraformResourceDetails{
-			UpdateMethod: &resourcemanager.MethodDefinition{
-				MethodName:       "Update",
+		Details: models.TerraformResourceDefinition{
+			UpdateMethod: &models.TerraformMethodDefinition{
 				Generate:         false,
+				SDKOperationName: "Update",
 				TimeoutInMinutes: 30,
 			},
 		},

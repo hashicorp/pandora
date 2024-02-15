@@ -7,28 +7,27 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestModelToModelMapping_SchemaToSdk_Required_HappyPath(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.ModelToModelMappingDefinitionType,
-		ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldName:    "SomeSdkField",
+	mapping := models.TerraformModelToModelFieldMappingDefinition{
+		ModelToModel: models.TerraformModelToModelFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Required: true,
@@ -51,23 +50,22 @@ func TestModelToModelMapping_SchemaToSdk_Required_HappyPath(t *testing.T) {
 }
 
 func TestModelToModelMapping_SchemaToSdk_Optional_HappyPath(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.ModelToModelMappingDefinitionType,
-		ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldName:    "SomeSdkField",
+	mapping := models.TerraformModelToModelFieldMappingDefinition{
+		ModelToModel: models.TerraformModelToModelFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Optional: true,
@@ -93,24 +91,23 @@ func TestModelToModelMapping_SchemaToSdk_Optional_HappyPath(t *testing.T) {
 }
 
 func TestModelToModelMapping_SchemaToSdk_WrongType(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SchemaFieldPath: "SomeSchemaField",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldPath:    "SomeSdkField",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaFieldName: "SomeSchemaField",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 			},
@@ -126,23 +123,22 @@ func TestModelToModelMapping_SchemaToSdk_WrongType(t *testing.T) {
 }
 
 func TestModelToModelMapping_SdkToSchema_Required_HappyPath(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.ModelToModelMappingDefinitionType,
-		ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldName:    "SomeSdkField",
+	mapping := models.TerraformModelToModelFieldMappingDefinition{
+		ModelToModel: models.TerraformModelToModelFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Required: true,
@@ -165,23 +161,22 @@ func TestModelToModelMapping_SdkToSchema_Required_HappyPath(t *testing.T) {
 }
 
 func TestModelToModelMapping_SdkToSchema_Optional_HappyPath(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.ModelToModelMappingDefinitionType,
-		ModelToModel: &resourcemanager.FieldMappingModelToModelDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldName:    "SomeSdkField",
+	mapping := models.TerraformModelToModelFieldMappingDefinition{
+		ModelToModel: models.TerraformModelToModelFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 				Optional: true,
@@ -207,24 +202,23 @@ func TestModelToModelMapping_SdkToSchema_Optional_HappyPath(t *testing.T) {
 }
 
 func TestModelToModelMapping_SdkToSchema_WrongType(t *testing.T) {
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "TheSchemaModel",
-			SchemaFieldPath: "SomeSchemaField",
-			SdkModelName:    "TheSdkModel",
-			SdkFieldPath:    "SomeSdkField",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "SomeSdkField",
+			SDKModelName:             "TheSdkModel",
+			TerraformSchemaFieldName: "SomeSchemaField",
+			TerraformSchemaModelName: "TheSchemaModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
+	schemaModel := models.TerraformSchemaModel{
 		// not used for this one, just a placeholder
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"SomeSdkField": {
 				JsonName: "someSdkField",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: pointer.To("SomeOtherModel"),
 				},
 			},

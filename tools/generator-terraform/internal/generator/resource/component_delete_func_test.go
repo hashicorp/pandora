@@ -6,35 +6,34 @@ package resource
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -48,27 +47,27 @@ func TestComponentDeleteFunc_Immediate_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -82,28 +81,28 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Disabled(t *testing.T) 
 }
 
 func TestComponentDeleteFunc_Immediate_CommonId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -133,28 +132,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		SdkApiVersion:      "2023-05-25-preview",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -162,9 +161,9 @@ func TestComponentDeleteFunc_Immediate_CommonId_Options_Enabled(t *testing.T) {
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -194,28 +193,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -245,28 +244,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		SdkApiVersion:      "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    false,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -274,9 +273,9 @@ func TestComponentDeleteFunc_Immediate_RegularResourceId_Options_Enabled(t *test
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -306,28 +305,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -341,28 +340,28 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Disabled(t *testing.T) {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "sdkresource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         false,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -376,28 +375,28 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Disabled(t *testing.T
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -427,28 +426,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		SdkApiVersion:      "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -456,9 +455,9 @@ func TestComponentDeleteFunc_LongRunning_CommonId_Options_Enabled(t *testing.T) 
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				CommonAlias: pointer.To("Subscription"),
+				CommonIDAlias: pointer.To("Subscription"),
 			},
 		},
 	}
@@ -488,28 +487,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName: "Example",
 		SdkResourceName:  "SdkResource",
 		ServiceName:      "Resources",
 		SdkApiVersion:    "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}
@@ -539,28 +538,28 @@ func (r ExampleResource) Delete() sdk.ResourceFunc {
 }
 
 func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *testing.T) {
-	input := models.ResourceInput{
+	input := generatorModels.ResourceInput{
 		ResourceTypeName:   "Example",
 		SdkResourceName:    "SdkResource",
 		ServiceName:        "Resources",
 		ServicePackageName: "sdkservicepackage",
 		SdkApiVersion:      "2023-05-25",
-		Details: resourcemanager.TerraformResourceDetails{
-			DeleteMethod: resourcemanager.MethodDefinition{
+		Details: models.TerraformResourceDefinition{
+			DeleteMethod: models.TerraformMethodDefinition{
 				Generate:         true,
-				MethodName:       "PewPew",
+				SDKOperationName: "PewPew",
 				TimeoutInMinutes: 10,
 			},
-			ResourceIdName: "CustomSubscriptionId",
+			ResourceIDName: "CustomSubscriptionId",
 		},
-		Operations: map[string]resourcemanager.ApiOperation{
+		Operations: map[string]models.SDKOperation{
 			"PewPew": {
 				LongRunning:    true,
-				ResourceIdName: pointer.To("CustomSubscriptionId"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: pointer.To("CustomSubscriptionId"),
+				Options: map[string]models.SDKOperationOption{
 					"SomeOption": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						HeaderName: pointer.To("X-Some-Option"),
 						Required:   false,
@@ -568,9 +567,9 @@ func TestComponentDeleteFunc_LongRunning_RegularResourceId_Options_Enabled(t *te
 				},
 			},
 		},
-		ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"CustomSubscriptionId": {
-				Segments: []resourcemanager.ResourceIdSegment{},
+				Segments: []models.ResourceIDSegment{},
 			},
 		},
 	}

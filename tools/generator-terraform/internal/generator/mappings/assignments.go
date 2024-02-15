@@ -7,76 +7,68 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var assignmentTypes = map[resourcemanager.MappingDefinitionType]assignmentType{
-	resourcemanager.DirectAssignmentMappingDefinitionType: directAssignmentLine{},
-	resourcemanager.ModelToModelMappingDefinitionType:     modelToModelAssignmentLine{},
+var assignmentTypes = map[models.TerraformFieldMappingDefinitionType]assignmentType{
+	models.DirectAssignmentTerraformFieldMappingDefinitionType: directAssignmentLine{},
+	models.ModelToModelTerraformFieldMappingDefinitionType:     modelToModelAssignmentLine{},
 }
 
 type assignmentConstantDetails struct {
 	apiResourcePackageName string
 	constantName           string
-	constantDetails        resourcemanager.ConstantDetails
+	constantDetails        models.SDKConstant
 }
 
 type assignmentType interface {
 	// assignmentForCreateUpdateMapping returns the Create/Update assignment line for this mapping type
-	assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
+	assignmentForCreateUpdateMapping(mapping models.TerraformFieldMappingDefinition, schemaModel models.TerraformSchemaModel, sdkModel models.SDKModel, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
 
 	// assignmentForReadMapping returns the Read assignment line for this mapping type
-	assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
+	assignmentForReadMapping(mapping models.TerraformFieldMappingDefinition, schemaModel models.TerraformSchemaModel, sdkModel models.SDKModel, sdkConstant *assignmentConstantDetails, assignmentForReadMapping string) (*string, error)
 }
 
-func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanager.FieldMappingDefinition) (*string, error) {
+func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []models.TerraformFieldMappingDefinition) (*string, error) {
 	lines := make([]string, 0)
 
 	for _, mapping := range mappings {
-		assignment, ok := assignmentTypes[mapping.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing assignment type for type %q", mapping.Type)
-		}
-
-		schemaModelName := mapping.SchemaModelName()
-		sdkModelName := mapping.SdkModelName()
-		sdkFieldPath := mapping.SdkFieldPath()
-
-		schemaModel, ok := m.schemaModels[schemaModelName]
-		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", schemaModelName)
-		}
-		sdkModel, ok := m.sdkModels[sdkModelName]
-		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", sdkModelName)
-		}
-
-		sdkFieldName, err := singleFieldNameFromFieldPath(sdkFieldPath)
+		summary, err := summaryForMapping(mapping)
 		if err != nil {
-			return nil, fmt.Errorf("finding single field name from field path %q: %+v", sdkFieldPath, err)
+			return nil, fmt.Errorf("internal-error: populating summary for mapping: %+v", err)
 		}
-		sdkField, ok := sdkModel.Fields[*sdkFieldName]
+
+		schemaModel, ok := m.schemaModels[summary.terraformSchemaModelName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", sdkModelName, *sdkFieldName)
+			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", summary.terraformSchemaModelName)
+		}
+		sdkModel, ok := m.sdkModels[summary.sdkModelName]
+		if !ok {
+			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", summary.sdkModelName)
+		}
+
+		sdkField, ok := sdkModel.Fields[summary.sdkFieldName]
+		if !ok {
+			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", summary.sdkModelName, summary.sdkFieldName)
 		}
 
 		var sdkConstantName *string
-		if sdkField.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 			if sdkField.ObjectDefinition.ReferenceName == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, sdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", summary.sdkModelName, summary.sdkFieldName)
 			}
 
 			sdkConstantName = sdkField.ObjectDefinition.ReferenceName
 		}
-		if sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
 			if sdkField.ObjectDefinition.NestedItem == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, sdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", summary.sdkModelName, summary.sdkFieldName)
 			}
 
 			// we're only interested if it's a List<Constant> not a List<string>
-			if sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if sdkField.ObjectDefinition.NestedItem.Type == models.ReferenceSDKObjectDefinitionType {
 				if sdkField.ObjectDefinition.NestedItem.ReferenceName == nil {
-					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, sdkModelName)
+					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", summary.sdkModelName, summary.sdkFieldName)
 				}
 
 				sdkConstantName = sdkField.ObjectDefinition.NestedItem.ReferenceName
@@ -96,73 +88,76 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		if mapping.ModelToModel != nil {
-			if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
-				if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
-					continue
-				}
+		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
+			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
+				continue
 			}
+
+			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+			if err != nil {
+				return nil, fmt.Errorf("building create/update direct assignment line for %+v: %+v", summary, err)
+			}
+			lines = append(lines, *assignmentLine)
+			continue
 		}
 
-		assignmentLine, err := assignment.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
-		if err != nil {
-			return nil, fmt.Errorf("building create/update assignment line for assignment type %q (Mapping %q): %+v", string(mapping.Type), mapping.String(), err)
+		if _, ok := mapping.(*models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			assignmentLine, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+			if err != nil {
+				return nil, fmt.Errorf("building create/update direct assignment line for %+v: %+v", summary, err)
+			}
+			lines = append(lines, *assignmentLine)
+			continue
 		}
-		lines = append(lines, *assignmentLine)
+
+		return nil, fmt.Errorf("internal-error: missing create/update assignment implementation for %+v", mapping)
 	}
 
 	out := strings.Join(lines, "\n")
 	return &out, nil
 }
 
-func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanager.FieldMappingDefinition) (*string, error) {
+func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []models.TerraformFieldMappingDefinition) (*string, error) {
 	lines := make([]string, 0)
 
 	for _, mapping := range mappings {
-		assignment, ok := assignmentTypes[mapping.Type]
-		if !ok {
-			return nil, fmt.Errorf("internal-error: missing assignment type for type %q", mapping.Type)
-		}
-
-		schemaModelName := mapping.SchemaModelName()
-		sdkModelName := mapping.SdkModelName()
-		sdkFieldPath := mapping.SdkFieldPath()
-
-		schemaModel, ok := m.schemaModels[schemaModelName]
-		if !ok {
-			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", schemaModelName)
-		}
-		sdkModel, ok := m.sdkModels[sdkModelName]
-		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", sdkModelName)
-		}
-
-		sdkFieldName, err := singleFieldNameFromFieldPath(sdkFieldPath)
+		summary, err := summaryForMapping(mapping)
 		if err != nil {
-			return nil, fmt.Errorf("finding single field name from field path %q: %+v", sdkFieldPath, err)
+			return nil, fmt.Errorf("internal-error: populating summary for mapping: %+v", err)
 		}
-		sdkField, ok := sdkModel.Fields[*sdkFieldName]
+
+		schemaModel, ok := m.schemaModels[summary.terraformSchemaModelName]
 		if !ok {
-			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", sdkModelName, *sdkFieldName)
+			return nil, fmt.Errorf("the schema model %q referenced in mapping was not found", summary.terraformSchemaModelName)
+		}
+		sdkModel, ok := m.sdkModels[summary.sdkModelName]
+		if !ok {
+			return nil, fmt.Errorf("the SDK Model %q referenced in mapping was not found", summary.sdkModelName)
+		}
+
+		sdkField, ok := sdkModel.Fields[summary.sdkFieldName]
+		if !ok {
+			return nil, fmt.Errorf("the SDK Model %q Field %q was not found", summary.sdkModelName, summary.sdkFieldName)
 		}
 
 		var sdkConstantName *string
-		if sdkField.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 			if sdkField.ObjectDefinition.ReferenceName == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", *sdkFieldName, sdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a reference with no ReferenceName", summary.sdkModelName, summary.sdkFieldName)
 			}
 
 			sdkConstantName = sdkField.ObjectDefinition.ReferenceName
 		}
-		if sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+		if sdkField.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
 			if sdkField.ObjectDefinition.NestedItem == nil {
-				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", *sdkFieldName, sdkModelName)
+				return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", summary.sdkModelName, summary.sdkFieldName)
 			}
 
 			// we're only interested if it's a List<Constant> not a List<string>
-			if sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if sdkField.ObjectDefinition.NestedItem.Type == models.ReferenceSDKObjectDefinitionType {
 				if sdkField.ObjectDefinition.NestedItem.ReferenceName == nil {
-					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", *sdkFieldName, sdkModelName)
+					return nil, fmt.Errorf("the SDK Model %q Field %q was a nested list reference with no ReferenceName", summary.sdkModelName, summary.sdkFieldName)
 				}
 
 				sdkConstantName = sdkField.ObjectDefinition.NestedItem.ReferenceName
@@ -182,20 +177,42 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []resourcemanage
 			}
 		}
 
-		if mapping.ModelToModel != nil {
-			if field, ok := sdkModel.Fields[mapping.ModelToModel.SdkFieldName]; ok {
-				if field.ObjectDefinition.Type == resourcemanager.RawObjectApiObjectDefinitionType {
-					continue
-				}
+		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
+			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
+				continue
 			}
+
+			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+			if err != nil {
+				return nil, fmt.Errorf("building read direct assignment line for %+v: %+v", summary, err)
+			}
+			lines = append(lines, *assignmentLine)
+			continue
 		}
-		assignmentLine, err := assignment.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
-		if err != nil {
-			return nil, fmt.Errorf("building read assignment line for constant assignment type %q: %+v", mapping.Type, err)
+
+		if _, ok := mapping.(*models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			assignmentLine, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+			if err != nil {
+				return nil, fmt.Errorf("building read direct assignment line for %+v: %+v", summary, err)
+			}
+			lines = append(lines, *assignmentLine)
+			continue
 		}
-		lines = append(lines, *assignmentLine)
+
+		return nil, fmt.Errorf("internal-error: missing read assignment implementation for %+v", mapping)
 	}
 
 	out := strings.Join(lines, "\n")
 	return &out, nil
+}
+
+type mappingSummary struct {
+	sdkFieldName             string
+	sdkModelName             string
+	terraformSchemaModelName string
+}
+
+func summaryForMapping(input models.TerraformFieldMappingDefinition) (*mappingSummary, error) {
+	return nil, nil
 }

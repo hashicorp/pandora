@@ -7,13 +7,12 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func codeForArgumentsReference(input models.ResourceInput) (*string, error) {
+func codeForArgumentsReference(input generatorModels.ResourceInput) (*string, error) {
 	topLevelArgs, err := getArguments(input.SchemaModels[input.SchemaModelName], input.Details.DisplayName)
 	if err != nil {
 		return nil, err
@@ -31,7 +30,7 @@ The following arguments are supported:
 	return &output, nil
 }
 
-func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resourceName string) (*string, error) {
+func getArguments(model models.TerraformSchemaModel, resourceName string) (*string, error) {
 	requiredLines := make([]string, 0)
 	optionalLines := make([]string, 0)
 
@@ -75,9 +74,9 @@ func getArguments(model resourcemanager.TerraformSchemaModelDefinition, resource
 	return &out, nil
 }
 
-func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin, resourceName string) (*string, error) {
+func documentationLineForArgument(field models.TerraformSchemaField, nestedWithin, resourceName string) (*string, error) {
 	components := make([]string, 0)
-	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
+	components = append(components, fmt.Sprintf("* `%s` -", field.HCLName))
 
 	if field.Required {
 		components = append(components, "(Required)")
@@ -86,42 +85,41 @@ func documentationLineForArgument(field resourcemanager.TerraformSchemaFieldDefi
 	}
 
 	isList := false
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+	if field.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType || field.ObjectDefinition.Type == models.SetTerraformSchemaObjectDefinitionType {
 		isList = true
 	}
 	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
 
 	// identify block
 	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[objectDefinition.Type]; ok {
-		fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+		fieldBeginsWithVowel, err := beginsWithVowel(field.HCLName)
 		if err != nil {
 			return nil, err
 		}
 
 		fieldLocation := "below"
-		if nestedWithin != "" && field.HclName <= nestedWithin {
+		if nestedWithin != "" && field.HCLName <= nestedWithin {
 			fieldLocation = "above"
 		}
 
 		if isList {
-			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HclName, fieldLocation))
+			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HCLName, fieldLocation))
 		} else {
 			if fieldBeginsWithVowel {
-				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HclName, fieldLocation))
+				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HCLName, fieldLocation))
 			} else {
-				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HclName, fieldLocation))
+				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HCLName, fieldLocation))
 			}
 		}
 	}
 
 	components = append(components, field.Documentation.Markdown)
 
-	// TODO update to include ranges
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeBoolean {
+	if field.ObjectDefinition.Type == models.BooleanTerraformSchemaObjectDefinitionType {
 		components = append(components, "Possible values are `true` and `false`.")
 	} else if field.Validation != nil {
-		if field.Validation.Type == resourcemanager.TerraformSchemaValidationTypePossibleValues {
-			if values := field.Validation.PossibleValues.Values; values != nil {
+		if val, ok := field.Validation.(models.TerraformSchemaFieldValidationPossibleValuesDefinition); ok {
+			if values := val.PossibleValues.Values; values != nil {
 				possibleValues := wordifyPossibleValues(values)
 				components = append(components, possibleValues)
 			}

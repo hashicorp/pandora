@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
@@ -15,14 +15,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -30,14 +30,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -45,14 +45,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -60,41 +60,37 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = sdkresource.SomeConstant(input.FromPath)",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
-					Required: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Required:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Required: true,
@@ -116,14 +112,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -131,14 +127,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -146,14 +142,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -161,41 +157,37 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_TopLevel(t 
 				},
 			},
 			expected:             "output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))",
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
-					Required: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Required:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Optional: true,
@@ -219,83 +211,79 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_TopLevel(t 
 
 	testData := []struct {
 		constant             assignmentConstantDetails
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
-					Optional: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Optional:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Required: true,
@@ -316,14 +304,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -333,14 +321,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_TopLevel(t 
 			expected: `
 output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -350,14 +338,14 @@ output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 			expected: `
 output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -367,41 +355,37 @@ output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 			expected: `
 output.ToPath = pointer.To(sdkresource.SomeConstant(input.FromPath))
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
-					Optional: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Optional:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeConstant"),
 					},
 					Optional: true,
@@ -423,14 +407,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToRequired_List(t *tes
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -444,14 +428,14 @@ for _, v := range input.FromPath {
 }
 output.ToPath = toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -465,14 +449,14 @@ for _, v := range input.FromPath {
 }
 output.ToPath = toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -486,46 +470,42 @@ for _, v := range input.FromPath {
 }
 output.ToPath = toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
-					Required: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Required:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
@@ -548,14 +528,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_RequiredToOptional_List(t *tes
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -569,14 +549,14 @@ for _, v := range input.FromPath {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -590,14 +570,14 @@ for _, v := range input.FromPath {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -611,46 +591,42 @@ for _, v := range input.FromPath {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
-					Required: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Required:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
@@ -672,88 +648,84 @@ output.ToPath = &toPath
 func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToRequired_List(t *testing.T) {
 	testData := []struct {
 		constant             assignmentConstantDetails
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
 					},
 				},
 			},
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
-					Optional: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Optional:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
@@ -775,14 +747,14 @@ func TestDirectAssignment_CreateOrUpdate_Constant_OptionalToOptional_List(t *tes
 	testData := []struct {
 		constant             assignmentConstantDetails
 		expected             string
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
 	}{
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.FloatConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.FloatSDKConstantType,
 					Values: map[string]string{
 						"OnePointZeroOne":   "1.01",
 						"ThreePointOneFour": "3.14",
@@ -798,14 +770,14 @@ if input.FromPath != nil {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.IntegerConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.IntegerSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -821,14 +793,14 @@ if input.FromPath != nil {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
 		},
 		{
 			constant: assignmentConstantDetails{
 				apiResourcePackageName: "sdkresource",
 				constantName:           "SomeConstant",
-				constantDetails: resourcemanager.ConstantDetails{
-					Type: resourcemanager.StringConstant,
+				constantDetails: models.SDKConstant{
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"One":   "1",
 						"Three": "3",
@@ -844,46 +816,42 @@ if input.FromPath != nil {
 }
 output.ToPath = &toPath
 `,
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to a %q constant", i, string(v.schemaModelFieldType), string(v.constant.constantDetails.Type))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
-					Optional: true,
-					Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-						Type:           resourcemanager.TerraformSchemaValidationTypePossibleValues,
-						PossibleValues: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
-					},
+					HCLName:    "from_path",
+					Optional:   true,
+					Validation: possibleValuesDefinitionFromConstant(t, v.constant.constantDetails),
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: pointer.To("SomeConstant"),
 						},
 					},
@@ -905,54 +873,52 @@ output.ToPath = &toPath
 func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_MatchingSimpleTypes(t *testing.T) {
 	// when mapping a model to a model where both fields are required and matching simple (bool/string etc) types
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -975,53 +941,52 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_MatchingSimple
 	// when mapping a model to a model where the Schema field is Required but the SDK field is Optional
 	// and matching simple (bool/string etc) types
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -1045,53 +1010,52 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingSimple
 	// this has to be mapped, so is a Schema error / we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Required: true,
@@ -1111,58 +1075,57 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingSimple
 func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingSimpleTypes(t *testing.T) {
 	// when mapping a model to a model where both fields are optional and matching simple (bool/string etc) types
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 			expected:             `output.ToPath = &input.FromPath`,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 			expected:             `output.ToPath = &input.FromPath`,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
 						Type: v.schemaModelFieldType,
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
 						Type: v.sdkFieldType,
 					},
 					Optional: true,
@@ -1184,13 +1147,13 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_MatchingListOf
 	// mapping a Schema Model Field to an SDK Field where both are Required and a List of Matching Simple Types (string/int etc)
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 			expected: `
 toPath := make([]bool, 0)
 for _, v := range input.FromPath {
@@ -1200,8 +1163,8 @@ output.ToPath = toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 			expected: `
 toPath := make([]float64, 0)
 for _, v := range input.FromPath {
@@ -1211,8 +1174,8 @@ output.ToPath = toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 			expected: `
 toPath := make([]int64, 0)
 for _, v := range input.FromPath {
@@ -1222,8 +1185,8 @@ output.ToPath = toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 			expected: `
 toPath := make([]string, 0)
 for _, v := range input.FromPath {
@@ -1235,36 +1198,35 @@ output.ToPath = toPath
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
 							Type: v.sdkFieldType,
 						},
 					},
@@ -1287,13 +1249,13 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_MatchingListOf
 	// mapping a Schema Model Field (Required) to an SDK Field (Optional) where both are List of Matching Simple Types (string/int etc)
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 			expected: `
 toPath := make([]bool, 0)
 for _, v := range input.FromPath {
@@ -1303,8 +1265,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 			expected: `
 toPath := make([]float64, 0)
 for _, v := range input.FromPath {
@@ -1314,8 +1276,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 			expected: `
 toPath := make([]int64, 0)
 for _, v := range input.FromPath {
@@ -1325,8 +1287,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 			expected: `
 toPath := make([]string, 0)
 for _, v := range input.FromPath {
@@ -1338,36 +1300,35 @@ output.ToPath = &toPath
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Required: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
 							Type: v.sdkFieldType,
 						},
 					},
@@ -1391,58 +1352,57 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_MatchingListOf
 	// this isn't possible (since the SDK Field has to be set) - so we should raise an error
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 		},
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
 							Type: v.sdkFieldType,
 						},
 					},
@@ -1464,13 +1424,13 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_MatchingListOf
 	// mapping a Schema Model Field (Optional) to an SDK Field (Optional) where both are List of Matching Simple Types (string/int etc)
 
 	testData := []struct {
-		schemaModelFieldType resourcemanager.TerraformSchemaFieldType
-		sdkFieldType         resourcemanager.ApiObjectDefinitionType
+		schemaModelFieldType models.TerraformSchemaObjectDefinitionType
+		sdkFieldType         models.SDKObjectDefinitionType
 		expected             string
 	}{
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeBoolean,
-			sdkFieldType:         resourcemanager.BooleanApiObjectDefinitionType,
+			schemaModelFieldType: models.BooleanTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.BooleanSDKObjectDefinitionType,
 			expected: `
 toPath := make([]bool, 0)
 if input.FromPath != nil {
@@ -1482,8 +1442,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeFloat,
-			sdkFieldType:         resourcemanager.FloatApiObjectDefinitionType,
+			schemaModelFieldType: models.FloatTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.FloatSDKObjectDefinitionType,
 			expected: `
 toPath := make([]float64, 0)
 if input.FromPath != nil {
@@ -1495,8 +1455,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeInteger,
-			sdkFieldType:         resourcemanager.IntegerApiObjectDefinitionType,
+			schemaModelFieldType: models.IntegerTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.IntegerSDKObjectDefinitionType,
 			expected: `
 toPath := make([]int64, 0)
 if input.FromPath != nil {
@@ -1508,8 +1468,8 @@ output.ToPath = &toPath
 `,
 		},
 		{
-			schemaModelFieldType: resourcemanager.TerraformSchemaFieldTypeString,
-			sdkFieldType:         resourcemanager.StringApiObjectDefinitionType,
+			schemaModelFieldType: models.StringTerraformSchemaObjectDefinitionType,
+			sdkFieldType:         models.StringSDKObjectDefinitionType,
 			expected: `
 toPath := make([]string, 0)
 if input.FromPath != nil {
@@ -1523,36 +1483,35 @@ output.ToPath = &toPath
 	}
 	for i, v := range testData {
 		t.Logf("Test %d - mapping %q to %q", i, string(v.schemaModelFieldType), string(v.sdkFieldType))
-		mapping := resourcemanager.FieldMappingDefinition{
-			Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-			DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-				SchemaModelName: "FromModel",
-				SchemaFieldPath: "FromPath",
-				SdkFieldPath:    "ToPath",
-				SdkModelName:    "ToModel",
+		mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+			DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+				SDKFieldName:             "ToPath",
+				SDKModelName:             "ToModel",
+				TerraformSchemaFieldName: "FromPath",
+				TerraformSchemaModelName: "FromModel",
 			},
 		}
-		schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-			Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+		schemaModel := models.TerraformSchemaModel{
+			Fields: map[string]models.TerraformSchemaField{
 				"FromPath": {
-					ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type: resourcemanager.TerraformSchemaFieldTypeList,
-						NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					ObjectDefinition: models.TerraformSchemaObjectDefinition{
+						Type: models.ListTerraformSchemaObjectDefinitionType,
+						NestedObject: &models.TerraformSchemaObjectDefinition{
 							Type: v.schemaModelFieldType,
 						},
 					},
-					HclName:  "from_path",
+					HCLName:  "from_path",
 					Optional: true,
 				},
 			},
 		}
-		sdkModel := resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		sdkModel := models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ToPath": {
 					JsonName: "toPath",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
 							Type: v.sdkFieldType,
 						},
 					},
@@ -1575,38 +1534,37 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToRequired_ListOfReferenc
 	// mapping a Schema Model Field to an SDK Field where both are Required and a List of a Reference
 	// this assumes/requires that fields are mapped within these two
 
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "FromModel",
-			SchemaFieldPath: "FromPath",
-			SdkFieldPath:    "ToPath",
-			SdkModelName:    "ToModel",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "ToPath",
+			SDKModelName:             "ToModel",
+			TerraformSchemaFieldName: "FromPath",
+			TerraformSchemaModelName: "FromModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+	schemaModel := models.TerraformSchemaModel{
+		Fields: map[string]models.TerraformSchemaField{
 			"FromPath": {
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("SomeSchemaModel"),
 					},
 				},
-				HclName:  "from_path",
+				HCLName:  "from_path",
 				Required: true,
 			},
 		},
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"ToPath": {
 				JsonName: "toPath",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.ListApiObjectDefinitionType,
-					NestedItem: &resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.ListSDKObjectDefinitionType,
+					NestedItem: &models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeOtherModel"),
 					},
 				},
@@ -1639,38 +1597,37 @@ func TestDirectAssignment_CreateOrUpdate_Model_RequiredToOptional_ListOfReferenc
 	// mapping a (Required) Schema Model Field to an (Optional) SDK Field where both are a List of a Reference
 	// this assumes/requires that fields are mapped within these two
 
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "FromModel",
-			SchemaFieldPath: "FromPath",
-			SdkFieldPath:    "ToPath",
-			SdkModelName:    "ToModel",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "ToPath",
+			SDKModelName:             "ToModel",
+			TerraformSchemaFieldName: "FromPath",
+			TerraformSchemaModelName: "FromModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+	schemaModel := models.TerraformSchemaModel{
+		Fields: map[string]models.TerraformSchemaField{
 			"FromPath": {
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("SomeSchemaModel"),
 					},
 				},
-				HclName:  "from_path",
+				HCLName:  "from_path",
 				Required: true,
 			},
 		},
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"ToPath": {
 				JsonName: "toPath",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.ListApiObjectDefinitionType,
-					NestedItem: &resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.ListSDKObjectDefinitionType,
+					NestedItem: &models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeOtherModel"),
 					},
 				},
@@ -1703,38 +1660,37 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToRequired_ListOfReferenc
 	// mapping a Schema Model Field (Optional) to an SDK Field (Required) for List of Reference
 	// this has to be mapped, so is a Schema error / we should raise an error
 
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "FromModel",
-			SchemaFieldPath: "FromPath",
-			SdkFieldPath:    "ToPath",
-			SdkModelName:    "ToModel",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "ToPath",
+			SDKModelName:             "ToModel",
+			TerraformSchemaFieldName: "FromPath",
+			TerraformSchemaModelName: "FromModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+	schemaModel := models.TerraformSchemaModel{
+		Fields: map[string]models.TerraformSchemaField{
 			"FromPath": {
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("SomeSchemaModel"),
 					},
 				},
-				HclName:  "from_path",
+				HCLName:  "from_path",
 				Optional: true,
 			},
 		},
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"ToPath": {
 				JsonName: "toPath",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.ListApiObjectDefinitionType,
-					NestedItem: &resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.ListSDKObjectDefinitionType,
+					NestedItem: &models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeOtherModel"),
 					},
 				},
@@ -1755,38 +1711,37 @@ func TestDirectAssignment_CreateOrUpdate_Model_OptionalToOptional_ListOfReferenc
 	// mapping a (Required) Schema Model Field to an (Optional) SDK Field where both are a List of a Reference
 	// this assumes/requires that fields are mapped within these two
 
-	mapping := resourcemanager.FieldMappingDefinition{
-		Type: resourcemanager.DirectAssignmentMappingDefinitionType,
-		DirectAssignment: &resourcemanager.FieldMappingDirectAssignmentDefinition{
-			SchemaModelName: "FromModel",
-			SchemaFieldPath: "FromPath",
-			SdkFieldPath:    "ToPath",
-			SdkModelName:    "ToModel",
+	mapping := models.TerraformDirectAssignmentFieldMappingDefinition{
+		DirectAssignment: models.TerraformDirectAssignmentFieldMappingDefinitionImpl{
+			SDKFieldName:             "ToPath",
+			SDKModelName:             "ToModel",
+			TerraformSchemaFieldName: "FromPath",
+			TerraformSchemaModelName: "FromModel",
 		},
 	}
-	schemaModel := resourcemanager.TerraformSchemaModelDefinition{
-		Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+	schemaModel := models.TerraformSchemaModel{
+		Fields: map[string]models.TerraformSchemaField{
 			"FromPath": {
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("SomeSchemaModel"),
 					},
 				},
-				HclName:  "from_path",
+				HCLName:  "from_path",
 				Optional: true,
 			},
 		},
 	}
-	sdkModel := resourcemanager.ModelDetails{
-		Fields: map[string]resourcemanager.FieldDetails{
+	sdkModel := models.SDKModel{
+		Fields: map[string]models.SDKField{
 			"ToPath": {
 				JsonName: "toPath",
-				ObjectDefinition: resourcemanager.ApiObjectDefinition{
-					Type: resourcemanager.ListApiObjectDefinitionType,
-					NestedItem: &resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ObjectDefinition: models.SDKObjectDefinition{
+					Type: models.ListSDKObjectDefinitionType,
+					NestedItem: &models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: pointer.To("SomeOtherModel"),
 					},
 				},

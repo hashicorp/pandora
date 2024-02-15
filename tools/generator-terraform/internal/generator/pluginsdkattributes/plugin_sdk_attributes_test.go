@@ -7,29 +7,30 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 // TODO:  w/Validation
 
 func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
-	basicFieldTypes := map[resourcemanager.TerraformSchemaFieldType]string{
-		resourcemanager.TerraformSchemaFieldTypeBoolean: "pluginsdk.TypeBool",
-		resourcemanager.TerraformSchemaFieldTypeFloat:   "pluginsdk.TypeFloat",
-		resourcemanager.TerraformSchemaFieldTypeInteger: "pluginsdk.TypeInt",
-		resourcemanager.TerraformSchemaFieldTypeString:  "pluginsdk.TypeString",
+	basicFieldTypes := map[models.TerraformSchemaObjectDefinitionType]string{
+		models.BooleanTerraformSchemaObjectDefinitionType: "pluginsdk.TypeBool",
+		models.FloatTerraformSchemaObjectDefinitionType:   "pluginsdk.TypeFloat",
+		models.IntegerTerraformSchemaObjectDefinitionType: "pluginsdk.TypeInt",
+		models.StringTerraformSchemaObjectDefinitionType:  "pluginsdk.TypeString",
 	}
 	for fieldType, pluginSdkType := range basicFieldTypes {
 		t.Run(fmt.Sprintf("Field Type %s", string(fieldType)), func(t *testing.T) {
 			testData := []struct {
-				input    resourcemanager.TerraformSchemaFieldDefinition
+				input    models.TerraformSchemaField
 				expected string
 			}{
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: false,
@@ -45,8 +46,8 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: false,
@@ -63,8 +64,8 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: false,
@@ -80,8 +81,8 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: false,
@@ -98,8 +99,8 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: true,
@@ -117,8 +118,8 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
 							Type: fieldType,
 						},
 						Computed: true,
@@ -155,13 +156,13 @@ func TestPluginSdkAttributes_CodeForBasicFields(t *testing.T) {
 
 func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
@@ -186,9 +187,9 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
@@ -214,9 +215,9 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
@@ -241,9 +242,9 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: false,
@@ -269,9 +270,9 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: true,
@@ -298,9 +299,9 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 					ReferenceName: pointer.To("NestedSchemaModel"),
 				},
 				Computed: true,
@@ -327,13 +328,13 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 	}
 	for i, testCase := range testData {
 		helper := PluginSdkAttributesHelpers{
-			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			SchemaModels: map[string]models.TerraformSchemaModel{
 				"NestedSchemaModel": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					Fields: map[string]models.TerraformSchemaField{
 						"NestedField": {
-							HclName: "nested_field",
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							HCLName: "nested_field",
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 							Optional: true,
 						},
@@ -357,24 +358,24 @@ func TestPluginSdkAttributes_CodeForReference(t *testing.T) {
 }
 
 func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
-	basicFieldTypes := map[resourcemanager.TerraformSchemaFieldType]string{
-		resourcemanager.TerraformSchemaFieldTypeBoolean: "pluginsdk.TypeBool",
-		resourcemanager.TerraformSchemaFieldTypeFloat:   "pluginsdk.TypeFloat",
-		resourcemanager.TerraformSchemaFieldTypeInteger: "pluginsdk.TypeInt",
-		resourcemanager.TerraformSchemaFieldTypeString:  "pluginsdk.TypeString",
+	basicFieldTypes := map[models.TerraformSchemaObjectDefinitionType]string{
+		models.BooleanTerraformSchemaObjectDefinitionType: "pluginsdk.TypeBool",
+		models.FloatTerraformSchemaObjectDefinitionType:   "pluginsdk.TypeFloat",
+		models.IntegerTerraformSchemaObjectDefinitionType: "pluginsdk.TypeInt",
+		models.StringTerraformSchemaObjectDefinitionType:  "pluginsdk.TypeString",
 	}
 	for fieldType, pluginSdkType := range basicFieldTypes {
 		t.Run(fmt.Sprintf("Field Type %s", string(fieldType)), func(t *testing.T) {
 
 			testData := []struct {
-				input    resourcemanager.TerraformSchemaFieldDefinition
+				input    models.TerraformSchemaField
 				expected string
 			}{
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -394,10 +395,10 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -418,10 +419,10 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -441,10 +442,10 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -465,10 +466,10 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -490,10 +491,10 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -534,15 +535,15 @@ func TestPluginSdkAttributes_CodeForListOfBasicType(t *testing.T) {
 
 func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -567,11 +568,11 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -597,11 +598,11 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -626,11 +627,11 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -656,11 +657,11 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -687,11 +688,11 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeList,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.ListTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -718,13 +719,13 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 	}
 	for i, testCase := range testData {
 		helper := PluginSdkAttributesHelpers{
-			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			SchemaModels: map[string]models.TerraformSchemaModel{
 				"NestedSchemaModel": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					Fields: map[string]models.TerraformSchemaField{
 						"NestedField": {
-							HclName: "nested_field",
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							HCLName: "nested_field",
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 							Optional: true,
 						},
@@ -748,24 +749,24 @@ func TestPluginSdkAttributes_CodeForListOfReferenceType(t *testing.T) {
 }
 
 func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
-	basicFieldTypes := map[resourcemanager.TerraformSchemaFieldType]string{
-		resourcemanager.TerraformSchemaFieldTypeBoolean: "pluginsdk.TypeBool",
-		resourcemanager.TerraformSchemaFieldTypeFloat:   "pluginsdk.TypeFloat",
-		resourcemanager.TerraformSchemaFieldTypeInteger: "pluginsdk.TypeInt",
-		resourcemanager.TerraformSchemaFieldTypeString:  "pluginsdk.TypeString",
+	basicFieldTypes := map[models.TerraformSchemaObjectDefinitionType]string{
+		models.BooleanTerraformSchemaObjectDefinitionType: "pluginsdk.TypeBool",
+		models.FloatTerraformSchemaObjectDefinitionType:   "pluginsdk.TypeFloat",
+		models.IntegerTerraformSchemaObjectDefinitionType: "pluginsdk.TypeInt",
+		models.StringTerraformSchemaObjectDefinitionType:  "pluginsdk.TypeString",
 	}
 	for fieldType, pluginSdkType := range basicFieldTypes {
 		t.Run(fmt.Sprintf("Field Type %s", string(fieldType)), func(t *testing.T) {
 
 			testData := []struct {
-				input    resourcemanager.TerraformSchemaFieldDefinition
+				input    models.TerraformSchemaField
 				expected string
 			}{
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -785,10 +786,10 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -809,10 +810,10 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -832,10 +833,10 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -856,10 +857,10 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -881,10 +882,10 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 `, pluginSdkType),
 				},
 				{
-					input: resourcemanager.TerraformSchemaFieldDefinition{
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeSet,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
+					input: models.TerraformSchemaField{
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SetTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
 								Type: fieldType,
 							},
 						},
@@ -925,15 +926,15 @@ func TestPluginSdkAttributes_CodeForSetOfBasicType(t *testing.T) {
 
 func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 	testData := []struct {
-		input    resourcemanager.TerraformSchemaFieldDefinition
+		input    models.TerraformSchemaField
 		expected string
 	}{
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -958,11 +959,11 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -988,11 +989,11 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -1017,11 +1018,11 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -1047,11 +1048,11 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -1078,11 +1079,11 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 `,
 		},
 		{
-			input: resourcemanager.TerraformSchemaFieldDefinition{
-				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-					Type: resourcemanager.TerraformSchemaFieldTypeSet,
-					NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-						Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+			input: models.TerraformSchemaField{
+				ObjectDefinition: models.TerraformSchemaObjectDefinition{
+					Type: models.SetTerraformSchemaObjectDefinitionType,
+					NestedObject: &models.TerraformSchemaObjectDefinition{
+						Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 						ReferenceName: pointer.To("NestedSchemaModel"),
 					},
 				},
@@ -1109,13 +1110,13 @@ func TestPluginSdkAttributes_CodeForSetOfReferenceType(t *testing.T) {
 	}
 	for i, testCase := range testData {
 		helper := PluginSdkAttributesHelpers{
-			SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+			SchemaModels: map[string]models.TerraformSchemaModel{
 				"NestedSchemaModel": {
-					Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+					Fields: map[string]models.TerraformSchemaField{
 						"NestedField": {
-							HclName: "nested_field",
-							ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type: resourcemanager.TerraformSchemaFieldTypeString,
+							HCLName: "nested_field",
+							ObjectDefinition: models.TerraformSchemaObjectDefinition{
+								Type: models.StringTerraformSchemaObjectDefinitionType,
 							},
 							Optional: true,
 						},

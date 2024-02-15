@@ -7,7 +7,6 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 

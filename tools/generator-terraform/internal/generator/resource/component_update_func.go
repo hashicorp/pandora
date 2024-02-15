@@ -7,13 +7,14 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorHelpers "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func updateFuncForResource(input models.ResourceInput) (*string, error) {
+func updateFuncForResource(input generatorModels.ResourceInput) (*string, error) {
 	if input.Details.UpdateMethod == nil || !input.Details.UpdateMethod.Generate {
 		return nil, nil
 	}
@@ -23,19 +24,19 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
-	updateOperation, ok := input.Operations[input.Details.UpdateMethod.MethodName]
+	updateOperation, ok := input.Operations[input.Details.UpdateMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find update operation named %q", input.Details.UpdateMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find update operation named %q", input.Details.UpdateMethod.SDKOperationName)
 	}
 
-	createOperation, ok := input.Operations[input.Details.CreateMethod.MethodName]
+	createOperation, ok := input.Operations[input.Details.CreateMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find create operation named %q for update operation", input.Details.CreateMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find create operation named %q for create operation", input.Details.CreateMethod.SDKOperationName)
 	}
 
-	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
+	readOperation, ok := input.Operations[input.Details.ReadMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find read operation named %q for update operation", input.Details.ReadMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find read operation named %q for read operation", input.Details.ReadMethod.SDKOperationName)
 	}
 
 	terraformModel, ok := input.SchemaModels[input.SchemaModelName]
@@ -53,11 +54,11 @@ func updateFuncForResource(input models.ResourceInput) (*string, error) {
 		schemaModelName:         input.SchemaModelName,
 		sdkResourceNameLowered:  strings.ToLower(input.SdkResourceName),
 		createMethod:            createOperation,
-		createMethodName:        input.Details.CreateMethod.MethodName,
+		createMethodName:        input.Details.CreateMethod.SDKOperationName,
 		updateMethod:            updateOperation,
-		updateMethodName:        input.Details.UpdateMethod.MethodName,
+		updateMethodName:        input.Details.UpdateMethod.SDKOperationName,
 		readMethod:              readOperation,
-		readMethodName:          input.Details.ReadMethod.MethodName,
+		readMethodName:          input.Details.ReadMethod.SDKOperationName,
 		resourceIdParseFuncName: *idParseLine,
 		resourceTypeName:        input.ResourceTypeName,
 		models:                  input.Models,
@@ -93,7 +94,7 @@ func (r %[1]sResource) Update() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"), strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
+`, input.ResourceTypeName, input.Details.UpdateMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, strings.Join(lines, "\n"), strings.Title(generatorHelpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }
 
@@ -101,21 +102,21 @@ type updateFuncHelpers struct {
 	schemaModelName        string
 	sdkResourceNameLowered string
 
-	createMethod     resourcemanager.ApiOperation
+	createMethod     models.SDKOperation
 	createMethodName string
 
-	updateMethod     resourcemanager.ApiOperation
+	updateMethod     models.SDKOperation
 	updateMethodName string
 
-	readMethod     resourcemanager.ApiOperation
+	readMethod     models.SDKOperation
 	readMethodName string
 
 	resourceIdParseFuncName string
 	resourceTypeName        string
 
-	terraformModel resourcemanager.TerraformSchemaModelDefinition
-	topLevelModel  resourcemanager.ModelDetails
-	models         map[string]resourcemanager.ModelDetails
+	terraformModel models.TerraformSchemaModel
+	topLevelModel  models.SDKModel
+	models         map[string]models.SDKModel
 }
 
 func (h updateFuncHelpers) modelDecode() (*string, error) {
@@ -137,8 +138,10 @@ func (h updateFuncHelpers) payloadDefinition() (*string, error) {
 	// if the same method is used for CreateOrUpdate - and Read - then we need to load and patch the existing resource
 	hasMatchingPayloads := false
 	if h.updateMethod.RequestObject != nil && h.createMethod.RequestObject != nil && h.readMethod.ResponseObject != nil {
-		if h.updateMethod.RequestObject != nil && h.updateMethod.RequestObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			hasMatchingPayloads = h.updateMethod.RequestObject.Matches(h.createMethod.RequestObject) && h.updateMethod.RequestObject.Matches(h.readMethod.ResponseObject)
+		if h.updateMethod.RequestObject != nil && h.updateMethod.RequestObject.Type == models.ReferenceSDKObjectDefinitionType {
+			createAndUpdateRequestPayloadsMatch := helpers.SDKObjectDefinitionsMatch(*h.createMethod.RequestObject, *h.updateMethod.RequestObject)
+			updateRequestAndReadResponsePayloadsMatch := helpers.SDKObjectDefinitionsMatch(*h.readMethod.ResponseObject, *h.updateMethod.RequestObject)
+			hasMatchingPayloads = createAndUpdateRequestPayloadsMatch && updateRequestAndReadResponsePayloadsMatch
 		}
 	}
 

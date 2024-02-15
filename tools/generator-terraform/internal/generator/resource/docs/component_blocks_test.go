@@ -7,84 +7,81 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestComponentBlocks_ModelsSingle(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "required_nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
-						HclName:  "required_nested_item",
 					},
 				},
 			},
 			"RequiredNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalItem": {
-						HclName: "optional_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"ComputedItem": {
-						HclName: "computed_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
 					"RequiredItem": {
-						HclName: "required_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"BooleanItem": {
-						HclName: "boolean_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName: "boolean_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -118,66 +115,64 @@ In addition to the arguments defined above, the 'required_nested_item' block exp
 }
 
 func TestComponentBlocks_ModelsSingleArgumentsOnly(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},
 			"RequiredNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalItem": {
-						HclName: "optional_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"RequiredItem": {
-						HclName: "required_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"BooleanItem": {
-						HclName: "boolean_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName: "boolean_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -207,34 +202,34 @@ The 'required_nested_item' block supports the following arguments:
 }
 
 func TestComponentBlocks_ModelsSingleAttributesOnly(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "required_nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
-						HclName:  "required_nested_item",
 					},
 				},
 			},
 			"RequiredNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"ComputedItem": {
-						HclName: "computed_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -260,233 +255,225 @@ The 'required_nested_item' block exports the following attributes:
 }
 
 func TestComponentBlocks_ModelsMultiple(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalNestedItem": {
 						Optional: true,
-						HclName:  "optional_nested_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName:  "optional_nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("NestedSchema"),
 						},
 					},
 					"RequiredInteger": {
-						HclName: "required_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "required_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{1, 2, 3},
 							},
 						},
 					},
 					"OptionalInteger": {
-						HclName: "optional_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "optional_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{4, 5, 6},
 							},
 						},
 					},
 					"ComputedInteger": {
-						HclName: "computed_integer",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeInteger,
+						HCLName: "computed_integer",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 					"RequiredString": {
-						HclName: "required_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"OptionalString": {
-						HclName: "optional_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"ComputedString": {
-						HclName: "computed_string",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_string",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
 				},
 			},
 			"NestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"NestedItem": {
-						HclName: "nested_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "nested_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for nested_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"AnotherNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("AnotherNestedSchema"),
 						},
 						Optional: true,
-						HclName:  "another_nested_item",
+						HCLName:  "another_nested_item",
 					},
 					"ZAnotherNestedItem2": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("ZAnotherNestedSchema2"),
 						},
 						Optional: true,
-						HclName:  "z_another_nested_item_2",
+						HCLName:  "z_another_nested_item_2",
 					},
 					"ComputedItem": {
-						HclName: "computed_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
 				},
 			},
 			"RequiredNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalItem": {
-						HclName: "optional_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"ComputedItem": {
-						HclName: "computed_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
 					"RequiredItem": {
-						HclName: "required_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "required_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
 					},
 					"BooleanItem": {
-						HclName: "boolean_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeBoolean,
+						HCLName: "boolean_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
 				},
 			},
 			"AnotherNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalItem": {
-						HclName: "optional_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string1", "string2", "string3"},
 							},
 						},
@@ -494,19 +481,18 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 				},
 			},
 			"ZAnotherNestedSchema2": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OptionalItem2": {
-						HclName: "optional_item_2",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "optional_item_2",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
-						Validation: &resourcemanager.TerraformSchemaValidationDefinition{
-							Type: "PossibleValues",
-							PossibleValues: &resourcemanager.TerraformSchemaValidationPossibleValuesDefinition{
+						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
+							PossibleValues: &models.TerraformSchemaFieldValidationPossibleValuesDefinitionImpl{
 								Values: []interface{}{"string4", "string5", "string6"},
 							},
 						},
@@ -568,88 +554,88 @@ The 'z_another_nested_item_2' block supports the following arguments:
 }
 
 func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"First": {
-						HclName: "first",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "first",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for first.",
 						},
 					},
 					"Second": {
-						HclName: "second",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "second",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Second"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for second.",
 						},
 					},
 				},
 			},
 			"Example": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"SomeField": {
-						HclName: "some_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for some_field.",
 						},
 					},
 					"ComputedField": {
-						HclName: "computed_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
 				},
 			},
 			"First": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
-						HclName: "example",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
 				},
 			},
 			"Second": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
-						HclName: "example",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Example"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -692,112 +678,112 @@ The 'second' block supports the following arguments:
 }
 
 func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShouldBeOutputUniquely(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"First": {
-						HclName: "first",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "first",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for first.",
 						},
 					},
 					"Second": {
-						HclName: "second",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "second",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Second"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for second.",
 						},
 					},
 				},
 			},
 			"Example1": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"SomeField": {
-						HclName: "some_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "some_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for some_field.",
 						},
 					},
 					"ComputedField": {
-						HclName: "computed_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
 				},
 			},
 			"Example2": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"OtherField": {
-						HclName: "other_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "other_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for other_field.",
 						},
 					},
 					"ComputedField": {
-						HclName: "computed_field",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						HCLName: "computed_field",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
 				},
 			},
 			"First": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
-						HclName: "example",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Example1"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
 				},
 			},
 			"Second": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
-						HclName: "example",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "example",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Example2"),
 						},
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -850,33 +836,33 @@ The 'second' block supports the following arguments:
 }
 
 func TestComponentBlocks_ModelsReferencingAListOfModels(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("RequiredNestedSchema"),
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},
 			"RequiredNestedSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredItem": {
-						HclName: "required_item",
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeList,
-							NestedObject: &resourcemanager.TerraformSchemaFieldObjectDefinition{
-								Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						HCLName: "required_item",
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.ListTerraformSchemaObjectDefinitionType,
+							NestedObject: &models.TerraformSchemaObjectDefinition{
+								Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 								ReferenceName: pointer.To("NestedModel"),
 							},
 						},
@@ -885,14 +871,14 @@ func TestComponentBlocks_ModelsReferencingAListOfModels(t *testing.T) {
 				},
 			},
 			"NestedModel": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Name": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
-						HclName:  "name",
+						HCLName:  "name",
 						Required: true,
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "The name of the thing.",
 						},
 					},
@@ -925,93 +911,93 @@ The 'required_nested_item' block supports the following arguments:
 }
 
 func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"First": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						HclName:  "first",
+						HCLName:  "first",
 					},
 					"SystemAssignedIdentity": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "system_assigned_identity",
+						HCLName:  "system_assigned_identity",
 					},
 					"Second": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Second"),
 						},
 						Required: true,
-						HclName:  "second",
+						HCLName:  "second",
 					},
 					"Third": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("Third"),
 						},
 						Required: true,
-						HclName:  "third",
+						HCLName:  "third",
 					},
 				},
 			},
 			"First": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "some_field",
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						HCLName:  "some_field",
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},
 				},
 			},
 			"Second": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"First": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("First"),
 						},
 						Optional: true,
-						HclName:  "first",
+						HCLName:  "first",
 					},
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "some_field",
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						HCLName:  "some_field",
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},
 				},
 			},
 			"Third": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"SomeField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeString,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "some_field",
-						Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
+						HCLName:  "some_field",
+						Documentation: models.TerraformSchemaDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},
@@ -1063,33 +1049,33 @@ The 'third' block supports the following arguments:
 }
 
 func TestComponentBlocks_NestedIdentityBlockGetsPulledOut(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type:          resourcemanager.TerraformSchemaFieldTypeReference,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type:          models.ReferenceTerraformSchemaObjectDefinitionType,
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						HclName:  "first",
+						HCLName:  "first",
 					},
 				},
 			},
 			"First": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"SomeIdentityField": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "some_identity_field",
+						HCLName:  "some_identity_field",
 					},
 				},
 			},
@@ -1125,21 +1111,21 @@ In addition to the arguments defined above, the 'some_identity_field' block expo
 }
 
 func TestComponentBlocks_IdentitySystemAssigned(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},
@@ -1169,21 +1155,21 @@ In addition to the arguments defined above, the 'required_nested_item' block exp
 }
 
 func TestComponentBlocks_IdentitySystemAndUserAssigned(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},
@@ -1216,21 +1202,21 @@ In addition to the arguments defined above, the 'required_nested_item' block exp
 }
 
 func TestComponentBlocks_IdentitySystemOrUserAssigned(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},
@@ -1263,21 +1249,21 @@ In addition to the arguments defined above, the 'required_nested_item' block exp
 }
 
 func TestComponentBlocks_IdentityUserAssigned(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
 			DisplayName: "Blobby Instance",
 		},
 		ResourceTypeName: "Example",
 		SchemaModelName:  "TopLevelModelResourceSchema",
-		SchemaModels: map[string]resourcemanager.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"TopLevelModelResourceSchema": {
-				Fields: map[string]resourcemanager.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"RequiredNestedItem": {
-						ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
-							Type: resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned,
+						ObjectDefinition: models.TerraformSchemaObjectDefinition{
+							Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						HclName:  "required_nested_item",
+						HCLName:  "required_nested_item",
 					},
 				},
 			},

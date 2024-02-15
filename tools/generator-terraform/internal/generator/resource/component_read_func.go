@@ -8,35 +8,34 @@ import (
 	"sort"
 	"strings"
 
-	helpers2 "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
 type readFunctionComponents struct {
-	constants       map[string]resourcemanager.ConstantDetails
+	constants       map[string]models.SDKConstant
 	idParseLine     string
-	mappings        resourcemanager.MappingDefinition
+	mappings        models.TerraformMappingDefinition
 	parentResource  string
 	parentSegment   string
-	readMethod      resourcemanager.MethodDefinition
-	readOperation   resourcemanager.ApiOperation
-	resourceId      resourcemanager.ResourceIdDefinition
+	readMethod      models.TerraformMethodDefinition
+	readOperation   models.SDKOperation
+	resourceId      models.ResourceID
 	schemaModelName string
 	sdkResourceName string
-	terraformModel  resourcemanager.TerraformSchemaModelDefinition
-	topLevelModel   resourcemanager.ModelDetails
+	terraformModel  models.TerraformSchemaModel
+	topLevelModel   models.SDKModel
 }
 
-func readFunctionForResource(input models.ResourceInput) (*string, error) {
+func readFunctionForResource(input generatorModels.ResourceInput) (*string, error) {
 	if !input.Details.ReadMethod.Generate {
 		return nil, nil
 	}
 
-	readOperation, ok := input.Operations[input.Details.ReadMethod.MethodName]
+	readOperation, ok := input.Operations[input.Details.ReadMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find read operation named %q", input.Details.ReadMethod.SDKOperationName)
 	}
 
 	idParseLine, err := input.ParseResourceIdFuncName()
@@ -47,11 +46,11 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 	parentResource := ""
 	parentSegment := ""
 
-	for _, m := range input.Details.Mappings.ResourceId {
+	for _, m := range input.Details.Mappings.ResourceID {
 		if m.ParsedFromParentID {
 			// TODO this relies on the fact that the resource ID mappings are output in a certain order
 			// for now it's okay but we should make this more robust
-			parentResource = m.SchemaFieldName
+			parentResource = m.TerraformSchemaFieldName
 			parentSegment = m.SegmentName
 			break
 		}
@@ -62,9 +61,9 @@ func readFunctionForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("the Schema Model named %q was not found", input.SchemaModelName)
 	}
 
-	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
+	resourceId, ok := input.ResourceIds[input.Details.ResourceIDName]
 	if !ok {
-		return nil, fmt.Errorf("the Resource ID named %q was not found", input.Details.ResourceIdName)
+		return nil, fmt.Errorf("the Resource ID named %q was not found", input.Details.ResourceIDName)
 	}
 
 	// at this point we only support References being returned, so this is safe
@@ -116,7 +115,7 @@ func (r %[1]sResource) Read() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, input.SchemaModelName, strings.Join(lines, "\n\n"), strings.Title(helpers2.NamespaceForApiVersion(input.SdkApiVersion)))
+`, input.ResourceTypeName, input.Details.ReadMethod.TimeoutInMinutes, input.ServiceName, input.SdkResourceName, input.SchemaModelName, strings.Join(lines, "\n\n"), strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)))
 	return &output, nil
 }
 
@@ -129,14 +128,14 @@ func (c readFunctionComponents) codeForIDParser() (*string, error) {
 `, c.idParseLine)
 
 	if c.parentResource != "" && c.parentSegment != "" {
-		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers2.CamelCasedName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
+		output += fmt.Sprintf("\t\t\n%s := commonids.New%s(id.SubscriptionId, id.ResourceGroupName, id.%s)", helpers.CamelCasedName(c.parentResource), strings.Replace(c.parentResource, "Id", "ID", -1), strings.Title(c.parentSegment))
 	}
 
 	return &output, nil
 }
 
 func (c readFunctionComponents) codeForGet() (*string, error) {
-	methodArguments := argumentsForApiOperationMethod(c.readOperation, c.sdkResourceName, c.readMethod.MethodName, true)
+	methodArguments := argumentsForApiOperationMethod(c.readOperation, c.sdkResourceName, c.readMethod.SDKOperationName, true)
 	output := fmt.Sprintf(`
 			resp, err := client.%[1]s(%[2]s)
 			if err != nil {
@@ -145,7 +144,7 @@ func (c readFunctionComponents) codeForGet() (*string, error) {
 				}
 				return fmt.Errorf("retrieving %%s: %%+v", *id, err)
 			}
-`, c.readMethod.MethodName, methodArguments)
+`, c.readMethod.SDKOperationName, methodArguments)
 	return &output, nil
 }
 
@@ -171,16 +170,16 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, v := range c.resourceId.Segments {
-		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.SubscriptionIdSegment {
+		if v.Type == models.StaticResourceIDSegmentType || v.Type == models.SubscriptionIDResourceIDSegmentType {
 			continue
 		}
 
-		for _, resourceIdMapping := range c.mappings.ResourceId {
+		for _, resourceIdMapping := range c.mappings.ResourceID {
 			if resourceIdMapping.SegmentName != v.Name {
 				continue
 			}
 
-			if v.Type == resourcemanager.ResourceGroupSegment && c.parentResource != "" {
+			if v.Type == models.ResourceGroupSegment && c.parentResource != "" {
 				continue
 			}
 			// Constants are output into the Schema as their native types (e.g. int/float/string) so we need to convert prior to assigning
@@ -189,15 +188,15 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 				if !ok {
 					return nil, fmt.Errorf("the constant %q referenced in Resource ID Segment %q was not found", *v.ConstantReference, v.Name)
 				}
-				constantGoTypeName, err := helpers2.GolangFieldTypeFromConstantType(constant.Type)
+				constantGoTypeName, err := helpers.GolangFieldTypeFromConstantType(constant.Type)
 				if err != nil {
 					return nil, fmt.Errorf("determining Golang Type name for Constant Type %q: %+v", string(constant.Type), err)
 				}
-				lines = append(lines, fmt.Sprintf("schema.%s = %s(id.%s)", resourceIdMapping.SchemaFieldName, *constantGoTypeName, strings.Title(resourceIdMapping.SegmentName)))
+				lines = append(lines, fmt.Sprintf("schema.%s = %s(id.%s)", resourceIdMapping.TerraformSchemaFieldName, *constantGoTypeName, strings.Title(resourceIdMapping.SegmentName)))
 			} else if c.parentResource != "" && v.Name == c.parentSegment {
-				lines = append(lines, fmt.Sprintf("schema.%s = %s.ID()", c.parentResource, helpers2.CamelCasedName(c.parentResource)))
+				lines = append(lines, fmt.Sprintf("schema.%s = %s.ID()", c.parentResource, helpers.CamelCasedName(c.parentResource)))
 			} else {
-				lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.SchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
+				lines = append(lines, fmt.Sprintf("schema.%s = id.%s", resourceIdMapping.TerraformSchemaFieldName, strings.Title(resourceIdMapping.SegmentName)))
 			}
 			break
 		}

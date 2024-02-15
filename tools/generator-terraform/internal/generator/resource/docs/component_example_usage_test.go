@@ -7,17 +7,16 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 	"github.com/hashicorp/pandora/tools/sdk/testhelpers"
 )
 
 func TestExampleUsage(t *testing.T) {
-	input := models.ResourceInput{
-		Details: resourcemanager.TerraformResourceDetails{
-			Documentation: resourcemanager.ResourceDocumentationDefinition{
-				ExampleUsageHcl: `
+	input := generatorModels.ResourceInput{
+		Details: models.TerraformResourceDefinition{
+			Documentation: models.TerraformDocumentationDefinition{
+				ExampleUsageHCL: `
 resource "azurerm_resource_group" "example" {
   name     = "example-resources"
   location = "West Europe"

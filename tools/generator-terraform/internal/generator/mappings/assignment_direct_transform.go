@@ -3,7 +3,9 @@
 
 package mappings
 
-import "github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+)
 
 var directAssignmentTransforms = []directAssignmentTransform{
 	directAssignmentTransformLocation{},
@@ -19,8 +21,8 @@ var directAssignmentTransforms = []directAssignmentTransform{
 type directAssignmentTransformFunc = func(outputAssignment, outputVariableName, inputAssignment string) string
 
 type directAssignmentTransform interface {
-	schemaFieldType() resourcemanager.TerraformSchemaFieldType
-	sdkFieldType() resourcemanager.ApiObjectDefinitionType
+	schemaFieldType() models.TerraformSchemaObjectDefinitionType
+	sdkFieldType() models.SDKObjectDefinitionType
 
 	requiredExpandFuncBody() directAssignmentTransformFunc
 	optionalExpandFuncBody() directAssignmentTransformFunc
@@ -29,7 +31,7 @@ type directAssignmentTransform interface {
 	optionalFlattenFuncBody() directAssignmentTransformFunc
 }
 
-func findDirectAssignmentTransform(schemaFieldType resourcemanager.TerraformSchemaFieldType, sdkFieldType resourcemanager.ApiObjectDefinitionType) directAssignmentTransform {
+func findDirectAssignmentTransform(schemaFieldType models.TerraformSchemaObjectDefinitionType, sdkFieldType models.SDKObjectDefinitionType) directAssignmentTransform {
 	for _, transform := range directAssignmentTransforms {
 		if transform.schemaFieldType() == schemaFieldType && transform.sdkFieldType() == sdkFieldType {
 			return transform

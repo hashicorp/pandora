@@ -10,7 +10,7 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func codeForGeneratedNote(input models.ResourceInput) (*string, error) {
+func codeForGeneratedNote(_ models.ResourceInput) (*string, error) {
 	output := strings.TrimSpace(fmt.Sprintf(`
 <!-- Note: This documentation is generated. Any manual changes will be overwritten -->
 `))

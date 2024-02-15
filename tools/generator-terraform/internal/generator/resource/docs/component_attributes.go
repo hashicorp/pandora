@@ -7,12 +7,11 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func codeForAttributesReference(input models.ResourceInput) (*string, error) {
+func codeForAttributesReference(input generatorModels.ResourceInput) (*string, error) {
 
 	components := make([]string, 0)
 	components = append(components, "## Attributes Reference")
@@ -33,7 +32,7 @@ func codeForAttributesReference(input models.ResourceInput) (*string, error) {
 	return &output, nil
 }
 
-func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*string, error) {
+func getAttributes(model models.TerraformSchemaModel) (*string, error) {
 	lines := make([]string, 0)
 	sortedFieldNames := sortFieldNamesAlphabetically(model)
 
@@ -51,35 +50,35 @@ func getAttributes(model resourcemanager.TerraformSchemaModelDefinition) (*strin
 	return &out, nil
 }
 
-func documentationLineForAttribute(field resourcemanager.TerraformSchemaFieldDefinition, nestedWithin string) (*string, error) {
+func documentationLineForAttribute(field models.TerraformSchemaField, nestedWithin string) (*string, error) {
 	components := make([]string, 0)
-	components = append(components, fmt.Sprintf("* `%s` -", field.HclName))
+	components = append(components, fmt.Sprintf("* `%s` -", field.HCLName))
 
 	isList := false
-	if field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList || field.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeSet {
+	if field.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType || field.ObjectDefinition.Type == models.SetTerraformSchemaObjectDefinitionType {
 		isList = true
 	}
 	objectDefinition := topLevelObjectDefinition(field.ObjectDefinition)
 
 	// identify block
 	if _, ok := objectDefinitionsWhichShouldBeSurfacedAsBlocks[objectDefinition.Type]; ok {
-		fieldBeginsWithVowel, err := beginsWithVowel(field.HclName)
+		fieldBeginsWithVowel, err := beginsWithVowel(field.HCLName)
 		if err != nil {
 			return nil, err
 		}
 
 		fieldLocation := "below"
-		if nestedWithin != "" && field.HclName <= nestedWithin {
+		if nestedWithin != "" && field.HCLName <= nestedWithin {
 			fieldLocation = "above"
 		}
 
 		if isList {
-			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HclName, fieldLocation))
+			components = append(components, fmt.Sprintf("A list of `%s` blocks as defined %s.", field.HCLName, fieldLocation))
 		} else {
 			if fieldBeginsWithVowel {
-				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HclName, fieldLocation))
+				components = append(components, fmt.Sprintf("An `%s` block as defined %s.", field.HCLName, fieldLocation))
 			} else {
-				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HclName, fieldLocation))
+				components = append(components, fmt.Sprintf("A `%s` block as defined %s.", field.HCLName, fieldLocation))
 			}
 		}
 	}

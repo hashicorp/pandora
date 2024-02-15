@@ -8,20 +8,19 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
-func codeForImport(input models.ResourceInput) (*string, error) {
-	resourceId, ok := input.ResourceIds[input.Details.ResourceIdName]
+func codeForImport(input generatorModels.ResourceInput) (*string, error) {
+	resourceId, ok := input.ResourceIds[input.Details.ResourceIDName]
 	if !ok {
-		return nil, fmt.Errorf("resource ID %q is used but was not defined", input.Details.ResourceIdName)
+		return nil, fmt.Errorf("resource ID %q is used but was not defined", input.Details.ResourceIDName)
 	}
 
 	resourceIdDescriptionLines := make([]string, 0)
 	for _, value := range resourceId.Segments {
-		if value.Type == resourcemanager.ResourceProviderSegment || value.Type == resourcemanager.StaticSegment {
+		if value.Type == models.ResourceProviderSegment || value.Type == models.StaticSegment {
 			continue
 		}
 
@@ -45,13 +44,13 @@ terraform import %[2]s_%[3]s.example %[4]s
 '''
 
 %[5]s
-`, input.Details.DisplayName, input.ProviderPrefix, input.ResourceLabel, resourceId.Id, strings.Join(resourceIdDescriptionLines, "\n"))
+`, input.Details.DisplayName, input.ProviderPrefix, input.ResourceLabel, resourceId.ExampleValue, strings.Join(resourceIdDescriptionLines, "\n"))
 	output := strings.TrimSpace(strings.ReplaceAll(importsCode, "'", "`"))
 	return &output, nil
 }
 
-func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceId resourcemanager.ResourceIdDefinition, details resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails) (*string, error) {
-	if segment.Type == resourcemanager.ResourceGroupSegment {
+func descriptionsForSegment(segment models.ResourceIDSegment, resourceId models.ResourceID, details models.TerraformResourceDefinition, constants map[string]models.SDKConstant) (*string, error) {
+	if segment.Type == models.ResourceGroupResourceIDSegmentType {
 		if isCommonResourceIdNamed("ResourceGroup", resourceId) {
 			out := fmt.Sprintf("is the name of this %[1]s. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
@@ -60,7 +59,7 @@ func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceI
 		out := fmt.Sprintf("is the name of Resource Group where this %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 		return &out, nil
 	}
-	if segment.Type == resourcemanager.SubscriptionIdSegment {
+	if segment.Type == models.SubscriptionIDResourceIDSegmentType {
 		if isCommonResourceIdNamed("Subscription", resourceId) {
 			out := fmt.Sprintf("is the ID of this %[1]s. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
@@ -69,7 +68,7 @@ func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceI
 		out := fmt.Sprintf("is the ID of the Azure Subscription where the %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 		return &out, nil
 	}
-	if segment.Type == resourcemanager.ScopeSegment {
+	if segment.Type == models.ScopeResourceIDSegmentType {
 		if isCommonResourceIdNamed("Scope", resourceId) {
 			out := fmt.Sprintf("is the Azure Resource Scope under which this %[1]s exists. For example '%[2]s'.", details.DisplayName, segment.ExampleValue)
 			return &out, nil
@@ -81,7 +80,7 @@ func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceI
 
 	description := fmt.Sprintf("is the name of the %s", wordifySegmentName(segment.Name))
 
-	if segment.Type == resourcemanager.ConstantSegment {
+	if segment.Type == models.ConstantResourceIDSegmentType {
 		if segment.ConstantReference == nil {
 			return nil, fmt.Errorf("segment is a constant without a reference")
 		}
@@ -94,7 +93,7 @@ func descriptionsForSegment(segment resourcemanager.ResourceIdSegment, resourceI
 		description = fmt.Sprintf("%s. %s.", description, possibleValues)
 	}
 
-	if segment.Type == resourcemanager.UserSpecifiedSegment {
+	if segment.Type == models.UserSpecifiedResourceIDSegmentType {
 		description = fmt.Sprintf("%s. For example `%s`.", description, segment.ExampleValue)
 	}
 
@@ -111,6 +110,6 @@ func wordifyConstantValues(values map[string]string) string {
 	return fmt.Sprintf("Possible values are %s and %s", strings.Join(components[0:len(components)-1], ", "), components[len(components)-1])
 }
 
-func isCommonResourceIdNamed(name string, resourceId resourcemanager.ResourceIdDefinition) bool {
-	return resourceId.CommonAlias != nil && *resourceId.CommonAlias == name
+func isCommonResourceIdNamed(name string, resourceId models.ResourceID) bool {
+	return resourceId.CommonIDAlias != nil && *resourceId.CommonIDAlias == name
 }

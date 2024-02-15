@@ -21,13 +21,13 @@ func deleteFunctionForResource(input models.ResourceInput) (*string, error) {
 		return nil, fmt.Errorf("determining Parse function name for Resource ID: %+v", err)
 	}
 
-	deleteOperation, ok := input.Operations[input.Details.DeleteMethod.MethodName]
+	deleteOperation, ok := input.Operations[input.Details.DeleteMethod.SDKOperationName]
 	if !ok {
-		return nil, fmt.Errorf("couldn't find delete operation named %q", input.Details.DeleteMethod.MethodName)
+		return nil, fmt.Errorf("couldn't find delete operation named %q", input.Details.DeleteMethod.SDKOperationName)
 	}
 
-	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.MethodName, true)
-	deleteMethodName := methodNameToCallForOperation(deleteOperation, input.Details.DeleteMethod.MethodName)
+	methodArguments := argumentsForApiOperationMethod(deleteOperation, input.SdkResourceName, input.Details.DeleteMethod.SDKOperationName, true)
+	deleteMethodName := methodNameToCallForOperation(deleteOperation, input.Details.DeleteMethod.SDKOperationName)
 	variablesForMethod := "err"
 	if !deleteOperation.LongRunning {
 		variablesForMethod = "_, err"

@@ -9,20 +9,20 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-var objectDefinitionsWhichShouldBeSurfacedAsBlocks = map[resourcemanager.TerraformSchemaFieldType]struct{}{
-	resourcemanager.TerraformSchemaFieldTypeReference: {},
+var objectDefinitionsWhichShouldBeSurfacedAsBlocks = map[models.TerraformSchemaObjectDefinitionType]struct{}{
+	models.ReferenceTerraformSchemaObjectDefinitionType: {},
 
 	// The Identity types should be output as blocks, since these are blocks within commonschema
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned:        {},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAndUserAssigned: {},
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemOrUserAssigned:  {},
-	resourcemanager.TerraformSchemaFieldTypeIdentityUserAssigned:          {},
+	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType:        {},
+	models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType: {},
+	models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType:  {},
+	models.UserAssignedIdentityTerraformSchemaObjectDefinitionType:          {},
 }
 
-func topLevelObjectDefinition(input resourcemanager.TerraformSchemaFieldObjectDefinition) resourcemanager.TerraformSchemaFieldObjectDefinition {
+func topLevelObjectDefinition(input models.TerraformSchemaObjectDefinition) models.TerraformSchemaObjectDefinition {
 	if input.NestedObject != nil {
 		return topLevelObjectDefinition(*input.NestedObject)
 	}
@@ -93,22 +93,13 @@ func beginsWithVowel(word string) (bool, error) {
 	}
 }
 
-func sortFieldNamesAlphabetically(model resourcemanager.TerraformSchemaModelDefinition) []string {
+func sortFieldNamesAlphabetically(model models.TerraformSchemaModel) []string {
 	fieldNames := make([]string, 0, len(model.Fields))
 	for k := range model.Fields {
 		fieldNames = append(fieldNames, k)
 	}
 	sort.Strings(fieldNames)
 	return fieldNames
-}
-
-func sortStringStringMapKeys(m map[string]string) []string {
-	keys := make([]string, 0, len(m))
-	for k := range m {
-		keys = append(keys, k)
-	}
-	sort.Strings(keys)
-	return keys
 }
 
 func wordifyPossibleValues[T any](in []T) string {
@@ -130,7 +121,7 @@ func removeExtraSpaces(line string) string {
 	return re.ReplaceAllString(line, " ")
 }
 
-func objectDefinitionsMatch(first resourcemanager.TerraformSchemaFieldObjectDefinition, second resourcemanager.TerraformSchemaFieldObjectDefinition) bool {
+func objectDefinitionsMatch(first models.TerraformSchemaObjectDefinition, second models.TerraformSchemaObjectDefinition) bool {
 	if first.Type != second.Type {
 		return false
 	}

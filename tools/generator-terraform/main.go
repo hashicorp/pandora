@@ -9,13 +9,13 @@ import (
 	"os"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/go-hclog"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/cmd"
+	"github.com/hashicorp/pandora/tools/generator-terraform/internal/logging"
 	"github.com/mitchellh/cli"
 )
-
-// TODO: split into a pipeline, logging.
 
 func main() {
 	if err := run(); err != nil {
@@ -34,8 +34,14 @@ func run() error {
 	// then trim it off the front
 	args = args[1:]
 
+	loggingOpts := hclog.DefaultOptions
+	if v := os.Getenv("LOG_LEVEL"); v != "" {
+		loggingOpts.Level = hclog.LevelFromString(v)
+	}
+	logging.Log = hclog.New(loggingOpts)
+
 	c := cli.NewCLI("generator-terraform", "1.0.0")
-	c.Args = os.Args[1:]
+	c.Args = args
 	c.Commands = map[string]cli.CommandFactory{
 		"generate": cmd.NewGenerateCommand(*sourceDataType),
 	}

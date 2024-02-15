@@ -6,29 +6,28 @@ package mappings
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
-
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var directAssignmentTypes = map[resourcemanager.TerraformSchemaFieldType]resourcemanager.ApiObjectDefinitionType{
-	resourcemanager.TerraformSchemaFieldTypeBoolean: resourcemanager.BooleanApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeFloat:   resourcemanager.FloatApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeInteger: resourcemanager.IntegerApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeString:  resourcemanager.StringApiObjectDefinitionType,
+var directAssignmentTypes = map[models.TerraformSchemaObjectDefinitionType]models.SDKObjectDefinitionType{
+	models.BooleanTerraformSchemaObjectDefinitionType: models.BooleanSDKObjectDefinitionType,
+	models.FloatTerraformSchemaObjectDefinitionType:   models.FloatSDKObjectDefinitionType,
+	models.IntegerTerraformSchemaObjectDefinitionType: models.IntegerSDKObjectDefinitionType,
+	models.StringTerraformSchemaObjectDefinitionType:  models.StringSDKObjectDefinitionType,
 
 	// TODO: handle/tests
-	resourcemanager.TerraformSchemaFieldTypeDateTime:               resourcemanager.DateTimeApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeLocation:               resourcemanager.LocationApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeTags:                   resourcemanager.TagsApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeReference:              resourcemanager.ReferenceApiObjectDefinitionType,
-	resourcemanager.TerraformSchemaFieldTypeIdentitySystemAssigned: resourcemanager.SystemAssignedIdentityApiObjectDefinitionType,
+	models.DateTimeTerraformSchemaObjectDefinitionType:               models.DateTimeSDKObjectDefinitionType,
+	models.LocationTerraformSchemaObjectDefinitionType:               models.LocationSDKObjectDefinitionType,
+	models.TagsTerraformSchemaObjectDefinitionType:                   models.TagsSDKObjectDefinitionType,
+	models.ReferenceTerraformSchemaObjectDefinitionType:              models.ReferenceSDKObjectDefinitionType,
+	models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType: models.SystemAssignedIdentitySDKObjectDefinitionType,
 }
 
-var directAssignmentConstantTypesToStrings = map[resourcemanager.TerraformSchemaFieldType]string{
-	resourcemanager.TerraformSchemaFieldTypeInteger: "int64",
-	resourcemanager.TerraformSchemaFieldTypeFloat:   "float64",
-	resourcemanager.TerraformSchemaFieldTypeString:  "string",
+var directAssignmentConstantTypesToStrings = map[models.TerraformSchemaObjectDefinitionType]string{
+	models.FloatTerraformSchemaObjectDefinitionType:   "float64",
+	models.IntegerTerraformSchemaObjectDefinitionType: "int64",
+	models.StringTerraformSchemaObjectDefinitionType:  "string",
 }
 
 var _ assignmentType = directAssignmentLine{}
@@ -37,91 +36,85 @@ type directAssignmentLine struct{}
 
 // TODO: support for when Mapping is Computed
 
-func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
-	schemaFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SchemaFieldPath)
-	if err != nil {
-		return nil, fmt.Errorf("obtaining Schema Field Name from Field Path %q: %+v", mapping.DirectAssignment.SchemaFieldPath, err)
-	}
-	schemaField, ok := schemaModel.Fields[*schemaFieldName]
+func (d directAssignmentLine) assignmentForCreateUpdateMapping(mapping models.TerraformFieldMappingDefinition, schemaModel models.TerraformSchemaModel, sdkModel models.SDKModel, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+	directAssignment, ok := mapping.(models.TerraformDirectAssignmentFieldMappingDefinition)
 	if !ok {
-		return nil, fmt.Errorf("the Field %q for Schema Model %q was not found", *schemaFieldName, mapping.DirectAssignment.SchemaModelName)
+		return nil, fmt.Errorf("internal-error: expected a DirectAssignment mapping but got %+v", mapping)
 	}
 
-	sdkFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SdkFieldPath)
-	if err != nil {
-		return nil, fmt.Errorf("obtaining SDK Field Name from Field Path %q: %+v", mapping.DirectAssignment.SdkFieldPath, err)
-	}
-	sdkField, ok := sdkModel.Fields[*sdkFieldName]
+	schemaField, ok := schemaModel.Fields[directAssignment.DirectAssignment.TerraformSchemaFieldName]
 	if !ok {
-		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
+		return nil, fmt.Errorf("the Field %q for Schema Model %q was not found", directAssignment.DirectAssignment.TerraformSchemaFieldName, directAssignment.DirectAssignment.TerraformSchemaModelName)
+	}
+
+	sdkField, ok := sdkModel.Fields[directAssignment.DirectAssignment.SDKFieldName]
+	if !ok {
+		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", directAssignment.DirectAssignment.SDKFieldName, directAssignment.DirectAssignment.SDKModelName)
 	}
 
 	// check if it requires a custom transform
 	if transform := findDirectAssignmentTransform(schemaField.ObjectDefinition.Type, sdkField.ObjectDefinition.Type); transform != nil {
-		return d.schemaToSdkMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
+		return d.schemaToSdkMappingRequiringTransform(directAssignment, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
 	}
 
 	// check the assignment type - if it's a List these are special-cased
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+	if schemaField.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
 		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
 
-		if schemaField.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			return d.schemaToSdkMappingBetweenListOfReferenceFields(mapping, schemaField, sdkField, apiResourcePackageName)
+		if schemaField.ObjectDefinition.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.NestedItem.Type == models.ReferenceSDKObjectDefinitionType {
+			return d.schemaToSdkMappingBetweenListOfReferenceFields(directAssignment, schemaField, sdkField, apiResourcePackageName)
 		}
 
-		return d.schemaToSdkMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		return d.schemaToSdkMappingBetweenListFields(directAssignment, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
-		return d.schemaToSdkMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
+	if schemaField.ObjectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.NestedItem == nil {
+		return d.schemaToSdkMappingBetweenFieldAndBlock(directAssignment, schemaField, sdkField)
 	}
 
-	return d.schemaToSdkMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
+	return d.schemaToSdkMappingBetweenFields(directAssignment, schemaField, sdkField, sdkConstant)
 }
 
-func (d directAssignmentLine) assignmentForReadMapping(mapping resourcemanager.FieldMappingDefinition, schemaModel resourcemanager.TerraformSchemaModelDefinition, sdkModel resourcemanager.ModelDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
-	schemaFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SchemaFieldPath)
-	if err != nil {
-		return nil, fmt.Errorf("obtaining Schema Field Name from Field Path %q: %+v", mapping.DirectAssignment.SchemaFieldPath, err)
-	}
-	schemaField, ok := schemaModel.Fields[*schemaFieldName]
+func (d directAssignmentLine) assignmentForReadMapping(mapping models.TerraformFieldMappingDefinition, schemaModel models.TerraformSchemaModel, sdkModel models.SDKModel, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+	directAssignment, ok := mapping.(models.TerraformDirectAssignmentFieldMappingDefinition)
 	if !ok {
-		return nil, fmt.Errorf("the Field %q for Schema Model %q was not found", *schemaFieldName, mapping.DirectAssignment.SchemaModelName)
+		return nil, fmt.Errorf("internal-error: expected a DirectAssignment mapping but got %+v", mapping)
 	}
 
-	sdkFieldName, err := singleFieldNameFromFieldPath(mapping.DirectAssignment.SdkFieldPath)
-	if err != nil {
-		return nil, fmt.Errorf("obtaining SDK Field Name from Field Path %q: %+v", mapping.DirectAssignment.SdkFieldPath, err)
-	}
-	sdkField, ok := sdkModel.Fields[*sdkFieldName]
+	schemaField, ok := schemaModel.Fields[directAssignment.DirectAssignment.TerraformSchemaFieldName]
 	if !ok {
-		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", *sdkFieldName, mapping.DirectAssignment.SdkModelName)
+		return nil, fmt.Errorf("the Field %q for Schema Model %q was not found", directAssignment.DirectAssignment.TerraformSchemaFieldName, directAssignment.DirectAssignment.TerraformSchemaModelName)
+	}
+
+	sdkField, ok := sdkModel.Fields[directAssignment.DirectAssignment.SDKFieldName]
+	if !ok {
+		return nil, fmt.Errorf("the Field %q for SDK Model %q was not found", directAssignment.DirectAssignment.SDKFieldName, directAssignment.DirectAssignment.SDKModelName)
 	}
 
 	// check if it requires a custom transform
 	if transform := findDirectAssignmentTransform(schemaField.ObjectDefinition.Type, sdkField.ObjectDefinition.Type); transform != nil {
-		return d.sdkToSchemaMappingRequiringTransform(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
+		return d.sdkToSchemaMappingRequiringTransform(directAssignment, schemaField, sdkField, sdkConstant, apiResourcePackageName, transform)
 	}
 
 	// check the assignment type - if it's a List these are special-cased
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeList && sdkField.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+	if schemaField.ObjectDefinition.Type == models.ListTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
 		// TODO: the Schema maybe a List but the SDK can be a Reference too, fwiw - also needs the read
 
-		if schemaField.ObjectDefinition.NestedObject.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem.Type == resourcemanager.ReferenceApiObjectDefinitionType {
-			return d.sdkToSchemaMappingBetweenListOfReferenceFields(mapping, schemaField, sdkField, apiResourcePackageName)
+		if schemaField.ObjectDefinition.NestedObject.Type == models.ReferenceTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.NestedItem.Type == models.ReferenceSDKObjectDefinitionType {
+			return d.sdkToSchemaMappingBetweenListOfReferenceFields(directAssignment, schemaField, sdkField, apiResourcePackageName)
 		}
 
-		return d.sdkToSchemaMappingBetweenListFields(mapping, schemaField, sdkField, sdkConstant, apiResourcePackageName)
+		return d.sdkToSchemaMappingBetweenListFields(directAssignment, schemaField, sdkField, sdkConstant, apiResourcePackageName)
 	}
 
-	if schemaField.ObjectDefinition.Type == resourcemanager.TerraformSchemaFieldTypeReference && sdkField.ObjectDefinition.NestedItem == nil {
-		return d.sdkToSchemaMappingBetweenFieldAndBlock(mapping, schemaField, sdkField)
+	if schemaField.ObjectDefinition.Type == models.ReferenceTerraformSchemaObjectDefinitionType && sdkField.ObjectDefinition.NestedItem == nil {
+		return d.sdkToSchemaMappingBetweenFieldAndBlock(directAssignment, schemaField, sdkField)
 	}
 
-	return d.sdkToSchemaMappingBetweenFields(mapping, schemaField, sdkField, sdkConstant)
+	return d.sdkToSchemaMappingBetweenFields(directAssignment, schemaField, sdkField, sdkConstant)
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField) (*string, error) {
 	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
 	if !ok {
 		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
@@ -138,17 +131,17 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFieldAndBlock(mapping res
 		if err := r.map%[2]sTo%[3]s(input.%[1]s[0], output); err != nil {
 			return err
 		}
-	}`, mapping.DirectAssignment.SdkFieldPath, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SdkModelName)
+	}`, mapping.DirectAssignment.SDKFieldName, *schemaField.ObjectDefinition.ReferenceName, mapping.DirectAssignment.SDKModelName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
-			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName)
 			if sdkField.Optional {
-				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName)
 			}
 			return &line, nil
 		}
@@ -156,12 +149,12 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenFields(mapping resourcema
 		if sdkField.Required {
 			// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 			// TODO: handle where it's defaulted?
-			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		}
 
 		line := fmt.Sprintf(`
 output.%[1]s = pointer.To(%[2]s(input.%[3]s))
-`, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath)
+`, mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		return &line, nil
 	}
 
@@ -174,9 +167,9 @@ output.%[1]s = pointer.To(%[2]s(input.%[3]s))
 	}
 
 	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = &input.%[2]s", mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+			line = fmt.Sprintf("output.%[1]s = &input.%[2]s", mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		}
 		return &line, nil
 	}
@@ -184,7 +177,7 @@ output.%[1]s = pointer.To(%[2]s(input.%[3]s))
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
@@ -194,11 +187,11 @@ output.%[1]s = pointer.To(%[2]s(input.%[3]s))
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`output.%[1]s = &input.%[2]s`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = &input.%[2]s`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenListFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if sdkConstant != nil {
 		sdkConstantTypeName := fmt.Sprintf("%s.%s", sdkConstant.apiResourcePackageName, sdkConstant.constantName)
 		if schemaField.Required {
@@ -208,7 +201,7 @@ for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
 output.%[1]s = %[4]s
-`, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
 %[4]s := make([]%[2]s, 0)
@@ -216,7 +209,7 @@ for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
 output.%[1]s = &%[4]s
-`, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 			}
 			return &line, nil
 		}
@@ -224,7 +217,7 @@ output.%[1]s = &%[4]s
 		if sdkField.Required {
 			// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 			// TODO: handle where it's defaulted?
-			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		}
 
 		line := fmt.Sprintf(`
@@ -235,15 +228,15 @@ if input.%[3]s != nil {
 	}
 }
 output.%[1]s = &%[4]s
-`, mapping.DirectAssignment.SdkFieldPath, sdkConstantTypeName, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, sdkConstantTypeName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 		return &line, nil
 	}
 
 	if schemaField.ObjectDefinition.NestedObject == nil {
-		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 	if sdkField.ObjectDefinition.NestedItem == nil {
-		return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath)
+		return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName)
 	}
 
 	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.NestedObject.Type]
@@ -256,7 +249,7 @@ output.%[1]s = &%[4]s
 
 	variableType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
-		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}
 
 	if schemaField.Required {
@@ -266,7 +259,7 @@ for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
 output.%[1]s = %[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
 %[3]s := make(%[4]s, 0)
@@ -274,7 +267,7 @@ for _, v := range input.%[2]s {
     %[3]s = append(%[3]s, v)
 }
 output.%[1]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 		}
 		return &line, nil
 	}
@@ -282,7 +275,7 @@ output.%[1]s = &%[3]s
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
@@ -294,19 +287,19 @@ if input.%[2]s != nil {
 	}
 }
 output.%[1]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenListOfReferenceFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, apiResourcePackageName string) (*string, error) {
 	listVariableType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
-		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}
 
 	listItemVariableReferenceType, err := sdkField.ObjectDefinition.NestedItem.GolangTypeName(&apiResourcePackageName)
 	if err != nil {
-		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Nested Object Definition: %+v", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, err)
+		return nil, fmt.Errorf("determining Golang Type for Sdk Model %q / Field %q Nested Object Definition: %+v", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, err)
 	}
 	listItemVariableReferenceName := *sdkField.ObjectDefinition.NestedItem.ReferenceName
 
@@ -323,7 +316,7 @@ for i, v := range input.%[2]s {
     %[3]s = append(%[3]s, item)
 }
 output.%[1]s = %[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
 %[3]s := make(%[4]s, 0)
@@ -335,7 +328,7 @@ for i, v := range input.%[2]s {
     %[3]s = append(%[3]s, item)
 }
 output.%[1]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
 		}
 		return &line, nil
 	}
@@ -343,7 +336,7 @@ output.%[1]s = &%[3]s
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
@@ -359,15 +352,15 @@ if input.%[2]s != nil {
 	}
 }
 output.%[1]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *listVariableType, *listItemVariableReferenceType, schemaFieldTypeName, listItemVariableReferenceName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenLocation(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenLocation(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, _ *assignmentConstantDetails, _ string) (*string, error) {
 	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = location.Normalize(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		line := fmt.Sprintf("output.%[1]s = location.Normalize(input.%[2]s)", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+			line = fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		}
 		return &line, nil
 	}
@@ -375,19 +368,19 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenLocation(mapping resource
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf("output.%[1]s = pointer.To(location.Normalize(input.%[2]s))", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingBetweenTags(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string) (*string, error) {
+func (d directAssignmentLine) schemaToSdkMappingBetweenTags(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, _ *assignmentConstantDetails, _ string) (*string, error) {
 	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = tags.Expand(input.%[2]s)", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		line := fmt.Sprintf("output.%[1]s = tags.Expand(input.%[2]s)", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		if sdkField.Optional {
-			line = fmt.Sprintf("output.%[1]s = pointer.To(tags.Expand(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+			line = fmt.Sprintf("output.%[1]s = pointer.To(tags.Expand(input.%[2]s))", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		}
 		return &line, nil
 	}
@@ -395,18 +388,18 @@ func (d directAssignmentLine) schemaToSdkMappingBetweenTags(mapping resourcemana
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf("output.%[1]s = pointer.To(tags.Expand(input.%[2]s))", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf("output.%[1]s = pointer.To(tags.Expand(input.%[2]s))", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
-	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
+func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
+	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.TerraformSchemaFieldName)
 	outputVariable := sdkField.JsonName
-	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
+	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SDKFieldName)
 
 	if schemaField.Required {
 		transformLineFunc := transform.requiredExpandFuncBody()
@@ -420,7 +413,7 @@ func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resou
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
@@ -429,7 +422,7 @@ func (d directAssignmentLine) schemaToSdkMappingRequiringTransform(mapping resou
 	return &transformLine, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField) (*string, error) {
 	v, ok := directAssignmentTypes[schemaField.ObjectDefinition.Type]
 	if !ok {
 		return nil, fmt.Errorf("a DirectAssignment wasn't defined between %q and %q", string(schemaField.ObjectDefinition.Type), string(sdkField.ObjectDefinition.Type))
@@ -448,20 +441,20 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFieldAndBlock(mapping res
 	} else {
 		output.%[1]s = make([]%[3]s, 0)
 		output.%[1]s = append(output.%[1]s, *tmp%[1]s)
-	}`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SdkModelName, *schemaField.ObjectDefinition.ReferenceName)
+	}`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.SDKModelName, *schemaField.ObjectDefinition.ReferenceName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, sdkConstant *assignmentConstantDetails) (*string, error) {
 	if sdkConstant != nil {
 		constantGoType, ok := directAssignmentConstantTypesToStrings[schemaField.ObjectDefinition.Type]
 		if !ok {
 			return nil, fmt.Errorf("missing mapping between Schema Field Type %q and Constant Type", string(schemaField.ObjectDefinition.Type))
 		}
 		if schemaField.Required {
-			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
+			line := fmt.Sprintf("output.%[1]s = %[2]s(input.%[3]s)", mapping.DirectAssignment.TerraformSchemaFieldName, constantGoType, mapping.DirectAssignment.SDKFieldName)
 			if sdkField.Optional {
-				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.SchemaFieldPath, constantGoType, mapping.DirectAssignment.SdkFieldPath)
+				line = fmt.Sprintf("output.%[1]s = pointer.To(%[2]s(input.%[3]s))", mapping.DirectAssignment.TerraformSchemaFieldName, constantGoType, mapping.DirectAssignment.SDKFieldName)
 			}
 			return &line, nil
 		}
@@ -469,7 +462,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 		if sdkField.Required {
 			// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 			// TODO: handle where it's defaulted?
-			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		}
 
 		if schemaField.Computed && (!schemaField.Optional && !schemaField.Required) {
@@ -477,7 +470,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 	if input.%[3]s != nil {
 		output.%[1]s = %[2]s(*input.%[3]s)
 	}
-	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
+	`, mapping.DirectAssignment.SDKFieldName, constantGoType, mapping.DirectAssignment.TerraformSchemaFieldName)
 			return &line, nil
 		}
 
@@ -485,7 +478,7 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 	if input.%[3]s != nil {
 		output.%[1]s = %[2]s(*input.%[3]s)
 	}
-	`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath)
+	`, mapping.DirectAssignment.SDKFieldName, constantGoType, mapping.DirectAssignment.TerraformSchemaFieldName)
 		return &line, nil
 	}
 
@@ -498,13 +491,13 @@ func (d directAssignmentLine) sdkToSchemaMappingBetweenFields(mapping resourcema
 	}
 
 	if schemaField.Required {
-		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+		line := fmt.Sprintf("output.%[1]s = input.%[2]s", mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
 if input.%[2]s != nil {
 	output.%[1]s = *input.%[2]s
 }
-`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+`, mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 		}
 		return &line, nil
 	}
@@ -512,20 +505,20 @@ if input.%[2]s != nil {
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
-	line := fmt.Sprintf(`output.%[1]s = pointer.From(input.%[2]s)`, mapping.DirectAssignment.SchemaFieldPath, mapping.DirectAssignment.SdkFieldPath)
+	line := fmt.Sprintf(`output.%[1]s = pointer.From(input.%[2]s)`, mapping.DirectAssignment.TerraformSchemaFieldName, mapping.DirectAssignment.SDKFieldName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingBetweenListFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenListFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, sdkConstant *assignmentConstantDetails, apiResourcePackageName string) (*string, error) {
 	if schemaField.ObjectDefinition.NestedObject == nil {
-		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Schema Model %q Field %q was a List with no NestedObject", mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 	if sdkField.ObjectDefinition.NestedItem == nil {
-		return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath)
+		return nil, fmt.Errorf("the SDK Model %q Field %q was a List with no NestedItem", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName)
 	}
 
 	if sdkConstant != nil {
@@ -541,7 +534,7 @@ for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
 output.%[1]s = %[4]s
-`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, constantGoType, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 			if sdkField.Optional {
 				line = fmt.Sprintf(`
 %[4]s := make([]%[2]s, 0)
@@ -549,7 +542,7 @@ for _, v := range input.%[3]s {
 	%[4]s = append(%[4]s, %[2]s(v))
 }
 output.%[1]s = &%[4]s
-`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, constantGoType, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 			}
 			return &line, nil
 		}
@@ -557,7 +550,7 @@ output.%[1]s = &%[4]s
 		if sdkField.Required {
 			// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 			// TODO: handle where it's defaulted?
-			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+			return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 		}
 
 		line := fmt.Sprintf(`
@@ -568,7 +561,7 @@ if input.%[3]s != nil {
 	}
 }
 output.%[1]s = &%[4]s
-`, mapping.DirectAssignment.SdkFieldPath, constantGoType, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName)
+`, mapping.DirectAssignment.SDKFieldName, constantGoType, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName)
 		return &line, nil
 	}
 
@@ -592,7 +585,7 @@ for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
 output.%[2]s = %[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
 %[3]s := make(%[4]s, 0)
@@ -600,7 +593,7 @@ for _, v := range input.%[1]s {
     %[3]s = append(%[3]s, v)
 }
 output.%[2]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 		}
 		return &line, nil
 	}
@@ -608,7 +601,7 @@ output.%[2]s = &%[3]s
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
@@ -620,11 +613,11 @@ if input.%[1]s != nil {
 	}
 }
 output.%[2]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, *variableType)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, *variableType)
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingBetweenListOfReferenceFields(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, apiResourcePackageName string) (*string, error) {
+func (d directAssignmentLine) sdkToSchemaMappingBetweenListOfReferenceFields(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, apiResourcePackageName string) (*string, error) {
 	sdkFieldTypeName := *sdkField.ObjectDefinition.NestedItem.ReferenceName
 	schemaFieldTypeName := *schemaField.ObjectDefinition.NestedObject.ReferenceName
 
@@ -639,7 +632,7 @@ for i, v := range input.%[1]s {
     %[3]s = append(%[3]s, item)
 }
 output.%[2]s = %[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
 
 		if sdkField.Optional {
 			line = fmt.Sprintf(`
@@ -652,7 +645,7 @@ for i, v := range input.%[1]s {
     %[3]s = append(%[3]s, item)
 }
 output.%[2]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
 		}
 		return &line, nil
 	}
@@ -660,7 +653,7 @@ output.%[2]s = &%[3]s
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional
@@ -676,14 +669,14 @@ if input.%[1]s != nil {
 	}
 }
 output.%[2]s = &%[3]s
-`, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaFieldPath, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
+`, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaFieldName, sdkField.JsonName, sdkFieldTypeName, schemaFieldTypeName)
 	return &line, nil
 }
 
-func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resourcemanager.FieldMappingDefinition, schemaField resourcemanager.TerraformSchemaFieldDefinition, sdkField resourcemanager.FieldDetails, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
-	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.SchemaFieldPath)
+func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping models.TerraformDirectAssignmentFieldMappingDefinition, schemaField models.TerraformSchemaField, sdkField models.SDKField, _ *assignmentConstantDetails, _ string, transform directAssignmentTransform) (*string, error) {
+	outputAssignment := fmt.Sprintf("output.%s", mapping.DirectAssignment.TerraformSchemaFieldName)
 	outputVariable := sdkField.JsonName
-	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SdkFieldPath)
+	inputAssignment := fmt.Sprintf("input.%s", mapping.DirectAssignment.SDKFieldName)
 
 	if schemaField.Required {
 		transformFunc := transform.requiredFlattenFuncBody()
@@ -697,7 +690,7 @@ func (d directAssignmentLine) sdkToSchemaMappingRequiringTransform(mapping resou
 	if sdkField.Required {
 		// if the SDK Field is Required but the Schema Field is Optional this is a Data Issue
 		// TODO: handle where it's defaulted?
-		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SdkModelName, mapping.DirectAssignment.SdkFieldPath, mapping.DirectAssignment.SchemaModelName, mapping.DirectAssignment.SchemaFieldPath)
+		return nil, fmt.Errorf("the Sdk Model %q Field %q was Required but Schema Model %q Field %q was Optional but must be Required", mapping.DirectAssignment.SDKModelName, mapping.DirectAssignment.SDKFieldName, mapping.DirectAssignment.TerraformSchemaModelName, mapping.DirectAssignment.TerraformSchemaFieldName)
 	}
 
 	// optional -> optional

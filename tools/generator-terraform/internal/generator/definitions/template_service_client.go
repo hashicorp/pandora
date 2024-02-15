@@ -16,9 +16,7 @@ func templateForServiceClient(input models.ServiceInput) string {
 	importLines := make([]string, 0)
 	autoClientLines := make([]string, 0)
 	assignmentLines := make([]string, 0)
-	assignmentOldBaseLayerLines := make([]string, 0)
 	returnLines := make([]string, 0)
-	returnOldBaseLayerLines := make([]string, 0)
 
 	versions := make([]string, 0)
 	versionsToResources := make(map[string][]string, 0)
@@ -50,18 +48,8 @@ func templateForServiceClient(input models.ServiceInput) string {
 `, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
 		assignmentLines = append(assignmentLines, assignmentLine)
 
-		assignmentOldBaseLayerLine := fmt.Sprintf(`
-		%[1]sClient := %[2]s%[3]s.NewClientWithBaseURI(o.ResourceManagerEndpoint, func(c *autorest.Client) {
-			o.ConfigureClient(c, o.ResourceManagerAuthorizer)
-		})
-`, helpers.NamespaceForApiVersion(version), strings.ToLower(input.SdkServiceName), apiVersionFormatted)
-		assignmentOldBaseLayerLines = append(assignmentOldBaseLayerLines, assignmentOldBaseLayerLine)
-
 		returnLine := fmt.Sprintf(`%[1]s: *%[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
 		returnLines = append(returnLines, returnLine)
-
-		returnOldBaseLayerLine := fmt.Sprintf(`%[1]s: %[2]sClient,`, apiVersionFormatted, helpers.NamespaceForApiVersion(version))
-		returnOldBaseLayerLines = append(returnOldBaseLayerLines, returnOldBaseLayerLine)
 	}
 
 	output := fmt.Sprintf(`
