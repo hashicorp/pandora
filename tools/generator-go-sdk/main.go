@@ -5,6 +5,9 @@ package main
 
 import (
 	"fmt"
+	"log"
+	"os"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
 	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
@@ -12,8 +15,6 @@ import (
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/cmd"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/logging"
 	"github.com/mitchellh/cli"
-	"log"
-	"os"
 )
 
 func main() {
