@@ -7,7 +7,7 @@ fmt:
 	find . -name '*.go' | grep -v vendor | xargs gofmt -s -w
 
 run: build
-	./generator-go-sdk
+	./generator-go-sdk resource-manager generate
 
 test: build
 	go test -v ./...
