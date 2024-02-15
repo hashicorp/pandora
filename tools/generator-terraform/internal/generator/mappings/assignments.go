@@ -88,13 +88,8 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []models.Terrafo
 			}
 		}
 
-		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
-			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
-			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
-				continue
-			}
-
-			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+		if _, ok := mapping.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			assignmentLine, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 			if err != nil {
 				return nil, fmt.Errorf("building create/update direct assignment line for %+v: %+v", summary, err)
 			}
@@ -102,8 +97,13 @@ func (m *Mappings) SchemaModelToSdkModelAssignmentLine(mappings []models.Terrafo
 			continue
 		}
 
-		if _, ok := mapping.(*models.TerraformDirectAssignmentFieldMappingDefinition); ok {
-			assignmentLine, err := directAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
+			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
+				continue
+			}
+
+			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForCreateUpdateMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 			if err != nil {
 				return nil, fmt.Errorf("building create/update direct assignment line for %+v: %+v", summary, err)
 			}
@@ -177,13 +177,8 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []models.Terrafo
 			}
 		}
 
-		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
-			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
-			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
-				continue
-			}
-
-			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+		if _, ok := mapping.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			assignmentLine, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 			if err != nil {
 				return nil, fmt.Errorf("building read direct assignment line for %+v: %+v", summary, err)
 			}
@@ -191,8 +186,13 @@ func (m *Mappings) SdkModelToSchemaModelAssignmentLine(mappings []models.Terrafo
 			continue
 		}
 
-		if _, ok := mapping.(*models.TerraformDirectAssignmentFieldMappingDefinition); ok {
-			assignmentLine, err := directAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
+		if v, ok := mapping.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			field := sdkModel.Fields[v.ModelToModel.SDKFieldName]
+			if field.ObjectDefinition.Type == models.RawObjectSDKObjectDefinitionType {
+				continue
+			}
+
+			assignmentLine, err := modelToModelAssignmentLine{}.assignmentForReadMapping(mapping, schemaModel, sdkModel, sdkConstant, m.apiResourcePackageName)
 			if err != nil {
 				return nil, fmt.Errorf("building read direct assignment line for %+v: %+v", summary, err)
 			}
@@ -214,5 +214,21 @@ type mappingSummary struct {
 }
 
 func summaryForMapping(input models.TerraformFieldMappingDefinition) (*mappingSummary, error) {
-	return nil, nil
+	if v, ok := input.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+		return &mappingSummary{
+			sdkFieldName:             v.DirectAssignment.SDKFieldName,
+			sdkModelName:             v.DirectAssignment.SDKModelName,
+			terraformSchemaModelName: v.DirectAssignment.TerraformSchemaModelName,
+		}, nil
+	}
+
+	if v, ok := input.(models.TerraformModelToModelFieldMappingDefinition); ok {
+		return &mappingSummary{
+			sdkFieldName:             v.ModelToModel.SDKFieldName,
+			sdkModelName:             v.ModelToModel.SDKModelName,
+			terraformSchemaModelName: v.ModelToModel.TerraformSchemaModelName,
+		}, nil
+	}
+
+	return nil, fmt.Errorf("internal-error: unimplemented mapping type %+v", input)
 }

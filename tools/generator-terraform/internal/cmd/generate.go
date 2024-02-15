@@ -91,9 +91,10 @@ func (i *GenerateCommand) run(ctx context.Context) error {
 		return fmt.Errorf("the Data API was not available")
 	}
 
-	servicesToLoad := strings.Split(i.serviceNamesRaw, ",")
+	var servicesToLoad []string
 	logging.Log.Info("Loading API Definitions from the Data API..")
-	if len(servicesToLoad) > 0 {
+	if i.serviceNamesRaw != "" {
+		servicesToLoad = strings.Split(i.serviceNamesRaw, ",")
 		logging.Log.Warn(fmt.Sprintf("Limiting the Services to [%s]..", i.serviceNamesRaw))
 	}
 	data, err := client.LoadAllData(ctx, servicesToLoad)

@@ -28,7 +28,6 @@ package provider
 
 import (
 	"github.com/hashicorp/terraform-provider-%[1]s/internal/sdk"
-
 	%[2]s
 )
 
