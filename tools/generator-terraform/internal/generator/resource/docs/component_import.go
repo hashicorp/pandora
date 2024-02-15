@@ -20,7 +20,7 @@ func codeForImport(input generatorModels.ResourceInput) (*string, error) {
 
 	resourceIdDescriptionLines := make([]string, 0)
 	for _, value := range resourceId.Segments {
-		if value.Type == models.ResourceProviderSegment || value.Type == models.StaticSegment {
+		if value.Type == models.ResourceProviderResourceIDSegmentType || value.Type == models.StaticResourceIDSegmentType {
 			continue
 		}
 

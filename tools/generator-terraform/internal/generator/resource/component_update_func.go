@@ -130,7 +130,7 @@ func (h updateFuncHelpers) modelDecode() (*string, error) {
 }
 
 func (h updateFuncHelpers) payloadDefinition() (*string, error) {
-	updateObjectName, err := h.updateMethod.RequestObject.GolangTypeName(&h.sdkResourceNameLowered)
+	updateObjectName, err := helpers.GolangTypeForSDKObjectDefinition(*h.updateMethod.RequestObject, &h.sdkResourceNameLowered)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type name for Update Request Object: %+v", err)
 	}

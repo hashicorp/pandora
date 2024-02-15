@@ -786,7 +786,7 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 					ForceNew: true,
 					HCLName:  "name",
 					ObjectDefinition: models.TerraformSchemaObjectDefinition{
-						Type: models.TerraformSchemaFieldTypeString,
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
@@ -794,7 +794,7 @@ func TestComponentReadFunc_CodeForIDParserWithParentResourceKubernetesExample(t 
 					ForceNew: true,
 					HCLName:  "kubernetes_cluster_id",
 					ObjectDefinition: models.TerraformSchemaObjectDefinition{
-						Type: models.TerraformSchemaFieldTypeString,
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},

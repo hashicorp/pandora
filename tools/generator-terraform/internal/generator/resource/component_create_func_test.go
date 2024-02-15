@@ -327,7 +327,7 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 							ForceNew: true,
 							HCLName:  "resource_group_name",
 							ObjectDefinition: models.TerraformSchemaObjectDefinition{
-								Type: models.StringApiObjectDefinitionType,
+								Type: models.StringSDKObjectDefinitionType,
 							},
 							Required: true,
 						},
@@ -393,7 +393,7 @@ func TestComponentCreate_HappyPathResourceIdFieldsOnlyEnabled(t *testing.T) {
 						ForceNew: true,
 						HCLName:  "resource_group_name",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.StringApiObjectDefinitionType,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},

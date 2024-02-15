@@ -123,7 +123,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]models.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"SomeResourceId": {
 				CommonIDAlias: pointer.To("SomeCommon"),
 			},
@@ -136,20 +136,20 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_SharedModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"MyTypedModel": {
-				Fields: map[string]models.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -321,7 +321,7 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]models.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"SomeResourceId": {
 				CommonIDAlias: pointer.To("SomeCommon"),
 			},
@@ -334,20 +334,20 @@ func TestComponentUpdate_HappyPathEnabled_CommonId_UniqueModels(t *testing.T) {
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"MyTypedModel": {
-				Fields: map[string]models.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -476,7 +476,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]models.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"SomeResourceId": {
 				CommonIDAlias: nil,
 			},
@@ -489,20 +489,20 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_SharedModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"MyTypedModel": {
-				Fields: map[string]models.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -674,7 +674,7 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 			},
 		},
 		ProviderPrefix: "fake",
-		ResourceIds: map[string]models.ResourceIdDefinition{
+		ResourceIds: map[string]models.ResourceID{
 			"SomeResourceId": {
 				CommonIDAlias: nil,
 			},
@@ -687,20 +687,20 @@ func TestComponentUpdate_HappyPathEnabled_RegularResourceID_UniqueModels(t *test
 		SdkResourceName:    "SdkResource",
 		SdkServiceName:     "SdkService",
 		SchemaModelName:    "MyTypedModel",
-		SchemaModels: map[string]models.TerraformSchemaModelDefinition{
+		SchemaModels: map[string]models.TerraformSchemaModel{
 			"MyTypedModel": {
-				Fields: map[string]models.TerraformSchemaFieldDefinition{
+				Fields: map[string]models.TerraformSchemaField{
 					"Example": {
 						HCLName: "example",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"SomeField": {
 						HCLName: "some_sdk_field",
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
-							Type: models.TerraformSchemaFieldTypeString,
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},

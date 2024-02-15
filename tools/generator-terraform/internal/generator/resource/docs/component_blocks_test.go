@@ -41,7 +41,7 @@ func TestComponentBlocks_ModelsSingle(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -56,7 +56,7 @@ func TestComponentBlocks_ModelsSingle(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -66,7 +66,7 @@ func TestComponentBlocks_ModelsSingle(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -81,7 +81,7 @@ func TestComponentBlocks_ModelsSingle(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -142,7 +142,7 @@ func TestComponentBlocks_ModelsSingleArgumentsOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -157,7 +157,7 @@ func TestComponentBlocks_ModelsSingleArgumentsOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -172,7 +172,7 @@ func TestComponentBlocks_ModelsSingleArgumentsOnly(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -229,7 +229,7 @@ func TestComponentBlocks_ModelsSingleAttributesOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -278,7 +278,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -293,7 +293,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -308,7 +308,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -326,7 +326,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -341,7 +341,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -356,7 +356,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -370,7 +370,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for nested_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -401,7 +401,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -415,7 +415,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -430,7 +430,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -440,7 +440,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -455,7 +455,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -469,7 +469,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -488,7 +488,7 @@ func TestComponentBlocks_ModelsMultiple(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -570,7 +570,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for first.",
 						},
 					},
@@ -581,7 +581,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							ReferenceName: pointer.To("Second"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for second.",
 						},
 					},
@@ -595,7 +595,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for some_field.",
 						},
 					},
@@ -605,7 +605,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
@@ -620,7 +620,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							ReferenceName: pointer.To("Example"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -635,7 +635,7 @@ func TestComponentBlocks_ModelsMultipleNestingTheSameModelShouldBeDeduped(t *tes
 							ReferenceName: pointer.To("Example"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -694,7 +694,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							ReferenceName: pointer.To("First"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for first.",
 						},
 					},
@@ -705,7 +705,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							ReferenceName: pointer.To("Second"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for second.",
 						},
 					},
@@ -719,7 +719,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for some_field.",
 						},
 					},
@@ -729,7 +729,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
@@ -743,7 +743,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for other_field.",
 						},
 					},
@@ -753,7 +753,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_field.",
 						},
 					},
@@ -768,7 +768,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							ReferenceName: pointer.To("Example1"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -783,7 +783,7 @@ func TestComponentBlocks_ModelsMultipleNestingDifferentModelsWithTheSameNameShou
 							ReferenceName: pointer.To("Example2"),
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for example.",
 						},
 					},
@@ -878,7 +878,7 @@ func TestComponentBlocks_ModelsReferencingAListOfModels(t *testing.T) {
 						},
 						HCLName:  "name",
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "The name of the thing.",
 						},
 					},
@@ -961,7 +961,7 @@ func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testi
 						},
 						Required: true,
 						HCLName:  "some_field",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},
@@ -983,7 +983,7 @@ func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testi
 						},
 						Required: true,
 						HCLName:  "some_field",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},
@@ -997,7 +997,7 @@ func TestComponentBlocks_ModelsAndIdentityShouldBeOrderedAlphabetically(t *testi
 						},
 						Required: true,
 						HCLName:  "some_field",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for `some_field`.",
 						},
 					},

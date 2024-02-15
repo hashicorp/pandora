@@ -6,6 +6,7 @@ package mappings
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
@@ -28,7 +29,7 @@ func (m modelToModelAssignmentLine) assignmentForCreateUpdateMapping(mapping mod
 		return nil, fmt.Errorf("a ModelToModel mapping must be a Reference but got %q", string(sdkField.ObjectDefinition.Type))
 	}
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
-	sdkFieldType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
+	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type Name for SDK Field: %+v", err)
 	}
@@ -67,7 +68,7 @@ func (m modelToModelAssignmentLine) assignmentForReadMapping(mapping models.Terr
 	}
 
 	outputModelName := *sdkField.ObjectDefinition.ReferenceName
-	sdkFieldType, err := sdkField.ObjectDefinition.GolangTypeName(&apiResourcePackageName)
+	sdkFieldType, err := helpers.GolangTypeForSDKObjectDefinition(sdkField.ObjectDefinition, &apiResourcePackageName)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type Name for SDK Field: %+v", err)
 	}

@@ -29,7 +29,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -44,7 +44,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -59,7 +59,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -69,7 +69,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -84,7 +84,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -94,7 +94,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -109,7 +109,7 @@ func TestComponentArguments_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -162,7 +162,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -177,7 +177,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -192,7 +192,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -210,7 +210,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -225,7 +225,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -235,7 +235,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -250,7 +250,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -264,7 +264,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for nested_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -287,7 +287,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -301,7 +301,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -316,7 +316,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -326,7 +326,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -341,7 +341,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -355,7 +355,7 @@ func TestComponentArguments_WithNestedBlocks(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -414,7 +414,7 @@ func TestComponentArguments_WithIdentitySystemAssigned(t *testing.T) {
 					"MakeSounds": {
 						Required: true,
 						HCLName:  "make_sounds",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies whether this blobby instance makes sounds.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -424,7 +424,7 @@ func TestComponentArguments_WithIdentitySystemAssigned(t *testing.T) {
 					"NumberOfSpots": {
 						Optional: true,
 						HCLName:  "number_of_spots",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies the number of spots this blobby instance should have.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -475,7 +475,7 @@ func TestComponentArguments_WithIdentitySystemAndUserAssigned(t *testing.T) {
 					"MakeSounds": {
 						Required: true,
 						HCLName:  "make_sounds",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies whether this blobby instance makes sounds.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -485,7 +485,7 @@ func TestComponentArguments_WithIdentitySystemAndUserAssigned(t *testing.T) {
 					"NumberOfSpots": {
 						Optional: true,
 						HCLName:  "number_of_spots",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies the number of spots this blobby instance should have.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -536,7 +536,7 @@ func TestComponentArguments_WithIdentitySystemOrUserAssigned(t *testing.T) {
 					"MakeSounds": {
 						Required: true,
 						HCLName:  "make_sounds",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies whether this blobby instance makes sounds.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -546,7 +546,7 @@ func TestComponentArguments_WithIdentitySystemOrUserAssigned(t *testing.T) {
 					"NumberOfSpots": {
 						Optional: true,
 						HCLName:  "number_of_spots",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies the number of spots this blobby instance should have.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -597,7 +597,7 @@ func TestComponentArguments_WithIdentityUserAssigned(t *testing.T) {
 					"MakeSounds": {
 						Required: true,
 						HCLName:  "make_sounds",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies whether this blobby instance makes sounds.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -607,7 +607,7 @@ func TestComponentArguments_WithIdentityUserAssigned(t *testing.T) {
 					"NumberOfSpots": {
 						Optional: true,
 						HCLName:  "number_of_spots",
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Specifies the number of spots this blobby instance should have.",
 						},
 						ObjectDefinition: models.TerraformSchemaObjectDefinition{
@@ -686,7 +686,7 @@ func TestComponentArguments_WithTheSameModelUsedAtTheTopLevelAndInMultipleNested
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for makes_sounds.",
 						},
 					},
@@ -758,7 +758,7 @@ func TestComponentArguments_WithTheSameModelUsedInMultipleNestedBlocks(t *testin
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for makes_sounds.",
 						},
 					},

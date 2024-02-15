@@ -179,7 +179,7 @@ func (c readFunctionComponents) codeForResourceIdMappings() (*string, error) {
 				continue
 			}
 
-			if v.Type == models.ResourceGroupSegment && c.parentResource != "" {
+			if v.Type == models.ResourceGroupResourceIDSegmentType && c.parentResource != "" {
 				continue
 			}
 			// Constants are output into the Schema as their native types (e.g. int/float/string) so we need to convert prior to assigning

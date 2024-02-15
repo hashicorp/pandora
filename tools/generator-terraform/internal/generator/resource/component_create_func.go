@@ -7,8 +7,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
+	generatorHelpers "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/helpers"
 	generatorModels "github.com/hashicorp/pandora/tools/generator-terraform/internal/generator/models"
 )
 
@@ -117,7 +118,7 @@ func (r %[1]sResource) Create() sdk.ResourceFunc {
 		},
 	}
 }
-`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Title(helpers.NamespaceForApiVersion(input.SdkApiVersion)), input.SdkResourceName, strings.Join(lines, "\n"))
+`, input.ResourceTypeName, input.Details.CreateMethod.TimeoutInMinutes, input.ServiceName, strings.Title(generatorHelpers.NamespaceForApiVersion(input.SdkApiVersion)), input.SdkResourceName, strings.Join(lines, "\n"))
 	return &output, nil
 }
 
@@ -175,9 +176,9 @@ func (h createFunctionComponents) idDefinitionAndMapping() (*string, error) {
 								if err != nil {
 									return err
 								}
-							`, helpers.CamelCasedName(parentResource), parentResource, resourceIdMapping.TerraformSchemaFieldName)
+							`, generatorHelpers.CamelCasedName(parentResource), parentResource, resourceIdMapping.TerraformSchemaFieldName)
 						}
-						segments = append(segments, fmt.Sprintf("%s.%s", helpers.CamelCasedName(resourceIdMapping.TerraformSchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
+						segments = append(segments, fmt.Sprintf("%s.%s", generatorHelpers.CamelCasedName(resourceIdMapping.TerraformSchemaFieldName), strings.Title(resourceIdMapping.SegmentName)))
 					} else {
 						segments = append(segments, fmt.Sprintf("config.%s", resourceIdMapping.TerraformSchemaFieldName))
 					}
@@ -198,7 +199,7 @@ id := %[3]s(%[4]s)
 func (h createFunctionComponents) payloadDefinition() (*string, error) {
 	// NOTE: whilst Payload is _technically_ optional in the API endpoint it's not, else it
 	// wouldn't be a Create method
-	createObjectName, err := h.createMethod.RequestObject.GolangTypeName(&h.sdkResourceNameLowered)
+	createObjectName, err := helpers.GolangTypeForSDKObjectDefinition(*h.createMethod.RequestObject, &h.sdkResourceNameLowered)
 	if err != nil {
 		return nil, fmt.Errorf("determining Golang Type name for Create Request Object: %+v", err)
 	}

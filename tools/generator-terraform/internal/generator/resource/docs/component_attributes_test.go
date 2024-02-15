@@ -29,7 +29,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -44,7 +44,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -59,7 +59,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -69,7 +69,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -84,7 +84,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -94,7 +94,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -109,7 +109,7 @@ func TestComponentAttributes_TopLevelOnly(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -163,7 +163,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -178,7 +178,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -193,7 +193,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -211,7 +211,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -226,7 +226,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -236,7 +236,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -251,7 +251,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -265,7 +265,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for nested_item.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -288,7 +288,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -302,7 +302,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -317,7 +317,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_item.",
 						},
 					},
@@ -327,7 +327,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_item.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -342,7 +342,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -356,7 +356,7 @@ func TestComponentAttributes_NestedBlock(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_item.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -409,7 +409,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -424,7 +424,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -439,7 +439,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -449,7 +449,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -464,7 +464,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -474,7 +474,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -489,7 +489,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -499,7 +499,7 @@ func TestComponentAttributes_WithIdentitySystemAssigned(t *testing.T) {
 							Type: models.SystemAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Defines the System Assigned Identity which should be assigned to this Resource.",
 						},
 					},
@@ -547,7 +547,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -562,7 +562,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -577,7 +577,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -587,7 +587,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -602,7 +602,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -612,7 +612,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -627,7 +627,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -637,7 +637,7 @@ func TestComponentAttributes_WithIdentitySystemAndUserAssigned(t *testing.T) {
 							Type: models.SystemAndUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Defines the System and User Assigned Identity which should be assigned to this Resource.",
 						},
 					},
@@ -685,7 +685,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -700,7 +700,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -715,7 +715,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -725,7 +725,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -740,7 +740,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -750,7 +750,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -765,7 +765,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -775,7 +775,7 @@ func TestComponentAttributes_WithIdentitySystemOrUserAssigned(t *testing.T) {
 							Type: models.SystemOrUserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Defines the System or User Assigned Identity which should be assigned to this Resource.",
 						},
 					},
@@ -823,7 +823,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -838,7 +838,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_integer.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -853,7 +853,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.IntegerTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_integer.",
 						},
 					},
@@ -863,7 +863,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Required: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for required_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -878,7 +878,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for boolean_item.",
 						},
 					},
@@ -888,7 +888,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Optional: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for optional_string.",
 						},
 						Validation: &models.TerraformSchemaFieldValidationPossibleValuesDefinition{
@@ -903,7 +903,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.StringTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for computed_string.",
 						},
 					},
@@ -913,7 +913,7 @@ func TestComponentAttributes_WithIdentityUserAssigned(t *testing.T) {
 							Type: models.UserAssignedIdentityTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Defines the User Assigned Identity which should be assigned to this Resource.",
 						},
 					},
@@ -993,7 +993,7 @@ func TestComponentAttributes_WithTheSameModelUsedAtTheTopLevelAndInMultipleNeste
 							Type: models.BooleanTerraformSchemaObjectDefinitionType,
 						},
 						Computed: true,
-						Documentation: models.TerraformSchemaDocumentationDefinition{
+						Documentation: models.TerraformSchemaFieldDocumentationDefinition{
 							Markdown: "Description for makes_sounds.",
 						},
 					},
