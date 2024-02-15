@@ -44,7 +44,6 @@ func main() {
 		"Security",
 		"SecurityInsights",
 		"ServiceFabric",
-		"SqlVirtualMachine",
 		"Subscription",
 
 		// @tombuildsstuff: The Key Vault API has an issue where it requires that the EXACT casing returned in the Response
