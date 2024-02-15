@@ -7,25 +7,26 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestModelTemplaterSimple(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Name": {
 					JsonName: "name",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
 				"Age": {
 					JsonName: "age",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.IntegerApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.IntegerSDKObjectDefinitionType,
 					},
 					Optional: true,
 				},
@@ -33,20 +34,20 @@ func TestModelTemplaterSimple(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"Age": {
 						JsonName: "age",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.IntegerApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.IntegerSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -85,23 +86,20 @@ type Basic struct {
 func TestModelTemplaterWithDate(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Name": {
 					JsonName: "name",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
 				"DateOfBirth": {
-					JsonName: "dateOfBirth",
-					DateFormat: func() *resourcemanager.DateFormat {
-						v := resourcemanager.RFC3339
-						return &v
-					}(),
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DateTimeApiObjectDefinitionType,
+					JsonName:   "dateOfBirth",
+					DateFormat: pointer.To(models.RFC3339SDKDateFormat),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DateTimeSDKObjectDefinitionType,
 					},
 					Optional: true,
 				},
@@ -109,21 +107,21 @@ func TestModelTemplaterWithDate(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 
 					"DateOfBirth": {
 						JsonName: "dateOfBirth",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DateTimeApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DateTimeSDKObjectDefinitionType,
 						},
 						Optional: true,
 					},
@@ -174,27 +172,27 @@ func (o *Basic) SetDateOfBirthAsTime(input time.Time) {
 func TestModelTemplaterWithOptionalObject(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Name": {
 					JsonName: "name",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
 				"BobcatOptional": {
 					JsonName: "bobcatOptional",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: stringPointer("Bobcat"),
 					},
 					Optional: true,
 				},
 				"BobcatRequired": {
 					JsonName: "bobcatRequired",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: stringPointer("Bobcat"),
 					},
 					Required: true,
@@ -203,28 +201,28 @@ func TestModelTemplaterWithOptionalObject(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 					"BobcatOptional": {
 						JsonName: "bobcatOptional",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: stringPointer("Bobcat"),
 						},
 						Optional: true,
 					},
 					"BobcatRequired": {
 						JsonName: "bobcatRequired",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: stringPointer("Bobcat"),
 						},
 						Required: true,
@@ -232,11 +230,11 @@ func TestModelTemplaterWithOptionalObject(t *testing.T) {
 				},
 			},
 			"Bobcat": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Name": {
 						JsonName: "name",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},

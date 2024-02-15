@@ -6,8 +6,9 @@ import (
 	"strings"
 	"time"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/featureflags"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: add unit tests covering this
@@ -16,7 +17,7 @@ var _ templaterForResource = modelsTemplater{}
 
 type modelsTemplater struct {
 	name  string
-	model resourcemanager.ModelDetails
+	model models.SDKModel
 }
 
 func (c modelsTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -59,7 +60,7 @@ import (
 
 func (c modelsTemplater) structCode(data ServiceGeneratorData) (*string, error) {
 	// if this is an Abstract/Type Hint, we output an Interface with a manual unmarshal func that gets called wherever it's used
-	if c.model.TypeHintIn != nil && c.model.ParentTypeName == nil {
+	if c.model.FieldNameContainingDiscriminatedValue != nil && c.model.ParentTypeName == nil {
 		out := fmt.Sprintf(`
 type %[1]s interface {
 }
@@ -86,7 +87,7 @@ type Raw%[1]sImpl struct {
 	for _, fieldName := range fields {
 		fieldDetails := c.model.Fields[fieldName]
 		fieldTypeName := "FIXME"
-		fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+		fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 		}
@@ -97,7 +98,7 @@ type Raw%[1]sImpl struct {
 			return nil, err
 		}
 
-		if c.model.TypeHintIn != nil && *c.model.TypeHintIn == fieldName {
+		if c.model.FieldNameContainingDiscriminatedValue != nil && *c.model.FieldNameContainingDiscriminatedValue == fieldName {
 			// this isn't user configurable (and is hard-coded) so there's no point outputting this
 			continue
 		}
@@ -109,8 +110,8 @@ type Raw%[1]sImpl struct {
 	parentAssignmentInfo := ""
 	parentTypeName := ""
 	if c.model.ParentTypeName != nil {
-		if c.model.TypeHintIn != nil {
-			_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+		if c.model.FieldNameContainingDiscriminatedValue != nil {
+			_, foundParentTypeName, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
 			if err != nil {
 				return nil, err
 			}
@@ -137,7 +138,7 @@ type Raw%[1]sImpl struct {
 			for _, fieldName := range parentFields {
 				fieldDetails := parent.Fields[fieldName]
 				fieldTypeName := "FIXME"
-				fieldTypeVal, err := golangTypeNameForObjectDefinition(fieldDetails.ObjectDefinition)
+				fieldTypeVal, err := helpers.GolangTypeForSDKObjectDefinition(fieldDetails.ObjectDefinition, nil)
 				if err != nil {
 					return nil, fmt.Errorf("determining type information for %q: %+v", fieldName, err)
 				}
@@ -149,7 +150,7 @@ type Raw%[1]sImpl struct {
 				}
 
 				// check this field isn't used as the discriminated value
-				if c.model.TypeHintIn != nil && *c.model.TypeHintIn == fieldName {
+				if c.model.FieldNameContainingDiscriminatedValue != nil && *c.model.FieldNameContainingDiscriminatedValue == fieldName {
 					// this isn't user configurable (and is hard-coded) so there's no point outputting this
 					continue
 				}
@@ -195,7 +196,7 @@ func (c modelsTemplater) methods(data ServiceGeneratorData) (*string, error) {
 	return &output, nil
 }
 
-func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails resourcemanager.FieldDetails, data ServiceGeneratorData) (*string, error) {
+func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDetails models.SDKField, data ServiceGeneratorData) (*string, error) {
 	jsonDetails := fieldDetails.JsonName
 
 	isOptional := false
@@ -207,9 +208,9 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 		if !featureflags.OptionalDiscriminatorsShouldBeOutputWithoutOmitEmpty {
 			// however if the immediate (not top-level) object definition is a Reference to a Parent it's Optional
 			// by default since Parent types are output as an interface (which is implied nullable)
-			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				model, ok := data.models[*fieldDetails.ObjectDefinition.ReferenceName]
-				if ok && model.TypeHintIn != nil && model.ParentTypeName == nil {
+				if ok && model.FieldNameContainingDiscriminatedValue != nil && model.ParentTypeName == nil {
 					isOptional = false
 				}
 			}
@@ -224,12 +225,12 @@ func (c modelsTemplater) structLineForField(fieldName, fieldType string, fieldDe
 	return &line, nil
 }
 
-func (c modelsTemplater) dateFormatString(input resourcemanager.DateFormat) string {
+func (c modelsTemplater) dateFormatString(input models.SDKDateFormat) string {
 	switch input {
-	case resourcemanager.RFC3339:
+	case models.RFC3339SDKDateFormat:
 		return time.RFC3339
 
-	case resourcemanager.RFC3339Nano:
+	case models.RFC3339NanoSDKDateFormat:
 		return time.RFC3339Nano
 
 	default:
@@ -241,7 +242,7 @@ func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*strin
 	fieldsRequiringDateFunctions := make([]string, 0)
 	// parent models are output as interfaces with no fields - so we can skip these
 	// since the inherited models output the fields from their parents, the methods are output there
-	if c.model.TypeHintIn == nil {
+	if c.model.FieldNameContainingDiscriminatedValue == nil {
 		for fieldName, fieldDetails := range c.model.Fields {
 			if fieldDetails.DateFormat != nil {
 				fieldsRequiringDateFunctions = append(fieldsRequiringDateFunctions, fieldName)
@@ -290,7 +291,7 @@ func (c modelsTemplater) codeForDateFunctions(data ServiceGeneratorData) (*strin
 	return &output, nil
 }
 
-func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails resourcemanager.FieldDetails) (*string, error) {
+func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails models.SDKField) (*string, error) {
 	if fieldDetails.DateFormat == nil {
 		return nil, fmt.Errorf("Date Field %q has no DateFormat", fieldName)
 	}
@@ -330,8 +331,8 @@ func (c modelsTemplater) dateFunctionForField(fieldName string, fieldDetails res
 func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*string, error) {
 	output := ""
 
-	if c.model.TypeHintValue != nil {
-		if c.model.TypeHintIn == nil {
+	if c.model.DiscriminatedValue != nil {
+		if c.model.FieldNameContainingDiscriminatedValue == nil {
 			return nil, fmt.Errorf("model %q must contain a TypeHintIn when a TypeHintValue is present", c.name)
 		}
 		if c.model.ParentTypeName == nil {
@@ -344,16 +345,16 @@ func (c modelsTemplater) codeForMarshalFunctions(data ServiceGeneratorData) (*st
 		}
 
 		// the TypeHintIn field comes from the parent and so won't be output on the inherited items
-		field, ok := parentModel.Fields[*c.model.TypeHintIn]
+		field, ok := parentModel.Fields[*c.model.FieldNameContainingDiscriminatedValue]
 		if !ok {
 			if parentModel.ParentTypeName != nil {
-				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.TypeHintIn)
+				parentField, _, err := c.recurseParentModels(data, *c.model.ParentTypeName, *c.model.FieldNameContainingDiscriminatedValue)
 				if err != nil {
 					return nil, err
 				}
 				field = *parentField
 			} else {
-				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.TypeHintIn, *c.model.ParentTypeName, c.name)
+				return nil, fmt.Errorf("the field %q was not found on the parent model %q for model %q", *c.model.FieldNameContainingDiscriminatedValue, *c.model.ParentTypeName, c.name)
 			}
 		}
 
@@ -381,7 +382,7 @@ func (s %[1]s) MarshalJSON() ([]byte, error) {
 
 	return encoded, nil
 }
-`, c.name, field.JsonName, *c.model.TypeHintValue)
+`, c.name, field.JsonName, *c.model.DiscriminatedValue)
 	}
 
 	return &output, nil
@@ -412,7 +413,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 	if c.model.IsDiscriminatedParentType() {
 		modelsImplementingThisClass := make([]string, 0)
 		for modelName, model := range data.models {
-			if model.ParentTypeName == nil || model.TypeHintIn == nil || model.TypeHintValue == nil || modelName == c.name {
+			if model.ParentTypeName == nil || model.FieldNameContainingDiscriminatedValue == nil || model.DiscriminatedValue == nil || modelName == c.name {
 				continue
 			}
 
@@ -421,8 +422,8 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 				continue
 			}
 
-			if *model.TypeHintIn != *c.model.TypeHintIn {
-				return nil, fmt.Errorf("implementation %q uses a different discriminated field (%q) than parent %q (%q)", modelName, *model.TypeHintIn, c.name, *c.model.TypeHintIn)
+			if *model.FieldNameContainingDiscriminatedValue != *c.model.FieldNameContainingDiscriminatedValue {
+				return nil, fmt.Errorf("implementation %q uses a different discriminated field (%q) than parent %q (%q)", modelName, *model.FieldNameContainingDiscriminatedValue, c.name, *c.model.FieldNameContainingDiscriminatedValue)
 			}
 
 			modelsImplementingThisClass = append(modelsImplementingThisClass, modelName)
@@ -432,7 +433,7 @@ func (c modelsTemplater) codeForUnmarshalParentFunction(data ServiceGeneratorDat
 		if len(modelsImplementingThisClass) == 0 && featureflags.SkipDiscriminatedParentTypes() == false {
 			return nil, fmt.Errorf("model %q is a discriminated parent type with no implementations", c.name)
 		}
-		jsonFieldName := c.model.Fields[*c.model.TypeHintIn].JsonName
+		jsonFieldName := c.model.Fields[*c.model.FieldNameContainingDiscriminatedValue].JsonName
 		// NOTE: unmarshaling null returns an empty map, which'll mean the `ok` fails
 		// the 'type' field being omitted will also mean that `ok` is false
 		lines = append(lines, fmt.Sprintf(`
@@ -464,7 +465,7 @@ func unmarshal%[1]sImplementation(input []byte) (%[1]s, error) {
 		}
 		return out, nil
 	}
-`, *model.TypeHintValue, implementationName))
+`, *model.DiscriminatedValue, implementationName))
 		}
 
 		// if it doesn't match - we generate and deserialize into a 'Raw{Name}Impl' type - named intentionally
@@ -497,8 +498,8 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 	fieldsRequiringAssignment := make([]string, 0)
 	fieldsRequiringUnmarshalling := make([]string, 0)
 	for fieldName, fieldDetails := range c.model.Fields {
-		topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
-		if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
+		if topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
 			model, ok := data.models[*topLevelObject.ReferenceName]
 			if ok && model.IsDiscriminatedParentType() {
 				fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
@@ -515,8 +516,8 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 		}
 		for fieldName, fieldDetails := range parent.Fields {
 			// also double-check if the parent has any fields matching the same conditions
-			topLevelObject := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
-			if topLevelObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			topLevelObject := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
+			if topLevelObject.Type == models.ReferenceSDKObjectDefinitionType {
 				model, ok := data.models[*topLevelObject.ReferenceName]
 				if ok && model.IsDiscriminatedParentType() {
 					fieldsRequiringUnmarshalling = append(fieldsRequiringUnmarshalling, fieldName)
@@ -529,7 +530,7 @@ func (c modelsTemplater) codeForUnmarshalStructFunction(data ServiceGeneratorDat
 			// don't match
 			//
 			// at this point since we know there's a parent-implementation relationship, there's no need to nil-check
-			if *c.model.TypeHintIn != fieldName {
+			if *c.model.FieldNameContainingDiscriminatedValue != fieldName {
 				fieldsRequiringAssignment = append(fieldsRequiringAssignment, fieldName)
 			}
 		}
@@ -581,22 +582,22 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 					return nil, fmt.Errorf("field %q was not found on Model %q or Parent %q", fieldName, c.name, *c.model.ParentTypeName)
 				}
 			}
-			topLevelObjectDef := topLevelObjectDefinition(fieldDetails.ObjectDefinition)
+			topLevelObjectDef := helpers.InnerMostSDKObjectDefinition(fieldDetails.ObjectDefinition)
 
-			supportedDiscriminatorWrappers := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-				resourcemanager.DictionaryApiObjectDefinitionType: {},
-				resourcemanager.ListApiObjectDefinitionType:       {},
-				resourcemanager.ReferenceApiObjectDefinitionType:  {},
+			supportedDiscriminatorWrappers := map[models.SDKObjectDefinitionType]struct{}{
+				models.DictionarySDKObjectDefinitionType: {},
+				models.ListSDKObjectDefinitionType:       {},
+				models.ReferenceSDKObjectDefinitionType:  {},
 			}
 			if _, supported := supportedDiscriminatorWrappers[fieldDetails.ObjectDefinition.Type]; !supported {
 				return nil, fmt.Errorf("discriminators can only be unwrapped for Dictionaries, Lists and References but got %q for field %q in model %q", fieldDetails.ObjectDefinition.Type, fieldName, c.name)
 			}
 
-			if fieldDetails.ObjectDefinition.Type == resourcemanager.DictionaryApiObjectDefinitionType {
+			if fieldDetails.ObjectDefinition.Type == models.DictionarySDKObjectDefinitionType {
 				if fieldDetails.ObjectDefinition.NestedItem == nil {
 					return nil, fmt.Errorf("dictionaries of discriminators require a NestedItem but didn't get one for field %q in model %q", fieldName, c.name)
 				}
-				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+				if fieldDetails.ObjectDefinition.NestedItem.Type != models.ReferenceSDKObjectDefinitionType {
 					return nil, fmt.Errorf("dictionaries of discriminators only support a single level deep but got a non-Reference type for field %q in model %q", fieldName, c.name)
 				}
 
@@ -626,11 +627,11 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
 			}
 
-			if fieldDetails.ObjectDefinition.Type == resourcemanager.ListApiObjectDefinitionType {
+			if fieldDetails.ObjectDefinition.Type == models.ListSDKObjectDefinitionType {
 				if fieldDetails.ObjectDefinition.NestedItem == nil {
 					return nil, fmt.Errorf("lists of discriminators require a NestedItem but didn't get one for field %q in model %q", fieldName, c.name)
 				}
-				if fieldDetails.ObjectDefinition.NestedItem.Type != resourcemanager.ReferenceApiObjectDefinitionType {
+				if fieldDetails.ObjectDefinition.NestedItem.Type != models.ReferenceSDKObjectDefinitionType {
 					return nil, fmt.Errorf("lists of discriminators only support a single level deep but got a non-Reference type for field %q in model %q", fieldName, c.name)
 				}
 
@@ -661,7 +662,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 	}`, fieldName, *topLevelObjectDef.ReferenceName, c.name, assignmentPrefix, fieldDetails.JsonName))
 			}
 
-			if fieldDetails.ObjectDefinition.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+			if fieldDetails.ObjectDefinition.Type == models.ReferenceSDKObjectDefinitionType {
 				lines = append(lines, fmt.Sprintf(`
 	if v, ok := temp[%[4]q]; ok {
 		impl, err := unmarshal%[2]sImplementation(v)
@@ -684,7 +685,7 @@ func (s *%[1]s) UnmarshalJSON(bytes []byte) error {`, c.name))
 // recurseParentModels walks the models hierarchy to find the parentName and field details of the model for disciminated types
 // This is a temporary measure until we update the swagger importer to connect the model fields inheritance for multiple parents.
 // Tracked at: https://github.com/hashicorp/pandora/issues/1235
-func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*resourcemanager.FieldDetails, *string, error) {
+func (c modelsTemplater) recurseParentModels(data ServiceGeneratorData, model string, typeHint string) (*models.SDKField, *string, error) {
 	parentModel, ok := data.models[model]
 	if !ok {
 		return nil, nil, fmt.Errorf("the parent model %q for model %q was not found", model, c.name)

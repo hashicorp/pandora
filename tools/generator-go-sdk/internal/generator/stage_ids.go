@@ -12,7 +12,7 @@ func (s *ServiceGenerator) ids(data ServiceGeneratorData) error {
 	outputDirectory := data.resourceOutputPath
 
 	for idName, resourceData := range data.resourceIds {
-		if resourceData.CommonAlias != nil || len(resourceData.Segments) == 0 {
+		if resourceData.CommonIDAlias != nil || len(resourceData.Segments) == 0 {
 			continue
 		}
 

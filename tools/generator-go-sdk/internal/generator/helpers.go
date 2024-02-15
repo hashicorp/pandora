@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func alternateCasingOnEveryLetter(input string) string {
@@ -34,8 +34,8 @@ func capitalizeFirstLetter(input string) string {
 	return strings.ToUpper(input[0:1]) + strings.ToLower(input[1:])
 }
 
-func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*string, error) {
-	if input == resourcemanager.ApiDefinitionsSourceHandWritten {
+func copyrightLinesForSource(input models.SourceDataOrigin) (*string, error) {
+	if input == models.HandWrittenSourceDataOrigin {
 		out := `
 // Copyright (c) HashiCorp Inc. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
@@ -43,7 +43,7 @@ func copyrightLinesForSource(input resourcemanager.ApiDefinitionsSource) (*strin
 		return &out, nil
 	}
 
-	if input == resourcemanager.ApiDefinitionsSourceResourceManagerRestApiSpecs {
+	if input == models.AzureRestAPISpecsSourceDataOrigin {
 		out := `
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT License. See NOTICE.txt in the project root for license information.
@@ -96,11 +96,11 @@ func golangConstantForStatusCode(statusCode int) string {
 	return fmt.Sprintf("%d // TODO: document me", statusCode)
 }
 
-func golangTypeNameForConstantType(input resourcemanager.ConstantType) (*string, error) {
-	segmentTypes := map[resourcemanager.ConstantType]string{
-		resourcemanager.IntegerConstant: "int64",
-		resourcemanager.FloatConstant:   "float64",
-		resourcemanager.StringConstant:  "string",
+func golangTypeNameForConstantType(input models.SDKConstantType) (*string, error) {
+	segmentTypes := map[models.SDKConstantType]string{
+		models.FloatSDKConstantType:   "float64",
+		models.IntegerSDKConstantType: "int64",
+		models.StringSDKConstantType:  "string",
 	}
 	segmentType, ok := segmentTypes[input]
 	if !ok {

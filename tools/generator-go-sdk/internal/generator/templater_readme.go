@@ -8,12 +8,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type readmeTemplater struct {
 	sortedOperationNames []string
-	operations           map[string]resourcemanager.ApiOperation
+	operations           map[string]models.SDKOperation
 }
 
 func (r readmeTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -38,7 +39,7 @@ func (r readmeTemplater) packageSummary(data ServiceGeneratorData) string {
 	}
 	containsCommonId := false
 	for _, resourceId := range data.resourceIds {
-		if resourceId.CommonAlias != nil {
+		if resourceId.CommonIDAlias != nil {
 			containsCommonId = true
 			break
 		}
@@ -95,7 +96,7 @@ func (r readmeTemplater) exampleUsages(data ServiceGeneratorData) (*string, erro
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, operationName string, operation resourcemanager.ApiOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
 	if operation.FieldContainingPaginationDetails != nil {
 		return r.exampleUsageForListOperation(packageName, clientName, operationName, operation, data)
 	}
@@ -107,22 +108,22 @@ func (r readmeTemplater) exampleUsageForOperation(packageName, clientName, opera
 	return r.exampleUsageForRegularOperation(packageName, clientName, operationName, operation, data)
 }
 
-func (r readmeTemplater) resourceIdInitialization(operation resourcemanager.ApiOperation, data ServiceGeneratorData) (*string, error) {
-	resourceId, ok := data.resourceIds[*operation.ResourceIdName]
+func (r readmeTemplater) resourceIdInitialization(operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
+	resourceId, ok := data.resourceIds[*operation.ResourceIDName]
 	if !ok {
-		return nil, fmt.Errorf("resource id %q was not found", *operation.ResourceIdName)
+		return nil, fmt.Errorf("resource id %q was not found", *operation.ResourceIDName)
 	}
 
 	resourceIdPackageName := data.packageName
-	resourceIdTypeName := strings.TrimSuffix(*operation.ResourceIdName, "Id")
-	if resourceId.CommonAlias != nil {
+	resourceIdTypeName := strings.TrimSuffix(*operation.ResourceIDName, "Id")
+	if resourceId.CommonIDAlias != nil {
 		resourceIdPackageName = "commonids"
-		resourceIdTypeName = *resourceId.CommonAlias // NOTE: CommonIds aren't output with an `Id` suffix
+		resourceIdTypeName = *resourceId.CommonIDAlias // NOTE: CommonIds aren't output with an `Id` suffix
 	}
 
 	components := make([]string, 0)
 	for _, v := range resourceId.Segments {
-		if v.Type == resourcemanager.StaticSegment || v.Type == resourcemanager.ResourceProviderSegment {
+		if v.Type == models.StaticResourceIDSegmentType || v.Type == models.ResourceProviderResourceIDSegmentType {
 			continue
 		}
 		components = append(components, fmt.Sprintf("%q", v.ExampleValue))
@@ -131,13 +132,13 @@ func (r readmeTemplater) resourceIdInitialization(operation resourcemanager.ApiO
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForRegularOperation(packageName, clientName, operationName string, operation resourcemanager.ApiOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForRegularOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
 		"ctx",
 	}
-	if operation.ResourceIdName != nil {
+	if operation.ResourceIDName != nil {
 		resourceId, err := r.resourceIdInitialization(operation, data)
 		if err != nil {
 			return nil, fmt.Errorf("building resource id initialization: %+v", err)
@@ -148,7 +149,7 @@ func (r readmeTemplater) exampleUsageForRegularOperation(packageName, clientName
 	}
 	if operation.RequestObject != nil {
 		methodArgs = append(methodArgs, "payload")
-		if operation.RequestObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if operation.RequestObject.Type == models.ReferenceSDKObjectDefinitionType {
 			lines = append(lines, fmt.Sprintf(`
 payload := %[1]s.%[2]s{
 	// ...
@@ -156,7 +157,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -187,13 +188,13 @@ if model := read.Model; model != nil {
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForListOperation(packageName, clientName, operationName string, operation resourcemanager.ApiOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForListOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
 		"ctx",
 	}
-	if operation.ResourceIdName != nil {
+	if operation.ResourceIDName != nil {
 		resourceId, err := r.resourceIdInitialization(operation, data)
 		if err != nil {
 			return nil, fmt.Errorf("building resource id initialization: %+v", err)
@@ -204,7 +205,7 @@ func (r readmeTemplater) exampleUsageForListOperation(packageName, clientName, o
 	}
 	if operation.RequestObject != nil {
 		methodArgs = append(methodArgs, "payload")
-		if operation.RequestObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if operation.RequestObject.Type == models.ReferenceSDKObjectDefinitionType {
 			lines = append(lines, fmt.Sprintf(`
 payload := %[1]s.%[2]s{
 	// ...
@@ -212,7 +213,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}
@@ -244,13 +245,13 @@ for _, item := range items {
 	return &out, nil
 }
 
-func (r readmeTemplater) exampleUsageForLongRunningOperation(packageName, clientName, operationName string, operation resourcemanager.ApiOperation, data ServiceGeneratorData) (*string, error) {
+func (r readmeTemplater) exampleUsageForLongRunningOperation(packageName, clientName, operationName string, operation models.SDKOperation, data ServiceGeneratorData) (*string, error) {
 	lines := make([]string, 0)
 
 	methodArgs := []string{
 		"ctx",
 	}
-	if operation.ResourceIdName != nil {
+	if operation.ResourceIDName != nil {
 		resourceId, err := r.resourceIdInitialization(operation, data)
 		if err != nil {
 			return nil, fmt.Errorf("building resource id initialization: %+v", err)
@@ -261,7 +262,7 @@ func (r readmeTemplater) exampleUsageForLongRunningOperation(packageName, client
 	}
 	if operation.RequestObject != nil {
 		methodArgs = append(methodArgs, "payload")
-		if operation.RequestObject.Type == resourcemanager.ReferenceApiObjectDefinitionType {
+		if operation.RequestObject.Type == models.ReferenceSDKObjectDefinitionType {
 			lines = append(lines, fmt.Sprintf(`
 payload := %[1]s.%[2]s{
 	// ...
@@ -269,7 +270,7 @@ payload := %[1]s.%[2]s{
 `, packageName, *operation.RequestObject.ReferenceName))
 		} else {
 			// for simplicities sake
-			typeName, err := golangTypeNameForObjectDefinition(*operation.RequestObject)
+			typeName, err := helpers.GolangTypeForSDKObjectDefinition(*operation.RequestObject, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining golang type name for request object: %+v", err)
 			}

@@ -6,7 +6,7 @@ package generator
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplateMethodsLROCreate(t *testing.T) {
@@ -14,22 +14,23 @@ func TestTemplateMethodsLROCreate(t *testing.T) {
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
 			ExpectedStatusCodes: []int{201, 202},
 			LongRunning:         true,
 			Method:              "PUT",
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
-			ResourceIdName: stringPointer("PandaPop"),
+			ResourceIDName: stringPointer("PandaPop"),
 		},
 		operationName: "Create",
 	}.longRunningOperationTemplate(input)
@@ -106,19 +107,20 @@ func TestTemplateMethodsLROReboot(t *testing.T) {
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
 			ExpectedStatusCodes: []int{200},
 			LongRunning:         true,
 			Method:              "POST",
-			ResourceIdName:      stringPointer("PandaPop"),
+			ResourceIDName:      stringPointer("PandaPop"),
 		},
 		operationName: "Reboot",
 	}.longRunningOperationTemplate(input)
@@ -196,40 +198,41 @@ func TestTemplateMethodsLRODoesNotCallUnmarshal(t *testing.T) {
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Example": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"First": {
 						Required: true,
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						JsonName: "first",
 					},
 				},
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
 			ExpectedStatusCodes: []int{200, 202},
 			LongRunning:         true,
 			Method:              "PUT",
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("Example"),
 			},
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("Example"),
 			},
-			ResourceIdName: stringPointer("PandaPop"),
+			ResourceIDName: stringPointer("PandaPop"),
 		},
 		operationName: "Create",
 	}.longRunningOperationTemplate(input)

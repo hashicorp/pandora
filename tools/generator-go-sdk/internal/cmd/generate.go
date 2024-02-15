@@ -14,10 +14,9 @@ import (
 	"strings"
 	"sync"
 
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/generator"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
 	"github.com/mitchellh/cli"
 )
 
@@ -110,26 +109,13 @@ func (g GenerateCommand) Synopsis() string {
 }
 
 func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
-	client := resourcemanager.NewResourceManagerClient(input.apiServerEndpoint)
+	// output into a directory named after the source data type (e.g. `{dir}/resource-manager`)
+	input.outputDirectory = path.Join(input.outputDirectory, string(g.sourceDataType))
 
-	// resource manager items should be output into the folder ./resource-manager
-	input.outputDirectory = path.Join(input.outputDirectory, "resource-manager")
-
-	var loadedServices services.ResourceManagerServices
-	if len(input.services) > 0 {
-		log.Printf("[DEBUG] Loading the Services from the Data API %q..", strings.Join(input.services, " / "))
-		services, err := services.GetResourceManagerServicesByName(client, input.services)
-		if err != nil {
-			return fmt.Errorf("retrieving resource manager services: %+v", err)
-		}
-		loadedServices = *services
-	} else {
-		log.Printf("[DEBUG] Loading All Services..")
-		services, err := services.GetResourceManagerServices(client)
-		if err != nil {
-			return fmt.Errorf("retrieving resource manager services: %+v", err)
-		}
-		loadedServices = *services
+	client := v1.NewClient(input.apiServerEndpoint, g.sourceDataType)
+	data, err := client.LoadAllData(ctx, input.services)
+	if err != nil {
+		return fmt.Errorf("retrieving API Definitions: %+v", err)
 	}
 
 	errCh := make(chan error, 1)
@@ -144,18 +130,18 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 	}
 
 	generatorService := generator.NewServiceGenerator(input.settings)
-	for serviceName, service := range loadedServices.Services {
+	for serviceName, service := range data.Services {
 		log.Printf("[DEBUG] Service %q..", serviceName)
-		if !service.Details.Generate {
+		if !service.Generate {
 			log.Printf("[DEBUG] .. is opted out of generation, skipping..")
 			continue
 		}
 
 		wg.Add(1)
-		go func(serviceName string, service services.ResourceManagerService, input GeneratorInput) {
+		go func(serviceName string, service models.Service, input GeneratorInput) {
 			defer wg.Done()
 			log.Printf("[DEBUG] Service %q", serviceName)
-			for versionNumber, versionDetails := range service.Versions {
+			for versionNumber, versionDetails := range service.APIVersions {
 				log.Printf("[DEBUG]   Version %q", versionNumber)
 				for resourceName, resourceDetails := range versionDetails.Resources {
 					log.Printf("[DEBUG]      Resource %q..", resourceName)
@@ -167,7 +153,7 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 						ResourceName:    resourceName,
 						ResourceDetails: resourceDetails,
 						OutputDirectory: input.outputDirectory,
-						Source:          versionDetails.Details.Source,
+						Source:          versionDetails.Source,
 					}
 					log.Printf("[DEBUG] Generating Service %q / Version %q / Resource %q..", serviceName, versionNumber, resourceName)
 					if err := generatorService.Generate(generatorData); err != nil {
@@ -183,7 +169,7 @@ func (g GenerateCommand) run(ctx context.Context, input GeneratorInput) error {
 					ServiceName:     serviceName,
 					VersionName:     versionNumber,
 					Resources:       versionDetails.Resources,
-					Source:          versionDetails.Details.Source,
+					Source:          versionDetails.Source,
 				}
 				generatorData.UseNewBaseLayer = false
 				if input.settings.ShouldUseNewBaseLayer(serviceName, versionNumber) {

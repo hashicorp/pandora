@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/featureflags"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: add unit tests covering this
@@ -14,8 +14,8 @@ var _ templaterForResource = resourceIdTemplater{}
 
 type resourceIdTemplater struct {
 	name            string
-	resource        resourcemanager.ResourceIdDefinition
-	constantDetails map[string]resourcemanager.ConstantDetails
+	resource        models.ResourceID
+	constantDetails map[string]models.SDKConstant
 }
 
 func (r resourceIdTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -54,13 +54,13 @@ func (r resourceIdTemplater) structBody() (*string, error) {
 	lines := make([]string, 0)
 
 	for _, segment := range r.resource.Segments {
-		segmentType := string(resourcemanager.StringConstant)
+		segmentType := "string"
 		switch segment.Type {
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			continue
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			continue
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			if segment.ConstantReference == nil {
 				return nil, fmt.Errorf("segment %q is a constant with no reference", segment.Name)
 			}
@@ -154,7 +154,7 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 	segmentArguments := make([]string, 0) // id.Foo
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment, resourcemanager.StaticSegment:
+		case models.ResourceProviderResourceIDSegmentType, models.StaticResourceIDSegmentType:
 			{
 				if segment.FixedValue == nil {
 					return nil, fmt.Errorf("segment %q should have a static value but didn't get one", segment.Name)
@@ -163,7 +163,7 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 				continue
 			}
 
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			{
 				if segment.ConstantReference == nil {
 					return nil, fmt.Errorf("the constant segment %q has no reference", segment.Name)
@@ -175,10 +175,10 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 					return nil, fmt.Errorf("the constant %q was not found in the data for segment %q", *segment.ConstantReference, segment.Name)
 				}
 
-				fmtVals := map[resourcemanager.ConstantType]string{
-					resourcemanager.IntegerConstant: "%d",
-					resourcemanager.FloatConstant:   "%f",
-					resourcemanager.StringConstant:  "%s",
+				fmtVals := map[models.SDKConstantType]string{
+					models.FloatSDKConstantType:   "%f",
+					models.IntegerSDKConstantType: "%d",
+					models.StringSDKConstantType:  "%s",
 				}
 				fmtVal, ok := fmtVals[constant.Type]
 				if !ok {
@@ -188,12 +188,12 @@ func (r resourceIdTemplater) idFunction() (*string, error) {
 
 				segmentType, err := golangTypeNameForConstantType(constant.Type)
 				if err != nil {
-					return nil, fmt.Errorf("for constant %q: %+v", err, err)
+					return nil, fmt.Errorf("determining golang type name for constant type %q: %+v", constant.Type, err)
 				}
 				segmentArguments = append(segmentArguments, fmt.Sprintf("%s(id.%s)", *segmentType, strings.Title(segment.Name)))
 			}
 
-		case resourcemanager.ScopeSegment:
+		case models.ScopeResourceIDSegmentType:
 			{
 				fmtSegments = append(fmtSegments, "%s")
 				segmentArguments = append(segmentArguments, fmt.Sprintf("strings.TrimPrefix(id.%s, \"/\")", strings.Title(segment.Name)))
@@ -228,12 +228,12 @@ func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, err
 
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			fallthrough
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			continue
 
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			{
 				if segment.ConstantReference == nil {
 					return nil, fmt.Errorf("segment %q is a constant without a reference", segment.Name)
@@ -243,7 +243,7 @@ func (r resourceIdTemplater) newFunction(nameWithoutSuffix string) (*string, err
 				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), segment.Name))
 			}
 
-		case resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
+		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
 			{
 				arguments = append(arguments, fmt.Sprintf("%s string", segment.Name))
 				lines = append(lines, fmt.Sprintf("%s: %s,", strings.Title(segment.Name), segment.Name))
@@ -295,13 +295,13 @@ func %[1]s(input string) (*%[2]s, error) {
 	return &out, nil
 }
 
-func (r resourceIdTemplater) fromParseResultFunction(segments []resourcemanager.ResourceIdSegment) (*string, error) {
+func (r resourceIdTemplater) fromParseResultFunction(segments []models.ResourceIDSegment) (*string, error) {
 
 	lines := make([]string, 0)
 	varDeclaration := ""
 	for _, segment := range segments {
 		switch segment.Type {
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			{
 				if segment.ConstantReference == nil {
 					return nil, fmt.Errorf("constant segment %q has no reference", segment.Name)
@@ -324,7 +324,7 @@ func (r resourceIdTemplater) fromParseResultFunction(segments []resourcemanager.
 				continue
 			}
 
-		case resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
+		case models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf(`
 	if id.%[2]s, ok = input.Parsed[%[1]q]; !ok {
@@ -356,7 +356,7 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			{
 				if segment.ConstantReference == nil {
 					return nil, fmt.Errorf("constant segment %q had no reference", segment.Name)
@@ -364,12 +364,12 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 				lines = append(lines, fmt.Sprintf("resourceids.ConstantSegment(%q, PossibleValuesFor%[2]s(), %q),", segment.Name, *segment.ConstantReference, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.ResourceGroupSegment:
+		case models.ResourceGroupResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf("resourceids.ResourceGroupSegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			{
 				if segment.FixedValue == nil {
 					return nil, fmt.Errorf("resource provider segment %q had no value", segment.Name)
@@ -378,12 +378,12 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 				lines = append(lines, fmt.Sprintf("resourceids.ResourceProviderSegment(%q, %q, %q),", segment.Name, *segment.FixedValue, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.ScopeSegment:
+		case models.ScopeResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf("resourceids.ScopeSegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			{
 				if segment.FixedValue == nil {
 					return nil, fmt.Errorf("static segment %q had no value", segment.Name)
@@ -392,12 +392,12 @@ func (r resourceIdTemplater) segmentsFunction() (*string, error) {
 				lines = append(lines, fmt.Sprintf("resourceids.StaticSegment(%q, %q, %q),", segment.Name, *segment.FixedValue, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.SubscriptionIdSegment:
+		case models.SubscriptionIDResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf("resourceids.SubscriptionIdSegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
 			}
-		case resourcemanager.UserSpecifiedSegment:
+		case models.UserSpecifiedResourceIDSegmentType:
 			{
 				lines = append(lines, fmt.Sprintf("resourceids.UserSpecifiedSegment(%q, %q),", segment.Name, segment.ExampleValue))
 				continue
@@ -424,10 +424,10 @@ func (r resourceIdTemplater) stringFunction() (*string, error) {
 	componentsLines := make([]string, 0)
 	for _, segment := range r.resource.Segments {
 		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment, resourcemanager.StaticSegment:
+		case models.ResourceProviderResourceIDSegmentType, models.StaticResourceIDSegmentType:
 			continue
 
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			if segment.ConstantReference == nil {
 				return nil, fmt.Errorf("segment %q is a constant without a reference", segment.Name)
 			}

@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestReadmeTemplater_NoOperations(t *testing.T) {
@@ -35,7 +35,7 @@ client.Client.Authorizer = authorizer
 `, "'", "`")
 	actual, err := readmeTemplater{
 		sortedOperationNames: []string{},
-		operations:           map[string]resourcemanager.ApiOperation{},
+		operations:           map[string]models.SDKOperation{},
 	}.template(ServiceGeneratorData{
 		packageName:        "disks",
 		apiVersion:         "2022-02-01",
@@ -87,10 +87,10 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
+				ResourceIDName: stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -98,19 +98,11 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -161,10 +153,10 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
+				ResourceIDName: stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -172,20 +164,12 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				CommonAlias: pointer.To("ManagedDisk"),
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				CommonIDAlias: pointer.To("ManagedDisk"),
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -238,12 +222,12 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
 			},
@@ -253,25 +237,17 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -325,18 +301,18 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
-				Options: map[string]resourcemanager.ApiOperationOption{
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -348,25 +324,17 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -417,14 +385,14 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: stringPointer("Disk"),
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -436,19 +404,11 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -497,10 +457,10 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: nil,
+				ResourceIDName: nil,
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -508,7 +468,7 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
+		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -554,14 +514,14 @@ if model := read.Model; model != nil {
 		sortedOperationNames: []string{
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: nil,
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: nil,
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -573,7 +533,7 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
+		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -621,11 +581,11 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
-				LongRunning:                      false,
-				ResourceIdName:                   stringPointer("Disk"),
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
+				LongRunning:                      false,
+				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -633,19 +593,11 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -697,11 +649,11 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
-				LongRunning:                      false,
-				ResourceIdName:                   stringPointer("Disk"),
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
+				LongRunning:                      false,
+				ResourceIDName:                   stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -709,20 +661,12 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				CommonAlias: pointer.To("ManagedDisk"),
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				CommonIDAlias: pointer.To("ManagedDisk"),
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -776,12 +720,12 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
@@ -792,25 +736,17 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -865,18 +801,18 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
-				Options: map[string]resourcemanager.ApiOperationOption{
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -889,25 +825,17 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -959,14 +887,14 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
 				LongRunning:    false,
-				ResourceIdName: stringPointer("Disk"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: stringPointer("Disk"),
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -979,25 +907,17 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -1048,10 +968,10 @@ for _, item := range items {
 		sortedOperationNames: []string{
 			"ListSomething",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"ListSomething": {
 				LongRunning:                      false,
-				ResourceIdName:                   nil,
+				ResourceIDName:                   nil,
 				FieldContainingPaginationDetails: stringPointer("SomeField"),
 			},
 		},
@@ -1060,7 +980,7 @@ for _, item := range items {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
+		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -1104,10 +1024,10 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("Disk"),
+				ResourceIDName: stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -1115,19 +1035,11 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -1175,10 +1087,10 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("Disk"),
+				ResourceIDName: stringPointer("Disk"),
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -1186,20 +1098,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id); err != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				CommonAlias: pointer.To("ManagedDisk"),
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				CommonIDAlias: pointer.To("ManagedDisk"),
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
@@ -1249,12 +1153,12 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
 			},
@@ -1264,25 +1168,17 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload); err != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -1333,18 +1229,18 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLong
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("Disk"),
-				RequestObject: &resourcemanager.ApiObjectDefinition{
-					Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+				ResourceIDName: stringPointer("Disk"),
+				RequestObject: &models.SDKObjectDefinition{
+					Type:          models.ReferenceSDKObjectDefinitionType,
 					ReferenceName: stringPointer("SomeModel"),
 				},
-				Options: map[string]resourcemanager.ApiOperationOption{
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -1356,25 +1252,17 @@ if err := client.SomeLongRunningThenPoll(ctx, id, payload, disks.DefaultSomeLong
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"SomeModel": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					// doesn't matter for this test
 				},
 			},
@@ -1421,14 +1309,14 @@ if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOp
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: stringPointer("Disk"),
-				Options: map[string]resourcemanager.ApiOperationOption{
+				ResourceIDName: stringPointer("Disk"),
+				Options: map[string]models.SDKOperationOption{
 					"Example": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+							Type: models.StringSDKOperationOptionObjectDefinitionType,
 						},
 						Required: false,
 					},
@@ -1440,23 +1328,15 @@ if err := client.SomeLongRunningThenPoll(ctx, id, disks.DefaultSomeLongRunningOp
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"Disk": {
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						Type:       resourcemanager.StaticSegment,
-						Name:       "disks",
-						FixedValue: stringPointer("disks"),
-					},
-					{
-						Type:         resourcemanager.UserSpecifiedSegment,
-						Name:         "diskName",
-						ExampleValue: "my-disk",
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("disks", "disks"),
+					models.NewUserSpecifiedResourceIDSegment("diskName", "my-disk"),
 				},
 			},
 		},
-		models: map[string]resourcemanager.ModelDetails{},
+		models: map[string]models.SDKModel{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -1499,10 +1379,10 @@ if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 		sortedOperationNames: []string{
 			"SomeLongRunning",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			"SomeLongRunning": {
 				LongRunning:    true,
-				ResourceIdName: nil,
+				ResourceIDName: nil,
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -1510,7 +1390,7 @@ if err := client.SomeLongRunningThenPoll(ctx); err != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
+		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)
@@ -1570,15 +1450,15 @@ if model := read.Model; model != nil {
 			"Delete",
 			"Get",
 		},
-		operations: map[string]resourcemanager.ApiOperation{
+		operations: map[string]models.SDKOperation{
 			// intentional to double-check the ordering is used
 			"Get": {
 				LongRunning:    false,
-				ResourceIdName: nil,
+				ResourceIDName: nil,
 			},
 			"Delete": {
 				LongRunning:    false,
-				ResourceIdName: nil,
+				ResourceIDName: nil,
 			},
 		},
 	}.template(ServiceGeneratorData{
@@ -1586,7 +1466,7 @@ if model := read.Model; model != nil {
 		apiVersion:         "2022-02-01",
 		servicePackageName: "compute",
 		serviceClientName:  "DisksClient",
-		resourceIds:        map[string]resourcemanager.ResourceIdDefinition{},
+		resourceIds:        map[string]models.ResourceID{},
 	})
 	if err != nil {
 		t.Fatalf("generating readme: %+v", err)

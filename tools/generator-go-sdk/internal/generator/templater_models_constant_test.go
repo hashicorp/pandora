@@ -7,22 +7,20 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"SomeFloat": {
 					JsonName: "someFloat",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "MyFloat"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("MyFloat"),
 					},
 					Optional: true,
 				},
@@ -30,26 +28,23 @@ func TestModelTemplaterWithOptionalFloatConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"SomeFloat": {
 						JsonName: "someFloat",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MyFloat"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MyFloat"),
 						},
 						Optional: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -86,16 +81,13 @@ type Basic struct {
 func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambo": {
 					JsonName: "mambo",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "MamboNumber"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("MamboNumber"),
 					},
 					Optional: true,
 				},
@@ -103,26 +95,23 @@ func TestModelTemplaterWithOptionalIntegerConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambo": {
 						JsonName: "mambo",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MamboNumber"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MamboNumber"),
 						},
 						Optional: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -160,16 +149,13 @@ type Basic struct {
 func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Country": {
 					JsonName: "country",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "Countries"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("Countries"),
 					},
 					Optional: true,
 				},
@@ -177,26 +163,23 @@ func TestModelTemplaterWithOptionalStringConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Country": {
 						JsonName: "country",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "Countries"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Countries"),
 						},
 						Optional: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",
@@ -234,16 +217,13 @@ type Basic struct {
 func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"SomeFloat": {
 					JsonName: "someFloat",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "MyFloat"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("MyFloat"),
 					},
 					Required: true,
 				},
@@ -251,26 +231,23 @@ func TestModelTemplaterWithRequiredFloatConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"SomeFloat": {
 						JsonName: "someFloat",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MyFloat"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MyFloat"),
 						},
 						Required: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -307,16 +284,13 @@ type Basic struct {
 func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambo": {
 					JsonName: "mambo",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "MamboNumber"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("MamboNumber"),
 					},
 					Required: true,
 				},
@@ -324,26 +298,23 @@ func TestModelTemplaterWithRequiredIntegerConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambo": {
 						JsonName: "mambo",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MamboNumber"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MamboNumber"),
 						},
 						Required: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -380,16 +351,13 @@ type Basic struct {
 func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Country": {
 					JsonName: "country",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ReferenceApiObjectDefinitionType,
-						ReferenceName: func() *string {
-							v := "Countries"
-							return &v
-						}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
+						ReferenceName: pointer.To("Countries"),
 					},
 					Required: true,
 				},
@@ -397,26 +365,23 @@ func TestModelTemplaterWithRequiredStringConstant(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Country": {
 						JsonName: "country",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "Countries"
-								return &v
-							}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Countries"),
 						},
 						Required: true,
 					},
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",
@@ -454,14 +419,14 @@ type Basic struct {
 func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ListOfFloats": {
 					JsonName: "listOfFloats",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type: models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: func() *string {
 								v := "MyFloat"
 								return &v
@@ -474,15 +439,15 @@ func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ListOfFloats": {
 						JsonName: "listOfFloats",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type: models.ReferenceSDKObjectDefinitionType,
 								ReferenceName: func() *string {
 									v := "MyFloat"
 									return &v
@@ -494,9 +459,9 @@ func TestModelTemplaterWithOptionalListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -533,18 +498,15 @@ type Basic struct {
 func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambos": {
 					JsonName: "mambos",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MamboNumber"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MamboNumber"),
 						},
 					},
 					Optional: true,
@@ -553,19 +515,16 @@ func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambos": {
 						JsonName: "mambos",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MamboNumber"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MamboNumber"),
 							},
 						},
 						Optional: true,
@@ -573,9 +532,9 @@ func TestModelTemplaterWithOptionalListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -612,18 +571,15 @@ type Basic struct {
 func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"FavouriteCountries": {
 					JsonName: "favouriteCountries",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "Countries"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Countries"),
 						},
 					},
 					Optional: true,
@@ -632,19 +588,16 @@ func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"FavouriteCountries": {
 						JsonName: "favouriteCountries",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "Countries"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("Countries"),
 							},
 						},
 						Optional: true,
@@ -652,9 +605,9 @@ func TestModelTemplaterWithOptionalListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",
@@ -692,18 +645,15 @@ type Basic struct {
 func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"ListOfFloats": {
 					JsonName: "listOfFloats",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MyFloat"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MyFloat"),
 						},
 					},
 					Required: true,
@@ -712,19 +662,16 @@ func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"ListOfFloats": {
 						JsonName: "listOfFloats",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MyFloat"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MyFloat"),
 							},
 						},
 						Required: true,
@@ -732,9 +679,9 @@ func TestModelTemplaterWithRequiredListOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -771,18 +718,15 @@ type Basic struct {
 func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambos": {
 					JsonName: "mambos",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MamboNumber"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MamboNumber"),
 						},
 					},
 					Required: true,
@@ -791,19 +735,16 @@ func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambos": {
 						JsonName: "mambos",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MamboNumber"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MamboNumber"),
 							},
 						},
 						Required: true,
@@ -811,9 +752,9 @@ func TestModelTemplaterWithRequiredListOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -850,14 +791,14 @@ type Basic struct {
 func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"FavouriteCountries": {
 					JsonName: "favouriteCountries",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.ListApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.ListSDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type: models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: func() *string {
 								v := "Countries"
 								return &v
@@ -870,19 +811,16 @@ func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"FavouriteCountries": {
 						JsonName: "favouriteCountries",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ListApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "Countries"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ListSDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("Countries"),
 							},
 						},
 						Required: true,
@@ -890,9 +828,9 @@ func TestModelTemplaterWithRequiredListOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",
@@ -930,18 +868,15 @@ type Basic struct {
 func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"MapOfFloats": {
 					JsonName: "mapOfFloats",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MyFloat"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MyFloat"),
 						},
 					},
 					Optional: true,
@@ -950,19 +885,16 @@ func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"MapOfFloats": {
 						JsonName: "mapOfFloats",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MyFloat"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MyFloat"),
 							},
 						},
 						Optional: true,
@@ -970,9 +902,9 @@ func TestModelTemplaterWithOptionalMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -1009,14 +941,14 @@ type Basic struct {
 func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambos": {
 					JsonName: "mambos",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type: models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: func() *string {
 								v := "MamboNumber"
 								return &v
@@ -1029,19 +961,16 @@ func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambos": {
 						JsonName: "mambos",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MamboNumber"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MamboNumber"),
 							},
 						},
 						Optional: true,
@@ -1049,9 +978,9 @@ func TestModelTemplaterWithOptionalMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -1088,18 +1017,15 @@ type Basic struct {
 func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"FavouriteCountries": {
 					JsonName: "favouriteCountries",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "Countries"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Countries"),
 						},
 					},
 					Optional: true,
@@ -1108,19 +1034,16 @@ func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"FavouriteCountries": {
 						JsonName: "favouriteCountries",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "Countries"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("Countries"),
 							},
 						},
 						Optional: true,
@@ -1128,9 +1051,9 @@ func TestModelTemplaterWithOptionalMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",
@@ -1168,18 +1091,15 @@ type Basic struct {
 func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"MapOfFloats": {
 					JsonName: "mapOfFloats",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "MyFloat"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("MyFloat"),
 						},
 					},
 					Required: true,
@@ -1188,19 +1108,16 @@ func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"MapOfFloats": {
 						JsonName: "mapOfFloats",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MyFloat"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MyFloat"),
 							},
 						},
 						Required: true,
@@ -1208,9 +1125,9 @@ func TestModelTemplaterWithRequiredMapOfFloatConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MyFloat": {
-				Type: resourcemanager.FloatConstant,
+				Type: models.FloatSDKConstantType,
 				Values: map[string]string{
 					"OnePointTwo": "1.2",
 				},
@@ -1247,14 +1164,14 @@ type Basic struct {
 func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Mambos": {
 					JsonName: "mambos",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type: models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: func() *string {
 								v := "MamboNumber"
 								return &v
@@ -1267,19 +1184,16 @@ func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Mambos": {
 						JsonName: "mambos",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "MamboNumber"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("MamboNumber"),
 							},
 						},
 						Required: true,
@@ -1287,9 +1201,9 @@ func TestModelTemplaterWithRequiredMapOfIntegerConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"MamboNumber": {
-				Type: resourcemanager.IntegerConstant,
+				Type: models.IntegerSDKConstantType,
 				Values: map[string]string{
 					"Five": "5",
 				},
@@ -1326,18 +1240,15 @@ type Basic struct {
 func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Basic",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"FavouriteCountries": {
 					JsonName: "favouriteCountries",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.DictionaryApiObjectDefinitionType,
-						NestedItem: &resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.ReferenceApiObjectDefinitionType,
-							ReferenceName: func() *string {
-								v := "Countries"
-								return &v
-							}(),
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.DictionarySDKObjectDefinitionType,
+						NestedItem: &models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
+							ReferenceName: pointer.To("Countries"),
 						},
 					},
 					Required: true,
@@ -1346,19 +1257,16 @@ func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Basic": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"FavouriteCountries": {
 						JsonName: "favouriteCountries",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.DictionaryApiObjectDefinitionType,
-							NestedItem: &resourcemanager.ApiObjectDefinition{
-								Type: resourcemanager.ReferenceApiObjectDefinitionType,
-								ReferenceName: func() *string {
-									v := "Countries"
-									return &v
-								}(),
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.DictionarySDKObjectDefinitionType,
+							NestedItem: &models.SDKObjectDefinition{
+								Type:          models.ReferenceSDKObjectDefinitionType,
+								ReferenceName: pointer.To("Countries"),
 							},
 						},
 						Required: true,
@@ -1366,9 +1274,9 @@ func TestModelTemplaterWithRequiredMapOfStringConstants(t *testing.T) {
 				},
 			},
 		},
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"Countries": {
-				Type: resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Canada":  "canada",
 					"Germany": "germany",

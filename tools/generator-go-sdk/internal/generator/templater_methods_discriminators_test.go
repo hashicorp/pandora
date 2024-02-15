@@ -9,7 +9,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: additional tests covering the Methods for Discriminated Types.
@@ -23,14 +23,14 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_Get(t *tes
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"PandaPop": {
-				ParentTypeName: stringPointer("FizzyDrink"),
-				TypeHintValue:  stringPointer("Cola"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				DiscriminatedValue: stringPointer("Cola"),
+				ParentTypeName:     stringPointer("FizzyDrink"),
+				Fields: map[string]models.SDKField{
 					"Cola": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -41,16 +41,17 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_Get(t *tes
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType: "application/json",
 			ExpectedStatusCodes: []int{
 				http.StatusOK,
 			},
 			Method: "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("PandaPop"),
 			},
-			UriSuffix: stringPointer("/thing"),
+			URISuffix: stringPointer("/thing"),
 		},
 		operationName: "Get",
 	}.template(input)
@@ -122,13 +123,13 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_Get(t *testing.T) 
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"FizzyDrink": {
-				TypeHintIn: stringPointer("Type"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
 					"Type": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -139,16 +140,17 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_Get(t *testing.T) 
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType: "application/json",
 			ExpectedStatusCodes: []int{
 				http.StatusOK,
 			},
 			Method: "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("FizzyDrink"),
 			},
-			UriSuffix: stringPointer("/thing"),
+			URISuffix: stringPointer("/thing"),
 		},
 		operationName: "Get",
 	}.template(input)
@@ -229,14 +231,14 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_List(t *te
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"PandaPop": {
-				ParentTypeName: stringPointer("FizzyDrink"),
-				TypeHintValue:  stringPointer("Cola"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				DiscriminatedValue: stringPointer("Cola"),
+				ParentTypeName:     stringPointer("FizzyDrink"),
+				Fields: map[string]models.SDKField{
 					"Cola": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -247,17 +249,18 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsImplementation_List(t *te
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType: "application/json",
 			ExpectedStatusCodes: []int{
 				http.StatusOK,
 			},
 			FieldContainingPaginationDetails: pointer.To("SomeField"),
 			Method:                           "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("PandaPop"),
 			},
-			UriSuffix: stringPointer("/thing"),
+			URISuffix: stringPointer("/thing"),
 		},
 		operationName: "List",
 	}.template(input)
@@ -371,13 +374,13 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_List(t *testing.T)
 		packageName:       "chubbypandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"FizzyDrink": {
-				TypeHintIn: stringPointer("Type"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
 					"Type": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
@@ -388,17 +391,18 @@ func TestTemplateMethods_Discriminator_ResponseObjectIsParent_List(t *testing.T)
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType: "application/json",
 			ExpectedStatusCodes: []int{
 				http.StatusOK,
 			},
 			FieldContainingPaginationDetails: pointer.To("SomeField"),
 			Method:                           "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("FizzyDrink"),
 			},
-			UriSuffix: stringPointer("/thing"),
+			URISuffix: stringPointer("/thing"),
 		},
 		operationName: "List",
 	}.template(input)

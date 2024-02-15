@@ -9,17 +9,17 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type constantTemplater struct {
 	name                          string
-	details                       resourcemanager.ConstantDetails
+	details                       models.SDKConstant
 	generateNormalizationFunction bool
 	constantUsedInAResourceID     bool
 }
 
-func templateForConstant(name string, details resourcemanager.ConstantDetails, generateNormalizationFunc, usedInAResourceId bool) (*string, error) {
+func templateForConstant(name string, details models.SDKConstant, generateNormalizationFunc, usedInAResourceId bool) (*string, error) {
 	t := constantTemplater{
 		name:                          name,
 		details:                       details,
@@ -63,7 +63,7 @@ func (t constantTemplater) constantDefinition() string {
 		constantValue := t.details.Values[constantKey]
 		definitionTemplate := "\t%[2]s%[1]s %[2]s = %[3]q" // \tMyConstantValue MyConstant = "Value"
 
-		if t.details.Type == resourcemanager.IntegerConstant || t.details.Type == resourcemanager.FloatConstant {
+		if t.details.Type == models.IntegerSDKConstantType || t.details.Type == models.FloatSDKConstantType {
 			definitionTemplate = "\t%[2]s%[1]s %[2]s = %[3]s" // \tMyConstantValue MyConstant = 1.02
 		}
 		definitionLines = append(definitionLines, fmt.Sprintf(definitionTemplate, constantKey, t.name, constantValue))
@@ -80,7 +80,7 @@ const (
 }
 
 func (t constantTemplater) normalizationFunction() string {
-	if !t.generateNormalizationFunction || t.details.Type != resourcemanager.StringConstant {
+	if !t.generateNormalizationFunction || t.details.Type != models.StringSDKConstantType {
 		return ""
 	}
 
@@ -127,7 +127,7 @@ func (t constantTemplater) parseFunction() (*string, error) {
 	// we only output the parse function if it's a String constant (in which case it'll be needed by the Normalizaation function)
 	// or if the Constant is used in a Resource ID segment (since that calls this to parse the Resource ID segment)
 	// we could output this always, but this reduces the TLOC we output, which is preferable.
-	requiresParseFunction := t.details.Type == resourcemanager.StringConstant || t.constantUsedInAResourceID
+	requiresParseFunction := t.details.Type == models.StringSDKConstantType || t.constantUsedInAResourceID
 	if !requiresParseFunction {
 		return pointer.To(""), nil
 	}
@@ -138,7 +138,7 @@ func (t constantTemplater) parseFunction() (*string, error) {
 	}
 	sort.Strings(valueKeys)
 
-	if t.details.Type == resourcemanager.FloatConstant || t.details.Type == resourcemanager.IntegerConstant {
+	if t.details.Type == models.FloatSDKConstantType || t.details.Type == models.IntegerSDKConstantType {
 		mapLines := make([]string, 0)
 		for _, constantKey := range valueKeys {
 			constantValue := t.details.Values[constantKey]
@@ -165,7 +165,7 @@ func parse%[1]s(input %[3]s) (*%[1]s, error) {
 		return &out, nil
 	}
 
-	if t.details.Type != resourcemanager.StringConstant {
+	if t.details.Type != models.StringSDKConstantType {
 		return nil, fmt.Errorf("unimplemented constant type %q", string(t.details.Type))
 	}
 
@@ -192,15 +192,15 @@ func parse%[1]s(input string) (*%[1]s, error) {
 }
 
 func (t constantTemplater) mapToGoType() string {
-	if t.details.Type == resourcemanager.FloatConstant {
+	if t.details.Type == models.FloatSDKConstantType {
 		return "float64"
 	}
 
-	if t.details.Type == resourcemanager.IntegerConstant {
+	if t.details.Type == models.IntegerSDKConstantType {
 		return "int64"
 	}
 
-	if t.details.Type == resourcemanager.StringConstant {
+	if t.details.Type == models.StringSDKConstantType {
 		return "string"
 	}
 

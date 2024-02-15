@@ -6,13 +6,12 @@ package generator
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplateFloatConstant(t *testing.T) {
-	actual, err := templateForConstant("MyConstant", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.FloatConstant,
+	actual, err := templateForConstant("MyConstant", models.SDKConstant{
+		Type: models.FloatSDKConstantType,
 		Values: map[string]string{
 			"FourPointTwo": "4.2",
 			"TwoPointSix":  "2.6",
@@ -39,9 +38,8 @@ func PossibleValuesForMyConstant() []float64 {
 }
 
 func TestTemplateFloatConstantUsedInAResourceID(t *testing.T) {
-	actual, err := templateForConstant("MyConstant", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.FloatConstant,
+	actual, err := templateForConstant("MyConstant", models.SDKConstant{
+		Type: models.FloatSDKConstantType,
 		Values: map[string]string{
 			"FourPointTwo": "4.2",
 			"TwoPointSix":  "2.6",
@@ -82,9 +80,8 @@ func parseMyConstant(input float64) (*MyConstant, error) {
 }
 
 func TestTemplateIntegerConstant(t *testing.T) {
-	actual, err := templateForConstant("MamboNumber", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.IntegerConstant,
+	actual, err := templateForConstant("MamboNumber", models.SDKConstant{
+		Type: models.IntegerSDKConstantType,
 		Values: map[string]string{
 			"Five":   "5",
 			"TenSix": "16",
@@ -114,9 +111,8 @@ func PossibleValuesForMamboNumber() []int64 {
 }
 
 func TestTemplateIntegerConstantUsedInAResourceID(t *testing.T) {
-	actual, err := templateForConstant("MamboNumber", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.IntegerConstant,
+	actual, err := templateForConstant("MamboNumber", models.SDKConstant{
+		Type: models.IntegerSDKConstantType,
 		Values: map[string]string{
 			"Five":   "5",
 			"TenSix": "16",
@@ -161,9 +157,8 @@ func parseMamboNumber(input int64) (*MamboNumber, error) {
 }
 
 func TestTemplateStringConstant(t *testing.T) {
-	actual, err := templateForConstant("Capital", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.StringConstant,
+	actual, err := templateForConstant("Capital", models.SDKConstant{
+		Type: models.StringSDKConstantType,
 		Values: map[string]string{
 			"Berlin":   "berlin",
 			"Canberra": "canberra",
@@ -209,9 +204,8 @@ func parseCapital(input string) (*Capital, error) {
 
 func TestTemplateStringConstantUsedInAResourceID(t *testing.T) {
 	// the `UsedInAResourceID` field has no effect, since the Parse function is always output for String constants
-	actual, err := templateForConstant("Capital", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.StringConstant,
+	actual, err := templateForConstant("Capital", models.SDKConstant{
+		Type: models.StringSDKConstantType,
 		Values: map[string]string{
 			"Berlin":   "berlin",
 			"Canberra": "canberra",
@@ -256,9 +250,8 @@ func parseCapital(input string) (*Capital, error) {
 }
 
 func TestTemplateStringConstantWithNormalizationFunction(t *testing.T) {
-	actual, err := templateForConstant("Capital", resourcemanager.ConstantDetails{
-		CaseInsensitive: false,
-		Type:            resourcemanager.StringConstant,
+	actual, err := templateForConstant("Capital", models.SDKConstant{
+		Type: models.StringSDKConstantType,
 		Values: map[string]string{
 			"Berlin":   "berlin",
 			"Canberra": "canberra",
