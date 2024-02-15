@@ -7,17 +7,18 @@ import (
 	"context"
 	"flag"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	"github.com/hashicorp/pandora/tools/generator-go-sdk/generator"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
-	"github.com/mitchellh/cli"
 	"log"
 	"os"
 	"path"
 	"path/filepath"
 	"strings"
 	"sync"
+
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/generator"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/mitchellh/cli"
 )
 
 var _ cli.Command = GenerateCommand{}
