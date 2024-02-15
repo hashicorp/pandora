@@ -8,8 +8,9 @@ import (
 	"net/http"
 
 	"github.com/go-chi/render"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
+	"github.com/hashicorp/pandora/tools/data-api/internal/endpoints/v1/transforms"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
-	"github.com/hashicorp/pandora/tools/data-api/models"
 )
 
 func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
@@ -21,49 +22,26 @@ func (api Api) schemaForApiResource(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	constants := make(map[string]models.ConstantDetails, 0)
-	schemaModels := make(map[string]models.ModelDetails, 0)
-	resourceIds := make(map[string]models.ResourceIdDefinition, 0)
-
-	for k, constant := range resource.Schema.Constants {
-		constantType, err := mapConstantType(constant.Type)
-		if err != nil {
-			internalServerError(w, fmt.Errorf("mapping constant %q: %+v", k, err))
-			return
-		}
-		constants[k] = models.ConstantDetails{
-			Type:   *constantType,
-			Values: constant.Values,
-		}
+	mappedConstants, err := transforms.MapConstants(resource.Schema.Constants)
+	if err != nil {
+		internalServerError(w, fmt.Errorf("mapping Constants: %+v", err))
+		return
+	}
+	mappedModels, err := transforms.MapSDKModels(resource.Schema.Models)
+	if err != nil {
+		internalServerError(w, fmt.Errorf("mapping Models: %+v", err))
+		return
+	}
+	resourceIds, err := transforms.MapResourceIDs(resource.Schema.ResourceIds)
+	if err != nil {
+		internalServerError(w, fmt.Errorf("mapping ResourceIDs: %+v", err))
+		return
 	}
 
-	for k, schemaModel := range resource.Schema.Models {
-		fields, err := mapSchemaFields(schemaModel.Fields)
-		if err != nil {
-			internalServerError(w, fmt.Errorf("mapping fields for model %q: %+v", k, err))
-			return
-		}
-		schemaModels[k] = models.ModelDetails{
-			Fields:         fields,
-			ParentTypeName: schemaModel.ParentTypeName,
-			TypeHintIn:     schemaModel.TypeHintIn,
-			TypeHintValue:  schemaModel.TypeHintValue,
-		}
-	}
-
-	for k, resourceId := range resource.Schema.ResourceIds {
-		resourceIds[k] = models.ResourceIdDefinition{
-			CommonAlias:   resourceId.CommonAlias,
-			ConstantNames: resourceId.ConstantNames,
-			Id:            resourceId.Id,
-			Segments:      mapResourceIdSegments(resourceId.Segments),
-		}
-	}
-
-	payload := models.ApiSchemaDetails{
-		Constants:   constants,
-		Models:      schemaModels,
-		ResourceIds: resourceIds,
+	payload := v1.GetSDKSchemaForAPIResource{
+		Constants:   *mappedConstants,
+		Models:      *mappedModels,
+		ResourceIDs: *resourceIds,
 	}
 
 	render.JSON(w, r, payload)

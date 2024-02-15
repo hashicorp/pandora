@@ -10,9 +10,6 @@ package models
 // Each item within this file will be marked as Deprecated - which should
 // make it possible to detect usages of the old types fairly easily.
 
-// 1. TerraformDefinition no longer contains `DataSources`,
-//    which will want splitting into Singular and Plural.
-
 /*
 Removed:
   * ApiOperationDetails (should be unused)
