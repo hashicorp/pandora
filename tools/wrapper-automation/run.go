@@ -76,6 +76,8 @@ func run(args Arguments) error {
 
 func runGoSdkGenerator(dataApiUri string, outputDirectory string) error {
 	args := []string{
+		"resource-manager",
+		"generate",
 		fmt.Sprintf("-data-api=%s", dataApiUri),
 	}
 	if outputDirectory != "" {
