@@ -29,7 +29,10 @@ func main() {
 	log.Printf("Data API is available: %t", resp.Available)
 	
 	// Then retrieve all of the Services and all of their associated Data to work against..
-	var servicesToLoad []string // this is a list of services to filter to, if unset every service is loaded
+	var servicesToLoad []string // this is a list of services to filter to, if empty/nil then every service is loaded
+	servicesToLoad = []string{
+		"Compute",
+    }
 	data, err := client.LoadAllData(ctx, servicesToLoad)
 	if err != nil {
 		log.Fatalf(err.Error())
