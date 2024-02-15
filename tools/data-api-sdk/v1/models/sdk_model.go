@@ -17,7 +17,7 @@ type SDKModel struct {
 	// Fields specifies a map of key (FieldName) to value (SDKField) which describes
 	// the Fields present within this SDKModel.
 	// NOTE: the Field Name is a valid Identifier.
-	Fields map[string]FieldDetails `json:"fields"`
+	Fields map[string]SDKField `json:"fields"`
 
 	// ParentTypeName optionally specifies the name of the Parent Type for this Model.
 	// If a ParentTypeName is present then this SDKModel will be a Discriminated Implementation
