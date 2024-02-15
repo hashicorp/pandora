@@ -5,10 +5,10 @@ package v1
 
 import (
 	"fmt"
-	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"net/http"
 
 	"github.com/go-chi/render"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"github.com/hashicorp/pandora/tools/data-api/internal/repositories"
 )
 

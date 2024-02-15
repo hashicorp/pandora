@@ -25,7 +25,7 @@ func MapTerraformResourceDefinitions(input map[string]repositories.TerraformReso
 func mapTerraformResourceDefinition(input repositories.TerraformResourceDetails) (*models.TerraformResourceDefinition, error) {
 	mappings, err := mapTerraformSchemaMappings(input.Mappings)
 	if err != nil {
-		return nil, fmt.Errorf("mapping mappings for %q: %+v", input.ResourceName, err)
+		return nil, fmt.Errorf("mapping schema mappings for %q: %+v", input.ResourceName, err)
 	}
 
 	schemaModels, err := mapTerraformSchemaModels(input.SchemaModels)
