@@ -213,7 +213,7 @@ func validateParsedResourceIDSegmentsMatch(t *testing.T, expected, actual resour
 		t.Errorf("expected `Name` to be %q but got %q for %s", expected.Name, actual.Name, segmentName)
 	}
 	if string(expected.Type) != string(actual.Type) {
-		t.Errorf("expected `Type` to be %q but got %q for %s", string(expected.Type), string(expected.Type), segmentName)
+		t.Errorf("expected `Type` to be %q but got %q for %s", string(expected.Type), string(actual.Type), segmentName)
 	}
 }
 
