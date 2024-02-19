@@ -5,15 +5,14 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type metaClientAutorestTemplater struct {
 	serviceName string
 	apiVersion  string
-	resources   map[string]services.Resource
-	source      resourcemanager.ApiDefinitionsSource
+	resources   map[string]models.APIResource
+	source      models.SourceDataOrigin
 }
 
 func (m metaClientAutorestTemplater) template() (*string, error) {

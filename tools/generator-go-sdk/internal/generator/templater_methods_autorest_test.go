@@ -6,7 +6,7 @@ package generator
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplateMethodsAutoRestLRODelete(t *testing.T) {
@@ -17,7 +17,7 @@ func TestTemplateMethodsAutoRestLRODelete(t *testing.T) {
 	}
 
 	actual := methodsAutoRestTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
 			Method: "DELETE",
 		},
 		operationName: "Delete",
@@ -48,7 +48,7 @@ func TestTemplateMethodsAutoRestLROCreate(t *testing.T) {
 	}
 
 	actual := methodsAutoRestTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
 			Method: "PUT",
 		},
 		operationName: "Create",
@@ -77,17 +77,17 @@ func TestTemplateMethodAutoRestDiscriminatedTypeResponder(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"PandaPop": {
-				TypeHintIn: stringPointer("cola"),
+				FieldNameContainingDiscriminatedValue: stringPointer("cola"),
 			},
 		},
 	}
 
 	actual, err := methodsAutoRestTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
 			Method: "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
+			ResponseObject: &models.SDKObjectDefinition{
 				ReferenceName: stringPointer("PandaPop"),
 			},
 		},
@@ -128,20 +128,21 @@ func TestTemplateMethodsAutoRestBaseTypePredicates(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsAutoRestTemplater{
-		operation: resourcemanager.ApiOperation{
-			Method: "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+		operation: models.SDKOperation{
+			ContentType: "application/json",
+			Method:      "GET",
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
-			ResourceIdName: stringPointer("PandaPop"),
+			ResourceIDName: stringPointer("PandaPop"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
@@ -184,6 +185,7 @@ func (c pandaClient) List(ctx context.Context, id PandaPop) (resp ListOperationR
 			"api-version": defaultApiVersion,
 		}
 		preparer := autorest.CreatePreparer(
+		autorest.AsContentType("application/json"),
 		autorest.AsGet(),
 		autorest.WithBaseURL(c.baseUri),
 		autorest.WithPath(id.ID()),
@@ -246,21 +248,22 @@ func TestTemplateMethodsAutoRestNonBaseTypePredicates(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsAutoRestTemplater{
-		operation: resourcemanager.ApiOperation{
-			Method: "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+		operation: models.SDKOperation{
+			ContentType: "application/json",
+			Method:      "GET",
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("LingLing"),
 			},
-			ResourceIdName: stringPointer("PandaPop"),
+			ResourceIDName: stringPointer("PandaPop"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
@@ -303,6 +306,7 @@ func (c pandaClient) List(ctx context.Context, id PandaPop) (resp ListOperationR
 			"api-version": defaultApiVersion,
 		}
 		preparer := autorest.CreatePreparer(
+		autorest.AsContentType("application/json"),
 		autorest.AsGet(),
 		autorest.WithBaseURL(c.baseUri),
 		autorest.WithPath(id.ID()),

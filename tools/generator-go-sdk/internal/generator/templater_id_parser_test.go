@@ -6,32 +6,23 @@ package generator
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplateIdParserBasic(t *testing.T) {
 	actual, err := resourceIdTemplater{
 		name: "BasicTestId",
-		resource: resourcemanager.ResourceIdDefinition{
-			Id: "/subscriptions/{subscriptionId}",
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					ExampleValue: "subscriptions",
-					FixedValue:   stringPointer("subscriptions"),
-					Name:         "staticSubscriptions",
-					Type:         resourcemanager.StaticSegment,
-				},
-				{
-					ExampleValue: "000000-0000-0000-0000-00000000",
-					Name:         "subscriptionId",
-					Type:         resourcemanager.SubscriptionIdSegment,
-				},
+		resource: models.ResourceID{
+			ExampleValue: "/subscriptions/{subscriptionId}",
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
+				models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
 			},
 		},
 	}.template(ServiceGeneratorData{
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"empty": {
-				CommonAlias: stringPointer("basic"),
+				CommonIDAlias: stringPointer("basic"),
 			},
 		},
 		packageName: "somepackage",
@@ -134,7 +125,7 @@ var _ resourceids.ResourceId = &BasicTestId{}
 	func (id BasicTestId) Segments() []resourceids.Segment {
 		return []resourceids.Segment{
 			resourceids.StaticSegment("staticSubscriptions", "subscriptions", "subscriptions"),
-			resourceids.SubscriptionIdSegment("subscriptionId", "000000-0000-0000-0000-00000000"),
+			resourceids.SubscriptionIdSegment("subscriptionId", "11112222-3333-4444-555566667777"),
 		}
 	}
 
@@ -152,30 +143,19 @@ var _ resourceids.ResourceId = &BasicTestId{}
 func TestTemplateIdParserConstantsOnly(t *testing.T) {
 	actual, err := resourceIdTemplater{
 		name: "ConstantOnlyId",
-		resource: resourcemanager.ResourceIdDefinition{
-			Id: "/thing/{thingId}",
+		resource: models.ResourceID{
+			ExampleValue: "/thing/{thingId}",
 			ConstantNames: []string{
 				"Thing",
 			},
-			Segments: []resourcemanager.ResourceIdSegment{
-				{
-					ExampleValue: "thing",
-					FixedValue:   stringPointer("thing"),
-					Name:         "staticThing",
-					Type:         resourcemanager.StaticSegment,
-				},
-				{
-					ExampleValue:      "someThing",
-					Name:              "thingId",
-					Type:              resourcemanager.ConstantSegment,
-					ConstantReference: stringPointer("Thing"),
-				},
+			Segments: []models.ResourceIDSegment{
+				models.NewStaticValueResourceIDSegment("staticThing", "thing"),
+				models.NewConstantResourceIDSegment("thingId", "Thing", "someThing"),
 			},
 		},
-		constantDetails: map[string]resourcemanager.ConstantDetails{
+		constantDetails: map[string]models.SDKConstant{
 			"Thing": {
-				CaseInsensitive: false,
-				Type:            resourcemanager.StringConstant,
+				Type: models.StringSDKConstantType,
 				Values: map[string]string{
 					"Some":    "Some",
 					"Another": "Another",
@@ -183,9 +163,9 @@ func TestTemplateIdParserConstantsOnly(t *testing.T) {
 			},
 		},
 	}.template(ServiceGeneratorData{
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"empty": {
-				CommonAlias: stringPointer("thing"),
+				CommonIDAlias: stringPointer("thing"),
 			},
 		},
 		packageName: "somepackage",

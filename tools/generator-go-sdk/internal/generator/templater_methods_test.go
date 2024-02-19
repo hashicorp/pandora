@@ -8,7 +8,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: split the tests out into sub-groupings & add more coverage
@@ -18,20 +18,21 @@ func TestTemplateMethodsGet(t *testing.T) {
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:         "application/json",
 			ExpectedStatusCodes: []int{200},
 			Method:              "GET",
-			ResourceIdName:      stringPointer("PandaPop"),
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResourceIDName:      stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 		operationName: "Get",
@@ -89,21 +90,21 @@ func TestTemplateMethodsGetAsTextPowerShell(t *testing.T) {
 		packageName:       "skinnyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
-			ContentType:         stringPointer("text/powershell"),
+		operation: models.SDKOperation{
+			ContentType:         "text/powershell",
 			ExpectedStatusCodes: []int{200},
 			Method:              "GET",
-			ResourceIdName:      stringPointer("PandaPop"),
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResourceIDName:      stringPointer("PandaPop"),
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 		operationName: "Get",
@@ -166,52 +167,53 @@ func TestTemplateMethodsListWithDiscriminatedType(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"Bottle": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Type": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
-				ParentTypeName: nil,
-				TypeHintIn:     pointer.To("Type"),
-				TypeHintValue:  nil,
+				ParentTypeName:                        nil,
+				FieldNameContainingDiscriminatedValue: pointer.To("Type"),
+				DiscriminatedValue:                    nil,
 			},
 			"MilkBottle": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Size": {
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
-				ParentTypeName: pointer.To("Bottle"),
-				TypeHintIn:     pointer.To("Type"),
-				TypeHintValue:  pointer.To("Milk"),
+				ParentTypeName:                        pointer.To("Bottle"),
+				FieldNameContainingDiscriminatedValue: pointer.To("Type"),
+				DiscriminatedValue:                    pointer.To("Milk"),
 			},
 		},
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:                      "application/json",
 			ExpectedStatusCodes:              []int{200},
 			FieldContainingPaginationDetails: stringPointer("nextLink"),
 			Method:                           "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("Bottle"),
 			},
-			ResourceIdName: stringPointer("PandaPop"),
-			UriSuffix:      stringPointer("/pandas"),
+			ResourceIDName: stringPointer("PandaPop"),
+			URISuffix:      stringPointer("/pandas"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
@@ -321,23 +323,24 @@ func TestTemplateMethodsListWithSimpleType(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:                      "application/json",
 			ExpectedStatusCodes:              []int{200},
 			FieldContainingPaginationDetails: stringPointer("nextLink"),
 			Method:                           "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
-			ResourceIdName: stringPointer("PandaPop"),
-			UriSuffix:      stringPointer("/pandas"),
+			ResourceIDName: stringPointer("PandaPop"),
+			URISuffix:      stringPointer("/pandas"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)
@@ -428,24 +431,25 @@ func TestTemplateMethodsListWithObject(t *testing.T) {
 		packageName:       "chubbyPandas",
 		serviceClientName: "pandaClient",
 		source:            AccTestLicenceType,
-		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
+		resourceIds: map[string]models.ResourceID{
 			"PandaPop": {
-				Id: "LingLing",
+				ExampleValue: "LingLing",
 			},
 		},
 	}
 
 	actual, err := methodsPandoraTemplater{
-		operation: resourcemanager.ApiOperation{
+		operation: models.SDKOperation{
+			ContentType:                      "application/json",
 			ExpectedStatusCodes:              []int{200},
 			FieldContainingPaginationDetails: stringPointer("nextLink"),
 			Method:                           "GET",
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: stringPointer("LingLing"),
 			},
-			ResourceIdName: stringPointer("PandaPop"),
-			UriSuffix:      stringPointer("/pandas"),
+			ResourceIDName: stringPointer("PandaPop"),
+			URISuffix:      stringPointer("/pandas"),
 		},
 		operationName: "List",
 	}.listOperationTemplate(input)

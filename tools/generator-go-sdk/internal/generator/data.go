@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ServiceGeneratorData struct {
@@ -26,27 +26,27 @@ type ServiceGeneratorData struct {
 	// for example {workingDir}/service/version/resource
 	resourceOutputPath string
 
-	// constants is a map of key (constant name) to value (ConstantDetails) describing
+	// constants is a map of Constant Name (key) to SDKConstant (value) describing
 	// the constants and their values used in this Resource
-	constants map[string]resourcemanager.ConstantDetails
+	constants map[string]models.SDKConstant
 
 	// API Version is the default API version for this Resource
 	apiVersion string
 
-	// models is a map of key (model name) to value (ModelDetails) describing
+	// models is a map of Model Name (key) to SDKModel (value) describing
 	// the models used in this Resource
-	models map[string]resourcemanager.ModelDetails
+	models map[string]models.SDKModel
 
-	// operations is a map of key (operation name) to value (ApiOperation) describing
+	// operations is a map of Operation Name (key) to SDKOperation (value) describing
 	// the available http operations
-	operations map[string]resourcemanager.ApiOperation
+	operations map[string]models.SDKOperation
 
 	// resourceIds is a map of key (resourceId name) to value (ResourceIdDefinition)
 	// describing the ResourceId's used in these http operations
-	resourceIds map[string]resourcemanager.ResourceIdDefinition
+	resourceIds map[string]models.ResourceID
 
 	// source describes the original source location for these API Definitions
-	source resourcemanager.ApiDefinitionsSource
+	source models.SourceDataOrigin
 
 	// the name of the service as a package (e.g. resources or eventhub)
 	servicePackageName string
@@ -73,13 +73,13 @@ func (i ServiceGeneratorInput) generatorData(settings Settings) ServiceGenerator
 
 	return ServiceGeneratorData{
 		apiVersion:         i.VersionName,
-		constants:          i.ResourceDetails.Schema.Constants,
+		constants:          i.ResourceDetails.Constants,
 		idsOutputPath:      idsPath,
-		models:             i.ResourceDetails.Schema.Models,
-		operations:         i.ResourceDetails.Operations.Operations,
+		models:             i.ResourceDetails.Models,
+		operations:         i.ResourceDetails.Operations,
 		resourceOutputPath: resourceOutputPath,
 		packageName:        resourcePackageName,
-		resourceIds:        i.ResourceDetails.Schema.ResourceIds,
+		resourceIds:        i.ResourceDetails.ResourceIDs,
 		serviceClientName:  fmt.Sprintf("%sClient", strings.Title(i.ResourceName)),
 		servicePackageName: strings.ToLower(i.ServiceName),
 		source:             i.Source,

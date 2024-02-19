@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/featureflags"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: add unit tests covering this
@@ -14,8 +14,8 @@ var _ templaterForResource = resourceIdTestsTemplater{}
 
 type resourceIdTestsTemplater struct {
 	resourceName    string
-	resourceData    resourcemanager.ResourceIdDefinition
-	constantDetails map[string]resourcemanager.ConstantDetails
+	resourceData    models.ResourceID
+	constantDetails map[string]models.SDKConstant
 }
 
 func (i resourceIdTestsTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -26,7 +26,7 @@ func (i resourceIdTestsTemplater) template(data ServiceGeneratorData) (*string, 
 	return res, nil
 }
 
-func (i resourceIdTestsTemplater) generateTests(packageName string, source resourcemanager.ApiDefinitionsSource) (*string, error) {
+func (i resourceIdTestsTemplater) generateTests(packageName string, source models.SourceDataOrigin) (*string, error) {
 	structName := strings.Title(i.resourceName)
 	structWithoutSuffix := strings.TrimSuffix(structName, "Id")
 	lines := make([]string, 0)
@@ -93,7 +93,7 @@ func (i resourceIdTestsTemplater) generateIdFunctionTest(structWithoutSuffix str
 
 	exampleValues := make([]string, 0)
 	for _, segment := range i.resourceData.Segments {
-		if segment.Type != resourcemanager.ResourceProviderSegment && segment.Type != resourcemanager.StaticSegment {
+		if segment.Type != models.ResourceProviderResourceIDSegmentType && segment.Type != models.StaticResourceIDSegmentType {
 			arguments = append(arguments, fmt.Sprintf("%q", segment.ExampleValue))
 		}
 
@@ -118,7 +118,7 @@ func (i resourceIdTestsTemplater) generateNewFunctionTest(structWithoutSuffix st
 	assertions := make([]string, 0)
 
 	for _, segment := range i.resourceData.Segments {
-		if segment.Type == resourcemanager.ResourceProviderSegment || segment.Type == resourcemanager.StaticSegment {
+		if segment.Type == models.ResourceProviderResourceIDSegmentType || segment.Type == models.StaticResourceIDSegmentType {
 			continue
 		}
 
@@ -212,11 +212,11 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 		urlVals = append(urlVals, segment.ExampleValue)
 
 		switch segment.Type {
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			fallthrough
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			continue
-		case resourcemanager.ConstantSegment:
+		case models.ConstantResourceIDSegmentType:
 			{
 				structMap = append(structMap, fmt.Sprintf("%s: %q,", strings.Title(segment.Name), segment.ExampleValue))
 				// intentionally don't alternate the casing, since the constant gets fixed to the correct case
@@ -252,8 +252,8 @@ func (i resourceIdTestsTemplater) getTestCases(caseSensitive bool) (*string, err
 		}
 	}
 
-	isSingleSegmentOnly := len(i.resourceData.Segments) == 1 && i.resourceData.Segments[0].Type == resourcemanager.ScopeSegment
-	idEndsInScopeSegment := len(i.resourceData.Segments) > 1 && i.resourceData.Segments[len(i.resourceData.Segments)-1].Type == resourcemanager.ScopeSegment
+	isSingleSegmentOnly := len(i.resourceData.Segments) == 1 && i.resourceData.Segments[0].Type == models.ScopeResourceIDSegmentType
+	idEndsInScopeSegment := len(i.resourceData.Segments) > 1 && i.resourceData.Segments[len(i.resourceData.Segments)-1].Type == models.ScopeResourceIDSegmentType
 	fullUrl := urlFromSegments(urlVals)
 	cases = append(cases, fmt.Sprintf(`{
 		// Valid URI
@@ -296,9 +296,9 @@ func (i resourceIdTestsTemplater) getAssertions() (*string, error) {
 	lines := make([]string, 0)
 	for _, segment := range i.resourceData.Segments {
 		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			fallthrough
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			continue
 		default:
 			lines = append(lines, fmt.Sprintf(`

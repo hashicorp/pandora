@@ -6,15 +6,16 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ templaterForResource = methodsPandoraTemplater{}
 
 type methodsPandoraTemplater struct {
-	operation     resourcemanager.ApiOperation
+	operation     models.SDKOperation
 	operationName string
-	constants     map[string]resourcemanager.ConstantDetails
+	constants     map[string]models.SDKConstant
 }
 
 func (c methodsPandoraTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -289,7 +290,7 @@ func (c methodsPandoraTemplater) listOperationTemplate(data ServiceGeneratorData
 	if err != nil {
 		return nil, fmt.Errorf("building options struct: %+v", err)
 	}
-	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -324,7 +325,7 @@ func (c %[1]s) %[2]s(ctx context.Context %[3]s) (result %[2]sOperationResponse, 
 `, data.serviceClientName, c.operationName, *methodArguments, *requestOptions, *unmarshalerCode, *responseStruct, *optionsStruct)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
-	if c.operation.ResponseObject.Type == resourcemanager.ReferenceApiObjectDefinitionType || c.operation.ResponseObject.Type == resourcemanager.ListApiObjectDefinitionType {
+	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
 		templated += fmt.Sprintf(`
 
 // %[2]sComplete retrieves all the results into a single object
@@ -386,7 +387,7 @@ func (c %[1]s) %[2]sComplete(ctx context.Context%[3]s) (result %[2]sCompleteResu
 
 func (c methodsPandoraTemplater) argumentsTemplate() string {
 	args := make([]string, 0)
-	if c.operation.ResourceIdName != nil {
+	if c.operation.ResourceIDName != nil {
 		args = append(args, "id")
 	}
 	if c.operation.RequestObject != nil {
@@ -405,14 +406,14 @@ func (c methodsPandoraTemplater) argumentsTemplate() string {
 func (c methodsPandoraTemplater) requestArgumentsTemplate() string {
 	args := make([]string, 0)
 
-	if c.operation.UriSuffix != nil {
-		if c.operation.ResourceIdName != nil {
-			args = append(args, fmt.Sprintf("fmt.Sprintf(\"%%s%s\", id.ID())", *c.operation.UriSuffix))
+	if c.operation.URISuffix != nil {
+		if c.operation.ResourceIDName != nil {
+			args = append(args, fmt.Sprintf("fmt.Sprintf(\"%%s%s\", id.ID())", *c.operation.URISuffix))
 		} else {
-			args = append(args, *c.operation.UriSuffix)
+			args = append(args, *c.operation.URISuffix)
 		}
 	} else {
-		if c.operation.ResourceIdName != nil {
+		if c.operation.ResourceIDName != nil {
 			args = append(args, "id.ID()")
 		}
 	}
@@ -443,20 +444,20 @@ func (c methodsPandoraTemplater) requestArgumentsTemplate() string {
 
 func (c methodsPandoraTemplater) argumentsTemplateForMethod(data ServiceGeneratorData) (*string, error) {
 	arguments := make([]string, 0)
-	if c.operation.ResourceIdName != nil {
-		idName := *c.operation.ResourceIdName
+	if c.operation.ResourceIDName != nil {
+		idName := *c.operation.ResourceIDName
 		id, ok := data.resourceIds[idName]
 		if !ok {
 			return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
 		}
-		if id.CommonAlias != nil {
-			idName = fmt.Sprintf("commonids.%sId", *id.CommonAlias)
+		if id.CommonIDAlias != nil {
+			idName = fmt.Sprintf("commonids.%sId", *id.CommonIDAlias)
 		}
 
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -483,14 +484,14 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 	sort.Strings(expectedStatusCodes)
 
 	var path string
-	if c.operation.UriSuffix != nil {
-		if c.operation.ResourceIdName != nil {
-			path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.UriSuffix)
+	if c.operation.URISuffix != nil {
+		if c.operation.ResourceIDName != nil {
+			path = fmt.Sprintf(`fmt.Sprintf("%%s%s", id.ID())`, *c.operation.URISuffix)
 		} else {
-			path = fmt.Sprintf("%q", *c.operation.UriSuffix)
+			path = fmt.Sprintf("%q", *c.operation.URISuffix)
 		}
 	} else {
-		if c.operation.ResourceIdName != nil {
+		if c.operation.ResourceIDName != nil {
 			path = "id.ID()"
 		}
 	}
@@ -499,10 +500,7 @@ func (c methodsPandoraTemplater) requestOptions() (*string, error) {
 		options = "OptionsObject: options,"
 	}
 
-	contentType := "application/json"
-	if c.operation.ContentType != nil {
-		contentType = *c.operation.ContentType
-	}
+	contentType := c.operation.ContentType
 
 	out := fmt.Sprintf(`client.RequestOptions{
 		ContentType: %[1]q,
@@ -542,7 +540,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 	}
 
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -551,7 +549,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 		discriminatedTypeParentName := ""
 		if model, ok := data.models[typeName]; ok {
 			// it's either a parent model
-			if model.TypeHintIn != nil {
+			if model.FieldNameContainingDiscriminatedValue != nil {
 				discriminatedTypeParentName = typeName
 			}
 			// or an implementation referencing a parent
@@ -559,7 +557,7 @@ func (c methodsPandoraTemplater) unmarshalerTemplate(data ServiceGeneratorData) 
 				discriminatedTypeParentName = *model.ParentTypeName
 			}
 
-			if model.TypeHintValue != nil {
+			if model.DiscriminatedValue != nil {
 				// in this instance this would be a discriminated implementation present in the response object
 				// as such we should use that directly, rather than calling the parents unmarshal function
 				discriminatedTypeParentName = ""
@@ -635,7 +633,7 @@ func (c methodsPandoraTemplater) responseStructTemplate(data ServiceGeneratorDat
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -698,7 +696,7 @@ func (c methodsPandoraTemplater) optionsStruct(data ServiceGeneratorData) (*stri
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
+		optionType, err := helpers.GolangTypeForSDKOperationOptionObjectDefinition(option.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}

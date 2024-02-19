@@ -5,14 +5,15 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: add unit tests covering this
 
 type predicateTemplater struct {
 	sortedModelNames []string
-	models           map[string]resourcemanager.ModelDetails
+	models           map[string]models.SDKModel
 }
 
 func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -44,26 +45,26 @@ func (p predicateTemplater) template(data ServiceGeneratorData) (*string, error)
 	return &template, nil
 }
 
-func (p predicateTemplater) templateForModel(predicateStructName string, name string, model resourcemanager.ModelDetails) (*string, error) {
+func (p predicateTemplater) templateForModel(predicateStructName string, name string, model models.SDKModel) (*string, error) {
 	fieldNames := make([]string, 0)
 
 	// unsupported at this time - see https://github.com/hashicorp/pandora/issues/164
 	// TODO: look to add support for these, as below
-	customTypesToIgnore := map[resourcemanager.ApiObjectDefinitionType]struct{}{
-		resourcemanager.EdgeZoneApiObjectDefinitionType:                                {},
-		resourcemanager.SystemAssignedIdentityApiObjectDefinitionType:                  {},
-		resourcemanager.SystemAndUserAssignedIdentityMapApiObjectDefinitionType:        {},
-		resourcemanager.SystemAndUserAssignedIdentityListApiObjectDefinitionType:       {},
-		resourcemanager.LegacySystemAndUserAssignedIdentityListApiObjectDefinitionType: {},
-		resourcemanager.LegacySystemAndUserAssignedIdentityMapApiObjectDefinitionType:  {},
-		resourcemanager.SystemOrUserAssignedIdentityMapApiObjectDefinitionType:         {},
-		resourcemanager.SystemOrUserAssignedIdentityListApiObjectDefinitionType:        {},
-		resourcemanager.UserAssignedIdentityMapApiObjectDefinitionType:                 {},
-		resourcemanager.UserAssignedIdentityListApiObjectDefinitionType:                {},
-		resourcemanager.TagsApiObjectDefinitionType:                                    {},
-		resourcemanager.SystemData:                                                     {},
-		resourcemanager.ZoneApiObjectDefinitionType:                                    {},
-		resourcemanager.ZonesApiObjectDefinitionType:                                   {},
+	customTypesToIgnore := map[models.SDKObjectDefinitionType]struct{}{
+		models.EdgeZoneSDKObjectDefinitionType:                                {},
+		models.SystemAssignedIdentitySDKObjectDefinitionType:                  {},
+		models.SystemAndUserAssignedIdentityMapSDKObjectDefinitionType:        {},
+		models.SystemAndUserAssignedIdentityListSDKObjectDefinitionType:       {},
+		models.LegacySystemAndUserAssignedIdentityListSDKObjectDefinitionType: {},
+		models.LegacySystemAndUserAssignedIdentityMapSDKObjectDefinitionType:  {},
+		models.SystemOrUserAssignedIdentityMapSDKObjectDefinitionType:         {},
+		models.SystemOrUserAssignedIdentityListSDKObjectDefinitionType:        {},
+		models.UserAssignedIdentityMapSDKObjectDefinitionType:                 {},
+		models.UserAssignedIdentityListSDKObjectDefinitionType:                {},
+		models.TagsSDKObjectDefinitionType:                                    {},
+		models.SystemDataSDKObjectDefinitionType:                              {},
+		models.ZoneSDKObjectDefinitionType:                                    {},
+		models.ZonesSDKObjectDefinitionType:                                   {},
 	}
 
 	for name, field := range model.Fields {
@@ -84,7 +85,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 	// but in time we should look to support filtering on the sub-type, or something?
 	// issue: https://github.com/hashicorp/pandora/issues/956
 	isParentInterface := false
-	if model.ParentTypeName == nil && model.TypeHintIn != nil && model.TypeHintValue == nil {
+	if model.ParentTypeName == nil && model.FieldNameContainingDiscriminatedValue != nil && model.DiscriminatedValue == nil {
 		isParentInterface = true
 	}
 
@@ -94,7 +95,7 @@ func (p predicateTemplater) templateForModel(predicateStructName string, name st
 		for _, fieldName := range fieldNames {
 			fieldVal := model.Fields[fieldName]
 
-			typeInfo, err := golangTypeNameForObjectDefinition(fieldVal.ObjectDefinition)
+			typeInfo, err := helpers.GolangTypeForSDKObjectDefinition(fieldVal.ObjectDefinition, nil)
 			if err != nil {
 				return nil, fmt.Errorf("determining type information for field %q in model %q with info %q: %+v", fieldName, name, string(fieldVal.ObjectDefinition.Type), err)
 			}

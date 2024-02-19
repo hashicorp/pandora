@@ -5,13 +5,13 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ templaterForResource = constantsTemplater{}
 
 type constantsTemplater struct {
-	constantTemplateFunc func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction, usedInAResourceId bool) (*string, error)
+	constantTemplateFunc func(name string, details models.SDKConstant, generateNormalizationFunction, usedInAResourceId bool) (*string, error)
 }
 
 func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -38,7 +38,7 @@ func (c constantsTemplater) template(data ServiceGeneratorData) (*string, error)
 		usedInAResourceId := false
 		for _, id := range data.resourceIds {
 			for _, segment := range id.Segments {
-				if segment.Type == resourcemanager.ConstantSegment && segment.ConstantReference != nil && *segment.ConstantReference == constantName {
+				if segment.Type == models.ConstantResourceIDSegmentType && segment.ConstantReference != nil && *segment.ConstantReference == constantName {
 					usedInAResourceId = true
 					break
 				}

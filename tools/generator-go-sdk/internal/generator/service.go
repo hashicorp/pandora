@@ -11,8 +11,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"github.com/hashicorp/pandora/tools/sdk/services"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ServiceGenerator struct {
@@ -27,13 +26,13 @@ func NewServiceGenerator(settings Settings) ServiceGenerator {
 
 type ServiceGeneratorInput struct {
 	ServiceName     string
-	ServiceDetails  services.ResourceManagerService
+	ServiceDetails  models.Service
 	VersionName     string
-	VersionDetails  services.ServiceVersion
+	VersionDetails  models.APIVersion
 	ResourceName    string
-	ResourceDetails services.Resource
+	ResourceDetails models.APIResource
 	OutputDirectory string
-	Source          resourcemanager.ApiDefinitionsSource
+	Source          models.SourceDataOrigin
 }
 
 func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
@@ -73,9 +72,9 @@ func (s *ServiceGenerator) Generate(input ServiceGeneratorInput) error {
 
 type VersionInput struct {
 	OutputDirectory string
-	Resources       map[string]services.Resource
+	Resources       map[string]models.APIResource
 	ServiceName     string
-	Source          resourcemanager.ApiDefinitionsSource
+	Source          models.SourceDataOrigin
 	UseNewBaseLayer bool
 	VersionName     string
 }

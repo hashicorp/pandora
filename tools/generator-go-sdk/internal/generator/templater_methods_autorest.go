@@ -5,7 +5,8 @@ import (
 	"sort"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/helpers"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // TODO: should we expose a Description for each operation? seems not worthwhile
@@ -15,9 +16,9 @@ import (
 var _ templaterForResource = methodsAutoRestTemplater{}
 
 type methodsAutoRestTemplater struct {
-	operation     resourcemanager.ApiOperation
+	operation     models.SDKOperation
 	operationName string
-	constants     map[string]resourcemanager.ConstantDetails
+	constants     map[string]models.SDKConstant
 }
 
 func (c methodsAutoRestTemplater) template(data ServiceGeneratorData) (*string, error) {
@@ -224,7 +225,7 @@ func (c methodsAutoRestTemplater) listOperationTemplate(data ServiceGeneratorDat
 	if err != nil {
 		return nil, fmt.Errorf("building responder template: %+v", err)
 	}
-	typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+	typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 	if err != nil {
 		return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 	}
@@ -261,7 +262,7 @@ func (c %[1]s) %[2]s(ctx context.Context%[4]s) (resp %[11]s, err error) {
 `, data.serviceClientName, c.operationName, data.packageName, *argumentsMethodCode, *preparerCode, *responderCode, *responseStruct, argumentsCode, *optionsStruct, *typeName, *responseStructName)
 
 	// Only output predicate functions for models and not for base types like string, int etc.
-	if c.operation.ResponseObject.Type == resourcemanager.ReferenceApiObjectDefinitionType || c.operation.ResponseObject.Type == resourcemanager.ListApiObjectDefinitionType {
+	if c.operation.ResponseObject.Type == models.ReferenceSDKObjectDefinitionType || c.operation.ResponseObject.Type == models.ListSDKObjectDefinitionType {
 		templated += fmt.Sprintf(`
 
 // %[2]sComplete retrieves all of the results into a single object
@@ -418,7 +419,7 @@ func (c %[1]s) %[2]sThenPoll(ctx context.Context %[4]s) error {
 
 func (c methodsAutoRestTemplater) argumentsTemplate() string {
 	args := make([]string, 0)
-	if c.operation.ResourceIdName != nil {
+	if c.operation.ResourceIDName != nil {
 		args = append(args, "id")
 	}
 	if c.operation.RequestObject != nil {
@@ -436,20 +437,20 @@ func (c methodsAutoRestTemplater) argumentsTemplate() string {
 
 func (c methodsAutoRestTemplater) argumentsTemplateForMethod(data ServiceGeneratorData) (*string, error) {
 	arguments := make([]string, 0)
-	if c.operation.ResourceIdName != nil {
-		idName := *c.operation.ResourceIdName
+	if c.operation.ResourceIDName != nil {
+		idName := *c.operation.ResourceIDName
 		id, ok := data.resourceIds[idName]
 		if !ok {
 			return nil, fmt.Errorf("internal error: Resource ID %q was not found", idName)
 		}
-		if id.CommonAlias != nil {
-			idName = fmt.Sprintf("commonids.%sId", *id.CommonAlias)
+		if id.CommonIDAlias != nil {
+			idName = fmt.Sprintf("commonids.%sId", *id.CommonIDAlias)
 		}
 
 		arguments = append(arguments, fmt.Sprintf("id %s", idName))
 	}
 	if c.operation.RequestObject != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.RequestObject)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.RequestObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining type name for request object: %+v", err)
 		}
@@ -474,10 +475,8 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 
 	steps := make([]string, 0)
 	listSteps := make([]string, 0)
-	if c.operation.ContentType != nil {
-		steps = append(steps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
-		listSteps = append(listSteps, fmt.Sprintf("autorest.AsContentType(%q)", *c.operation.ContentType))
-	}
+	steps = append(steps, fmt.Sprintf("autorest.AsContentType(%q)", c.operation.ContentType))
+	listSteps = append(listSteps, fmt.Sprintf("autorest.AsContentType(%q)", c.operation.ContentType))
 	if strings.EqualFold(c.operation.Method, "Delete") {
 		steps = append(steps, "autorest.AsDelete()")
 		listSteps = append(listSteps, "autorest.AsDelete()")
@@ -514,14 +513,14 @@ func (c methodsAutoRestTemplater) preparerTemplate(data ServiceGeneratorData) (*
 		steps = append(steps, "autorest.WithHeaders(options.toHeaders())")
 	}
 
-	if c.operation.UriSuffix != nil {
-		if c.operation.ResourceIdName != nil {
-			steps = append(steps, fmt.Sprintf("autorest.WithPath(fmt.Sprintf(\"%%s%s\", id.ID()))", *c.operation.UriSuffix))
+	if c.operation.URISuffix != nil {
+		if c.operation.ResourceIDName != nil {
+			steps = append(steps, fmt.Sprintf("autorest.WithPath(fmt.Sprintf(\"%%s%s\", id.ID()))", *c.operation.URISuffix))
 		} else {
-			steps = append(steps, fmt.Sprintf("autorest.WithPath(%q)", *c.operation.UriSuffix))
+			steps = append(steps, fmt.Sprintf("autorest.WithPath(%q)", *c.operation.URISuffix))
 		}
 	} else {
-		if c.operation.ResourceIdName != nil {
+		if c.operation.ResourceIDName != nil {
 			steps = append(steps, "autorest.WithPath(id.ID())")
 		}
 	}
@@ -601,7 +600,7 @@ func (c methodsAutoRestTemplater) responderTemplate(responseStructName string, d
 	steps = append(steps, "autorest.ByClosing()")
 
 	if c.operation.FieldContainingPaginationDetails != nil && discriminatedType == "" {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -653,7 +652,7 @@ func (c %[1]s) responderFor%[2]s(resp *http.Response) (result %[6]s, err error) 
 	}
 
 	if discriminatedType != "" && c.operation.FieldContainingPaginationDetails != nil {
-		typeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		typeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for response object: %+v", err)
 		}
@@ -768,7 +767,7 @@ func (c methodsAutoRestTemplater) responseStructTemplate(responseStructName stri
 	model := ""
 	typeName := ""
 	if c.operation.ResponseObject != nil {
-		golangTypeName, err := golangTypeNameForObjectDefinition(*c.operation.ResponseObject)
+		golangTypeName, err := helpers.GolangTypeForSDKObjectDefinition(*c.operation.ResponseObject, nil)
 		if err != nil {
 			return nil, fmt.Errorf("determing golang type name for response object: %+v", err)
 		}
@@ -869,7 +868,7 @@ func (c methodsAutoRestTemplater) optionsStruct(data ServiceGeneratorData) (*str
 	headerAssignments := make([]string, 0)
 
 	for optionName, option := range c.operation.Options {
-		optionType, err := golangTypeNameForObjectDefinition(option.ObjectDefinition)
+		optionType, err := helpers.GolangTypeForSDKOperationOptionObjectDefinition(option.ObjectDefinition)
 		if err != nil {
 			return nil, fmt.Errorf("determining golang type name for option %q's ObjectDefinition: %+v", optionName, err)
 		}
@@ -918,9 +917,9 @@ func (o %[1]s) toQueryString() map[string]interface{} {
 	return &out, nil
 }
 
-func (c methodsAutoRestTemplater) discriminatedTypeName(input map[string]resourcemanager.ModelDetails) string {
+func (c methodsAutoRestTemplater) discriminatedTypeName(input map[string]models.SDKModel) string {
 	if c.operation.ResponseObject != nil && c.operation.ResponseObject.ReferenceName != nil {
-		if name, ok := input[*c.operation.ResponseObject.ReferenceName]; ok && name.TypeHintIn != nil {
+		if name, ok := input[*c.operation.ResponseObject.ReferenceName]; ok && name.FieldNameContainingDiscriminatedValue != nil {
 			return *c.operation.ResponseObject.ReferenceName
 		}
 	}

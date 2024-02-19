@@ -7,20 +7,20 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplaterModelsParent(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "ModeOfTransit",
-		model: resourcemanager.ModelDetails{
-			TypeHintIn: stringPointer("Type"),
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			Fields: map[string]models.SDKField{
 				"Type": {
-					IsTypeHint: true,
-					JsonName:   "type",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ContainsDiscriminatedValue: true,
+					JsonName:                   "type",
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
@@ -28,29 +28,29 @@ func TestTemplaterModelsParent(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
-				TypeHintIn: stringPointer("Type"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
 					"Type": {
-						IsTypeHint: true,
-						JsonName:   "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ContainsDiscriminatedValue: true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Car": {
-				ParentTypeName: stringPointer("ModeOfTransit"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("car"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				DiscriminatedValue:                    stringPointer("car"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
 			},
 			"Train": {
-				ParentTypeName: stringPointer("ModeOfTransit"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("train"),
+				DiscriminatedValue:                    stringPointer("train"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
 			},
 		},
 		source: AccTestLicenceType,
@@ -130,63 +130,63 @@ func unmarshalModeOfTransitImplementation(input []byte) (ModeOfTransit, error) {
 func TestTemplaterModelsImplementation(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "Train",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Number": {
 					Required: true,
 					JsonName: "number",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 				"Operator": {
 					Required: true,
 					JsonName: "operator",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 				},
 			},
-			ParentTypeName: stringPointer("ModeOfTransit"),
-			TypeHintIn:     stringPointer("Type"),
-			TypeHintValue:  stringPointer("train"),
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			ParentTypeName:                        stringPointer("ModeOfTransit"),
+			DiscriminatedValue:                    stringPointer("train"),
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
-				TypeHintIn: stringPointer("Type"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
 					"Type": {
-						IsTypeHint: true,
-						JsonName:   "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ContainsDiscriminatedValue: true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Train": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Number": {
 						Required: true,
 						JsonName: "number",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"Operator": {
 						Required: true,
 						JsonName: "operator",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
-				ParentTypeName: stringPointer("ModeOfTransit"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("train"),
+				DiscriminatedValue:                    stringPointer("train"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
 			},
 		},
 		source: AccTestLicenceType,
@@ -249,13 +249,13 @@ func (s Train) MarshalJSON() ([]byte, error) {
 func TestTemplaterModelsFieldImplementation(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "TrainFactory",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Train": {
 					Required: true,
 					JsonName: "train",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: stringPointer("Train"),
 					},
 				},
@@ -263,48 +263,48 @@ func TestTemplaterModelsFieldImplementation(t *testing.T) {
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"ModeOfTransit": {
-				TypeHintIn: stringPointer("Type"),
-				Fields: map[string]resourcemanager.FieldDetails{
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				Fields: map[string]models.SDKField{
 					"Type": {
-						IsTypeHint: true,
-						JsonName:   "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ContainsDiscriminatedValue: true,
+						JsonName:                   "type",
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.ReferenceSDKObjectDefinitionType,
 						},
 						Required: true,
 					},
 				},
 			},
 			"Train": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Number": {
 						Required: true,
 						JsonName: "number",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 					"Operator": {
 						Required: true,
 						JsonName: "operator",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
-				ParentTypeName: stringPointer("ModeOfTransit"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("train"),
+				DiscriminatedValue:                    stringPointer("train"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				ParentTypeName:                        stringPointer("ModeOfTransit"),
 			},
 			"TrainFactory": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Train": {
 						Required: true,
 						JsonName: "train",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: stringPointer("Train"),
 						},
 					},
@@ -341,75 +341,75 @@ type TrainFactory struct {
 func TestTemplaterModelsImplementationInheritedFromParentType(t *testing.T) {
 	actual, err := modelsTemplater{
 		name: "FirstImplementation",
-		model: resourcemanager.ModelDetails{
-			Fields: map[string]resourcemanager.FieldDetails{
+		model: models.SDKModel{
+			Fields: map[string]models.SDKField{
 				"Serialization": {
 					Required: true,
 					JsonName: "serialization",
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type:          models.ReferenceSDKObjectDefinitionType,
 						ReferenceName: stringPointer("Serialization"),
 					},
 				},
 			},
-			ParentTypeName: stringPointer("First"),
-			TypeHintIn:     stringPointer("Type"),
-			TypeHintValue:  stringPointer("first"),
+			DiscriminatedValue:                    stringPointer("first"),
+			FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+			ParentTypeName:                        stringPointer("First"),
 		},
 	}.template(ServiceGeneratorData{
 		packageName: "somepackage",
-		models: map[string]resourcemanager.ModelDetails{
+		models: map[string]models.SDKModel{
 			"First": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Type": {
 						Required: true,
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
 			},
 			"FirstImplementation": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Serialization": {
 						Required: true,
 						JsonName: "serialization",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type:          models.ReferenceSDKObjectDefinitionType,
 							ReferenceName: stringPointer("Serialization"),
 						},
 					},
 				},
-				ParentTypeName: stringPointer("First"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("first"),
+				ParentTypeName:                        stringPointer("First"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				DiscriminatedValue:                    stringPointer("first"),
 			},
 			"Serialization": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Type": {
 						Required: true,
 						JsonName: "type",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
-				TypeHintIn: stringPointer("Type"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
 			},
 			"JsonSerialization": {
-				Fields: map[string]resourcemanager.FieldDetails{
+				Fields: map[string]models.SDKField{
 					"Example": {
 						Required: true,
 						JsonName: "example",
-						ObjectDefinition: resourcemanager.ApiObjectDefinition{
-							Type: resourcemanager.StringApiObjectDefinitionType,
+						ObjectDefinition: models.SDKObjectDefinition{
+							Type: models.StringSDKObjectDefinitionType,
 						},
 					},
 				},
-				ParentTypeName: stringPointer("Serialization"),
-				TypeHintIn:     stringPointer("Type"),
-				TypeHintValue:  stringPointer("json"),
+				ParentTypeName:                        stringPointer("Serialization"),
+				FieldNameContainingDiscriminatedValue: stringPointer("Type"),
+				DiscriminatedValue:                    stringPointer("json"),
 			},
 		},
 		source: AccTestLicenceType,

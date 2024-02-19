@@ -7,20 +7,20 @@ import (
 	"fmt"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestTemplateConstantsSingle(t *testing.T) {
 	actual, err := constantsTemplater{
 		// output the bare minimum for testing
-		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction, usedInAResourceId bool) (*string, error) {
+		constantTemplateFunc: func(name string, details models.SDKConstant, generateNormalizationFunction, usedInAResourceId bool) (*string, error) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},
 	}.template(ServiceGeneratorData{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"first": {
-				Type:   resourcemanager.StringConstant,
+				Type:   models.StringSDKConstantType,
 				Values: map[string]string{
 					// just a placeholder
 				},
@@ -46,12 +46,12 @@ func TestTemplateConstantsMultiple(t *testing.T) {
 	// asserting these are output alphabetically
 	actual, err := constantsTemplater{
 		// output the bare minimum for testing
-		constantTemplateFunc: func(name string, details resourcemanager.ConstantDetails, generateNormalizationFunction, usedInAResourceId bool) (*string, error) {
+		constantTemplateFunc: func(name string, details models.SDKConstant, generateNormalizationFunction, usedInAResourceId bool) (*string, error) {
 			out := fmt.Sprintf("// template for %s", name)
 			return &out, nil
 		},
 	}.template(ServiceGeneratorData{
-		constants: map[string]resourcemanager.ConstantDetails{
+		constants: map[string]models.SDKConstant{
 			"third":  {},
 			"first":  {},
 			"second": {},

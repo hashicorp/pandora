@@ -7,10 +7,10 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-const AccTestLicenceType resourcemanager.ApiDefinitionsSource = "acctest"
+const AccTestLicenceType models.SourceDataOrigin = "acctest"
 
 func assertTemplatedCodeMatches(t *testing.T, expected string, actual string) {
 	// when generating "for real" we run gofmt after it - whilst we
