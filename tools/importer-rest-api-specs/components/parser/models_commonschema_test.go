@@ -8,7 +8,6 @@ import (
 )
 
 // TODO: Edge Zones
-// TODO: Identity System Or User Assigned Map
 // TODO: Identity User Assigned List
 // TODO: Identity User Assigned Map
 // TODO: SystemData
@@ -421,6 +420,154 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 							"Identity": {
 								JsonName:        "identity",
 								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityList),
+								Required:        false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Resource_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Resource": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Identity": {
+								JsonName:        "identity",
+								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
+								Required:        false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Resource_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResources(t *testing.T) {
+	// this handles the scenario of a System Assigned & User Assigned model having a DelegatedResources block
+	// this block isn't intended to be used by users of the API (and is for internal ARM usage only)
+	actual, err := ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_delegatedresources.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Resource": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Identity": {
+								JsonName:        "identity",
+								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
+								Required:        false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Resource_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *testing.T) {
+	// this handles the scenario of a System Assigned & User Assigned model having extra fields
+	// in the user assigned identity block (#1066) - for example an extra `appId`
+	actual, err := ParseSwaggerFileForTesting(t, "model_commonschema_identitysystemoruserassignedmap_extrafields.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Resource": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Identity": {
+								JsonName:        "identity",
+								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
