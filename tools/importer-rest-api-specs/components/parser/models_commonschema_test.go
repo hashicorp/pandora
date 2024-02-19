@@ -3,33 +3,51 @@ package parser
 import (
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func TestParseModel_CommonSchema_Location(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_commonschema_location.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_commonschema_location.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
 
-	resource, ok := result.Resources["Resource"]
-	if !ok {
-		t.Fatal("the Resource 'Resource' was not found")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Resource": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Location": {
+								JsonName:        "location",
+								CustomFieldType: pointer.To(models.CustomFieldTypeLocation),
+								Required:        false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Resource_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/foo"),
+					},
+				},
+			},
+		},
 	}
-
-	model, ok := resource.Models["Model"]
-	if !ok {
-		t.Fatalf("the Model `Model` was not found")
-	}
-
-	field, ok := model.Fields["Location"]
-	if !ok {
-		t.Fatalf("example.Fields['Location'] was missing")
-	}
-	if *field.CustomFieldType != models.CustomFieldTypeLocation {
-		t.Fatalf("expected example.Fields['Location'] to be a Location but got %q", string(*field.CustomFieldType))
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
