@@ -43,7 +43,7 @@ func RunLegacy(input v1.LoadAllDataResult, providerPrefix, outputDirectory strin
 		// Then build each of the Terraform Resources
 		for resourceLabel, resourceDefinition := range *terraformResources {
 			if err := resourceGenerator.Resource(resourceDefinition); err != nil {
-				return fmt.Errorf("generating for Resource %q (Service %q / API Version %q): %+v", resourceLabel, serviceName, resourceDefinition.SdkApiVersion, err)
+				return fmt.Errorf("generating definitions for Resource %q (Service %q / API Version %q): %+v", resourceLabel, serviceName, resourceDefinition.SdkApiVersion, err)
 			}
 		}
 
