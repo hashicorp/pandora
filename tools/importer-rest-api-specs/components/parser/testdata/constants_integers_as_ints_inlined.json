@@ -18,33 +18,14 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
-          "Discriminator"
+          "Example"
         ],
-        "operationId": "Discriminator_Test",
+        "operationId": "Example_Test",
         "description": "Tests parsing of a model containing a Constant",
-        "parameters": [
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExampleWrapper"
-            },
-            "description": "Wrapper class containing a Constant."
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
@@ -60,26 +41,6 @@
     "ExampleWrapper": {
       "description": "The Resource definition.",
       "properties": {
-        "multiple": {
-          "description": "List of people.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Person"
-          }
-        },
-        "single": {
-          "$ref": "#/definitions/Person"
-        }
-      },
-      "required": [
-        "single"
-      ],
-      "title": "ExampleWrapper",
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
-    "Person": {
-      "properties": {
         "favouriteTable": {
           "description": "Preferred Table number.",
           "enum": [
@@ -94,36 +55,10 @@
           }
         }
       },
-      "required": [
-        "favouriteTable"
-      ],
-      "title": "Person",
+      "title": "ExampleWrapper",
       "type": "object",
       "x-ms-azure-resource": true
     }
   },
-  "parameters": {
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "type": "string",
-      "description": "The API version to be used with the HTTP request."
-    },
-    "SubscriptionIdParameter": {
-      "name": "subscriptionId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "ResourceGroupParameter": {
-      "name": "resourceGroupName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method",
-      "description": "The name of the resource group that contains the resource."
-    }
-  }
+  "parameters": {}
 }

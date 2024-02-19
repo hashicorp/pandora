@@ -18,33 +18,14 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
-          "Discriminator"
+          "Example"
         ],
-        "operationId": "Discriminator_Test",
+        "operationId": "Example_Test",
         "description": "Tests parsing of a model containing a Constant",
-        "parameters": [
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExampleWrapper"
-            },
-            "description": "Wrapper class containing a Constant."
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
@@ -60,26 +41,6 @@
     "ExampleWrapper": {
       "description": "The Resource definition.",
       "properties": {
-        "multiple": {
-          "description": "List of animals.",
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/Animal"
-          }
-        },
-        "single": {
-          "$ref": "#/definitions/Animal"
-        }
-      },
-      "required": [
-        "single"
-      ],
-      "title": "ExampleWrapper",
-      "type": "object",
-      "x-ms-azure-resource": true
-    },
-    "Animal": {
-      "properties": {
         "type": {
           "description": "The type of Animal this is, which is an Enum.",
           "enum": [
@@ -94,10 +55,7 @@
           }
         }
       },
-      "required": [
-        "type"
-      ],
-      "title": "Animal",
+      "title": "ExampleWrapper",
       "type": "object",
       "x-ms-azure-resource": true
     }
