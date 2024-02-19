@@ -9,26 +9,11 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-// changesForFields determines the changes between the initial and updated Fields within the specified Model.
-func (d differ) changesForFields(serviceName, apiVersion, apiResource, modelName string, initial, updated map[string]resourcemanager.FieldDetails) (*[]changes.Change, error) {
-	output := make([]changes.Change, 0)
-	fieldNames := d.uniqueFieldNames(initial, updated)
-	for _, fieldName := range fieldNames {
-		log.Logger.Trace(fmt.Sprintf("Detecting changes in Field %q..", fieldName))
-		changesForField, err := d.changesForField(serviceName, apiVersion, apiResource, modelName, fieldName, initial, updated)
-		if err != nil {
-			return nil, fmt.Errorf("detecting changes in the Field %q: %+v", fieldName, err)
-		}
-		output = append(output, *changesForField...)
-	}
-	return &output, nil
-}
-
 // changesForField determines the changes between the initial and updated Fields within the specified Model.
-func (d differ) changesForField(serviceName, apiVersion, apiResource, modelName, fieldName string, initial, updated map[string]resourcemanager.FieldDetails) (*[]changes.Change, error) {
+func (d differ) changesForField(serviceName, apiVersion, apiResource, modelName, fieldName string, initial, updated map[string]models.SDKField) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, isInOld := initial[fieldName]
@@ -89,11 +74,11 @@ func (d differ) changesForField(serviceName, apiVersion, apiResource, modelName,
 	}
 
 	// for the sake of simplicity when reviewing let's normalise this object to a string
-	oldObjectDefinition, err := d.stringifyObjectDefinition(oldData.ObjectDefinition)
+	oldObjectDefinition, err := d.stringifySDKObjectDefinition(oldData.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("stringifying the Old Object Definition: %+v", err)
 	}
-	newObjectDefinition, err := d.stringifyObjectDefinition(updatedData.ObjectDefinition)
+	newObjectDefinition, err := d.stringifySDKObjectDefinition(updatedData.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("stringifying the Updated Object Definition: %+v", err)
 	}
@@ -111,13 +96,28 @@ func (d differ) changesForField(serviceName, apiVersion, apiResource, modelName,
 		})
 	}
 
-	// TODO: DateFormat / Validation in the future?
+	// TODO: DateFormat in the future?
 
 	return &output, nil
 }
 
+// changesForFields determines the changes between the initial and updated Fields within the specified Model.
+func (d differ) changesForFields(serviceName, apiVersion, apiResource, modelName string, initial, updated map[string]models.SDKField) (*[]changes.Change, error) {
+	output := make([]changes.Change, 0)
+	fieldNames := d.uniqueFieldNames(initial, updated)
+	for _, fieldName := range fieldNames {
+		log.Logger.Trace(fmt.Sprintf("Detecting changes in Field %q..", fieldName))
+		changesForField, err := d.changesForField(serviceName, apiVersion, apiResource, modelName, fieldName, initial, updated)
+		if err != nil {
+			return nil, fmt.Errorf("detecting changes in the Field %q: %+v", fieldName, err)
+		}
+		output = append(output, *changesForField...)
+	}
+	return &output, nil
+}
+
 // uniqueFieldNames returns a unique, sorted list of Field Names from the keys of initial and updated.
-func (d differ) uniqueFieldNames(initial, updated map[string]resourcemanager.FieldDetails) []string {
+func (d differ) uniqueFieldNames(initial, updated map[string]models.SDKField) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

@@ -8,13 +8,12 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // changesForApiResources determines the changes between the API Resources within the specified API Version.
-func (d differ) changesForApiResources(serviceName, apiVersion string, initial, updated map[string]dataapi.ApiResourceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForApiResources(serviceName, apiVersion string, initial, updated map[string]models.APIResource, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	apiResources := d.uniqueApiResources(initial, updated)
 	for _, apiResource := range apiResources {
@@ -29,7 +28,7 @@ func (d differ) changesForApiResources(serviceName, apiVersion string, initial, 
 }
 
 // changesForApiResource determines the changes between two versions of the specified API Resource.
-func (d differ) changesForApiResource(serviceName, apiVersion, apiResource string, initial, updated map[string]dataapi.ApiResourceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForApiResource(serviceName, apiVersion, apiResource string, initial, updated map[string]models.APIResource, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, inOldData := initial[apiResource]
@@ -60,16 +59,15 @@ func (d differ) changesForApiResource(serviceName, apiVersion, apiResource strin
 	}
 
 	// we then need to diff each of the individual components - however note that the old version may not exist
-	// TODO: switch to using the updated types once in the SDK
-	initialConstants := make(map[string]resourcemanager.ConstantDetails)
-	initialModels := make(map[string]resourcemanager.ModelDetails)
-	initialOperations := make(map[string]resourcemanager.ApiOperation)
-	initialResourceIds := make(map[string]resourcemanager.ResourceIdDefinition)
+	initialConstants := make(map[string]models.SDKConstant)
+	initialModels := make(map[string]models.SDKModel)
+	initialOperations := make(map[string]models.SDKOperation)
+	initialResourceIds := make(map[string]models.ResourceID)
 	if inOldData {
 		initialConstants = oldData.Constants
 		initialModels = oldData.Models
 		initialOperations = oldData.Operations
-		initialResourceIds = oldData.ResourceIds
+		initialResourceIds = oldData.ResourceIDs
 	}
 	log.Logger.Trace("Detecting changes to Constants..")
 	changesInConstants := d.changesForConstants(serviceName, apiVersion, apiResource, initialConstants, updatedData.Constants)
@@ -83,21 +81,21 @@ func (d differ) changesForApiResource(serviceName, apiVersion, apiResource strin
 	output = append(output, *changesInModels...)
 
 	log.Logger.Trace("Detecting changes to Operations..")
-	changesInOperations, err := d.changesForOperations(serviceName, apiVersion, apiResource, initialOperations, updatedData.Operations, initialResourceIds, updatedData.ResourceIds)
+	changesInOperations, err := d.changesForOperations(serviceName, apiVersion, apiResource, initialOperations, updatedData.Operations, initialResourceIds, updatedData.ResourceIDs)
 	if err != nil {
 		return nil, fmt.Errorf("determining the changes to Operations: %+v", err)
 	}
 	output = append(output, *changesInOperations...)
 
 	log.Logger.Trace("Detecting changes to Resource Ids..")
-	changesInResourceIds := d.changesForResourceIds(serviceName, apiVersion, apiResource, initialResourceIds, updatedData.ResourceIds)
+	changesInResourceIds := d.changesForResourceIds(serviceName, apiVersion, apiResource, initialResourceIds, updatedData.ResourceIDs)
 	output = append(output, changesInResourceIds...)
 
 	return &output, nil
 }
 
 // uniqueApiResources returns a unique, sorted list of API Resources from the keys of initial and updated.
-func (d differ) uniqueApiResources(initial map[string]dataapi.ApiResourceData, updated map[string]dataapi.ApiResourceData) []string {
+func (d differ) uniqueApiResources(initial, updated map[string]models.APIResource) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

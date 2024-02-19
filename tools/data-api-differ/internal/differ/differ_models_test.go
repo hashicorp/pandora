@@ -8,28 +8,28 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_ModelNoChanges(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First": {
-			Fields: map[string]resourcemanager.FieldDetails{
+			Fields: map[string]models.SDKField{
 				"Example": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
-			Fields: map[string]resourcemanager.FieldDetails{
+			Fields: map[string]models.SDKField{
 				"Example": {
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKObjectDefinition{
+						Type: models.StringSDKObjectDefinitionType,
 					},
 					Required: true,
 				},
@@ -46,10 +46,10 @@ func TestDiff_ModelNoChanges(t *testing.T) {
 }
 
 func TestDiff_ModelAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First":  {},
 		"Second": {},
 	}
@@ -70,11 +70,11 @@ func TestDiff_ModelAdded(t *testing.T) {
 }
 
 func TestDiff_ModelRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First":  {},
 		"Second": {},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {},
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
@@ -94,12 +94,12 @@ func TestDiff_ModelRemoved(t *testing.T) {
 }
 
 func TestDiff_ModelDiscriminatedParentTypeAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First": {
-			TypeHintIn: nil,
+			ParentTypeName: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
 			ParentTypeName: pointer.To("NewValue"),
 		},
@@ -122,12 +122,12 @@ func TestDiff_ModelDiscriminatedParentTypeAdded(t *testing.T) {
 }
 
 func TestDiff_ModelDiscriminatedParentTypeChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First": {
 			ParentTypeName: pointer.To("OldValue"),
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
 			ParentTypeName: pointer.To("NewValue"),
 		},
@@ -151,14 +151,14 @@ func TestDiff_ModelDiscriminatedParentTypeChanged(t *testing.T) {
 }
 
 func TestDiff_ModelDiscriminatedParentTypeRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+	initial := map[string]models.SDKModel{
 		"First": {
 			ParentTypeName: pointer.To("OldValue"),
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
-			TypeHintIn: nil,
+			ParentTypeName: nil,
 		},
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
@@ -178,15 +178,15 @@ func TestDiff_ModelDiscriminatedParentTypeRemoved(t *testing.T) {
 	assertContainsBreakingChanges(t, *actual)
 }
 
-func TestDiff_ModelDiscriminatedTypeHintInChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+func TestDiff_ModelDiscriminatedFieldNameContainingDiscriminatedValueChanged(t *testing.T) {
+	initial := map[string]models.SDKModel{
 		"First": {
-			TypeHintIn: pointer.To("OldValue"),
+			FieldNameContainingDiscriminatedValue: pointer.To("OldValue"),
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
-			TypeHintIn: pointer.To("NewValue"),
+			FieldNameContainingDiscriminatedValue: pointer.To("NewValue"),
 		},
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)
@@ -207,15 +207,15 @@ func TestDiff_ModelDiscriminatedTypeHintInChanged(t *testing.T) {
 	assertContainsBreakingChanges(t, *actual)
 }
 
-func TestDiff_ModelDiscriminatedTypeHintValueChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ModelDetails{
+func TestDiff_ModelDiscriminatedDiscriminatedValueChanged(t *testing.T) {
+	initial := map[string]models.SDKModel{
 		"First": {
-			TypeHintValue: pointer.To("OldValue"),
+			DiscriminatedValue: pointer.To("OldValue"),
 		},
 	}
-	updated := map[string]resourcemanager.ModelDetails{
+	updated := map[string]models.SDKModel{
 		"First": {
-			TypeHintValue: pointer.To("NewValue"),
+			DiscriminatedValue: pointer.To("NewValue"),
 		},
 	}
 	actual, err := differ{}.changesForModels("Computer", "2020-01-01", "Example", initial, updated)

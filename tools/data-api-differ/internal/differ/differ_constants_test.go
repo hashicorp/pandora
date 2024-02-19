@@ -7,13 +7,13 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_ConstantNoChanges(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -21,9 +21,9 @@ func TestDiff_ConstantNoChanges(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -38,13 +38,13 @@ func TestDiff_ConstantNoChanges(t *testing.T) {
 }
 
 func TestDiff_ConstantAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {},
 		"Second": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -59,7 +59,7 @@ func TestDiff_ConstantAdded(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Example",
 			ConstantName: "Second",
-			ConstantType: string(resourcemanager.IntegerConstant),
+			ConstantType: string(models.IntegerSDKConstantType),
 			KeysAndValues: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -72,10 +72,10 @@ func TestDiff_ConstantAdded(t *testing.T) {
 }
 
 func TestDiff_ConstantRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {},
 		"Second": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -83,7 +83,7 @@ func TestDiff_ConstantRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {},
 	}
 	actual := differ{}.changesForConstants("Computer", "2020-01-01", "Example", initial, updated)
@@ -93,7 +93,7 @@ func TestDiff_ConstantRemoved(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Example",
 			ConstantName: "Second",
-			ConstantType: string(resourcemanager.IntegerConstant),
+			ConstantType: string(models.IntegerSDKConstantType),
 			KeysAndValues: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -106,9 +106,9 @@ func TestDiff_ConstantRemoved(t *testing.T) {
 }
 
 func TestDiff_ConstantKeyValueAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -116,9 +116,9 @@ func TestDiff_ConstantKeyValueAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -143,9 +143,9 @@ func TestDiff_ConstantKeyValueAdded(t *testing.T) {
 }
 
 func TestDiff_ConstantKeyValueChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"SkuName": {
-			Type: resourcemanager.StringConstant,
+			Type: models.StringSDKConstantType,
 			Values: map[string]string{
 				"Basic":    "basic",
 				"Premium":  "premium",
@@ -153,9 +153,9 @@ func TestDiff_ConstantKeyValueChanged(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"SkuName": {
-			Type: resourcemanager.StringConstant,
+			Type: models.StringSDKConstantType,
 			Values: map[string]string{
 				"Basic":    "Basic",
 				"Premium":  "Premium",
@@ -198,9 +198,9 @@ func TestDiff_ConstantKeyValueChanged(t *testing.T) {
 }
 
 func TestDiff_ConstantKeyValueRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -209,9 +209,9 @@ func TestDiff_ConstantKeyValueRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One":   "1",
 				"Two":   "2",
@@ -235,17 +235,17 @@ func TestDiff_ConstantKeyValueRemoved(t *testing.T) {
 }
 
 func TestDiff_ConstantTypeChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ConstantDetails{
+	initial := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.IntegerConstant,
+			Type: models.IntegerSDKConstantType,
 			Values: map[string]string{
 				"One": "1",
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ConstantDetails{
+	updated := map[string]models.SDKConstant{
 		"First": {
-			Type: resourcemanager.StringConstant,
+			Type: models.StringSDKConstantType,
 			Values: map[string]string{
 				"One": "one",
 			},
@@ -258,8 +258,8 @@ func TestDiff_ConstantTypeChanged(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Example",
 			ConstantName: "First",
-			OldType:      string(resourcemanager.IntegerConstant),
-			NewType:      string(resourcemanager.StringConstant),
+			OldType:      string(models.IntegerSDKConstantType),
+			NewType:      string(models.StringSDKConstantType),
 		},
 		changes.ConstantKeyValueChanged{
 			ServiceName:      "Computer",

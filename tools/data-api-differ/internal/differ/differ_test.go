@@ -8,8 +8,8 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // These tests check the Differ's main code path for each Data Source (e.g. Resource Manager)
@@ -18,55 +18,55 @@ import (
 // testing every bit of functionality.
 
 func TestDiff_ResourceManager_NoChanges(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
 				Generate:         true,
 				ResourceProvider: pointer.To("Microsoft.Computer"),
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
 						Generate: true,
 						Preview:  false,
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"VirtualMachines": {
-								Constants:   make(map[string]resourcemanager.ConstantDetails),
-								Models:      make(map[string]resourcemanager.ModelDetails),
-								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
-								Operations: map[string]resourcemanager.ApiOperation{
+								Constants:   make(map[string]models.SDKConstant),
+								Models:      make(map[string]models.SDKModel),
+								ResourceIDs: make(map[string]models.ResourceID),
+								Operations: map[string]models.SDKOperation{
 									"Example": {
-										UriSuffix: pointer.To("/doSomething"),
+										URISuffix: pointer.To("/doSomething"),
 									},
 								},
 							},
 						},
-						Source: resourcemanager.ApiDefinitionsSourceHandWritten,
+						Source: models.HandWrittenSourceDataOrigin,
 					},
 				},
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
 				Generate:         true,
 				ResourceProvider: pointer.To("Microsoft.Computer"),
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
 						Generate: true,
 						Preview:  false,
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"VirtualMachines": {
-								Constants:   make(map[string]resourcemanager.ConstantDetails),
-								Models:      make(map[string]resourcemanager.ModelDetails),
-								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
-								Operations: map[string]resourcemanager.ApiOperation{
+								Constants:   make(map[string]models.SDKConstant),
+								Models:      make(map[string]models.SDKModel),
+								ResourceIDs: make(map[string]models.ResourceID),
+								Operations: map[string]models.SDKOperation{
 									"Example": {
-										UriSuffix: pointer.To("/doSomething"),
+										URISuffix: pointer.To("/doSomething"),
 									},
 								},
 							},
 						},
-						Source: resourcemanager.ApiDefinitionsSourceHandWritten,
+						Source: models.HandWrittenSourceDataOrigin,
 					},
 				},
 			},
@@ -78,13 +78,13 @@ func TestDiff_ResourceManager_NoChanges(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ServiceAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			// intentionally empty
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {},
 		},
 	}
@@ -98,13 +98,13 @@ func TestDiff_ResourceManager_ServiceAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ServiceRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			// intentionally empty
 		},
 	}
@@ -118,19 +118,19 @@ func TestDiff_ResourceManager_ServiceRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ApiVersionAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {},
 				},
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {},
 					"2022-01-01": {},
 				},
@@ -148,20 +148,20 @@ func TestDiff_ResourceManager_ApiVersionAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ApiVersionRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {},
 					"2022-01-01": {},
 				},
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {},
 				},
 			},
@@ -178,12 +178,12 @@ func TestDiff_ResourceManager_ApiVersionRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ApiResourceAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {},
 						},
 					},
@@ -191,12 +191,12 @@ func TestDiff_ResourceManager_ApiResourceAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {},
 							"OnPremise": {},
 						},
@@ -217,12 +217,12 @@ func TestDiff_ResourceManager_ApiResourceAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ApiResourceRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {},
 							"OnPremise": {},
 						},
@@ -231,12 +231,12 @@ func TestDiff_ResourceManager_ApiResourceRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {},
 						},
 					},
@@ -256,14 +256,14 @@ func TestDiff_ResourceManager_ApiResourceRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ConstantAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Constants: map[string]resourcemanager.ConstantDetails{
+								Constants: map[string]models.SDKConstant{
 									"Skus": {},
 								},
 							},
@@ -273,16 +273,16 @@ func TestDiff_ResourceManager_ConstantAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Constants: map[string]resourcemanager.ConstantDetails{
+								Constants: map[string]models.SDKConstant{
 									"NetworkPerformance": {
-										Type: resourcemanager.StringConstant,
+										Type: models.StringSDKConstantType,
 										Values: map[string]string{
 											"First":  "Value",
 											"Second": "OtherValue",
@@ -303,7 +303,7 @@ func TestDiff_ResourceManager_ConstantAdded(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Instances",
 			ConstantName: "NetworkPerformance",
-			ConstantType: string(resourcemanager.StringConstant),
+			ConstantType: string(models.StringSDKConstantType),
 			KeysAndValues: map[string]string{
 				"First":  "Value",
 				"Second": "OtherValue",
@@ -315,16 +315,16 @@ func TestDiff_ResourceManager_ConstantAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ConstantRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Constants: map[string]resourcemanager.ConstantDetails{
+								Constants: map[string]models.SDKConstant{
 									"NetworkPerformance": {
-										Type: resourcemanager.StringConstant,
+										Type: models.StringSDKConstantType,
 										Values: map[string]string{
 											"First":  "Value",
 											"Second": "OtherValue",
@@ -339,14 +339,14 @@ func TestDiff_ResourceManager_ConstantRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Constants: map[string]resourcemanager.ConstantDetails{
+								Constants: map[string]models.SDKConstant{
 									"Skus": {},
 								},
 							},
@@ -362,7 +362,7 @@ func TestDiff_ResourceManager_ConstantRemoved(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Instances",
 			ConstantName: "NetworkPerformance",
-			ConstantType: string(resourcemanager.StringConstant),
+			ConstantType: string(models.StringSDKConstantType),
 			KeysAndValues: map[string]string{
 				"First":  "Value",
 				"Second": "OtherValue",
@@ -374,14 +374,14 @@ func TestDiff_ResourceManager_ConstantRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ModelAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"VirtualMachine": {},
 								},
 							},
@@ -391,14 +391,14 @@ func TestDiff_ResourceManager_ModelAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {},
 									"VirtualMachine":  {},
 								},
@@ -422,14 +422,14 @@ func TestDiff_ResourceManager_ModelAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ModelRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {},
 									"VirtualMachine":  {},
 								},
@@ -440,14 +440,14 @@ func TestDiff_ResourceManager_ModelRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"VirtualMachine": {},
 								},
 							},
@@ -470,19 +470,19 @@ func TestDiff_ResourceManager_ModelRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_FieldAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {
-										Fields: map[string]resourcemanager.FieldDetails{
+										Fields: map[string]models.SDKField{
 											"First": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 										},
@@ -495,24 +495,24 @@ func TestDiff_ResourceManager_FieldAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {
-										Fields: map[string]resourcemanager.FieldDetails{
+										Fields: map[string]models.SDKField{
 											"First": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 											"Second": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 										},
@@ -539,24 +539,24 @@ func TestDiff_ResourceManager_FieldAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_FieldRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {
-										Fields: map[string]resourcemanager.FieldDetails{
+										Fields: map[string]models.SDKField{
 											"First": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 											"Second": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 										},
@@ -569,19 +569,19 @@ func TestDiff_ResourceManager_FieldRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Models: map[string]resourcemanager.ModelDetails{
+								Models: map[string]models.SDKModel{
 									"PhysicalMachine": {
-										Fields: map[string]resourcemanager.FieldDetails{
+										Fields: map[string]models.SDKField{
 											"First": {
-												ObjectDefinition: resourcemanager.ApiObjectDefinition{
-													Type: resourcemanager.StringApiObjectDefinitionType,
+												ObjectDefinition: models.SDKObjectDefinition{
+													Type: models.StringSDKObjectDefinitionType,
 												},
 											},
 										},
@@ -608,16 +608,16 @@ func TestDiff_ResourceManager_FieldRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_OperationAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Operations: map[string]resourcemanager.ApiOperation{
+								Operations: map[string]models.SDKOperation{
 									"First": {
-										UriSuffix: pointer.To("/hello"),
+										URISuffix: pointer.To("/hello"),
 									},
 								},
 							},
@@ -627,19 +627,19 @@ func TestDiff_ResourceManager_OperationAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Operations: map[string]resourcemanager.ApiOperation{
+								Operations: map[string]models.SDKOperation{
 									"First": {
-										UriSuffix: pointer.To("/hello"),
+										URISuffix: pointer.To("/hello"),
 									},
 									"Second": {
-										UriSuffix: pointer.To("/world"),
+										URISuffix: pointer.To("/world"),
 									},
 								},
 							},
@@ -663,19 +663,19 @@ func TestDiff_ResourceManager_OperationAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_OperationRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Operations: map[string]resourcemanager.ApiOperation{
+								Operations: map[string]models.SDKOperation{
 									"First": {
-										UriSuffix: pointer.To("/hello"),
+										URISuffix: pointer.To("/hello"),
 									},
 									"Second": {
-										UriSuffix: pointer.To("/world"),
+										URISuffix: pointer.To("/world"),
 									},
 								},
 							},
@@ -685,16 +685,16 @@ func TestDiff_ResourceManager_OperationRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								Operations: map[string]resourcemanager.ApiOperation{
+								Operations: map[string]models.SDKOperation{
 									"First": {
-										UriSuffix: pointer.To("/hello"),
+										URISuffix: pointer.To("/hello"),
 									},
 								},
 							},
@@ -718,14 +718,14 @@ func TestDiff_ResourceManager_OperationRemoved(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ResourceIdAdded(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
+								ResourceIDs: make(map[string]models.ResourceID),
 							},
 						},
 					},
@@ -733,25 +733,18 @@ func TestDiff_ResourceManager_ResourceIdAdded(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+								ResourceIDs: map[string]models.ResourceID{
 									"First": {
-										Id: "/example",
-										Segments: []resourcemanager.ResourceIdSegment{
-											{
-												// NOTE: it's not strictly representative to have 3 static segments and no user configurable
-												// segments in a Resource ID - but its worth it in this instance for a simpler/shorter testcase.
-												Name:         "staticExample",
-												Type:         resourcemanager.StaticSegment,
-												FixedValue:   pointer.To("example"),
-												ExampleValue: "example",
-											},
+										ExampleValue: "/example",
+										Segments: []models.ResourceIDSegment{
+											models.NewStaticValueResourceIDSegment("staticExample", "example"),
 										},
 									},
 								},
@@ -779,16 +772,16 @@ func TestDiff_ResourceManager_ResourceIdAdded(t *testing.T) {
 }
 
 func TestDiff_ResourceManager_ResourceIdRemoved(t *testing.T) {
-	initial := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	initial := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								ResourceIds: map[string]resourcemanager.ResourceIdDefinition{
+								ResourceIDs: map[string]models.ResourceID{
 									"First": {
-										Id: "/example",
+										ExampleValue: "/example",
 									},
 								},
 							},
@@ -798,14 +791,14 @@ func TestDiff_ResourceManager_ResourceIdRemoved(t *testing.T) {
 			},
 		},
 	}
-	updated := dataapi.Data{
-		ResourceManagerServices: map[string]dataapi.ServiceData{
+	updated := v1.LoadAllDataResult{
+		Services: map[string]models.Service{
 			"Computer": {
-				ApiVersions: map[string]dataapi.ApiVersionData{
+				APIVersions: map[string]models.APIVersion{
 					"2020-01-01": {
-						Resources: map[string]dataapi.ApiResourceData{
+						Resources: map[string]models.APIResource{
 							"Instances": {
-								ResourceIds: make(map[string]resourcemanager.ResourceIdDefinition),
+								ResourceIDs: make(map[string]models.ResourceID),
 							},
 						},
 					},

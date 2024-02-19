@@ -9,19 +9,19 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_OperationNoChanges(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 	}
-	ids := map[string]resourcemanager.ResourceIdDefinition{
+	ids := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
@@ -34,18 +34,18 @@ func TestDiff_OperationNoChanges(t *testing.T) {
 }
 
 func TestDiff_OperationAddedWithResourceId(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 	}
-	ids := map[string]resourcemanager.ResourceIdDefinition{
+	ids := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
@@ -66,19 +66,19 @@ func TestDiff_OperationAddedWithResourceId(t *testing.T) {
 }
 
 func TestDiff_OperationAddedWithResourceIdAndUriSuffix(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			ResourceIdName: pointer.To("SomeId"),
-			UriSuffix:      pointer.To("/example"),
+			ResourceIDName: pointer.To("SomeId"),
+			URISuffix:      pointer.To("/example"),
 		},
 	}
-	ids := map[string]resourcemanager.ResourceIdDefinition{
+	ids := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/resource/id",
+			ExampleValue: "/some/resource/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
@@ -99,16 +99,16 @@ func TestDiff_OperationAddedWithResourceIdAndUriSuffix(t *testing.T) {
 }
 
 func TestDiff_OperationAddedWithUriSuffix(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			UriSuffix: pointer.To("/example"),
+			URISuffix: pointer.To("/example"),
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -127,17 +127,17 @@ func TestDiff_OperationAddedWithUriSuffix(t *testing.T) {
 }
 
 func TestDiff_OperationContentTypeChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			ContentType: pointer.To("application/json"),
+			ContentType: "application/json",
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			ContentType: pointer.To("text/xml"),
+			ContentType: "text/xml",
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -157,17 +157,17 @@ func TestDiff_OperationContentTypeChanged(t *testing.T) {
 }
 
 func TestDiff_OperationExpectedStatusCodeChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			ExpectedStatusCodes: []int{200},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			ExpectedStatusCodes: []int{200, 202},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -189,17 +189,17 @@ func TestDiff_OperationExpectedStatusCodeChanged(t *testing.T) {
 func TestDiff_OperationExpectedStatusCodeChangedBreakingChange(t *testing.T) {
 	// ExpectedStatusCodes is /conditionally/ a breaking change, if a Status Code is removed then it's a breaking change
 	// else it's not
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			ExpectedStatusCodes: []int{200, 202},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			ExpectedStatusCodes: []int{200},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -219,17 +219,17 @@ func TestDiff_OperationExpectedStatusCodeChangedBreakingChange(t *testing.T) {
 }
 
 func TestDiff_OperationLongRunningAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			LongRunning: false,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			LongRunning: true,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -247,17 +247,17 @@ func TestDiff_OperationLongRunningAdded(t *testing.T) {
 }
 
 func TestDiff_OperationLongRunningRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			LongRunning: true,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			LongRunning: false,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -275,17 +275,17 @@ func TestDiff_OperationLongRunningRemoved(t *testing.T) {
 }
 
 func TestDiff_OperationMethodChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			Method: http.MethodHead,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			Method: http.MethodGet,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -305,25 +305,25 @@ func TestDiff_OperationMethodChanged(t *testing.T) {
 }
 
 func TestDiff_OperationOptionsAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			Options: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -345,40 +345,40 @@ func TestDiff_OperationOptionsAdded(t *testing.T) {
 
 func TestDiff_OperationOptionsChanged(t *testing.T) {
 	// Adding a new Option to an existing set of Options is not a breaking change
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 				"Other": {
 					QueryStringName: pointer.To("other"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -404,34 +404,34 @@ func TestDiff_OperationOptionsChanged(t *testing.T) {
 
 func TestDiff_OperationOptionsChangedBreakingChange(t *testing.T) {
 	// Changing the ObjectDefinition for an existing Object is a breaking change
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type:          models.ReferenceSDKOperationOptionObjectDefinitionType,
 						ReferenceName: pointer.To("SomeConstant"),
 					},
 				},
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -455,25 +455,25 @@ func TestDiff_OperationOptionsChangedBreakingChange(t *testing.T) {
 }
 
 func TestDiff_OperationOptionsRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			Options: map[string]resourcemanager.ApiOperationOption{
+			Options: map[string]models.SDKOperationOption{
 				"Expand": {
 					QueryStringName: pointer.To("expand"),
 					Required:        false,
-					ObjectDefinition: resourcemanager.ApiObjectDefinition{
-						Type: resourcemanager.StringApiObjectDefinitionType,
+					ObjectDefinition: models.SDKOperationOptionObjectDefinition{
+						Type: models.StringSDKOperationOptionObjectDefinitionType,
 					},
 				},
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			Options: nil,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -494,17 +494,17 @@ func TestDiff_OperationOptionsRemoved(t *testing.T) {
 }
 
 func TestDiff_OperationPaginationFieldChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			FieldContainingPaginationDetails: pointer.To("OldField"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			FieldContainingPaginationDetails: pointer.To("NewField"),
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -524,18 +524,18 @@ func TestDiff_OperationPaginationFieldChanged(t *testing.T) {
 }
 
 func TestDiff_OperationRemovedWithResourceId(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			ResourceIdName: pointer.To("SomeId"),
+			ResourceIDName: pointer.To("SomeId"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 	}
-	ids := map[string]resourcemanager.ResourceIdDefinition{
+	ids := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
@@ -556,19 +556,19 @@ func TestDiff_OperationRemovedWithResourceId(t *testing.T) {
 }
 
 func TestDiff_OperationRemovedWithResourceIdAndUriSuffix(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			ResourceIdName: pointer.To("SomeId"),
-			UriSuffix:      pointer.To("/example"),
+			ResourceIDName: pointer.To("SomeId"),
+			URISuffix:      pointer.To("/example"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 	}
-	ids := map[string]resourcemanager.ResourceIdDefinition{
+	ids := map[string]models.ResourceID{
 		"SomeId": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
@@ -589,16 +589,16 @@ func TestDiff_OperationRemovedWithResourceIdAndUriSuffix(t *testing.T) {
 }
 
 func TestDiff_OperationRemovedWithUriSuffix(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {},
 		"Second": {
-			UriSuffix: pointer.To("/example"),
+			URISuffix: pointer.To("/example"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -617,19 +617,19 @@ func TestDiff_OperationRemovedWithUriSuffix(t *testing.T) {
 }
 
 func TestDiff_OperationRequestObjectAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			RequestObject: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -648,22 +648,22 @@ func TestDiff_OperationRequestObjectAdded(t *testing.T) {
 }
 
 func TestDiff_OperationRequestObjectChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceSDKObjectDefinitionType,
 				ReferenceName: pointer.To("SomeConstant"),
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -683,19 +683,19 @@ func TestDiff_OperationRequestObjectChanged(t *testing.T) {
 }
 
 func TestDiff_OperationRequestObjectRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			RequestObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			RequestObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			RequestObject: nil,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -714,20 +714,20 @@ func TestDiff_OperationRequestObjectRemoved(t *testing.T) {
 }
 
 func TestDiff_OperationResourceIDAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			ResourceIdName: nil,
+			ResourceIDName: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			ResourceIdName: pointer.To("Example"),
+			ResourceIDName: pointer.To("Example"),
 		},
 	}
-	oldIds := make(map[string]resourcemanager.ResourceIdDefinition)
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := make(map[string]models.ResourceID)
+	newIds := map[string]models.ResourceID{
 		"Example": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
@@ -748,24 +748,24 @@ func TestDiff_OperationResourceIDAdded(t *testing.T) {
 }
 
 func TestDiff_OperationResourceIDChangedUri(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("First"),
+			ResourceIDName: pointer.To("First"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("First"),
+			ResourceIDName: pointer.To("First"),
 		},
 	}
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"First": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"First": {
-			Id: "/some/other/id",
+			ExampleValue: "/some/other/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
@@ -789,24 +789,24 @@ func TestDiff_OperationResourceIDChangedUri(t *testing.T) {
 }
 
 func TestDiff_OperationResourceIDChangedNameAndUri(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("First"),
+			ResourceIDName: pointer.To("First"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("Second"),
+			ResourceIDName: pointer.To("Second"),
 		},
 	}
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"First": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"Second": {
-			Id: "/some/other/id",
+			ExampleValue: "/some/other/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
@@ -838,22 +838,22 @@ func TestDiff_OperationResourceIDChangedNameAndUri(t *testing.T) {
 }
 
 func TestDiff_OperationResourceIDRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			ResourceIdName: pointer.To("Example"),
+			ResourceIDName: pointer.To("Example"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			ResourceIdName: nil,
+			ResourceIDName: nil,
 		},
 	}
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"Example": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
-	newIds := make(map[string]resourcemanager.ResourceIdDefinition)
+	newIds := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -872,24 +872,24 @@ func TestDiff_OperationResourceIDRemoved(t *testing.T) {
 }
 
 func TestDiff_OperationResourceIDRenamed(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("First"),
+			ResourceIDName: pointer.To("First"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"SomeOperation": {
-			ResourceIdName: pointer.To("Second"),
+			ResourceIDName: pointer.To("Second"),
 		},
 	}
-	oldIds := map[string]resourcemanager.ResourceIdDefinition{
+	oldIds := map[string]models.ResourceID{
 		"First": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
-	newIds := map[string]resourcemanager.ResourceIdDefinition{
+	newIds := map[string]models.ResourceID{
 		"Second": {
-			Id: "/some/example/id",
+			ExampleValue: "/some/example/id",
 		},
 	}
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, oldIds, newIds)
@@ -911,19 +911,19 @@ func TestDiff_OperationResourceIDRenamed(t *testing.T) {
 }
 
 func TestDiff_OperationResponseObjectAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
 			ResponseObject: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -942,22 +942,22 @@ func TestDiff_OperationResponseObjectAdded(t *testing.T) {
 }
 
 func TestDiff_OperationResponseObjectChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type:          resourcemanager.ReferenceApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type:          models.ReferenceApiObjectDefinitionType,
 				ReferenceName: pointer.To("SomeConstant"),
 			},
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -977,19 +977,19 @@ func TestDiff_OperationResponseObjectChanged(t *testing.T) {
 }
 
 func TestDiff_OperationResponseObjectRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			ResponseObject: &resourcemanager.ApiObjectDefinition{
-				Type: resourcemanager.StringApiObjectDefinitionType,
+			ResponseObject: &models.SDKObjectDefinition{
+				Type: models.StringSDKObjectDefinitionType,
 			},
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
 			ResponseObject: nil,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -1008,17 +1008,17 @@ func TestDiff_OperationResponseObjectRemoved(t *testing.T) {
 }
 
 func TestDiff_OperationUriSuffixAdded(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: nil,
+			URISuffix: nil,
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: pointer.To("/doSomething"),
+			URISuffix: pointer.To("/doSomething"),
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -1037,17 +1037,17 @@ func TestDiff_OperationUriSuffixAdded(t *testing.T) {
 }
 
 func TestDiff_OperationUriSuffixChanged(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: pointer.To("/doSomething"),
+			URISuffix: pointer.To("/doSomething"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: pointer.To("/doSomethingElse"),
+			URISuffix: pointer.To("/doSomethingElse"),
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())
@@ -1067,17 +1067,17 @@ func TestDiff_OperationUriSuffixChanged(t *testing.T) {
 }
 
 func TestDiff_OperationUriSuffixRemoved(t *testing.T) {
-	initial := map[string]resourcemanager.ApiOperation{
+	initial := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: pointer.To("/doSomething"),
+			URISuffix: pointer.To("/doSomething"),
 		},
 	}
-	updated := map[string]resourcemanager.ApiOperation{
+	updated := map[string]models.SDKOperation{
 		"First": {
-			UriSuffix: nil,
+			URISuffix: nil,
 		},
 	}
-	ids := make(map[string]resourcemanager.ResourceIdDefinition)
+	ids := make(map[string]models.ResourceID)
 	actual, err := differ{}.changesForOperations("Computer", "2020-01-01", "Example", initial, updated, ids, ids)
 	if err != nil {
 		t.Fatalf(err.Error())

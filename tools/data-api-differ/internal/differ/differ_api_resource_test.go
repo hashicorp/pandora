@@ -7,20 +7,19 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_APIResourceAdded_WithNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiResourceData{
+	initial := map[string]models.APIResource{
 		"First": {},
 	}
-	updated := map[string]dataapi.ApiResourceData{
+	updated := map[string]models.APIResource{
 		"First": {},
 		"Second": {
-			Constants: map[string]resourcemanager.ConstantDetails{
+			Constants: map[string]models.SDKConstant{
 				"SomeConst": {
-					Type: resourcemanager.StringConstant,
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"First": "first",
 					},
@@ -43,7 +42,7 @@ func TestDiff_APIResourceAdded_WithNestedDetails(t *testing.T) {
 			ApiVersion:   "2020-01-01",
 			ResourceName: "Second",
 			ConstantName: "SomeConst",
-			ConstantType: string(resourcemanager.StringConstant),
+			ConstantType: string(models.StringSDKConstantType),
 			KeysAndValues: map[string]string{
 				"First": "first",
 			},
@@ -54,15 +53,15 @@ func TestDiff_APIResourceAdded_WithNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIResourceAdded_WithoutNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiResourceData{
+	initial := map[string]models.APIResource{
 		"First": {},
 	}
-	updated := map[string]dataapi.ApiResourceData{
+	updated := map[string]models.APIResource{
 		"First": {},
 		"Second": {
-			Constants: map[string]resourcemanager.ConstantDetails{
+			Constants: map[string]models.SDKConstant{
 				"SomeConst": {
-					Type: resourcemanager.StringConstant,
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"First": "first",
 					},
@@ -87,12 +86,12 @@ func TestDiff_APIResourceAdded_WithoutNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIResourceRemoved_WithNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiResourceData{
+	initial := map[string]models.APIResource{
 		"First": {},
 		"Second": {
-			Constants: map[string]resourcemanager.ConstantDetails{
+			Constants: map[string]models.SDKConstant{
 				"SomeConst": {
-					Type: resourcemanager.StringConstant,
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"First": "first",
 					},
@@ -100,7 +99,7 @@ func TestDiff_APIResourceRemoved_WithNestedDetails(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]dataapi.ApiResourceData{
+	updated := map[string]models.APIResource{
 		"First": {},
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, true)
@@ -120,12 +119,12 @@ func TestDiff_APIResourceRemoved_WithNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIResourceRemoved_WithoutNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiResourceData{
+	initial := map[string]models.APIResource{
 		"First": {},
 		"Second": {
-			Constants: map[string]resourcemanager.ConstantDetails{
+			Constants: map[string]models.SDKConstant{
 				"SomeConst": {
-					Type: resourcemanager.StringConstant,
+					Type: models.StringSDKConstantType,
 					Values: map[string]string{
 						"First": "first",
 					},
@@ -133,7 +132,7 @@ func TestDiff_APIResourceRemoved_WithoutNestedDetails(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]dataapi.ApiResourceData{
+	updated := map[string]models.APIResource{
 		"First": {},
 	}
 	actual, err := differ{}.changesForApiResources("Computer", "2020-01-01", initial, updated, false)

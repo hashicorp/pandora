@@ -10,11 +10,11 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // changesForModels determines the changes between the initial and updated Models within the specified API Resource.
-func (d differ) changesForModels(serviceName, apiVersion, apiResource string, initial, updated map[string]resourcemanager.ModelDetails) (*[]changes.Change, error) {
+func (d differ) changesForModels(serviceName, apiVersion, apiResource string, initial, updated map[string]models.SDKModel) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	modelNames := d.uniqueModelNames(initial, updated)
 	for _, modelName := range modelNames {
@@ -29,7 +29,7 @@ func (d differ) changesForModels(serviceName, apiVersion, apiResource string, in
 }
 
 // changesForModel determines the changes between the initial and updated Models within the specified API Resource.
-func (d differ) changesForModel(serviceName, apiVersion, apiResource, modelName string, initial, updated map[string]resourcemanager.ModelDetails) (*[]changes.Change, error) {
+func (d differ) changesForModel(serviceName, apiVersion, apiResource, modelName string, initial, updated map[string]models.SDKModel) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 
 	oldData, isInOld := initial[modelName]
@@ -72,7 +72,7 @@ func (d differ) changesForModel(serviceName, apiVersion, apiResource, modelName 
 	return &output, nil
 }
 
-func (d differ) discriminatorChangesForModel(serviceName, apiVersion, apiResource, modelName string, initial, updated resourcemanager.ModelDetails) []changes.Change {
+func (d differ) discriminatorChangesForModel(serviceName, apiVersion, apiResource, modelName string, initial, updated models.SDKModel) []changes.Change {
 	output := make([]changes.Change, 0)
 
 	// Handle this being a Discriminated Implementation
@@ -114,32 +114,32 @@ func (d differ) discriminatorChangesForModel(serviceName, apiVersion, apiResourc
 	}
 
 	// Handle the Field containing the Discriminated Value changing
-	if pointer.From(initial.TypeHintIn) != pointer.From(updated.TypeHintIn) {
+	if pointer.From(initial.FieldNameContainingDiscriminatedValue) != pointer.From(updated.FieldNameContainingDiscriminatedValue) {
 		// Since TypeHintIn changing is unlikely (but has been seen) but is required along with at least
 		// one Discriminated Implementation - we don't need to handle Added/Removed here.
-		log.Logger.Trace(fmt.Sprintf("Model %q has a new value for `TypeHintIn` - old %q / new %q", modelName, pointer.From(initial.TypeHintIn), pointer.From(updated.TypeHintIn)))
+		log.Logger.Trace(fmt.Sprintf("Model %q has a new value for `FieldNameContainingDiscriminatedValue` - old %q / new %q", modelName, pointer.From(initial.FieldNameContainingDiscriminatedValue), pointer.From(updated.FieldNameContainingDiscriminatedValue)))
 		output = append(output, changes.ModelDiscriminatedTypeHintInChanged{
 			ServiceName:  serviceName,
 			ApiVersion:   apiVersion,
 			ResourceName: apiResource,
 			ModelName:    modelName,
-			OldValue:     pointer.From(initial.TypeHintIn),
-			NewValue:     pointer.From(updated.TypeHintIn),
+			OldValue:     pointer.From(initial.FieldNameContainingDiscriminatedValue),
+			NewValue:     pointer.From(updated.FieldNameContainingDiscriminatedValue),
 		})
 	}
 
 	// Handle the Discriminated Value changing
-	if pointer.From(initial.TypeHintValue) != pointer.From(updated.TypeHintValue) {
+	if pointer.From(initial.DiscriminatedValue) != pointer.From(updated.DiscriminatedValue) {
 		// We're (intentionally) only handling Changed and not Added/Removed here since this is a Required
 		// field when `ParentTypeName` is set.
-		log.Logger.Trace(fmt.Sprintf("Model %q has a new value for `TypeHintValue` - old %q / new %q", modelName, pointer.From(initial.TypeHintValue), pointer.From(updated.TypeHintValue)))
+		log.Logger.Trace(fmt.Sprintf("Model %q has a new value for `DiscriminatedValue` - old %q / new %q", modelName, pointer.From(initial.DiscriminatedValue), pointer.From(updated.DiscriminatedValue)))
 		output = append(output, changes.ModelDiscriminatedTypeValueChanged{
 			ServiceName:  serviceName,
 			ApiVersion:   apiVersion,
 			ResourceName: apiResource,
 			ModelName:    modelName,
-			OldValue:     pointer.From(initial.TypeHintValue),
-			NewValue:     pointer.From(updated.TypeHintValue),
+			OldValue:     pointer.From(initial.DiscriminatedValue),
+			NewValue:     pointer.From(updated.DiscriminatedValue),
 		})
 	}
 
@@ -147,7 +147,7 @@ func (d differ) discriminatorChangesForModel(serviceName, apiVersion, apiResourc
 }
 
 // uniqueModelNames returns a unique, sorted list of Model Names from the keys of initial and updated.
-func (d differ) uniqueModelNames(initial, updated map[string]resourcemanager.ModelDetails) []string {
+func (d differ) uniqueModelNames(initial, updated map[string]models.SDKModel) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

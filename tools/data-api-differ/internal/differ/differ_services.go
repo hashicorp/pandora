@@ -8,12 +8,12 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 // changesForServices determines the changes between the initial and updated set of Services.
-func (d differ) changesForServices(initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForServices(initial, updated map[string]models.Service, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	// first pull out a unique list of Service names
 	log.Logger.Info("Identifying a unique list of Service Names..")
@@ -30,7 +30,7 @@ func (d differ) changesForServices(initial map[string]dataapi.ServiceData, updat
 }
 
 // changesForService determines the changes between two different Services.
-func (d differ) changesForService(serviceName string, initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
+func (d differ) changesForService(serviceName string, initial, updated map[string]models.Service, includeNestedChangesWhenNew bool) (*[]changes.Change, error) {
 	output := make([]changes.Change, 0)
 	oldData, inOldData := initial[serviceName]
 	updatedData, inUpdatedData := updated[serviceName]
@@ -57,11 +57,11 @@ func (d differ) changesForService(serviceName string, initial map[string]dataapi
 	// TODO: support raising if `Generate`, `ResourceProvider` or `TerraformPackageName` changes if required
 
 	// the old set may not necessarily exist
-	var oldApiVersions map[string]dataapi.ApiVersionData
+	var oldApiVersions map[string]models.APIVersion
 	if inOldData {
-		oldApiVersions = oldData.ApiVersions
+		oldApiVersions = oldData.APIVersions
 	}
-	changesForApiVersions, err := d.changesForApiVersions(serviceName, oldApiVersions, updatedData.ApiVersions, includeNestedChangesWhenNew)
+	changesForApiVersions, err := d.changesForApiVersions(serviceName, oldApiVersions, updatedData.APIVersions, includeNestedChangesWhenNew)
 	if err != nil {
 		return nil, fmt.Errorf("detecting changes to the API Versions: %+v", err)
 	}
@@ -71,7 +71,7 @@ func (d differ) changesForService(serviceName string, initial map[string]dataapi
 }
 
 // uniqueServiceNames returns a unique, ordered list of Service Names from the initial and updated set of Services.
-func (d differ) uniqueServiceNames(initial map[string]dataapi.ServiceData, updated map[string]dataapi.ServiceData) []string {
+func (d differ) uniqueServiceNames(initial, updated map[string]models.Service) []string {
 	uniqueNames := make(map[string]struct{})
 	for name := range initial {
 		uniqueNames[name] = struct{}{}

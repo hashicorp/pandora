@@ -7,22 +7,21 @@ import (
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/changes"
-	"github.com/hashicorp/pandora/tools/data-api-differ/internal/dataapi"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 func TestDiff_APIVersionAdded_WithNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiVersionData{
+	initial := map[string]models.APIVersion{
 		"2020-01-01": {},
 	}
-	updated := map[string]dataapi.ApiVersionData{
+	updated := map[string]models.APIVersion{
 		"2020-01-01": {},
 		"2023-01-01": {
-			Resources: map[string]dataapi.ApiResourceData{
+			Resources: map[string]models.APIResource{
 				"Example": {
-					Constants: map[string]resourcemanager.ConstantDetails{
+					Constants: map[string]models.ConstantDetails{
 						"SomeConst": {
-							Type: resourcemanager.StringConstant,
+							Type: models.StringSDKConstantType,
 							Values: map[string]string{
 								"First": "first",
 							},
@@ -51,7 +50,7 @@ func TestDiff_APIVersionAdded_WithNestedDetails(t *testing.T) {
 			ApiVersion:   "2023-01-01",
 			ResourceName: "Example",
 			ConstantName: "SomeConst",
-			ConstantType: string(resourcemanager.StringConstant),
+			ConstantType: string(models.StringSDKConstantType),
 			KeysAndValues: map[string]string{
 				"First": "first",
 			},
@@ -62,17 +61,17 @@ func TestDiff_APIVersionAdded_WithNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIVersionAdded_WithoutNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiVersionData{
+	initial := map[string]models.APIVersion{
 		"2020-01-01": {},
 	}
-	updated := map[string]dataapi.ApiVersionData{
+	updated := map[string]models.APIVersion{
 		"2020-01-01": {},
 		"2023-01-01": {
-			Resources: map[string]dataapi.ApiResourceData{
+			Resources: map[string]models.APIResource{
 				"Example": {
-					Constants: map[string]resourcemanager.ConstantDetails{
+					Constants: map[string]models.SDKConstant{
 						"SomeConst": {
-							Type: resourcemanager.StringConstant,
+							Type: models.StringSDKConstantType,
 							Values: map[string]string{
 								"First": "first",
 							},
@@ -103,15 +102,15 @@ func TestDiff_APIVersionAdded_WithoutNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIVersionRemoved_WithNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiVersionData{
+	initial := map[string]models.APIVersion{
 		"2020-01-01": {},
 		"2023-01-01": {
-			Resources: map[string]dataapi.ApiResourceData{
+			Resources: map[string]models.APIResource{
 				"Example": {
 					// this won't be surfaced because the entire API Version has been removed
-					Constants: map[string]resourcemanager.ConstantDetails{
+					Constants: map[string]models.SDKConstant{
 						"SomeConst": {
-							Type: resourcemanager.StringConstant,
+							Type: models.StringSDKConstantType,
 							Values: map[string]string{
 								"First": "first",
 							},
@@ -121,7 +120,7 @@ func TestDiff_APIVersionRemoved_WithNestedDetails(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]dataapi.ApiVersionData{
+	updated := map[string]models.APIVersion{
 		"2020-01-01": {},
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, true)
@@ -139,15 +138,15 @@ func TestDiff_APIVersionRemoved_WithNestedDetails(t *testing.T) {
 }
 
 func TestDiff_APIVersionRemoved_WithoutNestedDetails(t *testing.T) {
-	initial := map[string]dataapi.ApiVersionData{
+	initial := map[string]models.APIVersion{
 		"2020-01-01": {},
 		"2023-01-01": {
-			Resources: map[string]dataapi.ApiResourceData{
+			Resources: map[string]models.APIResource{
 				"Example": {
 					// this won't be surfaced because the entire API Version has been removed
-					Constants: map[string]resourcemanager.ConstantDetails{
+					Constants: map[string]models.SDKConstant{
 						"SomeConst": {
-							Type: resourcemanager.StringConstant,
+							Type: models.StringSDKConstantType,
 							Values: map[string]string{
 								"First": "first",
 							},
@@ -157,7 +156,7 @@ func TestDiff_APIVersionRemoved_WithoutNestedDetails(t *testing.T) {
 			},
 		},
 	}
-	updated := map[string]dataapi.ApiVersionData{
+	updated := map[string]models.APIVersion{
 		"2020-01-01": {},
 	}
 	actual, err := differ{}.changesForApiVersions("Computer", initial, updated, false)

@@ -3,8 +3,9 @@ module github.com/hashicorp/pandora/tools/data-api-differ
 go 1.21
 
 require (
-	github.com/hashicorp/go-azure-helpers v0.64.0
+	github.com/hashicorp/go-azure-helpers v0.66.2
 	github.com/hashicorp/go-hclog v1.5.0
+	github.com/hashicorp/pandora/tools/data-api-sdk v0.0.0-00010101000000-000000000000
 	github.com/hashicorp/pandora/tools/sdk v0.0.0-00010101000000-000000000000
 	github.com/mitchellh/cli v1.1.5
 )
@@ -33,5 +34,7 @@ require (
 	golang.org/x/crypto v0.17.0 // indirect
 	golang.org/x/sys v0.15.0 // indirect
 )
+
+replace github.com/hashicorp/pandora/tools/data-api-sdk => ../data-api-sdk
 
 replace github.com/hashicorp/pandora/tools/sdk => ../sdk
