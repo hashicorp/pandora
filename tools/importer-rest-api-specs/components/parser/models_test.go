@@ -4,317 +4,224 @@
 package parser
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"testing"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func TestParseModelSingleTopLevel(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_single.json")
+func TestParseModelTopLevel(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_top_level.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	resource, ok := result.Resources["Discriminator"]
-	if !ok {
-		t.Fatal("the Resource 'Discriminator' was not found")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Age": {
+								JsonName: "age",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionInteger,
+								},
+								Required: false,
+							},
+							"Enabled": {
+								JsonName: "enabled",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionBoolean,
+								},
+								Required: false,
+							},
+							"Height": {
+								JsonName: "height",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionFloat,
+								},
+								Required: false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+							"Tags": {
+								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								JsonName:        "tags",
+								Required:        false,
+							},
+							"Value": {
+								JsonName: "value",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionRawObject,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	// sanity checking
-	if len(resource.Constants) != 0 {
-		t.Fatalf("expected 0 constants but got %d", len(resource.Constants))
-	}
-	if len(resource.Models) != 1 {
-		t.Fatalf("expected 1 model but got %d", len(resource.Models))
-	}
-	if len(resource.Operations) != 1 {
-		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
-	}
-	if len(resource.ResourceIds) != 1 {
-		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
-	}
-
-	example, ok := resource.Models["Example"]
-	if !ok {
-		t.Fatalf("the Model `Example` was not found")
-	}
-	if len(example.Fields) != 6 {
-		t.Fatalf("expected example.Fields to have 6 fields but got %d", len(example.Fields))
-	}
-
-	name, ok := example.Fields["Name"]
-	if !ok {
-		t.Fatalf("example.Fields['Name'] was missing")
-	}
-	if name.ObjectDefinition == nil {
-		t.Fatalf("example.Fields['Name'] had no ObjectDefinition")
-	}
-	if name.ObjectDefinition.Type != models.ObjectDefinitionString {
-		t.Fatalf("expected example.Fields['Name'] to be a string but got %q", string(name.ObjectDefinition.Type))
-	}
-	if name.JsonName != "name" {
-		t.Fatalf("expected example.Fields['Name'].JsonName to be 'name' but got %q", name.JsonName)
-	}
-	if name.Description != "the name of this thing" {
-		t.Fatalf("expected example.Fields['Name'].Description to be 'the name of this thing' but got %q", name.Description)
-	}
-
-	age, ok := example.Fields["Age"]
-	if !ok {
-		t.Fatalf("example.Fields['Age'] was missing")
-	}
-	if age.ObjectDefinition == nil {
-		t.Fatalf("example.Fields['Age'] had no ObjectDefinition")
-	}
-	if age.ObjectDefinition.Type != models.ObjectDefinitionInteger {
-		t.Fatalf("expected example.Fields['Age'] to be an integer but got %q", string(age.ObjectDefinition.Type))
-	}
-	if age.JsonName != "age" {
-		t.Fatalf("expected example.Fields['Age'].JsonName to be 'age' but got %q", age.JsonName)
-	}
-	if age.Description != "the age of this thing" {
-		t.Fatalf("expected example.Fields['Age'].Description to be 'the age of this thing' but got %q", age.Description)
-	}
-
-	enabled, ok := example.Fields["Enabled"]
-	if !ok {
-		t.Fatalf("example.Fields['Enabled'] was missing")
-	}
-	if enabled.ObjectDefinition == nil {
-		t.Fatalf("example.Fields['Enabled'] had no ObjectDefinition")
-	}
-	if enabled.ObjectDefinition.Type != models.ObjectDefinitionBoolean {
-		t.Fatalf("expected example.Fields['Enabled'] to be a boolean but got %q", string(enabled.ObjectDefinition.Type))
-	}
-	if enabled.JsonName != "enabled" {
-		t.Fatalf("expected example.Fields['Enabled'].JsonName to be 'enabled' but got %q", enabled.JsonName)
-	}
-	if enabled.Description != "true or false" {
-		t.Fatalf("expected example.Fields['Enabled'].Description to be 'true or false' but got %q", enabled.Description)
-	}
-
-	height, ok := example.Fields["Height"]
-	if !ok {
-		t.Fatalf("example.Fields['Height'] was missing")
-	}
-	if height.ObjectDefinition == nil {
-		t.Fatalf("example.Fields['Height'] had no ObjectDefinition")
-	}
-	if height.ObjectDefinition.Type != models.ObjectDefinitionFloat {
-		t.Fatalf("expected example.Fields['Height'] to be a float but got %q", string(height.ObjectDefinition.Type))
-	}
-	if height.JsonName != "height" {
-		t.Fatalf("expected example.Fields['Height'].JsonName to be 'height' but got %q", height.JsonName)
-	}
-	if height.Description != "the height of this in cm" {
-		t.Fatalf("expected example.Fields['Height'].Description to be 'the height of this in cm' but got %q", height.Description)
-	}
-
-	tags, ok := example.Fields["Tags"]
-	if !ok {
-		t.Fatalf("example.Fields['Tags'] was missing")
-	}
-	if tags.CustomFieldType == nil {
-		t.Fatalf("example.Fields['Tags'] had no CustomFieldType")
-	}
-	if *tags.CustomFieldType != models.CustomFieldTypeTags {
-		t.Fatalf("expected example.Fields['Tags'] to be Tags but got %q", string(*tags.CustomFieldType))
-	}
-	if tags.ObjectDefinition != nil {
-		t.Fatalf("example.Fields['Tags'] had an ObjectDefinition when it shouldn't")
-	}
-	if tags.JsonName != "tags" {
-		t.Fatalf("expected example.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
-	}
-	if tags.Description != "a key value pair" {
-		t.Fatalf("expected example.Fields['Tags'].Description to be 'a key value pair' but got %q", tags.Description)
-	}
-
-	value, ok := example.Fields["Value"]
-	if !ok {
-		t.Fatalf("example.Fields['Value'] was missing")
-	}
-	if value.ObjectDefinition == nil {
-		t.Fatalf("example.Fields['Value'] had no ObjectDefinition")
-	}
-	if value.ObjectDefinition.Type != models.ObjectDefinitionRawObject {
-		t.Fatalf("expected example.Fields['Value'] to be RawObject but got %q", string(value.ObjectDefinition.Type))
-	}
-	if value.JsonName != "value" {
-		t.Fatalf("expected example.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
-	}
-	if value.Description != "Example value. May be a primitive value, or an object." {
-		t.Fatalf("expected example.Fields['Value'].Description to be 'Example value. May be a primitive value, or an object.' but got %q", value.Description)
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleTopLevelWithRawFile(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_single_with_rawfile.json")
+func TestParseModelTopLevelWithRawFile(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_top_level_with_rawfile.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	resource, ok := result.Resources["Discriminator"]
-	if !ok {
-		t.Fatal("the Resource 'Discriminator' was not found")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							Type: models.ObjectDefinitionRawFile,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							Type: models.ObjectDefinitionRawFile,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	operation, ok := resource.Operations["Test"]
-	if !ok {
-		t.Fatalf("the Operation 'Test' was not found")
-	}
-
-	if operation.RequestObject.Type != models.ObjectDefinitionRawFile {
-		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
-	}
-
-	if operation.ResponseObject.Type != models.ObjectDefinitionRawFile {
-		t.Fatalf("want 'RawFile' request type, got: %s", operation.RequestObject.Type)
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
 func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_single_with_inlined_model.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_top_level_with_inlined_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	resource, ok := result.Resources["Discriminator"]
-	if !ok {
-		t.Fatal("the Resource 'Discriminator' was not found")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+							"Properties": {
+								JsonName: "properties",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("ModelProperties"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ModelProperties": {
+						Fields: map[string]models.FieldDetails{
+							"Age": {
+								JsonName: "age",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionInteger,
+								},
+								Required: false,
+							},
+							"Enabled": {
+								JsonName: "enabled",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionBoolean,
+								},
+								Required: false,
+							},
+							"Height": {
+								JsonName: "height",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionFloat,
+								},
+								Required: false,
+							},
+							"Nickname": {
+								JsonName: "nickname",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Tags": {
+								CustomFieldType: pointer.To(models.CustomFieldTypeTags),
+								JsonName:        "tags",
+								Required:        false,
+							},
+							"Value": {
+								JsonName: "value",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionRawObject,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	// sanity checking
-	if len(resource.Constants) != 0 {
-		t.Fatalf("expected 0 constants but got %d", len(resource.Constants))
-	}
-	if len(resource.Models) != 2 {
-		t.Fatalf("expected 2 models but got %d", len(resource.Models))
-	}
-	if len(resource.Operations) != 1 {
-		t.Fatalf("expected 1 operation but got %d", len(resource.Operations))
-	}
-	if len(resource.ResourceIds) != 1 {
-		t.Fatalf("expected 1 Resource ID but got %d", len(resource.ResourceIds))
-	}
-
-	example, ok := resource.Models["Example"]
-	if !ok {
-		t.Fatalf("the Model `Example` was not found")
-	}
-	if len(example.Fields) != 2 {
-		t.Fatalf("expected example.Fields to have 2 fields but got %d", len(example.Fields))
-	}
-	propField, ok := example.Fields["Properties"]
-	if !ok {
-		t.Fatalf("expected Example to have a field named Properties")
-	}
-	if propField.ObjectDefinition == nil {
-		t.Fatalf("expected Example to be an ObjectDefinition but it wasn't")
-	}
-	if propField.ObjectDefinition.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected Example to be a Reference but it was %q", string(propField.ObjectDefinition.Type))
-	}
-	if *propField.ObjectDefinition.ReferenceName != "ExampleProperties" {
-		t.Fatalf("expected Example to be a Reference to `ExampleProperties` but it was %q", *propField.ObjectDefinition.ReferenceName)
-	}
-
-	exampleProperties, ok := resource.Models["ExampleProperties"]
-	if !ok {
-		t.Fatalf("the Model `ExampleProperties` was not found")
-	}
-	if len(exampleProperties.Fields) != 5 {
-		t.Fatalf("expected exampleProperties.Fields to have 5 fields but got %d", len(example.Fields))
-	}
-
-	nickName, ok := exampleProperties.Fields["Nickname"]
-	if !ok {
-		t.Fatalf("exampleProperties.Fields['Nickname'] was missing")
-	}
-	if nickName.ObjectDefinition == nil {
-		t.Fatalf("exampleProperties.Fields['Nickname'] was missing an ObjectDefinition")
-	}
-	if nickName.ObjectDefinition.Type != models.ObjectDefinitionString {
-		t.Fatalf("expected exampleProperties.Fields['Nickname'] to be a string but got %q", string(nickName.ObjectDefinition.Type))
-	}
-	if nickName.JsonName != "nickname" {
-		t.Fatalf("expected exampleProperties.Fields['Nickname'].JsonName to be 'name' but got %q", nickName.JsonName)
-	}
-
-	age, ok := exampleProperties.Fields["Age"]
-	if !ok {
-		t.Fatalf("exampleProperties.Fields['Age'] was missing")
-	}
-	if age.ObjectDefinition == nil {
-		t.Fatalf("exampleProperties.Fields['Age'] was missing an ObjectDefinition")
-	}
-	if age.ObjectDefinition.Type != models.ObjectDefinitionInteger {
-		t.Fatalf("expected exampleProperties.Fields['Age'] to be an integer but got %q", string(age.ObjectDefinition.Type))
-	}
-	if age.JsonName != "age" {
-		t.Fatalf("expected exampleProperties.Fields['Age'].JsonName to be 'age' but got %q", age.JsonName)
-	}
-
-	enabled, ok := exampleProperties.Fields["Enabled"]
-	if !ok {
-		t.Fatalf("exampleProperties.Fields['Enabled'] was missing")
-	}
-	if enabled.ObjectDefinition == nil {
-		t.Fatalf("exampleProperties.Fields['Enabled'] was missing an ObjectDefinition")
-	}
-	if enabled.ObjectDefinition.Type != models.ObjectDefinitionBoolean {
-		t.Fatalf("expected exampleProperties.Fields['Enabled'] to be a boolean but got %q", string(enabled.ObjectDefinition.Type))
-	}
-	if enabled.JsonName != "enabled" {
-		t.Fatalf("expected exampleProperties.Fields['Enabled'].JsonName to be 'enabled' but got %q", enabled.JsonName)
-	}
-
-	tags, ok := exampleProperties.Fields["Tags"]
-	if !ok {
-		t.Fatalf("exampleProperties.Fields['Tags'] was missing")
-	}
-	if tags.CustomFieldType == nil {
-		t.Fatalf("exampleProperties.Fields['Tags'] was missing a CustomFieldType")
-	}
-	if *tags.CustomFieldType != models.CustomFieldTypeTags {
-		t.Fatalf("expected exampleProperties.Fields['Tags'] to be Tags but got %q", string(*tags.CustomFieldType))
-	}
-	if tags.JsonName != "tags" {
-		t.Fatalf("expected exampleProperties.Fields['Tags'].JsonName to be 'tags' but got %q", tags.JsonName)
-	}
-
-	value, ok := exampleProperties.Fields["Value"]
-	if !ok {
-		t.Fatalf("exampleProperties.Fields['Value'] was missing")
-	}
-	if value.ObjectDefinition == nil {
-		t.Fatalf("exampleProperties.Fields['Value'] had no ObjectDefinition")
-	}
-	if value.ObjectDefinition.Type != models.ObjectDefinitionRawObject {
-		t.Fatalf("expected exampleProperties.Fields['Value'] to be RawObject but got %q", string(value.ObjectDefinition.Type))
-	}
-	if value.JsonName != "value" {
-		t.Fatalf("expected exampleProperties.Fields['Value'].JsonName to be 'value' but got %q", value.JsonName)
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
+
+// --- Refactored above this line ---
 
 func TestParseModelSingleWithInlinedObject(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_with_inlined_object.json")

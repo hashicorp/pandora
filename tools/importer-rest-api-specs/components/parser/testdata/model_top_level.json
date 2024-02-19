@@ -18,29 +18,20 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
+    "/example": {
       "put": {
         "tags": [
-          "Discriminator"
+          "Example"
         ],
-        "operationId": "Discriminator_Test",
+        "operationId": "Example_Test",
         "description": "Tests parsing of a simple model.",
         "parameters": [
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
           {
             "name": "parameters",
             "in": "body",
             "required": true,
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             },
             "description": "Wrapper class."
           }
@@ -49,7 +40,7 @@
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             }
           }
         }
@@ -57,7 +48,7 @@
     }
   },
   "definitions": {
-    "Example": {
+    "Model": {
       "description": "The Resource definition.",
       "properties": {
         "name": {
@@ -97,28 +88,5 @@
       "x-ms-azure-resource": true
     }
   },
-  "parameters": {
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "type": "string",
-      "description": "The API version to be used with the HTTP request."
-    },
-    "SubscriptionIdParameter": {
-      "name": "subscriptionId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "ResourceGroupParameter": {
-      "name": "resourceGroupName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method",
-      "description": "The name of the resource group that contains the resource."
-    }
-  }
+  "parameters": {}
 }
