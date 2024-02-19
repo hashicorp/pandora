@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/generator-go-sdk/featureflags"
+	"github.com/hashicorp/pandora/tools/generator-go-sdk/internal/featureflags"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 

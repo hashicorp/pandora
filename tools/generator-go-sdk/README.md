@@ -66,5 +66,5 @@ The `generator-go-sdk` tool supports a number of command-line arguments:
 The `make` task used above doesn't currently support these arguments, but you can specify these by calling the `generator-go-sdk` tool on the command line, for example:
 
 ```shell
-$ go build . && ./generator-go-sdk -output-dir=/some/path/to/github.com/hashicorp/go-azure-sdk -services=ContainerService
+$ go build . && ./generator-go-sdk [source-data-type] generate -output-dir=/some/path/to/github.com/hashicorp/go-azure-sdk -services=ContainerService
 ```
