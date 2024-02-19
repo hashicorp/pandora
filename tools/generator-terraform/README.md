@@ -54,7 +54,7 @@ Each (Generation) Stage has an associated Templater, meaning that each Stage can
 
 ## Getting Started
 
-Ensure [the Data API](../../data) is launched and then:
+Ensure [the Data API](../data-api) is launched and then:
 
 ```sh
 $ make tools
@@ -65,14 +65,23 @@ By default, the generated code will be output to your desktop (`~/Desktop/genera
 
 ## Options
 
+This tool required specifying the Source Data Type that should be generated (which can be either `microsoft-graph` or `resource-manager`) as the first argument.
+
 The `generator-terraform` tool supports a number of command-line arguments:
 
-* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:5000`).
+* `--data-api=http://some-uri:2022` - specifies the URI for the Data API (defaults to `http://localhost:8080`).
 * `--output-dir=/some/custom/path` - specifies the directory where the generated Terraform Resources should be output (defaults to `~/Desktop/generated-tf-dev`).
 * `--services=Service1,Service2` - generates Terraform Resources for only the specified Services (for expediency) - the Service Names coming from the `name` field [within the Configuration File that defines which Service should be imported](`../../config/resource-manager.hcl`).
+
 
 The `make` task used above doesn't currently support these arguments, but you can specify these by calling the `generator-terraform` tool on the command line, for example:
 
 ```shell
-go build . && ./generator-terraform generate --output-dir=/path/to/github.com/hashicorp/terraform-provider-azurerm -services=ManagedIdentity
+go build . && ./generator-terraform [source-data-type] generate --output-dir=/path/to/github.com/hashicorp/terraform-provider-azurerm -services=ManagedIdentity
+```
+
+A complete example:
+
+```shell
+go build . && ./generator-terraform resource-manager generate --output-dir=/path/to/github.com/hashicorp/terraform-provider-azurerm -services=ManagedIdentity
 ```
