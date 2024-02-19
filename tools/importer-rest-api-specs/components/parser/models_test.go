@@ -4,9 +4,9 @@
 package parser
 
 import (
-	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"testing"
 
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
@@ -122,7 +122,7 @@ func TestParseModelTopLevelWithRawFile(t *testing.T) {
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
+func TestParseModelTopLevelWithInlinedModel(t *testing.T) {
 	actual, err := ParseSwaggerFileForTesting(t, "model_top_level_with_inlined_model.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
@@ -221,543 +221,356 @@ func TestParseModelSingleTopLevelWithInlinedModel(t *testing.T) {
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-// --- Refactored above this line ---
-
-func TestParseModelSingleWithInlinedObject(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_with_inlined_object.json")
+func TestParseModelWithInlinedObject(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_with_inlined_object.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"ThingProps": {
+								JsonName: "thingProps",
+								ObjectDefinition: &models.ObjectDefinition{
+									NestedItem: &models.ObjectDefinition{
+										ReferenceName: pointer.To("ThingProperties"),
+										Type:          models.ObjectDefinitionReference,
+									},
+									Type: models.ObjectDefinitionList,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ThingProperties": {
+						Fields: map[string]models.FieldDetails{
+							"KeyName": {
+								JsonName: "keyName",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"UserAssignedIdentities": {
+								JsonName: "userAssignedIdentities",
+								ObjectDefinition: &models.ObjectDefinition{
+									NestedItem: &models.ObjectDefinition{
+										ReferenceName: pointer.To("UserAssignedIdentitiesProperties"),
+										Type:          models.ObjectDefinitionReference,
+									},
+									Type: models.ObjectDefinitionDictionary,
+								},
+								Required: false,
+							},
+						},
+					},
+					"UserAssignedIdentitiesProperties": {
+						Fields: map[string]models.FieldDetails{
+							"ClientId": {
+								JsonName: "clientId",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								ReadOnly: true,
+								Required: false,
+							},
+							"PrincipalId": {
+								JsonName: "principalId",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								ReadOnly: true,
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 3 {
-		t.Fatalf("expected 3 Models but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	exampleModel, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model called Example")
-	}
-	if len(exampleModel.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
-	}
-	thingField, ok := exampleModel.Fields["ThingProps"]
-	if !ok {
-		t.Fatalf("expected the model Example to have a field ThingProps")
-	}
-	if thingField.ObjectDefinition == nil {
-		t.Fatalf("expected ThingProps to have an ObjectDefinition")
-	}
-	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
-		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
-	}
-	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected ThingProps to be a List of References but got %q", string(thingField.ObjectDefinition.NestedItem.Type))
-	}
-	if thingField.ObjectDefinition.NestedItem.ReferenceName == nil {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
-	}
-	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
-	}
-
-	thingModel, ok := hello.Models["ThingProperties"]
-	if !ok {
-		t.Fatalf("expected there to be a model called ThingProperties")
-	}
-	if len(thingModel.Fields) != 2 {
-		t.Fatalf("expected ThingProperties to have 2 fields")
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleWithNumberPrefixedField(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json")
+func TestParseModelWithNumberPrefixedField(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_with_number_prefixed_field.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Five0PercentDone": {
+								JsonName: "50PercentDone",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	exampleModel, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model called Example")
-	}
-	if len(exampleModel.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
-	}
-	fiveZeroPercentDone, ok := exampleModel.Fields["Five0PercentDone"]
-	if !ok {
-		t.Fatalf("expected the model Example to have a field Five0PercentDone")
-	}
-	if fiveZeroPercentDone.JsonName != "50PercentDone" {
-		t.Fatalf("expected the field `FiveZeroPercentDone` within model `Example` to have a jsonName of `50PercentDone` but got %q", fiveZeroPercentDone.JsonName)
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleInheritingFromObjectWithNoExtraFields(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
+func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"FirstObject": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							// whilst the response model references SecondObject, it's only inheriting from FirstObject
+							// and doesn't contain any new fields, so it should be switched out
+							ReferenceName: pointer.To("FirstObject"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "FirstObject" {
-		t.Fatalf("expected the response object to be 'FirstObject' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	// whilst the response model references SecondObject, it's only inheriting from FirstObject, so it'll be switched out
-	firstObject, ok := hello.Models["FirstObject"]
-	if !ok {
-		t.Fatalf("expected there to be a model called FirstObject")
-	}
-	if len(firstObject.Fields) != 1 {
-		t.Fatalf("expected the model SecondObject to have 1 field but got %d", len(firstObject.Fields))
-	}
-	if _, ok := firstObject.Fields["Name"]; !ok {
-		t.Fatalf("expected the model SecondObject to have a field named `Name` but didn't get one")
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json")
+func TestParseModelInheritingFromObjectWithNoExtraFieldsInlined(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields_inlined.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"FirstObject": {
+						Fields: map[string]models.FieldDetails{
+							"Endpoints": {
+								JsonName: "endpoints",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("SecondObject"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+					"SecondObject": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("FirstObject"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 2 {
-		t.Fatalf("expected 2 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "FirstObject" {
-		t.Fatalf("expected the response object to be 'FirstObject' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	firstObject, ok := hello.Models["FirstObject"]
-	if !ok {
-		t.Fatalf("expected there to be a Model named FirstObject but didn't get one")
-	}
-	if len(firstObject.Fields) != 2 {
-		t.Fatalf("expected the model FirstObject to have 2 fields but got %d", len(firstObject.Fields))
-	}
-	endpointsField, ok := firstObject.Fields["Endpoints"]
-	if !ok {
-		t.Fatal("expected the model FirstObject to have a field `Endpoints` but it didn't exist")
-	}
-	if endpointsField.ObjectDefinition == nil || endpointsField.ObjectDefinition.ReferenceName == nil {
-		t.Fatal("expected the model FirstObject to be a reference but didn't get one")
-	}
-	if *endpointsField.ObjectDefinition.ReferenceName != "SecondObject" {
-		t.Fatalf("expected the model FirstObject to be a reference to SecondObject but got %q", *endpointsField.ObjectDefinition.ReferenceName)
-	}
-
-	secondObject, ok := hello.Models["SecondObject"]
-	if !ok {
-		t.Fatalf("expected there to be a model called SecondObject")
-	}
-	if len(secondObject.Fields) != 1 {
-		t.Fatalf("expected the model SecondObject to have 1 field but got %d", len(secondObject.Fields))
-	}
-	if _, ok := secondObject.Fields["Name"]; !ok {
-		t.Fatalf("expected the model SecondObject to have a field named `Name` but didn't get one")
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleInheritingFromObjectWithOnlyDescription(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_only_description.json")
+func TestParseModelInheritingFromObjectWithOnlyDescription(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_only_description.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"FirstObject": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							// whilst the response model references SecondObject, it's only inheriting from FirstObject
+							// and doesn't contain any new fields, so it should be switched out
+							ReferenceName: pointer.To("FirstObject"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "FirstObject" {
-		t.Fatalf("expected the response object to be 'FirstObject' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	// whilst the response model references SecondObject, it's only inheriting from FirstObject, so it'll be switched out
-	firstObject, ok := hello.Models["FirstObject"]
-	if !ok {
-		t.Fatalf("expected there to be a model called FirstObject")
-	}
-	if len(firstObject.Fields) != 1 {
-		t.Fatalf("expected the model FirstObject to have 1 field but got %d", len(firstObject.Fields))
-	}
-	if _, ok := firstObject.Fields["Name"]; !ok {
-		t.Fatalf("expected the model FirstObject to have a field named `Name` but didn't get one")
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
-func TestParseModelSingleInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
+func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 	// This test ensures that when a Model inherits from a Model and defines properties within
 	// the `AllOf` field, that the Model isn't flattened into the Parent Model.
 	// This covers a regression from https://github.com/hashicorp/pandora/pull/3720
 	// which surfaced in https://github.com/hashicorp/pandora/pull/3726 for the model `AgentPool`
 	// within `ContainerService@2019-08-01/AgentPools` which was renamed `SubResource`.
-	result, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_properties_within_allof.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_with_properties_within_allof.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
 
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"SecondObject": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							// SecondObject is referenced as the Response Object, but because it inherits from one Model
+							// (FirstObject) and uses another (ThirdObject) it shouldn't be flattened into the parent type(s)
+							// and should instead remain `SecondObject`.
+							ReferenceName: pointer.To("SecondObject"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
 	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "SecondObject" {
-		t.Fatalf("expected the response object to be 'SecondObject' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	// SecondObject is referenced as the Response Object, but because it inherits from one Model
-	// (FirstObject) and uses another (ThirdObject) it shouldn't be flattened into the parent type(s)
-	// and should instead remain `SecondObject`.
-	secondObject, ok := hello.Models["SecondObject"]
-	if !ok {
-		t.Fatalf("expected there to be a model called SecondObject")
-	}
-	if len(secondObject.Fields) != 1 {
-		t.Fatalf("expected the model SecondObject to have 1 field but got %d", len(secondObject.Fields))
-	}
-	if _, ok := secondObject.Fields["Name"]; !ok {
-		t.Fatalf("expected the model SecondObject to have a field named `Name` but didn't get one")
-	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
 }
+
+// --- Refactored above this line ---
 
 func TestParseModelSingleWithDateTimeNoType(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_single_datetime_no_type.json")
