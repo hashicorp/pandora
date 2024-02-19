@@ -9,6 +9,8 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
+// TODO: tests for the other common schema types, maybe split these out?
+
 // TODO: one of each which doesn't match to confirm the negative case
 
 func TestModelsWithASystemAssignedIdentity(t *testing.T) {

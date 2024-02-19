@@ -18,33 +18,14 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
           "Discriminator"
         ],
         "operationId": "Discriminator_Test",
         "description": "Tests parsing of a model containing a Discriminator",
-        "parameters": [
-          {
-            "$ref": "#/parameters/SubscriptionIdParameter"
-          },
-          {
-            "$ref": "#/parameters/ResourceGroupParameter"
-          },
-          {
-            "$ref": "#/parameters/ApiVersionParameter"
-          },
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Animal"
-            },
-            "description": "An Animal defines a Discriminated Parent Type which has no child implementations so this should be ignored."
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
@@ -70,28 +51,5 @@
       "discriminator": "type"
     }
   },
-  "parameters": {
-    "ApiVersionParameter": {
-      "name": "api-version",
-      "in": "query",
-      "required": true,
-      "type": "string",
-      "description": "The API version to be used with the HTTP request."
-    },
-    "SubscriptionIdParameter": {
-      "name": "subscriptionId",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "description": "The subscription ID."
-    },
-    "ResourceGroupParameter": {
-      "name": "resourceGroupName",
-      "in": "path",
-      "required": true,
-      "type": "string",
-      "x-ms-parameter-location": "method",
-      "description": "The name of the resource group that contains the resource."
-    }
-  }
+  "parameters": {}
 }

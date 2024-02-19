@@ -106,6 +106,7 @@ func validateParsedFieldsMatch(t *testing.T, expected models.FieldDetails, actua
 }
 
 func validateParsedModelsMatch(t *testing.T, expected models.ModelDetails, actual models.ModelDetails, modelName string) {
+	t.Logf("Validating Model %q...", modelName)
 	if pointer.From(expected.ParentTypeName) != pointer.From(actual.ParentTypeName) {
 		// NOTE: this should be nil when unset, otherwise a value
 		t.Fatalf("expected `ParentTypeName` to be %q but got %q for Model %q", pointer.From(expected.ParentTypeName), pointer.From(actual.ParentTypeName), modelName)
@@ -125,6 +126,9 @@ func validateParsedModelsMatch(t *testing.T, expected models.ModelDetails, actua
 }
 
 func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.ObjectDefinition, fieldName string) {
+	if expected.Type != actual.Type {
+		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
+	}
 	if pointer.From(expected.Maximum) != pointer.From(actual.Maximum) {
 		t.Fatalf("expected `Maximum` to be %d but got %d for Field %q", pointer.From(expected.Maximum), pointer.From(actual.Maximum), fieldName)
 	}
@@ -133,9 +137,6 @@ func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.
 	}
 	if pointer.From(expected.ReferenceName) != pointer.From(actual.ReferenceName) {
 		t.Fatalf("expected `ReferenceName` to be %q but got %q for Field %q", pointer.From(expected.ReferenceName), pointer.From(actual.ReferenceName), fieldName)
-	}
-	if expected.Type != actual.Type {
-		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
 	}
 	if pointer.From(expected.UniqueItems) != pointer.From(actual.UniqueItems) {
 		t.Fatalf("expected `UniqueItems` to be %t but got %t for Field %q", pointer.From(expected.UniqueItems), pointer.From(actual.UniqueItems), fieldName)
