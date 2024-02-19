@@ -37,7 +37,7 @@
             "None",
             "SystemAssigned",
             "UserAssigned",
-            "SystemAssigned,UserAssigned"
+            "SystemAssigned, UserAssigned"
           ],
           "x-ms-enum": {
             "name": "IdentityType1",
@@ -53,9 +53,28 @@
           "readOnly": true
         },
         "userAssignedIdentities": {
-          "type": "array",
-          "items": {
-            "type": "string"
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
+        }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityMap": {
+      "additionalProperties": {
+        "type": "object",
+        "properties": {
+          "principalId": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The principal ID of the user assigned identity."
+          },
+          "tenantId": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The tenant ID of the user assigned identity."
+          },
+          "clientId": {
+            "readOnly": true,
+            "type": "string",
+            "description": "The clientId(aka appId) of the user assigned identity."
           }
         }
       }

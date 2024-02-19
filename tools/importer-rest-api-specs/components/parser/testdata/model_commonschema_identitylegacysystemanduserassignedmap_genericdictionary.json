@@ -53,11 +53,13 @@
           "readOnly": true
         },
         "userAssignedIdentities": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          }
+          "$ref": "#/definitions/SystemAssignedUserAssignedIdentityMap"
         }
+      }
+    },
+    "SystemAssignedUserAssignedIdentityMap": {
+      "additionalProperties": {
+        "type": "object"
       }
     }
   }
