@@ -6,17 +6,16 @@ package commands
 import (
 	"context"
 	"fmt"
-	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
 	"log"
 	"os"
 	"strings"
-
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/differ"
 	internalLog "github.com/hashicorp/pandora/tools/data-api-differ/internal/log"
 	"github.com/hashicorp/pandora/tools/data-api-differ/internal/views"
+	v1 "github.com/hashicorp/pandora/tools/data-api-sdk/v1"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/mitchellh/cli"
 )
 
