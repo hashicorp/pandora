@@ -1,0 +1,56 @@
+{
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "operationId": "Resource_Test",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "properties": {
+        "identity": {
+          "$ref": "#/definitions/SystemAssignedIdentity"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "SystemAssignedIdentity": {
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": [
+            "None",
+            "SystemAssigned"
+          ],
+          "x-ms-enum": {
+            "name": "IdentityType1",
+            "modelAsString": true
+          }
+        },
+        "principalId": {
+          "type": "string",
+          "readOnly": true
+        },
+        "tenantId": {
+          "type": "string",
+          "readOnly": true
+        }
+      }
+    }
+  }
+}

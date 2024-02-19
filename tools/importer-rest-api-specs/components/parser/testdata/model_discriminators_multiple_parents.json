@@ -18,24 +18,14 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/hello": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
           "Discriminator"
         ],
         "operationId": "Discriminator_Test",
         "description": "Tests parsing of a model containing a Discriminator",
-        "parameters": [
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/ExampleWrapper"
-            },
-            "description": "Wrapper class containing a Discriminator."
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",

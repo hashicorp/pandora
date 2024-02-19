@@ -1,0 +1,33 @@
+{
+  "paths": {
+    "/example": {
+      "get": {
+        "tags": [
+          "Resource"
+        ],
+        "operationId": "Resource_Test",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "Success.",
+            "schema": {
+              "$ref": "#/definitions/Model"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Model": {
+      "properties": {
+        "location": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

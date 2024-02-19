@@ -1,21 +1,12 @@
 {
   "paths": {
-    "/foo": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
           "Resource"
         ],
         "operationId": "Resource_Test",
-        "parameters": [
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Model"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
@@ -30,8 +21,21 @@
   "definitions": {
     "Model": {
       "properties": {
-        "location": {
+        "identity": {
+          "$ref": "#/definitions/UserAssignedIdentity"
+        },
+        "name": {
           "type": "string"
+        }
+      }
+    },
+    "UserAssignedIdentity": {
+      "properties": {
+        "userAssignedIdentities": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
         }
       }
     }
