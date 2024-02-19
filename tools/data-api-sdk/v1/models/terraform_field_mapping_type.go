@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package models
 
 // TerraformFieldMappingDefinitionType specifies a type of mapping for a TerraformSchemaField.
