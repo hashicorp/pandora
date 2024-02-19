@@ -1,21 +1,12 @@
 {
   "paths": {
-    "/foo": {
-      "put": {
+    "/example": {
+      "get": {
         "tags": [
           "Resource"
         ],
         "operationId": "Resource_Test",
-        "parameters": [
-          {
-            "name": "parameters",
-            "in": "body",
-            "required": true,
-            "schema": {
-              "$ref": "#/definitions/Model"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
@@ -31,6 +22,9 @@
     "Model": {
       "properties": {
         "location": {
+          "type": "string"
+        },
+        "name": {
           "type": "string"
         }
       }
