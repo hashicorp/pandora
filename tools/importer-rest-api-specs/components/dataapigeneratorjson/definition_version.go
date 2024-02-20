@@ -6,10 +6,10 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"os"
 	"path"
 
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

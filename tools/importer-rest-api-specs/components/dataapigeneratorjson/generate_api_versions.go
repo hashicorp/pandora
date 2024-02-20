@@ -19,7 +19,7 @@ func (s Generator) generateApiVersions(apiVersion models.AzureApiDefinition) err
 		outputDirectory := s.workingDirectoryForResource(resourceName)
 		s.logger.Debug(fmt.Sprintf("Outputting API Resource %q to %q", resourceName, outputDirectory))
 		logger := s.logger.Named(fmt.Sprintf("Service %q / API Version %q / Resource %q", s.serviceName, apiVersion.ApiVersion, resourceName))
-		if err := s.generateResources(resource, outputDirectory, logger); err != nil {
+		if err := s.generateResources(resource, outputDirectory); err != nil {
 			return fmt.Errorf("generating Resource %q: %+v", resourceName, err)
 		}
 	}

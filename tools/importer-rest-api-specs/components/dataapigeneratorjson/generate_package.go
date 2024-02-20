@@ -7,11 +7,10 @@ import (
 	"fmt"
 	"path"
 
-	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
-func (s Generator) generateResources(resource models.AzureApiResource, workingDirectory string, logger hclog.Logger) error {
+func (s Generator) generateResources(resource models.AzureApiResource, workingDirectory string) error {
 	if err := RecreateDirectory(workingDirectory, s.logger); err != nil {
 		return fmt.Errorf("recreating directory %q: %+v", workingDirectory, err)
 	}

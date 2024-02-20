@@ -40,16 +40,6 @@ func (s Generator) generateTerraformDefinitions(apiVersion models.AzureApiDefini
 
 		s.logger.Debug(fmt.Sprintf("Processing API Resource %q..", resourceName))
 
-		// TODO: generate Data Sources
-		//s.logger.Trace("Processing Terraform Data Sources..")
-		//for name, details := range resource.Terraform.DataSources {
-		//  fileName := path.Join(generationData.workingDirectoryForTerraform, fmt.Sprintf("%s-DataSource.json", details.DataSourceName))
-		//	if debug {
-		//		s.logger.Trace(fmt.Sprintf("Generating Data Source into %q", fileName))
-		//	}
-		//
-		//}
-
 		s.logger.Trace("Processing Terraform Resources..")
 		for label, details := range resource.Terraform.Resources {
 			s.logger.Trace(fmt.Sprintf("Generating the Terraform Resource Definition for %q..", label))
