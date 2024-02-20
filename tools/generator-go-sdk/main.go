@@ -40,7 +40,7 @@ func run() error {
 	}
 	logging.Log = hclog.New(loggingOpts)
 
-	c := cli.NewCLI("generator-terraform", "1.0.0")
+	c := cli.NewCLI("generator-go-sdk", "1.0.0")
 	c.Args = args
 	c.Commands = map[string]cli.CommandFactory{
 		"generate": cmd.NewGenerateCommand(*sourceDataType),

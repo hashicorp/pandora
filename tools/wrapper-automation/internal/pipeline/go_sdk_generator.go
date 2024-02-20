@@ -39,7 +39,8 @@ func (p *Pipeline) runGoSDKGenerator(opts Options) error {
 	}
 
 	args := []string{
-		// TODO: once Phase 6 is completed: string(opts.SourceDataType),
+		string(opts.SourceDataType),
+		"generate",
 		fmt.Sprintf("-data-api=%s", *p.endpoint),
 	}
 	if opts.OutputDirectory != "" {
