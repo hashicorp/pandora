@@ -1029,179 +1029,287 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
+func TestParseModelContainingAllOfToTypeObject(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+							"Country": {
+								JsonName: "country",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModelContainingAllOfToTypeObjectWithProperties(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Country": {
+								JsonName: "country",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModelContainingAllOfWithinProperties(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Country": {
+								JsonName: "country",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+							"Properties": {
+								JsonName: "properties",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("ModelProperties"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ModelProperties": {
+						Fields: map[string]models.FieldDetails{
+							"MoreNested": {
+								JsonName: "moreNested",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+							"Nested": {
+								JsonName: "nested",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
+func TestParseModelContainingMultipleAllOfWithinProperties(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Options": {
+								JsonName: "options",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("ResourceWithLocation"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+							"Resource": {
+								JsonName: "resource",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("ModelResource"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ModelResource": {
+						Fields: map[string]models.FieldDetails{
+							"Country": {
+								JsonName: "country",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"MoreNested": {
+								JsonName: "moreNested",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Nested": {
+								JsonName: "nested",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ResourceWithLocation": {
+						Fields: map[string]models.FieldDetails{
+							"Country": {
+								JsonName: "country",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: true,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "PUT",
+						OperationId:         "Example_Test",
+						RequestObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
 // --- Refactored above this line ---
-
-func TestParseModelSingleContainingAllOfToTypeObject(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type.json")
-	if err != nil {
-		t.Fatalf("parsing: %+v", err)
-	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
-
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
-	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	example, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model named Example")
-	}
-	if len(example.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
-	}
-}
-
-func TestParseModelSingleContainingAllOfToTypeObjectWithProperties(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_object_type_with_properties.json")
-	if err != nil {
-		t.Fatalf("parsing: %+v", err)
-	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
-
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
-	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 1 {
-		t.Fatalf("expected 1 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	example, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model named Example")
-	}
-	if len(example.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
-	}
-}
-
-func TestParseModelSingleContainingAllOfWithinProperties(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties.json")
-	if err != nil {
-		t.Fatalf("parsing: %+v", err)
-	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
-
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
-	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 2 {
-		t.Fatalf("expected 2 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	example, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model named Example")
-	}
-	if len(example.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
-	}
-
-	props, ok := hello.Models["ExampleProperties"]
-	if !ok {
-		t.Fatalf("expected there to be a model named ExampleProperties")
-	}
-	if len(props.Fields) != 3 {
-		t.Fatalf("expected the model ExampleProperties to have 3 fields but got %d", len(props.Fields))
-	}
-}
-
-func TestParseModelSingleContainingMultipleAllOfWithinProperties(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_containing_allof_within_properties_multiple.json")
-	if err != nil {
-		t.Fatalf("parsing: %+v", err)
-	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
-
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
-	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 3 {
-		t.Fatalf("expected 2 Model but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	example, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model named Example")
-	}
-	if len(example.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(example.Fields))
-	}
-
-	props, ok := hello.Models["ExampleResource"]
-	if !ok {
-		t.Fatalf("expected there to be a model named ExampleProperties")
-	}
-	if len(props.Fields) != 3 {
-		t.Fatalf("expected the model ExampleProperties to have 3 fields but got %d", len(props.Fields))
-	}
-}
 
 func TestParseModelInlinedWithNoName(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_inlined_with_no_name.json")
