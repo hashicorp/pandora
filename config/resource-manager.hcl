@@ -389,7 +389,7 @@ service "newrelic" {
 }
 service "nginx" {
   name      = "Nginx"
-  available = ["2023-04-01", "2023-09-01"]
+  available = ["2023-04-01", "2023-09-01", "2024-01-01-preview"]
 }
 service "notificationhubs" {
   name      = "NotificationHubs"
