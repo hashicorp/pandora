@@ -1,7 +1,4 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
-package dataapigeneratorjson
+package transforms
 
 import (
 	"sort"
@@ -10,7 +7,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func buildApiVersionDefinition(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataapimodels.ApiVersionDefinition, error) {
+func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataapimodels.ApiVersionDefinition, error) {
 	versionDefinition := dataapimodels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,

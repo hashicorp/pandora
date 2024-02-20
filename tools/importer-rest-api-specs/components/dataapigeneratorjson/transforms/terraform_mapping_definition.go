@@ -1,7 +1,4 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
-package dataapigeneratorjson
+package transforms
 
 import (
 	"fmt"
@@ -11,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataapimodels.TerraformMappingDefinition, error) {
+func MapTerraformSchemaMappingsToRepository(input resourcemanager.MappingDefinition) (*dataapimodels.TerraformMappingDefinition, error) {
 	output := dataapimodels.TerraformMappingDefinition{}
 
 	fieldMappings := make([]dataapimodels.TerraformFieldMappingDefinition, 0)
@@ -108,7 +105,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 	}
 
 	// Finally ResourceId Mappings are between a given (root-level) Schema Field and a Resource ID Segment
-	resourceIdMappings := mapTerraformSchemaResourceIdMappings(input.ResourceId)
+	resourceIdMappings := mapTerraformSchemaResourceIdMappingsToRepository(input.ResourceId)
 	if len(resourceIdMappings) > 0 {
 		output.ResourceIdMappings = &resourceIdMappings
 	}
@@ -116,7 +113,7 @@ func mapTerraformSchemaMappings(input resourcemanager.MappingDefinition) (*dataa
 	return &output, nil
 }
 
-func mapTerraformSchemaResourceIdMappings(input []resourcemanager.ResourceIdMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
+func mapTerraformSchemaResourceIdMappingsToRepository(input []resourcemanager.ResourceIdMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
 	// we need the ordering to be consistent else to avoid noisy regenerations, so let's order this on one of the keys
 	segmentNames := make([]string, 0)
 	segmentNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)

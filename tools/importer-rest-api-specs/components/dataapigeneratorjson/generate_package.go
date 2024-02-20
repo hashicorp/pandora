@@ -41,7 +41,7 @@ func (s Generator) generateResources(resource models.AzureApiResource, workingDi
 			}
 		}
 
-		code, err := codeForModel(modelName, vals, parent, resource.Constants, resource.Models, logger)
+		code, err := codeForModel(modelName, vals, parent, resource.Constants, resource.Models)
 		if err != nil {
 			return fmt.Errorf("generating code for model %q: %+v", modelName, err)
 		}

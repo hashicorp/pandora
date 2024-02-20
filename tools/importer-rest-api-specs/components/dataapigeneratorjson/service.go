@@ -39,6 +39,7 @@ func NewForApiVersion(serviceName, apiVersion, outputDirectory string, resourceP
 
 func (s Generator) GenerateForService(apiVersions []models.AzureApiDefinition) error {
 	s.logger.Debug(fmt.Sprintf("[STAGE] Generating the Service Definitions.."))
+
 	if err := s.generateServiceDefinitions(apiVersions); err != nil {
 		return fmt.Errorf("generating Service Definitions: %+v", err)
 	}

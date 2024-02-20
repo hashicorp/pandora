@@ -6,6 +6,7 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"os"
 	"path"
 
@@ -21,7 +22,7 @@ func (s Generator) generateVersionDefinition(apiVersion models.AzureApiDefinitio
 	// then generate the files
 	s.logger.Debug("Generating Api Version Definition..")
 	definitionFilePath := path.Join(s.workingDirectoryForApiVersion, "ApiVersionDefinition.json")
-	versionDefinition, err := buildApiVersionDefinition(apiVersion.ApiVersion, apiVersion.IsPreviewVersion(), apiVersion.Resources)
+	versionDefinition, err := transforms.MapAPIVersionToRepository(apiVersion.ApiVersion, apiVersion.IsPreviewVersion(), apiVersion.Resources)
 	if err != nil {
 		return fmt.Errorf("building Api Version Definition: %+v", err)
 	}

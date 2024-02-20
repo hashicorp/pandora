@@ -6,6 +6,7 @@ package dataapigeneratorjson
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"path"
 	"strings"
 
@@ -14,7 +15,7 @@ import (
 
 func (s Generator) generateTerraformResourceDefinition(resourceLabel string, details resourcemanager.TerraformResourceDetails) error {
 	s.logger.Trace("Building Definition for the Terraform Resource..")
-	resourceDefinition, err := buildTerraformResourceDefinition(resourceLabel, details)
+	resourceDefinition, err := transforms.MapTerraformResourceDefinitionToRepository(resourceLabel, details)
 	if err != nil {
 		return fmt.Errorf("building Terraform Resource Definition: %+v", err)
 	}
@@ -36,7 +37,7 @@ func (s Generator) generateTerraformResourceDefinition(resourceLabel string, det
 
 	// output the Mappings for this Terraform Resource
 	s.logger.Trace("Building Resource Mappings..")
-	resourceMappings, err := mapTerraformSchemaMappings(details.Mappings)
+	resourceMappings, err := transforms.MapTerraformSchemaMappingsToRepository(details.Mappings)
 	if err != nil {
 		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", resourceLabel, err)
 	}
@@ -54,7 +55,7 @@ func (s Generator) generateTerraformResourceDefinition(resourceLabel string, det
 	// output the Tests for this Terraform Resource
 	resourceTestsFileName := path.Join(s.workingDirectoryForTerraformTests, fmt.Sprintf("%s-Resource-Tests.hcl", details.ResourceName))
 	s.logger.Trace(fmt.Sprintf("Generating Tests for the Terraform Resource into %q", resourceTestsFileName))
-	resourceTestsCode := mapTerraformResourceTestDefinition(details.Tests)
+	resourceTestsCode := transforms.MapTerraformResourceTestDefinitionToRepository(details.Tests)
 	if err := writeTestsHclToFile(s.workingDirectoryForTerraformTests, details.ResourceName, resourceTestsCode); err != nil {
 		return fmt.Errorf("generating Tests for the Terraform Resource %q: %+v", resourceLabel, err)
 	}
@@ -65,7 +66,7 @@ func (s Generator) generateTerraformResourceDefinition(resourceLabel string, det
 func (s Generator) generateTerraformSchemaModelsForResource(resourceName, resourceSchemaModelName string, models map[string]resourcemanager.TerraformSchemaModelDefinition) error {
 	for modelName, model := range models {
 		s.logger.Trace(fmt.Sprintf("Mapping Terraform Resource Schema Model for %q..", modelName))
-		mappedModel, err := mapTerraformSchemaModelDefinition(modelName, model)
+		mappedModel, err := transforms.MapTerraformSchemaModelToRepository(modelName, model)
 		if err != nil {
 			return fmt.Errorf("mapping Terraform Schema Model %q: %+v", modelName, err)
 		}

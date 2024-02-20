@@ -1,14 +1,11 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
-package dataapigeneratorjson
+package transforms
 
 import (
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformResourceTestDefinition(input resourcemanager.TerraformResourceTestsDefinition) dataapimodels.TerraformResourceTestConfig {
+func MapTerraformResourceTestDefinitionToRepository(input resourcemanager.TerraformResourceTestsDefinition) dataapimodels.TerraformResourceTestConfig {
 	return dataapimodels.TerraformResourceTestConfig{
 		BasicConfig:    input.BasicConfiguration,
 		CompleteConfig: input.CompleteConfiguration,

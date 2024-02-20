@@ -1,7 +1,4 @@
-// Copyright (c) HashiCorp, Inc.
-// SPDX-License-Identifier: MPL-2.0
-
-package dataapigeneratorjson
+package transforms
 
 import (
 	"sort"
@@ -11,7 +8,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func buildServiceDefinition(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataapimodels.ServiceDefinition, error) {
+func MapServiceDefinitionToRepository(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataapimodels.ServiceDefinition, error) {
 	output := dataapimodels.ServiceDefinition{
 		Name:                 serviceName,
 		ResourceProvider:     resourceProvider,
