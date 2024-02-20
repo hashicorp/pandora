@@ -31,9 +31,9 @@ function runWrapper {
   local apiDefinitionsDirectory=$1
   local outputDirectory=$2
 
-  echo "Running Wrapper.."
+  echo "Running Wrapper for Resource Manager.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation terraform \
+  ./wrapper-automation resource-manager terraform \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 

@@ -28,12 +28,13 @@ function buildAndInstallDependencies {
 }
 
 function runWrapper {
-  local apiDefinitionsDirectory=$1
-  local outputDirectory=$2
+  local sourceDataType=$1
+  local apiDefinitionsDirectory=$2
+  local outputDirectory=$3
 
-  echo "Running Wrapper.."
+  echo "Running Wrapper for ${sourceDataType}.."
   cd "${DIR}/tools/wrapper-automation"
-  ./wrapper-automation terraform \
+  ./wrapper-automation "${sourceDataType}" terraform \
     --api-definitions-dir="../../$apiDefinitionsDirectory"\
     --output-dir="../../$outputDirectory"
 
@@ -153,7 +154,7 @@ function main {
   buildAndInstallDependencies
   sha=$(getSwaggerSubmoduleSha "$swaggerSubmodule")
   prepareTerraformProvider "$outputDirectory" "$providerRepo"
-  runWrapper "$apiDefinitionsDirectory" "$outputDirectory"
+  runWrapper "resource-manager" "$apiDefinitionsDirectory" "$outputDirectory"
   runFmtImportsAndGenerate "$outputDirectory"
   conditionallyCommitAndPushTerraformProvider "$outputDirectory" "$sha"
   cleanup "$outputDirectory"
