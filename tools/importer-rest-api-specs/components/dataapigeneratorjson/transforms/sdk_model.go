@@ -5,12 +5,11 @@ import (
 	"sort"
 	"strings"
 
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapSDKModelToRepository(modelName string, model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) (*dataapimodels.Model, error) {
+func MapSDKModelToRepository(modelName string, model resourcemanager.ModelDetails, parentModel *resourcemanager.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]resourcemanager.ModelDetails) (*dataapimodels.Model, error) {
 	if len(model.Fields) == 0 {
 		return nil, fmt.Errorf("the model %q has no fields", modelName)
 	}
@@ -41,7 +40,7 @@ func MapSDKModelToRepository(modelName string, model importerModels.ModelDetails
 	return &dataApiModel, nil
 }
 
-func mapSDKFieldsForModel(model importerModels.ModelDetails, parentModel *importerModels.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]importerModels.ModelDetails) (*[]dataapimodels.ModelField, error) {
+func mapSDKFieldsForModel(model resourcemanager.ModelDetails, parentModel *resourcemanager.ModelDetails, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]resourcemanager.ModelDetails) (*[]dataapimodels.ModelField, error) {
 	// ensure consistency in the output
 	sortedFieldNames := make([]string, 0)
 	for fieldName := range model.Fields {
@@ -71,7 +70,7 @@ func mapSDKFieldsForModel(model importerModels.ModelDetails, parentModel *import
 
 		field := model.Fields[fieldName]
 		isTypeHint := model.TypeHintIn != nil && strings.EqualFold(*model.TypeHintIn, fieldName)
-		fieldCode, err := MapSDKFieldToRepository(fieldName, field, isTypeHint, knownConstants, knownModels)
+		fieldCode, err := mapSDKFieldToRepository(fieldName, field, isTypeHint, knownConstants, knownModels)
 		if err != nil {
 			return nil, fmt.Errorf("generating code for field %q: %+v", fieldName, err)
 		}

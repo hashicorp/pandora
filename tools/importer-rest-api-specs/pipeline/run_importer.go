@@ -45,7 +45,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 		serviceDirectory := path.Join(input.OutputDirectory, serviceName)
 		logger.Debug("recreating the working directory at %q for Service %q", serviceDirectory, serviceName)
 		if err := dataapigeneratorjson.RecreateDirectory(serviceDirectory, logger); err != nil {
-			fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
+			return fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
 		}
 
 		if err := runImportForService(input, serviceName, serviceDetails, logger, swaggerGitSha); err != nil {

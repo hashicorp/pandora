@@ -2,22 +2,22 @@ package transforms
 
 import (
 	"fmt"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var sdkOperationOptionsToRepository = map[importerModels.ObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
-	importerModels.ObjectDefinitionBoolean:   dataapimodels.BooleanOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionCsv:       dataapimodels.CsvOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionInteger:   dataapimodels.IntegerOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionFloat:     dataapimodels.FloatOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionList:      dataapimodels.ListOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionReference: dataapimodels.ReferenceOptionObjectDefinitionType,
-	importerModels.ObjectDefinitionString:    dataapimodels.StringOptionObjectDefinitionType,
+var sdkOperationOptionsToRepository = map[resourcemanager.ApiObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
+	resourcemanager.BooleanApiObjectDefinitionType:   dataapimodels.BooleanOptionObjectDefinitionType,
+	resourcemanager.CsvApiObjectDefinitionType:       dataapimodels.CsvOptionObjectDefinitionType,
+	resourcemanager.IntegerApiObjectDefinitionType:   dataapimodels.IntegerOptionObjectDefinitionType,
+	resourcemanager.FloatApiObjectDefinitionType:     dataapimodels.FloatOptionObjectDefinitionType,
+	resourcemanager.ListApiObjectDefinitionType:      dataapimodels.ListOptionObjectDefinitionType,
+	resourcemanager.ReferenceApiObjectDefinitionType: dataapimodels.ReferenceOptionObjectDefinitionType,
+	resourcemanager.StringApiObjectDefinitionType:    dataapimodels.StringOptionObjectDefinitionType,
 }
 
-func mapSDKOperationOptionToRepository(definition *importerModels.ObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) (*dataapimodels.OptionObjectDefinition, error) {
+func mapSDKOperationOptionToRepository(definition resourcemanager.ApiObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) (*dataapimodels.OptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsToRepository[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
@@ -34,7 +34,7 @@ func mapSDKOperationOptionToRepository(definition *importerModels.ObjectDefiniti
 	}
 
 	if definition.NestedItem != nil {
-		nestedItem, err := mapSDKOperationOptionToRepository(definition.NestedItem, constants, models)
+		nestedItem, err := mapSDKOperationOptionToRepository(*definition.NestedItem, constants, models)
 		if err != nil {
 			return nil, fmt.Errorf("mapping nested option object definition: %+v", err)
 		}
@@ -49,7 +49,7 @@ func mapSDKOperationOptionToRepository(definition *importerModels.ObjectDefiniti
 	return &output, nil
 }
 
-func validateSDKOperationOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]importerModels.ModelDetails) error {
+func validateSDKOperationOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) error {
 	requiresNestedItem := input.Type == dataapimodels.CsvOptionObjectDefinitionType || input.Type == dataapimodels.ListOptionObjectDefinitionType
 	requiresReference := input.Type == dataapimodels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {

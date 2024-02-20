@@ -8,9 +8,10 @@ import (
 )
 
 type Generator struct {
+	serviceName string
+
 	outputDirectory                   string
 	resourceProvider                  *string
-	serviceName                       string
 	terraformPackageName              *string
 	workingDirectoryForService        string
 	workingDirectoryForApiVersion     string

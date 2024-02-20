@@ -9,14 +9,16 @@ import (
 	"path"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 )
 
 func OutputMetaData(workingDirectory, swaggerGitSha string) error {
-	metaData := dataapimodels.MetaData{
-		DataSource:        dataapimodels.AzureResourceManagerDataSource,
-		SourceInformation: dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
-		GitRevision:       pointer.To(swaggerGitSha),
+	// TODO: this needs to be moved
+
+	metaData, err := transforms.MapMetaDataToRepository(pointer.To(swaggerGitSha), models.ResourceManagerSourceDataType, models.AzureRestAPISpecsSourceDataOrigin)
+	if err != nil {
+		return err
 	}
 
 	data, err := json.MarshalIndent(&metaData, "", "\t")

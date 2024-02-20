@@ -2,12 +2,12 @@ package transforms
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapResourceIDToRepository(name string, input importerModels.ParsedResourceId) (*dataapimodels.ResourceId, error) {
+func MapResourceIDToRepository(name string, input resourcemanager.ResourceIdDefinition) (*dataapimodels.ResourceId, error) {
 	segments := make([]dataapimodels.ResourceIdSegment, 0)
 	for _, inputSegment := range input.Segments {
 		outputSegment, err := mapResourceIdSegmentToRepository(inputSegment)
@@ -20,7 +20,7 @@ func MapResourceIDToRepository(name string, input importerModels.ParsedResourceI
 	return &dataapimodels.ResourceId{
 		Name:        name,
 		CommonAlias: input.CommonAlias,
-		Id:          input.ID(),
+		Id:          input.Id,
 		Segments:    segments,
 	}, nil
 }

@@ -9,7 +9,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapConstantToRepository(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
+func MapSDKConstantToRepository(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
 	keys := make([]string, 0)
 	keysToValues := make(map[string]dataapimodels.ConstantValue)
 	for k, v := range details.Values {

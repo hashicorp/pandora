@@ -1,18 +1,25 @@
 package transforms
 
 import (
+	"fmt"
 	"sort"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]models.AzureApiResource) (*dataapimodels.ApiVersionDefinition, error) {
+func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]importerModels.AzureApiResource, sourceDataOrigin models.SourceDataOrigin, shouldGenerate bool) (*dataapimodels.ApiVersionDefinition, error) {
+	dataOrigin, ok := sourceDataOriginsToRepository[sourceDataOrigin]
+	if !ok {
+		return nil, fmt.Errorf("internal-error: missing mapping for Source Data Origin %q", string(sourceDataOrigin))
+	}
+
 	versionDefinition := dataapimodels.ApiVersionDefinition{
 		ApiVersion: apiVersion,
 		IsPreview:  isPreview,
-		Generate:   true,
-		Source:     dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
+		Generate:   shouldGenerate,
+		Source:     dataOrigin,
 	}
 
 	names := make([]string, 0)
@@ -28,4 +35,10 @@ func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[
 	versionDefinition.Resources = names
 
 	return &versionDefinition, nil
+}
+
+var sourceDataOriginsToRepository = map[models.SourceDataOrigin]dataapimodels.ApiDefinitionsSource{
+	models.AzureRestAPISpecsSourceDataOrigin:      dataapimodels.AzureRestApiSpecsRepositoryApiDefinitionsSource,
+	models.MicrosoftGraphMetaDataSourceDataOrigin: dataapimodels.MicrosoftGraphMetaDataRepositoryApiDefinitionsSource,
+	models.HandWrittenSourceDataOrigin:            dataapimodels.HandWrittenApiDefinitionsSource,
 }

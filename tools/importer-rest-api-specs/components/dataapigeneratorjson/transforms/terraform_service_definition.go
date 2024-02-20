@@ -4,11 +4,10 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapServiceDefinitionToRepository(serviceName string, resourceProvider, terraformPackage *string, apiVersions []models.AzureApiDefinition) (*dataapimodels.ServiceDefinition, error) {
+func MapServiceDefinitionToRepository(serviceName string, resourceProvider, terraformPackage *string, terraformResourceNames []string) (*dataapimodels.ServiceDefinition, error) {
 	output := dataapimodels.ServiceDefinition{
 		Name:                 serviceName,
 		ResourceProvider:     resourceProvider,
@@ -17,24 +16,11 @@ func MapServiceDefinitionToRepository(serviceName string, resourceProvider, terr
 	}
 
 	if terraformPackage != nil {
-		terraformResources := make([]string, 0)
-		for _, apiVersion := range apiVersions {
-			for _, resource := range apiVersion.Resources {
-				if resource.Terraform == nil {
-					continue
-				}
-
-				// TODO: support for Data Sources in the future
-				for _, v := range resource.Terraform.Resources {
-					terraformResources = append(terraformResources, v.ResourceName)
-				}
-			}
-		}
-		sort.Strings(terraformResources)
+		sort.Strings(terraformResourceNames)
 
 		output.Terraform = &dataapimodels.TerraformServiceDefinition{
 			ServicePackageName: pointer.From(terraformPackage),
-			Resources:          terraformResources,
+			Resources:          terraformResourceNames,
 		}
 	}
 
