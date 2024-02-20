@@ -18,12 +18,12 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/houses": {
+    "/example": {
       "get": {
         "tags": [
-          "Hello"
+          "Example"
         ],
-        "operationId": "Hello_GetHouse",
+        "operationId": "Example_Test",
         "description": "Returns information about a House.",
         "parameters": [],
         "responses": {
@@ -62,6 +62,9 @@
         },
         "favouriteHuman": {
           "$ref": "#/definitions/Human"
+        },
+        "favouriteHouse": {
+          "$ref": "#/definitions/House"
         }
       },
       "description": "An animal, surprisingly.",
