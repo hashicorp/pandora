@@ -414,6 +414,90 @@ func TestParseModelWithNumberPrefixedField(t *testing.T) {
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
 
+func TestParseModelWithReference(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "model_with_reference.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"Example": {
+				Models: map[string]models.ModelDetails{
+					"Model": {
+						Fields: map[string]models.FieldDetails{
+							"Name": {
+								JsonName: "name",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"ThingProps": {
+								JsonName: "thingProps",
+								ObjectDefinition: &models.ObjectDefinition{
+									NestedItem: &models.ObjectDefinition{
+										ReferenceName: pointer.To("ThingProperties"),
+										Type:          models.ObjectDefinitionReference,
+									},
+									Type: models.ObjectDefinitionList,
+								},
+								Required: false,
+							},
+						},
+					},
+					"ThingProperties": {
+						Fields: map[string]models.FieldDetails{
+							"KeyName": {
+								JsonName: "keyName",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+							"Identity": {
+								JsonName: "identity",
+								ObjectDefinition: &models.ObjectDefinition{
+									ReferenceName: pointer.To("UserAssignedIdentityProperties"),
+									Type:          models.ObjectDefinitionReference,
+								},
+								Required: false,
+							},
+						},
+					},
+					"UserAssignedIdentityProperties": {
+						Fields: map[string]models.FieldDetails{
+							"UserAssignedIdentity": {
+								JsonName: "userAssignedIdentity",
+								ObjectDefinition: &models.ObjectDefinition{
+									Type: models.ObjectDefinitionString,
+								},
+								Required: false,
+							},
+						},
+					},
+				},
+				Operations: map[string]models.OperationDetails{
+					"Test": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "GET",
+						OperationId:         "Example_Test",
+						ResponseObject: &models.ObjectDefinition{
+							ReferenceName: pointer.To("Model"),
+							Type:          models.ObjectDefinitionReference,
+						},
+						UriSuffix: pointer.To("/example"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}
+
 func TestParseModelInheritingFromObjectWithNoExtraFields(t *testing.T) {
 	actual, err := ParseSwaggerFileForTesting(t, "model_inheriting_from_other_model_no_new_fields.json")
 	if err != nil {
@@ -618,110 +702,6 @@ func TestParseModelInheritingFromObjectWithPropertiesWithinAllOf(t *testing.T) {
 }
 
 // --- Refactored above this line ---
-
-func TestParseModelSingleWithReference(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference.json")
-	if err != nil {
-		t.Fatalf("parsing: %+v", err)
-	}
-	if result == nil {
-		t.Fatal("result was nil")
-	}
-	if len(result.Resources) != 1 {
-		t.Fatalf("expected 1 resource but got %d", len(result.Resources))
-	}
-
-	hello, ok := result.Resources["Hello"]
-	if !ok {
-		t.Fatalf("no resources were output with the tag Hello")
-	}
-
-	if len(hello.Constants) != 0 {
-		t.Fatalf("expected no Constants but got %d", len(hello.Constants))
-	}
-	if len(hello.Models) != 3 {
-		t.Fatalf("expected 3 Models but got %d", len(hello.Models))
-	}
-	if len(hello.Operations) != 1 {
-		t.Fatalf("expected 1 Operation but got %d", len(hello.Operations))
-	}
-	if len(hello.ResourceIds) != 0 {
-		t.Fatalf("expected no ResourceIds but got %d", len(hello.ResourceIds))
-	}
-
-	world, ok := hello.Operations["GetWorld"]
-	if !ok {
-		t.Fatalf("no resources were output with the name GetWorld")
-	}
-	if world.Method != "GET" {
-		t.Fatalf("expected a GET operation but got %q", world.Method)
-	}
-	if len(world.ExpectedStatusCodes) != 1 {
-		t.Fatalf("expected 1 status code but got %d", len(world.ExpectedStatusCodes))
-	}
-	if world.ExpectedStatusCodes[0] != 200 {
-		t.Fatalf("expected the status code to be 200 but got %d", world.ExpectedStatusCodes[0])
-	}
-	if world.RequestObject != nil {
-		t.Fatalf("expected no request object but got %+v", *world.RequestObject)
-	}
-	if world.ResponseObject == nil {
-		t.Fatal("expected a response object but didn't get one")
-	}
-	if world.ResponseObject.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected the response object to be a reference but got %q", string(world.ResponseObject.Type))
-	}
-	if *world.ResponseObject.ReferenceName != "Example" {
-		t.Fatalf("expected the response object to be 'Example' but got %q", *world.ResponseObject.ReferenceName)
-	}
-	if world.ResourceIdName != nil {
-		t.Fatalf("expected no ResourceId but got %q", *world.ResourceIdName)
-	}
-	if world.UriSuffix == nil {
-		t.Fatal("expected world.UriSuffix to have a value")
-	}
-	if *world.UriSuffix != "/things" {
-		t.Fatalf("expected world.UriSuffix to be `/things` but got %q", *world.UriSuffix)
-	}
-	if world.LongRunning {
-		t.Fatal("expected a non-long running operation but it was long running")
-	}
-
-	exampleModel, ok := hello.Models["Example"]
-	if !ok {
-		t.Fatalf("expected there to be a model called Example")
-	}
-	if len(exampleModel.Fields) != 2 {
-		t.Fatalf("expected the model Example to have 2 fields but got %d", len(exampleModel.Fields))
-	}
-	thingField, ok := exampleModel.Fields["ThingProps"]
-	if !ok {
-		t.Fatalf("expected the model Example to have a field ThingProps")
-	}
-	if thingField.ObjectDefinition == nil {
-		t.Fatalf("expected ThingProps to be an ObjectDefinition but it wasn't")
-	}
-	if thingField.ObjectDefinition.Type != models.ObjectDefinitionList {
-		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.Type))
-	}
-	if thingField.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionReference {
-		t.Fatalf("expected ThingProps to be a List but got %q", string(thingField.ObjectDefinition.NestedItem.Type))
-	}
-	if thingField.ObjectDefinition.NestedItem.ReferenceName == nil {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was nil")
-	}
-	if *thingField.ObjectDefinition.NestedItem.ReferenceName != "ThingProperties" {
-		t.Fatalf("expected ThingProps to be a reference to ThingProperties but it was %q", *thingField.ObjectDefinition.NestedItem.ReferenceName)
-	}
-
-	thingModel, ok := hello.Models["ThingProperties"]
-	if !ok {
-		t.Fatalf("expected there to be a model called ThingProperties")
-	}
-	if len(thingModel.Fields) != 2 {
-		t.Fatalf("expected ThingProperties to have 2 fields")
-	}
-}
 
 func TestParseModelSingleWithReferenceToArray(t *testing.T) {
 	result, err := ParseSwaggerFileForTesting(t, "model_single_with_reference_array.json")
