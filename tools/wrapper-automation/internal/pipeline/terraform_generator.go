@@ -39,7 +39,7 @@ func (p *Pipeline) runTerraformGenerator(opts Options) error {
 	}
 
 	args := []string{
-		// TODO: once Phase 5 is completed: string(opts.SourceDataType),
+		string(opts.SourceDataType),
 		"generate",
 		fmt.Sprintf("-data-api=%s", *p.endpoint),
 	}
