@@ -150,6 +150,19 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 		return nil, fmt.Errorf("objectDefinition was neither an ObjectDefinition or a CustomFieldType")
 	}
 
+	if input.Type == models.ObjectDefinitionCsv {
+		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
+		if err != nil {
+			return nil, fmt.Errorf("mapping list item: %+v", err)
+		}
+
+		return &resourcemanager.ApiObjectDefinition{
+			NestedItem:    nestedItem,
+			ReferenceName: nil,
+			Type:          resourcemanager.CsvApiObjectDefinitionType,
+		}, nil
+	}
+
 	if input.Type == models.ObjectDefinitionDictionary {
 		nestedItem, err := apiObjectDefinitionFromModelObjectDefinition(input.NestedItem, nil)
 		if err != nil {
@@ -185,7 +198,6 @@ func apiObjectDefinitionFromModelObjectDefinition(input *models.ObjectDefinition
 
 	mappings := map[models.ObjectDefinitionType]resourcemanager.ApiObjectDefinitionType{
 		models.ObjectDefinitionBoolean:   resourcemanager.BooleanApiObjectDefinitionType,
-		models.ObjectDefinitionCsv:       resourcemanager.CsvApiObjectDefinitionType,
 		models.ObjectDefinitionDateTime:  resourcemanager.DateTimeApiObjectDefinitionType,
 		models.ObjectDefinitionInteger:   resourcemanager.IntegerApiObjectDefinitionType,
 		models.ObjectDefinitionFloat:     resourcemanager.FloatApiObjectDefinitionType,

@@ -12,6 +12,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: tests for the different types of Operation Object Definition - including CSV's inner object
+
 func TestParseOperationsEmpty(t *testing.T) {
 	actual, err := ParseSwaggerFileForTesting(t, "operations_empty.json")
 	if err != nil {
