@@ -12,7 +12,7 @@ import (
 )
 
 const (
-	outputDirectoryJson      = "../../api-definitions/resource-manager"
+	outputDirectoryJson      = "../../api-definitions"
 	swaggerDirectory         = "../../submodules/rest-api-specs"
 	resourceManagerConfig    = "../../config/resource-manager.hcl"
 	terraformDefinitionsPath = "../../config/resources/"

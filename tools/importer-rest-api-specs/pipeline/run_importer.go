@@ -157,10 +157,5 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
 	}
 
-	logger.Trace("Task: Outputting the Meta Data for this Revision..")
-	if err := task.outputMetaData(input, swaggerGitSha); err != nil {
-		return fmt.Errorf("outputting the Meta Data for this Revision: %+v", err)
-	}
-
 	return nil
 }
