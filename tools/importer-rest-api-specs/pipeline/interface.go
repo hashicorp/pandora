@@ -14,7 +14,6 @@ import (
 
 type RunInput struct {
 	ConfigFilePath           string
-	DataApiEndpoint          *string
 	JustOutputSegments       bool
 	JustParseData            bool
 	Logger                   hclog.Logger
