@@ -1,0 +1,45 @@
+{
+ "name": "PacketCoreDataPlanePropertiesFormat",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "provisioningState",
+   "name": "ProvisioningState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "ProvisioningState"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userPlaneAccessInterface",
+   "name": "UserPlaneAccessInterface",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "InterfaceProperties"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "userPlaneAccessVirtualIpv4Addresses",
+   "name": "UserPlaneAccessVirtualIPv4Addresses",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "String",
+     "referenceName": null
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}

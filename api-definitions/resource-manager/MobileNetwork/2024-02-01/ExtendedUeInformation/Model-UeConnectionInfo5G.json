@@ -1,0 +1,143 @@
+{
+ "name": "UeConnectionInfo5G",
+ "fields": [
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "allowedNssai",
+   "name": "AllowedNssai",
+   "objectDefinition": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+     "type": "Reference",
+     "referenceName": "Snssai",
+     "maxItems": 8
+    }
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "amfUeNgapId",
+   "name": "AmfUeNgapId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "globalRanNodeId",
+   "name": "GlobalRanNodeId",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "GlobalRanNodeId"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastActivityTime",
+   "name": "LastActivityTime",
+   "objectDefinition": {
+    "type": "DateTime",
+    "referenceName": null,
+    "dateFormat": "RFC3339"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "lastVisitedTai",
+   "name": "LastVisitedTai",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "locationInfo",
+   "name": "LocationInfo",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UeLocationInfo"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "perUeTnla",
+   "name": "PerUeTnla",
+   "objectDefinition": {
+    "type": "String",
+    "referenceName": null
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ranUeNgapId",
+   "name": "RanUeNgapId",
+   "objectDefinition": {
+    "type": "Integer",
+    "referenceName": null
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "rrcEstablishmentCause",
+   "name": "RrcEstablishmentCause",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "RrcEstablishmentCause"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ueState",
+   "name": "UeState",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UeState"
+   },
+   "optional": false,
+   "required": true,
+   "description": ""
+  },
+  {
+   "containsDiscriminatedTypeValue": false,
+   "jsonName": "ueUsageSetting",
+   "name": "UeUsageSetting",
+   "objectDefinition": {
+    "type": "Reference",
+    "referenceName": "UeUsageSetting"
+   },
+   "optional": true,
+   "required": false,
+   "description": ""
+  }
+ ]
+}
