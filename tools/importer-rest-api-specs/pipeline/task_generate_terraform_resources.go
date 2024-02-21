@@ -5,11 +5,11 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"log"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
