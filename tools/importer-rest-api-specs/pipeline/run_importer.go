@@ -143,7 +143,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace("Generating Example Usage from the Terraform Tests")
-		dataForApiVersion, err = task.generateTerraformExampleUsage(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformExampleUsage"))
+		dataForApiVersion, err = task.generateTerraformExampleUsage(dataForApiVersion)
 		if err != nil {
 			return fmt.Errorf(fmt.Sprintf("generating Terraform Example Usage for Service %q / Version %q: %+v", serviceName, apiVersion, err))
 		}

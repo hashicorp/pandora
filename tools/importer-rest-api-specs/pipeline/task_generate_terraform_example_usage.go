@@ -6,13 +6,12 @@ package pipeline
 import (
 	"fmt"
 
-	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/examples"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/examples"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (t pipelineTask) generateTerraformExampleUsage(data *models.AzureApiDefinition, providerPrefix string, logger hclog.Logger) (*models.AzureApiDefinition, error) {
+func (t pipelineTask) generateTerraformExampleUsage(data *models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
 	apiResources := make(map[string]models.AzureApiResource)
 	for k, v := range data.Resources {
 		if v.Terraform != nil {
