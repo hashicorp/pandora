@@ -15,7 +15,6 @@ import (
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
