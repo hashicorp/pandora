@@ -57,7 +57,7 @@ func (f *fileSystem) stage(path filePath, body any) error {
 	}
 
 	if fileExtension == ".json" {
-		bytes, err := json.MarshalIndent(body, "", "\t")
+		bytes, err := json.MarshalIndent(body, "", "  ")
 		if err != nil {
 			return fmt.Errorf("marshalling file body for %q as json: %+v", path, err)
 		}

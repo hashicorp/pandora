@@ -14,15 +14,28 @@ import (
 var _ generatorStage = generateServiceDefinitionStage{}
 
 type generateServiceDefinitionStage struct {
-	serviceName             string
-	resourceProvider        *string
-	shouldGenerate          bool
-	terraformServicePackage *string
-	terraformResourceNames  []string
+	// serviceName specifies the name of the Service.
+	serviceName string
+
+	// resourceProvider optionally specifies the Azure Resource Provider related to this Service.
+	// This will only be set for Azure Resource Manager related Services.
+	resourceProvider *string
+
+	// shouldGenerate specifies whether this Service should be marked as available for generation.
+	shouldGenerate bool
+
+	// terraformServicePackageName optionally specifies the name of the Service Package within the
+	// associated Terraform Provider which the Terraform Resources for this Service should be
+	// generated into.
+	terraformServicePackageName *string
+
+	// terraformResourceNames specifies the list of Terraform Resource Names associated with this
+	// Service.
+	terraformResourceNames []string
 }
 
 func (g generateServiceDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
-	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformServicePackage, g.terraformResourceNames)
+	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformServicePackageName, g.terraformResourceNames)
 	if err != nil {
 		return fmt.Errorf("mapping Service Definition for %q: %+v", g.serviceName, err)
 	}

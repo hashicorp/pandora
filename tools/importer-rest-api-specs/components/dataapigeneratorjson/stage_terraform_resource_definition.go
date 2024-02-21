@@ -15,9 +15,15 @@ import (
 var _ generatorStage = generateTerraformResourceDefinitionStage{}
 
 type generateTerraformResourceDefinitionStage struct {
-	serviceName     string
-	resourceLabel   string
+	// serviceName specifies the name of the Service.
+	serviceName string
+	
+	// resourceDetails specifies the Terraform Resource Definition.
 	resourceDetails resourcemanager.TerraformResourceDetails
+
+	// resourceLabel specifies the Label for this Terraform Resource without the Provider Prefix.
+	// Example: `container_service` rather than `azurerm_container_service`.
+	resourceLabel string
 }
 
 func (g generateTerraformResourceDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {

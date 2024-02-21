@@ -42,11 +42,11 @@ func Run(input []importerModels.AzureApiDefinition, outputDirectory, swaggerGitS
 			sourceDataType:   sourceDataType,
 		},
 		generateServiceDefinitionStage{
-			serviceName:             serviceName,
-			resourceProvider:        resourceProvider,
-			shouldGenerate:          true,
-			terraformServicePackage: terraformServicePackage,
-			terraformResourceNames:  terraformResourceNames,
+			serviceName:                 serviceName,
+			resourceProvider:            resourceProvider,
+			shouldGenerate:              true,
+			terraformServicePackageName: terraformServicePackage,
+			terraformResourceNames:      terraformResourceNames,
 		},
 	}
 
@@ -115,13 +115,11 @@ func Run(input []importerModels.AzureApiDefinition, outputDirectory, swaggerGitS
 
 					stages = append(stages, generateTerraformSchemaModelsStage{
 						serviceName:     serviceDetails.ServiceName,
-						resourceLabel:   terraformResourceLabel,
 						resourceDetails: terraformResourceDefinition,
 					})
 
 					stages = append(stages, generateTerraformMappingsDefinitionStage{
 						serviceName:     serviceDetails.ServiceName,
-						resourceLabel:   terraformResourceLabel,
 						resourceDetails: terraformResourceDefinition,
 					})
 

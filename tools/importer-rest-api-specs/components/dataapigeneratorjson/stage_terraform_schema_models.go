@@ -16,8 +16,10 @@ import (
 var _ generatorStage = generateTerraformSchemaModelsStage{}
 
 type generateTerraformSchemaModelsStage struct {
-	serviceName     string
-	resourceLabel   string
+	// serviceName specifies the name of the Service.
+	serviceName string
+
+	// resourceDetails specifies the Terraform Resource Definition.
 	resourceDetails resourcemanager.TerraformResourceDetails
 }
 

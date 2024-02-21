@@ -14,7 +14,10 @@ import (
 var _ generatorStage = generateTerraformResourceTestsStage{}
 
 type generateTerraformResourceTestsStage struct {
-	serviceName     string
+	// serviceName specifies the name of the Service.
+	serviceName string
+
+	// resourceDetails specifies the Terraform Resource Definition.
 	resourceDetails resourcemanager.TerraformResourceDetails
 }
 

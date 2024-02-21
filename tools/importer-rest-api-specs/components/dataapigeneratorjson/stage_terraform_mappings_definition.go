@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapigeneratorjson
 
 import (
@@ -12,15 +15,17 @@ import (
 var _ generatorStage = generateTerraformMappingsDefinitionStage{}
 
 type generateTerraformMappingsDefinitionStage struct {
-	serviceName     string
-	resourceLabel   string
+	// serviceName specifies the name of the Service.
+	serviceName string
+
+	// resourceDetails specifies the Terraform Resource Definition.
 	resourceDetails resourcemanager.TerraformResourceDetails
 }
 
 func (g generateTerraformMappingsDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
 	mapped, err := transforms.MapTerraformSchemaMappingsToRepository(g.resourceDetails.Mappings)
 	if err != nil {
-		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", g.resourceLabel, err)
+		return fmt.Errorf("building Mappings for the Terraform Resource %q: %+v", g.resourceDetails.ResourceName, err)
 	}
 
 	path := filepath.Join(g.serviceName, "Terraform", fmt.Sprintf("%s-Resource-Mappings.json", g.resourceDetails.ResourceName))

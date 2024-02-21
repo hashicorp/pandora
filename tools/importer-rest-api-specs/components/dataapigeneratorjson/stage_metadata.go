@@ -14,9 +14,15 @@ import (
 var _ generatorStage = generateMetaDataStage{}
 
 type generateMetaDataStage struct {
-	gitRevision      *string
+	// gitRevision optionally specifies the Git Revision (the full SHA) that the API Definitions have been
+	// parsed from. This can be nil when the APIDefinitions are handwritten.
+	gitRevision *string
+
+	// sourceDataOrigin specifies the Origin of this Source Data.
 	sourceDataOrigin models.SourceDataOrigin
-	sourceDataType   models.SourceDataType
+
+	// sourceDataType specifies the Type of Source Data that this set of API Definitions is related to.
+	sourceDataType models.SourceDataType
 }
 
 func (g generateMetaDataStage) generate(input *fileSystem, logger hclog.Logger) error {

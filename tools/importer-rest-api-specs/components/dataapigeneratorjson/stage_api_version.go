@@ -16,12 +16,24 @@ import (
 var _ generatorStage = generateAPIVersionStage{}
 
 type generateAPIVersionStage struct {
-	serviceName      string
-	apiVersion       string
+	// serviceName specifies the name of the Service within which this API Version exists.
+	serviceName string
+
+	// apiVersion specifies the APIVersion within the current Service.
+	apiVersion string
+
+	// isPreviewVersion specifies whether this APIVersion is a Preview (as opposed to a Stable)
+	// APIVersion.
 	isPreviewVersion bool
-	resources        map[string]importerModels.AzureApiResource
+
+	// resources specifies the list of APIResources available within this APIVersion.
+	resources map[string]importerModels.AzureApiResource
+
+	// sourceDataOrigin specifies the Origin of this Source Data.
 	sourceDataOrigin models.SourceDataOrigin
-	shouldGenerate   bool
+
+	// shouldGenerate specifies whether this APIVersion should be marked as available for generation.
+	shouldGenerate bool
 }
 
 func (g generateAPIVersionStage) generate(input *fileSystem, logger hclog.Logger) error {
