@@ -155,7 +155,7 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
-	if err := dataapigeneratorjson.Run(serviceName, *service, sourceDataOrigin, sourceDataType, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger); err != nil {
+	if err := dataapigeneratorjson.Run(serviceName, *service, sourceDataOrigin, sourceDataType, input.OutputDirectory, swaggerGitSha, resourceProvider, logger); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 

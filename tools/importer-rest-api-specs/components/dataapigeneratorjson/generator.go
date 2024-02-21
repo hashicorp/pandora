@@ -12,7 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
-func Run(serviceName string, service models.Service, sourceDataOrigin models.SourceDataOrigin, sourceDataType models.SourceDataType, outputDirectory, swaggerGitSha string, resourceProvider, terraformServicePackage *string, logger hclog.Logger) error {
+func Run(serviceName string, service models.Service, sourceDataOrigin models.SourceDataOrigin, sourceDataType models.SourceDataType, outputDirectory, swaggerGitSha string, resourceProvider *string, logger hclog.Logger) error {
 	logger.Info(fmt.Sprintf("Processing Service %q", serviceName))
 
 	stages := []generatorStage{
