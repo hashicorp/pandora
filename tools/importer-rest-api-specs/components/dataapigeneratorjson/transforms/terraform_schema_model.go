@@ -7,11 +7,11 @@ import (
 	"fmt"
 	"sort"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapTerraformSchemaModelToRepository(modelName string, schemaModel resourcemanager.TerraformSchemaModelDefinition) (*dataapimodels.TerraformSchemaModel, error) {
+func MapTerraformSchemaModelToRepository(modelName string, schemaModel models.TerraformSchemaModelDefinition) (*dataapimodels.TerraformSchemaModel, error) {
 	fieldList := make([]string, 0)
 	for f := range schemaModel.Fields {
 		fieldList = append(fieldList, f)

@@ -5,6 +5,7 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
@@ -24,18 +25,12 @@ type generateServiceDefinitionStage struct {
 	// shouldGenerate specifies whether this Service should be marked as available for generation.
 	shouldGenerate bool
 
-	// terraformServicePackageName optionally specifies the name of the Service Package within the
-	// associated Terraform Provider which the Terraform Resources for this Service should be
-	// generated into.
-	terraformServicePackageName *string
-
-	// terraformResourceNames specifies the list of Terraform Resource Names associated with this
-	// Service.
-	terraformResourceNames []string
+	// terraformDefinition optionally specifies the Terraform Definition for this Service.
+	terraformDefinition *models.TerraformDefinition
 }
 
 func (g generateServiceDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
-	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformServicePackageName, g.terraformResourceNames)
+	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformDefinition)
 	if err != nil {
 		return fmt.Errorf("mapping Service Definition for %q: %+v", g.serviceName, err)
 	}

@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ generatorStage = generateAPIVersionStage{}
@@ -27,7 +26,7 @@ type generateAPIVersionStage struct {
 	isPreviewVersion bool
 
 	// resources specifies the list of APIResources available within this APIVersion.
-	resources map[string]importerModels.AzureApiResource
+	resources map[string]models.APIResource
 
 	// sourceDataOrigin specifies the Origin of this Source Data.
 	sourceDataOrigin models.SourceDataOrigin

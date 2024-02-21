@@ -5,11 +5,11 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ generatorStage = generateResourceIDsStage{}
@@ -24,9 +24,9 @@ type generateResourceIDsStage struct {
 	// apiResource specifies the APIResource within the APIVersion where the Resource IDs exist.
 	apiResource string
 
-	// resourceIDs specifies a map of Resource ID Name (key) to ResourceIdDefinition (value) that should
+	// resourceIDs specifies a map of Resource ID Name (key) to ResourceID (value) that should
 	// be persisted.
-	resourceIDs map[string]resourcemanager.ResourceIdDefinition
+	resourceIDs map[string]models.ResourceID
 }
 
 func (g generateResourceIDsStage) generate(input *fileSystem, logger hclog.Logger) error {

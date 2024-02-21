@@ -9,12 +9,12 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapSDKOperationToRepository(operationName string, input resourcemanager.ApiOperation, knownConstants map[string]resourcemanager.ConstantDetails, knownModels map[string]resourcemanager.ModelDetails) (*dataapimodels.Operation, error) {
-	contentType := *input.ContentType // NOTE: in the new models this is no longer a pointer
+func MapSDKOperationToRepository(operationName string, input models.SDKOperation, knownConstants map[string]models.SDKConstant, knownModels map[string]models.SDKModel) (*dataapimodels.Operation, error) {
+	contentType := input.ContentType
 	if strings.Contains(strings.ToLower(contentType), "application/json") {
 		contentType = fmt.Sprintf("%s; charset=utf-8", contentType)
 	}
@@ -26,8 +26,8 @@ func MapSDKOperationToRepository(operationName string, input resourcemanager.Api
 		FieldContainingPaginationDetails: input.FieldContainingPaginationDetails,
 		LongRunning:                      input.LongRunning,
 		HTTPMethod:                       strings.ToUpper(input.Method),
-		ResourceIdName:                   input.ResourceIdName,
-		UriSuffix:                        input.UriSuffix,
+		ResourceIdName:                   input.ResourceIDName,
+		UriSuffix:                        input.URISuffix,
 	}
 
 	if input.RequestObject != nil {

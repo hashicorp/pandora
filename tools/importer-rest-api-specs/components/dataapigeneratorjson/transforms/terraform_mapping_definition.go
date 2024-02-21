@@ -7,88 +7,72 @@ import (
 	"fmt"
 	"sort"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func MapTerraformSchemaMappingsToRepository(input resourcemanager.MappingDefinition) (*dataapimodels.TerraformMappingDefinition, error) {
+func MapTerraformSchemaMappingsToRepository(input models.TerraformMappingDefinition) (*dataapimodels.TerraformMappingDefinition, error) {
 	output := dataapimodels.TerraformMappingDefinition{}
 
 	fieldMappings := make([]dataapimodels.TerraformFieldMappingDefinition, 0)
 	modelToModelMappings := make([]dataapimodels.TerraformModelToModelMappingDefinition, 0)
 	for _, item := range input.Fields {
-		switch item.Type {
-		case resourcemanager.DirectAssignmentMappingDefinitionType:
-			{
-				// DirectAssignment Mappings come solely from the Mapping themselves
-				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
-					Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
-					DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
-						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
-						SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
-						SchemaFieldPath: item.DirectAssignment.SchemaFieldPath,
-						SdkModelName:    item.DirectAssignment.SdkModelName,
-						SdkFieldPath:    item.DirectAssignment.SdkFieldPath,
-					},
-				})
-				// NOTE: any duplications get removed below - so this is safe for now
-				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+		if v, ok := item.(models.TerraformDirectAssignmentFieldMappingDefinition); ok {
+			// DirectAssignment Mappings come solely from the Mapping themselves
+			fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
+				Type: dataapimodels.DirectAssignmentTerraformFieldMappingDefinitionType,
+				DirectAssignment: &dataapimodels.TerraformFieldMappingDirectAssignmentDefinition{
 					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
-					SchemaModelName: fmt.Sprintf("%sSchema", item.DirectAssignment.SchemaModelName),
-					SdkModelName:    item.DirectAssignment.SdkModelName,
-				})
-				continue
-			}
-
-		case resourcemanager.ModelToModelMappingDefinitionType:
-			{
-				// ModelToModel mappings need to be output both for Fields and for the Models themselves
-				// this is because a ModelToModel mapping must exist from the Schema Model to the SDK Model
-				// but also from a given Schema Field to a given SDK Model.
-				//
-				// This allows both the mapping function between two models to be generated (the `ModelToModelMappings`)
-				// and the mapping between a given Schema Field and an SDK Model (so that we know to call the
-				// mapping function defined in the `ModelToModelMappings`).
-				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
-					Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
-					ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
-						// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
-						SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
-						SdkModelName:    item.ModelToModel.SdkModelName,
-						SdkFieldName:    item.ModelToModel.SdkFieldName,
-					},
-				})
-				// NOTE: any duplications get removed below - so this is safe for now
-				modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
-					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
-					SchemaModelName: fmt.Sprintf("%sSchema", item.ModelToModel.SchemaModelName),
-					SdkModelName:    item.ModelToModel.SdkModelName,
-				})
-				continue
-			}
-
-		case resourcemanager.ManualMappingDefinitionType:
-			{
-				fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
-					Type: dataapimodels.ManualTerraformFieldMappingDefinitionType,
-					Manual: &dataapimodels.TerraformFieldManualMappingDefinition{
-						MethodName: item.Manual.MethodName,
-					},
-				})
-			}
-
-		default:
-			{
-				return nil, fmt.Errorf("internal-error: missing mapping implementation for %q", string(item.Type))
-			}
+					SchemaModelName: fmt.Sprintf("%sSchema", v.DirectAssignment.TerraformSchemaModelName),
+					SchemaFieldPath: v.DirectAssignment.TerraformSchemaFieldName,
+					SdkModelName:    v.DirectAssignment.SDKModelName,
+					SdkFieldPath:    v.DirectAssignment.SDKFieldName,
+				},
+			})
+			// NOTE: any duplications get removed below - so this is safe for now
+			modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+				// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+				SchemaModelName: fmt.Sprintf("%sSchema", v.DirectAssignment.TerraformSchemaModelName),
+				SdkModelName:    v.DirectAssignment.SDKModelName,
+			})
+			continue
 		}
+
+		if v, ok := item.(models.TerraformModelToModelFieldMappingDefinition); ok {
+			// ModelToModel mappings need to be output both for Fields and for the Models themselves
+			// this is because a ModelToModel mapping must exist from the Schema Model to the SDK Model
+			// but also from a given Schema Field to a given SDK Model.
+			//
+			// This allows both the mapping function between two models to be generated (the `ModelToModelMappings`)
+			// and the mapping between a given Schema Field and an SDK Model (so that we know to call the
+			// mapping function defined in the `ModelToModelMappings`).
+			fieldMappings = append(fieldMappings, dataapimodels.TerraformFieldMappingDefinition{
+				Type: dataapimodels.ModelToModelTerraformFieldMappingDefinitionType,
+				ModelToModel: &dataapimodels.TerraformFieldMappingModelToModelDefinition{
+					// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+					SchemaModelName: fmt.Sprintf("%sSchema", v.ModelToModel.TerraformSchemaModelName),
+					SdkModelName:    v.ModelToModel.SDKModelName,
+					SdkFieldName:    v.ModelToModel.SDKFieldName,
+				},
+			})
+			// NOTE: any duplications get removed below - so this is safe for now
+			modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
+				// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
+				SchemaModelName: fmt.Sprintf("%sSchema", v.ModelToModel.TerraformSchemaModelName),
+				SdkModelName:    v.ModelToModel.SDKModelName,
+			})
+			continue
+		}
+
+		return nil, fmt.Errorf("internal-error: missing mapping implementation for %T", item)
 	}
+
 	for _, item := range input.ModelToModels {
 		// NOTE: any duplications get removed below
 		modelToModelMappings = append(modelToModelMappings, dataapimodels.TerraformModelToModelMappingDefinition{
 			// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
-			SchemaModelName: fmt.Sprintf("%sSchema", item.SchemaModelName),
-			SdkModelName:    item.SdkModelName,
+			SchemaModelName: fmt.Sprintf("%sSchema", item.TerraformSchemaModelName),
+			SdkModelName:    item.SDKModelName,
 		})
 	}
 
@@ -108,7 +92,7 @@ func MapTerraformSchemaMappingsToRepository(input resourcemanager.MappingDefinit
 	}
 
 	// Finally ResourceId Mappings are between a given (root-level) Schema Field and a Resource ID Segment
-	resourceIdMappings := mapTerraformSchemaResourceIdMappingsToRepository(input.ResourceId)
+	resourceIdMappings := mapTerraformSchemaResourceIdMappingsToRepository(input.ResourceID)
 	if len(resourceIdMappings) > 0 {
 		output.ResourceIdMappings = &resourceIdMappings
 	}
@@ -116,10 +100,10 @@ func MapTerraformSchemaMappingsToRepository(input resourcemanager.MappingDefinit
 	return &output, nil
 }
 
-func mapTerraformSchemaResourceIdMappingsToRepository(input []resourcemanager.ResourceIdMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
+func mapTerraformSchemaResourceIdMappingsToRepository(input []models.TerraformResourceIDMappingDefinition) []dataapimodels.TerraformResourceIdMappingDefinition {
 	// we need the ordering to be consistent else to avoid noisy regenerations, so let's order this on one of the keys
 	segmentNames := make([]string, 0)
-	segmentNamesToResourceIdMappings := make(map[string]resourcemanager.ResourceIdMappingDefinition)
+	segmentNamesToResourceIdMappings := make(map[string]models.TerraformResourceIDMappingDefinition)
 	for _, item := range input {
 		segmentNames = append(segmentNames, item.SegmentName)
 		segmentNamesToResourceIdMappings[item.SegmentName] = item
@@ -130,7 +114,7 @@ func mapTerraformSchemaResourceIdMappingsToRepository(input []resourcemanager.Re
 	for _, schemaFieldName := range segmentNames {
 		resourceIdMapping := segmentNamesToResourceIdMappings[schemaFieldName]
 		output = append(output, dataapimodels.TerraformResourceIdMappingDefinition{
-			SchemaFieldName:    resourceIdMapping.SchemaFieldName,
+			SchemaFieldName:    resourceIdMapping.TerraformSchemaFieldName,
 			SegmentName:        resourceIdMapping.SegmentName,
 			ParsedFromParentId: resourceIdMapping.ParsedFromParentID,
 		})

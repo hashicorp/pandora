@@ -8,11 +8,10 @@ import (
 	"sort"
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
-	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
-func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]importerModels.AzureApiResource, sourceDataOrigin models.SourceDataOrigin, shouldGenerate bool) (*dataapimodels.ApiVersionDefinition, error) {
+func MapAPIVersionToRepository(apiVersion string, isPreview bool, resources map[string]models.APIResource, sourceDataOrigin models.SourceDataOrigin, shouldGenerate bool) (*dataapimodels.ApiVersionDefinition, error) {
 	dataOrigin, ok := sourceDataOriginsToRepository[sourceDataOrigin]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: missing mapping for Source Data Origin %q", string(sourceDataOrigin))

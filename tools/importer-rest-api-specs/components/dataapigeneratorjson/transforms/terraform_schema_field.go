@@ -7,18 +7,18 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func mapTerraformSchemaFieldToRepository(fieldName string, input resourcemanager.TerraformSchemaFieldDefinition) (*dataapimodels.TerraformSchemaField, error) {
+func mapTerraformSchemaFieldToRepository(fieldName string, input models.TerraformSchemaField) (*dataapimodels.TerraformSchemaField, error) {
 	objectDefinition, err := MapTerraformSchemaObjectDefinitionToRepository(input.ObjectDefinition)
 	if err != nil {
 		return nil, fmt.Errorf("mapping Terraform Schema Object Definition: %+v", err)
 	}
 
 	output := dataapimodels.TerraformSchemaField{
-		HclName:          input.HclName,
+		HclName:          input.HCLName,
 		Name:             fieldName,
 		ObjectDefinition: *objectDefinition,
 	}
@@ -41,7 +41,7 @@ func mapTerraformSchemaFieldToRepository(fieldName string, input resourcemanager
 		}
 	}
 	if input.Validation != nil {
-		validation, err := mapTerraformSchemaFieldValidationToRepository(*input.Validation)
+		validation, err := mapTerraformSchemaFieldValidationToRepository(input.Validation)
 		if err != nil {
 			return nil, fmt.Errorf("building validation: %+v", err)
 		}

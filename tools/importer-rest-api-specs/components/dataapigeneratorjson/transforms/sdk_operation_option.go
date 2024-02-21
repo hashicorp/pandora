@@ -6,21 +6,21 @@ package transforms
 import (
 	"fmt"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-var sdkOperationOptionsToRepository = map[resourcemanager.ApiObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
-	resourcemanager.BooleanApiObjectDefinitionType:   dataapimodels.BooleanOptionObjectDefinitionType,
-	resourcemanager.CsvApiObjectDefinitionType:       dataapimodels.CsvOptionObjectDefinitionType,
-	resourcemanager.IntegerApiObjectDefinitionType:   dataapimodels.IntegerOptionObjectDefinitionType,
-	resourcemanager.FloatApiObjectDefinitionType:     dataapimodels.FloatOptionObjectDefinitionType,
-	resourcemanager.ListApiObjectDefinitionType:      dataapimodels.ListOptionObjectDefinitionType,
-	resourcemanager.ReferenceApiObjectDefinitionType: dataapimodels.ReferenceOptionObjectDefinitionType,
-	resourcemanager.StringApiObjectDefinitionType:    dataapimodels.StringOptionObjectDefinitionType,
+var sdkOperationOptionsToRepository = map[models.SDKOperationOptionObjectDefinitionType]dataapimodels.OptionObjectDefinitionType{
+	models.BooleanSDKOperationOptionObjectDefinitionType:   dataapimodels.BooleanOptionObjectDefinitionType,
+	models.CSVSDKOperationOptionObjectDefinitionType:       dataapimodels.CsvOptionObjectDefinitionType,
+	models.IntegerSDKOperationOptionObjectDefinitionType:   dataapimodels.IntegerOptionObjectDefinitionType,
+	models.FloatSDKOperationOptionObjectDefinitionType:     dataapimodels.FloatOptionObjectDefinitionType,
+	models.ListSDKOperationOptionObjectDefinitionType:      dataapimodels.ListOptionObjectDefinitionType,
+	models.ReferenceSDKOperationOptionObjectDefinitionType: dataapimodels.ReferenceOptionObjectDefinitionType,
+	models.StringSDKOperationOptionObjectDefinitionType:    dataapimodels.StringOptionObjectDefinitionType,
 }
 
-func mapSDKOperationOptionToRepository(definition resourcemanager.ApiObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) (*dataapimodels.OptionObjectDefinition, error) {
+func mapSDKOperationOptionToRepository(definition models.SDKOperationOptionObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) (*dataapimodels.OptionObjectDefinition, error) {
 	typeVal, ok := sdkOperationOptionsToRepository[definition.Type]
 	if !ok {
 		return nil, fmt.Errorf("internal-error: no OptionObjectDefinition mapping is defined for the OptionObjectDefinition Type %q", string(definition.Type))
@@ -52,7 +52,7 @@ func mapSDKOperationOptionToRepository(definition resourcemanager.ApiObjectDefin
 	return &output, nil
 }
 
-func validateSDKOperationOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]resourcemanager.ConstantDetails, models map[string]resourcemanager.ModelDetails) error {
+func validateSDKOperationOptionObjectDefinition(input dataapimodels.OptionObjectDefinition, constants map[string]models.SDKConstant, models map[string]models.SDKModel) error {
 	requiresNestedItem := input.Type == dataapimodels.CsvOptionObjectDefinitionType || input.Type == dataapimodels.ListOptionObjectDefinitionType
 	requiresReference := input.Type == dataapimodels.ReferenceOptionObjectDefinitionType
 	if requiresNestedItem && input.NestedItem == nil {

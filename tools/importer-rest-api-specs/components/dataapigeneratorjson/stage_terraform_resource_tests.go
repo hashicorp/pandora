@@ -8,7 +8,7 @@ import (
 	"path/filepath"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 var _ generatorStage = generateTerraformResourceTestsStage{}
@@ -18,7 +18,7 @@ type generateTerraformResourceTestsStage struct {
 	serviceName string
 
 	// resourceDetails specifies the Terraform Resource Definition.
-	resourceDetails resourcemanager.TerraformResourceDetails
+	resourceDetails models.TerraformResourceDefinition
 }
 
 func (g generateTerraformResourceTestsStage) generate(input *fileSystem, logger hclog.Logger) error {
@@ -58,7 +58,7 @@ func (g generateTerraformResourceTestsStage) generate(input *fileSystem, logger 
 	}
 
 	if g.resourceDetails.Tests.OtherTests != nil {
-		for otherTestName, otherTest := range g.resourceDetails.Tests.OtherTests {
+		for otherTestName, otherTest := range *g.resourceDetails.Tests.OtherTests {
 			for index, testStage := range otherTest {
 				testStageFileName := filepath.Join(workingDirectory, fmt.Sprintf("%s-Resource-Other-%s-%d-Test.hcl", g.resourceDetails.ResourceName, otherTestName, index))
 				logger.Trace(fmt.Sprintf("Staging Test %q Stage %d Test Configuration to %q", otherTestName, index, testStageFileName))
