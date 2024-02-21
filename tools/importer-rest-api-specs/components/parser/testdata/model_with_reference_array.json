@@ -18,19 +18,19 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/things": {
+    "/example": {
       "get": {
         "tags": [
-          "Hello"
+          "Example"
         ],
-        "operationId": "Hello_GetWorld",
+        "operationId": "Example_Test",
         "description": "A GET request with no body returned.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             }
           }
         }
@@ -38,46 +38,36 @@
     }
   },
   "definitions": {
-    "Example": {
+    "Model": {
       "properties": {
         "name": {
           "type": "string"
         },
-        "thingProps": {
-          "type": "array",
-          "items": {
-            "$ref": "#/definitions/ThingProperties"
-          },
-          "x-ms-client-name": "ThingProperties",
-          "description": "Properties of a Thing"
+        "pets": {
+          "$ref": "#/definitions/Pets"
         }
       },
       "type": "object",
       "title": "Example"
     },
-    "ThingProperties": {
+    "Pets": {
+      "type": "array",
+      "description": "A list of Pets.",
+      "items": {
+        "$ref": "#/definitions/Pet"
+      },
+      "minItems": 1,
+      "maxItems": 2,
+      "uniqueItems": true
+    },
+    "Pet": {
       "properties": {
-        "keyName": {
-          "type": "string",
-          "description": "Name of the Key from Thing"
-        },
-        "animal": {
-          "$ref": "#/definitions/AnimalType"
+        "name": {
+          "type": "string"
         }
       },
-      "description": "Some description"
-    },
-    "AnimalType": {
-      "type": "string",
-      "description": "The Type of animal.",
-      "enum": [
-        "Cat",
-        "Dog"
-      ],
-      "x-ms-enum": {
-        "name": "AnimalType",
-        "modelAsString": false
-      }
+      "type": "object",
+      "title": "Pet"
     }
   },
   "parameters": {}

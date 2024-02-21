@@ -1635,3 +1635,46 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 	}
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
+
+func TestParseOperationsWithStutteringNames(t *testing.T) {
+	actual, err := ParseSwaggerFileForTesting(t, "operations_with_stuttering_names.json")
+	if err != nil {
+		t.Fatalf("parsing: %+v", err)
+	}
+
+	expected := models.AzureApiDefinition{
+		ServiceName: "Example",
+		ApiVersion:  "2020-01-01",
+		Resources: map[string]models.AzureApiResource{
+			"ExampleTag": {
+				Operations: map[string]models.OperationDetails{
+					"Mars": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "HEAD",
+						OperationId:         "ExampleTags_Mars",
+						UriSuffix:           pointer.To("/mars"),
+					},
+					"There": {
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "HEAD",
+						OperationId:         "ExampleTag_There",
+						UriSuffix:           pointer.To("/there"),
+					},
+					"World": {
+						// TODO: change the Swagger Tag to be `ExampleTag` for this operation
+						// There's a bug where multiple operations using the same (normalized) Swagger Tag aren't being
+						// flattened correctly.
+						ContentType:         "application/json",
+						ExpectedStatusCodes: []int{200},
+						Method:              "HEAD",
+						OperationId:         "ExampleTag_World",
+						UriSuffix:           pointer.To("/world"),
+					},
+				},
+			},
+		},
+	}
+	validateParsedSwaggerResultMatches(t, expected, actual)
+}

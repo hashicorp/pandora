@@ -19,38 +19,35 @@
   "securityDefinitions": {},
   "paths": {
     "/example": {
-      "get": {
+      "put": {
         "tags": [
           "Example"
         ],
         "operationId": "Example_Test",
-        "description": "A GET request with no body returned.",
-        "parameters": [],
+        "description": "Tests parsing of a simple model.",
+        "parameters": [
+          {
+            "name": "parameters",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "format": "file"
+            },
+            "description": "Wrapper class."
+          }
+        ],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Model"
+              "type": "file"
             }
           }
         }
       }
     }
   },
-  "definitions": {
-    "Model": {
-      "properties": {
-        "name": {
-          "type": "string"
-        },
-        "50PercentDone": {
-          "type": "string",
-          "description": "A field with a number prefix"
-        }
-      },
-      "type": "object",
-      "title": "Model"
-    }
-  },
+  "definitions": {},
   "parameters": {}
 }

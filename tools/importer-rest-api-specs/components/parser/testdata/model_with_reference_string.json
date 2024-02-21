@@ -18,19 +18,19 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/things": {
+    "/example": {
       "get": {
         "tags": [
-          "Hello"
+          "Example"
         ],
-        "operationId": "Hello_GetWorld",
+        "operationId": "Example_Test",
         "description": "A GET request with no body returned.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             }
           }
         }
@@ -38,7 +38,7 @@
     }
   },
   "definitions": {
-    "Example": {
+    "Model": {
       "properties": {
         "name": {
           "type": "string"
@@ -61,20 +61,16 @@
           "type": "string",
           "description": "Name of the Key from Thing"
         },
-        "identity": {
-          "$ref": "#/definitions/userAssignedIdentityProperties"
+        "fullyQualifiedDomainName": {
+          "$ref": "#/definitions/FullyQualifiedDomainName"
         }
       },
       "description": "Some description"
     },
-    "userAssignedIdentityProperties": {
-      "x-ms-client-flatten": true,
-      "properties": {
-        "userAssignedIdentity": {
-          "type": "string",
-          "description": "The User Assigned Identity ID"
-        }
-      }
+    "FullyQualifiedDomainName": {
+      "type": "string",
+      "description": "The fully qualified domain name of a server.",
+      "readOnly": true
     }
   },
   "parameters": {}

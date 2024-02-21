@@ -18,19 +18,19 @@
   "security": [],
   "securityDefinitions": {},
   "paths": {
-    "/things": {
+    "/example": {
       "get": {
         "tags": [
-          "Hello"
+          "Example"
         ],
-        "operationId": "Hello_GetWorld",
+        "operationId": "Example_Test",
         "description": "A GET request with no body returned.",
         "parameters": [],
         "responses": {
           "200": {
             "description": "Success.",
             "schema": {
-              "$ref": "#/definitions/Example"
+              "$ref": "#/definitions/Model"
             }
           }
         }
@@ -38,7 +38,7 @@
     }
   },
   "definitions": {
-    "Example": {
+    "Model": {
       "properties": {
         "name": {
           "type": "string"
@@ -61,16 +61,23 @@
           "type": "string",
           "description": "Name of the Key from Thing"
         },
-        "fullyQualifiedDomainName": {
-          "$ref": "#/definitions/FullyQualifiedDomainName"
+        "animal": {
+          "$ref": "#/definitions/AnimalType"
         }
       },
       "description": "Some description"
     },
-    "FullyQualifiedDomainName": {
+    "AnimalType": {
       "type": "string",
-      "description": "The fully qualified domain name of a server.",
-      "readOnly": true
+      "description": "The Type of animal.",
+      "enum": [
+        "Cat",
+        "Dog"
+      ],
+      "x-ms-enum": {
+        "name": "AnimalType",
+        "modelAsString": false
+      }
     }
   },
   "parameters": {}
