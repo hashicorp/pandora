@@ -5,6 +5,7 @@ package terraform
 
 import (
 	"fmt"
+
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/testing"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
