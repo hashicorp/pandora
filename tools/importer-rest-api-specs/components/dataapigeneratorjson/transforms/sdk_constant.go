@@ -1,10 +1,9 @@
 // Copyright (c) HashiCorp, Inc.
 // SPDX-License-Identifier: MPL-2.0
 
-package dataapigeneratorjson
+package transforms
 
 import (
-	"encoding/json"
 	"fmt"
 	"sort"
 
@@ -13,21 +12,7 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func codeForConstant(constantName string, details resourcemanager.ConstantDetails) ([]byte, error) {
-	mapped, err := mapConstant(constantName, details)
-	if err != nil {
-		return nil, err
-	}
-
-	data, err := json.MarshalIndent(mapped, "", "\t")
-	if err != nil {
-		return nil, err
-	}
-
-	return data, nil
-}
-
-func mapConstant(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
+func MapSDKConstantToRepository(constantName string, details resourcemanager.ConstantDetails) (*dataapimodels.Constant, error) {
 	keys := make([]string, 0)
 	keysToValues := make(map[string]dataapimodels.ConstantValue)
 	for k, v := range details.Values {
@@ -46,7 +31,7 @@ func mapConstant(constantName string, details resourcemanager.ConstantDetails) (
 		values = append(values, value)
 	}
 
-	constantType, err := mapConstantFieldType(details.Type)
+	constantType, err := mapConstantTypeToRepository(details.Type)
 	if err != nil {
 		return nil, fmt.Errorf("mapping constant field type %q: %+v", string(details.Type), err)
 	}
@@ -58,7 +43,7 @@ func mapConstant(constantName string, details resourcemanager.ConstantDetails) (
 	}, nil
 }
 
-func mapConstantFieldType(input resourcemanager.ConstantType) (*dataapimodels.ConstantType, error) {
+func mapConstantTypeToRepository(input resourcemanager.ConstantType) (*dataapimodels.ConstantType, error) {
 	mappings := map[resourcemanager.ConstantType]dataapimodels.ConstantType{
 		resourcemanager.FloatConstant:   dataapimodels.FloatConstant,
 		resourcemanager.IntegerConstant: dataapimodels.IntegerConstant,

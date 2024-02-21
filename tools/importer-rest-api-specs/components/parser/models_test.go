@@ -11,6 +11,8 @@ import (
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
+// TODO: tests for the different types of Object Definition
+
 func TestParseModelTopLevel(t *testing.T) {
 	actual, err := ParseSwaggerFileForTesting(t, "model_top_level.json")
 	if err != nil {

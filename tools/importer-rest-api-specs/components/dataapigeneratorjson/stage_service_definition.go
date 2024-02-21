@@ -1,0 +1,53 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
+package dataapigeneratorjson
+
+import (
+	"fmt"
+	"path/filepath"
+
+	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
+)
+
+var _ generatorStage = generateServiceDefinitionStage{}
+
+type generateServiceDefinitionStage struct {
+	// serviceName specifies the name of the Service.
+	serviceName string
+
+	// resourceProvider optionally specifies the Azure Resource Provider related to this Service.
+	// This will only be set for Azure Resource Manager related Services.
+	resourceProvider *string
+
+	// shouldGenerate specifies whether this Service should be marked as available for generation.
+	shouldGenerate bool
+
+	// terraformServicePackageName optionally specifies the name of the Service Package within the
+	// associated Terraform Provider which the Terraform Resources for this Service should be
+	// generated into.
+	terraformServicePackageName *string
+
+	// terraformResourceNames specifies the list of Terraform Resource Names associated with this
+	// Service.
+	terraformResourceNames []string
+}
+
+func (g generateServiceDefinitionStage) generate(input *fileSystem, logger hclog.Logger) error {
+	serviceDefinition, err := transforms.MapServiceDefinitionToRepository(g.serviceName, g.resourceProvider, g.terraformServicePackageName, g.terraformResourceNames)
+	if err != nil {
+		return fmt.Errorf("mapping Service Definition for %q: %+v", g.serviceName, err)
+	}
+
+	path := filepath.Join(g.serviceName, "ServiceDefinition.json")
+	if err := input.stage(path, *serviceDefinition); err != nil {
+		return fmt.Errorf("staging ServiceDefinition to %q: %+v", path, err)
+	}
+
+	return nil
+}
+
+func (g generateServiceDefinitionStage) name() string {
+	return "Service Definition"
+}
