@@ -5,6 +5,7 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	"os"
 	"path"
 	"sort"
@@ -130,22 +131,9 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace("generating Terraform Details")
-		var err error
-		dataForApiVersion, err = task.generateTerraformDetails(dataForApiVersion, &resourceBuildInfo, versionLogger.Named("TerraformDetails"))
+		dataForApiVersion, err := terraform.PopulateForResources(dataForApiVersion, resourceBuildInfo, input.ProviderPrefix, versionLogger)
 		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err))
-		}
-
-		versionLogger.Trace("generating Terraform Tests")
-		dataForApiVersion, err = task.generateTerraformTests(dataForApiVersion, input.ProviderPrefix, versionLogger.Named("TerraformTests"))
-		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Tests for Service %q / Version %q: %+v", serviceName, apiVersion, err))
-		}
-
-		versionLogger.Trace("Generating Example Usage from the Terraform Tests")
-		dataForApiVersion, err = task.generateTerraformExampleUsage(dataForApiVersion)
-		if err != nil {
-			return fmt.Errorf(fmt.Sprintf("generating Terraform Example Usage for Service %q / Version %q: %+v", serviceName, apiVersion, err))
+			return fmt.Errorf("populating Terraform Details for Service %q / Version %q: %+v", serviceName, apiVersion, err)
 		}
 
 		apiVersions = append(apiVersions, *dataForApiVersion)
