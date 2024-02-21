@@ -10,10 +10,13 @@ import (
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/transformer"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func runImporter(input RunInput, generationData []discovery.ServiceInput, swaggerGitSha string) error {
@@ -60,7 +63,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 
 func runImportForService(input RunInput, serviceName string, apiVersionsForService []discovery.ServiceInput, logger hclog.Logger, swaggerGitSha string) error {
 	task := pipelineTask{}
-	apiVersions := make([]models.AzureApiDefinition, 0)
+	apiVersions := make([]importerModels.AzureApiDefinition, 0)
 	var resourceProvider *string
 	var terraformPackageName *string
 
@@ -89,10 +92,10 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		}
 
 		versionLogger.Trace("Task: Parsing Data..")
-		dataForApiVersion := &models.AzureApiDefinition{
+		dataForApiVersion := &importerModels.AzureApiDefinition{
 			ServiceName: serviceName,
 			ApiVersion:  apiVersion,
-			Resources:   map[string]models.AzureApiResource{},
+			Resources:   map[string]importerModels.AzureApiResource{},
 		}
 		for _, v := range api {
 			tempDataForApiVersion, err := task.parseDataForApiVersion(v, versionLogger)
@@ -107,22 +110,22 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 			}
 		}
 
-		resourceBuildInfo := make(map[string]models.ResourceBuildInfo)
+		resourceBuildInfo := make(map[string]importerModels.ResourceBuildInfo)
 
 		if api[0].TerraformServiceDefinition != nil {
 			for _, versionDetails := range api[0].TerraformServiceDefinition.ApiVersions {
 				for _, pkgDetails := range versionDetails.Packages {
 					for resource, resourceDetails := range pkgDetails.Definitions {
 						if resourceDetails.Overrides != nil {
-							overrides := make([]models.Override, 0)
+							overrides := make([]importerModels.Override, 0)
 							for _, o := range *resourceDetails.Overrides {
-								overrides = append(overrides, models.Override{
+								overrides = append(overrides, importerModels.Override{
 									Name:        o.Name,
 									UpdatedName: o.UpdatedName,
 									Description: o.Description,
 								})
 							}
-							resourceBuildInfo[resource] = models.ResourceBuildInfo{
+							resourceBuildInfo[resource] = importerModels.ResourceBuildInfo{
 								Overrides: overrides,
 							}
 						}
@@ -140,9 +143,19 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		apiVersions = append(apiVersions, *dataForApiVersion)
 	}
 
+	// temporary glue to enable refactoring this tool piece-by-piece
+	logger.Info("Transforming to the Data API SDK types..")
+	service, err := transformer.MapInternalTypesToDataAPISDKTypes(apiVersions, resourceProvider, terraformPackageName, logger)
+	if err != nil {
+		return fmt.Errorf("transforming the internal types to the Data API SDK types: %+v", err)
+	}
+
+	sourceDataType := models.ResourceManagerSourceDataType
+	sourceDataOrigin := models.AzureRestAPISpecsSourceDataOrigin
+
 	// Now that we have the populated data, let's go ahead and output that..
 	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
-	if err := dataapigeneratorjson.Run(apiVersions, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger); err != nil {
+	if err := dataapigeneratorjson.Run(serviceName, *service, sourceDataOrigin, sourceDataType, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger); err != nil {
 		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 
