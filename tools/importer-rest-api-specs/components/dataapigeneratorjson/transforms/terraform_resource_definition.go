@@ -31,7 +31,8 @@ func MapTerraformResourceDefinitionToRepository(resourceLabel string, input reso
 		ResourceIdName:               input.ResourceIdName,
 		// todo remove Schema when https://github.com/hashicorp/pandora/issues/3346 is addressed
 		SchemaModelName: fmt.Sprintf("%sSchema", input.SchemaModelName),
-		UpdateMethod:    nil,
+		// TODO: output tests here
+		UpdateMethod: nil,
 	}
 	if input.UpdateMethod != nil {
 		mapped := mapTerraformMethodDefinitionToRepository(*input.UpdateMethod)

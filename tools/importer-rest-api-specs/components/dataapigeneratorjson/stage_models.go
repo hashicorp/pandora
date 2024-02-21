@@ -5,10 +5,11 @@ package dataapigeneratorjson
 
 import (
 	"fmt"
+	"path/filepath"
+
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson/transforms"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-	"path/filepath"
 )
 
 var _ generatorStage = generateModelsStage{}

@@ -1,3 +1,6 @@
+// Copyright (c) HashiCorp, Inc.
+// SPDX-License-Identifier: MPL-2.0
+
 package dataapigeneratorjson
 
 import (
@@ -6,10 +9,13 @@ import (
 	"os"
 	"path/filepath"
 	"sort"
+	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
+
+var directoryPermissions = os.FileMode(0755)
 
 // filePath is a typealias to make it clearer what's being returned from this generationStage.
 // This represents the path to a file on disk
@@ -39,13 +45,28 @@ func (f *fileSystem) stage(path filePath, body any) error {
 		return fmt.Errorf("a duplicate file exists at the path %q", path)
 	}
 
-	bytes, err := json.MarshalIndent(body, "", "\t")
-	if err != nil {
-		return fmt.Errorf("marshalling file body for %q as json: %+v", path, err)
+	fileExtension := strings.ToLower(filepath.Ext(path))
+	if fileExtension == ".hcl" {
+		str, ok := body.(string)
+		if !ok {
+			return fmt.Errorf("`body` must be a string for an `*.hcl` file but got %T", body)
+		}
+
+		f.f[path] = []byte(str)
+		return nil
 	}
 
-	f.f[path] = bytes
-	return nil
+	if fileExtension == ".json" {
+		bytes, err := json.MarshalIndent(body, "", "\t")
+		if err != nil {
+			return fmt.Errorf("marshalling file body for %q as json: %+v", path, err)
+		}
+
+		f.f[path] = bytes
+		return nil
+	}
+
+	return fmt.Errorf("internal-error: unexpected file extension %q for %q", fileExtension, path)
 }
 
 func persistFileSystem(workingDirectory string, dataType models.SourceDataType, serviceName string, input *fileSystem, logger hclog.Logger) error {
@@ -53,9 +74,10 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 
 	// Delete any existing directory with this service name
 	serviceDir := filepath.Join(rootDir, serviceName)
-	logger.Debug(fmt.Sprintf("Recreating Directory for Service %q", serviceName))
-	if err := RecreateDirectory(serviceDir, logger); err != nil {
-		return fmt.Errorf("recreating Service Directory %q: %+v", serviceDir, err)
+	logger.Debug(fmt.Sprintf("Removing any existing Directory for Service %q", serviceName))
+	_ = os.RemoveAll(serviceDir)
+	if err := os.MkdirAll(serviceDir, directoryPermissions); err != nil {
+		return fmt.Errorf("recreating directory %q: %+v", serviceDir, err)
 	}
 
 	// pull out a list of directories
@@ -63,7 +85,7 @@ func persistFileSystem(workingDirectory string, dataType models.SourceDataType, 
 	logger.Debug(fmt.Sprintf("Creating directories for Service %q", serviceName))
 	for _, dir := range directories {
 		dirPath := filepath.Join(rootDir, dir)
-		if err := os.MkdirAll(dirPath, os.FileMode(0755)); err != nil {
+		if err := os.MkdirAll(dirPath, directoryPermissions); err != nil {
 			return fmt.Errorf("creating directory %q: %+v", dirPath, err)
 		}
 	}

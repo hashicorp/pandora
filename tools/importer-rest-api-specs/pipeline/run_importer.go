@@ -5,11 +5,11 @@ package pipeline
 
 import (
 	"fmt"
+	"os"
 	"path"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
@@ -44,7 +44,7 @@ func runImporter(input RunInput, generationData []discovery.ServiceInput, swagge
 
 		serviceDirectory := path.Join(input.OutputDirectory, serviceName)
 		logger.Debug("recreating the working directory at %q for Service %q", serviceDirectory, serviceName)
-		if err := dataapigeneratorjson.RecreateDirectory(serviceDirectory, logger); err != nil {
+		if err := recreateDirectory(serviceDirectory, logger); err != nil {
 			return fmt.Errorf("recreating directory %q for service %q", serviceDirectory, serviceName)
 		}
 
@@ -157,5 +157,18 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
 	}
 
+	return nil
+}
+
+func recreateDirectory(directory string, logger hclog.Logger) error {
+	logger.Trace(fmt.Sprintf("Deleting any existing directory at %q..", directory))
+	if err := os.RemoveAll(directory); err != nil {
+		return fmt.Errorf("removing any existing directory at %q: %+v", directory, err)
+	}
+	logger.Trace(fmt.Sprintf("(Re)Creating the directory at %q..", directory))
+	if err := os.MkdirAll(directory, os.FileMode(0755)); err != nil {
+		return fmt.Errorf("creating directory %q: %+v", directory, err)
+	}
+	logger.Trace(fmt.Sprintf("Created Directory at %q", directory))
 	return nil
 }
