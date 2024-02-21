@@ -5,10 +5,10 @@ package schema
 
 import (
 	"fmt"
+	helpers2 "github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
@@ -76,7 +76,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 			// since this is included in the Resource ID it's implicitly Required/ForceNew
 			Required: true,
 			ForceNew: true,
-			HclName:  helpers.ConvertToSnakeCase(parentResourceIdName),
+			HclName:  helpers2.ConvertToSnakeCase(parentResourceIdName),
 			Documentation: resourcemanager.TerraformSchemaDocumentationDefinition{
 				Markdown: descriptionForResourceIDSegment(parentResourceIdName, displayName, overrides),
 			},
@@ -124,7 +124,7 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 				}
 			}
 
-			hclName := helpers.ConvertToSnakeCase(fieldName)
+			hclName := helpers2.ConvertToSnakeCase(fieldName)
 
 			field := resourcemanager.TerraformSchemaFieldDefinition{
 				ObjectDefinition: resourcemanager.TerraformSchemaFieldObjectDefinition{
@@ -160,12 +160,12 @@ func (b Builder) identifyTopLevelFieldsWithinResourceID(input resourcemanager.Re
 func descriptionForResourceIDSegment(input, resourceDisplayName string, overrides []models.Override) string {
 	if overrides != nil && len(overrides) > 0 {
 		for _, o := range overrides {
-			if o.UpdatedName != nil && strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {
+			if o.UpdatedName != nil && strings.EqualFold(input, helpers2.ConvertFromSnakeToTitleCase(*o.UpdatedName)) {
 				if o.Description != nil {
 					return *o.Description
 				}
 			}
-			if strings.EqualFold(input, helpers.ConvertFromSnakeToTitleCase(o.Name)) {
+			if strings.EqualFold(input, helpers2.ConvertFromSnakeToTitleCase(o.Name)) {
 				if o.Description != nil {
 					return *o.Description
 				}
