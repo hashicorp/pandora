@@ -1,27 +1,27 @@
 {
- "name": "PercentileListMetrics",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": false,
-   "queryString": "$filter",
-   "required": true,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "DatabaseAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PercentileMetricListResult"
- },
- "uriSuffix": "/percentile/metrics"
+  "name": "PercentileListMetrics",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "$filter",
+      "required": true,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "DatabaseAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PercentileMetricListResult"
+  },
+  "uriSuffix": "/percentile/metrics"
 }

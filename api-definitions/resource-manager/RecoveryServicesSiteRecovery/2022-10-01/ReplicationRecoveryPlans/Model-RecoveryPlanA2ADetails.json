@@ -1,56 +1,56 @@
 {
- "name": "RecoveryPlanA2ADetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryExtendedLocation",
-   "name": "PrimaryExtendedLocation",
-   "objectDefinition": {
-    "type": "EdgeZone",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryZone",
-   "name": "PrimaryZone",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryExtendedLocation",
-   "name": "RecoveryExtendedLocation",
-   "objectDefinition": {
-    "type": "EdgeZone",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryZone",
-   "name": "RecoveryZone",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RecoveryPlanProviderSpecificDetails",
- "discriminatedTypeValue": "A2A",
- "typeHintIn": "InstanceType"
+  "name": "RecoveryPlanA2ADetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryExtendedLocation",
+      "name": "PrimaryExtendedLocation",
+      "objectDefinition": {
+        "type": "EdgeZone",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryZone",
+      "name": "PrimaryZone",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryExtendedLocation",
+      "name": "RecoveryExtendedLocation",
+      "objectDefinition": {
+        "type": "EdgeZone",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryZone",
+      "name": "RecoveryZone",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "RecoveryPlanProviderSpecificDetails",
+  "discriminatedTypeValue": "A2A",
+  "typeHintIn": "InstanceType"
 }

@@ -1,21 +1,21 @@
 {
- "name": "ScheduleEntries",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "scheduleEntries",
-   "name": "ScheduleEntries",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ScheduleEntry"
+  "name": "ScheduleEntries",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "scheduleEntries",
+      "name": "ScheduleEntries",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ScheduleEntry"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

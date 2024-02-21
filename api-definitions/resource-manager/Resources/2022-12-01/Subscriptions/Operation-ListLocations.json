@@ -1,27 +1,27 @@
 {
- "name": "ListLocations",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "includeExtendedLocations",
-   "required": false,
-   "field": "IncludeExtendedLocations",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "LocationListResult"
- },
- "uriSuffix": "/locations"
+  "name": "ListLocations",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "includeExtendedLocations",
+      "required": false,
+      "field": "IncludeExtendedLocations",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "LocationListResult"
+  },
+  "uriSuffix": "/locations"
 }

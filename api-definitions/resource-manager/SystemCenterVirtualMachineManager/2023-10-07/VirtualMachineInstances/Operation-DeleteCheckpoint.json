@@ -1,15 +1,15 @@
 {
- "name": "DeleteCheckpoint",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachineDeleteCheckpoint"
- },
- "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/deleteCheckpoint"
+  "name": "DeleteCheckpoint",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineDeleteCheckpoint"
+  },
+  "uriSuffix": "/providers/Microsoft.ScVmm/virtualMachineInstances/default/deleteCheckpoint"
 }

@@ -1,21 +1,21 @@
 {
- "name": "UpdateRunStrategy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "stages",
-   "name": "Stages",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "UpdateStage"
+  "name": "UpdateRunStrategy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stages",
+      "name": "Stages",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UpdateStage"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

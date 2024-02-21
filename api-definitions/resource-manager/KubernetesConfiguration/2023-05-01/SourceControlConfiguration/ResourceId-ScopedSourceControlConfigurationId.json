@@ -1,29 +1,29 @@
 {
- "name": "ScopedSourceControlConfigurationId",
- "id": "/{scope}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/{sourceControlConfigurationName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftKubernetesConfiguration",
-   "type": "ResourceProvider",
-   "value": "Microsoft.KubernetesConfiguration"
-  },
-  {
-   "name": "staticSourceControlConfigurations",
-   "type": "Static",
-   "value": "sourceControlConfigurations"
-  },
-  {
-   "name": "sourceControlConfigurationName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedSourceControlConfigurationId",
+  "id": "/{scope}/providers/Microsoft.KubernetesConfiguration/sourceControlConfigurations/{sourceControlConfigurationName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftKubernetesConfiguration",
+      "type": "ResourceProvider",
+      "value": "Microsoft.KubernetesConfiguration"
+    },
+    {
+      "name": "staticSourceControlConfigurations",
+      "type": "Static",
+      "value": "sourceControlConfigurations"
+    },
+    {
+      "name": "sourceControlConfigurationName",
+      "type": "UserSpecified"
+    }
+  ]
 }

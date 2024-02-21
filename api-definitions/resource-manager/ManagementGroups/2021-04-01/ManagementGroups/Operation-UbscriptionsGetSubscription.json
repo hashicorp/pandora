@@ -1,26 +1,26 @@
 {
- "name": "UbscriptionsGetSubscription",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "headerName": "Cache-Control",
-   "optional": true,
-   "required": false,
-   "field": "CacheControl",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "UbscriptionsGetSubscription",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "headerName": "Cache-Control",
+      "optional": true,
+      "required": false,
+      "field": "CacheControl",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SubscriptionUnderManagementGroup"
   }
- ],
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SubscriptionUnderManagementGroup"
- }
 }

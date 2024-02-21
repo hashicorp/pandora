@@ -1,29 +1,29 @@
 {
- "name": "ScopedScheduledActionId",
- "id": "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{scheduledActionName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftCostManagement",
-   "type": "ResourceProvider",
-   "value": "Microsoft.CostManagement"
-  },
-  {
-   "name": "staticScheduledActions",
-   "type": "Static",
-   "value": "scheduledActions"
-  },
-  {
-   "name": "scheduledActionName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedScheduledActionId",
+  "id": "/{scope}/providers/Microsoft.CostManagement/scheduledActions/{scheduledActionName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCostManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CostManagement"
+    },
+    {
+      "name": "staticScheduledActions",
+      "type": "Static",
+      "value": "scheduledActions"
+    },
+    {
+      "name": "scheduledActionName",
+      "type": "UserSpecified"
+    }
+  ]
 }

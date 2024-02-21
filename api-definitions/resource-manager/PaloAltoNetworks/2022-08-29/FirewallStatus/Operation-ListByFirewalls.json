@@ -1,16 +1,16 @@
 {
- "name": "ListByFirewalls",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "FirewallId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "FirewallStatusResource"
- },
- "uriSuffix": "/statuses"
+  "name": "ListByFirewalls",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "FirewallId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FirewallStatusResource"
+  },
+  "uriSuffix": "/statuses"
 }

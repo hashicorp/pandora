@@ -1,19 +1,19 @@
 {
- "name": "CreateOrUpdateAtTenantScope",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "DeploymentId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ScopedDeployment"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DeploymentExtended"
- }
+  "name": "CreateOrUpdateAtTenantScope",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "DeploymentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ScopedDeployment"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DeploymentExtended"
+  }
 }

@@ -1,16 +1,16 @@
 {
- "name": "ListByHostGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "DedicatedHostGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DedicatedHost"
- },
- "uriSuffix": "/hosts"
+  "name": "ListByHostGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DedicatedHostGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DedicatedHost"
+  },
+  "uriSuffix": "/hosts"
 }

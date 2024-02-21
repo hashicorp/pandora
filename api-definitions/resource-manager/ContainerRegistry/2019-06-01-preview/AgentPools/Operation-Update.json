@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "AgentPoolId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "AgentPoolUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AgentPool"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "AgentPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AgentPoolUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AgentPool"
+  }
 }

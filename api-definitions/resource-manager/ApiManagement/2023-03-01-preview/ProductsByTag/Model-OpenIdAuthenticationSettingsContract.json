@@ -1,33 +1,33 @@
 {
- "name": "OpenIdAuthenticationSettingsContract",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "bearerTokenSendingMethods",
-   "name": "BearerTokenSendingMethods",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "BearerTokenSendingMethods"
+  "name": "OpenIdAuthenticationSettingsContract",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bearerTokenSendingMethods",
+      "name": "BearerTokenSendingMethods",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "BearerTokenSendingMethods"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "openidProviderId",
+      "name": "OpenidProviderId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "openidProviderId",
-   "name": "OpenidProviderId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,32 +1,32 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "KustoClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
   }
- ],
- "resourceIdName": "KustoClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterUpdate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Cluster"
- }
 }

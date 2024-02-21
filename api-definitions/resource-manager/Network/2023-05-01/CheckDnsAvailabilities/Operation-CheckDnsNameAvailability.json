@@ -1,27 +1,27 @@
 {
- "name": "CheckDnsNameAvailability",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": false,
-   "queryString": "domainNameLabel",
-   "required": true,
-   "field": "DomainNameLabel",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "LocationId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DnsNameAvailabilityResult"
- },
- "uriSuffix": "/checkDnsNameAvailability"
+  "name": "CheckDnsNameAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "domainNameLabel",
+      "required": true,
+      "field": "DomainNameLabel",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DnsNameAvailabilityResult"
+  },
+  "uriSuffix": "/checkDnsNameAvailability"
 }

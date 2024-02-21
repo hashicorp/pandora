@@ -1,69 +1,69 @@
 {
- "name": "SubProtectionPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policyType",
-   "name": "PolicyType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PolicyType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "retentionPolicy",
-   "name": "RetentionPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RetentionPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schedulePolicy",
-   "name": "SchedulePolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SchedulePolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "snapshotBackupAdditionalDetails",
-   "name": "SnapshotBackupAdditionalDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SnapshotBackupAdditionalDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tieringPolicy",
-   "name": "TieringPolicy",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "TieringPolicy"
+  "name": "SubProtectionPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policyType",
+      "name": "PolicyType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PolicyType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionPolicy",
+      "name": "RetentionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schedulePolicy",
+      "name": "SchedulePolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchedulePolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "snapshotBackupAdditionalDetails",
+      "name": "SnapshotBackupAdditionalDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SnapshotBackupAdditionalDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tieringPolicy",
+      "name": "TieringPolicy",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "TieringPolicy"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,20 +1,20 @@
 {
- "name": "IoTHubStreamInputDataSource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IoTHubStreamInputDataSourceProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "StreamInputDataSource",
- "discriminatedTypeValue": "Microsoft.Devices/IotHubs",
- "typeHintIn": "Type"
+  "name": "IoTHubStreamInputDataSource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IoTHubStreamInputDataSourceProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "StreamInputDataSource",
+  "discriminatedTypeValue": "Microsoft.Devices/IotHubs",
+  "typeHintIn": "Type"
 }

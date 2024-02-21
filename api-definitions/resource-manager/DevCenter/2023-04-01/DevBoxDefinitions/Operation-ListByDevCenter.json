@@ -1,16 +1,16 @@
 {
- "name": "ListByDevCenter",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "DevCenterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DevBoxDefinition"
- },
- "uriSuffix": "/devBoxDefinitions"
+  "name": "ListByDevCenter",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "DevCenterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DevBoxDefinition"
+  },
+  "uriSuffix": "/devBoxDefinitions"
 }

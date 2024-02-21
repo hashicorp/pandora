@@ -1,21 +1,21 @@
 {
- "name": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicIPPrefixes",
-   "name": "PublicIPPrefixes",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ResourceReference"
+  "name": "ManagedClusterLoadBalancerProfileOutboundIPPrefixes",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicIPPrefixes",
+      "name": "PublicIPPrefixes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ResourceReference"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

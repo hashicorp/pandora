@@ -1,16 +1,16 @@
 {
- "name": "ListMonitoredResources",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "MonitorId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "MonitoredResource"
- },
- "uriSuffix": "/monitoredResources"
+  "name": "ListMonitoredResources",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "MonitorId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "MonitoredResource"
+  },
+  "uriSuffix": "/monitoredResources"
 }

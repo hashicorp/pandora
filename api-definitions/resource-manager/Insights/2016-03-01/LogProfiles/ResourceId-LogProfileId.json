@@ -1,34 +1,34 @@
 {
- "name": "LogProfileId",
- "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/logProfiles/{logProfileName}",
- "segments": [
-  {
-   "name": "staticSubscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftInsights",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Insights"
-  },
-  {
-   "name": "staticLogProfiles",
-   "type": "Static",
-   "value": "logProfiles"
-  },
-  {
-   "name": "logProfileName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "LogProfileId",
+  "id": "/subscriptions/{subscriptionId}/providers/Microsoft.Insights/logProfiles/{logProfileName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftInsights",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Insights"
+    },
+    {
+      "name": "staticLogProfiles",
+      "type": "Static",
+      "value": "logProfiles"
+    },
+    {
+      "name": "logProfileName",
+      "type": "UserSpecified"
+    }
+  ]
 }

@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ManagedPrivateEndpointId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ManagedPrivateEndpointUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ManagedPrivateEndpointModel"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ManagedPrivateEndpointId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ManagedPrivateEndpointUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ManagedPrivateEndpointModel"
+  }
 }

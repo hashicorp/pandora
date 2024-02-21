@@ -1,70 +1,69 @@
 {
- "name": "PccRuleConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ruleName",
-   "name": "RuleName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rulePrecedence",
-   "name": "RulePrecedence",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ruleQosPolicy",
-   "name": "RuleQosPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PccRuleQosPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceDataFlowTemplates",
-   "name": "ServiceDataFlowTemplates",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ServiceDataFlowTemplate",
-     "minItems": 1
+  "name": "PccRuleConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ruleName",
+      "name": "RuleName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rulePrecedence",
+      "name": "RulePrecedence",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ruleQosPolicy",
+      "name": "RuleQosPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PccRuleQosPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceDataFlowTemplates",
+      "name": "ServiceDataFlowTemplates",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ServiceDataFlowTemplate"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "trafficControl",
+      "name": "TrafficControl",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TrafficControlPermission"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "trafficControl",
-   "name": "TrafficControl",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TrafficControlPermission"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

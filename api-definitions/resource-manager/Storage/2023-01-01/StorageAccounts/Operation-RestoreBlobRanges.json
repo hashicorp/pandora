@@ -1,20 +1,20 @@
 {
- "name": "RestoreBlobRanges",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "StorageAccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BlobRestoreParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BlobRestoreStatus"
- },
- "uriSuffix": "/restoreBlobRanges"
+  "name": "RestoreBlobRanges",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "StorageAccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BlobRestoreParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BlobRestoreStatus"
+  },
+  "uriSuffix": "/restoreBlobRanges"
 }

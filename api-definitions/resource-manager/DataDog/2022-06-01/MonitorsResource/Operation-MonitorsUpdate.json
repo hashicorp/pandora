@@ -1,19 +1,19 @@
 {
- "name": "MonitorsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "MonitorId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DatadogMonitorResourceUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DatadogMonitorResource"
- }
+  "name": "MonitorsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "MonitorId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DatadogMonitorResourceUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DatadogMonitorResource"
+  }
 }

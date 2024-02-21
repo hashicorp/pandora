@@ -1,16 +1,16 @@
 {
- "name": "GetAllRunAsAccountsInSite",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "HyperVSiteId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "HyperVRunAsAccount"
- },
- "uriSuffix": "/runAsAccounts"
+  "name": "GetAllRunAsAccountsInSite",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "HyperVSiteId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "HyperVRunAsAccount"
+  },
+  "uriSuffix": "/runAsAccounts"
 }

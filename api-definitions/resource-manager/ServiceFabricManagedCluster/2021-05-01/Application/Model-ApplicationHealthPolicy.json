@@ -1,57 +1,57 @@
 {
- "name": "ApplicationHealthPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "considerWarningAsError",
-   "name": "ConsiderWarningAsError",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultServiceTypeHealthPolicy",
-   "name": "DefaultServiceTypeHealthPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServiceTypeHealthPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxPercentUnhealthyDeployedApplications",
-   "name": "MaxPercentUnhealthyDeployedApplications",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serviceTypeHealthPolicyMap",
-   "name": "ServiceTypeHealthPolicyMap",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ServiceTypeHealthPolicy"
+  "name": "ApplicationHealthPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "considerWarningAsError",
+      "name": "ConsiderWarningAsError",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultServiceTypeHealthPolicy",
+      "name": "DefaultServiceTypeHealthPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServiceTypeHealthPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxPercentUnhealthyDeployedApplications",
+      "name": "MaxPercentUnhealthyDeployedApplications",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serviceTypeHealthPolicyMap",
+      "name": "ServiceTypeHealthPolicyMap",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ServiceTypeHealthPolicy"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

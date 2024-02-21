@@ -1,41 +1,41 @@
 {
- "name": "DataFlowDebugCommandRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "command",
-   "name": "Command",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataFlowDebugCommandType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "commandPayload",
-   "name": "CommandPayload",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataFlowDebugCommandPayload"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sessionId",
-   "name": "SessionId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DataFlowDebugCommandRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "command",
+      "name": "Command",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataFlowDebugCommandType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "commandPayload",
+      "name": "CommandPayload",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataFlowDebugCommandPayload"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sessionId",
+      "name": "SessionId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

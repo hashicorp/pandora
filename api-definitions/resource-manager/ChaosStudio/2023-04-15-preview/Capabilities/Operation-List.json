@@ -1,28 +1,28 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "continuationToken",
-   "required": false,
-   "field": "ContinuationToken",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ChaosStudioTargetId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Capability"
- },
- "uriSuffix": "/capabilities"
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "continuationToken",
+      "required": false,
+      "field": "ContinuationToken",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ChaosStudioTargetId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Capability"
+  },
+  "uriSuffix": "/capabilities"
 }

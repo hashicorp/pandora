@@ -1,29 +1,29 @@
 {
- "name": "AppLogsConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "destination",
-   "name": "Destination",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logAnalyticsConfiguration",
-   "name": "LogAnalyticsConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "LogAnalyticsConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AppLogsConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destination",
+      "name": "Destination",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logAnalyticsConfiguration",
+      "name": "LogAnalyticsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "LogAnalyticsConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

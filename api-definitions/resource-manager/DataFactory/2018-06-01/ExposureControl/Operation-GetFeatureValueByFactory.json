@@ -1,19 +1,19 @@
 {
- "name": "GetFeatureValueByFactory",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "FactoryId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ExposureControlRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ExposureControlResponse"
- },
- "uriSuffix": "/getFeatureValue"
+  "name": "GetFeatureValueByFactory",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "FactoryId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ExposureControlRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ExposureControlResponse"
+  },
+  "uriSuffix": "/getFeatureValue"
 }

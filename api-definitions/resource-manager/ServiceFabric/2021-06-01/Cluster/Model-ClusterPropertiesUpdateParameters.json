@@ -1,295 +1,295 @@
 {
- "name": "ClusterPropertiesUpdateParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "addOnFeatures",
-   "name": "AddOnFeatures",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AddOnFeatures"
+  "name": "ClusterPropertiesUpdateParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "addOnFeatures",
+      "name": "AddOnFeatures",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AddOnFeatures"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "applicationTypeVersionsCleanupPolicy",
+      "name": "ApplicationTypeVersionsCleanupPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplicationTypeVersionsCleanupPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificate",
+      "name": "Certificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CertificateDescription"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateCommonNames",
+      "name": "CertificateCommonNames",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerCertificateCommonNames"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientCertificateCommonNames",
+      "name": "ClientCertificateCommonNames",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ClientCertificateCommonName"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clientCertificateThumbprints",
+      "name": "ClientCertificateThumbprints",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ClientCertificateThumbprint"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterCodeVersion",
+      "name": "ClusterCodeVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "eventStoreServiceEnabled",
+      "name": "EventStoreServiceEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fabricSettings",
+      "name": "FabricSettings",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SettingsSectionDescription"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "infrastructureServiceManager",
+      "name": "InfrastructureServiceManager",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodeTypes",
+      "name": "NodeTypes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "NodeTypeDescription"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "notifications",
+      "name": "Notifications",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "Notification"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reliabilityLevel",
+      "name": "ReliabilityLevel",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReliabilityLevel"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reverseProxyCertificate",
+      "name": "ReverseProxyCertificate",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CertificateDescription"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sfZonalUpgradeMode",
+      "name": "SfZonalUpgradeMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SfZonalUpgradeMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeDescription",
+      "name": "UpgradeDescription",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterUpgradePolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeMode",
+      "name": "UpgradeMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpgradeMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradePauseEndTimestampUtc",
+      "name": "UpgradePauseEndTimestampUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradePauseStartTimestampUtc",
+      "name": "UpgradePauseStartTimestampUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "upgradeWave",
+      "name": "UpgradeWave",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterUpgradeCadence"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmssZonalUpgradeMode",
+      "name": "VMSSZonalUpgradeMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VMSSZonalUpgradeMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "waveUpgradePaused",
+      "name": "WaveUpgradePaused",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "applicationTypeVersionsCleanupPolicy",
-   "name": "ApplicationTypeVersionsCleanupPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplicationTypeVersionsCleanupPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "certificate",
-   "name": "Certificate",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CertificateDescription"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "certificateCommonNames",
-   "name": "CertificateCommonNames",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerCertificateCommonNames"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clientCertificateCommonNames",
-   "name": "ClientCertificateCommonNames",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ClientCertificateCommonName"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clientCertificateThumbprints",
-   "name": "ClientCertificateThumbprints",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ClientCertificateThumbprint"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterCodeVersion",
-   "name": "ClusterCodeVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "eventStoreServiceEnabled",
-   "name": "EventStoreServiceEnabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fabricSettings",
-   "name": "FabricSettings",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SettingsSectionDescription"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "infrastructureServiceManager",
-   "name": "InfrastructureServiceManager",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nodeTypes",
-   "name": "NodeTypes",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "NodeTypeDescription"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "notifications",
-   "name": "Notifications",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "Notification"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reliabilityLevel",
-   "name": "ReliabilityLevel",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReliabilityLevel"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reverseProxyCertificate",
-   "name": "ReverseProxyCertificate",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CertificateDescription"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sfZonalUpgradeMode",
-   "name": "SfZonalUpgradeMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SfZonalUpgradeMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradeDescription",
-   "name": "UpgradeDescription",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClusterUpgradePolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradeMode",
-   "name": "UpgradeMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpgradeMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradePauseEndTimestampUtc",
-   "name": "UpgradePauseEndTimestampUtc",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradePauseStartTimestampUtc",
-   "name": "UpgradePauseStartTimestampUtc",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "upgradeWave",
-   "name": "UpgradeWave",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClusterUpgradeCadence"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmssZonalUpgradeMode",
-   "name": "VMSSZonalUpgradeMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VMSSZonalUpgradeMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "waveUpgradePaused",
-   "name": "WaveUpgradePaused",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,16 +1,16 @@
 {
- "name": "ListWebWorkerUsages",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "WorkerPoolId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Usage"
- },
- "uriSuffix": "/usages"
+  "name": "ListWebWorkerUsages",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "WorkerPoolId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Usage"
+  },
+  "uriSuffix": "/usages"
 }

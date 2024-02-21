@@ -1,41 +1,41 @@
 {
- "name": "KubernetesRoleResources",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "compute",
-   "name": "Compute",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KubernetesRoleCompute"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "network",
-   "name": "Network",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KubernetesRoleNetwork"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storage",
-   "name": "Storage",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KubernetesRoleStorage"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "KubernetesRoleResources",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "compute",
+      "name": "Compute",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KubernetesRoleCompute"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "network",
+      "name": "Network",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KubernetesRoleNetwork"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storage",
+      "name": "Storage",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KubernetesRoleStorage"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

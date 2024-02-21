@@ -1,20 +1,20 @@
 {
- "name": "MailboxEntity",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MailboxEntityProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Entity",
- "discriminatedTypeValue": "Mailbox",
- "typeHintIn": "Kind"
+  "name": "MailboxEntity",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MailboxEntityProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "Entity",
+  "discriminatedTypeValue": "Mailbox",
+  "typeHintIn": "Kind"
 }

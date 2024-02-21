@@ -1,16 +1,16 @@
 {
- "name": "ListStreamingJobs",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ClusterJob"
- },
- "uriSuffix": "/listStreamingJobs"
+  "name": "ListStreamingJobs",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterJob"
+  },
+  "uriSuffix": "/listStreamingJobs"
 }

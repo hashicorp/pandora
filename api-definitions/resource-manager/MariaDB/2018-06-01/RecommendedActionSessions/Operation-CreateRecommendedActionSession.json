@@ -1,24 +1,24 @@
 {
- "name": "CreateRecommendedActionSession",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": false,
-   "queryString": "databaseName",
-   "required": true,
-   "field": "DatabaseName",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "AdvisorId",
- "uriSuffix": "/createRecommendedActionSession"
+  "name": "CreateRecommendedActionSession",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "databaseName",
+      "required": true,
+      "field": "DatabaseName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AdvisorId",
+  "uriSuffix": "/createRecommendedActionSession"
 }

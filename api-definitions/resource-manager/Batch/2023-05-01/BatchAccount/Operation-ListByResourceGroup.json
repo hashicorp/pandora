@@ -1,16 +1,16 @@
 {
- "name": "ListByResourceGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BatchAccount"
- },
- "uriSuffix": "/providers/Microsoft.Batch/batchAccounts"
+  "name": "ListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BatchAccount"
+  },
+  "uriSuffix": "/providers/Microsoft.Batch/batchAccounts"
 }

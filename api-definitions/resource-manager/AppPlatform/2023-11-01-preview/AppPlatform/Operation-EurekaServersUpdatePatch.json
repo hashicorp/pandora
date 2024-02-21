@@ -1,20 +1,20 @@
 {
- "name": "EurekaServersUpdatePatch",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "SpringCloudServiceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "EurekaServerResource"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "EurekaServerResource"
- },
- "uriSuffix": "/eurekaServers/default"
+  "name": "EurekaServersUpdatePatch",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "SpringCloudServiceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "EurekaServerResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "EurekaServerResource"
+  },
+  "uriSuffix": "/eurekaServers/default"
 }

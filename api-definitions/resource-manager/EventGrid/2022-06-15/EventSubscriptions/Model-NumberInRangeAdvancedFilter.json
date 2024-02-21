@@ -1,28 +1,28 @@
 {
- "name": "NumberInRangeAdvancedFilter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "List",
-     "referenceName": null,
-     "nestedItem": {
-      "type": "Float",
-      "referenceName": null
-     }
+  "name": "NumberInRangeAdvancedFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "List",
+          "referenceName": null,
+          "nestedItem": {
+            "type": "Float",
+            "referenceName": null
+          }
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AdvancedFilter",
- "discriminatedTypeValue": "NumberInRange",
- "typeHintIn": "OperatorType"
+  ],
+  "discriminatedParentModelName": "AdvancedFilter",
+  "discriminatedTypeValue": "NumberInRange",
+  "typeHintIn": "OperatorType"
 }

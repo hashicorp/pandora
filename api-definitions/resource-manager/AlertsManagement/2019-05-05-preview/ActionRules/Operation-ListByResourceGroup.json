@@ -1,118 +1,118 @@
 {
- "name": "ListByResourceGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "actionGroup",
-   "required": false,
-   "field": "ActionGroup",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "alertRuleId",
-   "required": false,
-   "field": "AlertRuleId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "description",
-   "required": false,
-   "field": "Description",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "impactedScope",
-   "required": false,
-   "field": "ImpactedScope",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "monitorService",
-   "required": false,
-   "field": "MonitorService",
-   "optionsObjectDefinition": {
+  "name": "ListByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "actionGroup",
+      "required": false,
+      "field": "ActionGroup",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "alertRuleId",
+      "required": false,
+      "field": "AlertRuleId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "description",
+      "required": false,
+      "field": "Description",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "impactedScope",
+      "required": false,
+      "field": "ImpactedScope",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "monitorService",
+      "required": false,
+      "field": "MonitorService",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitorService"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "name",
+      "required": false,
+      "field": "Name",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "severity",
+      "required": false,
+      "field": "Severity",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "Severity"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResource",
+      "required": false,
+      "field": "TargetResource",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResourceGroup",
+      "required": false,
+      "field": "TargetResourceGroup",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "targetResourceType",
+      "required": false,
+      "field": "TargetResourceType",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "MonitorService"
-   }
+    "referenceName": "ActionRule"
   },
-  {
-   "optional": true,
-   "queryString": "name",
-   "required": false,
-   "field": "Name",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "severity",
-   "required": false,
-   "field": "Severity",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "Severity"
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResource",
-   "required": false,
-   "field": "TargetResource",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResourceGroup",
-   "required": false,
-   "field": "TargetResourceGroup",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "targetResourceType",
-   "required": false,
-   "field": "TargetResourceType",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ActionRule"
- },
- "uriSuffix": "/providers/Microsoft.AlertsManagement/actionRules"
+  "uriSuffix": "/providers/Microsoft.AlertsManagement/actionRules"
 }

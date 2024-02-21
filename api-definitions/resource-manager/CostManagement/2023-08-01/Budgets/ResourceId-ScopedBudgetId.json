@@ -1,29 +1,29 @@
 {
- "name": "ScopedBudgetId",
- "id": "/{scope}/providers/Microsoft.CostManagement/budgets/{budgetName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftCostManagement",
-   "type": "ResourceProvider",
-   "value": "Microsoft.CostManagement"
-  },
-  {
-   "name": "staticBudgets",
-   "type": "Static",
-   "value": "budgets"
-  },
-  {
-   "name": "budgetName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedBudgetId",
+  "id": "/{scope}/providers/Microsoft.CostManagement/budgets/{budgetName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftCostManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.CostManagement"
+    },
+    {
+      "name": "staticBudgets",
+      "type": "Static",
+      "value": "budgets"
+    },
+    {
+      "name": "budgetName",
+      "type": "UserSpecified"
+    }
+  ]
 }

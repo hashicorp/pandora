@@ -1,37 +1,37 @@
 {
- "name": "ListPredefinedUrlCategories",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "skip",
-   "required": false,
-   "field": "Skip",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListPredefinedUrlCategories",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "LocalRulestackId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PredefinedUrlCategoriesResponse"
   },
-  {
-   "optional": true,
-   "queryString": "top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "LocalRulestackId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PredefinedUrlCategoriesResponse"
- },
- "uriSuffix": "/listPredefinedUrlCategories"
+  "uriSuffix": "/listPredefinedUrlCategories"
 }

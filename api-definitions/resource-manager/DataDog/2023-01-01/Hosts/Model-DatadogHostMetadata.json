@@ -1,41 +1,41 @@
 {
- "name": "DatadogHostMetadata",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "agentVersion",
-   "name": "AgentVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "installMethod",
-   "name": "InstallMethod",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DatadogInstallMethod"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logsAgent",
-   "name": "LogsAgent",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DatadogLogsAgent"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DatadogHostMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "agentVersion",
+      "name": "AgentVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "installMethod",
+      "name": "InstallMethod",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatadogInstallMethod"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logsAgent",
+      "name": "LogsAgent",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatadogLogsAgent"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

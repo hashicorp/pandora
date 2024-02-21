@@ -1,29 +1,29 @@
 {
- "name": "NWRuleSetVirtualNetworkRules",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ignoreMissingVnetServiceEndpoint",
-   "name": "IgnoreMissingVnetServiceEndpoint",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnet",
-   "name": "Subnet",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Subnet"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "NWRuleSetVirtualNetworkRules",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ignoreMissingVnetServiceEndpoint",
+      "name": "IgnoreMissingVnetServiceEndpoint",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnet",
+      "name": "Subnet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Subnet"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

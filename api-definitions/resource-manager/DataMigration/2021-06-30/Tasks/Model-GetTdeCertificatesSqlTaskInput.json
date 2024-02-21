@@ -1,45 +1,45 @@
 {
- "name": "GetTdeCertificatesSqlTaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "backupFileShare",
-   "name": "BackupFileShare",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileShare"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "connectionInfo",
-   "name": "ConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "selectedCertificates",
-   "name": "SelectedCertificates",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SelectedCertificateInput"
+  "name": "GetTdeCertificatesSqlTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "backupFileShare",
+      "name": "BackupFileShare",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileShare"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connectionInfo",
+      "name": "ConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "selectedCertificates",
+      "name": "SelectedCertificates",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SelectedCertificateInput"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

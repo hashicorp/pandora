@@ -1,45 +1,45 @@
 {
- "name": "MigrationSubStateDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "currentSubState",
-   "name": "CurrentSubState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MigrationSubState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dbDetails",
-   "name": "DbDetails",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DbMigrationStatus"
+  "name": "MigrationSubStateDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "currentSubState",
+      "name": "CurrentSubState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrationSubState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dbDetails",
+      "name": "DbDetails",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DbMigrationStatus"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validationDetails",
+      "name": "ValidationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validationDetails",
-   "name": "ValidationDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

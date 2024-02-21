@@ -1,20 +1,20 @@
 {
- "name": "AutomationRuleRunPlaybookAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "actionConfiguration",
-   "name": "ActionConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomationRuleRunPlaybookActionActionConfiguration"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutomationRuleAction",
- "discriminatedTypeValue": "RunPlaybook",
- "typeHintIn": "ActionType"
+  "name": "AutomationRuleRunPlaybookAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionConfiguration",
+      "name": "ActionConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRuleRunPlaybookActionActionConfiguration"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "AutomationRuleAction",
+  "discriminatedTypeValue": "RunPlaybook",
+  "typeHintIn": "ActionType"
 }

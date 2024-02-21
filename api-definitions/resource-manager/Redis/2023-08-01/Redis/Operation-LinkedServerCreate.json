@@ -1,19 +1,19 @@
 {
- "name": "LinkedServerCreate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "LinkedServerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RedisLinkedServerCreateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RedisLinkedServerWithProperties"
- }
+  "name": "LinkedServerCreate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "LinkedServerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RedisLinkedServerCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RedisLinkedServerWithProperties"
+  }
 }

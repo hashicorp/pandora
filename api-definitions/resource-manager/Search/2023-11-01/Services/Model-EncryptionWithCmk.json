@@ -1,29 +1,29 @@
 {
- "name": "EncryptionWithCmk",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encryptionComplianceStatus",
-   "name": "EncryptionComplianceStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SearchEncryptionComplianceStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enforcement",
-   "name": "Enforcement",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SearchEncryptionWithCmk"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "EncryptionWithCmk",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encryptionComplianceStatus",
+      "name": "EncryptionComplianceStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SearchEncryptionComplianceStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enforcement",
+      "name": "Enforcement",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SearchEncryptionWithCmk"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

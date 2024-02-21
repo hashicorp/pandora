@@ -1,20 +1,20 @@
 {
- "name": "ThreatIntelligenceIndicatorModel",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ThreatIntelligenceIndicatorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ThreatIntelligenceInformation",
- "discriminatedTypeValue": "indicator",
- "typeHintIn": "Kind"
+  "name": "ThreatIntelligenceIndicatorModel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ThreatIntelligenceIndicatorProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ThreatIntelligenceInformation",
+  "discriminatedTypeValue": "indicator",
+  "typeHintIn": "Kind"
 }

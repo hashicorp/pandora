@@ -1,16 +1,16 @@
 {
- "name": "ListByConfigurationStore",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ConfigurationStoreId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateLinkResource"
- },
- "uriSuffix": "/privateLinkResources"
+  "name": "ListByConfigurationStore",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ConfigurationStoreId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateLinkResource"
+  },
+  "uriSuffix": "/privateLinkResources"
 }

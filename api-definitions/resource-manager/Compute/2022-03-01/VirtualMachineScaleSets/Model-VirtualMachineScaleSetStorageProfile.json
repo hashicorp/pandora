@@ -1,45 +1,45 @@
 {
- "name": "VirtualMachineScaleSetStorageProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataDisks",
-   "name": "DataDisks",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "VirtualMachineScaleSetDataDisk"
+  "name": "VirtualMachineScaleSetStorageProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataDisks",
+      "name": "DataDisks",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "VirtualMachineScaleSetDataDisk"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageReference",
+      "name": "ImageReference",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImageReference"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osDisk",
+      "name": "OsDisk",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachineScaleSetOSDisk"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "imageReference",
-   "name": "ImageReference",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ImageReference"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osDisk",
-   "name": "OsDisk",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachineScaleSetOSDisk"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

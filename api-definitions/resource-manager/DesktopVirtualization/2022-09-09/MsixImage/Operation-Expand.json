@@ -1,20 +1,20 @@
 {
- "name": "Expand",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "HostPoolId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "MSIXImageURI"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ExpandMsixImage"
- },
- "uriSuffix": "/expandMsixImage"
+  "name": "Expand",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "HostPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MSIXImageURI"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ExpandMsixImage"
+  },
+  "uriSuffix": "/expandMsixImage"
 }

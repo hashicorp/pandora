@@ -1,95 +1,93 @@
 {
- "name": "ManagedClusterSecurityProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "azureKeyVaultKms",
-   "name": "AzureKeyVaultKms",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AzureKeyVaultKms"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customCATrustCertificates",
-   "name": "CustomCATrustCertificates",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null,
-     "maxItems": 10,
-     "minItems": 0
+  "name": "ManagedClusterSecurityProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "azureKeyVaultKms",
+      "name": "AzureKeyVaultKms",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AzureKeyVaultKms"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customCATrustCertificates",
+      "name": "CustomCATrustCertificates",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defender",
+      "name": "Defender",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterSecurityProfileDefender"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageCleaner",
+      "name": "ImageCleaner",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterSecurityProfileImageCleaner"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageIntegrity",
+      "name": "ImageIntegrity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterSecurityProfileImageIntegrity"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodeRestriction",
+      "name": "NodeRestriction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterSecurityProfileNodeRestriction"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workloadIdentity",
+      "name": "WorkloadIdentity",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defender",
-   "name": "Defender",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterSecurityProfileDefender"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "imageCleaner",
-   "name": "ImageCleaner",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterSecurityProfileImageCleaner"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "imageIntegrity",
-   "name": "ImageIntegrity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterSecurityProfileImageIntegrity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nodeRestriction",
-   "name": "NodeRestriction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterSecurityProfileNodeRestriction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workloadIdentity",
-   "name": "WorkloadIdentity",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterSecurityProfileWorkloadIdentity"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

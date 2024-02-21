@@ -1,41 +1,41 @@
 {
- "name": "KeyVaultCertificateSourceParameters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secretName",
-   "name": "SecretName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "secretVersion",
-   "name": "SecretVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vault",
-   "name": "Vault",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KeyVaultCertificateSourceParametersVault"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "KeyVaultCertificateSourceParameters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secretName",
+      "name": "SecretName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "secretVersion",
+      "name": "SecretVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vault",
+      "name": "Vault",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KeyVaultCertificateSourceParametersVault"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

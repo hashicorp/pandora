@@ -1,49 +1,49 @@
 {
- "name": "VnetRoute",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "bgpConnections",
-   "name": "BgpConnections",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SubResource"
+  "name": "VnetRoute",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "bgpConnections",
+      "name": "BgpConnections",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResource"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "staticRoutes",
+      "name": "StaticRoutes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "StaticRoute"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "staticRoutesConfig",
+      "name": "StaticRoutesConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StaticRoutesConfig"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "staticRoutes",
-   "name": "StaticRoutes",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "StaticRoute"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "staticRoutesConfig",
-   "name": "StaticRoutesConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StaticRoutesConfig"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

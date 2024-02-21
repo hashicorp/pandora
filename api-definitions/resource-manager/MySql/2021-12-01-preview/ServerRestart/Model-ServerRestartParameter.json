@@ -1,29 +1,29 @@
 {
- "name": "ServerRestartParameter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maxFailoverSeconds",
-   "name": "MaxFailoverSeconds",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restartWithFailover",
-   "name": "RestartWithFailover",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EnableStatusEnum"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ServerRestartParameter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maxFailoverSeconds",
+      "name": "MaxFailoverSeconds",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restartWithFailover",
+      "name": "RestartWithFailover",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EnableStatusEnum"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

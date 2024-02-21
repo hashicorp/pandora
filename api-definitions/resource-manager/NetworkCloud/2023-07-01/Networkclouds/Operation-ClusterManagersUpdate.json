@@ -1,18 +1,18 @@
 {
- "name": "ClusterManagersUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PATCH",
- "resourceIdName": "ClusterManagerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterManagerPatchParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ClusterManager"
- }
+  "name": "ClusterManagersUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ClusterManagerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterManagerPatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ClusterManager"
+  }
 }

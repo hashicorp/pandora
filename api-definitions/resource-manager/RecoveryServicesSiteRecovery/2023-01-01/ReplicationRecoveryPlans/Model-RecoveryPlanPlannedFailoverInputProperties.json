@@ -1,33 +1,33 @@
 {
- "name": "RecoveryPlanPlannedFailoverInputProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failoverDirection",
-   "name": "FailoverDirection",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PossibleOperationsDirections"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "providerSpecificDetails",
-   "name": "ProviderSpecificDetails",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RecoveryPlanProviderSpecificFailoverInput"
+  "name": "RecoveryPlanPlannedFailoverInputProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failoverDirection",
+      "name": "FailoverDirection",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PossibleOperationsDirections"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "providerSpecificDetails",
+      "name": "ProviderSpecificDetails",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RecoveryPlanProviderSpecificFailoverInput"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

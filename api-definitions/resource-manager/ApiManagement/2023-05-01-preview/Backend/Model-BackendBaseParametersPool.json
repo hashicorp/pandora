@@ -1,22 +1,21 @@
 {
- "name": "BackendBaseParametersPool",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "services",
-   "name": "Services",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "BackendPoolItem",
-     "minItems": 1
+  "name": "BackendBaseParametersPool",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "services",
+      "name": "Services",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "BackendPoolItem"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }
