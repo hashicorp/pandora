@@ -10,11 +10,12 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefinition, error) {
+func ParseSwaggerFileForTesting(t *testing.T, file string) (*importerModels.AzureApiDefinition, error) {
 	// TODO: make this function private
 	parsed, err := load("testdata/", file, hclog.New(hclog.DefaultOptions))
 	if err != nil {
@@ -35,7 +36,7 @@ func ParseSwaggerFileForTesting(t *testing.T, file string) (*models.AzureApiDefi
 	return out, nil
 }
 
-func validateParsedSwaggerResultMatches(t *testing.T, expected models.AzureApiDefinition, actual *models.AzureApiDefinition) {
+func validateParsedSwaggerResultMatches(t *testing.T, expected importerModels.AzureApiDefinition, actual *importerModels.AzureApiDefinition) {
 	if actual == nil {
 		t.Fatal("`actual` was nil")
 	}
@@ -49,7 +50,7 @@ func validateParsedSwaggerResultMatches(t *testing.T, expected models.AzureApiDe
 	validateMapsMatch(t, expected.Resources, actual.Resources, "API Resource", validateParsedApiResourceMatches)
 }
 
-func validateParsedApiResourceMatches(t *testing.T, expected models.AzureApiResource, actual models.AzureApiResource, apiResourceName string) {
+func validateParsedApiResourceMatches(t *testing.T, expected importerModels.AzureApiResource, actual importerModels.AzureApiResource, apiResourceName string) {
 	t.Logf("Validating API Resource %q..", apiResourceName)
 	// Validate each of the maps matches what we're expecting
 	validateMapsMatch(t, expected.Constants, actual.Constants, "Constants", validateParsedConstantsMatch)
@@ -69,7 +70,7 @@ func validateParsedConstantsMatch(t *testing.T, expected resourcemanager.Constan
 	validateMapsMatch(t, expected.Values, actual.Values, "Values", validateStringsMatch)
 }
 
-func validateParsedFieldsMatch(t *testing.T, expected models.FieldDetails, actual models.FieldDetails, fieldName string) {
+func validateParsedFieldsMatch(t *testing.T, expected importerModels.FieldDetails, actual importerModels.FieldDetails, fieldName string) {
 	if expected.JsonName != actual.JsonName {
 		t.Fatalf("expected `JsonName` to be %q but got %q for Field %q", expected.JsonName, actual.JsonName, fieldName)
 	}
@@ -105,7 +106,7 @@ func validateParsedFieldsMatch(t *testing.T, expected models.FieldDetails, actua
 	}
 }
 
-func validateParsedModelsMatch(t *testing.T, expected models.ModelDetails, actual models.ModelDetails, modelName string) {
+func validateParsedModelsMatch(t *testing.T, expected importerModels.ModelDetails, actual importerModels.ModelDetails, modelName string) {
 	t.Logf("Validating Model %q...", modelName)
 	if pointer.From(expected.ParentTypeName) != pointer.From(actual.ParentTypeName) {
 		// NOTE: this should be nil when unset, otherwise a value
@@ -125,7 +126,7 @@ func validateParsedModelsMatch(t *testing.T, expected models.ModelDetails, actua
 	validateMapsMatch(t, expected.Fields, actual.Fields, "Fields", validateParsedFieldsMatch)
 }
 
-func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.ObjectDefinition, fieldName string) {
+func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual importerModels.ObjectDefinition, fieldName string) {
 	if expected.Type != actual.Type {
 		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
 	}
@@ -145,7 +146,7 @@ func validateParsedObjectDefinitionsMatch(t *testing.T, expected, actual models.
 	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedObjectDefinitionsMatch)
 }
 
-func validateParsedOperationsMatch(t *testing.T, expected, actual models.OperationDetails, operationName string) {
+func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels.OperationDetails, operationName string) {
 	t.Logf("Validating Operation %q..", operationName)
 	if expected.ContentType != actual.ContentType {
 		t.Fatalf("expected `ContentType` to be %q but got %q for Operation %q", expected.ContentType, actual.ContentType, operationName)
@@ -177,7 +178,7 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual models.Operati
 	}
 }
 
-func validateParsedOptionsMatch(t *testing.T, expected, actual models.OperationOption, optionName string) {
+func validateParsedOptionsMatch(t *testing.T, expected, actual importerModels.OperationOption, optionName string) {
 	if pointer.From(expected.HeaderName) != pointer.From(actual.HeaderName) {
 		t.Errorf("expected `HeaderName` to be %q but got %q for Option %q", pointer.From(expected.HeaderName), pointer.From(actual.HeaderName), optionName)
 	}
@@ -188,10 +189,21 @@ func validateParsedOptionsMatch(t *testing.T, expected, actual models.OperationO
 		t.Errorf("expected `Required` to be %t but got %t for Option %q", expected.Required, actual.Required, optionName)
 	}
 	// NOTE: this will become its own type once refactored
-	validateObjectsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, "OptionObjectDefinition", validateParsedObjectDefinitionsMatch)
+	validateObjectsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, "OptionObjectDefinition", validateParsedOptionsObjectDefinitionsMatch)
 }
 
-func validateParsedResourceIDsMatch(t *testing.T, expected, actual models.ParsedResourceId, resourceIdName string) {
+func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual models.SDKOperationOptionObjectDefinition, fieldName string) {
+	if expected.Type != actual.Type {
+		t.Fatalf("expected `Type` to be %q but got %q for Field %q", string(expected.Type), string(actual.Type), fieldName)
+	}
+	if pointer.From(expected.ReferenceName) != pointer.From(actual.ReferenceName) {
+		t.Fatalf("expected `ReferenceName` to be %q but got %q for Field %q", pointer.From(expected.ReferenceName), pointer.From(actual.ReferenceName), fieldName)
+	}
+
+	validateObjectsMatch(t, expected.NestedItem, actual.NestedItem, "NestedItem", validateParsedOptionsObjectDefinitionsMatch)
+}
+
+func validateParsedResourceIDsMatch(t *testing.T, expected, actual importerModels.ParsedResourceId, resourceIdName string) {
 	if pointer.From(expected.CommonAlias) != pointer.From(actual.CommonAlias) {
 		t.Errorf("expected `CommonAlias` to be %q but got %q for Resource ID %q", pointer.From(expected.CommonAlias), pointer.From(actual.CommonAlias), resourceIdName)
 	}

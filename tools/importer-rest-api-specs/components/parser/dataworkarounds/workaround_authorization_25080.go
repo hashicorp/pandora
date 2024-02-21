@@ -7,7 +7,8 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundAuthorization25080{}
@@ -15,7 +16,7 @@ var _ workaround = workaroundAuthorization25080{}
 type workaroundAuthorization25080 struct {
 }
 
-func (workaroundAuthorization25080) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundAuthorization25080) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	return apiDefinition.ServiceName == "Authorization" && apiDefinition.ApiVersion == "2020-10-01"
 }
 
@@ -23,7 +24,7 @@ func (workaroundAuthorization25080) Name() string {
 	return "Authorization / 25080"
 }
 
-func (workaroundAuthorization25080) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundAuthorization25080) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["RoleManagementPolicies"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `RoleManagementPolicies` but didn't get one")
@@ -32,9 +33,9 @@ func (workaroundAuthorization25080) Process(apiDefinition models.AzureApiDefinit
 	if !ok {
 		return nil, fmt.Errorf("expected an Operation named `ListForScope` but didn't get one")
 	}
-	operation.Options["Filter"] = models.OperationOption{
-		ObjectDefinition: &models.ObjectDefinition{
-			Type: models.ObjectDefinitionString,
+	operation.Options["Filter"] = importerModels.OperationOption{
+		ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+			Type: models.StringSDKOperationOptionObjectDefinitionType,
 		},
 		QueryStringName: pointer.To("$filter"),
 		Required:        false,

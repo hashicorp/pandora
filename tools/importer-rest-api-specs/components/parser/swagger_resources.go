@@ -8,17 +8,18 @@ import (
 	"strings"
 
 	"github.com/go-openapi/spec"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/resourceids"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
-func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*models.AzureApiResource, error) {
+func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resourceProvider *string, resourceIds resourceids.ParseResult) (*importerModels.AzureApiResource, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 
 	// note that Resource ID's can contain Constants (used as segments)
@@ -61,7 +62,7 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 		return nil, nil
 	}
 
-	resource := models.AzureApiResource{
+	resource := importerModels.AzureApiResource{
 		Constants:   constantsAndModels.Constants,
 		Models:      constantsAndModels.Models,
 		Operations:  *operations,
@@ -74,11 +75,11 @@ func (d *SwaggerDefinition) parseResourcesWithinSwaggerTag(tag *string, resource
 	return &resource, nil
 }
 
-func pullOutModelForListOperations(input map[string]models.OperationDetails, known internal.ParseResult) (*map[string]models.OperationDetails, error) {
+func pullOutModelForListOperations(input map[string]importerModels.OperationDetails, known internal.ParseResult) (*map[string]importerModels.OperationDetails, error) {
 	// List Operations return an object which contains a NextLink and a Value (which is the actual Object
 	// being paginated on) - so we want to replace the wrapper object with the Value so that these can be
 	// paginated correctly as needed.
-	output := make(map[string]models.OperationDetails)
+	output := make(map[string]importerModels.OperationDetails)
 
 	for k, operation := range input {
 		if !operation.IsListOperation {
@@ -89,7 +90,7 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 			return nil, fmt.Errorf("a List Operation must have a Response Object but it was nil")
 		}
 		objectDefinition := *operation.ResponseObject
-		if objectDefinition.Type != models.ObjectDefinitionReference {
+		if objectDefinition.Type != importerModels.ObjectDefinitionReference {
 			return nil, fmt.Errorf("TODO: add support for %q - list operations only support references at this time", string(objectDefinition.Type))
 		}
 		if objectDefinition.ReferenceName == nil {
@@ -134,7 +135,7 @@ func pullOutModelForListOperations(input map[string]models.OperationDetails, kno
 func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResult {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(input)
 
@@ -161,10 +162,10 @@ func switchOutCustomTypesAsNeeded(input internal.ParseResult) internal.ParseResu
 	return input
 }
 
-func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]models.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
+func (d *SwaggerDefinition) findNestedItemsYetToBeParsed(operations map[string]importerModels.OperationDetails, known internal.ParseResult) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
@@ -232,10 +233,10 @@ func referencesAreTheSame(first []string, second []string) bool {
 	return true
 }
 
-func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]models.OperationDetails, known internal.ParseResult) (*[]string, error) {
+func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[string]importerModels.OperationDetails, known internal.ParseResult) (*[]string, error) {
 	referencesToFind := make(map[string]struct{}, 0)
 
-	var objectsRequiredByModel = func(modelName string, model models.ModelDetails) (*[]string, error) {
+	var objectsRequiredByModel = func(modelName string, model importerModels.ModelDetails) (*[]string, error) {
 		result := make(map[string]struct{}, 0)
 		// if it's a model, we need to check all of the fields for this to find any constant or models
 		// that we don't know about
@@ -261,7 +262,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 	for _, operation := range operations {
 		if operation.RequestObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.RequestObject)
-			if topLevelRef.Type == models.ObjectDefinitionReference {
+			if topLevelRef.Type == importerModels.ObjectDefinitionReference {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -283,7 +284,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 
 		if operation.ResponseObject != nil {
 			topLevelRef := topLevelObjectDefinition(*operation.ResponseObject)
-			if topLevelRef.Type == models.ObjectDefinitionReference {
+			if topLevelRef.Type == importerModels.ObjectDefinitionReference {
 				isKnownConstant, isKnownModel := isObjectKnown(*topLevelRef.ReferenceName, known)
 				if !isKnownConstant && !isKnownModel {
 					referencesToFind[*topLevelRef.ReferenceName] = struct{}{}
@@ -310,8 +311,8 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 				continue
 			}
 
-			topLevelRef := topLevelObjectDefinition(*value.ObjectDefinition)
-			if topLevelRef.Type != models.ObjectDefinitionReference {
+			topLevelRef := topLevelOptionsObjectDefinition(*value.ObjectDefinition)
+			if topLevelRef.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 				continue
 			}
 
@@ -347,7 +348,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 	return &out, nil
 }
 
-func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model models.ModelDetails) (*[]string, error) {
+func (d *SwaggerDefinition) objectsUsedByModel(modelName string, model importerModels.ModelDetails) (*[]string, error) {
 	typeNames := make(map[string]struct{}, 0)
 
 	for _, field := range model.Fields {

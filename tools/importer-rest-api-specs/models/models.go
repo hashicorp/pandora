@@ -8,6 +8,7 @@ import (
 	"strings"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -122,7 +123,7 @@ const (
 )
 
 type OperationOption struct {
-	ObjectDefinition *ObjectDefinition
+	ObjectDefinition *models.SDKOperationOptionObjectDefinition
 	HeaderName       *string
 	QueryStringName  *string
 	Required         bool

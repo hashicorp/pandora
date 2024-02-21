@@ -8,7 +8,8 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -19,10 +20,10 @@ func TestParseOperationsEmpty(t *testing.T) {
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources:   map[string]models.AzureApiResource{},
+		Resources:   map[string]importerModels.AzureApiResource{},
 	}
 	validateParsedSwaggerResultMatches(t, expected, actual)
 }
@@ -32,12 +33,12 @@ func TestParseOperationSingleWithTag(t *testing.T) {
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{http.StatusOK},
@@ -59,12 +60,12 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -73,7 +74,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 						ResourceIdName:      pointer.To("ThingId"),
 					},
 				},
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -99,12 +100,12 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -114,7 +115,7 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 						UriSuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -140,32 +141,32 @@ func TestParseOperationSingleWithRequestObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type:          models.ObjectDefinitionReference,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type:          importerModels.ObjectDefinitionReference,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -183,32 +184,32 @@ func TestParseOperationSingleWithRequestObjectInlined(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type:          models.ObjectDefinitionReference,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type:          importerModels.ObjectDefinitionReference,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -226,32 +227,32 @@ func TestParseOperationSingleWithResponseObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &models.ObjectDefinition{
-							Type:          models.ObjectDefinitionReference,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type:          importerModels.ObjectDefinitionReference,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -269,32 +270,32 @@ func TestParseOperationSingleWithResponseObjectInlined(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &models.ObjectDefinition{
-							Type:          models.ObjectDefinitionReference,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type:          importerModels.ObjectDefinitionReference,
 							ReferenceName: pointer.To("Example"),
 						},
 						UriSuffix: pointer.To("/things"),
@@ -312,34 +313,34 @@ func TestParseOperationSingleWithResponseObjectInlinedList(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GetWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GetWorld",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type:          models.ObjectDefinitionReference,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type:          importerModels.ObjectDefinitionReference,
 								ReferenceName: pointer.To("Example"),
 							},
 						},
@@ -358,19 +359,19 @@ func TestParseOperationSingleRequestingWithABool(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionBoolean,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionBoolean,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -387,19 +388,19 @@ func TestParseOperationSingleRequestingWithAInteger(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionInteger,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionInteger,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -416,21 +417,21 @@ func TestParseOperationSingleRequestingWithADictionaryOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionDictionary,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionString,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionDictionary,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionString,
 							},
 						},
 						UriSuffix: pointer.To("/things"),
@@ -448,21 +449,21 @@ func TestParseOperationSingleRequestingWithAListOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionString,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionString,
 							},
 						},
 						UriSuffix: pointer.To("/things"),
@@ -482,19 +483,19 @@ func TestParseOperationSingleRequestingWithAString(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -511,19 +512,19 @@ func TestParseOperationSingleReturningABool(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeABoolean": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeABoolean",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionBoolean,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionBoolean,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -540,19 +541,19 @@ func TestParseOperationSingleReturningAFloat(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAFloat": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAFloat",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionFloat,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionFloat,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -569,19 +570,19 @@ func TestParseOperationSingleReturningAFile(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAFile": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAFile",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionRawFile,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionRawFile,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -598,19 +599,19 @@ func TestParseOperationSingleReturningAnInteger(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAnInteger": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAnInteger",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionInteger,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionInteger,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -627,19 +628,19 @@ func TestParseOperationSingleReturningAString(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAString",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -657,19 +658,19 @@ func TestParseOperationSingleReturningAnErrorStatusCode(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAString": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAString",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
 					},
@@ -686,22 +687,22 @@ func TestParseOperationSingleReturningATopLevelRawObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"RawObjectToMeToYou": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_RawObjectToMeToYou",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionRawObject,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionRawObject,
 						},
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionRawObject,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionRawObject,
 						},
 						UriSuffix: pointer.To("/chuckle"),
 					},
@@ -718,35 +719,35 @@ func TestParseOperationSingleReturningADictionaryOfAModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Person": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeADictionaryOfAModel": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeADictionaryOfAModel",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionDictionary,
-							NestedItem: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionDictionary,
+							NestedItem: &importerModels.ObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          models.ObjectDefinitionReference,
+								Type:          importerModels.ObjectDefinitionReference,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -764,21 +765,21 @@ func TestParseOperationSingleReturningADictionaryOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeADictionaryOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeADictionaryOfStrings",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionDictionary,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionDictionary,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionString,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -796,21 +797,21 @@ func TestParseOperationSingleReturningAListOfIntegers(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAListOfIntegers": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfIntegers",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionInteger,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionInteger,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -828,35 +829,35 @@ func TestParseOperationSingleReturningAListOfAModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Person": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfModels",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
 								ReferenceName: pointer.To("Person"),
-								Type:          models.ObjectDefinitionReference,
+								Type:          importerModels.ObjectDefinitionReference,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -874,21 +875,21 @@ func TestParseOperationSingleReturningAListOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfStrings",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionString,
 							},
 						},
 						UriSuffix: pointer.To("/worlds/favourite"),
@@ -906,37 +907,37 @@ func TestParseOperationSingleReturningAListOfListOfAModel(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Person": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAListOfListOfModels": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfListOfModels",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionList,
-								NestedItem: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionList,
+								NestedItem: &importerModels.ObjectDefinition{
 									ReferenceName: pointer.To("Person"),
-									Type:          models.ObjectDefinitionReference,
+									Type:          importerModels.ObjectDefinitionReference,
 								},
 							},
 						},
@@ -955,23 +956,23 @@ func TestParseOperationSingleReturningAListOfListOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"GimmeAListOfListOfStrings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_GimmeAListOfListOfStrings",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionList,
-							NestedItem: &models.ObjectDefinition{
-								Type: models.ObjectDefinitionList,
-								NestedItem: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionList,
+							NestedItem: &importerModels.ObjectDefinition{
+								Type: importerModels.ObjectDefinitionList,
+								NestedItem: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 							},
 						},
@@ -990,25 +991,25 @@ func TestParseOperationSingleWithList(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"World": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
@@ -1016,9 +1017,9 @@ func TestParseOperationSingleWithList(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1037,25 +1038,25 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"World": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"ListWorlds": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1065,9 +1066,9 @@ func TestParseOperationSingleWithListWhichIsNotAList(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1084,12 +1085,12 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
@@ -1097,8 +1098,8 @@ func TestParseOperationSingleWithListReturningAListOfStrings(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1117,25 +1118,25 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"World": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"ListWorlds": {
 						ContentType:                      "application/json",
 						ExpectedStatusCodes:              []int{200},
@@ -1143,9 +1144,9 @@ func TestParseOperationSingleWithListWithoutPageable(t *testing.T) {
 						IsListOperation:                  true,
 						Method:                           "GET",
 						OperationId:                      "Hello_ListWorlds",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("World"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/worlds"),
 					},
@@ -1162,34 +1163,34 @@ func TestParseOperationSingleWithLongRunningOperation(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						LongRunning:         true,
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -1206,37 +1207,37 @@ func TestParseOperationSingleWithRequestAndResponseObject(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Example": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"PutWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_PutWorld",
-						RequestObject: &models.ObjectDefinition{
+						RequestObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Example"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -1253,12 +1254,12 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadThings": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1269,7 +1270,7 @@ func TestParseOperationSingleWithMultipleTags(t *testing.T) {
 				},
 			},
 			"Other": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					// Whilst the operation name should be `HeadThings`, since this is another Tag
 					// it's intentionally prefixed for when things cross boundaries (to avoid conflicts)
 					"HelloHeadThings": {
@@ -1292,13 +1293,13 @@ func TestParseOperationSingleWithInferredTag(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			// since there's no tags, the file name is used to infer the tag (in this case, 'OperationsSingleWithNoTags')
 			"OperationsSingleWithNoTags": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					// since the prefix doesn't match the Tag (since no tag) this gets a combined name
 					"HelloHeadWorld": {
 						ContentType:         "application/json",
@@ -1320,70 +1321,70 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
 						OperationId:         "Hello_HeadWorld",
-						Options: map[string]models.OperationOption{
+						Options: map[string]importerModels.OperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								HeaderName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionCsv,
-									NestedItem: &models.ObjectDefinition{
-										Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &models.SDKOperationOptionObjectDefinition{
+										Type: models.FloatSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"CsvOfStringValue": {
 								HeaderName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionCsv,
-									NestedItem: &models.ObjectDefinition{
-										Type: models.ObjectDefinitionString,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &models.SDKOperationOptionObjectDefinition{
+										Type: models.StringSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"DecimalValue": {
 								HeaderName: pointer.To("decimalValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								HeaderName: pointer.To("doubleValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								HeaderName: pointer.To("intValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								HeaderName: pointer.To("stringValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1403,70 +1404,70 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
 						OperationId:         "Hello_HeadWorld",
-						Options: map[string]models.OperationOption{
+						Options: map[string]importerModels.OperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionBoolean,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								QueryStringName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionCsv,
-									NestedItem: &models.ObjectDefinition{
-										Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &models.SDKOperationOptionObjectDefinition{
+										Type: models.FloatSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"CsvOfStringValue": {
 								QueryStringName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionCsv,
-									NestedItem: &models.ObjectDefinition{
-										Type: models.ObjectDefinitionString,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.CSVSDKOperationOptionObjectDefinitionType,
+									NestedItem: &models.SDKOperationOptionObjectDefinition{
+										Type: models.StringSDKOperationOptionObjectDefinitionType,
 									},
 								},
 								Required: true,
 							},
 							"DecimalValue": {
 								QueryStringName: pointer.To("decimalValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								QueryStringName: pointer.To("doubleValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionFloat,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								QueryStringName: pointer.To("intValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionInteger,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								QueryStringName: pointer.To("stringValue"),
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+									Type: models.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
@@ -1486,12 +1487,12 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1508,7 +1509,7 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 						UriSuffix:           pointer.To("/restart"),
 					},
 				},
-				ResourceIds: map[string]models.ParsedResourceId{
+				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
 						Segments: []resourcemanager.ResourceIdSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
@@ -1534,12 +1535,12 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Default": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
@@ -1552,8 +1553,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_JsonRequest",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						// this can become `/json-request` when https://github.com/hashicorp/pandora/issues/3807 is fixed
 						UriSuffix: pointer.To("/jsonRequest"),
@@ -1563,8 +1564,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_JsonResponse",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/jsonResponse"),
 					},
@@ -1573,8 +1574,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Hello_XmlRequest",
-						RequestObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						RequestObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/xmlRequest"),
 					},
@@ -1583,8 +1584,8 @@ func TestParseOperationsContainingContentTypes(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "PUT",
 						OperationId:         "Hello_XmlResponse",
-						ResponseObject: &models.ObjectDefinition{
-							Type: models.ObjectDefinitionString,
+						ResponseObject: &importerModels.ObjectDefinition{
+							Type: importerModels.ObjectDefinitionString,
 						},
 						UriSuffix: pointer.To("/xmlResponse"),
 					},
@@ -1601,33 +1602,33 @@ func TestParseOperationContainingMultipleReturnObjects(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Hello": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"FirstModel": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Hello": {
 								JsonName: "hello",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"HeadWorld": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200, 202},
 						Method:              "PUT",
 						OperationId:         "Hello_HeadWorld",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("FirstModel"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/things"),
 					},
@@ -1644,12 +1645,12 @@ func TestParseOperationsWithStutteringNames(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"ExampleTag": {
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Mars": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},

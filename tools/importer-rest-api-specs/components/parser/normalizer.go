@@ -4,25 +4,26 @@
 package parser
 
 import (
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // normalizeAzureApiResource works through the parsed AzureApiResource and ensures
 // that all the Names and References are consistent (TitleCase) as a final effort
 // to ensure the Swagger Data is normalized.
-func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiResource {
+func normalizeAzureApiResource(input importerModels.AzureApiResource) importerModels.AzureApiResource {
 	normalizedConstants := make(map[string]resourcemanager.ConstantDetails)
 	for k, v := range input.Constants {
 		name := cleanup.NormalizeName(k)
 		normalizedConstants[name] = v
 	}
 
-	normalizedModels := make(map[string]models.ModelDetails)
+	normalizedModels := make(map[string]importerModels.ModelDetails)
 	for k, v := range input.Models {
 		modelName := cleanup.NormalizeName(k)
-		fields := make(map[string]models.FieldDetails)
+		fields := make(map[string]importerModels.FieldDetails)
 		for fieldName, fieldVal := range v.Fields {
 			normalizedFieldName := cleanup.NormalizeName(fieldName)
 
@@ -48,7 +49,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		normalizedModels[modelName] = v
 	}
 
-	normalizedOperations := make(map[string]models.OperationDetails)
+	normalizedOperations := make(map[string]importerModels.OperationDetails)
 	for k, v := range input.Operations {
 		if v.ResourceIdName != nil {
 			normalized := cleanup.NormalizeName(*v.ResourceIdName)
@@ -63,12 +64,12 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
 		}
 
-		normalizedOptions := make(map[string]models.OperationOption, 0)
+		normalizedOptions := make(map[string]importerModels.OperationOption, 0)
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
 			if optionVal.ObjectDefinition != nil {
-				optionVal.ObjectDefinition = normalizeObjectDefinition(*optionVal.ObjectDefinition)
+				optionVal.ObjectDefinition = normalizeOptionsObjectDefinition(*optionVal.ObjectDefinition)
 			}
 
 			normalizedOptions[optionKey] = optionVal
@@ -78,7 +79,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		normalizedOperations[k] = v
 	}
 
-	normalizedResourceIds := make(map[string]models.ParsedResourceId)
+	normalizedResourceIds := make(map[string]importerModels.ParsedResourceId)
 	for k, v := range input.ResourceIds {
 		segments := make([]resourcemanager.ResourceIdSegment, 0)
 
@@ -101,7 +102,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 		normalizedResourceIds[k] = v
 	}
 
-	return models.AzureApiResource{
+	return importerModels.AzureApiResource{
 		Constants:   normalizedConstants,
 		Models:      normalizedModels,
 		Operations:  normalizedOperations,
@@ -113,7 +114,7 @@ func normalizeAzureApiResource(input models.AzureApiResource) models.AzureApiRes
 	}
 }
 
-func normalizeObjectDefinition(input models.ObjectDefinition) *models.ObjectDefinition {
+func normalizeObjectDefinition(input importerModels.ObjectDefinition) *importerModels.ObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
@@ -121,6 +122,19 @@ func normalizeObjectDefinition(input models.ObjectDefinition) *models.ObjectDefi
 
 	if input.NestedItem != nil {
 		input.NestedItem = normalizeObjectDefinition(*input.NestedItem)
+	}
+
+	return &input
+}
+
+func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) *models.SDKOperationOptionObjectDefinition {
+	if input.ReferenceName != nil {
+		normalized := cleanup.NormalizeName(*input.ReferenceName)
+		input.ReferenceName = &normalized
+	}
+
+	if input.NestedItem != nil {
+		input.NestedItem = normalizeOptionsObjectDefinition(*input.NestedItem)
 	}
 
 	return &input
