@@ -6,6 +6,7 @@ package resourcemanager
 import (
 	"encoding/json"
 	"fmt"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 )
 
 type ApiOperationsClient struct {
@@ -82,7 +83,7 @@ type ApiOperationOption struct {
 	QueryStringName *string `json:"queryStringName,omitempty"`
 
 	// ObjectDefinition defines the Type of Object this Option is
-	ObjectDefinition ApiObjectDefinition `json:"objectDefinition"`
+	ObjectDefinition models.SDKOperationOptionObjectDefinition `json:"objectDefinition"`
 
 	// Required specifies whether this Option must be specified in the Request
 	Required bool `json:"required"`
