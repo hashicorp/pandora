@@ -5,6 +5,7 @@ package pipeline
 
 import (
 	"fmt"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	"os"
 	"path"
@@ -140,9 +141,9 @@ func runImportForService(input RunInput, serviceName string, apiVersionsForServi
 	}
 
 	// Now that we have the populated data, let's go ahead and output that..
-	logger.Trace("Task: Generating Service Definitions (v2 / JSON)..")
-	if err := task.generateApiDefinitionsV2(serviceName, apiVersions, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger.Named("V2 API Definitions Generator")); err != nil {
-		return fmt.Errorf("generating the Service Definitions for V2 (JSON): %+v", err)
+	logger.Info(fmt.Sprintf("Persisting API Definitions for Service %s..", serviceName))
+	if err := dataapigeneratorjson.Run(apiVersions, input.OutputDirectory, swaggerGitSha, resourceProvider, terraformPackageName, logger); err != nil {
+		return fmt.Errorf("persisting Data API Definitions for Service %q: %+v", serviceName, err)
 	}
 
 	return nil
