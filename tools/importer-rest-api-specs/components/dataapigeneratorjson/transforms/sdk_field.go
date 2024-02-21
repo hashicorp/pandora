@@ -5,8 +5,8 @@ package transforms
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
 )
 
