@@ -14,7 +14,7 @@ import (
 // TODO: tests for the different types of Object Definition
 
 func TestParseModelTopLevel(t *testing.T) {
-	result, err := ParseSwaggerFileForTesting(t, "model_top_level.json")
+	actual, err := ParseSwaggerFileForTesting(t, "model_top_level.json")
 	if err != nil {
 		t.Fatalf("parsing: %+v", err)
 	}
