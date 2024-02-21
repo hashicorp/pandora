@@ -5,14 +5,14 @@ package pipeline
 
 import (
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	"os"
 	"path"
 	"sort"
 
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/dataapigeneratorjson"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/discovery"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 

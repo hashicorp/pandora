@@ -6,12 +6,12 @@ package cmd
 import (
 	"flag"
 	"fmt"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"log"
 	"strings"
 
 	"github.com/hashicorp/go-hclog"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/resources"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/config/definitions"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
