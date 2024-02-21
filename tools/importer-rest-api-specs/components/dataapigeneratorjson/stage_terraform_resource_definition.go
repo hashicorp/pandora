@@ -17,7 +17,7 @@ var _ generatorStage = generateTerraformResourceDefinitionStage{}
 type generateTerraformResourceDefinitionStage struct {
 	// serviceName specifies the name of the Service.
 	serviceName string
-	
+
 	// resourceDetails specifies the Terraform Resource Definition.
 	resourceDetails resourcemanager.TerraformResourceDetails
 
