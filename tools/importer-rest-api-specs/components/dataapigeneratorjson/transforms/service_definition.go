@@ -4,6 +4,8 @@
 package transforms
 
 import (
+	"sort"
+
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/sdk/dataapimodels"
@@ -22,6 +24,7 @@ func MapServiceDefinitionToRepository(serviceName string, resourceProvider *stri
 		for _, resource := range terraformDefinition.Resources {
 			terraformResourceNames = append(terraformResourceNames, resource.ResourceName)
 		}
+		sort.Strings(terraformResourceNames)
 
 		//TODO: remove this field once the repository package is consolidated
 		output.TerraformPackageName = pointer.To(terraformDefinition.TerraformPackageName)
