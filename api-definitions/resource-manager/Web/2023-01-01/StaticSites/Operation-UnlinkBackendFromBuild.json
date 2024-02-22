@@ -1,23 +1,23 @@
 {
- "name": "UnlinkBackendFromBuild",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  204
- ],
- "longRunning": false,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "optional": true,
-   "queryString": "isCleaningAuthConfig",
-   "required": false,
-   "field": "IsCleaningAuthConfig",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "BuildLinkedBackendId"
+  "name": "UnlinkBackendFromBuild",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "isCleaningAuthConfig",
+      "required": false,
+      "field": "IsCleaningAuthConfig",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BuildLinkedBackendId"
 }

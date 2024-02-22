@@ -1,24 +1,24 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "optional": false,
-   "queryString": "userEmail",
-   "required": true,
-   "field": "UserEmail",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "MonitorId"
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "userEmail",
+      "required": true,
+      "field": "UserEmail",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "MonitorId"
 }

@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "CentralInstanceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "UpdateSAPCentralInstanceRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SAPCentralServerInstance"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "CentralInstanceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "UpdateSAPCentralInstanceRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SAPCentralServerInstance"
+  }
 }

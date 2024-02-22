@@ -1,20 +1,20 @@
 {
- "name": "Usage",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  204
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "QueryDefinition"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "QueryResult"
- },
- "uriSuffix": "/providers/Microsoft.CostManagement/query"
+  "name": "Usage",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "QueryDefinition"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "QueryResult"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/query"
 }

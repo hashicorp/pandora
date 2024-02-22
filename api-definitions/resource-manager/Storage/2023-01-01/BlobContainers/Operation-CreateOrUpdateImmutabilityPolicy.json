@@ -1,31 +1,31 @@
 {
- "name": "CreateOrUpdateImmutabilityPolicy",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "StorageContainerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ImmutabilityPolicy"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ImmutabilityPolicy"
- },
- "uriSuffix": "/immutabilityPolicies/default"
+  "name": "CreateOrUpdateImmutabilityPolicy",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StorageContainerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ImmutabilityPolicy"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ImmutabilityPolicy"
+  },
+  "uriSuffix": "/immutabilityPolicies/default"
 }

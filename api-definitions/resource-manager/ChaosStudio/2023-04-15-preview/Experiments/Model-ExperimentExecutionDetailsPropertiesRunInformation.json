@@ -1,21 +1,21 @@
 {
- "name": "ExperimentExecutionDetailsPropertiesRunInformation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "steps",
-   "name": "Steps",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "StepStatus"
+  "name": "ExperimentExecutionDetailsPropertiesRunInformation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "steps",
+      "name": "Steps",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "StepStatus"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

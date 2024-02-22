@@ -1,48 +1,48 @@
 {
- "name": "EncodedTaskStep",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encodedTaskContent",
-   "name": "EncodedTaskContent",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "encodedValuesContent",
-   "name": "EncodedValuesContent",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SetValue"
+  "name": "EncodedTaskStep",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encodedTaskContent",
+      "name": "EncodedTaskContent",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "encodedValuesContent",
+      "name": "EncodedValuesContent",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SetValue"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "TaskStepProperties",
- "discriminatedTypeValue": "EncodedTask",
- "typeHintIn": "Type"
+  ],
+  "discriminatedParentModelName": "TaskStepProperties",
+  "discriminatedTypeValue": "EncodedTask",
+  "typeHintIn": "Type"
 }

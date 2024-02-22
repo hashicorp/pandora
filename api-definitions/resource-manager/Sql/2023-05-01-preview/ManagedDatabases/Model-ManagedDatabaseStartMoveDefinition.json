@@ -1,29 +1,29 @@
 {
- "name": "ManagedDatabaseStartMoveDefinition",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "destinationManagedDatabaseId",
-   "name": "DestinationManagedDatabaseId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operationMode",
-   "name": "OperationMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MoveOperationMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ManagedDatabaseStartMoveDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "destinationManagedDatabaseId",
+      "name": "DestinationManagedDatabaseId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operationMode",
+      "name": "OperationMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MoveOperationMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

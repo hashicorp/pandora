@@ -1,21 +1,21 @@
 {
- "name": "SqlPoolRestorePointsCreate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "SqlPoolId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CreateSqlPoolRestorePointDefinition"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RestorePoint"
- },
- "uriSuffix": "/restorePoints"
+  "name": "SqlPoolRestorePointsCreate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SqlPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CreateSqlPoolRestorePointDefinition"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RestorePoint"
+  },
+  "uriSuffix": "/restorePoints"
 }

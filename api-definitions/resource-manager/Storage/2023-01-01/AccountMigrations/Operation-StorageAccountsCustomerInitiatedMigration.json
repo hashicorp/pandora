@@ -1,16 +1,16 @@
 {
- "name": "StorageAccountsCustomerInitiatedMigration",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "StorageAccountId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "StorageAccountMigration"
- },
- "uriSuffix": "/startAccountMigration"
+  "name": "StorageAccountsCustomerInitiatedMigration",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "StorageAccountId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "StorageAccountMigration"
+  },
+  "uriSuffix": "/startAccountMigration"
 }

@@ -1,185 +1,185 @@
 {
- "name": "AzureWorkloadSQLPointInTimeRestoreWithRehydrateRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "alternateDirectoryPaths",
-   "name": "AlternateDirectoryPaths",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SQLDataDirectoryMapping"
+  "name": "AzureWorkloadSQLPointInTimeRestoreWithRehydrateRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "alternateDirectoryPaths",
+      "name": "AlternateDirectoryPaths",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SQLDataDirectoryMapping"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isNonRecoverable",
+      "name": "IsNonRecoverable",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pointInTime",
+      "name": "PointInTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "propertyBag",
+      "name": "PropertyBag",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryMode",
+      "name": "RecoveryMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointRehydrationInfo",
+      "name": "RecoveryPointRehydrationInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryPointRehydrationInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryType",
+      "name": "RecoveryType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shouldUseAlternateTargetLocation",
+      "name": "ShouldUseAlternateTargetLocation",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "snapshotRestoreParameters",
+      "name": "SnapshotRestoreParameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SnapshotRestoreParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceResourceId",
+      "name": "SourceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetInfo",
+      "name": "TargetInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetRestoreInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetResourceGroupName",
+      "name": "TargetResourceGroupName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetVirtualMachineId",
+      "name": "TargetVirtualMachineId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "userAssignedManagedIdentityDetails",
+      "name": "UserAssignedManagedIdentityDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserAssignedManagedIdentityDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isNonRecoverable",
-   "name": "IsNonRecoverable",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "pointInTime",
-   "name": "PointInTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "propertyBag",
-   "name": "PropertyBag",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryMode",
-   "name": "RecoveryMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointRehydrationInfo",
-   "name": "RecoveryPointRehydrationInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryPointRehydrationInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryType",
-   "name": "RecoveryType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shouldUseAlternateTargetLocation",
-   "name": "ShouldUseAlternateTargetLocation",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "snapshotRestoreParameters",
-   "name": "SnapshotRestoreParameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SnapshotRestoreParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceResourceId",
-   "name": "SourceResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetInfo",
-   "name": "TargetInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TargetRestoreInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetResourceGroupName",
-   "name": "TargetResourceGroupName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetVirtualMachineId",
-   "name": "TargetVirtualMachineId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "userAssignedManagedIdentityDetails",
-   "name": "UserAssignedManagedIdentityDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UserAssignedManagedIdentityDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RestoreRequest",
- "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreWithRehydrateRequest",
- "typeHintIn": "ObjectType"
+  ],
+  "discriminatedParentModelName": "RestoreRequest",
+  "discriminatedTypeValue": "AzureWorkloadSQLPointInTimeRestoreWithRehydrateRequest",
+  "typeHintIn": "ObjectType"
 }

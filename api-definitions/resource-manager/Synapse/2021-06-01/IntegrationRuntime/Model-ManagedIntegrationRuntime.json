@@ -1,44 +1,44 @@
 {
- "name": "ManagedIntegrationRuntime",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "managedVirtualNetwork",
-   "name": "ManagedVirtualNetwork",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "typeProperties",
-   "name": "TypeProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedIntegrationRuntimeTypeProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "IntegrationRuntime",
- "discriminatedTypeValue": "Managed",
- "typeHintIn": "Type"
+  "name": "ManagedIntegrationRuntime",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedVirtualNetwork",
+      "name": "ManagedVirtualNetwork",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedIntegrationRuntimeManagedVirtualNetworkReference"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "typeProperties",
+      "name": "TypeProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedIntegrationRuntimeTypeProperties"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "IntegrationRuntime",
+  "discriminatedTypeValue": "Managed",
+  "typeHintIn": "Type"
 }

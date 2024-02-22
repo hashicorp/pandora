@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ServerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "AnalysisServicesServerUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AnalysisServicesServer"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "AnalysisServicesServerUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AnalysisServicesServer"
+  }
 }

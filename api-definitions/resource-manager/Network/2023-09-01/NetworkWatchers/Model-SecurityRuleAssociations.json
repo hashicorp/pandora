@@ -1,61 +1,61 @@
 {
- "name": "SecurityRuleAssociations",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultSecurityRules",
-   "name": "DefaultSecurityRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SecurityRule"
+  "name": "SecurityRuleAssociations",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultSecurityRules",
+      "name": "DefaultSecurityRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SecurityRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveSecurityRules",
+      "name": "EffectiveSecurityRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "EffectiveNetworkSecurityRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkInterfaceAssociation",
+      "name": "NetworkInterfaceAssociation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkInterfaceAssociation"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subnetAssociation",
+      "name": "SubnetAssociation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SubnetAssociation"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "effectiveSecurityRules",
-   "name": "EffectiveSecurityRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "EffectiveNetworkSecurityRule"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkInterfaceAssociation",
-   "name": "NetworkInterfaceAssociation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkInterfaceAssociation"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subnetAssociation",
-   "name": "SubnetAssociation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SubnetAssociation"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

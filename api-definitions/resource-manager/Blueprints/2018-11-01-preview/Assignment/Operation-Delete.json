@@ -1,27 +1,27 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": false,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "optional": true,
-   "queryString": "deleteBehavior",
-   "required": false,
-   "field": "DeleteBehavior",
-   "optionsObjectDefinition": {
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "deleteBehavior",
+      "required": false,
+      "field": "DeleteBehavior",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "AssignmentDeleteBehavior"
+      }
+    }
+  ],
+  "resourceIdName": "ScopedBlueprintAssignmentId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "AssignmentDeleteBehavior"
-   }
+    "referenceName": "Assignment"
   }
- ],
- "resourceIdName": "ScopedBlueprintAssignmentId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Assignment"
- }
 }

@@ -1,20 +1,20 @@
 {
- "name": "KustoDatabaseDataSet",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "KustoDatabaseDataSetProperties"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataSet",
- "discriminatedTypeValue": "KustoDatabase",
- "typeHintIn": "Kind"
+  "name": "KustoDatabaseDataSet",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "KustoDatabaseDataSetProperties"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "DataSet",
+  "discriminatedTypeValue": "KustoDatabase",
+  "typeHintIn": "Kind"
 }

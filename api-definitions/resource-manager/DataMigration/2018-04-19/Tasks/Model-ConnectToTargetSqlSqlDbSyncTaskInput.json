@@ -1,29 +1,29 @@
 {
- "name": "ConnectToTargetSqlSqlDbSyncTaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceConnectionInfo",
-   "name": "SourceConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetConnectionInfo",
-   "name": "TargetConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ConnectToTargetSqlSqlDbSyncTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetConnectionInfo",
+      "name": "TargetConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

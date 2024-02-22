@@ -1,81 +1,81 @@
 {
- "name": "Filters",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "crop",
-   "name": "Crop",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Rectangle"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "deinterlace",
-   "name": "Deinterlace",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Deinterlace"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fadeIn",
-   "name": "FadeIn",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Fade"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fadeOut",
-   "name": "FadeOut",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Fade"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "overlays",
-   "name": "Overlays",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "Overlay"
+  "name": "Filters",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "crop",
+      "name": "Crop",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Rectangle"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "deinterlace",
+      "name": "Deinterlace",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Deinterlace"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fadeIn",
+      "name": "FadeIn",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Fade"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fadeOut",
+      "name": "FadeOut",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Fade"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "overlays",
+      "name": "Overlays",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "Overlay"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rotation",
+      "name": "Rotation",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Rotation"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rotation",
-   "name": "Rotation",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Rotation"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

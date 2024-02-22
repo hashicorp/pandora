@@ -1,20 +1,20 @@
 {
- "name": "DeltaSerialization",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeltaSerializationProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Serialization",
- "discriminatedTypeValue": "Delta",
- "typeHintIn": "Type"
+  "name": "DeltaSerialization",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeltaSerializationProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "Serialization",
+  "discriminatedTypeValue": "Delta",
+  "typeHintIn": "Type"
 }

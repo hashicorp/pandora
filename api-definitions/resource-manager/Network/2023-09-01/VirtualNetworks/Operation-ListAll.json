@@ -1,16 +1,16 @@
 {
- "name": "ListAll",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "VirtualNetwork"
- },
- "uriSuffix": "/providers/Microsoft.Network/virtualNetworks"
+  "name": "ListAll",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VirtualNetwork"
+  },
+  "uriSuffix": "/providers/Microsoft.Network/virtualNetworks"
 }

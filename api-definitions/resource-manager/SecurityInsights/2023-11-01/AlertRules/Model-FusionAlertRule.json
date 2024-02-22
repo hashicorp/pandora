@@ -1,20 +1,20 @@
 {
- "name": "FusionAlertRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FusionAlertRuleProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AlertRule",
- "discriminatedTypeValue": "Fusion",
- "typeHintIn": "Kind"
+  "name": "FusionAlertRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FusionAlertRuleProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "AlertRule",
+  "discriminatedTypeValue": "Fusion",
+  "typeHintIn": "Kind"
 }

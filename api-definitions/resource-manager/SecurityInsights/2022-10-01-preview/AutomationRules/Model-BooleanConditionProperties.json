@@ -1,20 +1,20 @@
 {
- "name": "BooleanConditionProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "conditionProperties",
-   "name": "ConditionProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomationRuleBooleanCondition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AutomationRuleCondition",
- "discriminatedTypeValue": "Boolean",
- "typeHintIn": "ConditionType"
+  "name": "BooleanConditionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditionProperties",
+      "name": "ConditionProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRuleBooleanCondition"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "AutomationRuleCondition",
+  "discriminatedTypeValue": "Boolean",
+  "typeHintIn": "ConditionType"
 }

@@ -1,19 +1,19 @@
 {
- "name": "ApproveOrRejectPrivateEndpointConnection",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "PrivateEndpointConnectionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RemotePrivateEndpointConnectionARMResource"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RemotePrivateEndpointConnectionARMResource"
- }
+  "name": "ApproveOrRejectPrivateEndpointConnection",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "PrivateEndpointConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RemotePrivateEndpointConnectionARMResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RemotePrivateEndpointConnectionARMResource"
+  }
 }

@@ -1,41 +1,41 @@
 {
- "name": "BatchReleaseCriteria",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "batchSize",
-   "name": "BatchSize",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "messageCount",
-   "name": "MessageCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recurrence",
-   "name": "Recurrence",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkflowTriggerRecurrence"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BatchReleaseCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "batchSize",
+      "name": "BatchSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "messageCount",
+      "name": "MessageCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recurrence",
+      "name": "Recurrence",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkflowTriggerRecurrence"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

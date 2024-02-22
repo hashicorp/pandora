@@ -1,29 +1,29 @@
 {
- "name": "ScopedAttestationId",
- "id": "/{resourceId}/providers/Microsoft.PolicyInsights/attestations/{attestationName}",
- "segments": [
-  {
-   "name": "resourceId",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftPolicyInsights",
-   "type": "ResourceProvider",
-   "value": "Microsoft.PolicyInsights"
-  },
-  {
-   "name": "staticAttestations",
-   "type": "Static",
-   "value": "attestations"
-  },
-  {
-   "name": "attestationName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedAttestationId",
+  "id": "/{resourceId}/providers/Microsoft.PolicyInsights/attestations/{attestationName}",
+  "segments": [
+    {
+      "name": "resourceId",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftPolicyInsights",
+      "type": "ResourceProvider",
+      "value": "Microsoft.PolicyInsights"
+    },
+    {
+      "name": "staticAttestations",
+      "type": "Static",
+      "value": "attestations"
+    },
+    {
+      "name": "attestationName",
+      "type": "UserSpecified"
+    }
+  ]
 }

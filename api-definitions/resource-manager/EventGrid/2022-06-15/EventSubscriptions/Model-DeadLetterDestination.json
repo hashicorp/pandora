@@ -1,18 +1,18 @@
 {
- "name": "DeadLetterDestination",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "endpointType",
-   "name": "EndpointType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DeadLetterEndPointType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "EndpointType"
+  "name": "DeadLetterDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "endpointType",
+      "name": "EndpointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DeadLetterEndPointType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "EndpointType"
 }

@@ -1,16 +1,16 @@
 {
- "name": "CommitmentPlansListPlansByResourceGroup",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ResourceGroupId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CommitmentPlan"
- },
- "uriSuffix": "/providers/Microsoft.CognitiveServices/commitmentPlans"
+  "name": "CommitmentPlansListPlansByResourceGroup",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ResourceGroupId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CommitmentPlan"
+  },
+  "uriSuffix": "/providers/Microsoft.CognitiveServices/commitmentPlans"
 }

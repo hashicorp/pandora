@@ -1,38 +1,38 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expandRegistrationDefinition",
-   "required": false,
-   "field": "ExpandRegistrationDefinition",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expandRegistrationDefinition",
+      "required": false,
+      "field": "ExpandRegistrationDefinition",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "ScopeId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RegistrationAssignment"
   },
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "ScopeId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RegistrationAssignment"
- },
- "uriSuffix": "/providers/Microsoft.ManagedServices/registrationAssignments"
+  "uriSuffix": "/providers/Microsoft.ManagedServices/registrationAssignments"
 }

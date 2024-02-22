@@ -1,29 +1,29 @@
 {
- "name": "ProvisionedClusterUpgradeProfileProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "controlPlaneProfile",
-   "name": "ControlPlaneProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisionedClusterPoolUpgradeProfile"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ResourceProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ProvisionedClusterUpgradeProfileProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "controlPlaneProfile",
+      "name": "ControlPlaneProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisionedClusterPoolUpgradeProfile"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ResourceProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

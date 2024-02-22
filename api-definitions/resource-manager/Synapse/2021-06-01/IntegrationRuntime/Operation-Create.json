@@ -1,31 +1,31 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "IntegrationRuntimeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IntegrationRuntimeResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IntegrationRuntimeResource"
   }
- ],
- "resourceIdName": "IntegrationRuntimeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "IntegrationRuntimeResource"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "IntegrationRuntimeResource"
- }
 }

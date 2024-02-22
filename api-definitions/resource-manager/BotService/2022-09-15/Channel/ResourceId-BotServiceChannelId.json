@@ -1,54 +1,54 @@
 {
- "name": "BotServiceChannelId",
- "commonAlias": "BotServiceChannel",
- "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{botServiceName}/channels/{channelType}",
- "segments": [
-  {
-   "name": "staticSubscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "staticResourceGroups",
-   "type": "Static",
-   "value": "resourceGroups"
-  },
-  {
-   "name": "resourceGroupName",
-   "type": "ResourceGroup"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBotService",
-   "type": "ResourceProvider",
-   "value": "Microsoft.BotService"
-  },
-  {
-   "name": "staticBotServices",
-   "type": "Static",
-   "value": "botServices"
-  },
-  {
-   "name": "botServiceName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticChannels",
-   "type": "Static",
-   "value": "channels"
-  },
-  {
-   "constantName": "BotServiceChannelType",
-   "name": "channelType",
-   "type": "Constant"
-  }
- ]
+  "name": "BotServiceChannelId",
+  "commonAlias": "BotServiceChannel",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.BotService/botServices/{botServiceName}/channels/{channelType}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticResourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBotService",
+      "type": "ResourceProvider",
+      "value": "Microsoft.BotService"
+    },
+    {
+      "name": "staticBotServices",
+      "type": "Static",
+      "value": "botServices"
+    },
+    {
+      "name": "botServiceName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticChannels",
+      "type": "Static",
+      "value": "channels"
+    },
+    {
+      "constantName": "BotServiceChannelType",
+      "name": "channelType",
+      "type": "Constant"
+    }
+  ]
 }

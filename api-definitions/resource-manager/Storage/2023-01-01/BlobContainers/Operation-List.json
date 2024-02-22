@@ -1,48 +1,48 @@
 {
- "name": "List",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "$include",
-   "required": false,
-   "field": "Include",
-   "optionsObjectDefinition": {
+  "name": "List",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$include",
+      "required": false,
+      "field": "Include",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ListContainersInclude"
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "$maxpagesize",
+      "required": false,
+      "field": "Maxpagesize",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StorageAccountId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "ListContainersInclude"
-   }
+    "referenceName": "ListContainerItem"
   },
-  {
-   "optional": true,
-   "queryString": "$maxpagesize",
-   "required": false,
-   "field": "Maxpagesize",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "StorageAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ListContainerItem"
- },
- "uriSuffix": "/blobServices/default/containers"
+  "uriSuffix": "/blobServices/default/containers"
 }

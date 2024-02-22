@@ -1,40 +1,40 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "CertificateId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CertificateCreateOrUpdateParameters"
   },
-  {
-   "headerName": "If-None-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfNoneMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Certificate"
   }
- ],
- "resourceIdName": "CertificateId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CertificateCreateOrUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Certificate"
- }
 }

@@ -1,29 +1,29 @@
 {
- "name": "AdHocBackupRuleOptions",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ruleName",
-   "name": "RuleName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "triggerOption",
-   "name": "TriggerOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AdhocBackupTriggerOption"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "AdHocBackupRuleOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ruleName",
+      "name": "RuleName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "triggerOption",
+      "name": "TriggerOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AdhocBackupTriggerOption"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

@@ -1,19 +1,19 @@
 {
- "name": "BillingSubscriptionsValidateMoveEligibility",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "BillingSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "MoveBillingSubscriptionRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ValidateMoveBillingSubscriptionEligibilityResult"
- },
- "uriSuffix": "/validateMoveEligibility"
+  "name": "BillingSubscriptionsValidateMoveEligibility",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MoveBillingSubscriptionRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ValidateMoveBillingSubscriptionEligibilityResult"
+  },
+  "uriSuffix": "/validateMoveEligibility"
 }

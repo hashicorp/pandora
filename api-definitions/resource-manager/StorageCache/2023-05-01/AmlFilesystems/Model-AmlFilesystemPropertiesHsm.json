@@ -1,33 +1,33 @@
 {
- "name": "AmlFilesystemPropertiesHsm",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "archiveStatus",
-   "name": "ArchiveStatus",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AmlFilesystemArchive"
+  "name": "AmlFilesystemPropertiesHsm",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "archiveStatus",
+      "name": "ArchiveStatus",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AmlFilesystemArchive"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "settings",
+      "name": "Settings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AmlFilesystemHsmSettings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "settings",
-   "name": "Settings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AmlFilesystemHsmSettings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

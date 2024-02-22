@@ -1,33 +1,33 @@
 {
- "name": "ReferenceDataSetCreationProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataStringComparisonBehavior",
-   "name": "DataStringComparisonBehavior",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataStringComparisonBehavior"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "keyProperties",
-   "name": "KeyProperties",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ReferenceDataSetKeyProperty"
+  "name": "ReferenceDataSetCreationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataStringComparisonBehavior",
+      "name": "DataStringComparisonBehavior",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataStringComparisonBehavior"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "keyProperties",
+      "name": "KeyProperties",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ReferenceDataSetKeyProperty"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

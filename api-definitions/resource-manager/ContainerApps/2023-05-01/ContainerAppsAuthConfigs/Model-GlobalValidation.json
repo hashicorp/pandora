@@ -1,45 +1,45 @@
 {
- "name": "GlobalValidation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "excludedPaths",
-   "name": "ExcludedPaths",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "GlobalValidation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "excludedPaths",
+      "name": "ExcludedPaths",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "redirectToProvider",
+      "name": "RedirectToProvider",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "unauthenticatedClientAction",
+      "name": "UnauthenticatedClientAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UnauthenticatedClientActionV2"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "redirectToProvider",
-   "name": "RedirectToProvider",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "unauthenticatedClientAction",
-   "name": "UnauthenticatedClientAction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UnauthenticatedClientActionV2"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

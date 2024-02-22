@@ -1,29 +1,29 @@
 {
- "name": "HTTPSServerCertificate",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "certificateUrl",
-   "name": "CertificateUrl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioning",
-   "name": "Provisioning",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CertificateProvisioning"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "HTTPSServerCertificate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "certificateUrl",
+      "name": "CertificateUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioning",
+      "name": "Provisioning",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CertificateProvisioning"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

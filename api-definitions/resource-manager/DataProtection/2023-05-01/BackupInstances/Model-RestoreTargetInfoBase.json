@@ -1,42 +1,42 @@
 {
- "name": "RestoreTargetInfoBase",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "objectType",
-   "name": "ObjectType",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryOption",
-   "name": "RecoveryOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryOption"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restoreLocation",
-   "name": "RestoreLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "typeHintIn": "ObjectType"
+  "name": "RestoreTargetInfoBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "objectType",
+      "name": "ObjectType",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryOption",
+      "name": "RecoveryOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryOption"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restoreLocation",
+      "name": "RestoreLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "typeHintIn": "ObjectType"
 }

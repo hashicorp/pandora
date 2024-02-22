@@ -1,32 +1,32 @@
 {
- "name": "BanditPolicy",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "slackAmount",
-   "name": "SlackAmount",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "slackFactor",
-   "name": "SlackFactor",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EarlyTerminationPolicy",
- "discriminatedTypeValue": "Bandit",
- "typeHintIn": "PolicyType"
+  "name": "BanditPolicy",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "slackAmount",
+      "name": "SlackAmount",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "slackFactor",
+      "name": "SlackFactor",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "EarlyTerminationPolicy",
+  "discriminatedTypeValue": "Bandit",
+  "typeHintIn": "PolicyType"
 }

@@ -1,53 +1,53 @@
 {
- "name": "ConnectToSourceSqlServerTaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "checkPermissionsGroup",
-   "name": "CheckPermissionsGroup",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerLevelPermissionsGroup"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectAgentJobs",
-   "name": "CollectAgentJobs",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collectLogins",
-   "name": "CollectLogins",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceConnectionInfo",
-   "name": "SourceConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ConnectToSourceSqlServerTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "checkPermissionsGroup",
+      "name": "CheckPermissionsGroup",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerLevelPermissionsGroup"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectAgentJobs",
+      "name": "CollectAgentJobs",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collectLogins",
+      "name": "CollectLogins",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

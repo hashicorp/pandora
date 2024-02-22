@@ -1,48 +1,48 @@
 {
- "name": "ItemPathBasedRestoreCriteria",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isPathRelativeToBackupItem",
-   "name": "IsPathRelativeToBackupItem",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "itemPath",
-   "name": "ItemPath",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "subItemPathPrefix",
-   "name": "SubItemPathPrefix",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ItemPathBasedRestoreCriteria",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isPathRelativeToBackupItem",
+      "name": "IsPathRelativeToBackupItem",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "itemPath",
+      "name": "ItemPath",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "subItemPathPrefix",
+      "name": "SubItemPathPrefix",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ItemLevelRestoreCriteria",
- "discriminatedTypeValue": "ItemPathBasedRestoreCriteria",
- "typeHintIn": "ObjectType"
+  ],
+  "discriminatedParentModelName": "ItemLevelRestoreCriteria",
+  "discriminatedTypeValue": "ItemPathBasedRestoreCriteria",
+  "typeHintIn": "ObjectType"
 }

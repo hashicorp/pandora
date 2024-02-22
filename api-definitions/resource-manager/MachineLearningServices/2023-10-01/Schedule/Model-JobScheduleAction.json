@@ -1,20 +1,20 @@
 {
- "name": "JobScheduleAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "jobDefinition",
-   "name": "JobDefinition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "JobBase"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ScheduleActionBase",
- "discriminatedTypeValue": "CreateJob",
- "typeHintIn": "ActionType"
+  "name": "JobScheduleAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "jobDefinition",
+      "name": "JobDefinition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "JobBase"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ScheduleActionBase",
+  "discriminatedTypeValue": "CreateJob",
+  "typeHintIn": "ActionType"
 }

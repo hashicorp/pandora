@@ -1,16 +1,16 @@
 {
- "name": "GetBuildDatabaseConnectionsWithDetails",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "BuildId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DatabaseConnection"
- },
- "uriSuffix": "/showDatabaseConnections"
+  "name": "GetBuildDatabaseConnectionsWithDetails",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "BuildId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DatabaseConnection"
+  },
+  "uriSuffix": "/showDatabaseConnections"
 }

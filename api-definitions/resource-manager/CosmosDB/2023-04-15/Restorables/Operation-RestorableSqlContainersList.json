@@ -1,47 +1,47 @@
 {
- "name": "RestorableSqlContainersList",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "endTime",
-   "required": false,
-   "field": "EndTime",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "RestorableSqlContainersList",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "endTime",
+      "required": false,
+      "field": "EndTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "restorableSqlDatabaseRid",
+      "required": false,
+      "field": "RestorableSqlDatabaseRid",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "startTime",
+      "required": false,
+      "field": "StartTime",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "RestorableDatabaseAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "RestorableSqlContainersListResult"
   },
-  {
-   "optional": true,
-   "queryString": "restorableSqlDatabaseRid",
-   "required": false,
-   "field": "RestorableSqlDatabaseRid",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "startTime",
-   "required": false,
-   "field": "StartTime",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "RestorableDatabaseAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "RestorableSqlContainersListResult"
- },
- "uriSuffix": "/restorableSqlContainers"
+  "uriSuffix": "/restorableSqlContainers"
 }

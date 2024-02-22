@@ -1,16 +1,16 @@
 {
- "name": "ListBySubscription",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CommunicationServiceResource"
- },
- "uriSuffix": "/providers/Microsoft.Communication/communicationServices"
+  "name": "ListBySubscription",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CommunicationServiceResource"
+  },
+  "uriSuffix": "/providers/Microsoft.Communication/communicationServices"
 }

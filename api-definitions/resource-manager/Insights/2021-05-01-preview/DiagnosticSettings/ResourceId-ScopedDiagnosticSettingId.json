@@ -1,29 +1,29 @@
 {
- "name": "ScopedDiagnosticSettingId",
- "id": "/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{diagnosticSettingName}",
- "segments": [
-  {
-   "name": "resourceUri",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftInsights",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Insights"
-  },
-  {
-   "name": "staticDiagnosticSettings",
-   "type": "Static",
-   "value": "diagnosticSettings"
-  },
-  {
-   "name": "diagnosticSettingName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedDiagnosticSettingId",
+  "id": "/{resourceUri}/providers/Microsoft.Insights/diagnosticSettings/{diagnosticSettingName}",
+  "segments": [
+    {
+      "name": "resourceUri",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftInsights",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Insights"
+    },
+    {
+      "name": "staticDiagnosticSettings",
+      "type": "Static",
+      "value": "diagnosticSettings"
+    },
+    {
+      "name": "diagnosticSettingName",
+      "type": "UserSpecified"
+    }
+  ]
 }

@@ -1,38 +1,38 @@
 {
- "name": "ScopedVersionId",
- "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}",
- "segments": [
-  {
-   "name": "resourceScope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBlueprint",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Blueprint"
-  },
-  {
-   "name": "staticBlueprints",
-   "type": "Static",
-   "value": "blueprints"
-  },
-  {
-   "name": "blueprintName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticVersions",
-   "type": "Static",
-   "value": "versions"
-  },
-  {
-   "name": "versionId",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedVersionId",
+  "id": "/{resourceScope}/providers/Microsoft.Blueprint/blueprints/{blueprintName}/versions/{versionId}",
+  "segments": [
+    {
+      "name": "resourceScope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBlueprint",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Blueprint"
+    },
+    {
+      "name": "staticBlueprints",
+      "type": "Static",
+      "value": "blueprints"
+    },
+    {
+      "name": "blueprintName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticVersions",
+      "type": "Static",
+      "value": "versions"
+    },
+    {
+      "name": "versionId",
+      "type": "UserSpecified"
+    }
+  ]
 }

@@ -1,16 +1,16 @@
 {
- "name": "ListByVM",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "VirtualMachineId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "GuestAgent"
- },
- "uriSuffix": "/guestAgents"
+  "name": "ListByVM",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VirtualMachineId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GuestAgent"
+  },
+  "uriSuffix": "/guestAgents"
 }

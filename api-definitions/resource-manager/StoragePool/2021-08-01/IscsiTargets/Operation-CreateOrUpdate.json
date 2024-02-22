@@ -1,19 +1,19 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "IscsiTargetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "IscsiTargetCreate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "IscsiTarget"
- }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "IscsiTargetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "IscsiTargetCreate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "IscsiTarget"
+  }
 }

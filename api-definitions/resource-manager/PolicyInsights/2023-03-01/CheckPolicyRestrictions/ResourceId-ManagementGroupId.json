@@ -1,25 +1,25 @@
 {
- "name": "ManagementGroupId",
- "id": "/providers/Microsoft.Management/managementGroups/{managementGroupId}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "managementGroupsNamespace",
-   "type": "Static",
-   "value": "Microsoft.Management"
-  },
-  {
-   "name": "staticManagementGroups",
-   "type": "Static",
-   "value": "managementGroups"
-  },
-  {
-   "name": "managementGroupId",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ManagementGroupId",
+  "id": "/providers/Microsoft.Management/managementGroups/{managementGroupId}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "managementGroupsNamespace",
+      "type": "Static",
+      "value": "Microsoft.Management"
+    },
+    {
+      "name": "staticManagementGroups",
+      "type": "Static",
+      "value": "managementGroups"
+    },
+    {
+      "name": "managementGroupId",
+      "type": "UserSpecified"
+    }
+  ]
 }

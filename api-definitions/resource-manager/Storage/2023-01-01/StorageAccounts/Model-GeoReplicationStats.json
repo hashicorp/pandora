@@ -1,78 +1,78 @@
 {
- "name": "GeoReplicationStats",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "canFailover",
-   "name": "CanFailover",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "canPlannedFailover",
-   "name": "CanPlannedFailover",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastSyncTime",
-   "name": "LastSyncTime",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "postFailoverRedundancy",
-   "name": "PostFailoverRedundancy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PostFailoverRedundancy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "postPlannedFailoverRedundancy",
-   "name": "PostPlannedFailoverRedundancy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PostPlannedFailoverRedundancy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GeoReplicationStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "GeoReplicationStats",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "canFailover",
+      "name": "CanFailover",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "canPlannedFailover",
+      "name": "CanPlannedFailover",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastSyncTime",
+      "name": "LastSyncTime",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "postFailoverRedundancy",
+      "name": "PostFailoverRedundancy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PostFailoverRedundancy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "postPlannedFailoverRedundancy",
+      "name": "PostPlannedFailoverRedundancy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PostPlannedFailoverRedundancy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GeoReplicationStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,33 +1,33 @@
 {
- "name": "ResourceVersionPolicyConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "default",
-   "name": "Default",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FhirResourceVersionPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "resourceTypeOverrides",
-   "name": "ResourceTypeOverrides",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FhirResourceVersionPolicy"
+  "name": "ResourceVersionPolicyConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "default",
+      "name": "Default",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FhirResourceVersionPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceTypeOverrides",
+      "name": "ResourceTypeOverrides",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FhirResourceVersionPolicy"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

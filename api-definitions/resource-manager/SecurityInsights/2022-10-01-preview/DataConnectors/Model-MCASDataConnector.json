@@ -1,20 +1,20 @@
 {
- "name": "MCASDataConnector",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MCASDataConnectorProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "DataConnector",
- "discriminatedTypeValue": "MicrosoftCloudAppSecurity",
- "typeHintIn": "Kind"
+  "name": "MCASDataConnector",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MCASDataConnectorProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "DataConnector",
+  "discriminatedTypeValue": "MicrosoftCloudAppSecurity",
+  "typeHintIn": "Kind"
 }

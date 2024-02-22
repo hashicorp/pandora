@@ -1,140 +1,140 @@
 {
- "name": "ServerEndpointCloudTieringStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cachePerformance",
-   "name": "CachePerformance",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringCachePerformance"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "datePolicyStatus",
-   "name": "DatePolicyStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringDatePolicyStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "filesNotTiering",
-   "name": "FilesNotTiering",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringFilesNotTiering"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "health",
-   "name": "Health",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServerEndpointHealthState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthLastUpdatedTimestamp",
-   "name": "HealthLastUpdatedTimestamp",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastCloudTieringResult",
-   "name": "LastCloudTieringResult",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastSuccessTimestamp",
-   "name": "LastSuccessTimestamp",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lastUpdatedTimestamp",
-   "name": "LastUpdatedTimestamp",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lowDiskMode",
-   "name": "LowDiskMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringLowDiskMode"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "spaceSavings",
-   "name": "SpaceSavings",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringSpaceSavings"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "volumeFreeSpacePolicyStatus",
-   "name": "VolumeFreeSpacePolicyStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CloudTieringVolumeFreeSpacePolicyStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ServerEndpointCloudTieringStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cachePerformance",
+      "name": "CachePerformance",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringCachePerformance"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "datePolicyStatus",
+      "name": "DatePolicyStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringDatePolicyStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filesNotTiering",
+      "name": "FilesNotTiering",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringFilesNotTiering"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "health",
+      "name": "Health",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServerEndpointHealthState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthLastUpdatedTimestamp",
+      "name": "HealthLastUpdatedTimestamp",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastCloudTieringResult",
+      "name": "LastCloudTieringResult",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastSuccessTimestamp",
+      "name": "LastSuccessTimestamp",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lastUpdatedTimestamp",
+      "name": "LastUpdatedTimestamp",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lowDiskMode",
+      "name": "LowDiskMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringLowDiskMode"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "spaceSavings",
+      "name": "SpaceSavings",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringSpaceSavings"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "volumeFreeSpacePolicyStatus",
+      "name": "VolumeFreeSpacePolicyStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CloudTieringVolumeFreeSpacePolicyStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

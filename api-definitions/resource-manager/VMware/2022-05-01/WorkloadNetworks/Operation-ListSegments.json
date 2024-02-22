@@ -1,16 +1,16 @@
 {
- "name": "ListSegments",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "PrivateCloudId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "WorkloadNetworkSegment"
- },
- "uriSuffix": "/workloadNetworks/default/segments"
+  "name": "ListSegments",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "PrivateCloudId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "WorkloadNetworkSegment"
+  },
+  "uriSuffix": "/workloadNetworks/default/segments"
 }

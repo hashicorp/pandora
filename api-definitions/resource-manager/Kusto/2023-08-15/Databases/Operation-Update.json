@@ -1,32 +1,32 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "options": [
-  {
-   "optional": true,
-   "queryString": "callerRole",
-   "required": false,
-   "field": "CallerRole",
-   "optionsObjectDefinition": {
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "callerRole",
+      "required": false,
+      "field": "CallerRole",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "CallerRole"
+      }
+    }
+  ],
+  "resourceIdName": "KustoDatabaseId",
+  "requestObject": {
     "type": "Reference",
-    "referenceName": "CallerRole"
-   }
+    "referenceName": "Database"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Database"
   }
- ],
- "resourceIdName": "KustoDatabaseId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Database"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Database"
- }
 }

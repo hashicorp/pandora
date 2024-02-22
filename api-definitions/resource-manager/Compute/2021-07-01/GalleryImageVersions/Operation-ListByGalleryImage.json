@@ -1,16 +1,16 @@
 {
- "name": "ListByGalleryImage",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "GalleryImageId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "GalleryImageVersion"
- },
- "uriSuffix": "/versions"
+  "name": "ListByGalleryImage",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "GalleryImageId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "GalleryImageVersion"
+  },
+  "uriSuffix": "/versions"
 }
