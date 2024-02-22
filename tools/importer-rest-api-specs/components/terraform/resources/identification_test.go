@@ -59,14 +59,8 @@ func TestIdentifyWithCreateAndReadAndUpdateAndDelete(t *testing.T) {
 				"VirtualNetwork": {
 					Id: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
-						{
-							Type:       resourcemanager.StaticSegment,
-							Name:       "staticVirtualNetworks",
-							FixedValue: stringPointer("virtualNetworks"),
-						}, {
-							Type: resourcemanager.UserSpecifiedSegment,
-							Name: "virtualNetworkName",
-						},
+						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 					},
 				},
 			},
@@ -147,14 +141,8 @@ func TestIdentifyWithCreateOrUpdateAndReadAndDelete(t *testing.T) {
 				"VirtualNetwork": {
 					Id: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
-						{
-							Type:       resourcemanager.StaticSegment,
-							Name:       "staticVirtualNetworks",
-							FixedValue: stringPointer("virtualNetworks"),
-						}, {
-							Type: resourcemanager.UserSpecifiedSegment,
-							Name: "virtualNetworkName",
-						},
+						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 					},
 				},
 			},
@@ -263,14 +251,8 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete(t *testing.T) {
 				"VirtualNetwork": {
 					Id: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
-						{
-							Type:       resourcemanager.StaticSegment,
-							Name:       "staticVirtualNetworks",
-							FixedValue: stringPointer("virtualNetworks"),
-						}, {
-							Type: resourcemanager.UserSpecifiedSegment,
-							Name: "virtualNetworkName",
-						},
+						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 					},
 				},
 			},
@@ -361,14 +343,8 @@ func TestIdentifyWithCreateOrUpdateAndUpdateAndReadAndDelete_NoProperties(t *tes
 				"VirtualNetwork": {
 					Id: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
-						{
-							Type:       resourcemanager.StaticSegment,
-							Name:       "staticVirtualNetworks",
-							FixedValue: stringPointer("virtualNetworks"),
-						}, {
-							Type: resourcemanager.UserSpecifiedSegment,
-							Name: "virtualNetworkName",
-						},
+						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 					},
 				},
 			},
@@ -457,14 +433,8 @@ func TestIdentityWithCreateReadDeleteAndUpdateTags(t *testing.T) {
 				"VirtualNetwork": {
 					Id: "/virtualNetworks/{virtualNetworkName}",
 					Segments: []models.ResourceIDSegment{
-						{
-							Type:       resourcemanager.StaticSegment,
-							Name:       "staticVirtualNetworks",
-							FixedValue: stringPointer("virtualNetworks"),
-						}, {
-							Type: resourcemanager.UserSpecifiedSegment,
-							Name: "virtualNetworkName",
-						},
+						models.NewStaticValueResourceIDSegment("staticVirtualNetworks", "virtualNetworks"),
+						models.NewUserSpecifiedResourceIDSegment("virtualNetworkName", "virtualNetworkName"),
 					},
 				},
 			},
