@@ -260,15 +260,10 @@ func apiOptionsFromModelOptions(input map[string]importerModels.OperationOption)
 	out := make(map[string]resourcemanager.ApiOperationOption)
 
 	for k, v := range input {
-		objectDefinition, err := mapInternalOperationOptionObjectDefinitionToDataAPISDKType(*v.ObjectDefinition)
-		if err != nil {
-			return nil, fmt.Errorf("mapping object definition for options key %q: %+v", k, err)
-		}
-
 		out[k] = resourcemanager.ApiOperationOption{
 			HeaderName:       v.HeaderName,
 			QueryStringName:  v.QueryStringName,
-			ObjectDefinition: *objectDefinition,
+			ObjectDefinition: v.ObjectDefinition,
 			Required:         v.Required,
 		}
 	}

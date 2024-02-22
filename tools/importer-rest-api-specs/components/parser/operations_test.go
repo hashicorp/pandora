@@ -1335,14 +1335,14 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 						Options: map[string]importerModels.OperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								HeaderName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.CSVSDKOperationOptionObjectDefinitionType,
 									NestedItem: &models.SDKOperationOptionObjectDefinition{
 										Type: models.FloatSDKOperationOptionObjectDefinitionType,
@@ -1352,7 +1352,7 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 							},
 							"CsvOfStringValue": {
 								HeaderName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.CSVSDKOperationOptionObjectDefinitionType,
 									NestedItem: &models.SDKOperationOptionObjectDefinition{
 										Type: models.StringSDKOperationOptionObjectDefinitionType,
@@ -1362,28 +1362,28 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 							},
 							"DecimalValue": {
 								HeaderName: pointer.To("decimalValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								HeaderName: pointer.To("doubleValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								HeaderName: pointer.To("intValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								HeaderName: pointer.To("stringValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
@@ -1418,14 +1418,14 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 						Options: map[string]importerModels.OperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.BooleanSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"CsvOfDoubleValue": {
 								QueryStringName: pointer.To("csvOfDoubleValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.CSVSDKOperationOptionObjectDefinitionType,
 									NestedItem: &models.SDKOperationOptionObjectDefinition{
 										Type: models.FloatSDKOperationOptionObjectDefinitionType,
@@ -1435,7 +1435,7 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 							},
 							"CsvOfStringValue": {
 								QueryStringName: pointer.To("csvOfStringValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.CSVSDKOperationOptionObjectDefinitionType,
 									NestedItem: &models.SDKOperationOptionObjectDefinition{
 										Type: models.StringSDKOperationOptionObjectDefinitionType,
@@ -1445,28 +1445,28 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 							},
 							"DecimalValue": {
 								QueryStringName: pointer.To("decimalValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"DoubleValue": {
 								QueryStringName: pointer.To("doubleValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.FloatSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"IntValue": {
 								QueryStringName: pointer.To("intValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.IntegerSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,
 							},
 							"StringValue": {
 								QueryStringName: pointer.To("stringValue"),
-								ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 									Type: models.StringSDKOperationOptionObjectDefinitionType,
 								},
 								Required: true,

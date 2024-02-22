@@ -227,15 +227,10 @@ func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.Opera
 
 		operation.Options = map[string]models.SDKOperationOption{}
 		for k, v := range value.Options {
-			optionObjectDefinition, err := mapInternalOperationOptionObjectDefinitionToDataAPISDKType(*v.ObjectDefinition)
-			if err != nil {
-				return nil, fmt.Errorf("mapping ObjectDefinition for Operation %q Option %q: %+v", key, k, err)
-			}
-
 			operation.Options[k] = models.SDKOperationOption{
 				HeaderName:       v.HeaderName,
 				QueryStringName:  v.QueryStringName,
-				ObjectDefinition: *optionObjectDefinition,
+				ObjectDefinition: v.ObjectDefinition,
 				Required:         v.Required,
 			}
 		}
@@ -243,27 +238,6 @@ func mapInternalOperationsToDataAPISDKType(input map[string]importerModels.Opera
 	}
 
 	return &output, nil
-}
-
-func mapInternalOperationOptionObjectDefinitionToDataAPISDKType(input importerModels.ObjectDefinition) (*models.SDKOperationOptionObjectDefinition, error) {
-	val, ok := operationOptionObjectDefinitionsToSDKTypes[input.Type]
-	if !ok {
-		return nil, fmt.Errorf("internal-error: missing mapping for Operation Object Definition Type %q", string(input.Type))
-	}
-
-	out := models.SDKOperationOptionObjectDefinition{
-		NestedItem:    nil,
-		ReferenceName: input.ReferenceName,
-		Type:          val,
-	}
-	if input.NestedItem != nil {
-		nestedItem, err := mapInternalOperationOptionObjectDefinitionToDataAPISDKType(*input.NestedItem)
-		if err != nil {
-			return nil, fmt.Errorf("mapping NestedItem: %+v", err)
-		}
-		out.NestedItem = nestedItem
-	}
-	return &out, nil
 }
 
 func mapInternalObjectDefinitionToDataAPISDKType(input importerModels.ObjectDefinition) (*models.SDKObjectDefinition, error) {

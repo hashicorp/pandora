@@ -188,8 +188,7 @@ func validateParsedOptionsMatch(t *testing.T, expected, actual importerModels.Op
 	if expected.Required != actual.Required {
 		t.Errorf("expected `Required` to be %t but got %t for Option %q", expected.Required, actual.Required, optionName)
 	}
-	// NOTE: this will become its own type once refactored
-	validateObjectsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, "OptionObjectDefinition", validateParsedOptionsObjectDefinitionsMatch)
+	validateParsedOptionsObjectDefinitionsMatch(t, expected.ObjectDefinition, actual.ObjectDefinition, "OptionObjectDefinition")
 }
 
 func validateParsedOptionsObjectDefinitionsMatch(t *testing.T, expected, actual models.SDKOperationOptionObjectDefinition, fieldName string) {

@@ -103,11 +103,7 @@ func findUnusedConstants(operations map[string]importerModels.OperationDetails, 
 			}
 
 			for _, v := range operation.Options {
-				if v.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelOptionsObjectDefinition(*v.ObjectDefinition)
+				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
 				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}
@@ -185,11 +181,7 @@ func findUnusedModels(operations map[string]importerModels.OperationDetails, res
 
 			// @tombuildsstuff: whilst I don't _think_ there are any examples of this today, checking it because it's an option
 			for _, v := range operation.Options {
-				if v.ObjectDefinition == nil {
-					continue
-				}
-
-				definition := topLevelOptionsObjectDefinition(*v.ObjectDefinition)
+				definition := topLevelOptionsObjectDefinition(v.ObjectDefinition)
 				if definition.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 					continue
 				}

@@ -4,6 +4,7 @@
 package parser
 
 import (
+	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
@@ -68,9 +69,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
-			if optionVal.ObjectDefinition != nil {
-				optionVal.ObjectDefinition = normalizeOptionsObjectDefinition(*optionVal.ObjectDefinition)
-			}
+			optionVal.ObjectDefinition = normalizeOptionsObjectDefinition(optionVal.ObjectDefinition)
 
 			normalizedOptions[optionKey] = optionVal
 		}
@@ -127,15 +126,16 @@ func normalizeObjectDefinition(input importerModels.ObjectDefinition) *importerM
 	return &input
 }
 
-func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) *models.SDKOperationOptionObjectDefinition {
+func normalizeOptionsObjectDefinition(input models.SDKOperationOptionObjectDefinition) models.SDKOperationOptionObjectDefinition {
 	if input.ReferenceName != nil {
 		normalized := cleanup.NormalizeName(*input.ReferenceName)
 		input.ReferenceName = &normalized
 	}
 
 	if input.NestedItem != nil {
-		input.NestedItem = normalizeOptionsObjectDefinition(*input.NestedItem)
+		nestedItem := normalizeOptionsObjectDefinition(*input.NestedItem)
+		input.NestedItem = pointer.To(nestedItem)
 	}
 
-	return &input
+	return input
 }

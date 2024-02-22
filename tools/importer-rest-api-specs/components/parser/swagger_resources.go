@@ -307,11 +307,7 @@ func (d *SwaggerDefinition) determineObjectsRequiredButNotParsed(operations map[
 		}
 
 		for _, value := range operation.Options {
-			if value.ObjectDefinition == nil {
-				continue
-			}
-
-			topLevelRef := topLevelOptionsObjectDefinition(*value.ObjectDefinition)
+			topLevelRef := topLevelOptionsObjectDefinition(value.ObjectDefinition)
 			if topLevelRef.Type != models.ReferenceSDKOperationOptionObjectDefinitionType {
 				continue
 			}

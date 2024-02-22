@@ -123,7 +123,7 @@ const (
 )
 
 type OperationOption struct {
-	ObjectDefinition *models.SDKOperationOptionObjectDefinition
+	ObjectDefinition models.SDKOperationOptionObjectDefinition
 	HeaderName       *string
 	QueryStringName  *string
 	Required         bool

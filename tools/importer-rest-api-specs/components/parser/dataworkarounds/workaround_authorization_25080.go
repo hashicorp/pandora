@@ -34,7 +34,7 @@ func (workaroundAuthorization25080) Process(apiDefinition importerModels.AzureAp
 		return nil, fmt.Errorf("expected an Operation named `ListForScope` but didn't get one")
 	}
 	operation.Options["Filter"] = importerModels.OperationOption{
-		ObjectDefinition: &models.SDKOperationOptionObjectDefinition{
+		ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 			Type: models.StringSDKOperationOptionObjectDefinitionType,
 		},
 		QueryStringName: pointer.To("$filter"),
