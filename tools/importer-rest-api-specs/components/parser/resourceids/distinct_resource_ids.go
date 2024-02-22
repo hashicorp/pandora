@@ -3,17 +3,17 @@
 
 package resourceids
 
-import "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+import importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 
-func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []models.ParsedResourceId {
-	out := make([]models.ParsedResourceId, 0)
+func (p *Parser) distinctResourceIds(input map[string]processedResourceId) []importerModels.ParsedResourceId {
+	out := make([]importerModels.ParsedResourceId, 0)
 
 	for _, operation := range input {
 		if operation.segments == nil {
 			continue
 		}
 
-		item := models.ParsedResourceId{
+		item := importerModels.ParsedResourceId{
 			CommonAlias: nil,
 			Constants:   operation.constants,
 			Segments:    *operation.segments,

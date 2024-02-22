@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,24 +12,24 @@ var _ commonIdMatcher = commonIdVirtualMachineScaleSetNetworkInterface{}
 
 type commonIdVirtualMachineScaleSetNetworkInterface struct{}
 
-func (c commonIdVirtualMachineScaleSetNetworkInterface) id() models.ParsedResourceId {
+func (c commonIdVirtualMachineScaleSetNetworkInterface) id() importerModels.ParsedResourceId {
 	name := "VirtualMachineScaleSetNetworkInterface"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			models.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineScaleSetName"),
-			models.StaticResourceIDSegment("virtualMachines", "virtualMachines"),
-			models.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
-			models.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
-			models.UserSpecifiedResourceIDSegment("networkInterfaceName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			importerModels.StaticResourceIDSegment("virtualMachineScaleSets", "virtualMachineScaleSets"),
+			importerModels.UserSpecifiedResourceIDSegment("virtualMachineScaleSetName"),
+			importerModels.StaticResourceIDSegment("virtualMachines", "virtualMachines"),
+			importerModels.UserSpecifiedResourceIDSegment("virtualMachineIndex"),
+			importerModels.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
+			importerModels.UserSpecifiedResourceIDSegment("networkInterfaceName"),
 		},
 	}
 

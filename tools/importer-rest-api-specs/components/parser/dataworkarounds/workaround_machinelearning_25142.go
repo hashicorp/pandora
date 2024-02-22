@@ -7,7 +7,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundMachineLearning25142{}
@@ -17,7 +17,7 @@ var _ workaround = workaroundMachineLearning25142{}
 type workaroundMachineLearning25142 struct {
 }
 
-func (workaroundMachineLearning25142) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundMachineLearning25142) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	serviceMatches := apiDefinition.ServiceName == "MachineLearningServices"
 	apiVersionMatches := apiDefinition.ApiVersion == "2023-04-01"
 	return serviceMatches && apiVersionMatches
@@ -27,7 +27,7 @@ func (workaroundMachineLearning25142) Name() string {
 	return "MachineLearningServices / 25142"
 }
 
-func (workaroundMachineLearning25142) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundMachineLearning25142) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["RegistryManagement"]
 	if !ok {
 		return nil, fmt.Errorf("couldn't find API Resource RegistryManagement")

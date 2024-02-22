@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -16,7 +16,7 @@ var _ workaround = workaroundHDInsight26838{}
 // Swagger PR: https://github.com/Azure/azure-rest-api-specs/pull/26838
 type workaroundHDInsight26838 struct{}
 
-func (workaroundHDInsight26838) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundHDInsight26838) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	// The field `kind` is a constant within the API but isn't documented as such - whilst
 	// we've previously been using this as a String - since we need to recase the value as
 	// the API returns this inconsistently - and there's a fixed list of possible values
@@ -40,7 +40,7 @@ func (workaroundHDInsight26838) Name() string {
 	return "HDInsight / 26838"
 }
 
-func (workaroundHDInsight26838) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
+func (workaroundHDInsight26838) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
 	resource, ok := apiDefinition.Resources["Clusters"]
 	if !ok {
 		return nil, fmt.Errorf("expected a Resource named `Clusters`")
@@ -54,8 +54,8 @@ func (workaroundHDInsight26838) Process(apiDefinition models.AzureApiDefinition)
 	if !ok {
 		return nil, fmt.Errorf("expected a Field named `Kind`")
 	}
-	field.ObjectDefinition = &models.ObjectDefinition{
-		Type:          models.ObjectDefinitionReference,
+	field.ObjectDefinition = &importerModels.ObjectDefinition{
+		Type:          importerModels.ObjectDefinitionReference,
 		ReferenceName: pointer.To("ClusterKind"),
 	}
 	model.Fields["Kind"] = field

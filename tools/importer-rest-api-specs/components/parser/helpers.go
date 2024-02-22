@@ -7,10 +7,9 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
-
 	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func fragmentNameFromReference(input spec.Ref) *string {
@@ -50,7 +49,7 @@ func operationMatchesTag(operation *spec.Operation, tag *string) bool {
 }
 
 // topLevelObjectDefinition returns the top level object definition, that is a Constant or Model (or simple type) directly
-func topLevelObjectDefinition(input models.ObjectDefinition) models.ObjectDefinition {
+func topLevelObjectDefinition(input importerModels.ObjectDefinition) importerModels.ObjectDefinition {
 	if input.NestedItem != nil {
 		return topLevelObjectDefinition(*input.NestedItem)
 	}

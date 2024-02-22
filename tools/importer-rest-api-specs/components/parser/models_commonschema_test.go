@@ -7,7 +7,7 @@ import (
 	"testing"
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 // TODO: Edge Zones
@@ -22,38 +22,38 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedList(t *test
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLegacySystemAndUserAssignedIdentityList),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityList),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -70,38 +70,38 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap(t *testi
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -120,38 +120,38 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_ExtraFie
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -168,38 +168,38 @@ func TestParseModel_CommonSchema_IdentityLegacySystemAndUserAssignedMap_GenericD
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLegacySystemAndUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -216,38 +216,38 @@ func TestParseModel_CommonSchema_IdentitySystemAssigned(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemAssignedIdentity),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAssignedIdentity),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -264,38 +264,38 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedList(t *testing.T)
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemAndUserAssignedIdentityList),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -312,38 +312,38 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap(t *testing.T) 
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemAndUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -362,38 +362,38 @@ func TestParseModel_CommonSchema_IdentitySystemAndUserAssignedMap_ExtraFields(t 
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemAndUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemAndUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -410,38 +410,38 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedList(t *testing.T) 
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityList),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityList),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -458,38 +458,38 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -508,38 +508,38 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_DelegatedResour
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -558,38 +558,38 @@ func TestParseModel_CommonSchema_IdentitySystemOrUserAssignedMap_ExtraFields(t *
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeSystemOrUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeSystemOrUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -606,38 +606,38 @@ func TestParseModel_CommonSchema_IdentityUserAssignedList(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeUserAssignedIdentityList),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityList),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -654,38 +654,38 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -702,38 +702,38 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_PrincipalID(t *testing.
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -750,38 +750,38 @@ func TestParseModel_CommonSchema_IdentityUserAssignedMap_TenantID(t *testing.T) 
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Identity": {
 								JsonName:        "identity",
-								CustomFieldType: pointer.To(models.CustomFieldTypeUserAssignedIdentityMap),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeUserAssignedIdentityMap),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},
@@ -798,38 +798,38 @@ func TestParseModel_CommonSchema_Location(t *testing.T) {
 		t.Fatalf("parsing: %+v", err)
 	}
 
-	expected := models.AzureApiDefinition{
+	expected := importerModels.AzureApiDefinition{
 		ServiceName: "Example",
 		ApiVersion:  "2020-01-01",
-		Resources: map[string]models.AzureApiResource{
+		Resources: map[string]importerModels.AzureApiResource{
 			"Resource": {
-				Models: map[string]models.ModelDetails{
+				Models: map[string]importerModels.ModelDetails{
 					"Model": {
-						Fields: map[string]models.FieldDetails{
+						Fields: map[string]importerModels.FieldDetails{
 							"Location": {
 								JsonName:        "location",
-								CustomFieldType: pointer.To(models.CustomFieldTypeLocation),
+								CustomFieldType: pointer.To(importerModels.CustomFieldTypeLocation),
 								Required:        false,
 							},
 							"Name": {
 								JsonName: "name",
-								ObjectDefinition: &models.ObjectDefinition{
-									Type: models.ObjectDefinitionString,
+								ObjectDefinition: &importerModels.ObjectDefinition{
+									Type: importerModels.ObjectDefinitionString,
 								},
 								Required: false,
 							},
 						},
 					},
 				},
-				Operations: map[string]models.OperationDetails{
+				Operations: map[string]importerModels.OperationDetails{
 					"Test": {
 						ContentType:         "application/json",
 						ExpectedStatusCodes: []int{200},
 						Method:              "GET",
 						OperationId:         "Resource_Test",
-						ResponseObject: &models.ObjectDefinition{
+						ResponseObject: &importerModels.ObjectDefinition{
 							ReferenceName: pointer.To("Model"),
-							Type:          models.ObjectDefinitionReference,
+							Type:          importerModels.ObjectDefinitionReference,
 						},
 						UriSuffix: pointer.To("/example"),
 					},

@@ -7,7 +7,7 @@ import (
 	"fmt"
 
 	"github.com/hashicorp/go-hclog"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var workarounds = []workaround{
@@ -38,8 +38,8 @@ var workarounds = []workaround{
 	workaroundOperationalinsights27524{},
 }
 
-func ApplyWorkarounds(input []models.AzureApiDefinition, logger hclog.Logger) (*[]models.AzureApiDefinition, error) {
-	output := make([]models.AzureApiDefinition, 0)
+func ApplyWorkarounds(input []importerModels.AzureApiDefinition, logger hclog.Logger) (*[]importerModels.AzureApiDefinition, error) {
+	output := make([]importerModels.AzureApiDefinition, 0)
 	logger.Trace("Processing Swagger Data Workarounds..")
 	for _, item := range input {
 		for _, fix := range workarounds {

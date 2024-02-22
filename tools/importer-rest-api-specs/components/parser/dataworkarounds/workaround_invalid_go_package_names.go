@@ -7,14 +7,14 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ workaround = workaroundInvalidGoPackageNames{}
 
 type workaroundInvalidGoPackageNames struct{}
 
-func (workaroundInvalidGoPackageNames) IsApplicable(apiDefinition *models.AzureApiDefinition) bool {
+func (workaroundInvalidGoPackageNames) IsApplicable(apiDefinition *importerModels.AzureApiDefinition) bool {
 	for key := range apiDefinition.Resources {
 		if strings.EqualFold(key, "documentation") {
 			return true
@@ -27,8 +27,8 @@ func (workaroundInvalidGoPackageNames) Name() string {
 	return "Workaround Invalid Go Package Names"
 }
 
-func (workaroundInvalidGoPackageNames) Process(apiDefinition models.AzureApiDefinition) (*models.AzureApiDefinition, error) {
-	resources := make(map[string]models.AzureApiResource, 0)
+func (workaroundInvalidGoPackageNames) Process(apiDefinition importerModels.AzureApiDefinition) (*importerModels.AzureApiDefinition, error) {
+	resources := make(map[string]importerModels.AzureApiResource, 0)
 
 	for resourceName := range apiDefinition.Resources {
 		originalName := resourceName

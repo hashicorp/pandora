@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,20 +12,20 @@ var _ commonIdMatcher = commonIdSpringCloudService{}
 
 type commonIdSpringCloudService struct{}
 
-func (c commonIdSpringCloudService) id() models.ParsedResourceId {
+func (c commonIdSpringCloudService) id() importerModels.ParsedResourceId {
 	name := "SpringCloudService"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("staticProviders", "providers"),
-			models.ResourceProviderResourceIDSegment("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
-			models.StaticResourceIDSegment("staticSpring", "spring"),
-			models.UserSpecifiedResourceIDSegment("serviceName"),
+			importerModels.StaticResourceIDSegment("staticSubscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("staticResourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("staticProviders", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("staticMicrosoftAppPlatform", "Microsoft.AppPlatform"),
+			importerModels.StaticResourceIDSegment("staticSpring", "spring"),
+			importerModels.UserSpecifiedResourceIDSegment("serviceName"),
 		},
 	}
 }

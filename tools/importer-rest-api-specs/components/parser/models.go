@@ -7,20 +7,19 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/go-openapi/spec"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/commonschema"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/constants"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
-
-	"github.com/go-openapi/spec"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 func (d *SwaggerDefinition) parseModel(name string, input spec.Schema) (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 
 	// 1. find any constants used within this model
@@ -62,7 +61,7 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	// NOTE: both Models and Fields are passed in here
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
@@ -133,16 +132,16 @@ func (d *SwaggerDefinition) findConstantsWithinModel(fieldName string, input spe
 	return &result, nil
 }
 
-func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*models.FieldDetails, *internal.ParseResult, error) {
+func (d *SwaggerDefinition) detailsForField(modelName string, propertyName string, value spec.Schema, isRequired bool, known internal.ParseResult) (*importerModels.FieldDetails, *internal.ParseResult, error) {
 	d.logger.Trace(fmt.Sprintf("Parsing details for field %q in %q..", propertyName, modelName))
 
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
-	field := models.FieldDetails{
+	field := importerModels.FieldDetails{
 		Required:    isRequired,
 		ReadOnly:    value.ReadOnly, // TODO: generator should handle this in some manner?
 		Sensitive:   false,          // todo: this probably needs to be a predefined list, unless there's something we can parse
@@ -164,7 +163,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	if len(value.Properties) > 0 || len(value.AllOf) > 1 {
 		// there's a nested model we need to pull out
 		inlinedName := inlinedModelName(modelName, propertyName)
-		nestedFields := make(map[string]models.FieldDetails, 0)
+		nestedFields := make(map[string]importerModels.FieldDetails, 0)
 		for propName, propVal := range value.Properties {
 			nestedFieldRequired := false
 			for _, field := range value.Required {
@@ -219,7 +218,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 		}
 		result.Models[inlinedName] = *inlinedModelDetails
 		// then swap out the reference
-		objectDefinition.Type = models.ObjectDefinitionReference
+		objectDefinition.Type = importerModels.ObjectDefinitionReference
 		objectDefinition.ReferenceName = &inlinedName
 	}
 
@@ -230,7 +229,7 @@ func (d *SwaggerDefinition) detailsForField(modelName string, propertyName strin
 	return &field, &result, err
 }
 
-func determineCustomFieldType(field models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) *models.CustomFieldType {
+func determineCustomFieldType(field importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) *importerModels.CustomFieldType {
 	for _, matcher := range commonschema.CustomFieldMatchers {
 		if matcher.IsMatch(field, definition, known) {
 			fieldType := matcher.CustomFieldType()
@@ -241,11 +240,11 @@ func determineCustomFieldType(field models.FieldDetails, definition models.Objec
 	return nil
 }
 
-func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]models.FieldDetails, *internal.ParseResult, error) {
-	fields := make(map[string]models.FieldDetails, 0)
+func (d *SwaggerDefinition) fieldsForModel(modelName string, input spec.Schema, known internal.ParseResult) (*map[string]importerModels.FieldDetails, *internal.ParseResult, error) {
+	fields := make(map[string]importerModels.FieldDetails, 0)
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
@@ -380,8 +379,8 @@ func (d *SwaggerDefinition) findTopLevelObject(name string) (*spec.Schema, error
 	return nil, fmt.Errorf("the top level object %q was not found", name)
 }
 
-func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]models.FieldDetails) (*models.ModelDetails, error) {
-	details := models.ModelDetails{
+func (d *SwaggerDefinition) modelDetailsFromObject(modelName string, input spec.Schema, fields map[string]importerModels.FieldDetails) (*importerModels.ModelDetails, error) {
+	details := importerModels.ModelDetails{
 		Description: "",
 		Fields:      fields,
 	}
@@ -460,7 +459,7 @@ func (d *SwaggerDefinition) findAncestorType(input spec.Schema) (*string, *strin
 func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseResult, error) {
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 
 	for modelName, definition := range d.swaggerSpecRaw.Definitions {
@@ -477,7 +476,7 @@ func (d *SwaggerDefinition) findOrphanedDiscriminatedModels() (*internal.ParseRe
 
 	// this will also pull out the parent model in the file which will already have been parsed, but that's ok
 	// since they will be de-duplicated when we call combineResourcesWith
-	nestedResult, err := d.findNestedItemsYetToBeParsed(map[string]models.OperationDetails{}, result)
+	nestedResult, err := d.findNestedItemsYetToBeParsed(map[string]importerModels.OperationDetails{}, result)
 	if err != nil {
 		return nil, fmt.Errorf("finding nested items yet to be parsed: %+v", err)
 	}
@@ -494,12 +493,12 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	input *spec.Schema,
 	known internal.ParseResult,
 	parsingModel bool,
-) (*models.ObjectDefinition, *internal.ParseResult, error) {
+) (*importerModels.ObjectDefinition, *internal.ParseResult, error) {
 	// find the object and any models and constants etc we can find
 	// however _don't_ look for discriminator implementations - since that should be done when we're completely done
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
-		Models:    map[string]models.ModelDetails{},
+		Models:    map[string]importerModels.ModelDetails{},
 	}
 	result.Append(known)
 
@@ -511,8 +510,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		}
 		result.Constants[constant.Name] = constant.Details
 
-		definition := models.ObjectDefinition{
-			Type:          models.ObjectDefinitionReference,
+		definition := importerModels.ObjectDefinition{
+			Type:          importerModels.ObjectDefinitionReference,
 			ReferenceName: &constant.Name,
 		}
 		if input.MaxItems != nil {
@@ -539,14 +538,14 @@ func (d SwaggerDefinition) parseObjectDefinition(
 
 		knownIncludingPlaceholder := internal.ParseResult{
 			Constants: map[string]resourcemanager.ConstantDetails{},
-			Models:    map[string]models.ModelDetails{},
+			Models:    map[string]importerModels.ModelDetails{},
 		}
 
 		if err := knownIncludingPlaceholder.Append(result); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
 		if *objectName != "" {
-			knownIncludingPlaceholder.Models[*objectName] = models.ModelDetails{
+			knownIncludingPlaceholder.Models[*objectName] = importerModels.ModelDetails{
 				// add a placeholder to avoid circular references
 			}
 		}
@@ -599,8 +598,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 			}
 		}
 
-		definition := models.ObjectDefinition{
-			Type:          models.ObjectDefinitionReference,
+		definition := importerModels.ObjectDefinition{
+			Type:          importerModels.ObjectDefinitionReference,
 			ReferenceName: &modelName,
 		}
 		if input.MaxItems != nil {
@@ -634,8 +633,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
-		return &models.ObjectDefinition{
-			Type:       models.ObjectDefinitionDictionary,
+		return &importerModels.ObjectDefinition{
+			Type:       importerModels.ObjectDefinitionDictionary,
 			NestedItem: nestedItem,
 		}, &result, nil
 	}
@@ -669,8 +668,8 @@ func (d SwaggerDefinition) parseObjectDefinition(
 		if err := result.Append(*nestedResult); err != nil {
 			return nil, nil, fmt.Errorf("appending nestedResult: %+v", err)
 		}
-		return &models.ObjectDefinition{
-			Type:       models.ObjectDefinitionList,
+		return &importerModels.ObjectDefinition{
+			Type:       importerModels.ObjectDefinitionList,
 			NestedItem: nestedItem,
 		}, &result, nil
 	}
@@ -683,43 +682,43 @@ func (d SwaggerDefinition) parseObjectDefinition(
 	return nil, nil, fmt.Errorf("unimplemented object definition")
 }
 
-func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDefinition {
+func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *importerModels.ObjectDefinition {
 	if input == nil {
 		return nil
 	}
 
 	if input.Type.Contains("bool") || input.Type.Contains("boolean") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionBoolean,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionBoolean,
 		}
 	}
 
 	if input.Type.Contains("file") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionRawFile,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionRawFile,
 		}
 	}
 
 	if input.Type.Contains("integer") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionInteger,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionInteger,
 		}
 	}
 
 	if input.Type.Contains("number") {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionFloat,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionFloat,
 		}
 	}
 
 	if input.Type.Contains("object") {
 		if strings.EqualFold(input.Format, "file") {
-			return &models.ObjectDefinition{
-				Type: models.ObjectDefinitionRawFile,
+			return &importerModels.ObjectDefinition{
+				Type: importerModels.ObjectDefinitionRawFile,
 			}
 		}
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionRawObject,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionRawObject,
 		}
 	}
 
@@ -727,23 +726,23 @@ func (d SwaggerDefinition) parseNativeType(input *spec.Schema) *models.ObjectDef
 	// that this could have no Type value but a Format value, so we have to check this separately.
 	if strings.EqualFold(input.Format, "date-time") {
 		// TODO: handle there being a custom format - for now we assume these are all using RFC3339 (#8)
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionDateTime,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionDateTime,
 		}
 	}
 
 	if input.Type.Contains("string") {
 		// TODO: handle the `format` of `arm-id` (#1289)
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionString,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionString,
 		}
 	}
 
 	// whilst all fields _should_ have a Type field, it's not guaranteed that they do
 	// NOTE: this is _intentionally_ not part of the Object comparison above
 	if len(input.Type) == 0 {
-		return &models.ObjectDefinition{
-			Type: models.ObjectDefinitionRawObject,
+		return &importerModels.ObjectDefinition{
+			Type: importerModels.ObjectDefinitionRawObject,
 		}
 	}
 

@@ -7,20 +7,19 @@ import (
 	"strings"
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/internal"
-
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 var _ customFieldMatcher = systemAndUserAssignedIdentityListMatcher{}
 
 type systemAndUserAssignedIdentityListMatcher struct{}
 
-func (systemAndUserAssignedIdentityListMatcher) CustomFieldType() models.CustomFieldType {
-	return models.CustomFieldTypeSystemAndUserAssignedIdentityList
+func (systemAndUserAssignedIdentityListMatcher) CustomFieldType() importerModels.CustomFieldType {
+	return importerModels.CustomFieldTypeSystemAndUserAssignedIdentityList
 }
 
-func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, definition models.ObjectDefinition, known internal.ParseResult) bool {
-	if definition.Type != models.ObjectDefinitionReference {
+func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ importerModels.FieldDetails, definition importerModels.ObjectDefinition, known internal.ParseResult) bool {
+	if definition.Type != importerModels.ObjectDefinitionReference {
 		return false
 	}
 
@@ -48,10 +47,10 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, d
 
 		if strings.EqualFold(fieldName, "UserAssignedIdentities") {
 			// this should be a List of Strings
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionList {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionList {
 				continue
 			}
-			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != models.ObjectDefinitionString {
+			if fieldVal.ObjectDefinition.NestedItem == nil || fieldVal.ObjectDefinition.NestedItem.Type != importerModels.ObjectDefinitionString {
 				continue
 			}
 
@@ -60,7 +59,7 @@ func (systemAndUserAssignedIdentityListMatcher) IsMatch(_ models.FieldDetails, d
 		}
 
 		if strings.EqualFold(fieldName, "Type") {
-			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != models.ObjectDefinitionReference {
+			if fieldVal.ObjectDefinition == nil || fieldVal.ObjectDefinition.Type != importerModels.ObjectDefinitionReference {
 				continue
 			}
 			constant, ok := known.Constants[*fieldVal.ObjectDefinition.ReferenceName]

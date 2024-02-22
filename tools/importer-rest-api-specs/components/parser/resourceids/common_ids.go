@@ -4,12 +4,12 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 )
 
 type commonIdMatcher interface {
 	// id returns the Resource ID for this Common ID
-	id() models.ParsedResourceId
+	id() importerModels.ParsedResourceId
 }
 
 var commonIdTypes = []commonIdMatcher{
@@ -106,8 +106,8 @@ var commonIdTypes = []commonIdMatcher{
 	commonIdSharedImageGallery{},
 }
 
-func switchOutCommonResourceIDsAsNeeded(input []models.ParsedResourceId) []models.ParsedResourceId {
-	output := make([]models.ParsedResourceId, 0)
+func switchOutCommonResourceIDsAsNeeded(input []importerModels.ParsedResourceId) []importerModels.ParsedResourceId {
+	output := make([]importerModels.ParsedResourceId, 0)
 
 	for _, value := range input {
 		for _, commonId := range commonIdTypes {

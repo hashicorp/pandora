@@ -4,7 +4,7 @@
 package resourceids
 
 import (
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -12,19 +12,19 @@ var _ commonIdMatcher = commonIdChaosStudioCapability{}
 
 type commonIdChaosStudioCapability struct{}
 
-func (commonIdChaosStudioCapability) id() models.ParsedResourceId {
+func (commonIdChaosStudioCapability) id() importerModels.ParsedResourceId {
 	name := "ChaosStudioCapability"
-	return models.ParsedResourceId{
+	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.ScopeResourceIDSegment("scope"),
-			models.StaticResourceIDSegment("staticProviders", "providers"),
-			models.ResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
-			models.StaticResourceIDSegment("staticTargets", "targets"),
-			models.UserSpecifiedResourceIDSegment("targetName"),
-			models.StaticResourceIDSegment("staticCapabilities", "capabilities"),
-			models.UserSpecifiedResourceIDSegment("capabilityName"),
+			importerModels.ScopeResourceIDSegment("scope"),
+			importerModels.StaticResourceIDSegment("staticProviders", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
+			importerModels.StaticResourceIDSegment("staticTargets", "targets"),
+			importerModels.UserSpecifiedResourceIDSegment("targetName"),
+			importerModels.StaticResourceIDSegment("staticCapabilities", "capabilities"),
+			importerModels.UserSpecifiedResourceIDSegment("capabilityName"),
 		},
 	}
 }

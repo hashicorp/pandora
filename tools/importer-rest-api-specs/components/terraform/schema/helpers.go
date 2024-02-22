@@ -11,7 +11,7 @@ import (
 
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/helpers"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/terraform/schema/processors"
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
@@ -57,7 +57,7 @@ func getField(model resourcemanager.ModelDetails, fieldName string) (*resourcema
 	return nil, false
 }
 
-func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails, resourceBuildInfo *models.ResourceBuildInfo) (string, error) {
+func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, resource *resourcemanager.TerraformResourceDetails, constants map[string]resourcemanager.ConstantDetails, resourceBuildInfo *importerModels.ResourceBuildInfo) (string, error) {
 	metadata := processors.FieldMetadata{
 		TerraformDetails: *resource,
 		Model:            *model,
@@ -90,7 +90,7 @@ func updateFieldName(fieldName string, model *resourcemanager.ModelDetails, reso
 	return fieldName, nil
 }
 
-func applySchemaOverrides(fieldName string, overrides []models.Override) (*string, error) {
+func applySchemaOverrides(fieldName string, overrides []importerModels.Override) (*string, error) {
 	for _, override := range overrides {
 		if strings.EqualFold(fieldName, strings.ReplaceAll(override.Name, "_", "")) {
 			if override.UpdatedName != nil {

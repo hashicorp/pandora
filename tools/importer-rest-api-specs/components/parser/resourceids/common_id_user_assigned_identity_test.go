@@ -6,40 +6,40 @@ package resourceids
 import (
 	"testing"
 
-	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
+	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_UserAssignedIdentity(t *testing.T) {
-	valid := models.ParsedResourceId{
+	valid := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+			importerModels.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+			importerModels.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
 		},
 	}
-	invalid := models.ParsedResourceId{
+	invalid := importerModels.ParsedResourceId{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 		Segments: []resourcemanager.ResourceIdSegment{
-			models.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			models.SubscriptionIDResourceIDSegment("subscriptionId"),
-			models.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			models.ResourceGroupResourceIDSegment("resourceGroupName"),
-			models.StaticResourceIDSegment("providers", "providers"),
-			models.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
-			models.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
-			models.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
-			models.StaticResourceIDSegment("someResource", "someResource"),
-			models.UserSpecifiedResourceIDSegment("resourceName"),
+			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
+			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
+			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
+			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
+			importerModels.StaticResourceIDSegment("providers", "providers"),
+			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ManagedIdentity"),
+			importerModels.StaticResourceIDSegment("userAssignedIdentities", "userAssignedIdentities"),
+			importerModels.UserSpecifiedResourceIDSegment("userAssignedIdentityName"),
+			importerModels.StaticResourceIDSegment("someResource", "someResource"),
+			importerModels.UserSpecifiedResourceIDSegment("resourceName"),
 		},
 	}
-	input := []models.ParsedResourceId{
+	input := []importerModels.ParsedResourceId{
 		valid,
 		invalid,
 	}
