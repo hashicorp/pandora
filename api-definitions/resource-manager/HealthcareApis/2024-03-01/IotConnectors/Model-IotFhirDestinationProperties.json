@@ -1,0 +1,53 @@
+{
+  "name": "IotFhirDestinationProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fhirMapping",
+      "name": "FhirMapping",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IotMappingProperties"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fhirServiceResourceId",
+      "name": "FhirServiceResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "resourceIdentityResolutionType",
+      "name": "ResourceIdentityResolutionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IotIdentityResolutionType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
+}
