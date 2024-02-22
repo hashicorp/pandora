@@ -33,7 +33,7 @@ func (workaroundAuthorization25080) Process(apiDefinition importerModels.AzureAp
 	if !ok {
 		return nil, fmt.Errorf("expected an Operation named `ListForScope` but didn't get one")
 	}
-	operation.Options["Filter"] = importerModels.OperationOption{
+	operation.Options["Filter"] = models.SDKOperationOption{
 		ObjectDefinition: models.SDKOperationOptionObjectDefinition{
 			Type: models.StringSDKOperationOptionObjectDefinitionType,
 		},

@@ -178,7 +178,7 @@ func validateParsedOperationsMatch(t *testing.T, expected, actual importerModels
 	}
 }
 
-func validateParsedOptionsMatch(t *testing.T, expected, actual importerModels.OperationOption, optionName string) {
+func validateParsedOptionsMatch(t *testing.T, expected, actual models.SDKOperationOption, optionName string) {
 	if pointer.From(expected.HeaderName) != pointer.From(actual.HeaderName) {
 		t.Errorf("expected `HeaderName` to be %q but got %q for Option %q", pointer.From(expected.HeaderName), pointer.From(actual.HeaderName), optionName)
 	}

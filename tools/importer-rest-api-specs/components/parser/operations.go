@@ -337,8 +337,8 @@ func (p operationsParser) operationIsLongRunning(input parsedOperation) bool {
 	return val
 }
 
-func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]importerModels.OperationOption, *internal.ParseResult, error) {
-	output := make(map[string]importerModels.OperationOption)
+func (p operationsParser) optionsForOperation(input parsedOperation, logger hclog.Logger) (*map[string]models.SDKOperationOption, *internal.ParseResult, error) {
+	output := make(map[string]models.SDKOperationOption)
 	result := internal.ParseResult{
 		Constants: map[string]resourcemanager.ConstantDetails{},
 	}
@@ -359,7 +359,7 @@ func (p operationsParser) optionsForOperation(input parsedOperation, logger hclo
 			val := param.Name
 			name := cleanup.NormalizeName(val)
 
-			option := importerModels.OperationOption{
+			option := models.SDKOperationOption{
 				Required: param.Required,
 			}
 

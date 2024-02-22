@@ -1332,7 +1332,7 @@ func TestParseOperationSingleWithHeaderOptions(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
 						OperationId:         "Hello_HeadWorld",
-						Options: map[string]importerModels.OperationOption{
+						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								HeaderName: pointer.To("boolValue"),
 								ObjectDefinition: models.SDKOperationOptionObjectDefinition{
@@ -1415,7 +1415,7 @@ func TestParseOperationSingleWithQueryStringOptions(t *testing.T) {
 						ExpectedStatusCodes: []int{200},
 						Method:              "HEAD",
 						OperationId:         "Hello_HeadWorld",
-						Options: map[string]importerModels.OperationOption{
+						Options: map[string]models.SDKOperationOption{
 							"BoolValue": {
 								QueryStringName: pointer.To("boolValue"),
 								ObjectDefinition: models.SDKOperationOptionObjectDefinition{

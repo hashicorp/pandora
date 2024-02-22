@@ -225,15 +225,8 @@ func apiOperationsFromModelOperations(input map[string]importerModels.OperationD
 			Method:                           v.Method,
 			ResourceIdName:                   v.ResourceIdName,
 			FieldContainingPaginationDetails: v.FieldContainingPaginationDetails,
-			Options:                          map[string]resourcemanager.ApiOperationOption{},
+			Options:                          v.Options,
 			UriSuffix:                        v.UriSuffix,
-		}
-		if v.Options != nil {
-			options, err := apiOptionsFromModelOptions(v.Options)
-			if err != nil {
-				return nil, fmt.Errorf("mapping options for operation %q: %+v", k, err)
-			}
-			details.Options = *options
 		}
 		if v.RequestObject != nil {
 			obj, err := apiObjectDefinitionFromModelObjectDefinition(v.RequestObject, nil)
@@ -251,21 +244,6 @@ func apiOperationsFromModelOperations(input map[string]importerModels.OperationD
 		}
 
 		out[k] = details
-	}
-
-	return &out, nil
-}
-
-func apiOptionsFromModelOptions(input map[string]importerModels.OperationOption) (*map[string]resourcemanager.ApiOperationOption, error) {
-	out := make(map[string]resourcemanager.ApiOperationOption)
-
-	for k, v := range input {
-		out[k] = resourcemanager.ApiOperationOption{
-			HeaderName:       v.HeaderName,
-			QueryStringName:  v.QueryStringName,
-			ObjectDefinition: v.ObjectDefinition,
-			Required:         v.Required,
-		}
 	}
 
 	return &out, nil

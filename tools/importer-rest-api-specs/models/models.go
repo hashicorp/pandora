@@ -52,7 +52,7 @@ type OperationDetails struct {
 	LongRunning                      bool
 	Method                           string
 	OperationId                      string
-	Options                          map[string]OperationOption
+	Options                          map[string]models.SDKOperationOption
 	RequestObject                    *ObjectDefinition
 	ResourceIdName                   *string
 	ResponseObject                   *ObjectDefinition
@@ -121,13 +121,6 @@ const (
 	ObjectDefinitionReference  ObjectDefinitionType = "Reference"
 	ObjectDefinitionString     ObjectDefinitionType = "String"
 )
-
-type OperationOption struct {
-	ObjectDefinition models.SDKOperationOptionObjectDefinition
-	HeaderName       *string
-	QueryStringName  *string
-	Required         bool
-}
 
 type ModelDetails struct {
 	Description string

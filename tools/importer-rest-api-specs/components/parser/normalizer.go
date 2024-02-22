@@ -65,7 +65,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 			v.ResponseObject = normalizeObjectDefinition(*v.ResponseObject)
 		}
 
-		normalizedOptions := make(map[string]importerModels.OperationOption, 0)
+		normalizedOptions := make(map[string]models.SDKOperationOption, 0)
 		for optionKey, optionVal := range v.Options {
 			optionKey = cleanup.NormalizeName(optionKey)
 
