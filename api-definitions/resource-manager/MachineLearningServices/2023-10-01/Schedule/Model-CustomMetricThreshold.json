@@ -1,29 +1,29 @@
 {
- "name": "CustomMetricThreshold",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metric",
-   "name": "Metric",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "threshold",
-   "name": "Threshold",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitoringThreshold"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CustomMetricThreshold",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metric",
+      "name": "Metric",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "threshold",
+      "name": "Threshold",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitoringThreshold"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

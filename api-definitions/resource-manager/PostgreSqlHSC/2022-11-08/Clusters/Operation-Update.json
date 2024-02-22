@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "ServerGroupsv2Id",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterForUpdate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Cluster"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ServerGroupsv2Id",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterForUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  }
 }

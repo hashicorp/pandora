@@ -1,26 +1,26 @@
 {
- "name": "Get",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "ExpandEnum"
+      }
+    }
+  ],
+  "resourceIdName": "ScopedAssessmentId",
+  "responseObject": {
     "type": "Reference",
-    "referenceName": "ExpandEnum"
-   }
+    "referenceName": "SecurityAssessmentResponse"
   }
- ],
- "resourceIdName": "ScopedAssessmentId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SecurityAssessmentResponse"
- }
 }

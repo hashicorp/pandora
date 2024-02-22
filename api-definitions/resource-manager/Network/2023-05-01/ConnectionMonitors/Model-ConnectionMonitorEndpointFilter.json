@@ -1,33 +1,33 @@
 {
- "name": "ConnectionMonitorEndpointFilter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "items",
-   "name": "Items",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ConnectionMonitorEndpointFilterItem"
+  "name": "ConnectionMonitorEndpointFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "items",
+      "name": "Items",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ConnectionMonitorEndpointFilterItem"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionMonitorEndpointFilterType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionMonitorEndpointFilterType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

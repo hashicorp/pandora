@@ -1,78 +1,78 @@
 {
- "name": "Update",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "impactDurationInSec",
-   "name": "ImpactDurationInSec",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "impactType",
-   "name": "ImpactType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ImpactType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "maintenanceScope",
-   "name": "MaintenanceScope",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MaintenanceScope"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "notBefore",
-   "name": "NotBefore",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "Update",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "impactDurationInSec",
+      "name": "ImpactDurationInSec",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "impactType",
+      "name": "ImpactType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ImpactType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "maintenanceScope",
+      "name": "MaintenanceScope",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MaintenanceScope"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "notBefore",
+      "name": "NotBefore",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

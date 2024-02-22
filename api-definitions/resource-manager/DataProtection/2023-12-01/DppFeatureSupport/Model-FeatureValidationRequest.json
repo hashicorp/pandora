@@ -1,32 +1,32 @@
 {
- "name": "FeatureValidationRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "featureName",
-   "name": "FeatureName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "featureType",
-   "name": "FeatureType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FeatureType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "FeatureValidationRequestBase",
- "discriminatedTypeValue": "FeatureValidationRequest",
- "typeHintIn": "ObjectType"
+  "name": "FeatureValidationRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "featureName",
+      "name": "FeatureName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "featureType",
+      "name": "FeatureType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FeatureType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "FeatureValidationRequestBase",
+  "discriminatedTypeValue": "FeatureValidationRequest",
+  "typeHintIn": "ObjectType"
 }

@@ -1,41 +1,41 @@
 {
- "name": "VirtualMachinePublicIPAddressConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "VirtualMachinePublicIPAddressConfigurationProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sku",
-   "name": "Sku",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicIPAddressSku"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "VirtualMachinePublicIPAddressConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "VirtualMachinePublicIPAddressConfigurationProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sku",
+      "name": "Sku",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicIPAddressSku"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,53 +1,53 @@
 {
- "name": "CassandraTableResource",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "analyticalStorageTtl",
-   "name": "AnalyticalStorageTtl",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultTtl",
-   "name": "DefaultTtl",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schema",
-   "name": "Schema",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CassandraSchema"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "CassandraTableResource",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "analyticalStorageTtl",
+      "name": "AnalyticalStorageTtl",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultTtl",
+      "name": "DefaultTtl",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schema",
+      "name": "Schema",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CassandraSchema"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

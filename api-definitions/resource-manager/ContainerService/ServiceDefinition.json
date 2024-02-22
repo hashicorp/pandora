@@ -1,14 +1,14 @@
 {
- "name": "ContainerService",
- "resourceProvider": "Microsoft.ContainerService",
- "terraformPackageName": "containers",
- "generate": true,
- "terraform": {
-  "servicePackageName": "containers",
-  "resources": [
-   "KubernetesClusterTrustedAccessRoleBinding",
-   "KubernetesFleetManager",
-   "KubernetesFleetMember"
-  ]
- }
+  "name": "ContainerService",
+  "resourceProvider": "Microsoft.ContainerService",
+  "terraformPackageName": "containers",
+  "generate": true,
+  "terraform": {
+    "servicePackageName": "containers",
+    "resources": [
+      "KubernetesFleetMember",
+      "KubernetesFleetManager",
+      "KubernetesClusterTrustedAccessRoleBinding"
+    ]
+  }
 }

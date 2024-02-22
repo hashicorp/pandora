@@ -1,33 +1,33 @@
 {
- "name": "NetworkInterfaceAssociation",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityRules",
-   "name": "SecurityRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SecurityRule"
+  "name": "NetworkInterfaceAssociation",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityRules",
+      "name": "SecurityRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SecurityRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

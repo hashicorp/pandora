@@ -1,117 +1,117 @@
 {
- "name": "LocationMetadata",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "geography",
-   "name": "Geography",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "geographyGroup",
-   "name": "GeographyGroup",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "homeLocation",
-   "name": "HomeLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "latitude",
-   "name": "Latitude",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "longitude",
-   "name": "Longitude",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "pairedRegion",
-   "name": "PairedRegion",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "PairedRegion"
+  "name": "LocationMetadata",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "geography",
+      "name": "Geography",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "geographyGroup",
+      "name": "GeographyGroup",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "homeLocation",
+      "name": "HomeLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "latitude",
+      "name": "Latitude",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "longitude",
+      "name": "Longitude",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pairedRegion",
+      "name": "PairedRegion",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PairedRegion"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "physicalLocation",
+      "name": "PhysicalLocation",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "regionCategory",
+      "name": "RegionCategory",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RegionCategory"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "regionType",
+      "name": "RegionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RegionType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "physicalLocation",
-   "name": "PhysicalLocation",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "regionCategory",
-   "name": "RegionCategory",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RegionCategory"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "regionType",
-   "name": "RegionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RegionType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

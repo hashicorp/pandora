@@ -1,41 +1,41 @@
 {
- "name": "WorkspaceCapping",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dailyQuotaGb",
-   "name": "DailyQuotaGb",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataIngestionStatus",
-   "name": "DataIngestionStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataIngestionStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "quotaNextResetTime",
-   "name": "QuotaNextResetTime",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "WorkspaceCapping",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dailyQuotaGb",
+      "name": "DailyQuotaGb",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataIngestionStatus",
+      "name": "DataIngestionStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataIngestionStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "quotaNextResetTime",
+      "name": "QuotaNextResetTime",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

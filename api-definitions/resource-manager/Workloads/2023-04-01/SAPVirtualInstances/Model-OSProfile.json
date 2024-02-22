@@ -1,41 +1,41 @@
 {
- "name": "OSProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "adminPassword",
-   "name": "AdminPassword",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "adminUsername",
-   "name": "AdminUsername",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "osConfiguration",
-   "name": "OsConfiguration",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adminPassword",
+      "name": "AdminPassword",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "adminUsername",
+      "name": "AdminUsername",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "osConfiguration",
+      "name": "OsConfiguration",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,20 +1,20 @@
 {
- "name": "ScheduledAlertRuleTemplate",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduledAlertRuleTemplateProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AlertRuleTemplate",
- "discriminatedTypeValue": "Scheduled",
- "typeHintIn": "Kind"
+  "name": "ScheduledAlertRuleTemplate",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduledAlertRuleTemplateProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "AlertRuleTemplate",
+  "discriminatedTypeValue": "Scheduled",
+  "typeHintIn": "Kind"
 }

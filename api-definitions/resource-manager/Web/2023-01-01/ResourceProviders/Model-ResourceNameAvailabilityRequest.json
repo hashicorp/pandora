@@ -1,53 +1,53 @@
 {
- "name": "ResourceNameAvailabilityRequest",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "environmentId",
-   "name": "EnvironmentId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isFqdn",
-   "name": "IsFqdn",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CheckNameResourceTypes"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ResourceNameAvailabilityRequest",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "environmentId",
+      "name": "EnvironmentId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isFqdn",
+      "name": "IsFqdn",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CheckNameResourceTypes"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

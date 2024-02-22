@@ -1,16 +1,16 @@
 {
- "name": "ResetAADProfile",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "KubernetesClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ManagedClusterAADProfile"
- },
- "uriSuffix": "/resetAADProfile"
+  "name": "ResetAADProfile",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "KubernetesClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ManagedClusterAADProfile"
+  },
+  "uriSuffix": "/resetAADProfile"
 }

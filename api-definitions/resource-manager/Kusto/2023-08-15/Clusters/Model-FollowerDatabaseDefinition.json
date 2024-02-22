@@ -1,65 +1,65 @@
 {
- "name": "FollowerDatabaseDefinition",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "attachedDatabaseConfigurationName",
-   "name": "AttachedDatabaseConfigurationName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterResourceId",
-   "name": "ClusterResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseName",
-   "name": "DatabaseName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databaseShareOrigin",
-   "name": "DatabaseShareOrigin",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DatabaseShareOrigin"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tableLevelSharingProperties",
-   "name": "TableLevelSharingProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TableLevelSharingProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "FollowerDatabaseDefinition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "attachedDatabaseConfigurationName",
+      "name": "AttachedDatabaseConfigurationName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterResourceId",
+      "name": "ClusterResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseName",
+      "name": "DatabaseName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databaseShareOrigin",
+      "name": "DatabaseShareOrigin",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DatabaseShareOrigin"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tableLevelSharingProperties",
+      "name": "TableLevelSharingProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TableLevelSharingProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

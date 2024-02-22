@@ -1,16 +1,16 @@
 {
- "name": "ListByVMMServer",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "VMmServerId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "InventoryItem"
- },
- "uriSuffix": "/inventoryItems"
+  "name": "ListByVMMServer",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VMmServerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "InventoryItem"
+  },
+  "uriSuffix": "/inventoryItems"
 }

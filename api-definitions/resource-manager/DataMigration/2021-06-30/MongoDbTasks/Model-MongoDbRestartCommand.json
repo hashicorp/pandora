@@ -1,20 +1,20 @@
 {
- "name": "MongoDbRestartCommand",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "input",
-   "name": "Input",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MongoDbCommandInput"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "CommandProperties",
- "discriminatedTypeValue": "restart",
- "typeHintIn": "CommandType"
+  "name": "MongoDbRestartCommand",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MongoDbCommandInput"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "CommandProperties",
+  "discriminatedTypeValue": "restart",
+  "typeHintIn": "CommandType"
 }

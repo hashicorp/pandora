@@ -1,41 +1,41 @@
 {
- "name": "DataEncryption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryKeyURI",
-   "name": "PrimaryKeyURI",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "primaryUserAssignedIdentityId",
-   "name": "PrimaryUserAssignedIdentityId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ArmServerKeyType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "DataEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryKeyURI",
+      "name": "PrimaryKeyURI",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "primaryUserAssignedIdentityId",
+      "name": "PrimaryUserAssignedIdentityId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ArmServerKeyType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

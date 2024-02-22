@@ -1,35 +1,33 @@
 {
- "name": "AutomationRuleBooleanCondition",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "innerConditions",
-   "name": "InnerConditions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AutomationRuleCondition",
-     "maxItems": 10,
-     "minItems": 2
+  "name": "AutomationRuleBooleanCondition",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "innerConditions",
+      "name": "InnerConditions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AutomationRuleCondition"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomationRuleBooleanConditionSupportedOperator"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "operator",
-   "name": "Operator",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomationRuleBooleanConditionSupportedOperator"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

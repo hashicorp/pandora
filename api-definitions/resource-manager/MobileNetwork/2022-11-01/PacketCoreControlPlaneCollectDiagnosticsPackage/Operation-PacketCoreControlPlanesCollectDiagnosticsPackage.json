@@ -1,20 +1,20 @@
 {
- "name": "PacketCoreControlPlanesCollectDiagnosticsPackage",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "PacketCoreControlPlaneId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PacketCoreControlPlaneCollectDiagnosticsPackage"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AsyncOperationStatus"
- },
- "uriSuffix": "/collectDiagnosticsPackage"
+  "name": "PacketCoreControlPlanesCollectDiagnosticsPackage",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "PacketCoreControlPlaneId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PacketCoreControlPlaneCollectDiagnosticsPackage"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AsyncOperationStatus"
+  },
+  "uriSuffix": "/collectDiagnosticsPackage"
 }

@@ -1,57 +1,57 @@
 {
- "name": "EntityInsightItem",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "chartQueryResults",
-   "name": "ChartQueryResults",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "InsightsTableResult"
+  "name": "EntityInsightItem",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "chartQueryResults",
+      "name": "ChartQueryResults",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InsightsTableResult"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryId",
+      "name": "QueryId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "queryTimeInterval",
+      "name": "QueryTimeInterval",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EntityInsightItemQueryTimeInterval"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tableQueryResults",
+      "name": "TableQueryResults",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InsightsTableResult"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "queryId",
-   "name": "QueryId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "queryTimeInterval",
-   "name": "QueryTimeInterval",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EntityInsightItemQueryTimeInterval"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tableQueryResults",
-   "name": "TableQueryResults",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InsightsTableResult"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,77 +1,77 @@
 {
- "name": "RestoreStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errorMessage",
-   "name": "ErrorMessage",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "healthy",
-   "name": "Healthy",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "mirrorState",
-   "name": "MirrorState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MirrorState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "relationshipStatus",
-   "name": "RelationshipStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RelationshipStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "totalTransferBytes",
-   "name": "TotalTransferBytes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "unhealthyReason",
-   "name": "UnhealthyReason",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "RestoreStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorMessage",
+      "name": "ErrorMessage",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "healthy",
+      "name": "Healthy",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "mirrorState",
+      "name": "MirrorState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MirrorState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "relationshipStatus",
+      "name": "RelationshipStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RelationshipStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalTransferBytes",
+      "name": "TotalTransferBytes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "unhealthyReason",
+      "name": "UnhealthyReason",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

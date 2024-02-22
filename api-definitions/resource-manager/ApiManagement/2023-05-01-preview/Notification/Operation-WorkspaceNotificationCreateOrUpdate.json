@@ -1,26 +1,26 @@
 {
- "name": "WorkspaceNotificationCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "WorkspaceNotificationCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "NotificationNotificationId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "NotificationContract"
   }
- ],
- "resourceIdName": "NotificationNotificationId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "NotificationContract"
- }
 }

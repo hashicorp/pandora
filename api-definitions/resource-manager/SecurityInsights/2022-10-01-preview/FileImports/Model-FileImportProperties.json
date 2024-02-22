@@ -1,168 +1,168 @@
 {
- "name": "FileImportProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "contentType",
-   "name": "ContentType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileImportContentType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "createdTimeUTC",
-   "name": "CreatedTimeUTC",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errorFile",
-   "name": "ErrorFile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileMetadata"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errorsPreview",
-   "name": "ErrorsPreview",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ValidationError"
+  "name": "FileImportProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "contentType",
+      "name": "ContentType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileImportContentType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "createdTimeUTC",
+      "name": "CreatedTimeUTC",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorFile",
+      "name": "ErrorFile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileMetadata"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errorsPreview",
+      "name": "ErrorsPreview",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ValidationError"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filesValidUntilTimeUTC",
+      "name": "FilesValidUntilTimeUTC",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "importFile",
+      "name": "ImportFile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileMetadata"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "importValidUntilTimeUTC",
+      "name": "ImportValidUntilTimeUTC",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingestedRecordCount",
+      "name": "IngestedRecordCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingestionMode",
+      "name": "IngestionMode",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IngestionMode"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "source",
+      "name": "Source",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FileImportState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "totalRecordCount",
+      "name": "TotalRecordCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "validRecordCount",
+      "name": "ValidRecordCount",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "filesValidUntilTimeUTC",
-   "name": "FilesValidUntilTimeUTC",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "importFile",
-   "name": "ImportFile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileMetadata"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "importValidUntilTimeUTC",
-   "name": "ImportValidUntilTimeUTC",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ingestedRecordCount",
-   "name": "IngestedRecordCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ingestionMode",
-   "name": "IngestionMode",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IngestionMode"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "source",
-   "name": "Source",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "state",
-   "name": "State",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FileImportState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "totalRecordCount",
-   "name": "TotalRecordCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "validRecordCount",
-   "name": "ValidRecordCount",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

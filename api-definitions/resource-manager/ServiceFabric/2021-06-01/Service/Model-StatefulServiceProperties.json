@@ -1,83 +1,83 @@
 {
- "name": "StatefulServiceProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "hasPersistedState",
-   "name": "HasPersistedState",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "minReplicaSetSize",
-   "name": "MinReplicaSetSize",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "quorumLossWaitDuration",
-   "name": "QuorumLossWaitDuration",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "replicaRestartWaitDuration",
-   "name": "ReplicaRestartWaitDuration",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "standByReplicaKeepDuration",
-   "name": "StandByReplicaKeepDuration",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetReplicaSetSize",
-   "name": "TargetReplicaSetSize",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ServiceResourceProperties",
- "discriminatedTypeValue": "Stateful",
- "typeHintIn": "ServiceKind"
+  "name": "StatefulServiceProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "hasPersistedState",
+      "name": "HasPersistedState",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minReplicaSetSize",
+      "name": "MinReplicaSetSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "quorumLossWaitDuration",
+      "name": "QuorumLossWaitDuration",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "replicaRestartWaitDuration",
+      "name": "ReplicaRestartWaitDuration",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "standByReplicaKeepDuration",
+      "name": "StandByReplicaKeepDuration",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetReplicaSetSize",
+      "name": "TargetReplicaSetSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ServiceResourceProperties",
+  "discriminatedTypeValue": "Stateful",
+  "typeHintIn": "ServiceKind"
 }

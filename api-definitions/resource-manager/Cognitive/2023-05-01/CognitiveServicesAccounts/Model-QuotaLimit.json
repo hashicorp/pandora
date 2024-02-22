@@ -1,45 +1,45 @@
 {
- "name": "QuotaLimit",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "count",
-   "name": "Count",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "renewalPeriod",
-   "name": "RenewalPeriod",
-   "objectDefinition": {
-    "type": "Float",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rules",
-   "name": "Rules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ThrottlingRule"
+  "name": "QuotaLimit",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "count",
+      "name": "Count",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "renewalPeriod",
+      "name": "RenewalPeriod",
+      "objectDefinition": {
+        "type": "Float",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rules",
+      "name": "Rules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ThrottlingRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

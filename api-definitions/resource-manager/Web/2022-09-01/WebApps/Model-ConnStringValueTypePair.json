@@ -1,29 +1,29 @@
 {
- "name": "ConnStringValueTypePair",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "type",
-   "name": "Type",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConnectionStringType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ConnStringValueTypePair",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "type",
+      "name": "Type",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConnectionStringType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

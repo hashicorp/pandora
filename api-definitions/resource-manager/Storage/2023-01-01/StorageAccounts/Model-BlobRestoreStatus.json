@@ -1,53 +1,53 @@
 {
- "name": "BlobRestoreStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "failureReason",
-   "name": "FailureReason",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "parameters",
-   "name": "Parameters",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobRestoreParameters"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "restoreId",
-   "name": "RestoreId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "BlobRestoreProgressStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "BlobRestoreStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "failureReason",
+      "name": "FailureReason",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "parameters",
+      "name": "Parameters",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobRestoreParameters"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "restoreId",
+      "name": "RestoreId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "BlobRestoreProgressStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

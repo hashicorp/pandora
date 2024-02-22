@@ -1,16 +1,16 @@
 {
- "name": "DiskRestorePointListByRestorePoint",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "RestorePointId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DiskRestorePoint"
- },
- "uriSuffix": "/diskRestorePoints"
+  "name": "DiskRestorePointListByRestorePoint",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "RestorePointId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DiskRestorePoint"
+  },
+  "uriSuffix": "/diskRestorePoints"
 }

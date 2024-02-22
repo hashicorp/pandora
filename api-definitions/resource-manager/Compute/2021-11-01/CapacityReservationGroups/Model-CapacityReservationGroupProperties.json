@@ -1,49 +1,49 @@
 {
- "name": "CapacityReservationGroupProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "capacityReservations",
-   "name": "CapacityReservations",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SubResourceReadOnly"
+  "name": "CapacityReservationGroupProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "capacityReservations",
+      "name": "CapacityReservations",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResourceReadOnly"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "instanceView",
+      "name": "InstanceView",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CapacityReservationGroupInstanceView"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "virtualMachinesAssociated",
+      "name": "VirtualMachinesAssociated",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "SubResourceReadOnly"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "instanceView",
-   "name": "InstanceView",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CapacityReservationGroupInstanceView"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "virtualMachinesAssociated",
-   "name": "VirtualMachinesAssociated",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "SubResourceReadOnly"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

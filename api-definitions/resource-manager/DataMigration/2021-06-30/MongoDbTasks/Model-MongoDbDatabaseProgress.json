@@ -1,24 +1,24 @@
 {
- "name": "MongoDbDatabaseProgress",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "collections",
-   "name": "Collections",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MongoDbProgress"
+  "name": "MongoDbDatabaseProgress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "collections",
+      "name": "Collections",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MongoDbProgress"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MongoDbProgress",
- "discriminatedTypeValue": "Database",
- "typeHintIn": "ResultType"
+  ],
+  "discriminatedParentModelName": "MongoDbProgress",
+  "discriminatedTypeValue": "Database",
+  "typeHintIn": "ResultType"
 }

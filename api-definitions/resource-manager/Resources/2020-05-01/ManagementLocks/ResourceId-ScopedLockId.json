@@ -1,29 +1,29 @@
 {
- "name": "ScopedLockId",
- "id": "/{scope}/providers/Microsoft.Authorization/locks/{lockName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAuthorization",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Authorization"
-  },
-  {
-   "name": "staticLocks",
-   "type": "Static",
-   "value": "locks"
-  },
-  {
-   "name": "lockName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedLockId",
+  "id": "/{scope}/providers/Microsoft.Authorization/locks/{lockName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "name": "staticLocks",
+      "type": "Static",
+      "value": "locks"
+    },
+    {
+      "name": "lockName",
+      "type": "UserSpecified"
+    }
+  ]
 }

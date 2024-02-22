@@ -1,30 +1,30 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "AdfcdcId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ChangeDataCaptureResource"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ChangeDataCaptureResource"
   }
- ],
- "resourceIdName": "AdfcdcId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ChangeDataCaptureResource"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ChangeDataCaptureResource"
- }
 }

@@ -1,29 +1,29 @@
 {
- "name": "ScopedManagementAssociationId",
- "id": "/{scope}/providers/Microsoft.OperationsManagement/managementAssociations/{managementAssociationName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftOperationsManagement",
-   "type": "ResourceProvider",
-   "value": "Microsoft.OperationsManagement"
-  },
-  {
-   "name": "staticManagementAssociations",
-   "type": "Static",
-   "value": "managementAssociations"
-  },
-  {
-   "name": "managementAssociationName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedManagementAssociationId",
+  "id": "/{scope}/providers/Microsoft.OperationsManagement/managementAssociations/{managementAssociationName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftOperationsManagement",
+      "type": "ResourceProvider",
+      "value": "Microsoft.OperationsManagement"
+    },
+    {
+      "name": "staticManagementAssociations",
+      "type": "Static",
+      "value": "managementAssociations"
+    },
+    {
+      "name": "managementAssociationName",
+      "type": "UserSpecified"
+    }
+  ]
 }

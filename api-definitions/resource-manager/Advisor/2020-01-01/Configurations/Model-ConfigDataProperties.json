@@ -1,45 +1,45 @@
 {
- "name": "ConfigDataProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "digests",
-   "name": "Digests",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DigestConfig"
+  "name": "ConfigDataProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "digests",
+      "name": "Digests",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DigestConfig"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "exclude",
+      "name": "Exclude",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "lowCpuThreshold",
+      "name": "LowCPUThreshold",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "CPUThreshold"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "exclude",
-   "name": "Exclude",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "lowCpuThreshold",
-   "name": "LowCPUThreshold",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "CPUThreshold"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

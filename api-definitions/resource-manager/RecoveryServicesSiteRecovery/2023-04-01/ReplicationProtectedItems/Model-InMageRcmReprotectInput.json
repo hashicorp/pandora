@@ -1,56 +1,56 @@
 {
- "name": "InMageRcmReprotectInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "datastoreName",
-   "name": "DatastoreName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "logStorageAccountId",
-   "name": "LogStorageAccountId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policyId",
-   "name": "PolicyId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reprotectAgentId",
-   "name": "ReprotectAgentId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ReverseReplicationProviderSpecificInput",
- "discriminatedTypeValue": "InMageRcm",
- "typeHintIn": "InstanceType"
+  "name": "InMageRcmReprotectInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "datastoreName",
+      "name": "DatastoreName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "logStorageAccountId",
+      "name": "LogStorageAccountId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policyId",
+      "name": "PolicyId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reprotectAgentId",
+      "name": "ReprotectAgentId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "ReverseReplicationProviderSpecificInput",
+  "discriminatedTypeValue": "InMageRcm",
+  "typeHintIn": "InstanceType"
 }

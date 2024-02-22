@@ -1,41 +1,41 @@
 {
- "name": "LogSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "category",
-   "name": "Category",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Category"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enabled",
-   "name": "Enabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "retentionPolicy",
-   "name": "RetentionPolicy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RetentionPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "LogSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "category",
+      "name": "Category",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Category"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enabled",
+      "name": "Enabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "retentionPolicy",
+      "name": "RetentionPolicy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RetentionPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

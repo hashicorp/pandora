@@ -1,29 +1,29 @@
 {
- "name": "IndexColumn",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "columnName",
-   "name": "ColumnName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataType",
-   "name": "DataType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FeatureDataType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "IndexColumn",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "columnName",
+      "name": "ColumnName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataType",
+      "name": "DataType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FeatureDataType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,21 +1,21 @@
 {
- "name": "KubernetesVersionCapabilities",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "supportPlan",
-   "name": "SupportPlan",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "KubernetesSupportPlan"
+  "name": "KubernetesVersionCapabilities",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "supportPlan",
+      "name": "SupportPlan",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "KubernetesSupportPlan"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

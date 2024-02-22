@@ -1,45 +1,45 @@
 {
- "name": "ScaleRuleMetricDimension",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "DimensionName",
-   "name": "DimensionName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "Operator",
-   "name": "Operator",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScaleRuleMetricDimensionOperationType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "Values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ScaleRuleMetricDimension",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "DimensionName",
+      "name": "DimensionName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "Operator",
+      "name": "Operator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScaleRuleMetricDimensionOperationType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "Values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

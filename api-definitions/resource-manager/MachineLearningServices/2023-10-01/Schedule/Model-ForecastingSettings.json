@@ -1,165 +1,165 @@
 {
- "name": "ForecastingSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "countryOrRegionForHolidays",
-   "name": "CountryOrRegionForHolidays",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cvStepSize",
-   "name": "CvStepSize",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "featureLags",
-   "name": "FeatureLags",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "FeatureLags"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "forecastHorizon",
-   "name": "ForecastHorizon",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ForecastHorizon"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "frequency",
-   "name": "Frequency",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "seasonality",
-   "name": "Seasonality",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Seasonality"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "shortSeriesHandlingConfig",
-   "name": "ShortSeriesHandlingConfig",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ShortSeriesHandlingConfiguration"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetAggregateFunction",
-   "name": "TargetAggregateFunction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TargetAggregationFunction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetLags",
-   "name": "TargetLags",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TargetLags"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetRollingWindowSize",
-   "name": "TargetRollingWindowSize",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TargetRollingWindowSize"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "timeColumnName",
-   "name": "TimeColumnName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "timeSeriesIdColumnNames",
-   "name": "TimeSeriesIdColumnNames",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ForecastingSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "countryOrRegionForHolidays",
+      "name": "CountryOrRegionForHolidays",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cvStepSize",
+      "name": "CvStepSize",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "featureLags",
+      "name": "FeatureLags",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "FeatureLags"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "forecastHorizon",
+      "name": "ForecastHorizon",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ForecastHorizon"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "frequency",
+      "name": "Frequency",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "seasonality",
+      "name": "Seasonality",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Seasonality"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "shortSeriesHandlingConfig",
+      "name": "ShortSeriesHandlingConfig",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ShortSeriesHandlingConfiguration"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetAggregateFunction",
+      "name": "TargetAggregateFunction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetAggregationFunction"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetLags",
+      "name": "TargetLags",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetLags"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetRollingWindowSize",
+      "name": "TargetRollingWindowSize",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TargetRollingWindowSize"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeColumnName",
+      "name": "TimeColumnName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "timeSeriesIdColumnNames",
+      "name": "TimeSeriesIdColumnNames",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "useStl",
+      "name": "UseStl",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UseStl"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "useStl",
-   "name": "UseStl",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UseStl"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

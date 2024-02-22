@@ -1,19 +1,19 @@
 {
- "name": "ComponentsPurge",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ComponentId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ComponentPurgeBody"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ComponentPurgeResponse"
- },
- "uriSuffix": "/purge"
+  "name": "ComponentsPurge",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ComponentId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ComponentPurgeBody"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ComponentPurgeResponse"
+  },
+  "uriSuffix": "/purge"
 }

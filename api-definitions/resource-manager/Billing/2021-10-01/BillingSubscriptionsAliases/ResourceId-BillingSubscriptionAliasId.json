@@ -1,34 +1,34 @@
 {
- "name": "BillingSubscriptionAliasId",
- "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptionAliases/{billingSubscriptionAliasName}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBilling",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Billing"
-  },
-  {
-   "name": "staticBillingAccounts",
-   "type": "Static",
-   "value": "billingAccounts"
-  },
-  {
-   "name": "billingAccountName",
-   "type": "UserSpecified"
-  },
-  {
-   "name": "staticBillingSubscriptionAliases",
-   "type": "Static",
-   "value": "billingSubscriptionAliases"
-  },
-  {
-   "name": "billingSubscriptionAliasName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "BillingSubscriptionAliasId",
+  "id": "/providers/Microsoft.Billing/billingAccounts/{billingAccountName}/billingSubscriptionAliases/{billingSubscriptionAliasName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticBillingAccounts",
+      "type": "Static",
+      "value": "billingAccounts"
+    },
+    {
+      "name": "billingAccountName",
+      "type": "UserSpecified"
+    },
+    {
+      "name": "staticBillingSubscriptionAliases",
+      "type": "Static",
+      "value": "billingSubscriptionAliases"
+    },
+    {
+      "name": "billingSubscriptionAliasName",
+      "type": "UserSpecified"
+    }
+  ]
 }

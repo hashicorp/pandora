@@ -1,37 +1,37 @@
 {
- "name": "Category",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "feeds",
-   "name": "Feeds",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "Category",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "feeds",
+      "name": "Feeds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "urlCustom",
+      "name": "UrlCustom",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "urlCustom",
-   "name": "UrlCustom",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

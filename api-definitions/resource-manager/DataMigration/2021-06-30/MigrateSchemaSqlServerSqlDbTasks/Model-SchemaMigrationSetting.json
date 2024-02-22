@@ -1,29 +1,29 @@
 {
- "name": "SchemaMigrationSetting",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fileId",
-   "name": "FileId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schemaOption",
-   "name": "SchemaOption",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "SchemaMigrationOption"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "SchemaMigrationSetting",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileId",
+      "name": "FileId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schemaOption",
+      "name": "SchemaOption",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "SchemaMigrationOption"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

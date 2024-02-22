@@ -1,29 +1,29 @@
 {
- "name": "OperationStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ReportURL"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OperationStatusType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OperationStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ReportURL"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OperationStatusType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

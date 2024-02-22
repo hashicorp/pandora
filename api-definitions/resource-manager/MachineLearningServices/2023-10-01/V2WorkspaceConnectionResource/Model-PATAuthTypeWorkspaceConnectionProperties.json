@@ -1,20 +1,20 @@
 {
- "name": "PATAuthTypeWorkspaceConnectionProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "credentials",
-   "name": "Credentials",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkspaceConnectionPersonalAccessToken"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
- "discriminatedTypeValue": "PAT",
- "typeHintIn": "AuthType"
+  "name": "PATAuthTypeWorkspaceConnectionProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "credentials",
+      "name": "Credentials",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkspaceConnectionPersonalAccessToken"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "WorkspaceConnectionPropertiesV2",
+  "discriminatedTypeValue": "PAT",
+  "typeHintIn": "AuthType"
 }

@@ -1,293 +1,293 @@
 {
- "name": "X12EnvelopeSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "controlStandardsId",
-   "name": "ControlStandardsId",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "controlVersionNumber",
-   "name": "ControlVersionNumber",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "enableDefaultGroupHeaders",
-   "name": "EnableDefaultGroupHeaders",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "functionalGroupId",
-   "name": "FunctionalGroupId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupControlNumberLowerBound",
-   "name": "GroupControlNumberLowerBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupControlNumberUpperBound",
-   "name": "GroupControlNumberUpperBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupHeaderAgencyCode",
-   "name": "GroupHeaderAgencyCode",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupHeaderDateFormat",
-   "name": "GroupHeaderDateFormat",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "X12DateFormat"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupHeaderTimeFormat",
-   "name": "GroupHeaderTimeFormat",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "X12TimeFormat"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "groupHeaderVersion",
-   "name": "GroupHeaderVersion",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "interchangeControlNumberLowerBound",
-   "name": "InterchangeControlNumberLowerBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "interchangeControlNumberUpperBound",
-   "name": "InterchangeControlNumberUpperBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "overwriteExistingTransactionSetControlNumber",
-   "name": "OverwriteExistingTransactionSetControlNumber",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "receiverApplicationId",
-   "name": "ReceiverApplicationId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rolloverGroupControlNumber",
-   "name": "RolloverGroupControlNumber",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rolloverInterchangeControlNumber",
-   "name": "RolloverInterchangeControlNumber",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "rolloverTransactionSetControlNumber",
-   "name": "RolloverTransactionSetControlNumber",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "senderApplicationId",
-   "name": "SenderApplicationId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "transactionSetControlNumberLowerBound",
-   "name": "TransactionSetControlNumberLowerBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "transactionSetControlNumberPrefix",
-   "name": "TransactionSetControlNumberPrefix",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "transactionSetControlNumberSuffix",
-   "name": "TransactionSetControlNumberSuffix",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "transactionSetControlNumberUpperBound",
-   "name": "TransactionSetControlNumberUpperBound",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "usageIndicator",
-   "name": "UsageIndicator",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UsageIndicator"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "useControlStandardsIdAsRepetitionCharacter",
-   "name": "UseControlStandardsIdAsRepetitionCharacter",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "X12EnvelopeSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "controlStandardsId",
+      "name": "ControlStandardsId",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "controlVersionNumber",
+      "name": "ControlVersionNumber",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "enableDefaultGroupHeaders",
+      "name": "EnableDefaultGroupHeaders",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "functionalGroupId",
+      "name": "FunctionalGroupId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupControlNumberLowerBound",
+      "name": "GroupControlNumberLowerBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupControlNumberUpperBound",
+      "name": "GroupControlNumberUpperBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupHeaderAgencyCode",
+      "name": "GroupHeaderAgencyCode",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupHeaderDateFormat",
+      "name": "GroupHeaderDateFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "X12DateFormat"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupHeaderTimeFormat",
+      "name": "GroupHeaderTimeFormat",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "X12TimeFormat"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "groupHeaderVersion",
+      "name": "GroupHeaderVersion",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "interchangeControlNumberLowerBound",
+      "name": "InterchangeControlNumberLowerBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "interchangeControlNumberUpperBound",
+      "name": "InterchangeControlNumberUpperBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "overwriteExistingTransactionSetControlNumber",
+      "name": "OverwriteExistingTransactionSetControlNumber",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "receiverApplicationId",
+      "name": "ReceiverApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rolloverGroupControlNumber",
+      "name": "RolloverGroupControlNumber",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rolloverInterchangeControlNumber",
+      "name": "RolloverInterchangeControlNumber",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "rolloverTransactionSetControlNumber",
+      "name": "RolloverTransactionSetControlNumber",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "senderApplicationId",
+      "name": "SenderApplicationId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transactionSetControlNumberLowerBound",
+      "name": "TransactionSetControlNumberLowerBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transactionSetControlNumberPrefix",
+      "name": "TransactionSetControlNumberPrefix",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transactionSetControlNumberSuffix",
+      "name": "TransactionSetControlNumberSuffix",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "transactionSetControlNumberUpperBound",
+      "name": "TransactionSetControlNumberUpperBound",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "usageIndicator",
+      "name": "UsageIndicator",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UsageIndicator"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "useControlStandardsIdAsRepetitionCharacter",
+      "name": "UseControlStandardsIdAsRepetitionCharacter",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

@@ -1,41 +1,41 @@
 {
- "name": "AccessPolicyResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "accessToken",
-   "name": "AccessToken",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataPlaneUrl",
-   "name": "DataPlaneUrl",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "policy",
-   "name": "Policy",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UserAccessPolicy"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AccessPolicyResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "accessToken",
+      "name": "AccessToken",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataPlaneUrl",
+      "name": "DataPlaneUrl",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "policy",
+      "name": "Policy",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UserAccessPolicy"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

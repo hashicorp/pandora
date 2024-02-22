@@ -1,21 +1,21 @@
 {
- "name": "DiskConfiguration",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskVolumeConfigurations",
-   "name": "DiskVolumeConfigurations",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DiskVolumeConfiguration"
+  "name": "DiskConfiguration",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskVolumeConfigurations",
+      "name": "DiskVolumeConfigurations",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DiskVolumeConfiguration"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

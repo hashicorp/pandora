@@ -1,53 +1,53 @@
 {
- "name": "TaskContainerSettings",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "containerRunOptions",
-   "name": "ContainerRunOptions",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "imageName",
-   "name": "ImageName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "registry",
-   "name": "Registry",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContainerRegistry"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workingDirectory",
-   "name": "WorkingDirectory",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ContainerWorkingDirectory"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "TaskContainerSettings",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "containerRunOptions",
+      "name": "ContainerRunOptions",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "imageName",
+      "name": "ImageName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "registry",
+      "name": "Registry",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerRegistry"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workingDirectory",
+      "name": "WorkingDirectory",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ContainerWorkingDirectory"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

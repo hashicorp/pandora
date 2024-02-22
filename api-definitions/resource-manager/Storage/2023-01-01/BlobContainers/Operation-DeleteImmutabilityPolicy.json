@@ -1,27 +1,27 @@
 {
- "name": "DeleteImmutabilityPolicy",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": false,
-   "required": true,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "StorageContainerId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ImmutabilityPolicy"
- },
- "uriSuffix": "/immutabilityPolicies/default"
+  "name": "DeleteImmutabilityPolicy",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": false,
+      "required": true,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StorageContainerId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ImmutabilityPolicy"
+  },
+  "uriSuffix": "/immutabilityPolicies/default"
 }

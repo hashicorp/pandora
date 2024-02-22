@@ -1,33 +1,33 @@
 {
- "name": "MapperSourceConnectionsInfo",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "connection",
-   "name": "Connection",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MapperConnection"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceEntities",
-   "name": "SourceEntities",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MapperTable"
+  "name": "MapperSourceConnectionsInfo",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "connection",
+      "name": "Connection",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MapperConnection"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceEntities",
+      "name": "SourceEntities",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MapperTable"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

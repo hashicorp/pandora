@@ -1,26 +1,26 @@
 {
- "name": "Get",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "headerName": "clientRequestId",
-   "optional": true,
-   "required": false,
-   "field": "ClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Get",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "headerName": "clientRequestId",
+      "optional": true,
+      "required": false,
+      "field": "ClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "StreamId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "JobStream"
   }
- ],
- "resourceIdName": "StreamId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "JobStream"
- }
 }

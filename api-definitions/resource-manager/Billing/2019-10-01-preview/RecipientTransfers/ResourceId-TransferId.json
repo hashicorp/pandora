@@ -1,25 +1,25 @@
 {
- "name": "TransferId",
- "id": "/providers/Microsoft.Billing/transfers/{transferName}",
- "segments": [
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftBilling",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Billing"
-  },
-  {
-   "name": "staticTransfers",
-   "type": "Static",
-   "value": "transfers"
-  },
-  {
-   "name": "transferName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "TransferId",
+  "id": "/providers/Microsoft.Billing/transfers/{transferName}",
+  "segments": [
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftBilling",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Billing"
+    },
+    {
+      "name": "staticTransfers",
+      "type": "Static",
+      "value": "transfers"
+    },
+    {
+      "name": "transferName",
+      "type": "UserSpecified"
+    }
+  ]
 }

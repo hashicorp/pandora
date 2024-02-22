@@ -1,31 +1,31 @@
 {
- "name": "WorkbooksCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "optional": true,
-   "queryString": "sourceId",
-   "required": false,
-   "field": "SourceId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "WorkbooksCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "sourceId",
+      "required": false,
+      "field": "SourceId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "WorkbookId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "Workbook"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Workbook"
   }
- ],
- "resourceIdName": "WorkbookId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "Workbook"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Workbook"
- }
 }

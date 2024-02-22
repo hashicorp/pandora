@@ -1,29 +1,29 @@
 {
- "name": "ValidationMessage",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "message",
-   "name": "Message",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "state",
-   "name": "State",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ValidationState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ValidationMessage",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "message",
+      "name": "Message",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "state",
+      "name": "State",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ValidationState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

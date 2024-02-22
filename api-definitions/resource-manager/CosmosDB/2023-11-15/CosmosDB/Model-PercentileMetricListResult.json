@@ -1,21 +1,21 @@
 {
- "name": "PercentileMetricListResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "PercentileMetric"
+  "name": "PercentileMetricListResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PercentileMetric"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

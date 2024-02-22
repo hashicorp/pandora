@@ -1,33 +1,33 @@
 {
- "name": "PrivateDnsZonePropertiesFormat",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateDnsZoneId",
-   "name": "PrivateDnsZoneId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recordSets",
-   "name": "RecordSets",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "RecordSet"
+  "name": "PrivateDnsZonePropertiesFormat",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateDnsZoneId",
+      "name": "PrivateDnsZoneId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recordSets",
+      "name": "RecordSets",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "RecordSet"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

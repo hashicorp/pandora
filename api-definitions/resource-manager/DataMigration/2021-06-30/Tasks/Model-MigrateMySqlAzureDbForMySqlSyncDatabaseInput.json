@@ -1,93 +1,93 @@
 {
- "name": "MigrateMySqlAzureDbForMySqlSyncDatabaseInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "migrationSetting",
-   "name": "MigrationSetting",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "MigrateMySqlAzureDbForMySqlSyncDatabaseInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "migrationSetting",
+      "name": "MigrationSetting",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "name",
+      "name": "Name",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceSetting",
+      "name": "SourceSetting",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "tableMap",
+      "name": "TableMap",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetDatabaseName",
+      "name": "TargetDatabaseName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetSetting",
+      "name": "TargetSetting",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "name",
-   "name": "Name",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceSetting",
-   "name": "SourceSetting",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "tableMap",
-   "name": "TableMap",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetDatabaseName",
-   "name": "TargetDatabaseName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetSetting",
-   "name": "TargetSetting",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

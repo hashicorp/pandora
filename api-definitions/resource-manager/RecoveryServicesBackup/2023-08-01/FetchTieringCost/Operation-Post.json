@@ -1,20 +1,20 @@
 {
- "name": "Post",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "VaultId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "FetchTieringCostInfoRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "TieringCostInfo"
- },
- "uriSuffix": "/backupTieringCost/default/fetchTieringCost"
+  "name": "Post",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VaultId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "FetchTieringCostInfoRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "TieringCostInfo"
+  },
+  "uriSuffix": "/backupTieringCost/default/fetchTieringCost"
 }

@@ -1,26 +1,26 @@
 {
- "name": "SkusGet",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$expand",
-   "required": false,
-   "field": "Expand",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "SkusGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$expand",
+      "required": false,
+      "field": "Expand",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SkuId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Sku"
   }
- ],
- "resourceIdName": "SkuId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Sku"
- }
 }

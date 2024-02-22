@@ -1,24 +1,24 @@
 {
- "name": "StringContainsAdvancedFilter",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "values",
-   "name": "Values",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "StringContainsAdvancedFilter",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "values",
+      "name": "Values",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "AdvancedFilter",
- "discriminatedTypeValue": "StringContains",
- "typeHintIn": "OperatorType"
+  ],
+  "discriminatedParentModelName": "AdvancedFilter",
+  "discriminatedTypeValue": "StringContains",
+  "typeHintIn": "OperatorType"
 }

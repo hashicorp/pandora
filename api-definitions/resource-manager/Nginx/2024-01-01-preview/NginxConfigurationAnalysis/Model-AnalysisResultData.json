@@ -1,21 +1,21 @@
 {
- "name": "AnalysisResultData",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "errors",
-   "name": "Errors",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AnalysisDiagnostic"
+  "name": "AnalysisResultData",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "errors",
+      "name": "Errors",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AnalysisDiagnostic"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

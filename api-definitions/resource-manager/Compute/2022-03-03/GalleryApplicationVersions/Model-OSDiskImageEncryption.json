@@ -1,29 +1,29 @@
 {
- "name": "OSDiskImageEncryption",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "diskEncryptionSetId",
-   "name": "DiskEncryptionSetId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "securityProfile",
-   "name": "SecurityProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "OSDiskImageSecurityProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "OSDiskImageEncryption",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "diskEncryptionSetId",
+      "name": "DiskEncryptionSetId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "securityProfile",
+      "name": "SecurityProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "OSDiskImageSecurityProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

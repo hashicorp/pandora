@@ -1,27 +1,27 @@
 {
- "name": "SqlPoolMaintenanceWindowsCreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "optional": false,
-   "queryString": "maintenanceWindowName",
-   "required": true,
-   "field": "MaintenanceWindowName",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "SqlPoolId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "MaintenanceWindows"
- },
- "uriSuffix": "/maintenancewindows/current"
+  "name": "SqlPoolMaintenanceWindowsCreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "maintenanceWindowName",
+      "required": true,
+      "field": "MaintenanceWindowName",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "SqlPoolId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "MaintenanceWindows"
+  },
+  "uriSuffix": "/maintenancewindows/current"
 }

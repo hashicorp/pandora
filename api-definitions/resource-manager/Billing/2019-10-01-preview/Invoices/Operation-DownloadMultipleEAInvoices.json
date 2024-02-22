@@ -1,24 +1,24 @@
 {
- "name": "DownloadMultipleEAInvoices",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BillingAccountId",
- "requestObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "String",
-   "referenceName": null
-  }
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DownloadUrl"
- },
- "uriSuffix": "/downloadDocuments"
+  "name": "DownloadMultipleEAInvoices",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountId",
+  "requestObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "String",
+      "referenceName": null
+    }
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DownloadUrl"
+  },
+  "uriSuffix": "/downloadDocuments"
 }

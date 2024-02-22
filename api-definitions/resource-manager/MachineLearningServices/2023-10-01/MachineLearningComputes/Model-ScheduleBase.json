@@ -1,41 +1,41 @@
 {
- "name": "ScheduleBase",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "id",
-   "name": "Id",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningStatus",
-   "name": "ProvisioningStatus",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduleProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ScheduleStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "ScheduleBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "id",
+      "name": "Id",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningStatus",
+      "name": "ProvisioningStatus",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ScheduleStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

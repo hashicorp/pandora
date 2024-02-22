@@ -1,27 +1,27 @@
 {
- "name": "PartitionKeyRangeIdRegionListMetrics",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": false,
-   "queryString": "$filter",
-   "required": true,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "CollectionPartitionKeyRangeIdId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PartitionMetricListResult"
- },
- "uriSuffix": "/metrics"
+  "name": "PartitionKeyRangeIdRegionListMetrics",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": false,
+      "queryString": "$filter",
+      "required": true,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "CollectionPartitionKeyRangeIdId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PartitionMetricListResult"
+  },
+  "uriSuffix": "/metrics"
 }

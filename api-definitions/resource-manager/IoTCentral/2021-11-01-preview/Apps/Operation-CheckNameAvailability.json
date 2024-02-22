@@ -1,19 +1,19 @@
 {
- "name": "CheckNameAvailability",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "SubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "OperationInputs"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "AppAvailabilityInfo"
- },
- "uriSuffix": "/providers/Microsoft.IoTCentral/checkNameAvailability"
+  "name": "CheckNameAvailability",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "OperationInputs"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "AppAvailabilityInfo"
+  },
+  "uriSuffix": "/providers/Microsoft.IoTCentral/checkNameAvailability"
 }

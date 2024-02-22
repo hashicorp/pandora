@@ -1,19 +1,19 @@
 {
- "name": "HierarchySettingsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PATCH",
- "resourceIdName": "ManagementGroupId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CreateOrUpdateSettingsRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "HierarchySettings"
- },
- "uriSuffix": "/settings/default"
+  "name": "HierarchySettingsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "ManagementGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CreateOrUpdateSettingsRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "HierarchySettings"
+  },
+  "uriSuffix": "/settings/default"
 }

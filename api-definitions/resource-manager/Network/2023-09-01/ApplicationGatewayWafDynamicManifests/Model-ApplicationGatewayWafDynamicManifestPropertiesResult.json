@@ -1,33 +1,33 @@
 {
- "name": "ApplicationGatewayWafDynamicManifestPropertiesResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "availableRuleSets",
-   "name": "AvailableRuleSets",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ApplicationGatewayFirewallManifestRuleSet"
+  "name": "ApplicationGatewayWafDynamicManifestPropertiesResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "availableRuleSets",
+      "name": "AvailableRuleSets",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ApplicationGatewayFirewallManifestRuleSet"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "defaultRuleSet",
+      "name": "DefaultRuleSet",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DefaultRuleSetPropertyFormat"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "defaultRuleSet",
-   "name": "DefaultRuleSet",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DefaultRuleSetPropertyFormat"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

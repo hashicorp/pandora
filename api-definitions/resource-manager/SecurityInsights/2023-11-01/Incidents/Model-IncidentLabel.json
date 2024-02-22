@@ -1,29 +1,29 @@
 {
- "name": "IncidentLabel",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "labelName",
-   "name": "LabelName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "labelType",
-   "name": "LabelType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IncidentLabelType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "IncidentLabel",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labelName",
+      "name": "LabelName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "labelType",
+      "name": "LabelType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IncidentLabelType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

@@ -1,157 +1,157 @@
 {
- "name": "DomainProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "autoCreateTopicWithFirstSubscription",
-   "name": "AutoCreateTopicWithFirstSubscription",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "autoDeleteTopicWithLastSubscription",
-   "name": "AutoDeleteTopicWithLastSubscription",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataResidencyBoundary",
-   "name": "DataResidencyBoundary",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DataResidencyBoundary"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "disableLocalAuth",
-   "name": "DisableLocalAuth",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "endpoint",
-   "name": "Endpoint",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inboundIpRules",
-   "name": "InboundIPRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "InboundIPRule"
+  "name": "DomainProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoCreateTopicWithFirstSubscription",
+      "name": "AutoCreateTopicWithFirstSubscription",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "autoDeleteTopicWithLastSubscription",
+      "name": "AutoDeleteTopicWithLastSubscription",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataResidencyBoundary",
+      "name": "DataResidencyBoundary",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DataResidencyBoundary"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disableLocalAuth",
+      "name": "DisableLocalAuth",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpoint",
+      "name": "Endpoint",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inboundIpRules",
+      "name": "InboundIPRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InboundIPRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputSchema",
+      "name": "InputSchema",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputSchema"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputSchemaMapping",
+      "name": "InputSchemaMapping",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InputSchemaMapping"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metricResourceId",
+      "name": "MetricResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "privateEndpointConnections",
+      "name": "PrivateEndpointConnections",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "PrivateEndpointConnection"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "DomainProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkAccess",
+      "name": "PublicNetworkAccess",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicNetworkAccess"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inputSchema",
-   "name": "InputSchema",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputSchema"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inputSchemaMapping",
-   "name": "InputSchemaMapping",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InputSchemaMapping"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metricResourceId",
-   "name": "MetricResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "privateEndpointConnections",
-   "name": "PrivateEndpointConnections",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "PrivateEndpointConnection"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "DomainProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicNetworkAccess",
-   "name": "PublicNetworkAccess",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicNetworkAccess"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

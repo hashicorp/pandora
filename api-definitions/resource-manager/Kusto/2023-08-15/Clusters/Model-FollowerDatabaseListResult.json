@@ -1,21 +1,21 @@
 {
- "name": "FollowerDatabaseListResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "FollowerDatabaseDefinition"
+  "name": "FollowerDatabaseListResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "FollowerDatabaseDefinition"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

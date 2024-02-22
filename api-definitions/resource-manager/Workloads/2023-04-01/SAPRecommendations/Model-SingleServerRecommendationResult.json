@@ -1,20 +1,20 @@
 {
- "name": "SingleServerRecommendationResult",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "vmSku",
-   "name": "VMSku",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "SAPSizingRecommendationResult",
- "discriminatedTypeValue": "SingleServer",
- "typeHintIn": "DeploymentType"
+  "name": "SingleServerRecommendationResult",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "vmSku",
+      "name": "VMSku",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "SAPSizingRecommendationResult",
+  "discriminatedTypeValue": "SingleServer",
+  "typeHintIn": "DeploymentType"
 }

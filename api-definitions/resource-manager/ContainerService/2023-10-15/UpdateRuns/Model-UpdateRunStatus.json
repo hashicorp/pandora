@@ -1,45 +1,45 @@
 {
- "name": "UpdateRunStatus",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "nodeImageSelection",
-   "name": "NodeImageSelection",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NodeImageSelectionStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "stages",
-   "name": "Stages",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "UpdateStageStatus"
+  "name": "UpdateRunStatus",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "nodeImageSelection",
+      "name": "NodeImageSelection",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NodeImageSelectionStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "stages",
+      "name": "Stages",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UpdateStageStatus"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "status",
+      "name": "Status",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UpdateStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "status",
-   "name": "Status",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UpdateStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

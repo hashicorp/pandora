@@ -1,24 +1,24 @@
 {
- "name": "LogToMetricAction",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "criteria",
-   "name": "Criteria",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "Criteria"
+  "name": "LogToMetricAction",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "criteria",
+      "name": "Criteria",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "Criteria"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "Action",
- "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
- "typeHintIn": "OdataType"
+  ],
+  "discriminatedParentModelName": "Action",
+  "discriminatedTypeValue": "Microsoft.WindowsAzure.Management.Monitoring.Alerts.Models.Microsoft.AppInsights.Nexus.DataContracts.Resources.ScheduledQueryRules.LogToMetricAction",
+  "typeHintIn": "OdataType"
 }

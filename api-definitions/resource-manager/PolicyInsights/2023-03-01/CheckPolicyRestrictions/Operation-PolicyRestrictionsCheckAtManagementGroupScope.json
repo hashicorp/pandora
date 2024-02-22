@@ -1,19 +1,19 @@
 {
- "name": "PolicyRestrictionsCheckAtManagementGroupScope",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "ManagementGroupId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "CheckManagementGroupRestrictionsRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CheckRestrictionsResult"
- },
- "uriSuffix": "/providers/Microsoft.PolicyInsights/checkPolicyRestrictions"
+  "name": "PolicyRestrictionsCheckAtManagementGroupScope",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "ManagementGroupId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "CheckManagementGroupRestrictionsRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CheckRestrictionsResult"
+  },
+  "uriSuffix": "/providers/Microsoft.PolicyInsights/checkPolicyRestrictions"
 }

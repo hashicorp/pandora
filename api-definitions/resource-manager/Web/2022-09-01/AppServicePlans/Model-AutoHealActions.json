@@ -1,41 +1,41 @@
 {
- "name": "AutoHealActions",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "actionType",
-   "name": "ActionType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutoHealActionType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customAction",
-   "name": "CustomAction",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutoHealCustomAction"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "minProcessExecutionTime",
-   "name": "MinProcessExecutionTime",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AutoHealActions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actionType",
+      "name": "ActionType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoHealActionType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customAction",
+      "name": "CustomAction",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutoHealCustomAction"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "minProcessExecutionTime",
+      "name": "MinProcessExecutionTime",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

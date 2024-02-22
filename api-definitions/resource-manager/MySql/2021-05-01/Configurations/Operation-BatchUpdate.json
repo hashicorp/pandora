@@ -1,20 +1,20 @@
 {
- "name": "BatchUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "FlexibleServerId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ConfigurationListForBatchUpdate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ConfigurationListResult"
- },
- "uriSuffix": "/updateConfigurations"
+  "name": "BatchUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "FlexibleServerId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ConfigurationListForBatchUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ConfigurationListResult"
+  },
+  "uriSuffix": "/updateConfigurations"
 }

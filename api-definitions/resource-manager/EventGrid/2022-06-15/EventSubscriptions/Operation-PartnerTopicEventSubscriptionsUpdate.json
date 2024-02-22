@@ -1,18 +1,18 @@
 {
- "name": "PartnerTopicEventSubscriptionsUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  201
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "PartnerTopicEventSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "EventSubscriptionUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "EventSubscription"
- }
+  "name": "PartnerTopicEventSubscriptionsUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "PartnerTopicEventSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "EventSubscriptionUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "EventSubscription"
+  }
 }

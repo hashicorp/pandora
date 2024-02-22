@@ -1,42 +1,42 @@
 {
- "name": "CreateOrUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "CreateOrUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PrivateDnsZoneId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PrivateZone"
   },
-  {
-   "headerName": "If-None-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfNoneMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateZone"
   }
- ],
- "resourceIdName": "PrivateDnsZoneId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PrivateZone"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateZone"
- }
 }

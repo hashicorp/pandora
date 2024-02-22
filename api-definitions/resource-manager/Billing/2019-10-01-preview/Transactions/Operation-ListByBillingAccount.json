@@ -1,48 +1,48 @@
 {
- "name": "ListByBillingAccount",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "optional": true,
-   "queryString": "$filter",
-   "required": false,
-   "field": "Filter",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListByBillingAccount",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "$filter",
+      "required": false,
+      "field": "Filter",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "periodEndDate",
+      "required": true,
+      "field": "PeriodEndDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": false,
+      "queryString": "periodStartDate",
+      "required": true,
+      "field": "PeriodStartDate",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "BillingAccountId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Transaction"
   },
-  {
-   "optional": false,
-   "queryString": "periodEndDate",
-   "required": true,
-   "field": "PeriodEndDate",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": false,
-   "queryString": "periodStartDate",
-   "required": true,
-   "field": "PeriodStartDate",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "BillingAccountId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Transaction"
- },
- "uriSuffix": "/transactions"
+  "uriSuffix": "/transactions"
 }

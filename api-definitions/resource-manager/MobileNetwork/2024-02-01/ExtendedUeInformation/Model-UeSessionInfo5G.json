@@ -1,93 +1,93 @@
 {
- "name": "UeSessionInfo5G",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ambr",
-   "name": "Ambr",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Ambr"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dnn",
-   "name": "Dnn",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "pdnType",
-   "name": "PdnType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PdnType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "pduSessionId",
-   "name": "PduSessionId",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "qosFlow",
-   "name": "QosFlow",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "UeQOSFlow"
+  "name": "UeSessionInfo5G",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ambr",
+      "name": "Ambr",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Ambr"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dnn",
+      "name": "Dnn",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pdnType",
+      "name": "PdnType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PdnType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "pduSessionId",
+      "name": "PduSessionId",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "qosFlow",
+      "name": "QosFlow",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "UeQOSFlow"
+        }
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "snssai",
+      "name": "Snssai",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "Snssai"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ueIpAddress",
+      "name": "UeIPAddress",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "UeIPAddress"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "snssai",
-   "name": "Snssai",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "Snssai"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ueIpAddress",
-   "name": "UeIPAddress",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "UeIPAddress"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

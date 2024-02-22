@@ -1,32 +1,32 @@
 {
- "name": "InMageTestFailoverInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointId",
-   "name": "RecoveryPointId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointType",
-   "name": "RecoveryPointType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RecoveryPointType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "TestFailoverProviderSpecificInput",
- "discriminatedTypeValue": "InMage",
- "typeHintIn": "InstanceType"
+  "name": "InMageTestFailoverInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointId",
+      "name": "RecoveryPointId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointType",
+      "name": "RecoveryPointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RecoveryPointType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "TestFailoverProviderSpecificInput",
+  "discriminatedTypeValue": "InMage",
+  "typeHintIn": "InstanceType"
 }

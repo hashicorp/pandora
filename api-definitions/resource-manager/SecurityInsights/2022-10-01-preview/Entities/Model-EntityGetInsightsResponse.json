@@ -1,33 +1,33 @@
 {
- "name": "EntityGetInsightsResponse",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "metaData",
-   "name": "MetaData",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "GetInsightsResultsMetadata"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "value",
-   "name": "Value",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "EntityInsightItem"
+  "name": "EntityGetInsightsResponse",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "metaData",
+      "name": "MetaData",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "GetInsightsResultsMetadata"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "value",
+      "name": "Value",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "EntityInsightItem"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

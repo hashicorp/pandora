@@ -1,57 +1,57 @@
 {
- "name": "NetworkSecurityGroupRule",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "access",
-   "name": "Access",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkSecurityGroupRuleAccess"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "priority",
-   "name": "Priority",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceAddressPrefix",
-   "name": "SourceAddressPrefix",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourcePortRanges",
-   "name": "SourcePortRanges",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "NetworkSecurityGroupRule",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "access",
+      "name": "Access",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkSecurityGroupRuleAccess"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "priority",
+      "name": "Priority",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceAddressPrefix",
+      "name": "SourceAddressPrefix",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourcePortRanges",
+      "name": "SourcePortRanges",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

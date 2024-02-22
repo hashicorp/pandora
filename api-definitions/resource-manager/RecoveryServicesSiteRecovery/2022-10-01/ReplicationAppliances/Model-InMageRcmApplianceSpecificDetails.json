@@ -1,24 +1,24 @@
 {
- "name": "InMageRcmApplianceSpecificDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "appliances",
-   "name": "Appliances",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "InMageRcmApplianceDetails"
+  "name": "InMageRcmApplianceSpecificDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "appliances",
+      "name": "Appliances",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "InMageRcmApplianceDetails"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ApplianceSpecificDetails",
- "discriminatedTypeValue": "InMageRcm",
- "typeHintIn": "InstanceType"
+  ],
+  "discriminatedParentModelName": "ApplianceSpecificDetails",
+  "discriminatedTypeValue": "InMageRcm",
+  "typeHintIn": "InstanceType"
 }

@@ -1,21 +1,21 @@
 {
- "name": "LinuxProfilePropertiesSsh",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicKeys",
-   "name": "PublicKeys",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "LinuxProfilePropertiesSshPublicKeysInlined"
+  "name": "LinuxProfilePropertiesSsh",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicKeys",
+      "name": "PublicKeys",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "LinuxProfilePropertiesSshPublicKeysInlined"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }
