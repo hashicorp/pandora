@@ -1,53 +1,53 @@
 {
- "name": "AutomaticTuningOptions",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "actualState",
-   "name": "ActualState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomaticTuningOptionModeActual"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "desiredState",
-   "name": "DesiredState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomaticTuningOptionModeDesired"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reasonCode",
-   "name": "ReasonCode",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "reasonDesc",
-   "name": "ReasonDesc",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "AutomaticTuningDisabledReason"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "AutomaticTuningOptions",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "actualState",
+      "name": "ActualState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticTuningOptionModeActual"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "desiredState",
+      "name": "DesiredState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticTuningOptionModeDesired"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reasonCode",
+      "name": "ReasonCode",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "reasonDesc",
+      "name": "ReasonDesc",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "AutomaticTuningDisabledReason"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

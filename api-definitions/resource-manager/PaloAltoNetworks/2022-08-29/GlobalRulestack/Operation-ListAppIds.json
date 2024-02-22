@@ -1,57 +1,57 @@
 {
- "name": "ListAppIds",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "appIdVersion",
-   "required": false,
-   "field": "AppIdVersion",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "ListAppIds",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "appIdVersion",
+      "required": false,
+      "field": "AppIdVersion",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "appPrefix",
+      "required": false,
+      "field": "AppPrefix",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "skip",
+      "required": false,
+      "field": "Skip",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    },
+    {
+      "optional": true,
+      "queryString": "top",
+      "required": false,
+      "field": "Top",
+      "optionsObjectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "GlobalRulestackId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ListAppIdResponse"
   },
-  {
-   "optional": true,
-   "queryString": "appPrefix",
-   "required": false,
-   "field": "AppPrefix",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "skip",
-   "required": false,
-   "field": "Skip",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  },
-  {
-   "optional": true,
-   "queryString": "top",
-   "required": false,
-   "field": "Top",
-   "optionsObjectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "GlobalRulestackId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ListAppIdResponse"
- },
- "uriSuffix": "/listAppIds"
+  "uriSuffix": "/listAppIds"
 }

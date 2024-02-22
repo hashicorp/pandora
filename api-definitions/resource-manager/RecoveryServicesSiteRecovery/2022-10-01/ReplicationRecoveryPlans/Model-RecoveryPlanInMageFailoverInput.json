@@ -1,20 +1,20 @@
 {
- "name": "RecoveryPlanInMageFailoverInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryPointType",
-   "name": "RecoveryPointType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "RpInMageRecoveryPointType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
- "discriminatedTypeValue": "InMage",
- "typeHintIn": "InstanceType"
+  "name": "RecoveryPlanInMageFailoverInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryPointType",
+      "name": "RecoveryPointType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "RpInMageRecoveryPointType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "RecoveryPlanProviderSpecificFailoverInput",
+  "discriminatedTypeValue": "InMage",
+  "typeHintIn": "InstanceType"
 }

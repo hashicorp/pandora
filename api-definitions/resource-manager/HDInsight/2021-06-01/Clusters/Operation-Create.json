@@ -1,18 +1,18 @@
 {
- "name": "Create",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "HDInsightClusterId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ClusterCreateParametersExtended"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Cluster"
- }
+  "name": "Create",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "HDInsightClusterId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ClusterCreateParametersExtended"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Cluster"
+  }
 }

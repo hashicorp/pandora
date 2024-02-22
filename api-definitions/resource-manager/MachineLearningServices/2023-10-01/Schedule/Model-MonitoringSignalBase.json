@@ -1,50 +1,50 @@
 {
- "name": "MonitoringSignalBase",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "notificationTypes",
-   "name": "NotificationTypes",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MonitoringNotificationType"
+  "name": "MonitoringSignalBase",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "notificationTypes",
+      "name": "NotificationTypes",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MonitoringNotificationType"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": true,
+      "jsonName": "signalType",
+      "name": "SignalType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MonitoringSignalType"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": true,
-   "jsonName": "signalType",
-   "name": "SignalType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MonitoringSignalType"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "typeHintIn": "SignalType"
+  ],
+  "typeHintIn": "SignalType"
 }

@@ -1,16 +1,16 @@
 {
- "name": "BareMetalMachinesCordon",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BareMetalMachineId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BareMetalMachineCordonParameters"
- },
- "uriSuffix": "/cordon"
+  "name": "BareMetalMachinesCordon",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BareMetalMachineId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BareMetalMachineCordonParameters"
+  },
+  "uriSuffix": "/cordon"
 }

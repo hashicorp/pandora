@@ -1,29 +1,29 @@
 {
- "name": "ScopedRoleAssignmentId",
- "id": "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAuthorization",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Authorization"
-  },
-  {
-   "name": "staticRoleAssignments",
-   "type": "Static",
-   "value": "roleAssignments"
-  },
-  {
-   "name": "roleAssignmentName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedRoleAssignmentId",
+  "id": "/{scope}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "name": "staticRoleAssignments",
+      "type": "Static",
+      "value": "roleAssignments"
+    },
+    {
+      "name": "roleAssignmentName",
+      "type": "UserSpecified"
+    }
+  ]
 }

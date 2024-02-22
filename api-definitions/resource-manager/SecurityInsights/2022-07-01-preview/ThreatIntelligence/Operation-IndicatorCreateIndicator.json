@@ -1,19 +1,19 @@
 {
- "name": "IndicatorCreateIndicator",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "WorkspaceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ThreatIntelligenceIndicatorModel"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ThreatIntelligenceInformation"
- },
- "uriSuffix": "/providers/Microsoft.SecurityInsights/threatIntelligence/main/createIndicator"
+  "name": "IndicatorCreateIndicator",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "WorkspaceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ThreatIntelligenceIndicatorModel"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThreatIntelligenceInformation"
+  },
+  "uriSuffix": "/providers/Microsoft.SecurityInsights/threatIntelligence/main/createIndicator"
 }

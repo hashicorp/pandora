@@ -1,20 +1,20 @@
 {
- "name": "CronTrigger",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "expression",
-   "name": "Expression",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "TriggerBase",
- "discriminatedTypeValue": "Cron",
- "typeHintIn": "TriggerType"
+  "name": "CronTrigger",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expression",
+      "name": "Expression",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "TriggerBase",
+  "discriminatedTypeValue": "Cron",
+  "typeHintIn": "TriggerType"
 }

@@ -1,24 +1,24 @@
 {
- "name": "MongoDbMigrationProgress",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "databases",
-   "name": "Databases",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "MongoDbDatabaseProgress"
+  "name": "MongoDbMigrationProgress",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "databases",
+      "name": "Databases",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "MongoDbDatabaseProgress"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "MongoDbProgress",
- "discriminatedTypeValue": "Migration",
- "typeHintIn": "ResultType"
+  ],
+  "discriminatedParentModelName": "MongoDbProgress",
+  "discriminatedTypeValue": "Migration",
+  "typeHintIn": "ResultType"
 }

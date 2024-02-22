@@ -1,16 +1,16 @@
 {
- "name": "CloudServicesNetworksListBySubscription",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "SubscriptionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "CloudServicesNetwork"
- },
- "uriSuffix": "/providers/Microsoft.NetworkCloud/cloudServicesNetworks"
+  "name": "CloudServicesNetworksListBySubscription",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "SubscriptionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "CloudServicesNetwork"
+  },
+  "uriSuffix": "/providers/Microsoft.NetworkCloud/cloudServicesNetworks"
 }

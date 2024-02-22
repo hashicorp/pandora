@@ -1,29 +1,29 @@
 {
- "name": "ScopedAssessmentId",
- "id": "/{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}",
- "segments": [
-  {
-   "name": "resourceId",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftSecurity",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Security"
-  },
-  {
-   "name": "staticAssessments",
-   "type": "Static",
-   "value": "assessments"
-  },
-  {
-   "name": "assessmentName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedAssessmentId",
+  "id": "/{resourceId}/providers/Microsoft.Security/assessments/{assessmentName}",
+  "segments": [
+    {
+      "name": "resourceId",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftSecurity",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Security"
+    },
+    {
+      "name": "staticAssessments",
+      "type": "Static",
+      "value": "assessments"
+    },
+    {
+      "name": "assessmentName",
+      "type": "UserSpecified"
+    }
+  ]
 }

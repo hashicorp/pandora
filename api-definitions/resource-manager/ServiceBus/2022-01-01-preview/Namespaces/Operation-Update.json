@@ -1,20 +1,20 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201,
-  202
- ],
- "longRunning": false,
- "httpMethod": "PATCH",
- "resourceIdName": "NamespaceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "SBNamespaceUpdateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "SBNamespace"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201,
+    202
+  ],
+  "longRunning": false,
+  "httpMethod": "PATCH",
+  "resourceIdName": "NamespaceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "SBNamespaceUpdateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "SBNamespace"
+  }
 }

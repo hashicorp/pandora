@@ -1,32 +1,32 @@
 {
- "name": "ExistingRecoveryVirtualNetwork",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoverySubnetName",
-   "name": "RecoverySubnetName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "recoveryVirtualNetworkId",
-   "name": "RecoveryVirtualNetworkId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "RecoveryVirtualNetworkCustomDetails",
- "discriminatedTypeValue": "Existing",
- "typeHintIn": "ResourceType"
+  "name": "ExistingRecoveryVirtualNetwork",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoverySubnetName",
+      "name": "RecoverySubnetName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "recoveryVirtualNetworkId",
+      "name": "RecoveryVirtualNetworkId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "RecoveryVirtualNetworkCustomDetails",
+  "discriminatedTypeValue": "Existing",
+  "typeHintIn": "ResourceType"
 }

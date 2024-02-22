@@ -1,24 +1,24 @@
 {
- "name": "SubscriptionProviderId",
- "id": "/subscriptions/{subscriptionId}/providers/{providerName}",
- "segments": [
-  {
-   "name": "staticSubscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "providerName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "SubscriptionProviderId",
+  "id": "/subscriptions/{subscriptionId}/providers/{providerName}",
+  "segments": [
+    {
+      "name": "staticSubscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "providerName",
+      "type": "UserSpecified"
+    }
+  ]
 }

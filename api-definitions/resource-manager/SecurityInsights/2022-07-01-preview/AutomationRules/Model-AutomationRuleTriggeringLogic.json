@@ -1,71 +1,70 @@
 {
- "name": "AutomationRuleTriggeringLogic",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "conditions",
-   "name": "Conditions",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "AutomationRuleCondition",
-     "maxItems": 50
+  "name": "AutomationRuleTriggeringLogic",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "conditions",
+      "name": "Conditions",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "AutomationRuleCondition"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expirationTimeUtc",
+      "name": "ExpirationTimeUtc",
+      "objectDefinition": {
+        "type": "DateTime",
+        "referenceName": null,
+        "dateFormat": "RFC3339"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "isEnabled",
+      "name": "IsEnabled",
+      "objectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "triggersOn",
+      "name": "TriggersOn",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TriggersOn"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "triggersWhen",
+      "name": "TriggersWhen",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "TriggersWhen"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "expirationTimeUtc",
-   "name": "ExpirationTimeUtc",
-   "objectDefinition": {
-    "type": "DateTime",
-    "referenceName": null,
-    "dateFormat": "RFC3339"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "isEnabled",
-   "name": "IsEnabled",
-   "objectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "triggersOn",
-   "name": "TriggersOn",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TriggersOn"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "triggersWhen",
-   "name": "TriggersWhen",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "TriggersWhen"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  ]
 }

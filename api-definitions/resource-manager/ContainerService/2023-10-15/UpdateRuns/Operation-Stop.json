@@ -1,28 +1,28 @@
 {
- "name": "Stop",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "options": [
-  {
-   "headerName": "If-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "UpdateRunId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "UpdateRun"
- },
- "uriSuffix": "/stop"
+  "name": "Stop",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "headerName": "If-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "UpdateRunId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "UpdateRun"
+  },
+  "uriSuffix": "/stop"
 }

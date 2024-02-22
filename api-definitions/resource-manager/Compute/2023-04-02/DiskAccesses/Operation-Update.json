@@ -1,19 +1,19 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "DiskAccessId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "DiskAccessUpdate"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "DiskAccess"
- }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "DiskAccessId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "DiskAccessUpdate"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "DiskAccess"
+  }
 }

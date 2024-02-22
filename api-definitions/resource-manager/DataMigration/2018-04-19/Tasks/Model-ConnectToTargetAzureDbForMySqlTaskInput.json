@@ -1,29 +1,29 @@
 {
- "name": "ConnectToTargetAzureDbForMySqlTaskInput",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "sourceConnectionInfo",
-   "name": "SourceConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MySqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "targetConnectionInfo",
-   "name": "TargetConnectionInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MySqlConnectionInfo"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "ConnectToTargetAzureDbForMySqlTaskInput",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "sourceConnectionInfo",
+      "name": "SourceConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MySqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "targetConnectionInfo",
+      "name": "TargetConnectionInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MySqlConnectionInfo"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

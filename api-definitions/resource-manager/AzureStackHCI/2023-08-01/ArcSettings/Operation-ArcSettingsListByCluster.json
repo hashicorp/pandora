@@ -1,16 +1,16 @@
 {
- "name": "ArcSettingsListByCluster",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "ClusterId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ArcSetting"
- },
- "uriSuffix": "/arcSettings"
+  "name": "ArcSettingsListByCluster",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "ClusterId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ArcSetting"
+  },
+  "uriSuffix": "/arcSettings"
 }

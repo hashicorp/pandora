@@ -1,16 +1,16 @@
 {
- "name": "ListFunctions",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "AppServiceId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "FunctionEnvelope"
- },
- "uriSuffix": "/functions"
+  "name": "ListFunctions",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "AppServiceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "FunctionEnvelope"
+  },
+  "uriSuffix": "/functions"
 }

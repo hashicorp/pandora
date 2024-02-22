@@ -1,16 +1,16 @@
 {
- "name": "ListEffectiveNetworkSecurityGroups",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "NetworkInterfaceId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "EffectiveNetworkSecurityGroupListResult"
- },
- "uriSuffix": "/effectiveNetworkSecurityGroups"
+  "name": "ListEffectiveNetworkSecurityGroups",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "NetworkInterfaceId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "EffectiveNetworkSecurityGroupListResult"
+  },
+  "uriSuffix": "/effectiveNetworkSecurityGroups"
 }

@@ -1,24 +1,24 @@
 {
- "name": "JobInputSequence",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "inputs",
-   "name": "Inputs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "JobInputClip"
+  "name": "JobInputSequence",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "inputs",
+      "name": "Inputs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "JobInputClip"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "JobInput",
- "discriminatedTypeValue": "#Microsoft.Media.JobInputSequence",
- "typeHintIn": "OdataType"
+  ],
+  "discriminatedParentModelName": "JobInput",
+  "discriminatedTypeValue": "#Microsoft.Media.JobInputSequence",
+  "typeHintIn": "OdataType"
 }

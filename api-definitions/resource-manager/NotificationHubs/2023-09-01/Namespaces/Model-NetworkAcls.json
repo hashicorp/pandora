@@ -1,33 +1,33 @@
 {
- "name": "NetworkAcls",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ipRules",
-   "name": "IPRules",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IPRule"
+  "name": "NetworkAcls",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ipRules",
+      "name": "IPRules",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IPRule"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "publicNetworkRule",
+      "name": "PublicNetworkRule",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "PublicInternetAuthorizationRule"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "publicNetworkRule",
-   "name": "PublicNetworkRule",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "PublicInternetAuthorizationRule"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

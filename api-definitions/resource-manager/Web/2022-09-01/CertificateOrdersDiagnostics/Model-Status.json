@@ -1,29 +1,29 @@
 {
- "name": "Status",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "message",
-   "name": "Message",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "statusId",
-   "name": "StatusId",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "InsightStatus"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  "name": "Status",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "message",
+      "name": "Message",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "statusId",
+      "name": "StatusId",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "InsightStatus"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ]
 }

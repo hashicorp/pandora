@@ -1,29 +1,29 @@
 {
- "name": "EventListener",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "endpoint",
-   "name": "Endpoint",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventListenerEndpoint"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "filter",
-   "name": "Filter",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "EventListenerFilter"
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ]
+  "name": "EventListener",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "endpoint",
+      "name": "Endpoint",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventListenerEndpoint"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "filter",
+      "name": "Filter",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "EventListenerFilter"
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ]
 }

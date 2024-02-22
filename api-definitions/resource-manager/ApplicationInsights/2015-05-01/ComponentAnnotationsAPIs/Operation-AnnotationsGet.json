@@ -1,18 +1,18 @@
 {
- "name": "AnnotationsGet",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "AnnotationId",
- "responseObject": {
-  "type": "List",
-  "referenceName": null,
-  "nestedItem": {
-   "type": "Reference",
-   "referenceName": "Annotation"
+  "name": "AnnotationsGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "AnnotationId",
+  "responseObject": {
+    "type": "List",
+    "referenceName": null,
+    "nestedItem": {
+      "type": "Reference",
+      "referenceName": "Annotation"
+    }
   }
- }
 }

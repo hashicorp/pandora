@@ -1,36 +1,36 @@
 {
- "name": "ValidateOracleAzureDbForPostgreSqlSyncTaskProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "input",
-   "name": "Input",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MigrateOracleAzureDbPostgreSqlSyncTaskInput"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "output",
-   "name": "Output",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ValidateOracleAzureDbPostgreSqlSyncTaskOutput"
+  "name": "ValidateOracleAzureDbForPostgreSqlSyncTaskProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "input",
+      "name": "Input",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MigrateOracleAzureDbPostgreSqlSyncTaskInput"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "output",
+      "name": "Output",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ValidateOracleAzureDbPostgreSqlSyncTaskOutput"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "ProjectTaskProperties",
- "discriminatedTypeValue": "Validate.Oracle.AzureDbPostgreSql.Sync",
- "typeHintIn": "TaskType"
+  ],
+  "discriminatedParentModelName": "ProjectTaskProperties",
+  "discriminatedTypeValue": "Validate.Oracle.AzureDbPostgreSql.Sync",
+  "typeHintIn": "TaskType"
 }

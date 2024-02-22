@@ -1,20 +1,20 @@
 {
- "name": "BillingSubscriptionsMove",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "BillingAccountBillingSubscriptionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "TransferBillingSubscriptionRequestProperties"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BillingSubscription"
- },
- "uriSuffix": "/move"
+  "name": "BillingSubscriptionsMove",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "BillingAccountBillingSubscriptionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "TransferBillingSubscriptionRequestProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BillingSubscription"
+  },
+  "uriSuffix": "/move"
 }

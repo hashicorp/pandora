@@ -1,137 +1,137 @@
 {
- "name": "OpenShiftClusterProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "apiserverProfile",
-   "name": "ApiserverProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "APIServerProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "clusterProfile",
-   "name": "ClusterProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ClusterProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "consoleProfile",
-   "name": "ConsoleProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ConsoleProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ingressProfiles",
-   "name": "IngressProfiles",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "IngressProfile"
+  "name": "OpenShiftClusterProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "apiserverProfile",
+      "name": "ApiserverProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "APIServerProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "clusterProfile",
+      "name": "ClusterProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ClusterProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "consoleProfile",
+      "name": "ConsoleProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ConsoleProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ingressProfiles",
+      "name": "IngressProfiles",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "IngressProfile"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "masterProfile",
+      "name": "MasterProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "MasterProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkProfile",
+      "name": "NetworkProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "NetworkProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "provisioningState",
+      "name": "ProvisioningState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ProvisioningState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "servicePrincipalProfile",
+      "name": "ServicePrincipalProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ServicePrincipalProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workerProfiles",
+      "name": "WorkerProfiles",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "WorkerProfile"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workerProfilesStatus",
+      "name": "WorkerProfilesStatus",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "WorkerProfile"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "masterProfile",
-   "name": "MasterProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "MasterProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkProfile",
-   "name": "NetworkProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "NetworkProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "provisioningState",
-   "name": "ProvisioningState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ProvisioningState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "servicePrincipalProfile",
-   "name": "ServicePrincipalProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ServicePrincipalProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workerProfiles",
-   "name": "WorkerProfiles",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "WorkerProfile"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workerProfilesStatus",
-   "name": "WorkerProfilesStatus",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "WorkerProfile"
-    }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

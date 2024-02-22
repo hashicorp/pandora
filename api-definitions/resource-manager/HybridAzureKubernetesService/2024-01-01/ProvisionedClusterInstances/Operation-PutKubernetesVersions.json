@@ -1,20 +1,20 @@
 {
- "name": "PutKubernetesVersions",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  201
- ],
- "longRunning": true,
- "httpMethod": "PUT",
- "resourceIdName": "ScopeId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "KubernetesVersionProfile"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "KubernetesVersionProfile"
- },
- "uriSuffix": "/providers/Microsoft.HybridContainerService/kubernetesVersions/default"
+  "name": "PutKubernetesVersions",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    201
+  ],
+  "longRunning": true,
+  "httpMethod": "PUT",
+  "resourceIdName": "ScopeId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "KubernetesVersionProfile"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "KubernetesVersionProfile"
+  },
+  "uriSuffix": "/providers/Microsoft.HybridContainerService/kubernetesVersions/default"
 }

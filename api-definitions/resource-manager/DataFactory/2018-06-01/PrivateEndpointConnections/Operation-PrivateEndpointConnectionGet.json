@@ -1,26 +1,26 @@
 {
- "name": "PrivateEndpointConnectionGet",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "GET",
- "options": [
-  {
-   "headerName": "If-None-Match",
-   "optional": true,
-   "required": false,
-   "field": "IfNoneMatch",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "PrivateEndpointConnectionGet",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "GET",
+  "options": [
+    {
+      "headerName": "If-None-Match",
+      "optional": true,
+      "required": false,
+      "field": "IfNoneMatch",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PrivateEndpointConnectionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnectionResource"
   }
- ],
- "resourceIdName": "PrivateEndpointConnectionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateEndpointConnectionResource"
- }
 }

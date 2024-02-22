@@ -1,33 +1,33 @@
 {
- "name": "ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputDatabaseSchemaMapInlined",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "database",
-   "name": "Database",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "schemas",
-   "name": "Schemas",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "ConnectToTargetOracleAzureDbForPostgreSqlSyncTaskOutputDatabaseSchemaMapInlined",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "database",
+      "name": "Database",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "schemas",
+      "name": "Schemas",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

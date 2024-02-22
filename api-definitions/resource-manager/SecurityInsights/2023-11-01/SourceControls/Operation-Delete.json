@@ -1,19 +1,19 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "POST",
- "resourceIdName": "SourceControlId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "RepositoryAccessProperties"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "Warning"
- },
- "uriSuffix": "/delete"
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "POST",
+  "resourceIdName": "SourceControlId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "RepositoryAccessProperties"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "Warning"
+  },
+  "uriSuffix": "/delete"
 }

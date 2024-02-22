@@ -1,20 +1,20 @@
 {
- "name": "GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanOrderId",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "SavingsPlanOrderId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "BenefitUtilizationSummariesRequest"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "BenefitUtilizationSummariesOperationStatus"
- },
- "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
+  "name": "GenerateBenefitUtilizationSummariesReportGenerateBySavingsPlanOrderId",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "SavingsPlanOrderId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "BenefitUtilizationSummariesRequest"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "BenefitUtilizationSummariesOperationStatus"
+  },
+  "uriSuffix": "/providers/Microsoft.CostManagement/generateBenefitUtilizationSummariesReport"
 }

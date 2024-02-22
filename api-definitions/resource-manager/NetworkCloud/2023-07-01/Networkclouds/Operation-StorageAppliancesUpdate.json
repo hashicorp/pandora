@@ -1,19 +1,19 @@
 {
- "name": "StorageAppliancesUpdate",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "PATCH",
- "resourceIdName": "StorageApplianceId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "StorageAppliancePatchParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "StorageAppliance"
- }
+  "name": "StorageAppliancesUpdate",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "PATCH",
+  "resourceIdName": "StorageApplianceId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "StorageAppliancePatchParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "StorageAppliance"
+  }
 }

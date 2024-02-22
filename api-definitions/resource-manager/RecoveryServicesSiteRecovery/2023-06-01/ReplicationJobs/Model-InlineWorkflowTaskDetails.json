@@ -1,24 +1,24 @@
 {
- "name": "InlineWorkflowTaskDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "workflowIds",
-   "name": "WorkflowIds",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null
+  "name": "InlineWorkflowTaskDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "workflowIds",
+      "name": "WorkflowIds",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "GroupTaskDetails",
- "discriminatedTypeValue": "InlineWorkflowTaskDetails",
- "typeHintIn": "InstanceType"
+  ],
+  "discriminatedParentModelName": "GroupTaskDetails",
+  "discriminatedTypeValue": "InlineWorkflowTaskDetails",
+  "typeHintIn": "InstanceType"
 }

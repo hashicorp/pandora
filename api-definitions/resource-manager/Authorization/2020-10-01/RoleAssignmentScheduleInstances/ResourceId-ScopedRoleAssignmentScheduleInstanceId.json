@@ -1,29 +1,29 @@
 {
- "name": "ScopedRoleAssignmentScheduleInstanceId",
- "id": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleInstances/{roleAssignmentScheduleInstanceName}",
- "segments": [
-  {
-   "name": "scope",
-   "type": "Scope"
-  },
-  {
-   "name": "staticProviders",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "staticMicrosoftAuthorization",
-   "type": "ResourceProvider",
-   "value": "Microsoft.Authorization"
-  },
-  {
-   "name": "staticRoleAssignmentScheduleInstances",
-   "type": "Static",
-   "value": "roleAssignmentScheduleInstances"
-  },
-  {
-   "name": "roleAssignmentScheduleInstanceName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "ScopedRoleAssignmentScheduleInstanceId",
+  "id": "/{scope}/providers/Microsoft.Authorization/roleAssignmentScheduleInstances/{roleAssignmentScheduleInstanceName}",
+  "segments": [
+    {
+      "name": "scope",
+      "type": "Scope"
+    },
+    {
+      "name": "staticProviders",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "staticMicrosoftAuthorization",
+      "type": "ResourceProvider",
+      "value": "Microsoft.Authorization"
+    },
+    {
+      "name": "staticRoleAssignmentScheduleInstances",
+      "type": "Static",
+      "value": "roleAssignmentScheduleInstances"
+    },
+    {
+      "name": "roleAssignmentScheduleInstanceName",
+      "type": "UserSpecified"
+    }
+  ]
 }

@@ -1,26 +1,24 @@
 {
- "name": "WorkloadNetworkDhcpRelay",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "serverAddresses",
-   "name": "ServerAddresses",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "String",
-     "referenceName": null,
-     "maxItems": 3,
-     "minItems": 1
+  "name": "WorkloadNetworkDhcpRelay",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "serverAddresses",
+      "name": "ServerAddresses",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "String",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "WorkloadNetworkDhcpEntity",
- "discriminatedTypeValue": "RELAY",
- "typeHintIn": "DhcpType"
+  ],
+  "discriminatedParentModelName": "WorkloadNetworkDhcpEntity",
+  "discriminatedTypeValue": "RELAY",
+  "typeHintIn": "DhcpType"
 }

@@ -1,16 +1,16 @@
 {
- "name": "GetAllRunAsAccountsInSite",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "fieldContainingPaginationDetails": "nextLink",
- "longRunning": false,
- "httpMethod": "GET",
- "resourceIdName": "VMwareSiteId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "VMwareRunAsAccount"
- },
- "uriSuffix": "/runAsAccounts"
+  "name": "GetAllRunAsAccountsInSite",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "fieldContainingPaginationDetails": "nextLink",
+  "longRunning": false,
+  "httpMethod": "GET",
+  "resourceIdName": "VMwareSiteId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "VMwareRunAsAccount"
+  },
+  "uriSuffix": "/runAsAccounts"
 }

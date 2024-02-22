@@ -1,18 +1,18 @@
 {
- "name": "CreateIfNotExist",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "resourceIdName": "KeyId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "ManagedHsmKeyCreateParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ManagedHsmKey"
- }
+  "name": "CreateIfNotExist",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "resourceIdName": "KeyId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmKeyCreateParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ManagedHsmKey"
+  }
 }

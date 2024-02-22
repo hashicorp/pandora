@@ -1,45 +1,45 @@
 {
- "name": "WorkflowEnvelopeProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "files",
-   "name": "Files",
-   "objectDefinition": {
-    "type": "Dictionary",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "RawObject",
-     "referenceName": null
+  "name": "WorkflowEnvelopeProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "files",
+      "name": "Files",
+      "objectDefinition": {
+        "type": "Dictionary",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "RawObject",
+          "referenceName": null
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "flowState",
+      "name": "FlowState",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkflowState"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "health",
+      "name": "Health",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "WorkflowHealth"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "flowState",
-   "name": "FlowState",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkflowState"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "health",
-   "name": "Health",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "WorkflowHealth"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

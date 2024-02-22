@@ -1,44 +1,44 @@
 {
- "name": "KeyVaultId",
- "commonAlias": "KeyVault",
- "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
- "segments": [
-  {
-   "name": "subscriptions",
-   "type": "Static",
-   "value": "subscriptions"
-  },
-  {
-   "name": "subscriptionId",
-   "type": "SubscriptionId"
-  },
-  {
-   "name": "resourceGroups",
-   "type": "Static",
-   "value": "resourceGroups"
-  },
-  {
-   "name": "resourceGroupName",
-   "type": "ResourceGroup"
-  },
-  {
-   "name": "providers",
-   "type": "Static",
-   "value": "providers"
-  },
-  {
-   "name": "resourceProvider",
-   "type": "ResourceProvider",
-   "value": "Microsoft.KeyVault"
-  },
-  {
-   "name": "vaults",
-   "type": "Static",
-   "value": "vaults"
-  },
-  {
-   "name": "vaultName",
-   "type": "UserSpecified"
-  }
- ]
+  "name": "KeyVaultId",
+  "commonAlias": "KeyVault",
+  "id": "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.KeyVault/vaults/{vaultName}",
+  "segments": [
+    {
+      "name": "subscriptions",
+      "type": "Static",
+      "value": "subscriptions"
+    },
+    {
+      "name": "subscriptionId",
+      "type": "SubscriptionId"
+    },
+    {
+      "name": "resourceGroups",
+      "type": "Static",
+      "value": "resourceGroups"
+    },
+    {
+      "name": "resourceGroupName",
+      "type": "ResourceGroup"
+    },
+    {
+      "name": "providers",
+      "type": "Static",
+      "value": "providers"
+    },
+    {
+      "name": "resourceProvider",
+      "type": "ResourceProvider",
+      "value": "Microsoft.KeyVault"
+    },
+    {
+      "name": "vaults",
+      "type": "Static",
+      "value": "vaults"
+    },
+    {
+      "name": "vaultName",
+      "type": "UserSpecified"
+    }
+  ]
 }

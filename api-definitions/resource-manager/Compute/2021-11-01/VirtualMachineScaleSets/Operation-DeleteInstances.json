@@ -1,28 +1,28 @@
 {
- "name": "DeleteInstances",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "options": [
-  {
-   "optional": true,
-   "queryString": "forceDeletion",
-   "required": false,
-   "field": "ForceDeletion",
-   "optionsObjectDefinition": {
-    "type": "Boolean",
-    "referenceName": null
-   }
-  }
- ],
- "resourceIdName": "VirtualMachineScaleSetId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "VirtualMachineScaleSetVMInstanceRequiredIDs"
- },
- "uriSuffix": "/delete"
+  "name": "DeleteInstances",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "forceDeletion",
+      "required": false,
+      "field": "ForceDeletion",
+      "optionsObjectDefinition": {
+        "type": "Boolean",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "VirtualMachineScaleSetId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "VirtualMachineScaleSetVMInstanceRequiredIDs"
+  },
+  "uriSuffix": "/delete"
 }

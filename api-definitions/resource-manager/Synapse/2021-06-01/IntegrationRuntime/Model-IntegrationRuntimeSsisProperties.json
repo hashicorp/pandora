@@ -1,81 +1,81 @@
 {
- "name": "IntegrationRuntimeSsisProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "catalogInfo",
-   "name": "CatalogInfo",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeSsisCatalogInfo"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "customSetupScriptProperties",
-   "name": "CustomSetupScriptProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeCustomSetupScriptProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "dataProxyProperties",
-   "name": "DataProxyProperties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeDataProxyProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "edition",
-   "name": "Edition",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeEdition"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "expressCustomSetupProperties",
-   "name": "ExpressCustomSetupProperties",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "CustomSetupBase"
+  "name": "IntegrationRuntimeSsisProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "catalogInfo",
+      "name": "CatalogInfo",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeSsisCatalogInfo"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "customSetupScriptProperties",
+      "name": "CustomSetupScriptProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeCustomSetupScriptProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "dataProxyProperties",
+      "name": "DataProxyProperties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeDataProxyProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "edition",
+      "name": "Edition",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeEdition"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "expressCustomSetupProperties",
+      "name": "ExpressCustomSetupProperties",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "CustomSetupBase"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "licenseType",
+      "name": "LicenseType",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "IntegrationRuntimeLicenseType"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "licenseType",
-   "name": "LicenseType",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "IntegrationRuntimeLicenseType"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

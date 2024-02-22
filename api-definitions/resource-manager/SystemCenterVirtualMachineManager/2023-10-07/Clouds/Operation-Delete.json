@@ -1,23 +1,23 @@
 {
- "name": "Delete",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  202,
-  204
- ],
- "longRunning": true,
- "httpMethod": "DELETE",
- "options": [
-  {
-   "optional": true,
-   "queryString": "force",
-   "required": false,
-   "field": "Force",
-   "optionsObjectDefinition": {
-    "type": "Reference",
-    "referenceName": "Force"
-   }
-  }
- ],
- "resourceIdName": "CloudId"
+  "name": "Delete",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    202,
+    204
+  ],
+  "longRunning": true,
+  "httpMethod": "DELETE",
+  "options": [
+    {
+      "optional": true,
+      "queryString": "force",
+      "required": false,
+      "field": "Force",
+      "optionsObjectDefinition": {
+        "type": "Reference",
+        "referenceName": "Force"
+      }
+    }
+  ],
+  "resourceIdName": "CloudId"
 }

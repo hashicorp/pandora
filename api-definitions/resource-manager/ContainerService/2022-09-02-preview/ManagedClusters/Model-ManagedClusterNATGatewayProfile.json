@@ -1,45 +1,45 @@
 {
- "name": "ManagedClusterNATGatewayProfile",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "effectiveOutboundIPs",
-   "name": "EffectiveOutboundIPs",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "ResourceReference"
+  "name": "ManagedClusterNATGatewayProfile",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "effectiveOutboundIPs",
+      "name": "EffectiveOutboundIPs",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "ResourceReference"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "idleTimeoutInMinutes",
+      "name": "IdleTimeoutInMinutes",
+      "objectDefinition": {
+        "type": "Integer",
+        "referenceName": null
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "managedOutboundIPProfile",
+      "name": "ManagedOutboundIPProfile",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ManagedClusterManagedOutboundIPProfile"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "idleTimeoutInMinutes",
-   "name": "IdleTimeoutInMinutes",
-   "objectDefinition": {
-    "type": "Integer",
-    "referenceName": null
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "managedOutboundIPProfile",
-   "name": "ManagedOutboundIPProfile",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ManagedClusterManagedOutboundIPProfile"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

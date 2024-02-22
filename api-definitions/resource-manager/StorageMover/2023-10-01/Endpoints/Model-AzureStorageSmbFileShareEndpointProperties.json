@@ -1,32 +1,32 @@
 {
- "name": "AzureStorageSmbFileShareEndpointProperties",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "fileShareName",
-   "name": "FileShareName",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "storageAccountResourceId",
-   "name": "StorageAccountResourceId",
-   "objectDefinition": {
-    "type": "String",
-    "referenceName": null
-   },
-   "optional": false,
-   "required": true,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EndpointBaseProperties",
- "discriminatedTypeValue": "AzureStorageSmbFileShare",
- "typeHintIn": "EndpointType"
+  "name": "AzureStorageSmbFileShareEndpointProperties",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "fileShareName",
+      "name": "FileShareName",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "storageAccountResourceId",
+      "name": "StorageAccountResourceId",
+      "objectDefinition": {
+        "type": "String",
+        "referenceName": null
+      },
+      "optional": false,
+      "required": true,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "EndpointBaseProperties",
+  "discriminatedTypeValue": "AzureStorageSmbFileShare",
+  "typeHintIn": "EndpointType"
 }

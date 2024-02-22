@@ -1,30 +1,30 @@
 {
- "name": "Update",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200
- ],
- "longRunning": false,
- "httpMethod": "PUT",
- "options": [
-  {
-   "headerName": "x-ms-client-request-id",
-   "optional": true,
-   "required": false,
-   "field": "XMsClientRequestId",
-   "optionsObjectDefinition": {
-    "type": "String",
-    "referenceName": null
-   }
+  "name": "Update",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200
+  ],
+  "longRunning": false,
+  "httpMethod": "PUT",
+  "options": [
+    {
+      "headerName": "x-ms-client-request-id",
+      "optional": true,
+      "required": false,
+      "field": "XMsClientRequestId",
+      "optionsObjectDefinition": {
+        "type": "String",
+        "referenceName": null
+      }
+    }
+  ],
+  "resourceIdName": "PrivateEndpointConnectionId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnection"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "PrivateEndpointConnection"
   }
- ],
- "resourceIdName": "PrivateEndpointConnectionId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "PrivateEndpointConnection"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "PrivateEndpointConnection"
- }
 }

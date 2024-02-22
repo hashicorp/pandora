@@ -1,81 +1,81 @@
 {
- "name": "ApplianceMonitoringDetails",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "cpuDetails",
-   "name": "CpuDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplianceResourceDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "datastoreSnapshot",
-   "name": "DatastoreSnapshot",
-   "objectDefinition": {
-    "type": "List",
-    "referenceName": null,
-    "nestedItem": {
-     "type": "Reference",
-     "referenceName": "DataStoreUtilizationDetails"
+  "name": "ApplianceMonitoringDetails",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "cpuDetails",
+      "name": "CpuDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplianceResourceDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "datastoreSnapshot",
+      "name": "DatastoreSnapshot",
+      "objectDefinition": {
+        "type": "List",
+        "referenceName": null,
+        "nestedItem": {
+          "type": "Reference",
+          "referenceName": "DataStoreUtilizationDetails"
+        }
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "disksReplicationDetails",
+      "name": "DisksReplicationDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplianceResourceDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "esxiNfcBuffer",
+      "name": "EsxiNfcBuffer",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplianceResourceDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "networkBandwidth",
+      "name": "NetworkBandwidth",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplianceResourceDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    },
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "ramDetails",
+      "name": "RamDetails",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "ApplianceResourceDetails"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
     }
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "disksReplicationDetails",
-   "name": "DisksReplicationDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplianceResourceDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "esxiNfcBuffer",
-   "name": "EsxiNfcBuffer",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplianceResourceDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "networkBandwidth",
-   "name": "NetworkBandwidth",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplianceResourceDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  },
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "ramDetails",
-   "name": "RamDetails",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "ApplianceResourceDetails"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ]
+  ]
 }

@@ -1,16 +1,16 @@
 {
- "name": "MongoDBResourcesMigrateMongoDBCollectionToAutoscale",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "MongodbDatabaseCollectionId",
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "ThroughputSettingsGetResults"
- },
- "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
+  "name": "MongoDBResourcesMigrateMongoDBCollectionToAutoscale",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "MongodbDatabaseCollectionId",
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "ThroughputSettingsGetResults"
+  },
+  "uriSuffix": "/throughputSettings/default/migrateToAutoscale"
 }

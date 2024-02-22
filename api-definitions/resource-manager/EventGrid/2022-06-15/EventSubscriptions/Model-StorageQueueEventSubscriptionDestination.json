@@ -1,20 +1,20 @@
 {
- "name": "StorageQueueEventSubscriptionDestination",
- "fields": [
-  {
-   "containsDiscriminatedTypeValue": false,
-   "jsonName": "properties",
-   "name": "Properties",
-   "objectDefinition": {
-    "type": "Reference",
-    "referenceName": "StorageQueueEventSubscriptionDestinationProperties"
-   },
-   "optional": true,
-   "required": false,
-   "description": ""
-  }
- ],
- "discriminatedParentModelName": "EventSubscriptionDestination",
- "discriminatedTypeValue": "StorageQueue",
- "typeHintIn": "EndpointType"
+  "name": "StorageQueueEventSubscriptionDestination",
+  "fields": [
+    {
+      "containsDiscriminatedTypeValue": false,
+      "jsonName": "properties",
+      "name": "Properties",
+      "objectDefinition": {
+        "type": "Reference",
+        "referenceName": "StorageQueueEventSubscriptionDestinationProperties"
+      },
+      "optional": true,
+      "required": false,
+      "description": ""
+    }
+  ],
+  "discriminatedParentModelName": "EventSubscriptionDestination",
+  "discriminatedTypeValue": "StorageQueue",
+  "typeHintIn": "EndpointType"
 }

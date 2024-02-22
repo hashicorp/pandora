@@ -1,20 +1,20 @@
 {
- "name": "VirtualHubsGetOutboundRoutes",
- "contentType": "application/json; charset=utf-8",
- "expectedStatusCodes": [
-  200,
-  202
- ],
- "longRunning": true,
- "httpMethod": "POST",
- "resourceIdName": "VirtualHubId",
- "requestObject": {
-  "type": "Reference",
-  "referenceName": "GetOutboundRoutesParameters"
- },
- "responseObject": {
-  "type": "Reference",
-  "referenceName": "EffectiveRouteMapRouteList"
- },
- "uriSuffix": "/outboundRoutes"
+  "name": "VirtualHubsGetOutboundRoutes",
+  "contentType": "application/json; charset=utf-8",
+  "expectedStatusCodes": [
+    200,
+    202
+  ],
+  "longRunning": true,
+  "httpMethod": "POST",
+  "resourceIdName": "VirtualHubId",
+  "requestObject": {
+    "type": "Reference",
+    "referenceName": "GetOutboundRoutesParameters"
+  },
+  "responseObject": {
+    "type": "Reference",
+    "referenceName": "EffectiveRouteMapRouteList"
+  },
+  "uriSuffix": "/outboundRoutes"
 }
