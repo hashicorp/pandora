@@ -48,7 +48,6 @@ func (c ValidateCommand) Run(args []string) int {
 
 	input := pipeline.RunInput{
 		ConfigFilePath:           c.resourceManagerConfigPath,
-		DataApiEndpoint:          nil,
 		JustParseData:            true,
 		Logger:                   logger,
 		OutputDirectory:          os.DevNull,
