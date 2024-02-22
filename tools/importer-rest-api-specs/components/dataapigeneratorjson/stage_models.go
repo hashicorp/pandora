@@ -35,8 +35,10 @@ type generateModelsStage struct {
 
 func (g generateModelsStage) generate(input *fileSystem, logger hclog.Logger) error {
 	logger.Debug("Generating Models")
-	for modelName, modelValue := range g.models {
+	for modelName := range g.models {
 		logger.Trace(fmt.Sprintf("Generating Model %q..", modelName))
+		modelValue := g.models[modelName]
+
 		var parent *models.SDKModel
 		if modelValue.ParentTypeName != nil {
 			logger.Trace("Finding parent model %q..", *modelValue.ParentTypeName)
