@@ -10,7 +10,6 @@ import (
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // TODO: tests for the different types of Operation Object Definition - including CSV's inner object
@@ -76,7 +75,7 @@ func TestParseOperationSingleWithTagAndResourceId(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
+						Segments: []models.ResourceIDSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 							NewSubscriptionIDResourceIDSegment("subscriptionId"),
 							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
@@ -117,7 +116,7 @@ func TestParseOperationSingleWithTagAndResourceIdSuffix(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
+						Segments: []models.ResourceIDSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 							NewSubscriptionIDResourceIDSegment("subscriptionId"),
 							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),
@@ -1511,7 +1510,7 @@ func TestParseOperationMultipleBasedOnTheSameResourceId(t *testing.T) {
 				},
 				ResourceIds: map[string]importerModels.ParsedResourceId{
 					"ThingId": {
-						Segments: []resourcemanager.ResourceIdSegment{
+						Segments: []models.ResourceIDSegment{
 							NewStaticValueResourceIDSegment("staticSubscriptions", "subscriptions"),
 							NewSubscriptionIDResourceIDSegment("subscriptionId"),
 							NewStaticValueResourceIDSegment("staticResourceGroups", "resourceGroups"),

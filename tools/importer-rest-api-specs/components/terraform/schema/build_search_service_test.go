@@ -457,44 +457,15 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 				CommonAlias:   stringPointer("ResourceGroup"),
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Search/searchServices/{searchServiceName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						Name:       "providers",
-						FixedValue: stringPointer("providers"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name:       "microsoftSearch",
-						FixedValue: stringPointer("Microsoft.Search"),
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						Name:       "searchServices",
-						FixedValue: stringPointer("searchServices"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "searchServiceName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("microsoftSearch", "Microsoft.Search"),
+					models.NewStaticValueResourceIDSegment("searchServices", "searchServices"),
+					models.NewUserSpecifiedResourceIDSegment("searchServiceName", "searchServiceName"),
 				},
 			},
 		},
@@ -689,7 +660,5 @@ func TestBuildForSearchServiceUsingRealData(t *testing.T) {
 	currentModel, ok = (*actualModels)[r.CurrentModel]
 	if !ok {
 		t.Errorf("expected there to be a model %q, but there wasn't", r.CurrentModel)
-	} else {
-
 	}
 }

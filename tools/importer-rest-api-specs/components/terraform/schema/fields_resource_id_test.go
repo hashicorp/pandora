@@ -9,13 +9,14 @@ import (
 
 	"github.com/hashicorp/go-azure-helpers/lang/pointer"
 	"github.com/hashicorp/go-hclog"
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
 	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
+		Segments: []models.ResourceIDSegment{
 			// intentionally none
 		},
 	}
@@ -38,25 +39,11 @@ func TestTopLevelFieldsWithinResourceId_NoSegmentsShouldError(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -108,44 +95,15 @@ func TestTopLevelFieldsWithinResourceId_ResourceGroup(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.Compute"),
-				Name:       "staticMicrosoftCompute",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("virtualMachines"),
-				Name:       "virtualMachines",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "virtualMachineName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
+			models.NewStaticValueResourceIDSegment("virtualMachines", "virtualMachines"),
+			models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -215,53 +173,17 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachine(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.Compute"),
-				Name:       "staticMicrosoftCompute",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("virtualMachines"),
-				Name:       "virtualMachines",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "virtualMachineName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
-			{
-				FixedValue: stringPointer("extensions"),
-				Name:       "extensions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "extensionsName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
+			models.NewStaticValueResourceIDSegment("virtualMachines", "virtualMachines"),
+			models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineName"),
+			models.NewStaticValueResourceIDSegment("extensions", "extensions"),
+			models.NewUserSpecifiedResourceIDSegment("extensionsName", "extensionsName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -272,44 +194,15 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 		resourceIds: map[string]resourcemanager.ResourceIdDefinition{
 			"VirtualMachineId": {
 				CommonAlias: pointer.To("VirtualMachine"),
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("resourceGroups"),
-						Name:       "resourceGroups",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						FixedValue: stringPointer("Microsoft.Compute"),
-						Name:       "staticMicrosoftCompute",
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						FixedValue: stringPointer("virtualMachines"),
-						Name:       "virtualMachines",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "virtualMachineName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("staticMicrosoftCompute", "Microsoft.Compute"),
+					models.NewStaticValueResourceIDSegment("virtualMachines", "virtualMachines"),
+					models.NewUserSpecifiedResourceIDSegment("virtualMachineName", "virtualMachineName"),
 				},
 			},
 		},
@@ -382,53 +275,17 @@ func TestTopLevelFieldsWithinResourceId_VirtualMachineExtension(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.ContainerService"),
-				Name:       "staticMicrosoftContainerService",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("managedClusters"),
-				Name:       "staticManagedClusters",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "managedClusterName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
-			{
-				FixedValue: stringPointer("trustedAccessRoleBindings"),
-				Name:       "trustedAccessRoleBindings",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "trustedAccessRoleBindingName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftContainerService", "Microsoft.ContainerService"),
+			models.NewStaticValueResourceIDSegment("staticManagedClusters", "managedClusters"),
+			models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managedClusterName"),
+			models.NewStaticValueResourceIDSegment("trustedAccessRoleBindings", "trustedAccessRoleBindings"),
+			models.NewUserSpecifiedResourceIDSegment("trustedAccessRoleBindingName", "trustedAccessRoleBindingName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -440,44 +297,15 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 			"KubernetesClusterId": {
 				CommonAlias: pointer.To("KubernetesCluster"),
 				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("resourceGroups"),
-						Name:       "resourceGroups",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						FixedValue: stringPointer("Microsoft.ContainerService"),
-						Name:       "staticMicrosoftContainerService",
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						FixedValue: stringPointer("managedClusters"),
-						Name:       "staticManagedClusters",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "managedClusterName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("staticMicrosoftContainerService", "Microsoft.ContainerService"),
+					models.NewStaticValueResourceIDSegment("staticManagedClusters", "managedClusters"),
+					models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managedClusterName"),
 				},
 			},
 		},
@@ -548,53 +376,17 @@ func TestTopLevelFieldsWithinResourceId_KubernetesTrustedAccessRoleBinding(t *te
 
 func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.ContainerService"),
-				Name:       "staticMicrosoftContainerService",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("managedClusters"),
-				Name:       "staticManagedClusters",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "managedClusterName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
-			{
-				FixedValue: stringPointer("trustedAccessRoleBindings"),
-				Name:       "trustedAccessRoleBindings",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "trustedAccessRoleBindingName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftContainerService", "Microsoft.ContainerService"),
+			models.NewStaticValueResourceIDSegment("staticManagedClusters", "managedClusters"),
+			models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managedClusterName"),
+			models.NewStaticValueResourceIDSegment("trustedAccessRoleBindings", "trustedAccessRoleBindings"),
+			models.NewUserSpecifiedResourceIDSegment("trustedAccessRoleBindingName", "trustedAccessRoleBindingName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -614,44 +406,15 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 			"KubernetesClusterId": {
 				CommonAlias: pointer.To("KubernetesCluster"),
 				Id:          "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ContainerService/managedClusters/{managedClusterName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("resourceGroups"),
-						Name:       "resourceGroups",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						FixedValue: stringPointer("Microsoft.ContainerService"),
-						Name:       "staticMicrosoftContainerService",
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						FixedValue: stringPointer("managedClusters"),
-						Name:       "staticManagedClusters",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "managedClusterName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("staticMicrosoftContainerService", "Microsoft.ContainerService"),
+					models.NewStaticValueResourceIDSegment("staticManagedClusters", "managedClusters"),
+					models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managedClusterName"),
 				},
 			},
 		},
@@ -722,44 +485,15 @@ func TestTopLevelFieldsWithinResourceId_ParentIdSchemaOverride(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.Chaos"),
-				Name:       "staticMicrosoftCompute",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("targets"),
-				Name:       "staticTargets",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "targetName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
+			models.NewStaticValueResourceIDSegment("targets", "targets"),
+			models.NewUserSpecifiedResourceIDSegment("targetName", "targetName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{
@@ -841,44 +575,15 @@ func TestTopLevelFieldsWithinResourceId_SchemaOverride(t *testing.T) {
 
 func TestTopLevelFieldsWithinResourceId_DocumentationOverride(t *testing.T) {
 	input := resourcemanager.ResourceIdDefinition{
-		Segments: []resourcemanager.ResourceIdSegment{
-			{
-				FixedValue: stringPointer("subscriptions"),
-				Name:       "subscriptions",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "subscriptionId",
-				Type: resourcemanager.SubscriptionIdSegment,
-			},
-			{
-				FixedValue: stringPointer("resourceGroups"),
-				Name:       "resourceGroups",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "resourceGroupName",
-				Type: resourcemanager.ResourceGroupSegment,
-			},
-			{
-				FixedValue: stringPointer("providers"),
-				Name:       "providers",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				FixedValue: stringPointer("Microsoft.Chaos"),
-				Name:       "staticMicrosoftCompute",
-				Type:       resourcemanager.ResourceProviderSegment,
-			},
-			{
-				FixedValue: stringPointer("targets"),
-				Name:       "staticTargets",
-				Type:       resourcemanager.StaticSegment,
-			},
-			{
-				Name: "targetName",
-				Type: resourcemanager.UserSpecifiedSegment,
-			},
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("staticMicrosoftChaos", "Microsoft.Chaos"),
+			models.NewStaticValueResourceIDSegment("targets", "targets"),
+			models.NewUserSpecifiedResourceIDSegment("targetName", "targetName"),
 		},
 	}
 	inputMappings := resourcemanager.MappingDefinition{

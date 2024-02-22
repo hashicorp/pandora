@@ -273,44 +273,15 @@ func TestBuildForChaosStudioExperimentWithRealData(t *testing.T) {
 				CommonAlias:   nil,
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Chaos/experiments/{experimentName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("resourceGroups"),
-						Name:       "resourceGroups",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						Name:       "providers",
-						FixedValue: stringPointer("providers"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name:       "microsoftChaos",
-						FixedValue: stringPointer("Microsoft.Chaos"),
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						Name:       "experiments",
-						FixedValue: stringPointer("experiments"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "experimentName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("microsoftChaos", "Microsoft.Chaos"),
+					models.NewStaticValueResourceIDSegment("experiments", "experiments"),
+					models.NewUserSpecifiedResourceIDSegment("experimentName", "experimentName"),
 				},
 			},
 		},

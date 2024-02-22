@@ -6,7 +6,6 @@ package resourceids
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ commonIdMatcher = commonIdKubernetesCluster{}
@@ -18,15 +17,15 @@ func (c commonIdKubernetesCluster) id() importerModels.ParsedResourceId {
 	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
-			importerModels.StaticResourceIDSegment("providers", "providers"),
-			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ContainerService"),
-			importerModels.StaticResourceIDSegment("managedClusters", "managedClusters"),
-			importerModels.UserSpecifiedResourceIDSegment("managedClusterName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.ContainerService"),
+			models.NewStaticValueResourceIDSegment("managedClusters", "managedClusters"),
+			models.NewUserSpecifiedResourceIDSegment("managedClusterName", "managedClusterName"),
 		},
 	}
 }

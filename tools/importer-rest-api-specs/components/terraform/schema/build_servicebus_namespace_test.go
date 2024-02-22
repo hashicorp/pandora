@@ -175,44 +175,15 @@ func TestBuildForServiceBusNamespaceHappyPath(t *testing.T) {
 				CommonAlias:   nil,
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						Name:       "providers",
-						FixedValue: stringPointer("providers"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name:       "microsoftServiceBus",
-						FixedValue: stringPointer("Microsoft.ServiceBus"),
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						Name:       "namespaces",
-						FixedValue: stringPointer("namespaces"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "namespaceName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("microsoftServiceBus", "Microsoft.ServiceBus"),
+					models.NewStaticValueResourceIDSegment("namespaces", "namespaces"),
+					models.NewUserSpecifiedResourceIDSegment("namespaceName", "namespaceName"),
 				},
 			},
 		},
@@ -906,44 +877,15 @@ func TestBuildForServiceBusNamespaceUsingRealData(t *testing.T) {
 				CommonAlias:   nil,
 				ConstantNames: nil,
 				Id:            "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ServiceBus/namespaces/{namespaceName}",
-				Segments: []resourcemanager.ResourceIdSegment{
-					{
-						FixedValue: stringPointer("subscriptions"),
-						Name:       "subscriptions",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "subscriptionId",
-						Type: resourcemanager.SubscriptionIdSegment,
-					},
-					{
-						FixedValue: stringPointer("providers"),
-						Name:       "providers",
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "resourceGroupName",
-						Type: resourcemanager.ResourceGroupSegment,
-					},
-					{
-						Name:       "providers",
-						FixedValue: stringPointer("providers"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name:       "microsoftServiceBus",
-						FixedValue: stringPointer("Microsoft.ServiceBus"),
-						Type:       resourcemanager.ResourceProviderSegment,
-					},
-					{
-						Name:       "namespaces",
-						FixedValue: stringPointer("namespaces"),
-						Type:       resourcemanager.StaticSegment,
-					},
-					{
-						Name: "namespaceName",
-						Type: resourcemanager.UserSpecifiedSegment,
-					},
+				Segments: []models.ResourceIDSegment{
+					models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+					models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+					models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+					models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+					models.NewStaticValueResourceIDSegment("providers", "providers"),
+					models.NewResourceProviderResourceIDSegment("microsoftServiceBus", "Microsoft.ServiceBus"),
+					models.NewStaticValueResourceIDSegment("namespaces", "namespaces"),
+					models.NewUserSpecifiedResourceIDSegment("namespaceName", "namespaceName"),
 				},
 			},
 		},

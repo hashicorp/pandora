@@ -8,7 +8,6 @@ import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 // normalizeAzureApiResource works through the parsed AzureApiResource and ensures
@@ -80,7 +79,7 @@ func normalizeAzureApiResource(input importerModels.AzureApiResource) importerMo
 
 	normalizedResourceIds := make(map[string]importerModels.ParsedResourceId)
 	for k, v := range input.ResourceIds {
-		segments := make([]resourcemanager.ResourceIdSegment, 0)
+		segments := make([]models.ResourceIDSegment, 0)
 
 		normalizedConstants := make(map[string]models.SDKConstant)
 		for k, constant := range v.Constants {

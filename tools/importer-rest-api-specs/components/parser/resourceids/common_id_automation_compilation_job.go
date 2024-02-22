@@ -6,7 +6,6 @@ package resourceids
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ commonIdMatcher = commonIdAutomationCompilationJob{}
@@ -18,17 +17,17 @@ func (c commonIdAutomationCompilationJob) id() importerModels.ParsedResourceId {
 	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
-			importerModels.StaticResourceIDSegment("providers", "providers"),
-			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
-			importerModels.StaticResourceIDSegment("automationAccounts", "automationAccounts"),
-			importerModels.UserSpecifiedResourceIDSegment("automationAccountName"),
-			importerModels.StaticResourceIDSegment("compilationJobs", "compilationJobs"),
-			importerModels.UserSpecifiedResourceIDSegment("compilationJobId"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Automation"),
+			models.NewStaticValueResourceIDSegment("automationAccounts", "automationAccounts"),
+			models.NewUserSpecifiedResourceIDSegment("automationAccountName", "automationAccountName"),
+			models.NewStaticValueResourceIDSegment("compilationJobs", "compilationJobs"),
+			models.NewUserSpecifiedResourceIDSegment("compilationJobId", "compilationJobId"),
 		},
 	}
 }

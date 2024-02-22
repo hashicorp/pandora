@@ -8,28 +8,27 @@ import (
 
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func TestCommonResourceID_ManagementGroup(t *testing.T) {
 	valid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("providers", "providers"),
-			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			importerModels.StaticResourceIDSegment("managementGroups", "managementGroups"),
-			importerModels.UserSpecifiedResourceIDSegment("groupId"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
 		},
 	}
 	invalid := importerModels.ParsedResourceId{
 		Constants: map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("providers", "providers"),
-			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
-			importerModels.StaticResourceIDSegment("managementGroups", "managementGroups"),
-			importerModels.UserSpecifiedResourceIDSegment("groupId"),
-			importerModels.StaticResourceIDSegment("someResource", "someResource"),
-			importerModels.UserSpecifiedResourceIDSegment("resourceName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Management"),
+			models.NewStaticValueResourceIDSegment("managementGroups", "managementGroups"),
+			models.NewUserSpecifiedResourceIDSegment("groupId", "groupId"),
+			models.NewStaticValueResourceIDSegment("someResource", "someResource"),
+			models.NewUserSpecifiedResourceIDSegment("resourceName", "resourceName"),
 		},
 	}
 	input := []importerModels.ParsedResourceId{

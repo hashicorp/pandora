@@ -7,9 +7,9 @@ import (
 	"fmt"
 	"strings"
 
+	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	"github.com/hashicorp/pandora/tools/importer-rest-api-specs/components/parser/cleanup"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 func normalizedResourceManagerResourceId(pri importerModels.ParsedResourceId) string {
@@ -17,12 +17,12 @@ func normalizedResourceManagerResourceId(pri importerModels.ParsedResourceId) st
 	return normalizedResourceId(segments)
 }
 
-func segmentsWithoutUriSuffix(pri importerModels.ParsedResourceId) []resourcemanager.ResourceIdSegment {
+func segmentsWithoutUriSuffix(pri importerModels.ParsedResourceId) []models.ResourceIDSegment {
 	segments := pri.Segments
 	lastUserValueSegment := -1
 	for i, segment := range segments {
 		// everything else technically is a user configurable component
-		if segment.Type != resourcemanager.StaticSegment && segment.Type != resourcemanager.ResourceProviderSegment {
+		if segment.Type != models.StaticResourceIDSegmentType && segment.Type != models.ResourceProviderResourceIDSegmentType {
 			lastUserValueSegment = i
 		}
 	}
@@ -33,25 +33,25 @@ func segmentsWithoutUriSuffix(pri importerModels.ParsedResourceId) []resourceman
 	return segments
 }
 
-func normalizedResourceId(segments []resourcemanager.ResourceIdSegment) string {
+func normalizedResourceId(segments []models.ResourceIDSegment) string {
 	components := make([]string, 0)
 	for _, segment := range segments {
 		switch segment.Type {
-		case resourcemanager.ResourceProviderSegment:
+		case models.ResourceProviderResourceIDSegmentType:
 			{
 				normalizedSegment := cleanup.NormalizeResourceProviderName(*segment.FixedValue)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case resourcemanager.StaticSegment:
+		case models.StaticResourceIDSegmentType:
 			{
 				normalizedSegment := cleanup.NormalizeSegment(*segment.FixedValue, true)
 				components = append(components, normalizedSegment)
 				continue
 			}
 
-		case resourcemanager.ConstantSegment, resourcemanager.ResourceGroupSegment, resourcemanager.ScopeSegment, resourcemanager.SubscriptionIdSegment, resourcemanager.UserSpecifiedSegment:
+		case models.ConstantResourceIDSegmentType, models.ResourceGroupResourceIDSegmentType, models.ScopeResourceIDSegmentType, models.SubscriptionIDResourceIDSegmentType, models.UserSpecifiedResourceIDSegmentType:
 			// e.g. {example}
 			normalizedSegment := segment.Name
 			normalizedSegment = cleanup.NormalizeReservedKeywords(segment.Name)

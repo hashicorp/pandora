@@ -6,7 +6,6 @@ package resourceids
 import (
 	"github.com/hashicorp/pandora/tools/data-api-sdk/v1/models"
 	importerModels "github.com/hashicorp/pandora/tools/importer-rest-api-specs/models"
-	"github.com/hashicorp/pandora/tools/sdk/resourcemanager"
 )
 
 var _ commonIdMatcher = commonIdCloudServicesIPConfiguration{}
@@ -18,22 +17,21 @@ func (c commonIdCloudServicesIPConfiguration) id() importerModels.ParsedResource
 	return importerModels.ParsedResourceId{
 		CommonAlias: &name,
 		Constants:   map[string]models.SDKConstant{},
-		Segments: []resourcemanager.ResourceIdSegment{
-			importerModels.StaticResourceIDSegment("subscriptions", "subscriptions"),
-			importerModels.SubscriptionIDResourceIDSegment("subscriptionId"),
-			importerModels.StaticResourceIDSegment("resourceGroups", "resourceGroups"),
-			importerModels.ResourceGroupResourceIDSegment("resourceGroupName"),
-			importerModels.StaticResourceIDSegment("providers", "providers"),
-			importerModels.ResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
-			importerModels.StaticResourceIDSegment("cloudServices", "cloudServices"),
-			importerModels.UserSpecifiedResourceIDSegment("cloudServiceName"),
-			importerModels.StaticResourceIDSegment("roleInstances", "roleInstances"),
-			importerModels.UserSpecifiedResourceIDSegment("roleInstanceName"),
-			importerModels.StaticResourceIDSegment("networkInterfaces", "networkInterfaces"),
-			importerModels.UserSpecifiedResourceIDSegment("networkInterfaceName"),
-			importerModels.StaticResourceIDSegment("ipConfigurations", "ipConfigurations"),
-			importerModels.UserSpecifiedResourceIDSegment("ipConfigurationName"),
+		Segments: []models.ResourceIDSegment{
+			models.NewStaticValueResourceIDSegment("subscriptions", "subscriptions"),
+			models.NewSubscriptionIDResourceIDSegment("subscriptionId"),
+			models.NewStaticValueResourceIDSegment("resourceGroups", "resourceGroups"),
+			models.NewResourceGroupNameResourceIDSegment("resourceGroupName"),
+			models.NewStaticValueResourceIDSegment("providers", "providers"),
+			models.NewResourceProviderResourceIDSegment("resourceProvider", "Microsoft.Compute"),
+			models.NewStaticValueResourceIDSegment("cloudServices", "cloudServices"),
+			models.NewUserSpecifiedResourceIDSegment("cloudServiceName", "cloudServiceName"),
+			models.NewStaticValueResourceIDSegment("roleInstances", "roleInstances"),
+			models.NewUserSpecifiedResourceIDSegment("roleInstanceName", "roleInstanceName"),
+			models.NewStaticValueResourceIDSegment("networkInterfaces", "networkInterfaces"),
+			models.NewUserSpecifiedResourceIDSegment("networkInterfaceName", "networkInterfaceName"),
+			models.NewStaticValueResourceIDSegment("ipConfigurations", "ipConfigurations"),
+			models.NewUserSpecifiedResourceIDSegment("ipConfigurationName", "ipConfigurationName"),
 		},
 	}
-
 }
